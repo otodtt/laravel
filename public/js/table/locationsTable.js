@@ -43,6 +43,7 @@ $(document).ready(function() {
     } );
 } );
 
+
 $(document).ready(function() {
     $('#country').DataTable( {
         "columns": [
@@ -51,7 +52,7 @@ $(document).ready(function() {
             null,
             null,
             null,
-            null
+            null,
         ],
 
         "pagingType": "full_numbers",
@@ -89,4 +90,13 @@ $(document).ready(function() {
         }
     } );
 } );
+
+
+
+
+
+
+
+
+
 

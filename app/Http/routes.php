@@ -13,7 +13,6 @@
 
 Route::resource('/', 'LogController');
 Route::post('log/store', 'LogController@store');
-//Route::get('/home', 'LogController@home');
 Route::get('/logout', 'LogController@logout');
 
 ///// Front Controller
@@ -23,34 +22,40 @@ Route::get('начало', 'FrontController@index');
 Route::get('админ', 'FrontController@admin');
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
-
     //За Настройки
     Route::resource('admin/settings', 'SettingsController');
     Route::resource('админ/настройки', 'SettingsController');
     Route::get('админ/настройки/редактирай/{id}', 'SettingsController@edit');
+    
     //За Редактиране на индексите
     Route::get('админ/настройки/индекси/{id}', 'SettingsController@edit_index');
     Route::post('admin/settings/add-index/{id}', 'SettingsController@add_index');
-
     // КРАЙ - За Редактиране на индексите
+
+
     //За заключване и отключване на разрешителните
     Route::post('admin/settings/lock-permits/{id}', 'SettingsController@lock_permits');
     Route::post('admin/settings/unlock-permits/{id}', 'SettingsController@unlock_permits');
     // КРАЙ - За заключване на разрешителните
 
+    //За инспекторите
+    Route::resource('admin/users', 'UsersController');
+
+    //За Населените места
+    Route::resource('admin/locations', 'LocationsController');
+    //КРАЙ - За Населените места
 
     //НОВО ЗА ПЕЧАТА И КППЗ /////////////////////////////////////////////////////
     Route::get('админ/настройки/сертификат/{id}', 'SettingsController@stamp_index');
     Route::post('admin/settings/add_stamp/{id}', 'SettingsController@add_stamp');
 
     //НОВО За Държавите
-    Route::resource('админ/страни', 'CountriesController');
-    Route::get('админ/страни', 'CountriesController@index');
+    Route::resource('admin/countries', 'CountriesController');
+    Route::get('admin/countries', 'CountriesController@index');
     Route::get('admin/country/{id}/edit', 'CountriesController@edit');
     //КРАЙ - За Държавите
 
-    //За инспекторите
-    Route::resource('admin/users', 'UsersController');
+    
     //За Директорите
     Route::resource('admin/directors', 'DirectorsController');
     //За Мярките
@@ -61,15 +66,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource('admin/verifications', 'VerificationController');
     Route::resource('админ/проверки', 'VerificationController');
     Route::get('админ/проверки/редактирай/{id}', 'VerificationController@edit');
-    //За Настройки
-    Route::resource('admin/settings', 'SettingsController');
-    Route::resource('админ/настройки', 'SettingsController');
-    Route::get('админ/настройки/редактирай/{id}', 'SettingsController@edit');
-    //За Редактиране на индексите
-    Route::get('админ/настройки/индекси/{id}', 'SettingsController@edit_index');
-    Route::post('admin/settings/add-index/{id}', 'SettingsController@add_index');
-    // КРАЙ - За Редактиране на индексите
-
+    
     //За заключване и отключване на разрешителните
     Route::post('admin/settings/lock-permits/{id}', 'SettingsController@lock_permits');
     Route::post('admin/settings/unlock-permits/{id}', 'SettingsController@unlock_permits');
@@ -110,6 +107,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/test', 'QCertificatesController@test');
     /////////////////////////////
     //СМЯНА НА ПАРОЛА
     Route::get('парола/{id}', 'PersonalDataController@show');
@@ -124,11 +123,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/контрол/търговци/сортирай/{sort?}', 'ImportersController@sort');
     Route::get('/контрол/търговци/{id}/show', 'ImportersController@show');
 
+
     Route::resource('контрол/опаковчици', 'PackersController');
     Route::get('/контрол/опаковчик/добави', 'PackersController@create');
     Route::get('/контрол/опаковчик/{id}/edit', 'PackersController@edit');
     Route::post('/контрол/опаковчик/{id}/update', 'PackersController@update');
     Route::post('/контрол/опаковчик/{id}/destroy', 'PackersController@destroy');
+
 
     /////////////////////////////
     //КУЛТУРИ
@@ -148,7 +149,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('контрол/сертификати-внос', 'QCertificatesController@index');
     Route::post('контрол/сертификати-внос', 'QCertificatesController@search');
     Route::post('контрол/сертификати-внос/сортирай', 'QCertificatesController@sort');
-
+    
     ///// внос
     Route::get('/контрол/сертификати-внос/добави', 'QCertificatesController@create');
     Route::post('/контрол/сертификати-внос/store', 'QCertificatesController@store');
@@ -160,12 +161,17 @@ Route::group(['middleware' => ['auth']], function () {
     ///// внос покажи
     Route::get('контрол/сертификат-внос/{id}', 'QCertificatesController@show');
 
+    
+
     ///// LOCK UNLOCK
     Route::post('lock-import-certificate/{id}', 'QCertificatesController@import_lock');
     Route::post('unlock-import-certificate/{id}', 'QCertificatesController@import_unlock');
     Route::post('lock-export-certificate/{id}', 'QXCertificatesController@export_lock');
     Route::post('unlock-export-certificate/{id}', 'QXCertificatesController@export_unlock');
 
+   
+
+    
     // /////// СТОКИ
     Route::get('/контрол/стоки/внос', 'StocksController@import_index');
     Route::post('/import/add-stock/store', 'StocksController@import_stock_store');
@@ -202,7 +208,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('контрол/фактури-износ/{id}/update', 'InvoicesController@export_update');
 
 
-    ///// ИЗНОС
+     ///// ИЗНОС
     Route::resource('/контрол/сертификати-износ', 'QXCertificatesController');
     Route::resource('контрол/сертификати-износ', 'QXCertificatesController@index');
     Route::get('контрол/сертификати-износ/create', 'QXCertificatesController@create');
@@ -229,13 +235,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-
-
-
-
-
-    /////////////////////////////
-    // СТАРИ
     /////////////////////////////
     //За ВСИЧКИ Фирми таблицата и сортирането
     Route::resource('firms', 'FirmsController');

@@ -9,7 +9,7 @@ $(document).ready(function(){
 function load_locals_bottom(){
     $.ajax({
         type: "POST",
-        url: "http://odbh.dev/protocols/locations",
+        url: "http://odbh/protocols/locations",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

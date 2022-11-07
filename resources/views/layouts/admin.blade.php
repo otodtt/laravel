@@ -144,17 +144,21 @@
                                 {{--@endforeach--}}
                             </ul>
                         </li>
+
                         <li>
-                            <a href="{!!URL::to('/админ/страни')!!}"><i class="fa fa-globe fa-fw"></i> Държави в Европа<span class="fa arrow"></span></a>
+                            <a href="{!!URL::to('/админ')!!}"><i class="fa fa-globe fa-fw"></i> Държави в Европа<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{!!URL::to('/админ/страни')!!}"><i class='fa fa-plus fa-fw'></i> Не може да се Добавят</a>
-                                </li>
-                                <li>
-                                    <a href="{!!URL::to('/админ/страни')!!}"><i class='fa fa-list-ol fa-fw'></i> Всички държави</a>
-                                </li>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{!!URL::to('/admin/country/create')!!}"><i class='fa fa-plus fa-fw'></i> Добави</a>
+                                    </li>
+                                    <li>
+                                        <a href="{!!URL::to('/admin/countries')!!}"><i class='fa fa-list-ol fa-fw'></i> Всички държави</a>
+                                    </li>
+                                </ul>
                             </ul>
                         </li>
+                       
                     </ul>
                 </div>
             </div>

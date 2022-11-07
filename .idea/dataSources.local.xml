@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - lar_odbh@localhost" uuid="b8b832fc-8254-4193-baa5-c19c7e9274e8">
+    <data-source name="MySQL - kppz" uuid="9db2fcde-df86-49a6-8e56-5704e8be1943">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <schema-pattern>lar_odbh.*</schema-pattern>
-      <default-schemas>lar_odbh.*</default-schemas>
+      <schema-pattern>kppz.*</schema-pattern>
+      <default-schemas>kppz.*</default-schemas>
     </data-source>
   </component>
 </project>

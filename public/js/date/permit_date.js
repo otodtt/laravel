@@ -103,7 +103,7 @@ jQuery('#end_date').datetimepicker({
 
     scrollInput: false,
 
-    timepicker:false,
+    timepicker:true,
     format:'d.m.Y',
     lang:'bg',
     yearStart: currentYear,

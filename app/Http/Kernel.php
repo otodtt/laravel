@@ -31,5 +31,6 @@ class Kernel extends HttpKernel
         'guest' => \odbh\Http\Middleware\RedirectIfAuthenticated::class,
         'admin' => \odbh\Http\Middleware\Admin::class,
         'control' => \odbh\Http\Middleware\Control::class,
+        'quality' => \odbh\Http\Middleware\Quality::class,
     ];
 }

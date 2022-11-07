@@ -1,0 +1,50 @@
+.first_td {
+    width: 50px;
+}
+.crop_td {
+    width: 150px;
+}
+.crop_btn {
+    text-align: center;
+}
+.crop_center {
+    text-align: center;
+}
+
+#my_thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+#my_thead>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+}
+
+#table_in tr td {
+    border-right: 1px solid black;
+}
+
+.number_column {
+    width: 40px;
+    border-right: 1px solid black;
+    
+}
+.first_column {
+    width: 250px;
+    border-right: 1px solid black;
+}
+.second_column {
+    width: 250px;
+    border-right: 1px solid black;
+    padding-right: 10px;
+}
+
+.panel-group {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.panel-body {
+    padding: 0px;
+}

@@ -10,8 +10,7 @@
         "illuminate/html": "^5.0",
 		"laravelcollective/html": "5.1.*",
         "barryvdh/laravel-ide-helper": "^2.2",
-        "kylekatarnls/laravel-carbon-2": "^1.0.0",
-        "nesbot/carbon": "2.0.0-beta.2 as 1.25.0"
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

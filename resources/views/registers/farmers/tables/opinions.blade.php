@@ -68,20 +68,20 @@
     <tfoot>
         <tr class="totalColumn">
             <td class="bottom">ОБЩО:</td>
-            <td class="foot_op total bottom"></td>
-            <td class="foot_op bottom"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op sumRow bottom"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op sumRow bottom"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op sumRow bottom"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op"></td>
-            <td class="foot_op sumRow bottom"></td>
+            <td class="foot bottom"></td>
+            <td class="foot bottom"></td>
+            <td class="foot"></td>
+            <td class="foot"></td>
+            <td class="foot bottom"></td>
+            <td class="foot"></td>
+            <td class="foot"></td>
+            <td class="foot bottom"></td>
+            <td class="foot"></td>
+            <td class="foot"></td>
+            <td class="foot bottom"></td>
+            <td class="foot"></td>
+            <td class="foot"></td>
+            <td class="foot bottom"></td>
         </tr>
     </tfoot>
 </table>

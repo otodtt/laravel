@@ -1468,24 +1468,24 @@ class RegistersController extends Controller
         $data = '
         <tr>
             <td class="month" >'.$month.'</td>
-            <td class="bold rowDataOp total"></td>
-            <td class="bold rowDataOp">'.$opinions_count.'</td>
+            <td class="bold rowDataSd">'.$all_count.'</td>
+            <td class="bold rowDataSd">'.$opinions_count.'</td>
 
-            <td class="rowDataOp ">'.$opinion1_doc_count.'</td>
-            <td class="rowDataOp">'.$opinion1_on_count.'</td>
-            <td class="bold rowDataOp sumRow">'.$opinion1_all_count.'</td>
+            <td class="rowDataSd ">'.$opinion1_doc_count.'</td>
+            <td class="rowDataSd">'.$opinion1_on_count.'</td>
+            <td class="bold rowDataSd">'.$opinion1_all_count.'</td>
 
-            <td class="rowDataOp">'.$opinion2_doc_count.'</td>
-            <td class="rowDataOp">'.$opinion2_on_count.'</td>
-            <td class="bold rowDataOp sumRow" >'.$opinion2_all_count.'</td>
+            <td class="rowDataSd">'.$opinion2_doc_count.'</td>
+            <td class="rowDataSd">'.$opinion2_on_count.'</td>
+            <td class="bold rowDataSd" >'.$opinion2_all_count.'</td>
 
-            <td class="rowDataOp">'.$opinion3_doc_count.'</td>
-            <td class="rowDataOp">'.$opinion3_on_count.'</td>
-            <td class="bold rowDataOp sumRow">'.$opinion3_all_count.'</td>
+            <td class="rowDataSd">'.$opinion3_doc_count.'</td>
+            <td class="rowDataSd">'.$opinion3_on_count.'</td>
+            <td class="bold rowDataSd">'.$opinion3_all_count.'</td>
 
-            <td class="rowDataOp">'.$opinion4_doc_count.'</td>
-            <td class="rowDataOp">'.$opinion4_on_count.'</td>
-            <td class="bold rowDataOp sumRow">'.$opinion4_all_count.'</td>
+            <td class="rowDataSd">'.$opinion4_doc_count.'</td>
+            <td class="rowDataSd">'.$opinion4_on_count.'</td>
+            <td class="bold rowDataSd">'.$opinion4_all_count.'</td>
         </tr>
         ';
 
@@ -2357,7 +2357,7 @@ class RegistersController extends Controller
         $array = array();
         $year_now = null;
 
-        $protocols = FarmerProtocol::get()->toArray();
+        $protocols = Protocol::get()->toArray();
         $old_protocols = OldProtocol::get()->toArray();
         $all_protocols_all = array_merge($protocols, $old_protocols);
         foreach ($all_protocols_all as $key => $row) {
@@ -2413,6 +2413,8 @@ class RegistersController extends Controller
 
         return view('registers.farmers.index_protocols', compact('city', 'years', 'year_now', 'all_protocols'));
     }
+
+
 
     /**
      * Показва справка за издадените Разрешителни за Въздушно.

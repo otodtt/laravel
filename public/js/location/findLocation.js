@@ -7,7 +7,7 @@ $(document).ready(function(){
 function load(){
     $.ajax({
         type: "POST",
-        url: "http://odbh.dev/firms/locations",
+        url: "http://odbh/firms/locations",
         headers:{'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         data: "areasID="+$("#areasID").val(),
         dataType:'json'
@@ -21,7 +21,7 @@ function load(){
 function load_locals(){
     $.ajax({
         type: "POST",
-        url: "http://odbh.dev/firms/locations",
+        url: "http://odbh/firms/locations",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

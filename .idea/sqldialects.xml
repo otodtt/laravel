@@ -2,23 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/app/Director.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/AirPermitsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/CertificatesController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/ChangeObjectsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/DiariesController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/FactoriesProtocolsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/FarmersController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/FarmersProtocolsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/FirmsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/NoneProtocolsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/OldOpinionsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/OldProtocolsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/OpinionsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/OthersProtocolsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/PharmaciesController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/ProtocolsController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/RepositoriesController.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/app/Http/Controllers/WorkshopsController.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/old/CertificatesController.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/app/Http/Controllers/old/FirmsController.php" dialect="MySQL" />
   </component>
 </project>

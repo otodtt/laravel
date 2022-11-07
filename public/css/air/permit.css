@@ -21,13 +21,13 @@ div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend, a{
 }
 .page{
     width: 21cm;
-    height: 29cm;
+    height: 29.7cm;
     margin: 0 auto;
     font-family: "Times New Roman", serif;
     padding-left: 2.1cm;
     padding-right: 2.1cm;
-    padding-top: 0.8cm;
-    padding-bottom: 1.9cm;
+    padding-top: 1cm;
+    padding-bottom: 1.7cm;
     background-color: #ffffff;
 }
 

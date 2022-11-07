@@ -266,7 +266,7 @@ class CertificatesController extends Controller
             $end_date = '';
         }
         if($request['limit_certificate'] == 2){
-            $end_date = strtotime($request['date_end']);
+            $end_date = strtotime('+10 years', strtotime($request['date']));
         }
 
         $inspector_name_sql = User::select('full_short_name', 'short_name')->where('id', '=', $request['inspector'])->get()->toArray();
@@ -420,7 +420,7 @@ class CertificatesController extends Controller
             $end_date = '';
         }
         if($request['limit_certificate'] == 2){
-            $end_date = strtotime($request['date_end']);
+            $end_date = strtotime('+10 years', strtotime($request['date']));
         }
 
         $inspector_name_sql = User::select('full_short_name', 'short_name')->where('id', '=', $request['inspector'])->get()->toArray();

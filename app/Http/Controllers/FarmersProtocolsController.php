@@ -1990,7 +1990,7 @@ class FarmersProtocolsController extends Controller
             ->get();
 
         return view('records.show', compact('logo', 'protocol', 'inspectors', 'city', 'farmer', 'areas',
-            'districts_firm', 'districts_object', 'prz', 'tor', 'more'));
+            'districts_firm', 'districts_object'));
     }
 
     /**

@@ -26,14 +26,12 @@
         <p style="font-size: 0.9em; font-style: italic; text-transform: lowercase;">(земеделски производител/юридическото лице или ЕТ)</p>
     </div>
 
-    <div class="col-md-12" style="margin-top: 10px; padding: 0">
-        <p >ПРЕДСТАВЛЯВАН(О) ОТ <span class="bold">{{ $permit->owner }}</span>
-        <span style="float: right">ЕГН: <strong>{{ $permit->pin_owner }}</strong></span>
-        </p>
+    <div class="col-md-9" style="margin-top: 10px; padding: 0">
+        <p >ПРЕДСТАВЛЯВАН(О) ОТ <span class="bold">{{ $permit->owner }}</span></p>
     </div>
-    {{--<div class="col-md-3 " style="margin-top: 10px">--}}
-        {{--<p>ЕГН: <strong>{{ $permit->pin_owner }}</strong></p>--}}
-    {{--</div>--}}
+    <div class="col-md-3 " style="margin-top: 10px">
+        <p>ЕГН: <strong>{{ $permit->pin_owner }}</strong></p>
+    </div>
 
     <div class="col-md-12" style="margin-top: 10px">
         <p >СЪС СЕДАЛИЩЕ И АДРЕС НА УПРАВЛЕНИЕ В: <span class="bold">{{ $tvm }} {{ $permit->location }}, ОБЩ. {{ $district_name  }}</span>, </p>

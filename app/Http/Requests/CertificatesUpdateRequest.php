@@ -31,13 +31,13 @@ class CertificatesUpdateRequest extends Request
             $pin_validation = 'required|pin_validate|digits_between:9,10';
         }
         if(strlen($request['date_diploma']) == 4){
-            $diploma_validation = 'date_format:Y|after:1940|before:2029';
+            $diploma_validation = 'date_format:Y|after:1940|before:2020';
         } elseif(strlen($request['date_diploma']) == 10) {
-            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2029';
+            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2020';
         } elseif(strlen($request['date_diploma']) == 0) {
             $diploma_validation = 'required';
         } else {
-            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2029';
+            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2020';
         }
 
         $data = [
@@ -68,8 +68,6 @@ class CertificatesUpdateRequest extends Request
             'inspector' => 'required',
 
             'file'=>'image|max:2000',
-
-            'date_end' => 'required_if:limit_certificate,2|date_format:d.m.Y|after:date'
         ];
         return $data;
     }
@@ -146,10 +144,6 @@ class CertificatesUpdateRequest extends Request
 
             'file.image'=>'Непозволен формат на файла! Файла трябва да е "jpg" или "jpeg"!',
             'file.max'=>'Твърде голям формат на снимката! Файла трябва да е до 2 МВ!',
-
-            'date_end.required_if' => 'Задължително попълни До Дата!',
-            'date_end.date_format' => 'Непозволен формат за дата на валидност!',
-            'date_end.after' => 'Дата на валидност трябва да е след датата на Сертификта!',
         ];
     }
 }

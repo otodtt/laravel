@@ -45,6 +45,5 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/registers/countTableColumnsOpinions.js" )!!}
-    {!!Html::script("js/registers/sumTableRows.js" )!!}
+    {!!Html::script("js/registers/countTableColumns.js" )!!}
 @endsection

@@ -30,7 +30,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                ОДБХ
+                КОНТРОЛ НА ПРЕСНИ ПЛОДОВЕ И ЗЕЛНЧУЦИ
             </a>
         </div>
 

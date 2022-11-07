@@ -1026,6 +1026,7 @@ class OpinionsController extends Controller
         $district = Location::select('name')->where('areas_id','=',$opinion->areas_id)
             ->where('district_id','=',$opinion->district_id)
             ->where('type_district','=',1)
+            ->where('tvm', '!=', 0)
             ->get()->toArray();
 
         $director = Director::select('name', 'family', 'degree', 'type_dir')

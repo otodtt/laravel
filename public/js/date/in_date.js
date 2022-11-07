@@ -384,30 +384,3 @@ jQuery('#date_diary').datetimepicker({
 
     maxDate: Date(currentYear, currentMonth, currentDay)
 });
-
-jQuery('#date_end').datetimepicker({
-
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: currentYear,
-    yearEnd: 2040,
-    dayOfWeekStart:1,
-    maxDate:'2040/01/01'
-});

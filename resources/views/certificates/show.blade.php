@@ -14,7 +14,7 @@
     <style type="text/css" media="print">
         @media print {
             @page { margin: 0; }
-            body { margin: 0 auto; }
+            body { margin: 10px 0 0 -10px; }
         }
     </style>
 @endsection

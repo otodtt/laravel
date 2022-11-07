@@ -3,7 +3,7 @@ $(document).ready(function(){
         if(this.value > 0){
             $.ajax({
                 type: "POST",
-                url: "http://odbh.dev/factory/factory",
+                url: "http://odbh/factory/factory",
                 headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
                 dataType:'json',
                 data:{
