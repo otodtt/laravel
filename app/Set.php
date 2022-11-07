@@ -18,7 +18,8 @@ class Set extends Model
      * @var array
      */
     protected $fillable = ['area', 'area_id', 'address', 'city', 'postal_code', 'odbh_city', 'mail', 'phone', 'fax',
-                           'index_in', 'in_second', 'index_out', 'out_second', 'lock_permit' ];
+                           'index_in', 'in_second', 'index_out', 'out_second', 'lock_permit', 'site',
+                            'q_index', 'authority_bg', 'authority_en' ];
 
 
 }
