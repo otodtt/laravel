@@ -110,6 +110,7 @@ class UsersController extends Controller
             'active'=> $request['active'],
             'dlaznost'=> $request['dlaznost'],
             'all_name'=> mb_convert_case  ($request['all_name'], MB_CASE_TITLE, "UTF-8"),
+            'all_name_en'=> mb_convert_case  ($request['all_name_en'], MB_CASE_TITLE, "UTF-8"),
             'karta'=> $request['karta'],
             'short_name'=> mb_convert_case ($request['short_name'], MB_CASE_TITLE, "UTF-8"),
             'name'=> $request['name'],
@@ -124,6 +125,7 @@ class UsersController extends Controller
             'fsk'=> $fsk,
             'ppz'=> $ppz,
             'lab'=> $lab,
+            'stamp_number'=> $request['stamp_number'],
         ]);
         User::create($data);
         Session::flash('message', 'Записа е успешен!');
@@ -152,6 +154,7 @@ class UsersController extends Controller
      */
     public function update(UserUpdateRequest $request, $id)
     {
+        
         if($request['dlaznost'] == 1){
             $dlaznost_full = 'Началник отдел';
             $dlaznost_short = 'Н-к отдел';
@@ -221,6 +224,7 @@ class UsersController extends Controller
             'active'=> $request['active'],
             'dlaznost'=> $request['dlaznost'],
             'all_name'=> mb_convert_case  ($request['all_name'], MB_CASE_TITLE, "UTF-8"),
+            'all_name_en'=> mb_convert_case  ($request['all_name_en'], MB_CASE_TITLE, "UTF-8"),
             'karta'=> $request['karta'],
             'short_name'=> mb_convert_case ($request['short_name'], MB_CASE_TITLE, "UTF-8"),
             'name'=> $request['name'],
@@ -235,11 +239,45 @@ class UsersController extends Controller
             'fsk'=> $fsk,
             'ppz'=> $ppz,
             'lab'=> $lab,
+            'stamp_number'=> $request['stamp_number'],
         ]);
         $user->fill($data);
         $user->save();
 
         Session::flash('message', 'Инспектора е редактиран успешно!');
         return Redirect::to('/admin/users');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function personal_data($id)
+    {
+        $user = User::findOrFail($id);
+        // dd($user);
+        // $areas = $this->areas_all;
+
+        // $pharmacies = $firm->pharmacies;
+        // $repositories = $firm->repositories;
+        // $workshops = $firm->workshops;
+
+        // $districts = Location::select()
+        //     ->where('areas_id', '=', $firm->areas_id)
+        //     ->where('district_id', '=', $firm->district_id)
+        //     ->where('type_district', '=', 1)
+        //     ->orderBy('district_id', 'asc')
+        //     ->get();
+
+        // $districts_show = $this->districts_list;
+
+        // $index = Set::select('area_id')->get()->toArray();
+        // $lock_permit = Set::select('lock_permit')->get()->toArray();
+
+        // $certificates = Certificate::lists('number', 'id')->toArray();
+
+        return view('personal.index');
     }
 }

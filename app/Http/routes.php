@@ -23,6 +23,32 @@ Route::get('начало', 'FrontController@index');
 Route::get('админ', 'FrontController@admin');
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
+
+    //За Настройки
+    Route::resource('admin/settings', 'SettingsController');
+    Route::resource('админ/настройки', 'SettingsController');
+    Route::get('админ/настройки/редактирай/{id}', 'SettingsController@edit');
+    //За Редактиране на индексите
+    Route::get('админ/настройки/индекси/{id}', 'SettingsController@edit_index');
+    Route::post('admin/settings/add-index/{id}', 'SettingsController@add_index');
+
+    // КРАЙ - За Редактиране на индексите
+    //За заключване и отключване на разрешителните
+    Route::post('admin/settings/lock-permits/{id}', 'SettingsController@lock_permits');
+    Route::post('admin/settings/unlock-permits/{id}', 'SettingsController@unlock_permits');
+    // КРАЙ - За заключване на разрешителните
+
+
+    //НОВО ЗА ПЕЧАТА И КППЗ /////////////////////////////////////////////////////
+    Route::get('админ/настройки/сертификат/{id}', 'SettingsController@stamp_index');
+    Route::post('admin/settings/add_stamp/{id}', 'SettingsController@add_stamp');
+
+    //НОВО За Държавите
+    Route::resource('админ/страни', 'CountriesController');
+    Route::get('админ/страни', 'CountriesController@index');
+    Route::get('admin/country/{id}/edit', 'CountriesController@edit');
+    //КРАЙ - За Държавите
+
     //За инспекторите
     Route::resource('admin/users', 'UsersController');
     //За Директорите
@@ -84,6 +110,132 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 
 Route::group(['middleware' => ['auth']], function () {
+    /////////////////////////////
+    //СМЯНА НА ПАРОЛА
+    Route::get('парола/{id}', 'PersonalDataController@show');
+    Route::post('password/change/{id}', 'PersonalDataController@update');
+
+    /////////////////////////////
+    //ФИРМИ търговци
+    Route::resource('контрол/търговци', 'ImportersController');
+    Route::get('/контрол/търговци/добави', 'ImportersController@create');
+    Route::get('/контрол/търговци/{id}/edit', 'ImportersController@edit');
+    Route::post('/контрол/търговци/{id}/update', 'ImportersController@update');
+    Route::post('/контрол/търговци/сортирай/{sort?}', 'ImportersController@sort');
+    Route::get('/контрол/търговци/{id}/show', 'ImportersController@show');
+
+    Route::resource('контрол/опаковчици', 'PackersController');
+    Route::get('/контрол/опаковчик/добави', 'PackersController@create');
+    Route::get('/контрол/опаковчик/{id}/edit', 'PackersController@edit');
+    Route::post('/контрол/опаковчик/{id}/update', 'PackersController@update');
+    Route::post('/контрол/опаковчик/{id}/destroy', 'PackersController@destroy');
+
+    /////////////////////////////
+    //КУЛТУРИ
+    Route::resource('контрол/култури', 'CropsController');
+    Route::get('crops/edit/{id}', 'CropsController@edit');
+    Route::any('crops/show/{id}', 'CropsController@show');
+    Route::post('crops/delete/{id}', 'CropsController@destroy');
+    Route::post('/контрол/култури/{id}/update', 'CropsController@update');
+    Route::any('контрол/култури/внос', 'CropsController@crops_import');
+    Route::any('контрол/култури/износ', 'CropsController@crops_export');
+
+    // /////// СЕРТИФИКАТИ
+    Route::get('/контрол/сертификат-избери', 'QCertificatesController@choose');
+
+    // /////// Q-СЕРТИФИКАТИ
+    Route::resource('контрол/сертификати-внос', 'QCertificatesController');
+    Route::resource('контрол/сертификати-внос', 'QCertificatesController@index');
+    Route::post('контрол/сертификати-внос', 'QCertificatesController@search');
+    Route::post('контрол/сертификати-внос/сортирай', 'QCertificatesController@sort');
+
+    ///// внос
+    Route::get('/контрол/сертификати-внос/добави', 'QCertificatesController@create');
+    Route::post('/контрол/сертификати-внос/store', 'QCertificatesController@store');
+    Route::get('контрол/сертификат-внос/{id}/edit', 'QCertificatesController@edit');
+    Route::post('контрол/сертификат-внос/{id}/update', 'QCertificatesController@update');
+
+    Route::get('контрол/сертификат-внос/{id}/завърши', 'QCertificatesController@import_ending');
+    Route::post('/import-finish/store', 'QCertificatesController@import_finish');
+    ///// внос покажи
+    Route::get('контрол/сертификат-внос/{id}', 'QCertificatesController@show');
+
+    ///// LOCK UNLOCK
+    Route::post('lock-import-certificate/{id}', 'QCertificatesController@import_lock');
+    Route::post('unlock-import-certificate/{id}', 'QCertificatesController@import_unlock');
+    Route::post('lock-export-certificate/{id}', 'QXCertificatesController@export_lock');
+    Route::post('unlock-export-certificate/{id}', 'QXCertificatesController@export_unlock');
+
+    // /////// СТОКИ
+    Route::get('/контрол/стоки/внос', 'StocksController@import_index');
+    Route::post('/import/add-stock/store', 'StocksController@import_stock_store');
+    Route::post('/import/edit-stock/update/{id}', 'StocksController@import_stock_update');
+    Route::get('/import/stock/{id}/{sid?}/edit', 'StocksController@import_stocks_edit');
+    Route::post('/import/stock/{id}/delete', 'StocksController@import_destroy');
+    Route::post('/контрол/стоки/внос/{type}', 'StocksController@import_search');
+    Route::post('/стоки/внос/сортирай/{start_year?}/{end_year?}/{crop_sort?}/{inspector_sort?}', 'StocksController@import_sort');
+    // /////// СТОКИ ИЗНОС
+    Route::any('/контрол/стоки/износ', 'StocksController@export_index');
+    Route::post('/export/add-stock/store', 'StocksController@export_stock_store');
+    Route::get('/export/stock/{id}/{sid?}/edit', 'StocksController@export_stocks_edit');
+    Route::post('/export/edit-stock/update/{id}', 'StocksController@export_stock_update');
+    Route::post('/export/stock/{id}/delete', 'StocksController@export_destroy');
+    Route::post('/стоки/износ/сортирай/{start_year?}/{end_year?}/{crop_sort?}/{inspector_sort?}', 'StocksController@export_sort');
+
+    // /////// СТОКИ КОНСУМАЦИЯ ПРЕРАБОТКА
+    Route::get('/контрол/стоки/консумация-преработка', 'StocksController@consume');
+    Route::post('/контрол/стоки/консумация-преработка', 'StocksController@consume');
+    Route::post('/контрол/стоки/консумация-преработка/сортирай', 'StocksController@consume_sort');
+
+    // /////// ФАКТУРИ
+    Route::resource('контрол/фактури', 'InvoicesController');
+    Route::post('контрол/фактури', 'InvoicesController@index');
+    Route::post('контрол/фактури/сортирай', 'InvoicesController@sort');
+    Route::get('контрол/фактури-внос/{id}', 'InvoicesController@import_create');
+    Route::post('контрол/фактури-внос/{id}/store', 'InvoicesController@import_store');
+    Route::get('контрол/фактури-внос/{id}/edit', 'InvoicesController@import_edit');
+    Route::post('контрол/фактури-внос/{id}/update', 'InvoicesController@import_update');
+
+    Route::get('контрол/фактури-износ/{id}', 'InvoicesController@export_create');
+    Route::post('контрол/фактури-износ/{id}/store', 'InvoicesController@export_store');
+    Route::get('контрол/фактури-износ/{id}/edit', 'InvoicesController@export_edit');
+    Route::post('контрол/фактури-износ/{id}/update', 'InvoicesController@export_update');
+
+
+    ///// ИЗНОС
+    Route::resource('/контрол/сертификати-износ', 'QXCertificatesController');
+    Route::resource('контрол/сертификати-износ', 'QXCertificatesController@index');
+    Route::get('контрол/сертификати-износ/create', 'QXCertificatesController@create');
+    Route::post('контрол/сертификати-износ', 'QXCertificatesController@search');
+    Route::post('контрол/сертификати-износ/сортирай', 'QXCertificatesController@sort');
+
+    Route::post('/контрол/сертификати-износ/store', 'QXCertificatesController@store');
+    Route::get('контрол/сертификат-износ/{id}/завърши', 'QXCertificatesController@export_ending');
+    Route::post('/export-finish/store', 'QXCertificatesController@export_finish');
+    Route::get('контрол/сертификат-износ/{id}/edit', 'QXCertificatesController@edit');
+    Route::post('контрол/сертификат-износ/{id}/update', 'QXCertificatesController@update');
+
+    ///// ИЗНОС покажи
+    Route::get('контрол/сертификат-износ/{id}', 'QXCertificatesController@show');
+
+
+    ///// ВЪТРЕШНИ
+    Route::resource('/контрол/сертификати-вътрешен', 'QINCertificatesController');
+    Route::post('/контрол/сертификати-вътрешен/store', 'QINCertificatesController@store');
+
+
+
+
+
+
+
+
+
+
+
+
+    /////////////////////////////
+    // СТАРИ
     /////////////////////////////
     //За ВСИЧКИ Фирми таблицата и сортирането
     Route::resource('firms', 'FirmsController');

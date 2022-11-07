@@ -6,7 +6,6 @@ use Auth;
 use Illuminate\Http\Request;
 
 use odbh\Http\Requests;
-//use odbh\Http\Controllers\Controller;
 use odbh\Http\Requests\LoginRequest;
 use Redirect;
 use Session;

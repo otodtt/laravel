@@ -45,16 +45,24 @@ class UserUpdateRequest extends Request
         else{
             $error = '';
         }
+        if ($request['ppz'] == 1) {
+            $name_en = 'required|min:7|max:50|latin';
+        }
+        else {
+            $name_en = 'min:7|max:50|latin';
+        }
+        
         $data = [
             'active' => 'required',
             'dlaznost' => 'required',
             'all_name' => 'required|min:7|max:50|cyrillic',
+            'all_name_en' => $name_en,
             'karta' => 'required_if:active,1|digits_between:4,7|unique:users,karta,'.$user,
             'short_name' => 'required:|min:4|max:50|cyrillic_with',
             'name' => 'required_if:active,1|min:4|max:10|latin|unique:users,name,'.$user,
             'password' => 'min:4|max:15|same:password2',
             'password2' => 'min:4|max:15|same:password',
-
+            'stamp_number' => 'required_if:ppz,1|digits_between:2,7|unique:users,stamp_number,' .$user,
             'admin'=>'required',
 
             'rz'=>$rz,
@@ -79,8 +87,13 @@ class UserUpdateRequest extends Request
 
             'all_name.required' => 'Попълни името!',
             'all_name.min' => 'Минимален брой символи за името - 7!',
+            'all_name.cyrillic' => 'За името използвай кирилица!',
 
-            'karta.unique' => 'Номера трябва да е уникален!',
+            'all_name_en.required' => 'Попълни името на англиски!',
+            'all_name_en.min' => 'Минимален брой символи за името на англиски - 7!',
+            'all_name_en.latin' => 'За името на англиски използвай латиница!',
+
+            'karta.unique' => 'Номера на картата трябва да е уникален!',
             'karta.digits_between' => ' Полето трябва да има между 4 и 7 цифри без букви!',
             'karta.required_if' => ' Полето № на сл. Карта: се изисква когато е маркрано като Действащ!',
 
@@ -103,6 +116,10 @@ class UserUpdateRequest extends Request
             'error_type.not_in'=>'Маркирай поне един Сектор!',
 
             'admin.required'=>'Маркирай дали има Администраторки права! Не е желателно да има повече от един Администратор!',
+
+            'stamp_number.required_if' => 'Попълни Номера на печата!',
+            'stamp_number.unique' => 'Номера на печата трябва да е уникален!',
+            'stamp_number.digits_between' => ' Полето Номер на печат трябва да има между 2 и 7 цифри без букви!',
         ];
     }
 }

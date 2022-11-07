@@ -40,7 +40,7 @@ class LocationRequest extends Request
     public function messages()
     {
         return [
-            'tvm.required' => 'Избреи дали е град или село!',
+            'tvm.required' => 'Избери дали е град или село!',
 
             'name.min' => 'Минимален брой символи - 2!',
             'name.required' => 'Напиши името на населеното място!',

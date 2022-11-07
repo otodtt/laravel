@@ -59,4 +59,5 @@
         </div>
     </div>
 </div>
+<p style="text-align: center"><i class="fa fa-copyright" aria-hidden="true"></i> Автор: Д. Тенев</p>
 @endsection

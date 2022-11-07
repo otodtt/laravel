@@ -144,6 +144,17 @@
                                 {{--@endforeach--}}
                             </ul>
                         </li>
+                        <li>
+                            <a href="{!!URL::to('/админ/страни')!!}"><i class="fa fa-globe fa-fw"></i> Държави в Европа<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/админ/страни')!!}"><i class='fa fa-plus fa-fw'></i> Не може да се Добавят</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/админ/страни')!!}"><i class='fa fa-list-ol fa-fw'></i> Всички държави</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

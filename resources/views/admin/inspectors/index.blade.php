@@ -16,9 +16,10 @@
             <tr>
                 <th>N</th>
                 <th>Длъжност</th>
-                <th>Пълно Име</th>
+                <!-- <th>Пълно Име</th> -->
                 <th>Кратко име</th>
                 <th>Карта N</th>
+                <th>Печат N</th>
                 <th>Логин име</th>
                 <th>Дестващ</th>
                 <th>Админ Права</th>
@@ -62,9 +63,10 @@
                 ?>
                 <td><?php echo $n++; ?></td>
                 <td>{!! $dlaznost !!}</td>
-                <td>{{$user->all_name}}</td>
+                <!-- <td>{{$user->all_name}}</td> -->
                 <td>{{$user->short_name}}</td>
                 <td>{{$user->karta}}</td>
+                <td>{{$user->stamp_number}}</td>
                 <td>{{$user->name}}</td>
                 <td><?php echo $active; ?></td>
                 <td><?php echo $admin; ?></td>

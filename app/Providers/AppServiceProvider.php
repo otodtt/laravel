@@ -2,6 +2,7 @@
 
 namespace odbh\Providers;
 
+use Hash;
 use Illuminate\Support\ServiceProvider;
 
 use Input;
@@ -53,13 +54,18 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::extend('cyrillic_with', function($attribute, $value)
         {
-            $pattern = "/^[\p{Cyrillic}0-9\s -\ –\"\'\-\, _\.\; \“ \” \„ \” \/ ! ? ! ? N № 0-9]+$/u";
+            $pattern = "/^[\p{Cyrillic}0-9\s -\ –\"\'\-\, _\.\; \“ \” \„ \” \: \/ ! ? ! ? N № 0-9]+$/u";
             return trim(preg_match($pattern, $value));
         });
 
         Validator::extend('latin', function($attribute, $value)
         {
-            $pattern = '/^[\w\d\s-_]*$/';
+            $pattern = '/^[\w\d\s -_]*$/';
+            return trim(preg_match($pattern, $value));
+        });
+        Validator::extend('latin_letters', function($attribute, $value)
+        {
+            $pattern = '/^[\w\d\s]*$/';
             return trim(preg_match($pattern, $value));
         });
 
@@ -710,6 +716,16 @@ class AppServiceProvider extends ServiceProvider
                 return false;
             }
         });
+
+        Validator::extend('old_password', function($attribute, $value, $test)
+        {
+            if ( Hash::check($value, $test[0]) ) {
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
     }
 
     /**
@@ -773,5 +789,4 @@ class AppServiceProvider extends ServiceProvider
         }
         return $ret;
     }
-
 }

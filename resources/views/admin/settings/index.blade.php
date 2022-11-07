@@ -55,6 +55,11 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>Ел. адрес</td>
+                    <td>{{ $settings[0]['site'] }}</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>Телефон</td>
                     <td>{{ $settings[0]['phone'] }}</td>
                     <td></td>
@@ -118,6 +123,28 @@
                     </td>
                 @endif
             </tr>
+        </tbody>
+    </table>
+
+    <div class="alert-info" role="alert" style="text-align: center" >
+        <p class="bold">Индех преди номер на печат и Контролен орган</p>
+    </div>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>
+                <p>За Номер на Печат <span class="bold red">{{ $settings[0]['q_index'] }}</span> - 0000 <span class="bold red">{{ $settings[0]['in_second'] }}</span> </p>
+            </td>
+            <td>
+                <p>Име на контролен орган <span class="bold red">{{ $settings[0]['authority_bg'] }} </span></p>
+            </td>
+            <td>
+                <p>Име на английски <span class="bold red">{{ $settings[0]['authority_en'] }}</span> </p>
+            </td>
+            <td>
+                <a class="fa fa-edit btn btn-primary my_btn" href="{!!URL::to('/админ/настройки/сертификат/1')!!}">  Редактирай!</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 @endsection

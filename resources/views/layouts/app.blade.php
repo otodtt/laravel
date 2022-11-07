@@ -13,6 +13,7 @@
     {!!Html::style("css/bootstrap.min.css" )!!}
     {!!Html::style("css/sb-admin-2.css" )!!}
     {!!Html::style("css/layout/layout.css" )!!}
+    {!!Html::style("css/layout/kppz.css" )!!}
     @section('css')
 
     @show
@@ -70,6 +71,37 @@
             </ul>
         </li>
 
+        <li>
+            <a href="{!! '/' !!}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o dark_color" aria-hidden="true"></i>
+                &nbsp;КППЗ &nbsp;<span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <ul class="dropdown-menu" >
+                <li><a href="{!! URL::to( '/контрол/сертификати-внос') !!}" class="my_a back_link"> <i class="fa fa-arrow-down fa-fw "></i> Сертификати внос</a></li>
+                <li><a href="{!! URL::to( '/контрол/сертификати-износ') !!}" class="my_a back_link"> <i class="fa fa-arrow-up fa-fw "></i> Сертификати износ</a></li>
+                <li><a href="{!! URL::to( '/контрол/сертификати-вътрешен') !!}" class="my_a back_link"> <i class="fa fa-retweet fa-fw "></i> Сертификати вътрешен</a></li>
+                {{--<li><a href="{!! URL::to('/складове')!!}" class="my_a back_link"> <i class="fa fa-shield fa-fw blue_color"></i> Всички складове </a></li>--}}
+                {{--<li><a href="{!! URL::to('/цехове')!!}" class="my_a back_link"> <i class="fa fa-cubes fa-fw blue_color"></i> Всички цехове</a></li>--}}
+                {{--<li><a href="{!!URL::to('/изтекъл-срок')!!}" class="my_a back_link"> <i class="fa fa-times fa-fw blue_color"></i> С изтекъл или прекратен срок</a></li>--}}
+                <li role="separator" class="divider"></li>
+                <li ><a href="{!! URL::to( '/контрол/фактури') !!}" class="my_a back_link"> <i class="fa fa-files-o fa-fw  "></i> Издадени фактури</a></li>
+                <li ><a href="{!! URL::to( '/контрол/търговци') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>
+                <li><a href="{!! URL::to('/контрол/стоки/внос')!!}" class="my_a back_link"> <i class="fa fa-tags fa-fw "></i> Стоки</a></li>
+                <li><a href="{!! URL::to('/контрол/култури')!!}" class="my_a back_link"> <i class="fa fa-leaf fa-fw green_color"></i> Култури</a></li>
+
+
+                {{--<li><a href="{!! URL::to('/протоколи')!!}" class="my_a back_link"> <i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи Контрол на Пазара</a></li>--}}
+                {{--<li><a href="{!! URL::to('/протоколи-обекти')!!}" class="my_a back_link"> <i class="fa fa-object-ungroup fa-fw control_color"></i> Протоколи Нерегламентирани Обекти</a></li>--}}
+                {{--<li><a href="{!! URL::to('/други-обекти')!!}" class="my_a back_link"> <i class="fa fa-external-link fa-fw control_color"></i> Протоколи в други Области</a></li>--}}
+                {{--<li><a href="{!! URL::to('/производители')!!}" class="my_a back_link"> <i class="fa fa-industry fa-fw control_color"></i> Протоколи Производители на ПРЗ</a></li>--}}
+                {{--<li role="separator" class="divider"></li>--}}
+                {{--<li><a href="{!! URL::to('/регистър-фирми')!!}" class="my_a back_link"> <i class="fa fa-bank fa-fw red"></i> Таблица Регистър на фирми с Удостоверение</a></li>--}}
+                {{--<li><a href="{!! URL::to('/регистър-протоколи')!!}" class="my_a back_link"> <i class="fa fa-file-powerpoint-o fa-fw red"></i>  Таблица Регистър на Констативни Протоколи</a></li>--}}
+                {{--<li><a href="{!! URL::to('/месечни-справки')!!}" class="my_a back_link"> <i class="fa fa-calendar fa-fw red"></i> Таблица Регистър на Месечни справки</a></li>--}}
+                {{--<li role="separator" class="divider"></li>--}}
+                {{--<li><a href="{!! URL::to('/проби')!!}" class="my_a back_link"> <i class="fa fa-flask fa-fw brown"></i> Дневник проби от ПРЗ</a></li>--}}
+                {{--<li><a href="{!! URL::to('/проби-тор')!!}" class="my_a back_link"> <i class="fa fa-leaf fa-fw brown"></i> Дневник проби от ТОРОВЕ</a></li>--}}
+            </ul>
+        </li>
 
         <li>
             <a href="{!! '/' !!}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sun-o yellow" aria-hidden="true"></i>
@@ -119,7 +151,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Излез</a></li>
-                        <li><a href="{{ url('/') }}"><i class="fa fa-edit"></i> Лични данни</a></li>
+                        <li><a href="{{ url('/парола/'.Auth::user()->id) }}"><i class="fa fa-key"></i> Смяна на парола</a></li>
                     </ul>
                 </li>
             @endif
