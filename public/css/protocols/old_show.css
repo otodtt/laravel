@@ -1,0 +1,76 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+.my_btn{
+    padding: 1px 10px;
+}
+hr {
+    margin: 3px;
+    height: 1px;
+    background-color: black;
+}
+.page{
+    width: 90%;
+    margin: 0 auto;
+}
+#flip_in{
+    position: relative;
+}
+.back{
+    margin: 0 auto;
+    width: 600px;
+    height: 800px;
+    background: url(bg.png) no-repeat left top;
+    background-size:600px 800px;
+    position: absolute;
+    opacity: 0.5;
+    top: 0;
+    right: 37px;
+
+}
+.middle_hr{
+    margin-top: 20px;
+    height: 2px;
+    background-color: black;
+}
+.middle_h3{
+    text-align: center;
+    margin-top: 10px;
+}
+.h4_bottom{
+    margin-bottom: 20px;
+}
+.title-bottom{
+    background-color: rgb(240, 173, 79);
+}
+.bold{
+    font-weight: bold;
+}
+.right_span{
+    float: right;
+}
+.red{
+    color: #ff0000;
+}
+.my_div{
+    margin: 0;
+    padding: 0;
+}
+.my_alert{
+    margin-bottom: 0;
+}
+.assay_doc{
+    text-decoration: none;
+}
+.assay_doc:hover{
+    color: #900f0e;
+    text-decoration: none;
+}
+
+#prz_check{
+    background-color: rgba(0, 0, 255, 0.2);
+}
+#tor_check{
+    background-color: rgba(79, 0, 0, 0.2);
+}

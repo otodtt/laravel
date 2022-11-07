@@ -1,0 +1,12 @@
+#flip_in{
+    background-color: rgba(255, 242, 1, 0.2);
+}
+.right_span{
+    float: right;;
+}
+.my_group{
+    width: 100%;
+}
+#search_form{
+    display: inline-block;
+}

@@ -1,0 +1,148 @@
+div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend, a{
+    margin: 0;
+    padding: 0;
+}
+
+.bold{font-weight: bold;}
+hr{margin: 3px;}
+#wrapper{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+fieldset{
+    padding: 8px;
+    background-color: #D8D1D1;
+    border: 1px solid #5e5e5e;
+}
+legend{
+    font-weight: bold;
+    border: 0;
+    width: auto;
+}
+body{
+    background-color: whitesmoke;
+}
+.row-height-my{
+    float: none;
+    display: table;
+    vertical-align: top;
+}
+.small_field_right{
+    width: 30%;
+    vertical-align: top;
+    background-color: #d2d0d0;
+    padding: 2px 10px;
+    display: table-cell;
+    border: 1px solid #4c4c4c;
+    font-family: "Times New Roman", serif;
+}
+.small_field_left{
+    width: 70%;
+    vertical-align: top;
+    background-color: #d2d0d0;
+    padding: 2px 10px;
+    display: table-cell;
+    border: 1px solid #4c4c4c;
+    font-family: "Times New Roman", serif;
+}
+.big_field{
+    background-color: #b6b5b5;
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+.big_legend{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Times New Roman", serif;
+    margin-left: 30%;
+    padding: 0 5px 0 5px;
+    background-color: #989797;
+}
+
+.apt_all_field{
+    background-color: #b5eaac;
+    margin: 0;
+    padding: 5px;
+    font-family: "Times New Roman", serif;
+}
+.apt_all_legend{
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: 0;
+}
+
+.legend_apt{
+    font-weight: bold;
+    font-style: oblique;
+    font-family: "Times New Roman", serif;
+    font-size: 1em
+}
+.red{
+    color: red;
+    font-weight: bold;
+}
+.my_btn{
+    padding: 1px 10px;
+    display: inline-block;
+}
+.my_hr{
+    margin: 3px;
+    height: 1px;
+    background-color: black;
+}
+/*///////////// za sklad /////*/
+.store_all_field{
+    background-color: rgba(114, 152, 238, 0.5);
+    margin: 0;
+    padding: 5px;
+    font-family: "Times New Roman", serif;
+}
+/*///////////// за цех /////*/
+.works_all_field{
+    background-color: rgb(255, 204, 207);
+    margin: 0;
+    padding: 5px;
+    font-family: "Times New Roman", serif;
+}
+.my_p{
+    display: inline-block;
+    font-family: "Times New Roman", serif;
+}
+a{
+    text-decoration: none;
+}
+.my_col-md-12{
+    padding-left: 0;
+    padding-bottom: 3px;
+}
+.li_pharmacy, .li_repository, .li_workshop{
+    margin-bottom: 2px;
+    background-color: rgba(53, 88, 252, 0.15);
+    font-size: 1.1em;
+}
+.new_opinions{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.old_opinions{
+    /*background-color: rgba(255, 157, 6, 0.5);*/
+    background-color: rgba(240, 173, 78, 0.8);
+}
+.border_bottom{
+    border-bottom: 1px solid #000000;
+}
+.middle{
+    margin-top: 3px;
+}
+.show_certificate{
+    float: right;
+}
+#date_diary{
+    display: inline-block;
+    width: 100px;
+}
+.inspector{
+    display: inline-block;
+    width: 140px;
+}

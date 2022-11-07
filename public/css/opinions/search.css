@@ -1,0 +1,38 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+.my_btn{
+    padding: 1px 10px;
+}
+hr {
+    margin: 3px;
+    height: 1px;
+    background-color: black;
+}
+.page{
+    width: 100%;
+    margin: 0 auto;
+}
+.bold{
+    font-weight: bold;
+}
+.right_span{
+    float: right;
+}
+.red{
+    color: #ff0000;
+}
+.div_btn{
+    text-align: center;
+}
+.div_find{
+    margin-top: 20px;
+    padding-left: 10px;
+}
+.view_green{
+    color: #008000;
+}
+.new_farmer{
+    font-size: 1.2em;
+}

@@ -1,0 +1,97 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: whitesmoke;
+}
+.alphabet {
+    font-size: 14px;
+    text-decoration: none;
+    color: graytext;
+}
+.alphabet_mark {
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+}
+.alphabet_not {
+    font-size: 14px;
+    color: lightgrey;
+}
+.wrap_alphabet_reset {
+    display: inline-block;
+}
+hr {
+    margin: 3px;
+    height: 1px;
+    background-color: black;
+}
+fieldset {
+    background-color: #D8D1D1
+}
+#search{
+    width: 125px;
+    height: 25px;
+}
+.search_value{
+    width: 100px;
+    height: 25px;
+    padding-left: 5px;
+}
+.limit_sort_class{
+    width: 150px;
+    height: 25px;
+    display: inline-block;
+    padding:0;
+}
+.inspector_sort{
+    width: 150px;
+    height: 25px;
+    display: inline-block;
+    padding: 0 0 0 3px;
+}
+
+.errors{
+    color: #ff0502;
+    list-style: none;
+}
+.col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-9, .col-md-12{
+    margin: 0;
+    padding: 0;
+    padding-top: 2px;
+}
+.right_btn{
+    float: right;
+}
+.form-control-my-search{
+    display: inline-block;
+    width: 150px;
+    height: 27px;
+}
+.alf_wrap{
+    display: inline-block;
+}
+.refresh {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+label {
+    font-family: "Times New Roman", serif;
+}
+.search_top{
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    padding: 0 0 0 5px;
+}
+#ot_object{
+    width: 120px;
+    padding: 0 0 0 5px;
+}
+#areas{
+    width: 180px;
+    padding: 0 0 0 5px;
+}

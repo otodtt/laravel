@@ -1,0 +1,63 @@
+div{
+    margin: 0;
+    padding: 0;
+}
+.page_logo{
+    margin: 0 auto;
+    padding: 0;
+}
+.img_logo{
+    display: inline-block;
+    padding: 0;
+}
+.logo_txt_wrap{
+    display: inline-block;
+    float: right;
+    padding: 0;
+    width: 77%;
+}
+.mzh{
+    text-align: center;
+    font-weight: bold;
+    padding: 0;
+}
+#p_mzh{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.last{
+    border-bottom: 2px solid #000000;
+    margin-bottom: 5px;
+}
+.address{
+    padding: 0;
+    text-align: center;
+}
+
+#fitin {
+    height: 20px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 0;
+}
+#fitin_bottom {
+    height: 20px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 0;
+}
+#p_edition, #p_doc{
+    display: inline-block;
+}
+.my_btn_float{
+    float: right;
+}
+.my_hr_in{
+    margin-top: 5px;
+}
+/* Лого и Антетка на страницата*/
+#only_certificate{
+    margin-top: 15px;
+}

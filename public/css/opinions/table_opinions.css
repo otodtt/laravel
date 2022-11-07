@@ -1,0 +1,77 @@
+.dataTables_info{
+    width: 100%;
+    padding: 10px 0;
+}
+.dataTables_filter{
+    width: 48%;
+}
+.dataTables_length{
+    width: 48%;
+}
+.dataTables_paginate .paging_full_numbers{
+    display: inline;
+}
+.my_btn{
+    padding: 1px 10px;
+}
+.my_table th{
+    padding: 0 5px;
+    text-align: center;
+}
+.my_table thead tr{
+    height: 35px;
+    background-color: #a7a7a7;
+    border: 1px solid #737373;
+}
+.right{
+    text-align: right;
+    padding-right: 10px;
+}
+.center{
+    text-align: center;
+}
+
+td{
+    padding: 0 5px;
+}
+tr.even, table.dataTable.display tbody tr.even {
+    background-color: #bcbaba;
+}
+.last-column{
+    width: 70px;
+    margin: 0;
+    padding: 1px 3px;
+}
+fieldset{
+    padding: 10px 0 6px 10px;
+}
+.form-group{
+    margin-bottom: 5px;
+}
+.form-control-my-search{
+    width: 180px;
+}
+#ot_object{
+    width: 180px;
+}
+#search_field{
+    padding: 0 0 0 5px;
+    width: 100px;
+}
+#search{
+    padding: 0 0 0 5px;
+    width: 150px;
+}
+.errors{
+    color: #ff0000;
+}
+.col-md-9{
+    margin: 0;
+    padding: 0;
+}
+.red{
+    color: #ff0000;
+}
+.bold{
+    font-weight: bold;
+}

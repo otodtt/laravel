@@ -1,0 +1,26 @@
+.form-control-my{
+    min-width: 0;
+    width: auto;
+    display: inline-block;
+}
+.my_hr_in{
+    margin: 15px;
+    height: 2px;
+    background-color: #a8b5cf;
+}
+.bold{
+    font-weight: bold;
+}
+#obstina_id{
+    width: 200px;
+    height: 33px;
+    display: inline-block;
+    border-radius: 4px;
+    margin: 0;
+}
+.my_labels{
+    display: inline-block;
+}
+.description{
+    font-size: 0.9em;
+}

@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: odbh
+        psr4_prefix: odbh
+        src_path: app

@@ -1,0 +1,162 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: whitesmoke;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 1200px;
+
+}
+#wrapper_section{
+    font-family: "Times New Roman", serif;
+}
+.my_hr{
+    margin: 5px;
+    height: 1px;
+    background-color: #111111;
+}
+.my_hr_in{
+    margin: 3px;
+    height: 2px;
+    background-color: #a3a3a3;
+}
+.hr_in{
+    margin: 3px 10px 3px 0;
+    height: 1px;
+    background-color: white;
+}
+.my_btn{
+    padding: 1px 10px;
+}
+.my_alert{
+    padding: 7px 10px;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+.container-fluid{
+    background-color: #cac8c8;
+}
+.small_field{
+    background-color: #a9a5a5;
+    border: 1px solid #5f5f5f;
+    padding: 5px 0 5px 10px;
+    margin: 0 0 7px 0;
+}
+.small_field_in{
+    background-color: #c7c3c3;
+    border: 1px solid #5f5f5f;
+    padding: 5px 0 5px 10px;
+    margin: 0 10px 0 0;
+}
+.small_legend{
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    width: auto;
+}
+.col-md-6_my{
+    padding: 0;
+}
+.my_labels{
+    display: inline-block;
+}
+.labels_limit{
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 1px;
+    max-width: 100%;
+}
+.form-control-my{
+    min-width: 0;
+    width: auto;
+    display: inline-block;
+}
+.errors, .red{
+    color: #ff0000;
+}
+.description{
+    font-size: 0.9em;
+}
+.institute_margin{
+    margin-top: 5px;
+}
+#filename{
+    display: inline-block;
+}
+.form-control_my_insp{
+    width: 150px;
+    height: 30px;
+    display: inline-block;
+}
+.bold{
+    font-weight: bold;
+}
+#certificate_number_edit{
+    font-size: 1.2em;
+    margin-top: 6px;
+}
+.inspectors_divs{
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+}
+.border_divs{
+    border-bottom: 1px solid #ffffff;
+}
+.mini_field{
+    background-color: #c7c3c3;
+    border: 1px solid #5f5f5f;
+    margin-right: 10px;
+    padding: 3px 0 0 3px;
+}
+.mini_top{
+    margin-bottom: 3px;
+}
+.act_wrap{
+    padding: 0;
+    border-bottom: 1px solid #ffffff;
+    width: 99%;
+}
+.example_bottom{
+    padding-top: 7px;
+}
+.example_field{
+    /*width: 99%;*/
+}
+.example_field_right{
+    width: 99%;
+    float: right;
+}
+.example_field_left{
+    width: 99%;
+}
+.error, .red{
+    color: #ff0000;
+}
+.bold{
+    font-weight: bold;
+}
+.look{
+    color: #4f0000;
+}
+#check_id{
+    width: 200px;
+}
+.check_span{
+    margin-left: 20px;
+}
+#areasID, #localsID, #district_object{
+    display: inline-block;
+    width: 150px;
+}
+#opinions{
+    display: inline-block;
+    width: 200px;
+}
+#inspector{
+    display: inline-block;
+    width: 150px;
+}

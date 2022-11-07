@@ -1,0 +1,40 @@
+span{
+    font-size: 0.9em;
+}
+.red{
+    color: red;
+    font-weight: bold;
+}
+.bold{
+    font-weight: bold;
+}
+.bold_desc{
+    font-weight: bold;
+    font-size: 0.95em;
+}
+.error{
+    color: red;
+}
+.description{
+    font-size: 0.8em;
+    padding-left: 5px;
+}
+
+
+.description_alert{
+    font-size: 0.95em;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.my_alert{
+    padding: 0;
+    margin: 0;
+}
+.my_btn{
+    float: right;
+}
+.my_input_index{
+    width: 85px;
+    display: inline-block;
+}

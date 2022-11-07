@@ -1,0 +1,62 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend{
+     margin: 0;
+     padding: 0;
+
+ }
+body{
+    background-color: whitesmoke;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 1200px;
+}
+#wrapper_section{
+    font-family: "Times New Roman", serif;
+}
+.my_hr{
+    margin: 5px;
+    height: 1px;
+    background-color: #111111;
+}
+.my_hr_in{
+    margin: 3px;
+    height: 1px;
+    background-color: white;
+}
+.my_btn{
+    padding: 1px 10px;
+}
+.description{
+    font-size: 0.9em;
+}
+.my_labels{
+    display: inline-block;
+}
+.form-control-my{
+    min-width: 0;
+    width: auto;
+    display: inline-block;
+}
+.bold{
+    font-weight: bold;
+}
+#areasID, #localsID{
+    width: 150px;
+    height: 33px;
+    display: inline-block;
+    border-radius: 4px;
+    margin: 0;
+}
+.my_btn_check{
+    padding: 4px 8px;
+    height: 30px;
+}
+.container-fluid{
+    background-color: #cac8c8;
+}
+.errors, .red{
+    color: red;
+}
+.my_alert{
+    margin-bottom: 2px;
+}

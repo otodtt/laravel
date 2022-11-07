@@ -1,0 +1,81 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.alfabet {
+    font-size: 14px;
+    text-decoration: none;
+    color: graytext;
+}
+
+.alfmark {
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+}
+
+.alfanot {
+    font-size: 14px;
+    color: lightgrey;
+}
+
+fieldset {
+    background-color: #D8D1D1
+}
+
+.refresh {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.wrap_alfrecet {
+    display: inline-block;
+}
+
+#sort_miar_wrap {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+hr {
+    margin: 3px;
+    height: 1px;
+    background-color: black;
+}
+
+.alf_wrap {
+    display: inline-block;
+}
+
+label {
+    font-family: "Times New Roman", serif;
+}
+
+.btn_add_firm {
+    float: right;
+    margin-right: 10px;
+}
+.red{
+    color: #ff0000;
+}
+.form-control-my-search{
+    display: inline-block;
+    width: 150px;
+    height: 27px;
+    padding: 0 0 0 5px;
+}
+.search_area{
+    width: 180px;
+}
+

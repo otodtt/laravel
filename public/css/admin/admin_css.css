@@ -1,0 +1,57 @@
+fieldset, legend{
+    margin: 0;
+    padding: 0;
+}
+
+.reveal .fa {
+    font-family: 'FontAwesome';
+    font-style: normal;
+}
+.my_nav{
+    display: inline-block;
+    float: left;
+    width: 80%;
+}
+
+
+.admin_panel{
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    text-align: center;
+}
+
+.my_p{
+    font-size: 2.3em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav_my {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav_my>li {
+    position: relative;
+    display: block;
+}
+.nav_my>li>a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+}
+.nav_my:hover{
+    background-color:#f0f0f0;
+}
+.mini_title{
+    background-color:#afd9ee;
+    text-align: center;
+}
+.red{
+    color: red;
+    font-weight: bold;
+}
+.bold{
+    font-weight: bold;
+}

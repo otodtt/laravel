@@ -1,0 +1,39 @@
+.dataTables_info{
+    width: 100%;
+    padding: 10px 0;
+}
+.dataTables_filter{
+    width: 48%;
+}
+.dataTables_length{
+    width: 48%;
+}
+.dataTables_paginate .paging_full_numbers{
+    display: inline;
+}
+.my_table th{
+    padding: 0 5px;
+    text-align: center;
+}
+.my_table thead tr{
+    height: 35px;
+    background-color:#afbdd8;
+    border: 1px solid #737373;
+}
+.right{
+    text-align: right;
+    padding-right: 10px;
+}
+.center{
+    text-align: center;
+}
+td{
+    padding-left: 10px;
+}
+.form-group{
+    margin-bottom: 5px;
+}
+.my_btn{
+    padding: 2px 8px;
+    height: 25px;
+}

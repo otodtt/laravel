@@ -1,0 +1,32 @@
+.div-layout-title{
+    margin: 0;
+    padding: 0;
+}
+.layout-title{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Times New Roman", serif;
+    margin: 0;
+    padding: 0;
+}
+.green_color{
+    color: #5db85d;
+}
+.old_color{
+    color: #f0ad4f;
+}
+.blue_color{
+    color: #5cc0de;
+}
+.control_color{
+    color: #347bb7;
+}
+.red{
+    color: #ff0000;
+}
+.yellow{
+    color: #fffb03;
+}
+.brown{
+    color: #a52a2a;
+}

@@ -1,0 +1,12 @@
+.form-control_my_factory{
+    width: 250px;
+    height: 30px;
+    display: inline-block;
+}
+.factory_description{
+    padding-top: 5px;
+}
+#firm_select, .select_cols{
+    padding: 0;
+    margin: 0;
+}

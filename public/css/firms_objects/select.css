@@ -1,0 +1,29 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend{
+    margin: 0;
+    padding: 0;
+    /*font-family: "Arial";*/
+}
+body{
+    background-color: whitesmoke;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.bold{font-weight: bold;}
+.red{color: red}
+.my_hr_in{
+    margin: 3px;
+    height: 1px;
+    background-color: white;
+}
+.my_alert_center{
+    text-align: center;
+}
+.my_alert{
+    padding: 7px 10px;
+}
+.col-md-6{
+    text-align: center;
+}

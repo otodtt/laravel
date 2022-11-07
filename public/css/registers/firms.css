@@ -1,0 +1,77 @@
+div, p, form, select, option, input, h1, h2, h3, h4, h5{
+     margin: 0;
+     padding: 0;
+ }
+
+thead{
+    background-color: yellow;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 1px;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+th, td{
+    padding: 2px;
+}
+
+.middle{
+    text-align: center;
+    font-size: 0.8em;
+}
+.middle_top{
+    text-align: center;
+    font-size: 0.7em;
+}
+.num_row{
+    width: 30px;
+}
+.vh_number{
+    width: 90px;
+}
+.licence_number{
+    width: 120px;
+}
+
+.licence_obj{
+    width: 80px;
+}
+.type_obj{
+    width: 90px;
+}
+
+th.mail{
+    width: 5%;
+}
+td.mail{
+    width: 5%;
+}
+.phone {
+    width: 100px;
+}
+
+.ime{
+    width: 165px;
+}
+.address{
+    width: 150px;
+}
+
+
+.txt{
+    font-size: 1em;
+    text-align: center;
+}
+th{
+    font-size: 1em;
+    text-align: center;
+}
+.even{ background-color: #dfdfdf; }
+
+.type_obj{
+    font-size: 0.9em;
+}

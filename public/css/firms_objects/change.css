@@ -1,0 +1,31 @@
+.field_change{
+    background-color: #b6b5b5
+}
+.small_field_change_pet_left{
+    float: left;
+    background-color: #a2a0a0;
+    display: inline-block;
+    width: 58%;
+}
+.small_field_change_pet_right{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #d2d0d0;
+    float: left;
+}
+.col-center-block{
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.change_alert{
+    font-weight: bold;
+    text-align: center;
+}
+.my_center{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 24%;
+}

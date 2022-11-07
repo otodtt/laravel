@@ -1,0 +1,70 @@
+div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend, a{
+    margin: 0;
+    padding: 0;
+}
+.col-md-12, .col-md-3, .col-md-8, .col-md-4, .col-md-9{
+    padding: 0;
+}
+.number_doc_all{
+    font-weight: bold;
+    margin: 40px 0 30px 0;
+    position: relative;
+}
+.img_wrap{
+    padding-left: 60px;
+}
+#pic{
+    height: 5cm;
+    border: 1px solid #ff0000;
+}
+
+.row_top{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+.row_top_bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 60px;
+    text-align: center;
+}
+
+.div_margin{
+    margin-bottom: 50px;
+    padding-left: 40px;
+    font-size: 1.2em;
+}
+.div_margin_director{
+    margin-bottom: 10px;
+    padding-left: 40px;
+    font-size: 1.2em;
+}
+.div_inspector{
+    margin-bottom: 10px;
+}
+
+#number_doc{
+    font-size: 2.5em;
+}
+#number_certificate{
+    font-size: 1.4em;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.inspector{
+    margin-bottom: 5px;
+}
+.director{
+    margin-left: 140px;
+}
+.underline{
+    font-size: 0.8em;
+}

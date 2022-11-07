@@ -1,0 +1,58 @@
+.col-md-12, .col-md-3, .col-md-8, .col-md-4{
+    padding: 0;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.lowercase{
+    text-transform: lowercase;
+}
+.center{
+    text-align: center;
+}
+.number_doc_all{
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 50px 0 40px 0;
+}
+.row_top{
+    margin-bottom: 10px;
+}
+.row_bottom{
+    margin-top: 10px;
+}
+.owner{
+    display: inline-block;
+}
+.egn{
+    display: inline-block;
+    float: right;
+}
+.div_margin{
+    margin-bottom: 30px;
+}
+
+#flip_all{
+    height: 100%;
+}
+#petition{
+    text-align: justify;
+}
+.inspector{
+    margin-bottom: 5px;
+}
+.director{
+    margin-left: 140px;
+}
+.underline{
+    font-size: 0.8em;
+}
+.dots{
+    float: right;
+    padding-right: 25px;
+}
+.dots1{
+    float: right;
+    padding-right: 50px;
+}

@@ -1,0 +1,17 @@
+.radio_buttons{
+    display: inline-block;
+    width: 40%;
+}
+.radio_description{
+    display: inline-block;
+    width: 55%;
+}
+.radio_table{
+    width: 100%;
+}
+.buttons_radio{
+    width: 60%;
+}
+.my_label{
+    width: 100%;
+}
