@@ -15,7 +15,8 @@
     {!!Html::style("css/bootstrap.min.css" )!!}
     <style>
         body {
-            font-family: 'Lato';
+            /*font-family: 'Lato';*/
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         }
 
         .fa-btn {
@@ -26,11 +27,11 @@
 <body id="app-layout">
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
-        <div class="navbar-header">
-
+        <div class="navbar-header" style="text-align: center">
+            <?php ?>
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                КОНТРОЛ НА ПРЕСНИ ПЛОДОВЕ И ЗЕЛНЧУЦИ
+                ОДБХ - <span style="text-transform: uppercase">{{$name_od[0]['odbh_city']}}</span> - ОТДЕЛ "РАСТИТЕЛНА ЗАЩИТА"
             </a>
         </div>
 

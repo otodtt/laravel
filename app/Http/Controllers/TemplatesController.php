@@ -22,7 +22,7 @@ class TemplatesController extends Controller
     {
         $districts = $this->district_full;
 
-        return view('admin.templates.logo', compact('areas','districts'));
+        return view('admin.templates.logo', compact('districts'));
     }
 
     /**
@@ -58,7 +58,7 @@ class TemplatesController extends Controller
     {
         $districts = $this->district_full;
 
-        return view('admin.templates.add_document', compact('areas','districts'));
+        return view('admin.templates.add_document', compact('districts'));
     }
 
     /**
@@ -94,7 +94,7 @@ class TemplatesController extends Controller
     {
         $districts = $this->district_full;
 
-        return view('admin.templates.add_edition', compact('areas','districts'));
+        return view('admin.templates.add_edition', compact('districts'));
     }
 
     /**
@@ -130,7 +130,7 @@ class TemplatesController extends Controller
     {
         $districts = $this->district_full;
 
-        return view('admin.templates.add_certificate', compact('areas','districts'));
+        return view('admin.templates.add_certificate', compact('districts'));
     }
 
     /**

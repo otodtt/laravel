@@ -498,7 +498,7 @@ class ProtocolsController extends Controller
                 ->get();
         }
         return view('protocols.market.show', compact('logo', 'protocol', 'inspectors', 'city', 'firm', 'areas',
-                    'districts_firm', 'districts_object', 'prz', 'tor', 'more'));
+                    'districts_firm', 'districts_object', 'prz', 'more'));
     }
 
     /**

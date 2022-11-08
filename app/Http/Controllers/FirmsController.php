@@ -214,6 +214,7 @@ class FirmsController extends Controller
                 ->orderBy('district_id', 'asc')
                 ->get()->toArray();
         }
+//        dd($selected_session);
 
         return view('objects.firms.create', compact('selected', 'regions', 'district_list', 'locations'));
     }
@@ -392,7 +393,7 @@ class FirmsController extends Controller
         $certificates = Certificate::lists('number', 'id')->toArray();
 
         return view('objects.firms.show', compact('firm', 'areas', 'pharmacies', 'repositories', 'workshops',
-                    'districts', 'districts_show', 'index', 'lock_permit', 'last_number', 'certificates' ));
+                    'districts', 'districts_show', 'index', 'lock_permit', 'certificates' ));
     }
 
     /**
@@ -440,7 +441,7 @@ class FirmsController extends Controller
 
         $name_location = $firm->location;
 
-        return view('objects.firms.edit', compact('firm', 'district_list', 'regions', 'areas', 'locations', 'selected', 'selected_district', 'name_location'));
+        return view('objects.firms.edit', compact('firm', 'district_list', 'regions', 'locations', 'selected', 'selected_district', 'name_location'));
     }
 
     /**

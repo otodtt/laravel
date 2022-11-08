@@ -46,7 +46,8 @@ class OpinionsController extends Controller
     {
         parent::__construct();
         $this->middleware('control', ['only'=>['create', 'store', 'edit', 'update', 'destroy', 'new_create', 'new_store',
-                                        'search_farmer', 'farmer_request']]);
+                                        'search_farmer', 'farmer_request', 'add_number']]);
+
         $this->middleware('admin', ['only'=>['edit_admin', 'update_admin', 'destroy']]);
 
         $this->logo = Set::all()->toArray();
@@ -1106,7 +1107,7 @@ class OpinionsController extends Controller
         $name_location = $farmer->location;
 
         return view('opinions.new.edit', compact('opinions', 'opinion', 'farmer', 'areas_name', 'district_name', 'districts_list',
-            'inspectors', 'admin', 'regions', 'selected', 'district_list', 'locations', 'name_location', 'selected_district'));
+            'inspectors', 'regions', 'selected', 'district_list', 'locations', 'name_location', 'selected_district'));
     }
 
     /**
@@ -1358,7 +1359,7 @@ class OpinionsController extends Controller
         $name_location = $farmer->location;
 
         return view('opinions.new.edit_admin', compact('opinions', 'opinion', 'farmer', 'areas_name', 'district_name', 'districts_list',
-            'inspectors', 'admin', 'regions', 'selected', 'district_list', 'locations', 'name_location', 'selected_district'));
+            'inspectors', 'regions', 'selected', 'district_list', 'locations', 'name_location', 'selected_district'));
     }
 
     /**

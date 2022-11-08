@@ -6,7 +6,7 @@ $(document).ready(function(){
 function load_locals(){
     $.ajax({
         type: "POST",
-        url: "http://odbh/pharmacies/locations",
+        url: "http://odbhrz.test/pharmacies/locations",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

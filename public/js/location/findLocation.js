@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $("#areasID").change(load);
     $("#localsID").change(load_locals);
@@ -7,21 +8,21 @@ $(document).ready(function(){
 function load(){
     $.ajax({
         type: "POST",
-        url: "http://odbh/firms/locations",
+        url: "http://odbhrz.test/firms/locations",
         headers:{'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         data: "areasID="+$("#areasID").val(),
         dataType:'json'
-
     }).done(function(data){
         $('#localsID').html(data[0]);
         $('#hidden').attr('value', data[1]);
         $('#places').html(data[2]);
     });
+
 }
 function load_locals(){
     $.ajax({
         type: "POST",
-        url: "http://odbh/firms/locations",
+        url: "http://odbhrz.test/firms/locations",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

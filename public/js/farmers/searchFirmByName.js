@@ -5,7 +5,7 @@ $(document).ready(function(){
 function GetNameFirm(){
     $.ajax({
         type: "POST",
-        url: "http://odbh/farmers/firms",
+        url: "http://odbhrz.test/farmers/firms",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

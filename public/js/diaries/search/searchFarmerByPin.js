@@ -5,7 +5,7 @@ $(document).ready(function(){
 function GetPinFarmer(){
     $.ajax({
         type: "POST",
-        url: "http://odbh/diary/pin",
+        url: "http://odbhrz.test/diary/pin",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

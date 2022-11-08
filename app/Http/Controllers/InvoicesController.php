@@ -25,7 +25,8 @@ class InvoicesController extends Controller
     {
         parent::__construct();
         $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose',
-                    'import_create', 'import_store', 'import_update', 'import_edit']]);
+                    'import_create', 'import_store', 'import_update', 'import_edit',
+                    'export_create', 'export_store', 'export_edit', 'export_update']]);
 
 
         $this->index = Set::select('q_index', 'authority_bg', 'authority_en')->get()->toArray();

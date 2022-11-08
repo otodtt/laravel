@@ -39,7 +39,8 @@ class FarmersProtocolsController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('control', ['only'=>['create', 'store', 'edit', 'update', 'destroy']]);
+        $this->middleware('control', ['only'=>['create', 'store', 'edit', 'update', 'destroy', 'create_new',
+                        'store_new', 'add_number']]);
 
         $this->logo = Set::all()->toArray();
 

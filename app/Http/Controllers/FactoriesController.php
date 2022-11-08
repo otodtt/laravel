@@ -206,7 +206,7 @@ class FactoriesController extends Controller
 
         $name_location = $firm->location;
 
-        return view('admin.factories.edit', compact('districts', 'firm', 'district_list', 'regions', 'areas', 'locations', 'selected',
+        return view('admin.factories.edit', compact('districts', 'firm', 'district_list', 'regions', 'locations', 'selected',
                     'selected_district', 'name_location'));
     }
 

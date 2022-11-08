@@ -358,7 +358,7 @@ class FactoriesProtocolsController extends Controller
 
 
         return view('protocols.factories.create', compact('inspectors', 'selected', 'areas_all', 'district_list', 'locations', 'firms',
-                    'factory', 'regions_return', 'district_name'));
+                    'factory', 'regions_return'));
     }
 
     /**

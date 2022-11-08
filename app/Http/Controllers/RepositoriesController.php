@@ -319,7 +319,7 @@ class RepositoriesController extends Controller
             ->limit(1)->get()->toArray();
 
         return view('objects.repositories.edit_repository', compact('repository', 'firm', 'districts', 'districts_firm_show', 'areas_firm',
-            'locations', 'only_id', 'inspectors', 'index', 'firm_id', 'selected_area', 'name_location', 'last_number', 'areas', 'admin'));
+            'locations', 'only_id', 'inspectors', 'index', 'firm_id', 'selected_area', 'name_location', 'last_number', 'admin'));
     }
 
     /**

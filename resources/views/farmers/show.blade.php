@@ -45,19 +45,21 @@
         </div>
     </fieldset>
     <hr/>
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">ЗАВЕРКА НА ДНЕВНИК ЗА ПХО</h3>
-                </div>
-                <div class="panel-body">
-                    @include('farmers.forms.diary')
+    @if(Auth::user()->admin == 2 || Auth::user()->dlaznost == 1 || Auth::user()->rz > 0  || Auth::user()->orz > 0)
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">ЗАВЕРКА НА ДНЕВНИК ЗА ПХО</h3>
+                    </div>
+                    <div class="panel-body">
+                        @include('farmers.forms.diary')
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li class="li_pharmacy">

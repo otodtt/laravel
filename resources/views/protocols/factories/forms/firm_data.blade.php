@@ -1,4 +1,4 @@
-@if(count($factory)> 0)
+@if(count((array)$factory)> 0)
     <?php
         if($factory['type_location'] == 1){
             $tvm = 'гр. ';

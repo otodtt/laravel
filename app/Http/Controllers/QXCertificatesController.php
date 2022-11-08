@@ -29,8 +29,7 @@ class QXCertificatesController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose', 'create_import', 'import_ending',
-            'import_finish', 'import_lock', 'import_unlock']]);
+        $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose', 'export_lock', 'export_unlock']]);
 
 
         $this->index = Set::select('q_index', 'authority_bg', 'authority_en')->get()->toArray();

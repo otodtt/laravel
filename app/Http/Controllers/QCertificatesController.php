@@ -241,7 +241,6 @@ class QCertificatesController extends Controller
             'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm', 'year_now'));
     }
 
-
     /** ВНОС НАЧАЛО//////////////// */
     /**
      * Show the form for creating a new resource.

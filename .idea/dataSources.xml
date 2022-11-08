@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="747408883">
-    <data-source source="LOCAL" name="MySQL - kppz" uuid="9db2fcde-df86-49a6-8e56-5704e8be1943">
+  <component name="DataSourceManagerImpl" format="xml" hash="3953276821">
+    <data-source source="LOCAL" name="MySQL - haskovo@localhost" uuid="07c10876-b0a2-4c97-806d-5232f6a46690">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/kppz</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/haskovo</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />

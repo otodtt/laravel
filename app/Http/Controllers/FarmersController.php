@@ -246,7 +246,7 @@ class FarmersController extends Controller
         $districts_farm[0] = 'Сортирай по община';
         $districts_farm = array_sort_recursive($districts_farm);
 
-        return view('farmers.edit', compact('farmer', 'district_list', 'regions', 'areas', 'locations', 'selected',
+        return view('farmers.edit', compact('farmer', 'district_list', 'regions', 'locations', 'selected',
                             'selected_district', 'name_location', 'districts_farm'));
     }
 

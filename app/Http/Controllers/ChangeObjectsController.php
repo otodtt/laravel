@@ -115,7 +115,7 @@ class ChangeObjectsController extends Controller
         $max_date_licence[] = Workshop::where('firm_id','=',$firm->id)->max('date_edition');
         $date_licence_max = date('d.m.Y', max($max_date_licence));
 
-        return view('objects.change.change_firm', compact('firm', 'index', 'areas', 'regions', 'district_list','locations',
+        return view('objects.change.change_firm', compact('firm', 'index', 'regions', 'district_list','locations',
                     'selected', 'selected_district', 'name_location', 'inspectors', 'id', 'date_licence_max'));
     }
 
@@ -381,7 +381,7 @@ class ChangeObjectsController extends Controller
         $name_location = $pharmacy->location;
 
         return view('objects.change.change_pharmacy', compact('pharmacy',  'districts', 'locations',
-            'only_id', 'inspectors', 'index', 'firm_id', 'selected_area', 'name_location'));
+            'only_id', 'inspectors', 'index', 'selected_area', 'name_location'));
     }
 
     /**
@@ -485,7 +485,7 @@ class ChangeObjectsController extends Controller
         $name_location = $repository->location;
 
         return view('objects.change.change_repository', compact('repository',  'districts', 'locations',
-            'only_id', 'inspectors', 'index', 'firm_id', 'selected_area', 'name_location'));
+            'only_id', 'inspectors', 'index','selected_area', 'name_location'));
     }
 
     /**
@@ -587,7 +587,7 @@ class ChangeObjectsController extends Controller
         $name_location = $workshop->location;
 
         return view('objects.change.change_workshop', compact('workshop',  'districts', 'locations',
-            'only_id', 'inspectors', 'index', 'firm_id', 'selected_area', 'name_location'));
+            'only_id', 'inspectors', 'index', 'selected_area', 'name_location'));
     }
 
     /**

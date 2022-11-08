@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use odbh\Http\Requests;
 use odbh\Http\Requests\LoginRequest;
+use odbh\Set;
 use Redirect;
 use Session;
 
@@ -19,23 +20,14 @@ class LogController extends Controller
      */
     public function index()
     {
+        $name_od = Set::select('odbh_city')->get()->toArray();
+//        dd($name_od);
         if(Auth::check() == false){
-            return view('auth.login');
+            return view('auth.login', compact('name_od'));
         }
         return view('home');
     }
 
-    /**
-     * Display след влизане в системата.
-     *
-     * @return \Illuminate\Http\Response
-     */
-//    public function home()
-//    {
-//        return view('home');
-////       http://odbh/
-//
-//    }
 
     /**
      * Излизане от системата.

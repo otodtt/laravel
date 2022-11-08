@@ -184,7 +184,8 @@
             </div>
             @if($certificate->is_lock == 0)
                 <div class="col-md-12 row-table-bottom " style="display: table" >
-                @if ((Auth::user()->id == $certificate->added_by) || (Auth::user()->admin == 2))
+
+                @if ((Auth::user()->id == $certificate->added_by) || (Auth::user()->admin == 2 || Auth::user()->dlaznost == 1 ) )
                     <div  class="archive small_field_bottom print-button" >
                         <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Само администратор или инспектора съставил Сертификата могат да го Редактират!</p>
                         <hr class="my_hr_in"/>
@@ -217,7 +218,7 @@
                     <div class="small_field_bottom" style="display: table-cell">
                         <p class="bold">Сертификата е заключен и не може да се редактира повече.</p>
                     </div>
-                    @if(Auth::user()->admin == 2 )
+                    @if(Auth::user()->admin == 2 || Auth::user()->dlaznost == 1 )
                         <div class="small_field_bottom" style="display: table-cell">
                             {!! Form::model($certificate, ['url'=>'unlock-import-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
                             <button type="submit" class="btn-sm btn-success " id="unlockConfirm">
