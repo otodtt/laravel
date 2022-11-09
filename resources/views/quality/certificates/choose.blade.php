@@ -20,7 +20,7 @@
     <div class="row" style="margin: 0 auto; width: 80%; min-height: 200px; margin-top: 50px">
         <div class="col-md-4">
             <div class="btn_add" style="text-align: center;">
-                <a href="{!!URL::to('/контрол/сертификати-вътрешен/create')!!}" class="fa fa-retweet btn btn-info my_btn">  Вътрешен Сертификат</a>
+                <a href="{!!URL::to('/контрол/търси-земеделец')!!}" class="fa fa-retweet btn btn-info my_btn">  Вътрешен Сертификат</a>
             </div>
         </div>
         <div class="col-md-4">

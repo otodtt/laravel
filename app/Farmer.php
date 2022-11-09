@@ -71,4 +71,12 @@ class Farmer extends Model
     public function diaries(){
         return $this->hasMany('odbh\Diary');
     }
+
+    /**
+     * ЗП има много QINCertificate
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function qincertificates(){
+        return $this->hasMany('odbh\QINCertificate');
+    }
 }

@@ -228,8 +228,31 @@ Route::group(['middleware' => ['auth']], function () {
     ///// ВЪТРЕШНИ
     Route::resource('/контрол/сертификати-вътрешен', 'QINCertificatesController');
     Route::post('/контрол/сертификати-вътрешен/store', 'QINCertificatesController@store');
+    Route::get('/контрол/търси-земеделец', 'QINCertificatesController@farmer_request');
+    Route::post('/контрол/търси-земеделец', 'QINCertificatesController@farmer_request');
 
+    Route::get('контрол/сертификат-вътрешен/{id}/завърши', 'QINCertificatesController@internal_ending');
 
+    Route::any('certificate/pin', 'QINCertificatesController@get_pin');
+    Route::any('certificate/names', 'QINCertificatesController@get_name');
+    Route::any('certificate/firms', 'QINCertificatesController@get_firm');
+
+    Route::get('/контрол/сертификати-вътрешен/добави/{id}', 'QINCertificatesController@create');
+    Route::get('/контрол/сертификати-вътрешен/фермер', 'QINCertificatesController@create_farmer');
+    Route::post('/контрол/сертификати-вътрешен/store_farmer', 'QINCertificatesController@store_farmer');
+    Route::get('/контрол/сертификати-вътрешен/фирма', 'QINCertificatesController@create_firm');
+
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
 
 
 

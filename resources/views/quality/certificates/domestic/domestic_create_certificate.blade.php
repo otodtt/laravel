@@ -17,8 +17,8 @@
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
-            <span class="bold">Веднъж направен запис, Номера на Сертификата не може повече да се променя!
-                Веднъж направен запис, Сертификата не може да се изтрие, може само да се редактира!
+            <span class="bold">
+                Провери внимателно данните! Ако има грешки, редактирай данните на Земеделския Стопанин и тогава добави Сертификата!
             </span>
         </p>
     </div>
@@ -32,7 +32,14 @@
                 </ul>
             </div>
         @endif
-
+        <div class="alert alert-info my_alert" role="alert">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <h4 class="my_center bold">ДОБАВЯ СЕ СЕРТИФИКАТ НА</h4>
+                    @include('records.add.object_info')
+                </div>
+            </div>
+        </div>
         {!! Form::open(['url'=>'контрол/сертификати-вътрешен/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('quality.certificates.domestic.forms.form_create_certificate')

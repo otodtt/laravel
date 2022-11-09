@@ -6,6 +6,7 @@
 @section('css')
     {!!Html::style("css/qcertificates/add_edit.css" )!!}
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
+    {!!Html::style("css/records/add_edit.css" )!!}
 @endsection
 
 @section('content')
@@ -18,7 +19,7 @@
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
             <span class="bold">
-                Провери внимателно данните! Ако има грешки, редактирай данните на Земеделския Стопанин и тогава добави Сертификата!
+                Данните са за физическо лице и ще бъдат добавени към регистрираните Земеделски стопани! Ще бъде създаен нов ЗЕМЕДЕЛСКИ СТОПАНИН!
             </span>
         </p>
     </div>
@@ -32,17 +33,16 @@
                 </ul>
             </div>
         @endif
-        <div class="alert alert-info my_alert" role="alert">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <h4 class="my_center bold">ДОБАВЯ СЕ СЕРТИФИКАТ НА</h4>
-                    @include('records.add.object_info')
-                </div>
-            </div>
-        </div>
-        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
-
-            @include('quality.certificates.domestic.forms.form_create_certificate')
+        {{--<div class="alert alert-info my_alert" role="alert">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-12 ">--}}
+                    {{--<h4 class="my_center bold">ДОБАВЯ СЕ СЕРТИФИКАТ НА</h4>--}}
+                    {{--@include('records.add.object_info')--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/store_farmer', 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
+            @include('quality.certificates.domestic.forms.form_create_farmer_certificate')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
@@ -52,7 +52,7 @@
                 {!! Form::submit('Добави и продължи!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
-            
+
         {!! Form::close() !!}
     </div>
     <br/>
@@ -61,6 +61,7 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
+    {!!Html::script("js/location/findLocation.js" )!!}
 {{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>

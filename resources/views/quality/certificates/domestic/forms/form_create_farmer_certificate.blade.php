@@ -1,86 +1,14 @@
-<?php
-if($farmer->type_firm == 1 || $farmer->type_firm  == 0){
-    $et = '';
-    $ood = '';
-    $pin = 'ЕГН: ';
-}
-elseif($farmer->type_firm == 2 ){
-    $et = 'ET "';
-    $ood = '" ';
-    $pin = 'ЕИК: ';
-}
-elseif($farmer->type_firm  == 3 ){
-    $et = ' "';
-    $ood = '" ООД';
-    $pin = 'ЕИК: ';
-}
-elseif($farmer->type_firm  == 4 ){
-    $et = ' "';
-    $ood = '" ЕООД';
-    $pin = 'ЕИК: ';
-}
-elseif($farmer->type_firm  == 5 ){
-    $et = ' "';
-    $ood = '" АД';
-    $pin = 'ЕИК: ';
-}
-elseif($farmer->type_firm  == 6 ){
-    $et = '';
-    $ood = '';
-    $pin = 'ЕИК: ';
-}
-else{
-    $et = '';
-    $ood = '';
-    $pin = 'ЕГН/ЕИК: ';
-}
-$name = mb_convert_case($farmer->name, MB_CASE_UPPER, 'UTF-8' );
-$all_name = $et.''.$name.''.$ood;
-
-if($farmer->tvm == 1){
-    $tvm = 'гр. ';
-}
-elseif($farmer->tvm == 2 ){
-    $tvm = 'с. ';
-}
-else{
-    $tvm = 'гр./с. ';
-}
-//////
-foreach($districts as $key=>$district){
-    if($key == $farmer->district_id){
-        $district_farm = $district;
-    }
-}
-///////
-foreach($districts_farm as $key=>$district){
-    if($key == $farmer->district_object){
-        $district_object = $district;
-    }
-}
-/////
-foreach($regions as $key=>$region){
-    if($key == $farmer->areas_id){
-        $region_farm = $region;
-    }
-}
-if(strlen($farmer->pin_owner) > 0){
-    $pin_owner = 'с ЕГН: '.$farmer->pin_owner;
-}
-else{
-    $pin_owner = '';
-}
-?>
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-12" >
             <fieldset class="small_field" ><legend class="small_legend">Сертификата се издава за ..</legend>
-                <div class="col-md-6 col-md-6_my in_table" >
+                <div class="col-md-5 col-md-6_my in_table" >
                     <fieldset class="small_field_in" >
                         <p class="description">
                             Поле № 7. За какво се издава сертификата.
                         </p>
                         <hr class="hr_in"/>
+                        <br>
                         <label class="labels_limit"><span>Вътрешен/Internal</span>
                             @if ($type == 3)
                             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
@@ -105,12 +33,13 @@ else{
                         </label>
                     </fieldset>
                 </div>
-                <div class="col-md-6 col-md-6_my in_table" >
+                <div class="col-md-4 col-md-6_my in_table" >
                     <fieldset id="show_type" class="small_field_in show_type ">
                         <p class="description">
                             Поле № 1 колона 2. Избери дали е за консумация или преработка.
                         </p>
                         <hr class="hr_in"/>
+                        <br>
                         <label class="labels_limit"><span>За консумация</span>
                             <span>&nbsp;&nbsp;<i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
                         </label>&nbsp;&nbsp;|
@@ -118,6 +47,20 @@ else{
                             <span>&nbsp;&nbsp;<i class="fa fa-circle-o" aria-hidden="true"></i></span>
                         </label>&nbsp; | &nbsp;
                         <input type="hidden" name="type_crops" value="1">
+                    </fieldset>
+                </div>
+                <div class="col-md-3 col-md-6_my in_table" >
+                    <fieldset id="show_type" class="small_field_in show_type ">
+                        <p class="description">
+                            Сертификат за съответствие с пазарните стандарти на Европейския съюз,
+                        </p>
+                        <p class="bold">
+                            №/No {{ $index[0]['q_index'] }}-{{$user[0]['stamp_number']}}/ {{$last_number[0]['internal'] + 1}}
+                            <span class="number_import hidden" id="number_import">{{$last_number[0]['internal']}}</span>
+                        </p>
+                        <p class="description red">
+                            Провери дали данните са верни!
+                        </p>
                     </fieldset>
                 </div>
             </fieldset>
@@ -132,47 +75,57 @@ else{
     {{-- Търговец --}}
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-md-6" >
+            <div class="col-md-12" >
                 <fieldset class="small_field"><legend class="small_legend">1. Търговец /Trader</legend>
-                    <div class="col-md-8 col-md-6_my" >
-                        <p class="description">
-                            Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
-                        </p>
-                        <div class="packer_wrap col-md-12" >
-
-                            <label for="importer_name">Име на Търговец/ЗС:</label>
-                            <p>{{$all_name}}</p>
-                            {{--<br>--}}
-                            <label for="importer_address">Адрес:</label>
-                            <p ><span class="bold">{!! $farmer->address !!}</span>, <span class="bold">{!! $tvm !!} {!! $farmer->location !!},
-                                общ. {!! $district_farm !!}, обл. {!! $region_farm !!} </span></p>
-                        </div>
+                    <div class="col-md-12 col-md-6_my" >
+                        @include('quality.certificates.domestic.forms.data.data_object')
                     </div>
-                    <div  class="col-md-4">
-                        <p class="description">
-                            Полето ЕИК не е задължително, но е силно препоръчително да се впише коректно!
-                        </p>
-                        {{-- <br> --}}
-                        <label for="importer_vin" style="margin-top: 20px">{!! $pin !!}</label>
-                        <span class="">{!! $farmer->pin !!}</span>
-                    </div>
-                    <input type="hidden" name="farmer_id" value="{{$farmer->id}}">
                 </fieldset>
             </div>
-            <div class="col-md-6">
-                <fieldset class="small_field"><legend class="small_legend">Сертификат за съответствие </legend>
+        </div>
+    </div>
+
+    <hr class="my_hr_in"/>
+    {{-- АДРЕС Търговец --}}
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset class="small_field"><legend class="small_legend">Адрес на земеделския стопанин</legend>
                     <div class="col-md-12 col-md-6_my" >
                         <p class="description">
-                            Сертификат за съответствие с пазарните стандарти на Европейския съюз,
+                            Желателно е да се попълни точния адрес на земеделския стопанин!
                         </p>
-                        <br>
-                        <p class="bold">
-                            №/No {{ $index[0]['q_index'] }}-{{$user[0]['stamp_number']}}/ {{$last_number[0]['internal'] + 1}}
-                            <span class="number_import hidden" id="number_import">{{$last_number[0]['internal']}}</span>
-                        </p>
-                        <p class="description red">
-                            Провери дали данните са верни!
-                        </p>
+                        @include('quality.certificates.domestic.forms.data.locations')
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my_hr_in"/>
+
+    {{--TELEFONI --}}
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset class="small_field"><legend class="small_legend">Други данни на земеделския стопанин</legend>
+                    <div class="col-md-12 col-md-6_my" >
+                        @include('layouts.forms.phone')
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my_hr_in"/>
+
+    {{-- АДРЕС ОБЕКТ --}}
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset class="small_field"><legend class="small_legend">Адрес на земеделския стопанин</legend>
+                    <div class="col-md-12 col-md-6_my" >
+                        @include('quality.certificates.domestic.forms.data.location_farm')
                     </div>
                 </fieldset>
             </div>
@@ -326,13 +279,6 @@ else{
                                 <p class="description">Поле 12. Митническо учреждение </p><hr class="hr_in"/>
                                 <div class="col-md-12 col-md-6_my" >
                                     <br>
-                                    {{-- {!! Form::label('customs_bg', 'Митница на български:', ['class'=>'my_labels']) !!}&nbsp;
-                                    {!! Form::text('customs_bg', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,
-                                    'placeholder'=> 'МБ Свиленград' ]) !!}
-                                    <br><br> --}}
-                                    {{-- {!! Form::label('customs_en', 'Митница на латиница:  ', ['class'=>'my_labels']) !!}&nbsp;&nbsp;
-                                    {!! Form::text('customs_en', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,
-                                    'placeholder'=> 'CP-Svilengrad' ]) !!} --}}
                                 </div>
                             </fieldset>
                         </div>
@@ -346,9 +292,6 @@ else{
                                     {!! Form::text('place_bg', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,
                                     'placeholder'=> 'Свиленград' ]) !!}
                                     <br><br>
-                                    {{--{!! Form::label('place_en', 'Място на латиница:', ['class'=>'my_labels']) !!}&nbsp;&nbsp;--}}
-                                    {{--{!! Form::text('place_en', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,--}}
-                                    {{--'placeholder'=> 'Svilengrad' ]) !!}--}}
                                     <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
                                 </div>
                             </fieldset>

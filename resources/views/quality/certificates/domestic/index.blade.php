@@ -101,7 +101,7 @@
         </a>
     </div>
     {{--<hr/>--}}
-    @include('quality.certificates.includes.export_table')
+    @include('quality.certificates.includes.domestic_table')
 @endsection
 
 @section('scripts')

@@ -1,4 +1,76 @@
+<?php
+if($farmer->type_firm == 1 || $farmer->type_firm  == 0){
+    $et = '';
+    $ood = '';
+    $pin = 'ЕГН: ';
+}
+elseif($farmer->type_firm == 2 ){
+    $et = 'ET "';
+    $ood = '" ';
+    $pin = 'ЕИК: ';
+}
+elseif($farmer->type_firm  == 3 ){
+    $et = ' "';
+    $ood = '" ООД';
+    $pin = 'ЕИК: ';
+}
+elseif($farmer->type_firm  == 4 ){
+    $et = ' "';
+    $ood = '" ЕООД';
+    $pin = 'ЕИК: ';
+}
+elseif($farmer->type_firm  == 5 ){
+    $et = ' "';
+    $ood = '" АД';
+    $pin = 'ЕИК: ';
+}
+elseif($farmer->type_firm  == 6 ){
+    $et = '';
+    $ood = '';
+    $pin = 'ЕИК: ';
+}
+else{
+    $et = '';
+    $ood = '';
+    $pin = 'ЕГН/ЕИК: ';
+}
+$name = mb_convert_case($farmer->name, MB_CASE_UPPER, 'UTF-8' );
+$all_name = $et.''.$name.''.$ood;
 
+if($farmer->tvm == 1){
+    $tvm = 'гр. ';
+}
+elseif($farmer->tvm == 2 ){
+    $tvm = 'с. ';
+}
+else{
+    $tvm = 'гр./с. ';
+}
+//////
+foreach($districts as $key=>$district){
+    if($key == $farmer->district_id){
+        $district_farm = $district;
+    }
+}
+///////
+foreach($districts_farm as $key=>$district){
+    if($key == $farmer->district_object){
+        $district_object = $district;
+    }
+}
+/////
+foreach($regions as $key=>$region){
+    if($key == $farmer->areas_id){
+        $region_farm = $region;
+    }
+}
+if(strlen($farmer->pin_owner) > 0){
+    $pin_owner = 'с ЕГН: '.$farmer->pin_owner;
+}
+else{
+    $pin_owner = '';
+}
+?>
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-12" >
@@ -67,38 +139,24 @@
                             Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
                         </p>
                         <div class="packer_wrap col-md-12" >
-                            <label for="importer_name">Име на Търговец:</label>
-                            {!! Form::text('importer_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+
+                            <label for="importer_name">Име на Търговец/ЗС:</label>
+                            <p>{{$all_name}}</p>
                             {{--<br>--}}
                             <label for="importer_address">Адрес:</label>
-                            {!! Form::text('importer_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
-                            {{-- <label for="trader_address">ЕИК:</label> --}}
-                            {{-- {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 40%', 'placeholder'=>'ЕИК/Булстат']) !!} --}}
+                            <p ><span class="bold">{!! $farmer->address !!}</span>, <span class="bold">{!! $tvm !!} {!! $farmer->location !!},
+                                общ. {!! $district_farm !!}, обл. {!! $region_farm !!} </span></p>
                         </div>
-                        {{-- <label for="importers_choice">Избери износител:</label>
-                        <select name="importer_data" id="importer_data" class="localsID form-control">
-                            <option value="">-- Избери --</option>
-                            @foreach($importers as $importer)
-                                <option value="{{$importer['id']}}"
-                                        {{(old('importer_data') == $importer['id'])? 'selected':''}}
-                                        name_en="{{$importer['name_en']}}" 
-                                        address_en="{{$importer['address_en']}}"
-                                        vin="{{$importer['vin']}}" >{{ strtoupper($importer['name_en']) }}
-                                </option>
-                            @endforeach
-                        </select>
-                        {!! Form::hidden('en_name', old('en_name'), ['id'=>'en_name']) !!}
-                        {!! Form::hidden('en_address', old('en_address'), ['id'=>'en_address']) !!}
-                        {!! Form::hidden('vin_hidden', old('vin_hidden'), ['id'=>'vin_hidden']) !!} --}}
                     </div>
                     <div  class="col-md-4">
                         <p class="description">
                             Полето ЕИК не е задължително, но е силно препоръчително да се впише коректно!
                         </p>
                         {{-- <br> --}}
-                        <label for="importer_vin" style="margin-top: 20px">ЕИК:</label>
-                        {!! Form::text('importer_vin', null, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                        <label for="importer_vin" style="margin-top: 20px">{!! $pin !!}</label>
+                        <span class="">{!! $farmer->pin !!}</span>
                     </div>
+                    <input type="hidden" name="farmer_id" value="{{$farmer->id}}">
                 </fieldset>
             </div>
             <div class="col-md-6">
@@ -132,34 +190,9 @@
                         <p class="description">
                             Поле № 2. Опаковчик, посочен върху .. ЕИК/Булстат не е задължителен<br>
                         </p>
-                        {{-- <label for="packer_data">Избери Опаковчик:</label> --}}
-                        {{-- <select name="packer_data" id="packer_data" class="localsID form-control" style="width: 97%">
-                            <option value="">-- Избери --</option>
-                            <option value="888" {{(old('packer_data') == 888)? 'selected':''}}>БЕЗ ФИРМА!</option>
-                            <option value="999" {{(old('packer_data') == 999)? 'selected':''}}>ФИРМАТА Я НЯМА. ДОБАВИ!</option>
-                            @foreach($packers as $packer)
-                                <option value="{{$packer['id']}}"
-                                        {{(old('packer_data') == $packer['id'])? 'selected':''}}
-                                        name_of_packer="{{$packer['packer_name']}}"
-                                        address_of_packer="{{$packer['packer_address']}}">
-                                    {{ strtoupper($packer['packer_name']) }}
-                                </option>
-                            @endforeach
-                        </select>
-                        {!! Form::hidden('name_of_packer', old('name_of_packer'), ['id'=>'name_of_packer']) !!}
-                        {!! Form::hidden('address_of_packer', old('address_of_packer'), ['id'=>'address_of_packer']) !!} --}}
-                        {{-- <br class="my_br" /> --}}
-                        {{-- <br class="my_br" /> --}}
-                        {{-- <br /> --}}
 
                         <div class="packer_wrap" >
-                            <label for="packer_name">Име на Опаковчик:</label>
-                            {!! Form::text('packer_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Опаковчик']) !!}
-                            {{--<br>--}}
-                            <label for="packer_address">Адрес:</label>
-                            {!! Form::text('packer_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Опаковчик']) !!}
-                            <label for="packer_address">ЕИК:</label>
-                            {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 40%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                            <p class="bold">Издава се Сертификат на Земеделски стопанин и Поле № 2. Опаковчик не се попълва</p><br>
                         </div>
                     </div>
                 </fieldset>
@@ -184,7 +217,6 @@
                         <p class="description">
                             Поле № 4. Място на инспекцията/страна на произход
                         </p>
-                        <br>
                         <label for="from_country">Страна:</label>
                         {!! Form::text('from_country', null, ['class'=>'form-control', 'style'=>'width: 97%', 'autocomplete'=>'on', 'placeholder'=> 'Попълни страната' ]) !!}
                         <br>
@@ -309,15 +341,15 @@
                             <fieldset class="small_field_in" style="height: 114px">
                                 <p class="description">Поле 12. Място на издаване </p><hr class="hr_in"/>
                                 <div class="col-md-12 col-md-6_my" >
-                                    <br>
+
                                     {!! Form::label('place_bg', 'Място на български:', ['class'=>'my_labels']) !!}&nbsp;
                                     {!! Form::text('place_bg', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,
                                     'placeholder'=> 'Свиленград' ]) !!}
                                     <br><br>
-                                    {{-- {!! Form::label('place_en', 'Място на латиница:', ['class'=>'my_labels']) !!}&nbsp;&nbsp;
-                                    {!! Form::text('place_en', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,
-                                    'placeholder'=> 'Svilengrad' ]) !!}
-                                    <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}"> --}}
+                                    {{--{!! Form::label('place_en', 'Място на латиница:', ['class'=>'my_labels']) !!}&nbsp;&nbsp;--}}
+                                    {{--{!! Form::text('place_en', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,--}}
+                                    {{--'placeholder'=> 'Svilengrad' ]) !!}--}}
+                                    <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
                                 </div>
                             </fieldset>
                         </div>

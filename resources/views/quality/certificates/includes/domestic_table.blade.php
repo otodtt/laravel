@@ -26,9 +26,9 @@
             ?>
         <tr>
             <td class="right"><?= $n++ ?></td>
-            <td>{{$certificate->export}}</td>
+            <td>{{$certificate->internal}}</td>
             <td>{{ date('d.m.Y', $certificate->date_issue) }}</td>
-            <td>{{strtoupper($certificate->importer_name)}}</td>
+            <td>{{mb_strtoupper($certificate->trader_name), 'utf-8'}}</td>
             <td style="text-align: right; padding-right: 4px">
                 @if( $certificate->invoice_id == '0')
                     <a href='/контрол/фактури-износ/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
@@ -41,9 +41,9 @@
             <td><span class="{{$alert}}">{{$all}}</span></td>
             <td>
                 @if ($certificate->is_all === 0)
-                <a href='/контрол/сертификат-износ/{{$certificate->id}}/завърши' class="fa fa-edit btn btn-danger my_btn"></a>
+                <a href='/контрол/сертификат-вътрешен/{{$certificate->id}}/завърши' class="fa fa-edit btn btn-danger my_btn"></a>
                 @else
-                <a href='/контрол/сертификат-износ/{{$certificate->id}}' class="fa fa-binoculars btn btn-primary my_btn"></a>
+                <a href='/контрол/сертификат-вътрешен/{{$certificate->id}}' class="fa fa-binoculars btn btn-primary my_btn"></a>
                 @endif
             </td>
         </tr>

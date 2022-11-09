@@ -38,6 +38,9 @@
                 <div class="col-md-12 my_col-md-12 middle">
                     <a href="{!! URL::to('/въздушни/добави/'.$farmer->id )!!}" class='fa fa-plane btn btn-info my_btn'> ДОБАВИ РАЗРЕШИТЕЛНО - ВЪЗДУШНО!</a>
                 </div>
+                <div class="col-md-12 my_col-md-12 middle">
+                    <a href="{!! URL::to('/контрол/сертификати-вътрешен/добави/'.$farmer->id )!!}" class='fa fa-certificate btn btn-danger my_btn'> ДОБАВИ СЕРТИФИКАТ ПО КАЧЕСТВО!</a>
+                </div>
             </div>
         </div>
         <div class="row-height-my">
@@ -174,6 +177,19 @@
                     <ul class="nav nav-second-level">
                         <li>
                             @include('farmers.body.diary')
+                        </li>
+                    </ul>
+                </li>
+            @endif
+            @if(!empty($qcertificates->toArray()))
+                <li class="li_repository">
+                    <a href="{!!URL::to('/стопанин/'.$farmer->id)!!}"><i class="fa fa-certificate fa-fw"></i>
+                        <span class="bold">СЕРТИФИКАТИ ПО КАЧЕСТВО</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @include('farmers.body.certificate')
                         </li>
                     </ul>
                 </li>

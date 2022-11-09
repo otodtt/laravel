@@ -23,27 +23,105 @@ class QINNewCertificateRequest extends Request
      */
     public function rules()
     {
+        $owner = null;
+        $gender_owner = null;
+        $pin_owner = null;
+        $name = null;
+        $name_firm = null;
+        $eik = null;
+        $assay_error = null;
+        $act = null;
+        $violation = null;
+
         $request = Request::all();
-        if($request['type_crops'] == 44) {
-            $packer_name = 'required|cyrillic_names|min:3|max:100';
-            $packer_address = 'required|cyrillic_with|min:5|max:500';
-            $packer_vin = 'required|is_valid|digits_between:9,10';
-        } else {
-            $packer_name = 'latin|min:3|max:500';
-            $packer_address = 'latin|min:5|max:500';
-            $packer_vin = 'is_valid|digits_between:9,10';
+        if(!isset($request['act']) || $request['act'] == 0){
+            $violation = 'required';
+            $act = 'required_if:violation,1|required';
         }
+        if(isset($request['act']) && $request['act'] == 1){
+            $violation = 'in:1|required';
+            $act = '';
+        }
+        if(!isset($request['assay_no']) || !isset($request['assay_more']) || !isset($request['assay_prz'])  || !isset($request['assay_tor'])
+            || !isset($request['assay_metal']) || !isset($request['assay_micro']) || !isset($request['assay_other'])){
+            $assay_error = 'not_in:0';
+        }
+        else{
+            $assay_error = '';
+        }
+        ///////
+        if(isset($request['firm']) && $request['firm'] == 1){
+            $name = 'required|min:3|max:150|cyrillic';
+            $gender = 'required';
+            $pin = 'required|pin_validate_name|digits_between:9,10|unique:farmers,pin,';
+
+            $eik = '';
+            $owner = '';
+            $gender_owner = '';
+            $pin_owner = '';
+            $name_firm = '';
+        }
+        elseif(isset($request['firm']) && $request['firm'] > 1){
+            $name_firm = 'required|min:3|max:150|cyrillic_names';
+            $name = '';
+            $gender = '';
+            $pin = '';
+
+            $eik = 'required|is_valid|digits_between:9,13|unique:farmers,pin|unique:farmers,bulstat,';
+
+            $owner = 'required|min:3|max:100|cyrillic';
+            $gender_owner = 'required';
+
+            if(!isset($request['gender_owner']) || strlen($request['gender_owner']) == 1){
+                $pin_owner = '';
+            } else {
+                $pin_owner = 'required|pin_validate_owner|digits_between:9,10';
+            }
+        }
+        else{
+            $name = 'required|min:3|max:150|cyrillic_names';
+            $gender = 'required';
+            $pin = 'required|pin_validate_name|digits_between:9,10';
+
+            $owner = '';
+            $gender_owner = '';
+            $name_firm = '';
+            $pin_owner = '';
+        }
+//        $request = Request::all();
+//        if($request['type_crops'] == 44) {
+//            $packer_name = 'required|cyrillic_names|min:3|max:100';
+//            $packer_address = 'required|cyrillic_with|min:5|max:500';
+//            $packer_vin = 'required|is_valid|digits_between:9,10';
+//        } else {
+//            $packer_name = 'latin|min:3|max:500';
+//            $packer_address = 'latin|min:5|max:500';
+//            $packer_vin = 'is_valid|digits_between:9,10';
+//        }
 
         return [
+            'firm' => 'required',
+            'bulstat' => $eik,
+            'name_firm' => $name_firm,
+            'owner' => $owner,
+            'gender_owner' => $gender_owner,
+            'pin_owner' =>$pin_owner,
+
+            'name' => $name,
+            'gender' => $gender,
+            'pin' => $pin,
+            'address'=> 'required|min:3|max:50|cyrillic_with',
+
+            'error' => 'in:0',
             // 'what_7'=>'required',
             // 'type_crops'=>'required',
             // 'importer_data'=>'required',
-            'importer_name' => 'required|cyrillic_names|min:3|max:100',
-            'importer_address' => 'required|cyrillic_with|min:5|max:500',
-            'importer_vin' => 'required|is_valid|digits_between:9,10',
-            'packer_name'=>$packer_name,
-            'packer_address'=>$packer_address,
-            'packer_vin'=>$packer_vin,
+//            'importer_name' => 'required|cyrillic_names|min:3|max:100',
+//            'importer_address' => 'required|cyrillic_with|min:5|max:500',
+//            'importer_vin' => 'required|is_valid|digits_between:9,10',
+//            'packer_name'=>$packer_name,
+//            'packer_address'=>$packer_address,
+//            'packer_vin'=>$packer_vin,
             'from_country'=>'required|min:5|max:300',
             'id_country'=>'required',
             'observations'=>'min:2|max:500',
@@ -65,37 +143,50 @@ class QINNewCertificateRequest extends Request
             'type_crops.required' => 'Избери дали е за консумация или преработка!',
             // 'importer_data.required' => 'Избери Поле № 1 Избери фирмата! Търговеца!',
 
-            'importer_name.required' => 'Поле № 1 Търговец е задължително!',
-            'importer_name.cyrillic_names' => 'Поле № 1 За Име на Търговец използвай кирилица!',
-            'importer_name.min' => 'Името на Търговец се изписва с минимум 3 символа!',
-            'importer_name.max' => 'Името на Търговец се изписва с максимум 100 символа!',
+            'firm.required' => 'Маркирай вида на фирмата или ЧЗС!',
+            'name.required' => 'Попълни името на фирмата/ЧЗС!',
+            'name.min' => 'Минимален брой символи за името - 3!',
+            'name.max' => 'Минимален брой символи за името - 100!',
+            'name.cyrillic' => 'За име на ЧЗС пиши само на кирилица без символи! Позволени символи: (тире - )!',
 
-            'importer_address.required' => 'Поле № 2 Адрес на Търговец е задължително!',
-            'importer_address.cyrillic_with' => 'Поле № 2 За Адреса на Търговец използвай кирилица!',
-            'importer_address.min' => 'Адреса на Търговец се изписва с минимум 5 символа!',
-            'importer_address.max' => 'Адреса на Търговец се изписва с максимум 500 символа!',
+            'name_firm.required' => 'Попълни името на фирмата/ЧЗС!',
+            'name_firm.min' => 'Минимален брой символи за името - 3!',
+            'name_firm.max' => 'Минимален брой символи за името - 100!',
+            'name_firm.cyrillic_names' => 'За име на фирмата пиши само на кирилица без символи! Позволени символи: (тире - ) и цифри!',
 
-            'importer_vin.required' => 'Поле № 1 ЕИК/Булстат на Търговец е задължително!',
-            'importer_vin.is_valid' => 'Поле № 1 ЕИК/Булстат на Търговец не отговаря. Провери отново!',
-            'importer_vin.digits_between' => 'Поле № 1 ЕИК/Булстат на Търговец се изписва между 9 и 10 символа!',
+            'gender.required'=>'Маркирай "Мъж" или "Жена"!',
+            'pin.required' => 'Попълни ЕГН!',
+            'pin.pin_validate_name' => 'ЕГН-то не отговаря! Виж дали правилно са попълнени данните!',
+            'pin.digits_between' => 'ЕГН-то е само цифри!',
+            'pin.unique' => 'ЕГН-то трябва да е уникално! Намерен е запис с това ЕГН!',
 
-            'packer_data.required' => 'Избери Поле № 2 Избери фирмата! Опаковчик!',
+            'bulstat.required' => 'Булстата е задължителен!',
+            'bulstat.digits_between' => 'Булстата е само с цифри! Минимален брой символи - 9',
+            'bulstat.unique' => 'Булстата трябва да е уникален! Намерена е фирма с този БУЛСТАТ',
+            'bulstat.is_valid' => 'Невалиден БУЛСТАТ! Виж дали правилно е попълнен!',
 
-            'packer_name.required' => 'Поле № 2 Опаковчик е задължително!',
-            'packer_name.cyrillic_names' => 'Поле № 2 За Име на Опаковчик използвай кирилица!',
-            'packer_name.min' => 'Името на Опаковчик се изписва с минимум 3 символа!',
-            'packer_name.max' => 'Името на Опаковчик се изписва с максимум 100 символа!',
+            'owner.required' => 'Попълни име на Управител/Представител!',
+            'owner.min' => 'Минимален брой символи за име на Представител - 3!',
+            'owner.max' => 'Максимален брой символи за име на Представител - 100!',
+            'owner.cyrillic' => 'За име на Представител - Пиши само на кирилица без символи!',
 
-            'packer_address.required' => 'Поле № 2 Адреса на Опаковчик е задължително!',
-            'packer_address.cyrillic_with' => 'Поле № 2 За Адреса на Опаковчик използвай кирилица!',
-            'packer_address.min' => 'Адреса на Опаковчик се изписва с минимум 5 символа!',
-            'packer_address.max' => 'Адреса на Опаковчик се изписва с максимум 500 символа!',
+            'gender_owner.required' => 'За Управител маркирай  дали е мъж или жена! Ако не се знае ЕГН-то, маркирай - "Без ЕГН" ',
 
-            'packer_vin.required' => 'Поле № 2 ЕИК/Булстат на Опаковчик е задължително!',
-            'packer_vin.is_valid' => 'Поле № 2 ЕИК/Булстат на Опаковчик не отговаря. Провери отново!',
-            'packer_vin.digits_between' => 'Поле № 2 ЕИК/Булстат на Опаковчик се изписва между 9 и 10 символа!',
+            'pin_owner.required' => 'Попълни ЕГН на Представител или маркирай - "Без ЕГН"!',
+            'pin_owner.pin_validate_owner' => 'ЕГН-то на Представител не отговаря! Виж дали правилно са попълнени данните!',
+            'pin_owner.digits_between' => 'ЕГН-то е само цифри!',
 
+            'list_name.required' => 'Избери населено място от списъка!',
+            'address.required' => 'Адреса е задължителен!',
 
+            'district_object.required' => 'Задължително избери Общината където се намира стопанството!',
+            'district_object.not_in' => 'Задължително избери Общината където се намира стопанството!',
+
+            'location_farm.min' => 'Минимален брой символи за Населено място\места - 3!',
+            'location_farm.max' => 'Минимален брой символи за Населено място\места - 50!',
+            'location_farm.cyrillic_names_objects' => 'За Населено място\места пиши на кирилица без символи! Позволени символи (точка, запетая, точка и запетая) - . , ;',
+
+            'error.in' => 'Избери населено място от списъка! Виж да не е избрана друга община!',
 
             'from_country.required' => 'Поле № 4. Място на инспекцията/страна е задължително!',
             'from_country.min' => 'Поле № 4. Място на инспекцията се изписва с минимум 5 символа!',
