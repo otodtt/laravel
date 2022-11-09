@@ -4,7 +4,7 @@ namespace odbh\Http\Requests;
 
 use odbh\Http\Requests\Request;
 
-class QINCertificateRequest extends Request
+class QINNewCertificateRequest extends Request
 {
    /**
      * Determine if the user is authorized to make this request.
