@@ -36,7 +36,7 @@
                     {{--<li><a href="{!!URL::to('/изтекъл-срок')!!}" class="my_a back_link"> <i class="fa fa-times fa-fw blue_color"></i> С изтекъл или прекратен срок</a></li>--}}
                     <li role="separator" class="divider"></li>
                     <li ><a href="{!! URL::to( '/контрол/фактури') !!}" class="my_a back_link"> <i class="fa fa-files-o fa-fw  "></i> Издадени фактури</a></li>
-                    <li ><a href="{!! URL::to( '/контрол/търговци') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>
+                    <li ><a href="{!! URL::to( '/контрол/вносители') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>
                     <li><a href="{!! URL::to('/контрол/стоки/внос')!!}" class="my_a back_link"> <i class="fa fa-tags fa-fw "></i> Стоки</a></li>
                     <li><a href="{!! URL::to('/контрол/култури')!!}" class="my_a back_link"> <i class="fa fa-leaf fa-fw green_color"></i> Култури</a></li>
 

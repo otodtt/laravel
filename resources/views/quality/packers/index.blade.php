@@ -31,8 +31,9 @@
     </div>
     <hr/>
     <div class="btn-group" >
-        <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-truck btn btn-info my_btn"> Търговци</a>
+        <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-truck btn btn-info my_btn"> Вносители</a>
         <span class="fa fa-archive btn btn-default my_btn"> Опаковчици</span>
+        <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-shopping-cart btn btn-info my_btn"> Търговци</a>
     </div>
     <hr/>
     <fieldset class="form-group">

@@ -2,34 +2,38 @@
     <thead>
         <tr>
             <th>N</th>
-            <th>Delete</th>
+            <th>Добави Сертификат</th>
             <th>Име на Фирмата</th>
             <th>Адрес</th>
+            <th>ЕИК</th>
             <th>Edit</th>
+            <th>Виж</th>
         </tr>
     </thead>
     <tbody>
     <?php $n = 1; ?>
-    @foreach($packers as $packer)
+    @foreach($traders as $trader)
         <tr>
             <td class="center"><?= $n++ ?></td>
-            <td class="center">
-                <form action="{{ url('/контрол/опаковчик/'.$packer->id.'/destroy') }}" method="post" style="display: inline-block; margin-top: 5px" onsubmit="return confirm('Наистина ли искате да изтриете тази фирма?');">
-                    <div class="col-md-6 " >
-                        {!! Form::submit('Изтрий!', ['class'=>'fa fa-edit btn btn-danger my_btn', 'id'=>'submit']) !!}
-                    </div>
-                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
-                </form>
+            <td class="center last-column">
+                <a href="{!!URL::to('/контрол/сертификати-вътрешен/търговец/добави/'.$trader->id)!!}" class="fa fa-plus-circle btn btn-success my_btn"></a>
             </td>
             <td>
-                {{mb_strtoupper($packer->packer_name), 'UTF-8'}}
+                {{mb_strtoupper($trader->trader_name), 'UTF-8'}}
             </td>
             <td class="">
-                {{$packer->packer_address}}
+                {{$trader->trader_address}}
+            </td>
+            <td class="">
+                {{$trader->trader_vin}}
             </td>
             <td class="center last-column">
-                <a href="{!!URL::to('/контрол/опаковчик/'.$packer->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"></a>
-            </td> 
+                <a href="{!!URL::to('/контрол/търговци/'.$trader->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"></a>
+            </td>
+            <td class="center last-column">
+                <a href="{!!URL::to('/контрол/търговци/'.$trader->id.'/show')!!}" class="fa fa-binoculars btn btn-info my_btn"></a>
+            </td>
+
         </tr>
     @endforeach
     </tbody>

@@ -24,7 +24,7 @@
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         <a href="{!! URL::to('/контрол/сертификати-внос') !!}" class="fa fa-certificate btn btn-info my_btn"> Сертификати</a>
         <a href="{!! URL::to('/контрол/фактури') !!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
-        <a href="{!! URL::to('/контрол/търговци') !!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
+        <a href="{!! URL::to('/контрол/вносители') !!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
         <a href="{!! URL::to('/контрол/стоки/внос') !!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
         <span class="fa fa-leaf btn btn-default my_btn"> Култури</span>
     </div>
@@ -168,7 +168,7 @@
                                 </td>
                                 <td>
                                     {{ $stock->firm_name }}
-                                    <a style="float: right" href="{!! URL::to('/контрол/търговци/'.$stock->firm_id.'/show') !!}"
+                                    <a style="float: right" href="{!! URL::to('/контрол/вносители/'.$stock->firm_id.'/show') !!}"
                                         class="fa fa-binoculars btn btn-default my_btn"></a>
                                 </td>
                             </tr>
@@ -291,7 +291,7 @@
                             </td>
                             <td>
                                 {{ $stock->firm_name }}
-                                <a style="float: right" href="{!! URL::to('/контрол/търговци/'.$stock->firm_id.'/show') !!}"
+                                <a style="float: right" href="{!! URL::to('/контрол/вносители/'.$stock->firm_id.'/show') !!}"
                                    class="fa fa-binoculars btn btn-default my_btn"></a>
                             </td>
                         </tr>

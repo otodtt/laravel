@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Всички Търговци' }}
+    {{ 'Всички Вносители' }}
 @endsection
 
 @section('css')
@@ -15,7 +15,7 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">ВСИЧКИ ТЪРГОВЦИ</h4>
+        <h4 class="bold layout-title">ВСИЧКИ ФИРМИ ВНОСИТЕЛИ</h4>
     </div>
     <hr/>
     <div class="btn-group" >
@@ -27,12 +27,13 @@
         <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
     </div>
     <div class="btn_add_firm">
-        <a href="{!!URL::to('/контрол/търговци/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn"> Добави ФИРМА</a>
+        <a href="{!!URL::to('/контрол/вносители/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn"> Добави ФИРМА</a>
     </div>
     <hr/>
     <div class="btn-group" >
-        <span class="fa fa-truck btn btn-default my_btn "> Търговци</span>
+        <span class="fa fa-truck btn btn-default my_btn "> Вносители</span>
         <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-archive btn btn-info my_btn"> Опаковчици</a>
+        <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-shopping-cart btn btn-info my_btn"> Търговци</a>
     </div>
     <hr/>
     @if(count($errors)>0)
@@ -48,7 +49,7 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div  id="sort_firm"  style="justify-content: center">
-                    {!! Form::open(['url'=>'/контрол/търговци/сортирай', 'method'=>'POST']) !!}
+                    {!! Form::open(['url'=>'/контрол/вносители/сортирай', 'method'=>'POST']) !!}
 
                     <div class="row">
                         <div class="col-md-3">
@@ -124,7 +125,7 @@
     </fieldset>
     <hr/>
     <div class="refresh">
-        <a href="{{ url('/контрол/търговци') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
+        <a href="{{ url('/контрол/вносители') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
     </div>
 
     @include('quality.importers.table')

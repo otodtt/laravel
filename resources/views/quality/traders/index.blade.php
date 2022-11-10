@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Всички Опаковчици' }}
+    {{ 'Всички Търговци' }}
 @endsection
 
 @section('css')
@@ -15,7 +15,7 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">ВСИЧКИ ОПАКОВЧИЦИ</h4>
+        <h4 class="bold layout-title">ВСИЧКИ ТЪРГОВЦИ</h4>
     </div>
     <hr/>
     <div class="btn-group" >
@@ -27,30 +27,30 @@
         <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
     </div>
     <div class="btn_add_firm">
-        <a href="{!!URL::to('/контрол/опаковчик/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn"> Добави ОПАКОВЧИК</a>
+        <a href="{!!URL::to('/контрол/търговци/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn"> Добави ТЪРГОВЕЦ</a>
     </div>
     <hr/>
     <div class="btn-group" >
         <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-truck btn btn-info my_btn"> Вносители</a>
-        <span class="fa fa-archive btn btn-default my_btn"> Опаковчици</span>
-        <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-shopping-cart btn btn-info my_btn"> Търговци</a>
+        <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-archive btn btn-info my_btn"> Опаковчици</a>
+        <span class="fa fa-shopping-cart btn btn-default my_btn"> Търговци </span>
     </div>
     <hr/>
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div  id="sort_firm"  style="justify-content: center">
-                    <p>ФИРМИ ОПАКОВЧИЦИ</p>
+                    <p>ФИРМИ ТЪРГОВЦИ</p>
                 </div>
             </div>
         </div>
     </fieldset>
     <hr/>
     <div class="refresh">
-        <a href="{{ url('/контрол/опаковчици') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
+        <a href="{{ url('/контрол/търговци') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
     </div>
     {{--<hr/>--}}
-    @include('quality.packers.table')
+    @include('quality.traders.table')
 @endsection
 
 @section('scripts')

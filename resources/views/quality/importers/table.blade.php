@@ -44,10 +44,10 @@
                 @endif
             </td>
             <td class="center last-column">
-                <a href="{!!URL::to('/контрол/търговци/'.$importer->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"></a>
+                <a href="{!!URL::to('/контрол/вносители/'.$importer->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"></a>
             </td>
             <td class="center last-column">
-                <a href="{!!URL::to('/контрол/търговци/'.$importer->id.'/show')!!}" class="fa fa-binoculars btn btn-success my_btn"></a>
+                <a href="{!!URL::to('/контрол/вносители/'.$importer->id.'/show')!!}" class="fa fa-binoculars btn btn-success my_btn"></a>
             </td>
         </tr>
     @endforeach

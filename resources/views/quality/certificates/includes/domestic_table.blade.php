@@ -1,9 +1,10 @@
-<table id="example" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
+<table id="domestic_table" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
     <thead>
         <tr>
             <th>N</th>
             <th>Номер</th>
             <th>Дата на издаване</th>
+            <th>Вид</th>
             <th>Фирма</th>
             <th>Фактура</th>
             <th>Сума</th>
@@ -28,6 +29,13 @@
             <td class="right"><?= $n++ ?></td>
             <td>{{$certificate->internal}}</td>
             <td>{{ date('d.m.Y', $certificate->date_issue) }}</td>
+            <td class="right">
+                @if($certificate->farmer_id >0 && $certificate->type_firm >0 )
+                    ЗС
+                @elseif($certificate->farmer_id == 0 && $certificate->type_firm == 0)
+                    Търговец
+                @endif
+            </td>
             <td>{{mb_strtoupper($certificate->trader_name), 'utf-8'}}</td>
             <td style="text-align: right; padding-right: 4px">
                 @if( $certificate->invoice_id == '0')
@@ -51,7 +59,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <th colspan="5" style="text-align:right">Всичко:</th>
+            <th colspan="6" style="text-align:right">Всичко:</th>
             <th>
                 <?php  $total = 0; ?>
                 @foreach($certificates as $k=>$certificate)

@@ -25,7 +25,7 @@
             </td>
             <td>
                 <span style="text-transform: uppercase;">{{$invoice->importer_name}}</span>
-                <a href="{!!URL::to('/контрол/търговци/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-default my_btn" style="float: right"></a>
+                <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-default my_btn" style="float: right"></a>
             </td>
             <td>
                 @if($invoice->invoice_for == 1)
@@ -46,7 +46,7 @@
 
             </td>
             {{--<td class="center last-column">--}}
-                {{--<a href="{!!URL::to('/контрол/търговци/'.$invoice->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"></a>--}}
+                {{--<a href="{!!URL::to('/контрол/вносители/'.$invoice->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"></a>--}}
             {{--</td>--}}
         </tr>
     @endforeach

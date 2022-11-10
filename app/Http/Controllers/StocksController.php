@@ -31,7 +31,6 @@ class StocksController extends Controller
     {
         parent::__construct();
         $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose', 'create_import']]);
-        
 
         $this->index = Set::select('q_index', 'authority_bg', 'authority_en')->get()->toArray();
     }

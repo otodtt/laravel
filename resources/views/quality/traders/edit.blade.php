@@ -10,16 +10,16 @@
 
 
 @section('content')
-    <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Към всички фирми</a>
+    <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Към всички фирми</a>
     <hr class="my_hr"/>
 
     <div class="container-fluid" >
         <div class="form-group">
-            {!! Form::model($packers, ['url'=>'контрол/опаковчик/'.$packers->id.'/update', 'method'=>'POST', ''=>'']) !!}
-                @include('quality.packers.form')
+            {!! Form::model($trader, ['url'=>'контрол/търговци/'.$trader->id.'/update', 'method'=>'POST', ''=>'']) !!}
+                @include('quality.traders.form')
 
                 <div class="col-md-4">
-                    <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-arrow-circle-left btn btn-success "> Откажи. Назад</a>
+                    <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-arrow-circle-left btn btn-success "> Откажи. Назад</a>
                 </div>
                 <div class="col-md-4">
                     {!! Form::submit(' Редактирай фирмата!', ['class'=>'btn btn-info', 'id'=>'submit']) !!}

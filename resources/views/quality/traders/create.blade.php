@@ -10,19 +10,19 @@
 
 
 @section('content')
-    <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Назад</a>
+    <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Назад</a>
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert" style="text-align: center">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
-            <span class="bold red">Тук се добавят само нови фирми опаковчици ако ги няма в падащото меню!</span>
+            <span class="bold red">Тук се добавят само нови фирми търговци ако ги няма в падащото меню!</span>
         </p>
     </div>
     <div class="container-fluid" >
         <div class="form-group">
-            {!! Form::open(['route'=>'контрол.опаковчици.store', 'method'=>'POST']) !!}
-                @include('quality/packers/form')
+            {!! Form::open(['route'=>'контрол.търговци.store', 'method'=>'POST']) !!}
+                @include('quality/traders/form')
                 <div class="col-md-6 " style="margin-bottom: 15px; margin-top: 15px">
-                    <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи. Назад</a>
+                    <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи. Назад</a>
                 </div>
                 <div class="col-md-6 " style="margin-bottom: 15px; margin-top: 15px">
                     {!! Form::submit('Добави НОВА фирма!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}

@@ -23,7 +23,7 @@
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         <span class="fa  btn btn-default my_btn"><i class="fa fa-certificate " aria-hidden="true"></i>  Сертификати</span>
         <a href="{!! URL::to('/контрол/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
-        <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
+        <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
         <a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
         <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
     </div>
@@ -96,7 +96,7 @@
     </fieldset>
     <hr/>
     <div class="btn_add_certificate" style="text-align: right">
-        <a href="{!! URL::to('/контрол/сертификати-износ') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
+        <a href="{!! URL::to('/контрол/сертификати-вътрешен') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
             &nbsp; Изчисти сортирането!
         </a>
     </div>

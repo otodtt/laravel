@@ -10,7 +10,7 @@
 
 
 @section('content')
-    <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Към всички фирми</a>
+    <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Към всички фирми</a>
     <hr class="my_hr"/>
 
     <div class="container-fluid" >

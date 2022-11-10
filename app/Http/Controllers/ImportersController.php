@@ -113,7 +113,7 @@ class ImportersController extends Controller
         ]);
     
         Session::flash('message', 'Записа е успешен!');
-        return Redirect::to('/контрол/търговци');
+        return Redirect::to('/контрол/вносители');
     }
 
     /**
@@ -185,7 +185,7 @@ class ImportersController extends Controller
         $importers->save();
 
         Session::flash('message', 'Фирмата е редактирана успешно!');
-        return Redirect::to('/контрол/търговци');
+        return Redirect::to('/контрол/вносители');
     }
 
     /**

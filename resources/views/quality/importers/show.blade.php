@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="info-wrap">
-        {{-- <a href="{!! URL::to('контрол/търговци')!!}" class="fa fa-truck btn btn-success my_btn my_floats"> Назад!</a> --}}
+        {{-- <a href="{!! URL::to('контрол/вносители')!!}" class="fa fa-truck btn btn-success my_btn my_floats"> Назад!</a> --}}
         <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
             @if($importer->trade == 0)
                 <h4 class="bold layout-title" >ФИРМА ВНОСИТЕЛ</h4>
@@ -36,14 +36,15 @@
         <a href="{!! URL::to('/контрол/култури/внос')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
         </div>
         <div class="btn_add_firm">
-            <a href="{!!URL::to('/контрол/търговци/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn"> Добави ФИРМА</a>
+            <a href="{!!URL::to('/контрол/вносители/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn"> Добави ФИРМА</a>
         </div>
         {{-- <hr/> --}}
         <hr class="my_hr"/>
         <div class="btn-group" >
             {{--<span class="fa fa-truck btn btn-default my_btn"> Търговци</span>--}}
-            <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-truck btn btn-info my_btn"> Търговци</a>
+            <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-truck btn btn-info my_btn"> Вносител</a>
             <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-archive btn btn-info my_btn"> Опаковчици</a>
+            <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-shopping-cart btn btn-info my_btn"> Търговци</a>
         </div>
         {{-- <hr/> --}}
 
@@ -200,6 +201,7 @@
                         <th>Kg</th>
                         <th>Издаден от</th>
                         <th>Виж</th>
+                        <th>Добави</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -248,7 +250,6 @@
                             {{$certificate['inspector_bg']}}
                         </td>
                         <td class="center">
-
                             <a href="{!!URL::to('/контрол/сертификат-износ/'.$certificate['id'] )!!}" class="fa fa-binoculars btn btn-success my_btn"></a>
                         </td>
                     </tr>

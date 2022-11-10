@@ -309,7 +309,7 @@
                             <fieldset class="small_field_in" style="height: 114px">
                                 <p class="description">Поле 12. Място на издаване </p><hr class="hr_in"/>
                                 <div class="col-md-12 col-md-6_my" >
-                                    <br>
+                                    {{--<br>--}}
                                     {!! Form::label('place_bg', 'Място на български:', ['class'=>'my_labels']) !!}&nbsp;
                                     {!! Form::text('place_bg', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,
                                     'placeholder'=> 'Свиленград' ]) !!}

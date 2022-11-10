@@ -67,11 +67,11 @@
                             Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
                         </p>
                         <div class="packer_wrap col-md-12" >
-                            <label for="importer_name">Име на Търговец:</label>
-                            {!! Form::text('importer_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+                            <label for="trader_name">Име на Търговец:</label>
+                            {!! Form::text('trader_name', $trader_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
                             {{--<br>--}}
-                            <label for="importer_address">Адрес:</label>
-                            {!! Form::text('importer_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
+                            <label for="trader_address">Адрес:</label>
+                            {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
                             {{-- <label for="trader_address">ЕИК:</label> --}}
                             {{-- {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 40%', 'placeholder'=>'ЕИК/Булстат']) !!} --}}
                         </div>
@@ -93,11 +93,11 @@
                     </div>
                     <div  class="col-md-4">
                         <p class="description">
-                            Полето ЕИК не е задължително, но е силно препоръчително да се впише коректно!
+                            Полето ЕИК задължително!
                         </p>
                         {{-- <br> --}}
-                        <label for="importer_vin" style="margin-top: 20px">ЕИК:</label>
-                        {!! Form::text('importer_vin', null, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                        <label for="trader_vin" style="margin-top: 0">ЕИК:</label>
+                        {!! Form::text('trader_vin', $trader_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
                     </div>
                 </fieldset>
             </div>
@@ -132,25 +132,6 @@
                         <p class="description">
                             Поле № 2. Опаковчик, посочен върху .. ЕИК/Булстат не е задължителен<br>
                         </p>
-                        {{-- <label for="packer_data">Избери Опаковчик:</label> --}}
-                        {{-- <select name="packer_data" id="packer_data" class="localsID form-control" style="width: 97%">
-                            <option value="">-- Избери --</option>
-                            <option value="888" {{(old('packer_data') == 888)? 'selected':''}}>БЕЗ ФИРМА!</option>
-                            <option value="999" {{(old('packer_data') == 999)? 'selected':''}}>ФИРМАТА Я НЯМА. ДОБАВИ!</option>
-                            @foreach($packers as $packer)
-                                <option value="{{$packer['id']}}"
-                                        {{(old('packer_data') == $packer['id'])? 'selected':''}}
-                                        name_of_packer="{{$packer['packer_name']}}"
-                                        address_of_packer="{{$packer['packer_address']}}">
-                                    {{ strtoupper($packer['packer_name']) }}
-                                </option>
-                            @endforeach
-                        </select>
-                        {!! Form::hidden('name_of_packer', old('name_of_packer'), ['id'=>'name_of_packer']) !!}
-                        {!! Form::hidden('address_of_packer', old('address_of_packer'), ['id'=>'address_of_packer']) !!} --}}
-                        {{-- <br class="my_br" /> --}}
-                        {{-- <br class="my_br" /> --}}
-                        {{-- <br /> --}}
 
                         <div class="packer_wrap" >
                             <label for="packer_name">Име на Опаковчик:</label>
@@ -184,7 +165,6 @@
                         <p class="description">
                             Поле № 4. Място на инспекцията/страна на произход
                         </p>
-                        <br>
                         <label for="from_country">Страна:</label>
                         {!! Form::text('from_country', null, ['class'=>'form-control', 'style'=>'width: 97%', 'autocomplete'=>'on', 'placeholder'=> 'Попълни страната' ]) !!}
                         <br>
@@ -197,7 +177,6 @@
                         <p class="description">
                             Поле № 5. Регион или страна на .. /Region
                         </p>
-                        <br>
                         <label for="country">Избери страна:</label>
                         <select name="id_country" id="id_country" class="localsID form-control" style="width: 97%">
                             <option value="">-- Избери --</option>
@@ -309,7 +288,7 @@
                             <fieldset class="small_field_in" style="height: 114px">
                                 <p class="description">Поле 12. Място на издаване </p><hr class="hr_in"/>
                                 <div class="col-md-12 col-md-6_my" >
-                                    <br>
+                                    {{--<br>--}}
                                     {!! Form::label('place_bg', 'Място на български:', ['class'=>'my_labels']) !!}&nbsp;
                                     {!! Form::text('place_bg', null, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250,
                                     'placeholder'=> 'Свиленград' ]) !!}

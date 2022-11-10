@@ -123,7 +123,7 @@
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/сертификати-износ') !!}"> <i class="fa fa-arrow-up fa-fw "></i> Сертификати износ</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/сертификати-вътрешен') !!}"> <i class="fa fa-retweet fa-fw "></i> Сертификати вътрешен</a>
                                     <hr style="margin-bottom: 5px; margin-top: 5px"/>
-                                    {{-- <a class="my_a back_link" href="{!! URL::to( '/контрол/търговци') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
+                                    {{-- <a class="my_a back_link" href="{!! URL::to( '/контрол/вносители') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( '/контрол/култури/внос') !!}"><i class="fa fa-leaf fa-fw green_color"></i> Всички култури</a><br/> --}}
                                     <a class="my_a back_link" href="{!! URL::to( '/test') !!}"><i class="fa fa-cubes fa-fw green_color"></i> ТЕСТ</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa-times fa-fw green_color"></i> Други</a>
@@ -134,7 +134,7 @@
                                     <div class="row">
                                         <div class="col-lg-12  ">
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/фактури') !!}"><i class="fa fa-files-o fa-fw  "></i> Фактури</a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/контрол/търговци') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
+                                            <a class="my_a back_link" href="{!! URL::to( '/контрол/вносители') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/стоки/внос') !!}"><i class="fa fa-tags fa-fw"></i> Стоки</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/култури') !!}"><i class="fa fa-leaf fa-fw green_color"></i> Култури</a><br/>
                                             {{-- <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи Контрол на Пазара</a><br/>

@@ -10,13 +10,13 @@
 
 
 @section('content')
-    <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Към всички фирми</a>
+    <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-home btn btn-info my_btn"> Откажи. Към всички фирми</a>
     <hr class="my_hr"/>
 
     <div class="container-fluid" >
         <div class="form-group">
-            {!! Form::model($importers, ['url'=>'контрол/търговци/'.$importers->id.'/update', 'method'=>'POST']) !!}
-            {{-- {!! Form::model($importers, ['route'=>['контрол.търговци.update', $importers->id ], 'method'=>'PUT']) !!} --}}
+            {!! Form::model($importers, ['url'=>'контрол/вносители/'.$importers->id.'/update', 'method'=>'POST']) !!}
+            {{-- {!! Form::model($importers, ['route'=>['контрол.вносители.update', $importers->id ], 'method'=>'PUT']) !!} --}}
                 <div class="row" style="margin: 20px 0 10px 0">
                     <div class="col-md-8" >
                         {{-- <p class="description">Задължително маркирай дали фирмата е българска или не!</p> --}}
@@ -40,7 +40,7 @@
                 @include('quality.importers.form')
 
                 <div class="col-md-4">
-                    <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-arrow-circle-left btn btn-success "> Откажи. Назад</a>
+                    <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-arrow-circle-left btn btn-success "> Откажи. Назад</a>
                 </div>
                 <div class="col-md-4">
                     {!! Form::submit(' Редактирай фирмата!', ['class'=>'btn btn-info', 'id'=>'submit']) !!}

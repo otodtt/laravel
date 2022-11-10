@@ -116,19 +116,26 @@ Route::group(['middleware' => ['auth']], function () {
 
     /////////////////////////////
     //ФИРМИ търговци
-    Route::resource('контрол/търговци', 'ImportersController');
-    Route::get('/контрол/търговци/добави', 'ImportersController@create');
-    Route::get('/контрол/търговци/{id}/edit', 'ImportersController@edit');
-    Route::post('/контрол/търговци/{id}/update', 'ImportersController@update');
-    Route::post('/контрол/търговци/сортирай/{sort?}', 'ImportersController@sort');
-    Route::get('/контрол/търговци/{id}/show', 'ImportersController@show');
-
+    Route::resource('контрол/вносители', 'ImportersController');
+    Route::get('/контрол/вносители/добави', 'ImportersController@create');
+    Route::get('/контрол/вносители/{id}/edit', 'ImportersController@edit');
+    Route::post('/контрол/вносители/{id}/update', 'ImportersController@update');
+    Route::post('/контрол/вносители/сортирай/{sort?}', 'ImportersController@sort');
+    Route::get('/контрол/вносители/{id}/show', 'ImportersController@show');
 
     Route::resource('контрол/опаковчици', 'PackersController');
     Route::get('/контрол/опаковчик/добави', 'PackersController@create');
     Route::get('/контрол/опаковчик/{id}/edit', 'PackersController@edit');
+    Route::get('/контрол/опаковчик/{id}/show', 'PackersController@show');
     Route::post('/контрол/опаковчик/{id}/update', 'PackersController@update');
     Route::post('/контрол/опаковчик/{id}/destroy', 'PackersController@destroy');
+
+    Route::resource('контрол/търговци', 'TradersController');
+    Route::get('/контрол/търговци/добави', 'TradersController@create');
+    Route::get('/контрол/търговци/{id}/edit', 'TradersController@edit');
+    Route::get('/контрол/търговци/{id}/show', 'TradersController@show');
+    Route::post('/контрол/търговци/{id}/update', 'TradersController@update');
+    Route::post('/контрол/търговци/{id}/destroy', 'TradersController@destroy');
 
 
     /////////////////////////////
@@ -161,17 +168,12 @@ Route::group(['middleware' => ['auth']], function () {
     ///// внос покажи
     Route::get('контрол/сертификат-внос/{id}', 'QCertificatesController@show');
 
-    
-
     ///// LOCK UNLOCK
     Route::post('lock-import-certificate/{id}', 'QCertificatesController@import_lock');
     Route::post('unlock-import-certificate/{id}', 'QCertificatesController@import_unlock');
     Route::post('lock-export-certificate/{id}', 'QXCertificatesController@export_lock');
     Route::post('unlock-export-certificate/{id}', 'QXCertificatesController@export_unlock');
 
-   
-
-    
     // /////// СТОКИ
     Route::get('/контрол/стоки/внос', 'StocksController@import_index');
     Route::post('/import/add-stock/store', 'StocksController@import_stock_store');
@@ -240,7 +242,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/контрол/сертификати-вътрешен/добави/{id}', 'QINCertificatesController@create');
     Route::get('/контрол/сертификати-вътрешен/фермер', 'QINCertificatesController@create_farmer');
     Route::post('/контрол/сертификати-вътрешен/store_farmer', 'QINCertificatesController@store_farmer');
-    Route::get('/контрол/сертификати-вътрешен/фирма', 'QINCertificatesController@create_firm');
+
+    Route::any('/контрол/сертификати-вътрешен/фирма', 'QINCertificatesController@create_firm');
+
+    Route::any('/контрол/сертификати-вътрешен/търговец', 'QINCertificatesController@create_trader');
+    Route::post('/контрол/сертификати-вътрешен/store_trader', 'QINCertificatesController@store_trader');
+    Route::post('/контрол/сертификати-вътрешен/търговец/добави/{id}', 'QINCertificatesController@create_exist');
 
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////

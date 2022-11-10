@@ -21,7 +21,7 @@
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         <span class="fa  btn btn-default my_btn"><i class="fa fa-certificate " aria-hidden="true"></i>  Сертификати</span>
         <a href="{!! URL::to('/контрол/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
-        <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
+        <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
         <a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
         <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
     </div>
@@ -104,15 +104,14 @@
         <span id="has"></span>
         @if(isset($farmers))
             @if(count($farmers) == 0)
-                <div class="col-md-6 col-md-6_my " >
-                    <p class="new_farmer bold">
-                        <span class="view red">Няма намерен такъв Земеделски Производител. ЕГН или Булстат са верни.</span><br/>
-                        Добави Сертификат на НОВ Земеделски Производител
-                    </p>
-                </div>
-                <div class="col-md-6 col-md-6_my " >
-
-                    @if($firm == 1)
+                @if($firm == 1)
+                    <div class="col-md-6 col-md-6_my " >
+                        <p class="new_farmer bold">
+                            <span class="view red">Няма намерен такъв Земеделски Производител. ЕГН или Булстат са верни.</span><br/>
+                            Добави Сертификат на НОВ Земеделски Производител
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-md-6_my " >
                         {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                             <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ СЕРТИФИКАТ ЗА НОВ СТОПАНИН">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
@@ -120,17 +119,30 @@
                             <input type="hidden" name="gender" value="{!! $gender !!}">
                             <input type="hidden" name="pin" value="{!! $pin !!}">
                         {!! Form::close() !!}
-                    @else
+                    </div>
+                @else
+                    <div class="col-md-6 col-md-6_my " >
+                        <p class="new_farmer bold">
+                            <span class="view red">Няма намерена такъва фирма. ЕИК или Булстат са верни.</span><br/>
+                            Добави Сертификат на НОВА Фирма. ИЗБРЕИ ВИДА НА ФИРМАТА!
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-md-6_my " >
                         {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                        <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ СЕРТИФИКАТ НА ФИРМА">
+                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
                             <input type="hidden" name="eik" value="{!! $eik !!}">
                         {!! Form::close() !!}
-                    @endif
-
-
-                </div>
+                        <hr>
+                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            <input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">
+                            <input type="hidden" name="firm" value="{!! $firm !!}">
+                            <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
+                            <input type="hidden" name="eik" value="{!! $eik !!}">
+                        {!! Form::close() !!}
+                    </div>
+                @endif
             @else
                 @foreach($farmers as $farmer)
                     <div class="col-md-12 col-md-6_my " >

@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="info-wrap">
-        <a href="{!! URL::to('/контрол/търговци/'.$certificate->importer_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата!</a>
+        <a href="{!! URL::to('/контрол/вносители/'.$certificate->importer_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата!</a>
         <a href="{!! URL::to('/контрол/сертификати-внос')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати внос!</a>
         @if ($certificate->what_7 == 2)
             <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ВНОС</h4>

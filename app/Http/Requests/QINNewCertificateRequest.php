@@ -29,26 +29,8 @@ class QINNewCertificateRequest extends Request
         $name = null;
         $name_firm = null;
         $eik = null;
-        $assay_error = null;
-        $act = null;
-        $violation = null;
 
         $request = Request::all();
-        if(!isset($request['act']) || $request['act'] == 0){
-            $violation = 'required';
-            $act = 'required_if:violation,1|required';
-        }
-        if(isset($request['act']) && $request['act'] == 1){
-            $violation = 'in:1|required';
-            $act = '';
-        }
-        if(!isset($request['assay_no']) || !isset($request['assay_more']) || !isset($request['assay_prz'])  || !isset($request['assay_tor'])
-            || !isset($request['assay_metal']) || !isset($request['assay_micro']) || !isset($request['assay_other'])){
-            $assay_error = 'not_in:0';
-        }
-        else{
-            $assay_error = '';
-        }
         ///////
         if(isset($request['firm']) && $request['firm'] == 1){
             $name = 'required|min:3|max:150|cyrillic';
@@ -88,16 +70,6 @@ class QINNewCertificateRequest extends Request
             $name_firm = '';
             $pin_owner = '';
         }
-//        $request = Request::all();
-//        if($request['type_crops'] == 44) {
-//            $packer_name = 'required|cyrillic_names|min:3|max:100';
-//            $packer_address = 'required|cyrillic_with|min:5|max:500';
-//            $packer_vin = 'required|is_valid|digits_between:9,10';
-//        } else {
-//            $packer_name = 'latin|min:3|max:500';
-//            $packer_address = 'latin|min:5|max:500';
-//            $packer_vin = 'is_valid|digits_between:9,10';
-//        }
 
         return [
             'firm' => 'required',
@@ -110,24 +82,20 @@ class QINNewCertificateRequest extends Request
             'name' => $name,
             'gender' => $gender,
             'pin' => $pin,
-            'address'=> 'required|min:3|max:50|cyrillic_with',
+            'address'=> 'required|min:3|max:500|cyrillic_with',
+
+            'district_object' => 'required|not_in:0',
+            'location_farm' => 'min:3|max:50|cyrillic_names_objects',
+
+            'phone'=> 'phone_validate',
+            'mobil'=> 'mobile_validate',
+            'email'=> 'email',
 
             'error' => 'in:0',
-            // 'what_7'=>'required',
-            // 'type_crops'=>'required',
-            // 'importer_data'=>'required',
-//            'importer_name' => 'required|cyrillic_names|min:3|max:100',
-//            'importer_address' => 'required|cyrillic_with|min:5|max:500',
-//            'importer_vin' => 'required|is_valid|digits_between:9,10',
-//            'packer_name'=>$packer_name,
-//            'packer_address'=>$packer_address,
-//            'packer_vin'=>$packer_vin,
+
             'from_country'=>'required|min:5|max:300',
             'id_country'=>'required',
             'observations'=>'min:2|max:500',
-            // 'transport'=>'required|min:3|max:300',
-            // 'customs_bg'=>'required|cyrillic_with|min:3|max:300',
-            // 'customs_en'=>'required|latin|min:3|max:300',
             'place_bg'=>'required|cyrillic_with|min:3|max:300',
             'valid_until'=>'required|date_format:d.m.Y|after:hidden_date',
         ];
@@ -187,6 +155,9 @@ class QINNewCertificateRequest extends Request
             'location_farm.cyrillic_names_objects' => 'За Населено място\места пиши на кирилица без символи! Позволени символи (точка, запетая, точка и запетая) - . , ;',
 
             'error.in' => 'Избери населено място от списъка! Виж да не е избрана друга община!',
+
+            'phone.phone_validate' => 'Полето Телефон е в невалиден формат.',
+            'mobil.mobile_validate' => 'Полето Мобилен е в невалиден формат.',
 
             'from_country.required' => 'Поле № 4. Място на инспекцията/страна е задължително!',
             'from_country.min' => 'Поле № 4. Място на инспекцията се изписва с минимум 5 символа!',
