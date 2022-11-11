@@ -23,10 +23,22 @@ class QINNewTraderCertificateRequest extends Request
      */
     public function rules()
     {
+        $request = Request::all();
+        if(isset($request['trader_id']) && $request['trader_id'] > 0 ) {
+            $trader_name = '';
+            $trader_address = '';
+            $trader_vin = '';
+        }
+        else {
+            $trader_name = 'required|min:3|max:100|cyrillic_with';
+            $trader_address = 'required|min:3|max:500|cyrillic_with';
+            $trader_vin = 'required|is_valid|digits_between:9,13';
+        }
+
         return [
-            'trader_name' => 'required|min:3|max:100|cyrillic_with',
-            'trader_address' => 'required|min:3|max:500|cyrillic_with',
-            'trader_vin' => 'required|is_valid|digits_between:9,13',
+            'trader_name' => $trader_name,
+            'trader_address' => $trader_address,
+            'trader_vin' => $trader_vin,
 
             'packer_name' => 'required|min:3|max:100|cyrillic_with',
             'packer_address' => 'required|min:3|max:500|cyrillic_with',

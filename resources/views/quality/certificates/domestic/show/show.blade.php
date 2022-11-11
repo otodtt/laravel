@@ -24,6 +24,8 @@
             <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ВНОС</h4>
         @elseif ($certificate->what_7 == 3)
             <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ИЗНОС</h4>
+        @elseif ($certificate->what_7 == 1)
+            <h4 class="bold title_doc" >СЕРТИФИКАТ - ВЪТРЕШЕН</h4>
         @else
             <h4 class="bold title_doc" >СЕРТИФИКАТ</h4>
         @endif
@@ -53,12 +55,12 @@
                 </div>
                 <div style="display: table-row">
                     <div class="small_field_left " style="display: table-cell">
-                        <p >Сертификат №: <span class="bold">{{$certificate->stamp_number }}/{{$certificate->export }}</span></p>
+                        <p >Сертификат №: <span class="bold">{{$certificate->stamp_number }}/{{$certificate->internal }}</span></p>
                         <hr class="my_hr_in"/>
-                        <p >Фирма: <span class="bold" style="text-transform: uppercase">{{$certificate->importer_name }}</span></p>
-                        <p >ЕИК/VAT: <span class="bold">{{$certificate->importer_vin }}</span> </p>
+                        <p >Фирма: <span class="bold" style="text-transform: uppercase">{{$certificate->trader_name }}</span></p>
+                        <p >ЕИК/VAT: <span class="bold">{{$certificate->trader_vin }}</span> </p>
                         <hr class="my_hr_in"/>
-                        <p >Адрес: <span class="bold">{{$certificate->importer_address }}</span></p>
+                        <p >Адрес: <span class="bold">{{$certificate->trader_address }}</span></p>
                         <hr class="my_hr_in"/>
                     </div>
                     <div class="small_field_center" style="display: table-cell">
@@ -250,17 +252,43 @@
                             <tr id="first-row" >
                                 <td class="cell first-row-cell" style="height: 5.2cm">
                                     <p class="p_info" style="margin-bottom: 3px">1. Търговец / Trader</p>
-                                    <p class="p_content" style="margin-bottom: 8px">{{$certificate->importer_name }}</p>
                                     <?php
-                                        if($firm->is_bulgarian == 0) {
-                                            $vin = 'BG:'.$certificate->importer_vin;
-                                            
+                                        if($firm->type_firm == 0) {
+                                            $front = '';
+                                            $after = '';
+                                        }
+                                        elseif($firm->type_firm == 1) {
+                                            $front = 'ЗС:';
+                                            $after = '';
+                                        }
+                                        elseif($firm->type_firm == 2) {
+                                            $front = 'ЕТ';
+                                            $after = '';
+                                        }
+                                        elseif($firm->type_firm == 3) {
+                                            $front = '';
+                                            $after = 'ООД';
+                                        }
+                                        elseif($firm->type_firm == 4) {
+                                            $front = '';
+                                            $after = 'ЕООД';
+                                        }
+                                        elseif($firm->type_firm == 5) {
+                                            $front = '';
+                                            $after = 'АД';
+                                        }
+                                        elseif($firm->type_firm == 6) {
+                                            $front = '';
+                                            $after = '';
                                         }
                                         else {
-                                            $vin = $certificate->importer_vin;
+                                            $front = '';
+                                            $after = '';
                                         }
                                     ?>
-                                    <p class="p_content" style="">{{$certificate->importer_address }} / {{ $vin }}</p>
+                                    <p class="p_content" style="margin-bottom: 8px">{{$front}} {{$certificate->trader_name }} {{$after}}</p>
+
+                                    <p class="p_content" style="">{{$certificate->trader_address }} / BG: {{ $certificate->trader_vin }}</p>
                                 </td>
                                 <td class="cell first-row-cell cell-top" style="height: 5.2cm">
                                     @if ($certificate->type_crops == 1)
@@ -277,7 +305,7 @@
                                         Certificate of conformity with the European Union marketing standards applicable to fresh fruit and vegetables, according Regulation 543/2011
                                     </p>
                                     <p class="p_content number_sert" style="">
-                                        №/No {{ $certificate->stamp_number }}/{{ $certificate->export }}
+                                        №/No {{ $certificate->stamp_number }}/{{ $certificate->internal }}
                                     </p>
                                     <p class="p_info line" style="margin-bottom: 3px">
                                         (Настоящият сертификат е предназначен изключително за контролните органи)
@@ -298,22 +326,12 @@
                                         2. Опаковчик, посочен върху опаковката (ако е  различен от търговеца)/ Packer identified on packaging (if other than trader)
                                     </p>
                                     <p class="p_content" style="margin-top: 20px">
-                                        @if ($certificate->packer_id != 888)
-                                            @if( strlen($certificate->packer_address) > 0)
-                                                {{$certificate->packer_name }}, {{ $certificate->packer_address }}
-                                            @else
-                                                {{$certificate->packer_name }} {{ $certificate->packer_address }}
-                                            @endif
-
+                                        @if (strlen($certificate->packer_name) != 0 && strlen($certificate->packer_address) != 0)
+                                            {{$certificate->packer_name }}, {{ $certificate->packer_address }}/ BG: {{ $certificate->packer_vin }}
                                         @else
-                                        <span>--------------</span>
+                                            <span>--------------</span>
                                         @endif
-
-
                                     </p>
-                                    {{--<p class="p_content">--}}
-                                        {{--{{$certificate->packer_address }}--}}
-                                    {{--</p>--}}
                                 </td>
                                 <td class="cell second-row-cell cell-control autority" style="height: 1cm  !important" colspan="2">
                                     <p class="p_info" style="margin-bottom: 3px">

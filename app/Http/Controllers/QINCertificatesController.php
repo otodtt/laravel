@@ -30,8 +30,10 @@ class QINCertificatesController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose', 'create_import', 'import_ending',
-            'import_finish', 'import_lock', 'import_unlock']]);
+        $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose',
+            'create_farmer', 'store_farmer', 'create_firm', 'store_firm', 'create_trader',
+            'store_trader', 'create_exist', 'store_exist', 'internal_ending', 'domestic_finish'
+        ]]);
 
 
         $this->index = Set::select('q_index', 'authority_bg', 'authority_en')->get()->toArray();
@@ -77,7 +79,8 @@ class QINCertificatesController extends Controller
         
         return view('quality.certificates.domestic.index', compact('certificates', 'years', 'year_now', 'inspectors', 'firms'));
     }
-
+    ///////////////////////////////////////
+    ///////////////////////////////////////
     /**
      * СЪЩЕСТВУВАЩ ЗС
      * Display the specified resource.
@@ -133,11 +136,13 @@ class QINCertificatesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request|QINCertificateRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QINCertificateRequest $request)
+    public function store_old(QINCertificateRequest $request)
     {
+        $region = '';
+        $dist = '';
         $farmer_id = $request->farmer_id;
         $farmer = Farmer::findOrFail($farmer_id);
 
@@ -156,6 +161,36 @@ class QINCertificatesController extends Controller
         $convert_date = date('d.m.Y', $date_now);
         $final_date = strtotime($convert_date);
 
+        if($farmer->tvm == 1){
+            $tvm = 'гр. ';
+        }
+        elseif($farmer->tvm == 2 ){
+            $tvm = 'с. ';
+        }
+        else{
+            $tvm = 'гр./с. ';
+        }
+        $regions = $this->areas_all_list;
+        foreach ($regions as $k=>$items) {
+            if ($k == $farmer->areas_id) {
+                $region = $items;
+            }
+        }
+
+        /** Генерира списък с общините */
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $farmer->areas_id)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id');
+
+        foreach ($districts as $k=>$items) {
+            if ($k == $farmer->district_id) {
+                $dist = $items;
+            }
+        }
+
+        $address =$farmer->address.', '.$tvm.''.$farmer->location.', общ. '.$dist.', обл. '.$region;
         $data = [
             'internal' => $internal,
             'what_7' => 1,
@@ -164,7 +199,7 @@ class QINCertificatesController extends Controller
             'type_firm' => $farmer->type_firm,
             'trader_id' => 0,
             'trader_name' => $farmer->name,
-            'trader_address' => $farmer->address,
+            'trader_address' => $address,
             'trader_vin' => $farmer->pin,
             'from_country' => $request->from_country,
             'id_country' => $request->id_country,
@@ -182,7 +217,6 @@ class QINCertificatesController extends Controller
             'date_add' => date('d.m.Y', time()),
             'added_by' => Auth::user()->id,
         ];
-        //dd($data);
 
         QINCertificate::create($data);
 
@@ -299,6 +333,8 @@ class QINCertificatesController extends Controller
      */
     public function store_farmer(QINNewCertificateRequest $request)
     {
+        $region = '';
+        $dist = '';
         $sex = null;
         $pin = null;
         $eik = null;
@@ -324,6 +360,37 @@ class QINCertificatesController extends Controller
         $convert_date = date('d.m.Y', $date_now);
         $final_date = strtotime($convert_date);
 
+        if($request->data_tmv == 1){
+            $tvm = 'гр. ';
+        }
+        elseif($request->data_tmv == 2 ){
+            $tvm = 'с. ';
+        }
+        else{
+            $tvm = 'гр./с. ';
+        }
+        $regions = $this->areas_all_list;
+        foreach ($regions as $k=>$items) {
+            if ($k == $request->areas_id) {
+                $region = $items;
+            }
+        }
+
+        /** Генерира списък с общините */
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $request->areas_id)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id');
+
+        foreach ($districts as $k=>$items) {
+            if ($k == $request->district_id) {
+                $dist = $items;
+            }
+        }
+
+        $address =$request->address.', '.$tvm.''.$request->list_name.', общ. '.$dist.', обл. '.$region;
+
         $data = [
             'internal' => $internal,
             'what_7' => 1,
@@ -332,7 +399,7 @@ class QINCertificatesController extends Controller
             'type_firm' => $request->firm,
             'trader_id' => 0,
             'trader_name' => $request->name,
-            'trader_address' => $request->address,
+            'trader_address' => $address,
             'trader_vin' => $request->pin,
             'from_country' => $request->from_country,
             'id_country' => $request->id_country,
@@ -441,7 +508,6 @@ class QINCertificatesController extends Controller
 
         $farmer = Farmer::create($data_farmer);
         $insertedId = $farmer->id;
-//        $farmer_inserted = Farmer::findOrFail($insertedId);
 
         $certificate = QINCertificate::findOrFail($last_id[0]['id']);
         $data_add_farmer = [
@@ -454,11 +520,8 @@ class QINCertificatesController extends Controller
         return Redirect::to('/контрол/сертификат-вътрешен/'.$last_id[0]['id'] .'/завърши');
     }
 
-
-
-
     /**
-     * НОВА ФИРМА
+     * НОВА ФИРМА ЗС
      * Show the form for creating a new resource.
      *
      * @param Request $request
@@ -466,20 +529,15 @@ class QINCertificatesController extends Controller
      */
     public function create_firm(Request $request)
     {
-        dd($request->all());
         $firm = $request['firm'];
         $name = $request['name'];
+        $name_firm = $request['name_firm'];
         $pin = $request['pin'];
         $gender = $request['gender'];
+        $eik = $request['eik'];
 
         $type = 3;
         $index = $this->index;
-
-        $importers = Importer::select(['id', 'name_bg', 'name_en', 'address_en', 'vin', 'trade'])
-            ->where('is_active', '=', 1)
-            ->where('trade', '=', 1)
-            ->orWhere('trade', '=', 2)
-            ->get()->toArray();
 
         $countries= Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
 
@@ -552,8 +610,8 @@ class QINCertificatesController extends Controller
         $districts_farm[0] = 'Избери община';
         $districts_farm = array_sort_recursive($districts_farm);
 
-        return view('quality.certificates.domestic.domestic_new_farmer_certificate',
-            compact('index', 'importers', 'countries', 'crops', 'user', 'last_number', 'type',
+        return view('quality.certificates.domestic.domestic_new_firm_certificate',
+            compact('index',  'countries', 'crops', 'user', 'last_number', 'type', 'eik', 'name_firm',
                 'firm', 'name', 'pin', 'gender', 'regions', 'selected', 'district_list', 'locations', 'districts_farm' ));
     }
 
@@ -565,6 +623,8 @@ class QINCertificatesController extends Controller
      */
     public function store_firm(QINNewCertificateRequest $request)
     {
+        $region = '';
+        $dist = '';
         $sex = null;
         $pin = null;
         $eik = null;
@@ -574,52 +634,6 @@ class QINCertificatesController extends Controller
         $sex_owner = null;
         $in = null;
         $name = null;
-
-        $index = $this->index;
-        $user = User::select('id', 'all_name', 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', Auth::user()->id)->get()->toArray();
-
-        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
-
-        if(!empty($last_internal)) {
-            $internal = $last_internal[0]['internal'] + 1;
-        } else {
-            $internal = '3001';
-        }
-
-        $date_now = time();
-        $convert_date = date('d.m.Y', $date_now);
-        $final_date = strtotime($convert_date);
-
-        $data = [
-            'internal' => $internal,
-            'what_7' => 1,
-            'type_crops' => $request->type_crops,
-            //'farmer_id' => $farmer->id,
-            'type_firm' => $request->firm,
-            'trader_id' => 0,
-            'trader_name' => $request->name,
-            'trader_address' => $request->address,
-            'trader_vin' => $request->pin,
-            'from_country' => $request->from_country,
-            'id_country' => $request->id_country,
-            'for_country_bg' => $request->for_country_bg,
-            'for_country_en' => $request->for_country_en,
-            'observations' => $request->observations,
-            'place_bg' => $request->place_bg,
-            'date_issue' => $final_date,
-            'valid_until' => $request->valid_until,
-            'inspector_bg' => $user[0]['all_name'],
-            'inspector_en' => $user[0]['all_name_en'],
-            'stamp_number' => $index[0]['q_index'].'-'.$user[0]['stamp_number'],
-            'authority_bg' => $index[0]['authority_bg'],
-            'authority_en' => $index[0]['authority_en'],
-            'date_add' => date('d.m.Y', time()),
-            'added_by' => Auth::user()->id,
-        ];
-        QINCertificate::create($data);
-
-        $last_id = QINCertificate::select('id')->orderBy('id', 'desc')->limit(1)->get()->toArray();
-
 
         // ЗАПИС В ЗЕМ СТОПАНИН
         $cyrillic= array(0=>'', 1=>'А', 2=>'Б', 3=>'В', 4=>'Г', 5=>'Д', 6=>'Е', 7=>'Ж', 8=>'З', 9=>'И', 10=>'Й',
@@ -707,22 +721,90 @@ class QINCertificatesController extends Controller
 
         $farmer = Farmer::create($data_farmer);
         $insertedId = $farmer->id;
-//        $farmer_inserted = Farmer::findOrFail($insertedId);
 
-        $certificate = QINCertificate::findOrFail($last_id[0]['id']);
-        $data_add_farmer = [
+        $index = $this->index;
+        $user = User::select('id', 'all_name', 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', Auth::user()->id)->get()->toArray();
+
+        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
+
+        if(!empty($last_internal)) {
+            $internal = $last_internal[0]['internal'] + 1;
+        } else {
+            $internal = '3001';
+        }
+
+        $date_now = time();
+        $convert_date = date('d.m.Y', $date_now);
+        $final_date = strtotime($convert_date);
+
+        if($request->data_tmv == 1){
+            $tvm = 'гр. ';
+        }
+        elseif($request->data_tmv == 2 ){
+            $tvm = 'с. ';
+        }
+        else{
+            $tvm = 'гр./с. ';
+        }
+        $regions = $this->areas_all_list;
+        foreach ($regions as $k=>$items) {
+            if ($k == $request->areas_id) {
+                $region = $items;
+            }
+        }
+
+        /** Генерира списък с общините */
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $request->areas_id)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id');
+
+        foreach ($districts as $k=>$items) {
+            if ($k == $request->district_id) {
+                $dist = $items;
+            }
+        }
+
+        $address =$request->address.', '.$tvm.''.$request->list_name.', общ. '.$dist.', обл. '.$region;
+
+        $data = [
+            'internal' => $internal,
+            'what_7' => 1,
+            'type_crops' => $request->type_crops,
             'farmer_id' => $insertedId,
+            'type_firm' => $request->firm,
+            'trader_id' => 0,
+            'trader_name' => $request->name_firm,
+            'trader_address' => $address,
+            'trader_vin' => $request->bulstat,
+            'from_country' => $request->from_country,
+            'id_country' => $request->id_country,
+            'for_country_bg' => $request->for_country_bg,
+            'for_country_en' => $request->for_country_en,
+            'observations' => $request->observations,
+            'place_bg' => $request->place_bg,
+            'date_issue' => $final_date,
+            'valid_until' => $request->valid_until,
+            'inspector_bg' => $user[0]['all_name'],
+            'inspector_en' => $user[0]['all_name_en'],
+            'stamp_number' => $index[0]['q_index'].'-'.$user[0]['stamp_number'],
+            'authority_bg' => $index[0]['authority_bg'],
+            'authority_en' => $index[0]['authority_en'],
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
         ];
-        $certificate->fill($data_add_farmer);
-        $certificate->save();
+
+        QINCertificate::create($data);
+
+        $last_id = QINCertificate::select('id')->orderBy('id', 'desc')->limit(1)->get()->toArray();
 
         Session::flash('message', 'Записа е успешен!');
         return Redirect::to('/контрол/сертификат-вътрешен/'.$last_id[0]['id'] .'/завърши');
     }
 
-
-
-
+    ///////////////////////////////////////
+    ///////////////////////////////////////
     /**
      * НОВА ФИРМА ТЪРГОВЕЦ
      * Show the form for creating a new resource.
@@ -732,19 +814,12 @@ class QINCertificatesController extends Controller
      */
     public function create_trader(Request $request)
     {
-//        dd($request->all());
         $type_firm = $request['firm'];
         $trader_name = $request['name_firm'];
         $trader_vin = $request['eik'];
 
         $type = 3;
         $index = $this->index;
-
-        $importers = Importer::select(['id', 'name_bg', 'name_en', 'address_en', 'vin', 'trade'])
-            ->where('is_active', '=', 1)
-            ->where('trade', '=', 1)
-            ->orWhere('trade', '=', 2)
-            ->get()->toArray();
 
         $countries= Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
 
@@ -771,55 +846,9 @@ class QINCertificatesController extends Controller
         } else {
             $last_number[0]['internal'] = '3001';
         }
-//        $districts_farm = $this->districts_list->toArray();
-//        $districts_farm[0] = 'Избери община';
-//        $districts_farm = array_sort_recursive($districts_farm);
-
-//        $selected_array = Set::select('area_id')->get()->toArray();
-//        $selected_session = $selected_array[0]['area_id'];
-//        $get_session = Session::get('_old_input', 'hidden');
-//        if(isset($get_session['hidden']) && ((int)$get_session != (int)$selected_session)){
-//            $selected = $get_session['hidden'];
-//        }
-//        else{
-//            $selected = $selected_array[0]['area_id'];
-//        }
-//        $regions = $this->areas_all_list;
-//        //// Списъка с общините
-//        $district_list = Location::select('name', 'district_id')
-//            ->where('areas_id', '=', $selected)
-//            ->where('type_district', '=', 1)
-//            ->orderBy('district_id', 'asc')
-//            ->lists('name', 'district_id')->toArray();
-//        $district_list[0] = 'Избери община';
-//        $district_list = array_sort_recursive($district_list);
-//        //// Списъка с населените места
-//        $get_district = Session::get('_old_input', 'localsID');
-//        if(!isset($get_district['localsID']) || $get_district['localsID']==0){
-//            $locations = Location::select()
-//                ->where('areas_id', '=', $selected)
-//                ->where('tvm', '!=', 0)
-//                ->orderBy('type_district', 'desc')
-//                ->orderBy('district_id', 'asc')
-//                ->get()->toArray();
-//        }
-//        else {
-//            $locations = Location::select()
-//                ->where('areas_id', '=', $selected)
-//                ->where('district_id', '=', $get_district['localsID'])
-//                ->where('tvm', '!=', 0)
-//                ->orderBy('type_district', 'desc')
-//                ->orderBy('district_id', 'asc')
-//                ->get()->toArray();
-//        }
-//
-//        $districts_farm = $this->districts_list->toArray();
-//        $districts_farm[0] = 'Избери община';
-//        $districts_farm = array_sort_recursive($districts_farm);
-
         return view('quality.certificates.domestic.domestic_create_trader_certificate',
-            compact('index', 'importers', 'countries', 'crops', 'user', 'last_number', 'type',
-                'type_firm', 'trader_name', 'trader_vin' ));
+            compact('index', 'countries', 'crops', 'user', 'last_number', 'type', 'type_firm',
+                    'trader_name', 'trader_vin' ));
     }
 
     public function store_trader(QINNewTraderCertificateRequest $request)
@@ -894,10 +923,108 @@ class QINCertificatesController extends Controller
         return Redirect::to('/контрол/сертификат-вътрешен/'.$last_id[0]['id'] .'/завърши');
     }
 
+    ///////////////////////////////////////
+    ///////////////////////////////////////
+    /**
+     * СЪЩЕСТВУВАЩА ФИРМА ТЪРГОВЕЦ
+     * Show the form for creating a new resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create_exist(Request $request, $id)
+    {
+        $trader = Trader::findOrFail($id);
+
+        $type = 3;
+        $index = $this->index;
+
+        $countries= Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
+
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orderBy('group_id', 'asc')->get()->toArray();
+
+        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
+
+        $id = Auth::user()->id;
+        $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $id)->get()->toArray();
+
+        if(!empty($last_internal)) {
+            $last_number = $last_internal;
+        } else {
+            $last_number[0]['internal'] = '3001';
+        }
+
+        return view('quality.certificates.domestic.domestic_exist_trader_certificate',
+            compact('index', 'trader', 'countries', 'crops', 'user', 'last_number', 'type' ));
+    }
+
+    public function store_exist(QINNewTraderCertificateRequest $request)
+    {
+        $index = $this->index;
+        $user = User::select('id', 'all_name', 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', Auth::user()->id)->get()->toArray();
+
+        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
+
+        if(!empty($last_internal)) {
+            $internal = $last_internal[0]['internal'] + 1;
+        } else {
+            $internal = '3001';
+        }
+
+        $date_now = time();
+        $convert_date = date('d.m.Y', $date_now);
+        $final_date = strtotime($convert_date);
+
+        $trader = Trader::findOrFail($request->trader_id);
+
+        $data = [
+            'internal' => $internal,
+            'what_7' => 1,
+            'type_crops' => $request->type_crops,
+            'farmer_id' => 0,
+            'type_firm' => 0,
+            'trader_id' => $trader->id,
+            'trader_name' => $trader->trader_name,
+            'trader_address' => $trader->trader_address,
+            'trader_vin' =>  $trader->trader_vin,
+            'packer_name' => $request->packer_name,
+            'packer_address' => $request->packer_address,
+            'packer_vin' =>  $request->packer_vin,
+            'from_country' => $request->from_country,
+            'id_country' => $request->id_country,
+            'for_country_bg' => $request->for_country_bg,
+            'for_country_en' => $request->for_country_en,
+            'observations' => $request->observations,
+            'place_bg' => $request->place_bg,
+            'date_issue' => $final_date,
+            'valid_until' => $request->valid_until,
+            'inspector_bg' => $user[0]['all_name'],
+            'inspector_en' => $user[0]['all_name_en'],
+            'stamp_number' => $index[0]['q_index'].'-'.$user[0]['stamp_number'],
+            'authority_bg' => $index[0]['authority_bg'],
+            'authority_en' => $index[0]['authority_en'],
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
+        ];
+
+        QINCertificate::create($data);
+
+        $last_id = QINCertificate::select('id')->orderBy('id', 'desc')->limit(1)->get()->toArray();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/сертификат-вътрешен/'.$last_id[0]['id'] .'/завърши');
+    }
 
     public function internal_ending($id)
     {
-        dd($id);
         $crops= Crop::select('id', 'name', 'name_en', 'group_id')
             ->where('group_id', '=', 4)
             ->orWhere('group_id', '=', 5)
@@ -914,8 +1041,21 @@ class QINCertificatesController extends Controller
         $certificate = QINCertificate::findOrFail($id);
         $stocks = $certificate->internal_stocks->toArray();
 
-        return view('quality.certificates.export.stock_export', compact('id', 'crops', 'certificate', 'stocks'));
+        return view('quality.certificates.domestic.stock.stock_export', compact('id', 'crops', 'certificate', 'stocks'));
 
+    }
+
+    public function domestic_finish(Request $request)
+    {
+        $certificate = QINCertificate::findOrFail($request->certificate_id);
+        $data = [
+            'is_all' => 1,
+        ];
+        $certificate->fill($data);
+        $certificate->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/сертификати-вътрешен/'.$request->certificate_id);
     }
 
 
@@ -927,8 +1067,21 @@ class QINCertificatesController extends Controller
      */
     public function show($id)
     {
-        //
+        $certificate = QINCertificate::findOrFail($id);
+        $stocks = $certificate->internal_stocks;
+        $type_firm = $certificate->type_firm;
+        if($certificate->farmer_id > 0 &&$certificate->trader_id == 0){
+            $firm = Farmer::findOrFail($certificate->farmer_id);
+        }
+        elseif($certificate->farmer_id == 0 &&$certificate->trader_id > 0) {
+            $firm = Trader::findOrFail($certificate->trader_id);
+        }
+
+        $invoice = $certificate->internal_invoice->toArray();
+
+        return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -112,7 +112,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-md-6_my " >
-                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                             <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ СЕРТИФИКАТ ЗА НОВ СТОПАНИН">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name" value="{!! $name !!}">
@@ -128,14 +128,14 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-md-6_my " >
-                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/нова-фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                             <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
                             <input type="hidden" name="eik" value="{!! $eik !!}">
                         {!! Form::close() !!}
                         <hr>
-                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                             <input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name_firm" value="{!! $name_firm !!}">

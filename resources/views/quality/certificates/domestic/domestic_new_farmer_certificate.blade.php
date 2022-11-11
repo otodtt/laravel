@@ -33,15 +33,7 @@
                 </ul>
             </div>
         @endif
-        {{--<div class="alert alert-info my_alert" role="alert">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12 ">--}}
-                    {{--<h4 class="my_center bold">ДОБАВЯ СЕ СЕРТИФИКАТ НА</h4>--}}
-                    {{--@include('records.add.object_info')--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/store_farmer', 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
+        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/фермер/store_farmer', 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
             @include('quality.certificates.domestic.forms.form_create_farmer_certificate')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
@@ -62,7 +54,7 @@
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/location/findLocation.js" )!!}
-{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+    {!!Html::script("js/confirm/prevent.js" )!!}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>
         $('#id_country').change(function () {

@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
+use odbh\QINCertificate;
 use odbh\QXCertificate;
 use odbh\Stock;
 use odbh\QCertificate;
 use odbh\Http\Requests\StocksRequest;
 use odbh\StockExport;
+use odbh\StockInternal;
 use odbh\User;
 use odbh\Crop;
 use odbh\Set;
@@ -30,7 +32,12 @@ class StocksController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose', 'create_import']]);
+        $this->middleware('quality', ['only'=>[
+            'create', 'store', 'edit', 'update', 'choose', 'create_import',
+            'import_stock_store', 'import_stock_update', 'import_stocks_edit', 'import_destroy',
+            'export_stock_store', 'export_stock_update', 'export_stocks_edit', 'export_destroy',
+            'domestic_stock_store', 'domestic_stock_update', 'domestic_stocks_edit', 'domestic_destroy',
+        ]]);
 
         $this->index = Set::select('q_index', 'authority_bg', 'authority_en')->get()->toArray();
     }
@@ -468,9 +475,12 @@ class StocksController extends Controller
             'years_start_sort', 'years_end_sort', 'sort_crop', 'sort_inspector', 'sort_firm'));
     }
 
+    //////////////////////////////////////
+    //////////////////////////////////////
+    //////////////////////////////////////
 
     /**
-     * ВНОС СПИСЪК СЪС СТОКИТЕ
+     * ИЗНОС СПИСЪК СЪС СТОКИТЕ
      * Display the specified resource.
      *
      * @param Request $request
@@ -613,7 +623,7 @@ class StocksController extends Controller
             'years_start_sort', 'years_end_sort', 'sort_crop', 'sort_inspector', 'sort_firm'));
     }
 
-    /** ВНОС */
+    /** ИЗНОС */
     /**
      * Display the specified resource.
      *
@@ -734,9 +744,95 @@ class StocksController extends Controller
     }
 
 
+    //////////////////////////////////////
+    //////////////////////////////////////
+    //////////////////////////////////////
 
+    /**
+     * ИЗНОС СПИСЪК СЪС СТОКИТЕ
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function domestic_index(Request $request)
+    {
+        $search_value_return = $request['stock_number'];
+        $search_firm_return = $request['search_firm'];
 
+        if(count((array)$request['stock_number']) != 0) {
+            $this->validate($request, ['stock_number' => 'required|digits_between:1,4'],
+                [
+                    'stock_number.required' => 'Попълни търсения номер!',
+                    'stock_number.digits_between' => 'Номера трябва да е между една и четири цифри!',
+                ]);
+            $stocks = StockInternal::where('certificate_number', '=', $request['stock_number'])->get();
+        }
+        elseif (count((array)$request['search_firm']) != 0) {
+            $this->validate($request, ['search_firm' => 'required|not_in:0'],
+                [
+                    'search_firm.required' => 'Избери фирма!',
+                    'search_firm.not_in' => 'Избери фирма!',
+                ]);
 
+            $stocks = StockInternal::where('firm_id', '=', $request['search_firm'])->get();
+        }
+        else {
+            $stocks = StockInternal::where('internal', '>', 0)->orderBy('certificate_id', 'desc')->get();
+        }
+
+        $list = StockInternal::orderBy('crop_id', 'asc')->lists('crops_name', 'crop_id')->toArray();
+        $firms = Importer::where('is_active', '=', 1)->where('trade', '=', 1)->orWhere('trade', '=', 2)->lists('name_en', 'id')->toArray();
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+
+        return view('quality.stocks.export.index', compact('stocks', 'list', 'firms', 'inspectors', 'search_firm_return'));
+    }
+
+    /** ИЗНОС */
+    /**
+     * Display the specified resource.
+     *
+     *
+     * @param StocksRequest $request
+     * @return Response
+     */
+    public function domestic_stock_store(StocksRequest $request)
+    {
+        $certificate = QINCertificate::findOrFail($request->certificate_id);
+
+        $data = [
+            'certificate_id' => $request->certificate_id,
+            'certificate_number' => $certificate->internal,
+            'farmer_id' => $certificate->farmer_id,
+            'type_firm' => $certificate->type_firm,
+            'trader_id' => $certificate->trader_id,
+            'firm_name' => $certificate->trader_name,
+            'date_issue' => $request->date_issue,
+            'internal' => 1,
+            'type_pack' => (int)$request->type_package,
+            'type_crops' => $request->type_crops,
+            'number_packages' => $request->number_packages,
+            'different' => $request->different,
+            'crop_id' => $request->crops,
+            'crops_name' => $request->crops_name,
+            'crop_en' => $request->crop_en,
+            'variety' => $request->variety,
+            'quality_class' => $request->quality_class,
+            'weight' => $request->weight,
+            'date_add' => date('d.m.Y', time()),
+            'inspector_name' => Auth::user()->short_name,
+            'added_by' => Auth::user()->id,
+        ];
+
+        StockInternal::create($data);
+        return back();
+    }
 
     /**
      * Display a listing of the resource.

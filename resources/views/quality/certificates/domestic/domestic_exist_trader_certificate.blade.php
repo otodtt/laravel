@@ -32,17 +32,17 @@
                 </ul>
             </div>
         @endif
-        {{--<div class="alert alert-info my_alert" role="alert">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12 ">--}}
-                    {{--<h4 class="my_center bold">ДОБАВЯ СЕ СЕРТИФИКАТ НА</h4>--}}
-                    {{--@include('records.add.object_info')--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/store_trader', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        <div class="alert alert-info my_alert" role="alert">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <h4 class="my_center bold">ДОБАВЯ СЕ СЕРТИФИКАТ НА {{$trader->trader_name}}</h4>
+                    <h5 class="my_center bold">Адрес: {{$trader->trader_address}} - ЕИК/Булстат: {{$trader->trader_vin}}</h5>
+                </div>
+            </div>
+        </div>
+        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/търговец/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.certificates.domestic.forms.form_create_trader_certificate')
+            @include('quality.certificates.domestic.forms.form_create_exist_certificate')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
@@ -61,7 +61,7 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+    {!!Html::script("js/confirm/prevent.js" )!!}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>
         $('#id_country').change(function () {

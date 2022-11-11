@@ -64,26 +64,14 @@
                 <fieldset class="small_field"><legend class="small_legend">1. Търговец /Trader</legend>
                     <div class="col-md-8 col-md-6_my" >
                         <p class="description">
-                            Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
+                            Поле № 1 Попълни фирмата! Търговец /Trader <br>
                         </p>
-                        <div class="packer_wrap col-md-12" >
-                            <label for="trader_name">Име на Търговец:</label>
-                            {!! Form::text('trader_name',  ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
-                            {{--<br>--}}
-                            <label for="trader_address">Адрес:</label>
-                            {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
-                            {{-- <label for="trader_address">ЕИК:</label> --}}
-                            {{-- {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 40%', 'placeholder'=>'ЕИК/Булстат']) !!} --}}
-                        </div>
+                        <p>Фирма: <span class="bold">{{$trader->trader_name}}</span></p>
+                        <p>Адрес: <span class="bold">{{$trader->trader_address}}</span></p>
+                        <p>ЕИК/Булстат: <span class="bold">{{$trader->trader_vin}}</span></p>
+                        <input type="hidden" name="trader_id" value="{{$trader->id}}">
                     </div>
-                    <div  class="col-md-4">
-                        <p class="description">
-                            Полето ЕИК задължително!
-                        </p>
-                        {{-- <br> --}}
-                        <label for="trader_vin" style="margin-top: 0">ЕИК:</label>
-                        {!! Form::text('trader_vin', ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
-                    </div>
+
                 </fieldset>
             </div>
             <div class="col-md-6">

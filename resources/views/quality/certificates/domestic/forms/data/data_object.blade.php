@@ -137,7 +137,7 @@ if(isset($firm)){
 
                         <div class="col-md-8 col-md-6_my" >
                             {!! Form::label('owner', 'Представител:&nbsp;&nbsp;&nbsp; &nbsp; ', ['class'=>'labels']) !!}
-                            {!! Form::text('owner', null, ['class'=>'form-control form-control-my', 'maxlength'=>250, 'size'=>30 ]) !!}
+                            {!! Form::text('owner', null, ['class'=>'form-control form-control-my', 'maxlength'=>250, 'size'=>20 ]) !!}
                             &nbsp;
                             <label class="labels"><span>Мъж: </span>
                                 {!! Form::radio('gender_owner', 'male', false) !!}
@@ -146,7 +146,7 @@ if(isset($firm)){
                                 {!! Form::radio('gender_owner', 'female', false) !!}
                             </label>&nbsp;&nbsp;|
                             {!! Form::label('pin_owner', 'ЕГН:', ['class'=>'labels']) !!}
-                            {!! Form::text('pin_owner', null, ['class'=>'form-control form-control-my', 'maxlength'=>10, 'size'=>10, 'id'=>'pin' ]) !!}&nbsp;&nbsp;
+                            {!! Form::text('pin_owner', null, ['class'=>'form-control form-control-my', 'maxlength'=>10, 'size'=>7, 'id'=>'pin' ]) !!}&nbsp;&nbsp;
 
                             <label class="labels"><span>&nbsp;&nbsp;Без ЕГН: </span>
                                 {!! Form::radio('gender_owner', 'n', false) !!}

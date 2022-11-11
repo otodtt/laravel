@@ -12,7 +12,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на Стоки към Сертификат за ИЗНОС!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на Стоки към Сертификат - ВЪТРЕШЕН!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -49,9 +49,9 @@
                             <p class="description">1. Търговец /Trader</p><hr class="hr_in"/>
                             <div class="row">
                                 <div class="col-md-12">
-                                   <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['importer_name']}}</span></p>
-                                   <p>Адрес: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['importer_address']}}</span></p>
-                                   <p>ЕИК :&nbsp; <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['importer_vin']}}</span></p>
+                                   <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['trader_name']}}</span></p>
+                                   <p>Адрес: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['trader_address']}}</span></p>
+                                   <p>ЕИК :&nbsp; <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['trader_vin']}}</span></p>
                                 </div>
                             </div>
                         </fieldset>
@@ -62,7 +62,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <br>
-                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/{{$certificate['import']}}</span></p>
+                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/{{$certificate['internal']}}</span></p>
                                     <br>
                                 </div>
                             </div>
@@ -73,9 +73,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="description">2. Опаковчик</p><hr class="hr_in"/>
-                                    <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['packer_name']}}</span></p>
-                                    <p>Адрес: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['packer_address']}}</span></p>
-                                    <br>
+                                    @if(strlen($certificate['packer_name']) == 0 && strlen($certificate['packer_address']) == 0)
+                                        <p class="bold">Сертификатът е издаден на Земеделски производител.</p><br>
+                                    @else
+                                        <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['packer_name']}}</span></p>
+                                        <p>Адрес: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['packer_address']}}</span></p>
+                                        <p>ЕГН/ЕИК: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['packer_vin']}}</span></p>
+                                    @endif
                                 </div>
                             </div>
                         </fieldset>
@@ -173,7 +177,7 @@
     </div>
     <hr class="hr_in"/>
 
-    {!! Form::open(['url'=>'export/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    {!! Form::open(['url'=>'domestic/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
         
         @include('quality.certificates.export.forms.stock_form')
         <input type="hidden" name="date_issue" value="{{$certificate['date_issue']}}">
@@ -197,7 +201,7 @@
             </p>
         </div>
 
-        {!! Form::open(['url'=>'export-finish/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'domestic-finish/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             <div class="col-md-12" id="finish_stock" style="text-align: center; margin-top: 10px;">
                 {!! Form::submit('КРАЙ', ['class'=>'btn btn-success btn-lg', 'id'=>'submit-finish']) !!}
@@ -210,7 +214,7 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>
         var test = $( "#type option:selected" ).text();
