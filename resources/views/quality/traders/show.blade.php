@@ -125,33 +125,33 @@
                         @endif
                     </td>
                     <td>
-                        {{--@if($import_stocks != 0)--}}
-                            {{--@foreach($import_stocks as $stock)--}}
-                                {{--@foreach($stock as $val)--}}
-                                    {{--@if($val['certificate_id'] == $certificate->id)--}}
-                                        {{--<p>{{$val['crops_name']}}</p>--}}
-                                    {{--@endif--}}
-                                {{--@endforeach--}}
-                            {{--@endforeach--}}
-                        {{--@endif--}}
+                        @if($internal_stocks != 0)
+                            @foreach($internal_stocks as $stock)
+                                @foreach($stock as $val)
+                                    @if($val['certificate_id'] == $certificate->id)
+                                        <p>{{$val['crops_name']}}</p>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        @endif
                     </td>
                     <td>
-                        {{--@if($import_stocks != 0)--}}
-                            {{--@foreach($import_stocks as $stock)--}}
-                                {{--@foreach($stock as $val)--}}
-                                    {{--@if($val['certificate_id'] == $certificate->id)--}}
-                                        {{--<p style="text-align: right; margin-right: 10px">{{ number_format($val['weight'], 0, ',', ' ') }}</p>--}}
-                                    {{--@endif--}}
-                                {{--@endforeach--}}
-                            {{--@endforeach--}}
-                        {{--@endif--}}
+                        @if($internal_stocks != 0)
+                            @foreach($internal_stocks as $stock)
+                                @foreach($stock as $val)
+                                    @if($val['certificate_id'] == $certificate->id)
+                                        <p style="text-align: right; margin-right: 10px">{{ number_format($val['weight'], 0, ',', ' ') }}</p>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        @endif
                     </td>
                     <td>
                         {{$certificate['inspector_bg']}}
                     </td>
                     <td class="center">
 
-                        <a href="{!!URL::to('/контрол/сертификат-внос/'.$certificate['id'] )!!}" class="fa fa-binoculars btn btn-success my_btn"></a>
+                        <a href="{!!URL::to('/контрол/сертификати-вътрешен/'.$certificate['id'] )!!}" class="fa fa-binoculars btn btn-success my_btn"></a>
                     </td>
                 </tr>
             @endforeach
@@ -162,19 +162,19 @@
                 <th></th>
                 <th class="bold">Всичко кг.</th>
                 <th>
-                    {{--@if($import_stocks != 0)--}}
+                    @if($internal_stocks != 0)
                         <?php $final = array(); ?>
-                        {{--@foreach($import_stocks as $k=>$stock)--}}
-                            {{--<?php--}}
-                            {{--$final = array_merge($final, $stock);--}}
-                            {{--$total = array_sum(array_column($final, 'weight'));--}}
-                            {{--?>--}}
-                        {{--@endforeach--}}
+                        @foreach($internal_stocks as $k=>$stock)
+                            <?php
+                                $final = array_merge($final, $stock);
+                                $total = array_sum(array_column($final, 'weight'));
+                            ?>
+                        @endforeach
                         <?php
                         $total = array_sum(array_column($final, 'weight'));
                         ?>
                         <p style="text-align: left; margin-left: 10px">{{ number_format($total, 0, ',', ' ') }}</p>
-                    {{--@endif--}}
+                    @endif
                 </th>
                 <th></th>
                 <th></th>

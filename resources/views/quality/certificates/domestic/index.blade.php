@@ -52,7 +52,7 @@
             <div id="wr_choiz_all">
                 <div class="row">
                     <div class="col-md-5">
-                        {!! Form::open(array('url'=>'/контрол/сертификати-износ', 'method'=>'POST')) !!}
+                        {!! Form::open(array('url'=>'/контрол/сертификати-вътрешен', 'method'=>'POST')) !!}
                             {!! Form::label('years', 'Справка за:', ['class'=>'labels']) !!}
                             {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ', 'style'=> 'width: 80px;', 'id'=>'years']) !!}
                             <span class="bold"> година. </span>&nbsp;&nbsp;
@@ -73,7 +73,7 @@
                             $search_value_ret = null;
                         }
                         ?>
-                        {!! Form::open(array('url'=>'/контрол/сертификати-износ', 'method'=>'POST')) !!}
+                        {!! Form::open(array('url'=>'/контрол/сертификати-вътрешен', 'method'=>'POST')) !!}
                             {!! Form::label('search', ' Тъпси по:', ['class'=>'labels']) !!}
                             {!! Form::select('search', array(0 =>'', 1=>'Сертификат №', 2=>'Фактура №'), $search_ret, ['class'=>'form-control class_search', 'style'=>'display: inline-block; width: 150px']) !!}
                             {!! Form::text('search_value', $search_value_ret, ['class'=>'form-control search_value', 'size'=>30, 'style'=>'display: inline-block; width: 120px']) !!}
@@ -88,7 +88,7 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_alls">
-                {!! Form::open(['url' => '/контрол/сертификати-износ/сортирай', 'method' => 'POST']) !!}
+                {!! Form::open(['url' => '/контрол/сертификати-вътрешен/сортирай', 'method' => 'POST']) !!}
                 @include('quality.certificates.includes.sorting')
                 {!! Form::close() !!}
             </div>

@@ -94,8 +94,16 @@ class TradersController extends Controller
     {
         $trader = Trader::findOrFail($id);
         $certificates = $trader->qincertificate;
+        $trader_certificates = $trader->qincertificate;
 
-        return view('quality.traders.show', compact( 'trader', 'certificates'));
+        foreach($certificates as $certificate){
+            $internal_stocks[] = $certificate->internal_stocks->toArray();
+        }
+        if(!isset($internal_stocks)) {
+            $internal_stocks = array();
+        }
+        
+        return view('quality.traders.show', compact( 'trader', 'certificates', 'internal_stocks'));
     }
 
     /**
@@ -153,7 +161,7 @@ class TradersController extends Controller
 
         Session::flash('message', 'Фирмата е редактирана успешно!');
 //        return back();
-        return Redirect::to('/контрол/търговци');
+        return Redirect::to('/контрол/търговци/'.$trader->id.'/show');
     }
 
     /**

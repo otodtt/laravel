@@ -64,7 +64,7 @@ if ((int) $end_years == 0) {
         style="padding: 0 8px; width: 200px; display: inline-block;  margin-right: 30px;">
         <option value="0"> по фирма</option>
         @foreach ($firms as $k => $firm)
-            <option value="{{ $k }}" {{ $sort_firm_return == $k ? 'selected' : '' }}>{{ strtoupper($firm) }}
+            <option value="{{ $k }}" {{ $sort_firm_return == $k ? 'selected' : '' }}>{{ mb_strtoupper($firm, 'utf-8') }}
             </option>
         @endforeach
     </select>

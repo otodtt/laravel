@@ -18,8 +18,13 @@
 
 @section('content')
     <div class="info-wrap">
-        <a href="{!! URL::to('/контрол/вносители/'.$certificate->importer_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата!</a>
-        <a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати износ!</a>
+        @if ($certificate->type_firm == 0 && $certificate->trader_id > 0 && $certificate->farmer_id == 0)
+            <a href="{!! URL::to('/контрол/търговци/'.$certificate->trader_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата Търговец!</a>
+        @else
+            <a href="{!! URL::to('/стопанин/'.$certificate->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>
+        @endif
+        
+        <a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати износ!</a>
         @if ($certificate->what_7 == 2)
             <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ВНОС</h4>
         @elseif ($certificate->what_7 == 3)

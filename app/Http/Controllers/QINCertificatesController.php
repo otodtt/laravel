@@ -44,7 +44,7 @@ class QINCertificatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $array = array();
         $year_now = null;
@@ -56,7 +56,7 @@ class QINCertificatesController extends Controller
             ->lists('short_name', 'id')->toArray();
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
-        $firms = Importer::where('is_active', '=', 1)->where('trade', '=', 1)->orWhere('trade', '=', 2)->lists('name_en', 'id')->toArray();
+        $firms = Trader::where('id', '>', 0)->lists('trader_name', 'id')->toArray();
 
         if(isset($request['years'])){
             $year_now = $request['years'];
@@ -76,9 +76,37 @@ class QINCertificatesController extends Controller
         $years = array_filter(array_unique($array));
 
         $certificates = QINCertificate::where('date_issue','>=',$time_start)->where('date_issue','<=',$time_end)->orderBy('is_all', 'asc')->orderBy('id', 'desc')->get();
+
+
+        $search_return = $request['search'];
+        $search_value_return = $request['search_value'];
+
+        if((int)$request['search'] == 0){
+            $this->validate($request, ['search' => 'not_in:0']);
+        };
+        if((int)$request['search'] == 1){
+            $this->validate($request,
+                ['search_value' => 'required|digits_between:1,5'],
+                [
+                    'search_value.required' => 'Попълни търсения номер!',
+                    'search_value.digits_between' => 'Номера трябва да е между една и пет цифри!',
+                ]);
+            $certificates = QINCertificate::where('internal','=',$request['search_value'])->get();
+        };
+        if((int)$request['search'] == 2){
+            $this->validate($request,
+                ['search_value' => 'required|digits_between:3,10'],
+                [
+                    'search_value.required' => 'Попълни номера на фактурата!',
+                    'search_value.digits_between' => 'Номера трябва да е между 3 и 10 цифри!',
+                ]);
+            $certificates = QINCertificate::where('invoice_number','=',$request['search_value'])->get();
+        };
+
         
         return view('quality.certificates.domestic.index', compact('certificates', 'years', 'year_now', 'inspectors', 'firms'));
     }
+
     ///////////////////////////////////////
     ///////////////////////////////////////
     /**

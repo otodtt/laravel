@@ -233,6 +233,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     ///// ВЪТРЕШНИ
     Route::resource('/контрол/сертификати-вътрешен', 'QINCertificatesController');
+    Route::resource('/контрол/сертификати-вътрешен', 'QINCertificatesController@index');
     Route::any('/контрол/сертификати-вътрешен/{id}', 'QINCertificatesController@show');
     Route::any('/контрол/сертификати-вътрешен/фермер/store', 'QINCertificatesController@store_old');
     Route::get('/контрол/търси-земеделец', 'QINCertificatesController@farmer_request');
