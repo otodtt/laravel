@@ -17,11 +17,11 @@
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
-                <span class="bold">Ако култура я няма в падащото меню, иди на страница „ВСИЧКИ КУЛТУРИ“ и добави култура!
-                </span><br>
-                 <span class="bold">
-                     Ако вида на опаковката я няма в падащото меню, избери „Друго“ и попълни появилото се поле.
-                </span>
+            <span class="bold">Ако култура я няма в падащото меню, иди на страница „ВСИЧКИ КУЛТУРИ“ и добави култура!
+            </span><br>
+             <span class="bold">
+                 Ако вида на опаковката я няма в падащото меню, избери „Друго“ и попълни появилото се поле.
+            </span>
         </p>
     </div>
     
@@ -179,7 +179,7 @@
 
     {!! Form::open(['url'=>'domestic/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
         
-        @include('quality.certificates.export.forms.stock_form')
+        @include('quality.certificates.domestic.forms.stock_form')
         <input type="hidden" name="date_issue" value="{{$certificate['date_issue']}}">
     
         <div class="col-md-12" id="add_stock" style="text-align: center; margin-top: 10px;">
