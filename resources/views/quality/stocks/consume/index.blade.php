@@ -35,6 +35,7 @@
     <div class="btn-group">
         <a href="{!! URL::to('/контрол/стоки/внос') !!}" class="fa fa-arrow-down btn btn-info my_btn"> Стоки внос</a>
         <a href="{!! URL::to('/контрол/стоки/износ') !!}" class="fa fa-arrow-up btn btn-info my_btn"> Стоки/Износ</a>
+        <a href="{!! URL::to('/контрол/стоки/вътрешни') !!}" class="fa fa-retweet btn btn-info my_btn"> Стоки/Вътрешни</a>
         <span class="fa fa-cutlery btn btn-default my_btn"> Стоки за</span>
     </div>
     <hr />

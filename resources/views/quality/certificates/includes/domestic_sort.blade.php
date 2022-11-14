@@ -51,19 +51,13 @@ if ((int) $end_years == 0) {
 </div>
 <div class="col-md-7">
     {!! Form::label('limit_sort', ' Сортирай:', ['class' => 'labels']) !!}
-    {{--<select name="crop_sort" id="crop_sort" class="localsID form-control"--}}
-        {{--style="display: inline-block; width: 150px; margin-right: 30px;">--}}
-        {{--<option value="0">по стока</option>--}}
-        {{--@foreach ($list as $k => $li)--}}
-            {{--<option value="{{ $k }}" {{ $sort_crop_return == $k ? 'selected' : '' }}> {{ $li }}--}}
-            {{--</option>--}}
-        {{--@endforeach--}}
-    {{--</select>--}}
 
     <select name="firm_sort" id="search_firm" class="form-control form-control-my search_value"
         style="padding: 0 8px; width: 200px; display: inline-block;  margin-right: 30px;">
-        <option value="0"> по фирма</option>
-        @foreach ($firms as $k => $firm)
+        <option value="0"> по фирма търговец</option>
+        <option value="9999" {{ $sort_firm_return == 9999 ? 'selected' : '' }}> ВСИЧКИ ЗС</option>
+        <option value="8888" {{ $sort_firm_return == 8888 ? 'selected' : '' }}> ВСИЧКИ ТЪРГОВЦИ</option>
+    @foreach ($firms as $k => $firm)
             <option value="{{ $k }}" {{ $sort_firm_return == $k ? 'selected' : '' }}>{{ mb_strtoupper($firm, 'utf-8') }}
             </option>
         @endforeach

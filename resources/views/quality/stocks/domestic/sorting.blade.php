@@ -62,9 +62,11 @@ if ((int) $end_years == 0) {
 
     <select name="firm_sort" id="search_firm" class="form-control form-control-my search_value"
         style="padding: 0 8px; width: 200px; display: inline-block;  margin-right: 30px;">
-        <option value="0"> по фирма</option>
+        <option value="0"> Избери!</option>
+        <option value="9999" {{ $sort_firm_return == 9999 ? 'selected' : '' }}> ВСИЧКИ ЗС</option>
+        <option value="8888" {{ $sort_firm_return == 8888 ? 'selected' : '' }}> ВСИЧКИ ТЪРГОВЦИ</option>
         @foreach ($firms as $k => $firm)
-            <option value="{{ $k }}" {{ $sort_firm_return == $k ? 'selected' : '' }}>{{ strtoupper($firm) }}
+            <option value="{{ $k }}" {{ $sort_firm_return == $k ? 'selected' : '' }}>{{ mb_strtoupper($firm, 'utf-8') }}
             </option>
         @endforeach
     </select>

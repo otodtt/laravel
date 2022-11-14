@@ -57,7 +57,7 @@
                  {{--<td style="text-align: right; padding-right: 4px">{{ number_format($stock->weight, 0, ',', ' ') }}</td>--}}
                 <td>{{ $stock->inspector_name }}</td>
                 <td>
-                    <a href='/контрол/сертификат-износ/{{ $stock->certificate_id }}'class="fa fa-binoculars btn btn-primary my_btn"></a>
+                    <a href='/контрол/сертификати-вътрешен/{{ $stock->certificate_id }}'class="fa fa-binoculars btn btn-primary my_btn"></a>
                 </td>
             </tr>
         @endforeach

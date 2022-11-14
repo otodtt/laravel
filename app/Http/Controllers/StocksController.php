@@ -14,6 +14,7 @@ use odbh\QCertificate;
 use odbh\Http\Requests\StocksRequest;
 use odbh\StockExport;
 use odbh\StockInternal;
+use odbh\Trader;
 use odbh\User;
 use odbh\Crop;
 use odbh\Set;
@@ -659,7 +660,6 @@ class StocksController extends Controller
         return back();
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -746,10 +746,9 @@ class StocksController extends Controller
 
     //////////////////////////////////////
     //////////////////////////////////////
-    //////////////////////////////////////
 
     /**
-     * ИЗНОС СПИСЪК СЪС СТОКИТЕ
+     * ВЪТРЕШНИ СПИСЪК СЪС СТОКИТЕ
      * Display the specified resource.
      *
      * @param Request $request
@@ -782,7 +781,7 @@ class StocksController extends Controller
         }
 
         $list = StockInternal::orderBy('crop_id', 'asc')->lists('crops_name', 'crop_id')->toArray();
-        $firms = Importer::where('is_active', '=', 1)->where('trade', '=', 1)->orWhere('trade', '=', 2)->lists('name_en', 'id')->toArray();
+        $firms = Trader::where('id', '>', 0)->lists('trader_name', 'id')->toArray();
         $inspectors = User::select('id', 'short_name')
             ->where('active', '=', 1)
             ->where('ppz','=', 1)
@@ -791,10 +790,115 @@ class StocksController extends Controller
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
 
-        return view('quality.stocks.export.index', compact('stocks', 'list', 'firms', 'inspectors', 'search_firm_return'));
+        return view('quality.stocks.domestic.index', compact('stocks', 'list', 'firms', 'inspectors', 'search_firm_return'));
     }
 
-    /** ИЗНОС */
+    /**
+     * Сортира по задедени критерии.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param null $crop_sort
+     * @param  int $start_year
+     * @param  int $end_year
+     * @param  int $inspector_sort
+     *
+     * @return \Illuminate\Http\Response
+     * @internal param Crop $int
+     */
+    public function domestic_sort(Request $request, $start_year = null, $end_year = null, $crop_sort = null, $inspector_sort = null, $firm_sort = null )
+    {
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+
+        if (Input::has('start_year') || Input::has('end_year') || Input::has('crop_sort') || Input::has('inspector_sort') || Input::has('firm_sort')) {
+            $years_start_sort = Input::get('start_year');
+            $years_end_sort = Input::get('end_year');
+            $sort_crop = Input::get('crop_sort');
+            $sort_inspector = Input::get('inspector_sort');
+            $sort_firm = Input::get('firm_sort');
+        } else {
+            $years_start_sort = $start_year;
+            $years_end_sort = $end_year;
+            $sort_crop = $crop_sort;
+            $sort_inspector = $inspector_sort;
+            $sort_firm = $firm_sort;
+        }
+
+        if ((isset($years_start_sort) && $years_start_sort != '') || (isset($years_end_sort) && $years_end_sort != '')) {
+            $this->validate($request, ['start_year' => 'date_format:d.m.Y']);
+            $this->validate($request, ['end_year' => 'date_format:d.m.Y']);
+
+            $start = strtotime($years_start_sort);
+            $timezone_paris_start = strtotime($years_start_sort.'Europe/Paris');
+
+            $end = strtotime($years_end_sort);
+            $timezone_paris_end = strtotime($years_end_sort.'Europe/Paris');
+            if($start > 0 && $end == false){
+                $years_sql = ' AND date_issue='.$start;
+            }
+            if($end > 0 && $start == false){
+                $years_sql = ' AND date_issue='.$end;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start == (int)$end)){
+                // $years_sql = ' AND date_issue='.$start.' OR date_issue='.$timezone_paris_start;
+                $years_sql = ' AND date_issue='.$start;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start < (int)$end)){
+                $years_sql = ' AND date_issue>='.$start.' AND date_issue<='.$end.'';
+            }
+            if(($start > 0 && $end > 0) && ($start > $end)){
+                $years_sql = ' AND date_issue>='.$end.' AND date_issue<='.$start.'';
+            }
+        }
+        else{
+            $years_sql = ' ';
+        }
+        // Сортиране по култура
+        if (isset($sort_crop) && (int)$sort_crop != 0) {
+            $crop_sql = ' AND crop_id='.$sort_crop;
+        }
+        else{
+            $crop_sql = ' ';
+        }
+        // Сортиране по инспектор
+        if (isset($sort_inspector) && (int)$sort_inspector > 0){
+            $inspector_sql = ' AND added_by= '.$sort_inspector;
+        }
+        else{
+            $inspector_sql = '';
+        }
+        // Сортиране по фирма
+        if (isset($sort_firm) && $sort_firm != 0) {
+
+            if($sort_firm < 9999){
+                $firm_sql = ' AND trader_id='.$sort_firm;
+            }
+            if($sort_firm == 9999){
+                $firm_sql = ' AND farmer_id >0';
+            }
+            if($sort_firm == 8888){
+                $firm_sql = ' AND trader_id >0';
+            }
+        }
+        else{
+            $firm_sql = ' ';
+        }
+
+        $list = StockInternal::orderBy('crop_id', 'asc')->lists('crops_name', 'crop_id')->toArray();
+        $firms = Trader::where('id', '>', 0)->lists('trader_name', 'id')->toArray();
+
+        $stocks = DB::select("SELECT * FROM stocks_internal WHERE internal >0 $years_sql $crop_sql $inspector_sql $firm_sql ORDER BY certificate_id DESC;");
+
+        return view('quality.stocks.domestic.index', compact('stocks', 'list', 'firms', 'inspectors',
+            'years_start_sort', 'years_end_sort', 'sort_crop', 'sort_inspector', 'sort_firm'));
+    }
+
+    /** ВЪТРЕШНИ */
     /**
      * Display the specified resource.
      *
@@ -833,6 +937,8 @@ class StocksController extends Controller
         StockInternal::create($data);
         return back();
     }
+
+
 
     /**
      * Display a listing of the resource.

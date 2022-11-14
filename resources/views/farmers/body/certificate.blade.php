@@ -8,7 +8,7 @@
             </p>
         </div>
         <div class="col-md-5" >
-            <a class="fa fa-binoculars btn btn-info my_btn" href="/" style="margin: 3px 0"> Виж повече!</a>
+            <a class="fa fa-binoculars btn btn-info my_btn" href="/контрол/сертификати-вътрешен/{{$qcertificate->id}}" style="margin: 3px 0"> Виж Сертификата!</a>
         </div>
     @endforeach
 </fieldset>

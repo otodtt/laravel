@@ -36,6 +36,7 @@
         <span class="fa fa-leaf btn btn-default my_btn"> Всички Култури</span>
         <a href="{!! URL::to('/контрол/култури/внос')!!}" class="fa fa-arrow-down btn btn-info my_btn"> Култури/Внос</a>
         <a href="{!! URL::to('/контрол/култури/износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Култури/Износ</a>
+        <a href="{!! URL::to('/контрол/култури/вътрешни')!!}" class="fa fa-retweet btn btn-info my_btn"> Култури/Вътрешни</a>
     </div>
     <hr/>
     <fieldset class="form-group">
@@ -74,17 +75,12 @@
                 <?php $n = 1; ?>
                 @foreach ($groups as $k=> $group)
                     @foreach($cultures as $key => $culture)
-                        <?php  
-                            if ($k == $culture->group_id) {
-                            ?>
-                                <tr>
-                                    <td colspan="6"><p style="font-weight: bold">{{$group}}</p></td>
-                                </tr>
-                               
-                            <?php
-                                break ;
-                            }
-                        ?>
+                        @if($k == $culture->group_id)
+                            <tr>
+                                <td colspan="6"><p style="font-weight: bold">{{$group}}</p></td>
+                            </tr>
+                            <?php break ; ?>
+                        @endif
                     @endforeach
                     @foreach($cultures as $key => $culture)
                     <?php  
@@ -111,7 +107,7 @@
                                     </a>
                                 </td>
                             </tr>
-                           
+
                         <?php
                             continue ;
                         }

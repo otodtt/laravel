@@ -24,7 +24,7 @@
             <a href="{!! URL::to('/стопанин/'.$certificate->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>
         @endif
         
-        <a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати износ!</a>
+        <a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати вътрешни!</a>
         @if ($certificate->what_7 == 2)
             <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ВНОС</h4>
         @elseif ($certificate->what_7 == 3)

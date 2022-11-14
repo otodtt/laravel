@@ -123,6 +123,5 @@
     <script>
         var selectedVal = $("#years option:selected").val();
         var getYear = document.getElementById("get_year").value = selectedVal;
-        console.log(getYear);
     </script>
 @endsection

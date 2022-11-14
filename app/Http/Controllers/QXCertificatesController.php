@@ -38,6 +38,7 @@ class QXCertificatesController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -237,7 +238,6 @@ class QXCertificatesController extends Controller
         return view('quality.certificates.export.index', compact('certificates', 'firms', 'inspectors', 'years',
             'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm', 'year_now'));
     }
-
 
     /**
      * Show the form for creating a new resource.

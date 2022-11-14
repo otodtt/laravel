@@ -38,6 +38,7 @@
     <div class="btn-group">
         <a href="{!! URL::to('/контрол/стоки/внос') !!}" class="fa fa-arrow-down btn btn-info my_btn"> Стоки/Внос</a>
         <span class="fa fa-arrow-up btn btn-default my_btn"> Стоки/Износ</span>
+        <a href="{!! URL::to('/контрол/стоки/вътрешни') !!}" class="fa fa-retweet btn btn-info my_btn"> Стоки/Вътрешни</a>
         <a href="{!! URL::to('/контрол/стоки/консумация-преработка') !!}" class="fa fa-cutlery btn btn-info my_btn"> Стоки за</a>
     </div>
     <hr />
@@ -107,7 +108,7 @@
     </div>
     <br />
     <h4 style="text-align: center">СТОКИ ИЗНОС</h4>
-    @include('quality.stocks.import_stock_table')
+    @include('quality.stocks.export.export_stock_table')
 @endsection
 
 @section('scripts')

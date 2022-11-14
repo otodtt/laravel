@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Сертификат износ' }}
+    {{ 'Сертификати вътрешни' }}
 @endsection
 
 @section('css')
@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">ВЪТРЕШНИ СЕРТИФИКАТИ</h4>
+        <h4 class="bold layout-title">СЕРТИФИКАТИ ВЪТРЕШНИ</h4>
     </div>
     <hr/>
     <div class="btn-group">
@@ -88,8 +88,8 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_alls">
-                {!! Form::open(['url' => '/контрол/сертификати-вътрешен/сортирай', 'method' => 'POST']) !!}
-                @include('quality.certificates.includes.sorting')
+                {!! Form::open(['url' => '/контрол/сертификати-вътрешни/сортирай', 'method' => 'POST']) !!}
+                @include('quality.certificates.includes.domestic_sort')
                 {!! Form::close() !!}
             </div>
         </div>
@@ -114,6 +114,5 @@
     <script>
         var selectedVal = $("#years option:selected").val();
         var getYear = document.getElementById("get_year").value = selectedVal;
-        console.log(getYear);
     </script>
 @endsection

@@ -147,6 +147,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/контрол/култури/{id}/update', 'CropsController@update');
     Route::any('контрол/култури/внос', 'CropsController@crops_import');
     Route::any('контрол/култури/износ', 'CropsController@crops_export');
+    Route::any('контрол/култури/вътрешни', 'CropsController@crops_domestic');
 
     // /////// СЕРТИФИКАТИ
     Route::get('/контрол/сертификат-избери', 'QCertificatesController@choose');
@@ -193,6 +194,7 @@ Route::group(['middleware' => ['auth']], function () {
     // /////// СТОКИ ВЪТРЕШНИ
     Route::any('/контрол/стоки/вътрешни', 'StocksController@domestic_index');
     Route::post('/domestic/add-stock/store', 'StocksController@domestic_stock_store');
+    Route::post('/стоки/вътрешни/сортирай/{start_year?}/{end_year?}/{crop_sort?}/{inspector_sort?}', 'StocksController@domestic_sort');
 
     // /////// СТОКИ КОНСУМАЦИЯ ПРЕРАБОТКА
     Route::get('/контрол/стоки/консумация-преработка', 'StocksController@consume');
@@ -234,6 +236,8 @@ Route::group(['middleware' => ['auth']], function () {
     ///// ВЪТРЕШНИ
     Route::resource('/контрол/сертификати-вътрешен', 'QINCertificatesController');
     Route::resource('/контрол/сертификати-вътрешен', 'QINCertificatesController@index');
+    Route::post('контрол/сертификати-вътрешни/сортирай', 'QINCertificatesController@sort');
+
     Route::any('/контрол/сертификати-вътрешен/{id}', 'QINCertificatesController@show');
     Route::any('/контрол/сертификати-вътрешен/фермер/store', 'QINCertificatesController@store_old');
     Route::get('/контрол/търси-земеделец', 'QINCertificatesController@farmer_request');
@@ -248,7 +252,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/контрол/сертификати-вътрешен/добави/{id}', 'QINCertificatesController@create');
     Route::get('/контрол/сертификати-вътрешен/фермер/нов', 'QINCertificatesController@create_farmer');
     Route::post('/контрол/сертификати-вътрешен/фермер/store_farmer', 'QINCertificatesController@store_farmer');
-
 
     Route::any('/контрол/сертификати-вътрешен/фермер/нова-фирма', 'QINCertificatesController@create_firm');
     Route::post('/контрол/сертификати-вътрешен/фермер/store_firm', 'QINCertificatesController@store_firm');

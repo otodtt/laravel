@@ -1,7 +1,7 @@
 @extends('layouts.quality')
 
 @section('title')
-    {{ 'Всички Култири/Износ' }}
+    {{ 'Всички Култири/Вътрешен' }}
 @endsection
 
 @section('css')
@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">КУЛТУРИ/ИЗНОС</h4>
+        <h4 class="bold layout-title">КУЛТУРИ/ВЪТРЕШЕН</h4>
     </div>
     <hr />
     <div class="btn-group">
@@ -37,8 +37,8 @@
     <div class="btn-group">
         <a href="{!! URL::to('/контрол/култури') !!}" class="fa fa-leaf btn btn-info my_btn"> Всички Култури</a>
         <a href="{!! URL::to('/контрол/култури/внос') !!}" class="fa fa-arrow-up btn btn-info my_btn"> Култури/Внос</a>
-        <span class="fa fa-arrow-up btn btn-default my_btn"> Култури/Износ</span>
-        <a href="{!! URL::to('/контрол/култури/вътрешни')!!}" class="fa fa-retweet btn btn-info my_btn"> Култури/Вътреши</a>
+        <a href="{!! URL::to('/контрол/култури/износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Култури/Износ</a>
+        <span class="fa fa-retweet  btn btn-default my_btn"> Култури/Вътрешни</span>
     </div>
     <hr />
     <fieldset class="form-group">
@@ -46,7 +46,7 @@
             <div id="wr_choiz_all">
                 <div class="row">
                     <div class="col-md-4" style="padding-right: 0;">
-                        {!! Form::open(['url' => '/контрол/култури/износ', 'method' => 'POST']) !!}
+                        {!! Form::open(['url' => '/контрол/култури/вътрешни', 'method' => 'POST']) !!}
                             {!! Form::label('years', 'Справка за:', ['class' => 'labels']) !!}
                             {!! Form::select('years', $years, $year_now, [
                                 'class' => 'form-control form-control-my-search inspector_sort ',
@@ -62,7 +62,7 @@
                         {!! Form::close() !!}
                     </div>
                     <div class="col-md-8"  style="padding: 0;">
-                        {!! Form::open(['url' => '/контрол/култури/износ', 'method' => 'POST']) !!}
+                        {!! Form::open(['url' => '/контрол/култури/вътрешни', 'method' => 'POST']) !!}
                             @include('crops.forms.sorting')
                             <input type="hidden" name="years" value="{{$year_now}}">
                         {!! Form::close() !!}
@@ -72,13 +72,13 @@
         </div>
     </fieldset>
     <hr />
-    <div class="btn_add_certificate" style="text-align: right">
-        <a href="{!! URL::to('контрол/култури/износ') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
-            &nbsp; Изчисти сортирането!
-        </a>
-    </div>
     <div class="btn_add_certificate" style="text-align: center; margin-bottom: 20px; margin-top: 20px">
-        <h3 style="text-transform: uppercase;">Изнесени стоки за {{ $year_now }} <span
+        <div class="btn_add_certificate" style="text-align: right">
+            <a href="{!! URL::to('контрол/култури/вътрешни') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
+                &nbsp; Изчисти сортирането!
+            </a>
+        </div>
+        <h3 style="text-transform: uppercase;">Стоки за {{ $year_now }} <span
                 style="text-transform: none;">г.</span></h3>
     </div>
 

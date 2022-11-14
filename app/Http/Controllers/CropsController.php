@@ -11,6 +11,7 @@ use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
 use odbh\Http\Requests\CropsRequest;
 use odbh\StockExport;
+use odbh\StockInternal;
 use Session;
 use odbh\Stock;
 use Input;
@@ -320,7 +321,7 @@ class CropsController extends Controller
         $end_year = '31.12.'. $year_now;
         $time_end = strtotime(stripslashes($end_year));
 
-        $certs = Stock::get();
+        $certs = StockExport::get();
         foreach($certs as $cert){
             $array[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
         }
@@ -395,5 +396,104 @@ class CropsController extends Controller
         $stocks = json_decode(json_encode(array_filter($stocks)), true);
 
         return view('crops.export', compact('stocks', 'years', 'year_now', 'lists', 'sort_crop', 'years_start_sort', 'years_end_sort' ));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function crops_domestic(Request $request)
+    {
+        $array = array();
+        $year_now = null;
+
+        if(isset($request['years'])){
+            $year_now = $request['years'];
+        }
+        else{
+            $year_now = date('Y', time());
+        }
+        $start_year = '01.01.'. $year_now;
+        $time_start = strtotime(stripslashes($start_year));
+        $end_year = '31.12.'. $year_now;
+        $time_end = strtotime(stripslashes($end_year));
+
+        $certs = StockInternal::get();
+        foreach($certs as $cert){
+            $array[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
+        }
+        $years = array_filter(array_unique($array));
+
+        $initial_year = null;
+        $final_year = null;
+        $crop_sort = null;
+
+        if (Input::has('initial_year') || Input::has('final_year') || Input::has('crop_sort')) {
+            $years_start_sort = Input::get('initial_year');
+            $years_end_sort = Input::get('final_year');
+            $sort_crop = Input::get('crop_sort');
+        }
+        else {
+            $years_start_sort = $initial_year;
+            $years_end_sort = $final_year;
+            $sort_crop = $crop_sort;
+        }
+
+        if ((isset($years_start_sort) && $years_start_sort != '') || (isset($years_end_sort) && $years_end_sort != '')) {
+            $this->validate($request, ['start_year' => 'date_format:d.m.Y']);
+            $this->validate($request, ['end_year' => 'date_format:d.m.Y']);
+
+            $start = strtotime($years_start_sort);
+            $timezone_paris_start = strtotime($years_start_sort.'Europe/Paris');
+
+            $end = strtotime($years_end_sort);
+            $timezone_paris_end = strtotime($years_end_sort.'Europe/Paris');
+
+            if($start > 0 && $end == false){
+                $years_sql = ' AND date_issue='.$start.' OR date_issue='.$timezone_paris_start;
+            }
+            if($end > 0 && $start == false){
+                $years_sql = ' AND date_issue='.$end.' OR date_issue='.$timezone_paris_end;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start == (int)$end)){
+                $years_sql = ' AND date_issue='.$start.' OR date_issue='.$timezone_paris_start;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start < (int)$end)){
+                $years_sql = ' AND date_issue>='.$start.' AND date_issue<='.$end.'';
+            }
+            if(($start > 0 && $end > 0) && ($start > $end)){
+                $years_sql = ' AND date_issue>='.$end.' AND date_issue<='.$start.'';
+            }
+        }
+        else{
+            $years_sql = ' ';
+        }
+
+        // Сортиране по култура
+        if (isset($sort_crop) && (int)$sort_crop != 0) {
+            $crops_sql = ' AND crop_id ='.$sort_crop.'';
+        }
+        else{
+            $crops_sql = '';
+        }
+
+        if(strlen($years_sql) > 0 && $years_sql != ' ') {
+            $date_sql = $years_sql;
+        }
+        else {
+            $date_sql = ' AND date_issue>='.$time_start.' AND date_issue<='.$time_end.'';
+        }
+
+        $lists = StockInternal::orderBy('crop_id', 'asc')->where('date_issue', '>=', $time_start)->where('date_issue', '<=', $time_end)->lists('crops_name', 'crop_id')->toArray();
+
+        $stocks = array();
+        foreach($lists as $k=>$list){
+            $stocks[$list] = DB::select("SELECT * FROM stocks_internal WHERE crop_id=$k $date_sql $crops_sql ");
+        }
+        $stocks = json_decode(json_encode(array_filter($stocks)), true);
+
+        return view('crops.domestic', compact('stocks', 'years', 'year_now', 'lists', 'sort_crop', 'years_start_sort', 'years_end_sort' ));
     }
 }

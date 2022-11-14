@@ -42,6 +42,7 @@ class QINCertificatesController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -106,6 +107,111 @@ class QINCertificatesController extends Controller
         
         return view('quality.certificates.domestic.index', compact('certificates', 'years', 'year_now', 'inspectors', 'firms'));
     }
+
+    public function sort(Request $request, $start_year = null, $end_year = null, $crop_sort = null, $inspector_sort = null, $firm_sort = null )
+    {
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+        $firms = Trader::where('id', '>', 0)->lists('trader_name', 'id')->toArray();
+
+        if(isset($request['get_year'])){
+            $year_now = $request['get_year'];
+        }
+        else{
+            $year_now = date('Y', time());
+        }
+        $start_year = '01.01.'. $year_now;
+        $time_start = strtotime(stripslashes($start_year));
+        $end_year = '31.12.'. $year_now;
+        $time_end = strtotime(stripslashes($end_year));
+
+        $certs = QINCertificate::get();
+        foreach($certs as $cert){
+            $array[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
+        }
+        $years = array_filter(array_unique($array));
+
+        if (Input::has('start_year') || Input::has('end_year') || Input::has('inspector_sort') || Input::has('firm_sort')) {
+            $years_start_sort = Input::get('start_year');
+            $years_end_sort = Input::get('end_year');
+            $sort_inspector = Input::get('inspector_sort');
+            $sort_firm = Input::get('firm_sort');
+        }
+        else {
+            $years_start_sort = $start_year;
+            $years_end_sort = $end_year;
+            $sort_inspector = $inspector_sort;
+            $sort_firm = $firm_sort;
+        }
+
+        if ((isset($years_start_sort) && $years_start_sort != '') || (isset($years_end_sort) && $years_end_sort != '')) {
+            $this->validate($request, ['start_year' => 'date_format:d.m.Y']);
+            $this->validate($request, ['end_year' => 'date_format:d.m.Y']);
+
+            $start = strtotime($years_start_sort);
+            $timezone_paris_start = strtotime($years_start_sort.'Europe/Paris');
+
+            $end = strtotime($years_end_sort);
+            $timezone_paris_end = strtotime($years_end_sort.'Europe/Paris');
+            if($start > 0 && $end == false){
+                // $years_sql = ' AND date_issue='.$start.' OR date_issue='.$timezone_paris_start;
+                $years_sql = ' AND date_issue='.$start;
+            }
+            if($end > 0 && $start == false){
+                // $years_sql = ' AND date_issue='.$end.' OR date_issue='.$timezone_paris_end;
+                $years_sql = ' AND date_issue='.$end;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start == (int)$end)){
+                // $years_sql = ' AND date_issue='.$start.' OR date_issue='.$timezone_paris_start;
+                $years_sql = ' AND date_issue='.$start;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start < (int)$end)){
+                $years_sql = ' AND date_issue>='.$start.' AND date_issue<='.$end.'';
+            }
+            if(($start > 0 && $end > 0) && ($start > $end)){
+                $years_sql = ' AND date_issue>='.$end.' AND date_issue<='.$start.'';
+            }
+        }
+        else{
+            $years_sql =' AND date_issue>='.$time_start.' AND date_issue<='.$time_end.'';
+        }
+
+        // Сортиране по инспектор
+        if (isset($sort_inspector) && (int)$sort_inspector > 0){
+            $inspector_sql = ' AND added_by= '.$sort_inspector;
+        }
+        else{
+            $inspector_sql = '';
+        }
+
+        // Сортиране по фирма
+        if (isset($sort_firm) && $sort_firm != 0) {
+
+            if($sort_firm < 9999){
+                $firm_sql = ' AND trader_id='.$sort_firm;
+            }
+            if($sort_firm == 9999){
+                $firm_sql = ' AND farmer_id >0';
+            }
+            if($sort_firm == 8888){
+                $firm_sql = ' AND trader_id >0';
+            }
+        }
+        else{
+            $firm_sql = ' ';
+        }
+
+        $certificates = DB::select("SELECT * FROM qincertificates WHERE internal >0 $years_sql $inspector_sql $firm_sql ORDER BY id DESC");
+
+        return view('quality.certificates.domestic.index', compact('certificates', 'firms', 'inspectors', 'years',
+            'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm', 'year_now'));
+    }
+
 
     ///////////////////////////////////////
     ///////////////////////////////////////
@@ -1069,7 +1175,7 @@ class QINCertificatesController extends Controller
         $certificate = QINCertificate::findOrFail($id);
         $stocks = $certificate->internal_stocks->toArray();
 
-        return view('quality.certificates.domestic.stock.stock_export', compact('id', 'crops', 'certificate', 'stocks'));
+        return view('quality.certificates.domestic.stock.stock_domestic', compact('id', 'crops', 'certificate', 'stocks'));
 
     }
 
