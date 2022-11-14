@@ -261,6 +261,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/контрол/сертификати-вътрешен/търговец/добави/{id}', 'QINCertificatesController@create_exist');
     Route::post('/контрол/сертификати-вътрешен/търговец/store', 'QINCertificatesController@store_exist');
 
+    Route::get('контрол/сертификат-вътрешен/{id}/edit', 'QINCertificatesController@edit');
+
     Route::post('/domestic-finish/store', 'QINCertificatesController@domestic_finish');
 
     //////////////////////////////////////////////////////////

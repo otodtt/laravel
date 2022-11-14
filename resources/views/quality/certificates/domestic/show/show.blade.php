@@ -62,16 +62,75 @@
                     <div class="small_field_left " style="display: table-cell">
                         <p >Сертификат №: <span class="bold">{{$certificate->stamp_number }}/{{$certificate->internal }}</span></p>
                         <hr class="my_hr_in"/>
-                        <p >Фирма: <span class="bold" style="text-transform: uppercase">{{$certificate->trader_name }}</span></p>
-                        <p >ЕИК/VAT: <span class="bold">{{$certificate->trader_vin }}</span> </p>
-                        <hr class="my_hr_in"/>
-                        <p >Адрес: <span class="bold">{{$certificate->trader_address }}</span></p>
+                        @if ($certificate->farmer_id > 0 && $certificate->type_firm )
+                            <?php
+                                if($certificate->type_firm == 0) {
+                                    $front = '';
+                                    $after = '';
+                                    $for = '';
+                                    $vin = '';
+                                }
+                                elseif($certificate->type_firm == 1) {
+                                    $front = '';
+                                    $after = '';
+                                    $for = 'ЗС:';
+                                    $vin = 'ЕГН:';
+                                }
+                                elseif($certificate->type_firm == 2) {
+                                    $front = 'ЕТ';
+                                    $after = '';
+                                    $for = 'Фирма:';
+                                    $vin = 'ЕИК/Булстат:';
+                                }
+                                elseif($certificate->type_firm == 3) {
+                                    $front = '';
+                                    $after = 'ООД';
+                                    $for = 'Фирма:';
+                                    $vin = 'ЕИК/Булстат:';
+                                }
+                                elseif($certificate->type_firm == 4) {
+                                    $front = '';
+                                    $after = 'ЕООД';
+                                    $for = 'Фирма:';
+                                    $vin = 'ЕИК/Булстат:';
+                                }
+                                elseif($certificate->type_firm == 5) {
+                                    $front = '';
+                                    $after = 'АД';
+                                    $for = 'Фирма:';
+                                    $vin = 'ЕИК/Булстат:';
+                                }
+                                elseif($certificate->type_firm == 6) {
+                                    $front = '';
+                                    $after = '';
+                                    $for = '';
+                                    $vin = 'ЕИК/Булстат:';
+                                }
+                                else {
+                                    $front = '';
+                                    $after = '';
+                                    $for = '';
+                                    $vin = '';
+                                }
+                            ?>
+                            <p >{{$for }} <span class="bold" style="text-transform: uppercase">{{$front}} {{$certificate->trader_name }} {{$after}}</span></p>
+                            <p >{{$vin}} <span class="bold">{{$certificate->trader_vin }}</span> </p>
+                            <hr class="my_hr_in"/>
+                            <p >Адрес: <span class="bold">{{$certificate->trader_address }}</span></p>
+                        @else
+                            <p >Търговец: <span class="bold" style="text-transform: uppercase">{{$certificate->trader_name }} </span></p>
+                            <p >ЕИК/Булстат: <span class="bold">{{$certificate->trader_vin }}</span> </p>
+                            <hr class="my_hr_in"/>
+                            <p >Адрес: <span class="bold">{{$certificate->trader_address }}</span></p>
+                        @endif
                         <hr class="my_hr_in"/>
                     </div>
                     <div class="small_field_center" style="display: table-cell">
                         <p>Опаковчик</p>
                         <hr class="my_hr_in"/>
-                        <p >Фирма: <span class="bold" style="text-transform: uppercase">{{$certificate->packer_name }}</span></p>
+                        <p >Фирма/ЗС: <span class="bold" style="text-transform: uppercase">{{$certificate->packer_name }}</span></p>
+                        <p >ЕГН/ЕИК: <span class="bold">{{$certificate->packer_vin}}</span></p>
+                        <hr class="my_hr_in"/>
                         <p >Адрес: <span class="bold">{{$certificate->packer_address }}</span></p>
                         <hr class="my_hr_in"/>
                     </div>
@@ -145,9 +204,9 @@
                     <div class="col-md-4">
                         <p >Контролен орган: <span class="bold" style="text-transform: none">{{$certificate->authority_bg }}</span></p>
                         <hr class="my_hr_in"/>
-                        <p >Митница: <span class="bold" style="text-transform: none">{{$certificate->customs_bg }}/{{$certificate->customs_en }}</span></p>
+                        <p >Митница: <span class="bold" style="text-transform: none">{{$certificate->customs_bg }}</span></p>
                         <hr class="my_hr_in"/>
-                        <p >Място на издаване: <span class="bold">{{$certificate->place_bg }}/ {{$certificate->place_en }}</span></p>
+                        <p >Място на издаване: <span class="bold">{{$certificate->place_bg }}</span></p>
                         <hr class="my_hr_in"/>
                     </div>
                     <div class="col-md-4">
@@ -195,7 +254,7 @@
                         <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Само администратор или инспектора съставил Сертификата могат да го Редактират!</p>
                         <hr class="my_hr_in"/>
                         <div class="btn_add" style="text-align: left; display: inline-block; margin-top: 5px">
-                            <a href="{!!URL::to('/контрол/сертификат-износ/'.$certificate->id.'/edit')!!}" class="fa fa-edit btn btn-primary">  Редактирай Данните</a>
+                            <a href="{!!URL::to('/контрол/сертификат-вътрешен/'.$certificate->id.'/edit')!!}" class="fa fa-edit btn btn-primary">  Редактирай Данните</a>
                         </div>
                         <div class="btn_add" style="float: right; display: inline-block; margin-top: 5px">
                             <a href="{!!URL::to('/export/stock/'.$certificate->id.'/0/edit')!!}" class="fa fa-edit btn btn-danger">  Редактирай Стоките</a>
@@ -261,39 +320,50 @@
                                         if($firm->type_firm == 0) {
                                             $front = '';
                                             $after = '';
+                                            $vin = '';
                                         }
                                         elseif($firm->type_firm == 1) {
                                             $front = 'ЗС:';
                                             $after = '';
+                                            $vin = 'ЕГН:';
                                         }
                                         elseif($firm->type_firm == 2) {
                                             $front = 'ЕТ';
                                             $after = '';
+                                            $vin = 'BG:';
                                         }
                                         elseif($firm->type_firm == 3) {
                                             $front = '';
                                             $after = 'ООД';
+                                            $vin = 'BG:';
                                         }
                                         elseif($firm->type_firm == 4) {
                                             $front = '';
                                             $after = 'ЕООД';
+                                            $vin = 'BG:';
                                         }
                                         elseif($firm->type_firm == 5) {
                                             $front = '';
                                             $after = 'АД';
+                                            $vin = 'BG:';
                                         }
                                         elseif($firm->type_firm == 6) {
                                             $front = '';
                                             $after = '';
+                                            $vin = 'BG:';
                                         }
                                         else {
                                             $front = '';
                                             $after = '';
+                                            $vin = '';
+                                        }
+                                        if($type_firm == 0) {
+                                            $vin = 'BG:';
                                         }
                                     ?>
                                     <p class="p_content" style="margin-bottom: 8px">{{$front}} {{$certificate->trader_name }} {{$after}}</p>
 
-                                    <p class="p_content" style="">{{$certificate->trader_address }} / BG: {{ $certificate->trader_vin }}</p>
+                                    <p class="p_content" style="">{{$certificate->trader_address }} / {{$vin}} {{ $certificate->trader_vin }}</p>
                                 </td>
                                 <td class="cell first-row-cell cell-top" style="height: 5.2cm">
                                     @if ($certificate->type_crops == 1)
@@ -516,18 +586,19 @@
                                     </p>
                                     <div class="com-md-6" style="display: inline-block">
                                         <p class="" style="font-size: 11.5px;">
-                                            <span style="width: 50%">Предвиждано митническо учреждение/ <span class="bold">{{$certificate->customs_bg }}</span></span>
+                                            <span style="width: 50%">Предвиждано митническо учреждение <span class="bold">{{$certificate->customs_bg }}</span></span>
                                         </p>
                                         <p class="" style="font-size: 11.5px;">
-                                            <span style="width: 50%">Customs office foresee/ <span class="bold">{{$certificate->customs_en }}</span></span>
+                                            <span style="width: 50%">Customs office foresee <span class="bold">{{$certificate->customs_en }}</span></span>
                                         </p>
                                     </div>
                                     <div class="com-md-6" style="display: inline-block">
                                         <p class="" style="font-size: 11.5px;">
-                                            <span style="width: 50%; margin-left: 10px" >Място и дата на издаване/ <span class="bold">{{$certificate->place_bg }}/ {{date('d.m.Y', $certificate->date_issue)}}</span></span>
+                                            <span style="width: 50%; margin-left: 10px" >Място и дата на издаване / <span class="bold">{{$certificate->place_bg }} / {{date('d.m.Y', $certificate->date_issue)}}</span></span>
                                         </p>
                                         <p class="" style="font-size: 11.5px;">
-                                            <span style="width: 50%; margin-left: 10px" >Place and date of issue/ <span class="bold">{{$certificate->place_en }}/ {{date('d.m.Y', $certificate->date_issue)}}</span></span>
+                                            <span style="width: 50%; margin-left: 10px" >Place and date of issue 
+                                            {{-- <span style="width: 50%; margin-left: 10px" >Place and date of issue/ <span class="bold">{{$certificate->place_en }}/ {{date('d.m.Y', $certificate->date_issue)}}</span></span> --}}
                                         </p>
                                     </div>
                                     <p class="" style="font-size: 11.5px; margin-top: 5px">
@@ -537,7 +608,7 @@
                                         Подписващо лице (име с главни букви): <span class="bold" style="text-transform: uppercase">{{$certificate->inspector_bg }}</span>
                                     </p>
                                     <p style="font-size: 11.5px;">
-                                        Signatory (name in block letters): <span class="bold" style="text-transform: uppercase">{{$certificate->inspector_en }}</span>
+                                        Signatory (name in block letters): <span class="bold" style="text-transform: uppercase"></span>
                                     </p>
                                     <p style="font-size: 11.5px;" id="signature">
                                         Подпис/Signature..................Печат на компетентния орган/Seal of the competent authority

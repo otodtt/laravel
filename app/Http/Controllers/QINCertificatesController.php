@@ -1210,7 +1210,7 @@ class QINCertificatesController extends Controller
         elseif($certificate->farmer_id == 0 &&$certificate->trader_id > 0) {
             $firm = Trader::findOrFail($certificate->trader_id);
         }
-
+        
         $invoice = $certificate->internal_invoice->toArray();
 
         return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm'));
@@ -1226,6 +1226,17 @@ class QINCertificatesController extends Controller
     public function edit($id)
     {
         // echo ('OK');
+        $type = 0;
+        $index = $this->index;
+        $certificate = QINCertificate::findOrFail($id);
+        $packers = Packer::select('id', 'packer_name', 'packer_address')->get()->toArray();
+        $importers = Trader::select(['id', 'trader_name', 'trader_address', 'trader_vin'])->get()->toArray();
+        // dd($certificate);
+
+        $countries = Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
+        $lock = $certificate->is_lock;
+
+        return view('quality.certificates.domestic.edit.domestic_edit_certificate', compact('type', 'certificate', 'importers', 'index', 'countries', 'lock', 'packers'));
     }
 
     /**
