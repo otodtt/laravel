@@ -88,7 +88,7 @@
 @section('scripts')
     {!!Html::script("js/table/jquery-1.11.3.min.js" )!!}
     {!!Html::script("js/table/jquery.dataTables.js" )!!}
-    {!!Html::script("js/quality/invoiceTable.js" )!!}
+    {!!Html::script("js/quality/InvoiceTable.js" )!!}
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/date/in_date.js" )!!}
 @endsection
