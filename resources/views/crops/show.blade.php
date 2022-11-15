@@ -36,6 +36,7 @@
         <a href="{!! URL::to('/контрол/култури') !!}" class="fa fa-leaf btn btn-info my_btn"> Всички Култури</a>
         <a href="{!! URL::to('/контрол/култури/внос') !!}" class="fa fa-arrow-down btn btn-info my_btn"> Култури/Внос</a>
         <a href="{!! URL::to('/контрол/култури/износ') !!}" class="fa fa-arrow-up btn btn-info my_btn"> Култури/Износ</a>
+        <a href="{!! URL::to('/контрол/култури/вътрешни') !!}" class="fa fa-retweet btn btn-info my_btn"> Култури/Вътрешни</a>
     </div>
     <hr />
     <div style="text-align: center;">

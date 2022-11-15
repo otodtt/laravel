@@ -80,7 +80,6 @@ class CropsController extends Controller
         $insert = preg_replace('/(\w+)/', '-$1', $string);
         $remove= str_replace(' ', '', $insert);
         $first = substr($remove, 1);
-        // $lower = strtolower($first);
 
         $data = [
             'name' => $request['name'],
@@ -125,19 +124,34 @@ class CropsController extends Controller
             $array_import[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
             $yearsI = array_filter(array_unique($array_import));
         }
+        
         $certs_export = StockExport::get();
         foreach($certs_export as $cert){
             $array_export[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
             $yearsX = array_filter(array_unique($array_export));
         }
-        $years = array_replace($yearsI, $yearsX);
-        ksort($years);
+
+        $certs_domestic = StockInternal::get();
+        foreach($certs_domestic as $cert){
+            $array_domestic[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
+            $yearsD = array_filter(array_unique($array_domestic));
+        }
+        
+        if(isset($yearsI) || isset($yearsX) || isset($yearsD)  ) {
+            $years = array_replace($yearsI, $yearsX, $yearsD);
+            ksort($years);
+        }
+        else {
+            $years = [2022 => "2022"];
+        }
+        //dd($years);
 
         $culture = Crop::findOrFail($id);
         $stocks_import = Stock::where('crop_id', $id)->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )->orderby('date_issue', 'desc')->get();
         $stocks_export = StockExport::where('crop_id', $id)->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )->orderby('date_issue', 'desc')->get();
+        $stocks_domestic = StockInternal::where('crop_id', $id)->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )->orderby('date_issue', 'desc')->get();
 
-        return view('crops.show', compact('culture', 'stocks_import', 'stocks_export', 'years', 'year_now'));
+        return view('crops.show', compact('culture', 'stocks_import', 'stocks_export', 'stocks_domestic', 'years', 'year_now'));
     }
 
     /**
