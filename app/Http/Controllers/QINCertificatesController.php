@@ -10,9 +10,12 @@ use odbh\Http\Requests\QINCertificateRequest;
 
 use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
+use odbh\Http\Requests\QINUpdateCertificateRequest;
+use odbh\Invoice;
 use odbh\Location;
 use odbh\QINCertificate;
 use odbh\Set;
+use odbh\StockInternal;
 use odbh\Trader;
 use odbh\User;
 use odbh\Importer;
@@ -1192,7 +1195,6 @@ class QINCertificatesController extends Controller
         return Redirect::to('/контрол/сертификати-вътрешен/'.$request->certificate_id);
     }
 
-
     /**
      * Display the specified resource.
      *
@@ -1216,7 +1218,6 @@ class QINCertificatesController extends Controller
         return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm'));
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -1225,13 +1226,11 @@ class QINCertificatesController extends Controller
      */
     public function edit($id)
     {
-        // echo ('OK');
         $type = 0;
         $index = $this->index;
         $certificate = QINCertificate::findOrFail($id);
         $packers = Packer::select('id', 'packer_name', 'packer_address')->get()->toArray();
         $importers = Trader::select(['id', 'trader_name', 'trader_address', 'trader_vin'])->get()->toArray();
-        // dd($certificate);
 
         $countries = Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
         $lock = $certificate->is_lock;
@@ -1242,13 +1241,75 @@ class QINCertificatesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Request|QINUpdateCertificateRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QINUpdateCertificateRequest $request, $id)
     {
-        //
+        $certificate = QINCertificate::findOrFail($id);
+        $index = $this->index;
+        $user = User::select('id', 'all_name', 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', Auth::user()->id)->get()->toArray();
+
+        if( isset($request->importer_data) && $request->importer_data > 0 ){
+            $data = [
+                'trader_name' => $request->name,
+                'trader_address' => $request->address,
+                'trader_vin' =>  $request->vin,
+                'packer_name' => $request->packer_name,
+                'packer_address' => $request->packer_address,
+                'packer_vin' =>  $request->packer_vin,
+                'from_country' => $request->from_country,
+                'id_country' => $request->id_country,
+                'for_country_bg' => $request->for_country_bg,
+                'observations' => $request->observations,
+                'place_bg' => $request->place_bg,
+                'valid_until' => $request->valid_until,
+                'date_update' => date('d.m.Y', time()),
+                'updated_by' => Auth::user()->id,
+            ];
+        }
+        else {
+            $data = [
+                'from_country' => $request->from_country,
+                'id_country' => $request->id_country,
+                'for_country_bg' => $request->for_country_bg,
+                'observations' => $request->observations,
+                'place_bg' => $request->place_bg,
+                'valid_until' => $request->valid_until,
+                'date_update' => date('d.m.Y', time()),
+                'updated_by' => Auth::user()->id,
+            ];
+        }
+        $certificate->fill($data);
+        $certificate->save();
+
+        if( isset($request->importer_data) && $request->importer_data > 0 ) {
+            // Промяна на Фирмата във ФАКТУРИТЕ
+            $data_firm = [
+                'importer_id' => $request->importer_data,
+                'importer_name' => $request->name,
+                'date_update' => date('d.m.Y', time()),
+                'updated_at' => Auth::user()->id,
+            ];
+
+            Invoice::where('certificate_id', $id)
+                ->where('invoice_for', 3)
+                ->where('certificate_number', $certificate->internal)
+                ->update($data_firm);
+            // Промяна на Фирмата във СТОКИТЕ
+            $stock_firm = [
+                'trader_id' => $request->importer_data,
+                'firm_name' => $request->name,
+                'date_update' => date('d.m.Y', time()),
+                'updated_by' => Auth::user()->id,
+            ];
+            StockInternal::where('certificate_id', $id)->update($stock_firm);
+        }
+
+
+        Session::flash('message', 'Сертификата е редактиран успешно!');
+        return Redirect::to('/контрол/сертификати-вътрешен/'.$id);
     }
 
     /**
@@ -1259,7 +1320,43 @@ class QINCertificatesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // echo ('OK');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request|QCertificatesRequest $request
+     * @param  int $id
+     * @return Response
+     */
+    public function domestic_lock(Request $request, $id)
+    {
+        $certificate = QINCertificate::findOrFail($id);
+        $data = [
+            'is_lock' => 1,
+        ];
+        $certificate->fill($data);
+        $certificate->save();
+        return back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request|QCertificatesRequest $request
+     * @param  int $id
+     * @return Response
+     */
+    public function domestic_unlock(Request $request, $id)
+    {
+        $certificate = QINCertificate::findOrFail($id);
+        $data = [
+            'is_lock' => 0,
+        ];
+        $certificate->fill($data);
+        $certificate->save();
+        return back();
     }
 
     /**

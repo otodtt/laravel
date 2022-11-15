@@ -39,6 +39,6 @@ class QINCertificate extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function internal_invoice(){
-        return $this->hasMany('odbh\Invoice', 'certificate_id')->where('invoice_for', 2);
+        return $this->hasMany('odbh\Invoice', 'certificate_id')->where('invoice_for', 3);
     }
 }

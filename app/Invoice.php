@@ -20,7 +20,8 @@ class Invoice extends Model
      * @var array
      */
     protected $fillable = [ 'number_invoice', 'date_invoice', 'sum', 'certificate_id',  'certificate_number', 'importer_id',
-                            'importer_name', 'identifier', 'invoice_for', 'date_create', 'date_update', 'created_by', 'updated_at'];
+                            'farmer_id', 'trader_id', 'importer_name', 'identifier', 'invoice_for', 'date_create',
+                            'date_update', 'created_by', 'updated_at'];
 
     /**
      * Търговеца има много сертификати

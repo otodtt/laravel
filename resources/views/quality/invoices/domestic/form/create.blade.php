@@ -14,11 +14,11 @@
         <div class="row">
             {{--@if()--}}
             {{--@elseif()--}}
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на Фактура към Сертификат за Износ!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на Фактура към Сертификат за Вътрешен!</h3>
         </div>
     </div>
     <div class="info-wrap">
-        <a href="{!! URL::to('/контрол/сертификат-износ/'.$certificate->id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Назад към сертификата!</a>
+        <a href="{!! URL::to('/контрол/сертификати-вътрешен/'.$certificate->id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Назад към сертификата!</a>
     </div>
 
     <div class="form-group">
@@ -45,8 +45,8 @@
                             <p class="description">Сертификат номер</p><hr class="hr_in"/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <br>
-                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/{{$certificate['export']}}</span></p>
+                                    {{--<br>--}}
+                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/{{$certificate['internal']}}</span></p>
                                     <br>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="description">Инспектор издал сертификата</p><hr class="hr_in"/>
-                                    <br>
+                                    {{--<br>--}}
                                     <p>Инспектор: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['inspector_bg']}}</span></p>
                                     <br>
                                 </div>
@@ -69,7 +69,7 @@
                             <p class="description">1. Търговец /Trader</p><hr class="hr_in"/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['importer_name']}}</span></p><br>
+                                    <p>Фирма/ЗС: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['trader_name']}}</span></p><br>
                                 </div>
                             </div>
                         </fieldset>
@@ -80,7 +80,7 @@
     </div>
     <hr class="hr_in"/>
 
-    {!! Form::open(['url'=>'контрол/фактури-износ/'.$certificate['id'].'/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    {!! Form::open(['url'=>'контрол/фактури-вътрешни/'.$certificate['id'].'/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
     {{--ФАКТУРА И ДАТА--}}
     <div class="container-fluid" >

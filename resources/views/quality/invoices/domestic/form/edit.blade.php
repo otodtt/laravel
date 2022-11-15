@@ -53,7 +53,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <br>
-                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['stamp_number']}}/{{$certificate[0]['export']}}</span></p>
+                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['stamp_number']}}/{{$certificate[0]['internal']}}</span></p>
                                     <br>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             <p class="description">1. Търговец /Trader</p><hr class="hr_in"/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['importer_name']}}</span></p><br>
+                                    <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['trader_name']}}</span></p><br>
                                 </div>
                             </div>
                         </fieldset>
@@ -87,7 +87,7 @@
     </div>
     <hr class="hr_in"/>
 
-    {!! Form::model($invoice, ['url'=>'контрол/фактури-износ/'.$invoice['id'].'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    {!! Form::model($invoice, ['url'=>'контрол/фактури-вътрешни/'.$invoice['id'].'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
     {{--ФАКТУРА И ДАТА--}}
     <div class="container-fluid" >

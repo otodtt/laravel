@@ -10,6 +10,7 @@ use odbh\Http\Requests\InvoicesRequest;
 use odbh\Importer;
 use odbh\Invoice;
 use odbh\QCertificate;
+use odbh\QINCertificate;
 use odbh\QXCertificate;
 use odbh\User;
 use Auth;
@@ -26,7 +27,8 @@ class InvoicesController extends Controller
         parent::__construct();
         $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose',
                     'import_create', 'import_store', 'import_update', 'import_edit',
-                    'export_create', 'export_store', 'export_edit', 'export_update']]);
+                    'export_create', 'export_store', 'export_edit', 'export_update',
+                    'domestic_create', 'domestic_store', 'domestic_edit', 'domestic_update']]);
 
 
         $this->index = Set::select('q_index', 'authority_bg', 'authority_en')->get()->toArray();
@@ -377,6 +379,123 @@ class InvoicesController extends Controller
         $certificate->save();
         Session::flash('message', 'Записа е успешен!');
         return Redirect::to('/контрол/сертификат-износ/'.$certificate->id);
+    }
+
+    /** ФАКТУРИ ВЪТРЕШНИ  */
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function domestic_create($id)
+    {
+        $certificate = QINCertificate::findOrFail($id);
+
+        return view('quality.invoices.domestic.form.create', compact('certificate'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request|InvoicesRequest $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function domestic_store(InvoicesRequest $request, $id)
+    {
+        $farmer_id = null;
+        $trader_id = null;
+        $certificate = QINCertificate::findOrFail($id);
+        if($certificate->type_firm > 0 && $certificate->farmer_id > 0) {
+            $farmer_id = $certificate->farmer_id;
+            $trader_id = 0;
+        }
+        if(($certificate->type_firm == 0 && $certificate->farmer_id == 0) && $certificate->trader_id > 0) {
+            $farmer_id = 0;
+            $trader_id = $certificate->trader_id;
+        }
+
+        $data = [
+            'invoice_for' => 3,
+            'number_invoice' => $request->invoice,
+            'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
+            'sum' => round($request->sum, 2),
+            'certificate_id' => $certificate->id,
+            'certificate_number' => $certificate->internal,
+            'importer_id' => 0,
+            'farmer_id' =>  $farmer_id,
+            'trader_id' =>  $trader_id,
+            'importer_name' => $certificate->trader_name,
+            'identifier' => $certificate->stamp_number.'/'.$certificate->internal,
+            'date_create' => date('d.m.Y', time()),
+            'created_by' => Auth::user()->id,
+        ];
+
+        $invoice = Invoice::create($data);
+        $invoice_id = $invoice->id;
+
+        // Добавяне данни към сертификата
+        $invoice_data = [
+            'invoice_id' => $invoice_id,
+            'invoice_number' => $request->invoice,
+            'invoice_date' => strtotime(stripslashes($request->date_invoice)),
+            'sum' => round($request->sum, 2),
+        ];
+
+        $certificate->fill($invoice_data);
+        $certificate->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/сертификати-вътрешен/'.$id);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function domestic_edit($id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $certificate = QINCertificate::where('id', $invoice->certificate_id)->get();
+
+        return view('quality.invoices.domestic.form.edit', compact('invoice', 'certificate'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\InvoicesRequest|InvoicesRequest $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function domestic_update(InvoicesRequest $request, $id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $data = [
+            'number_invoice' => $request->invoice,
+            'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
+            'sum' => round($request->sum, 2),
+            'date_update' => date('d.m.Y', time()),
+            'updated_at' => Auth::user()->id,
+        ];
+        $invoice->fill($data);
+        $invoice->save();
+
+        // Редактиране данни към сертификата
+        $certificate = QINCertificate::where('invoice_id', $invoice->id)->firstOrFail();
+        $invoice_data = [
+            'invoice_number' => $request->invoice,
+            'invoice_date' => strtotime(stripslashes($request->date_invoice)),
+            'sum' => round($request->sum, 2),
+        ];
+
+        $certificate->fill($invoice_data);
+        $certificate->save();
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/сертификати-вътрешен/'.$certificate->id);
     }
 
 

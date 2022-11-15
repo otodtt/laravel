@@ -174,6 +174,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('unlock-import-certificate/{id}', 'QCertificatesController@import_unlock');
     Route::post('lock-export-certificate/{id}', 'QXCertificatesController@export_lock');
     Route::post('unlock-export-certificate/{id}', 'QXCertificatesController@export_unlock');
+    Route::post('lock-internal-certificate/{id}', 'QINCertificatesController@domestic_lock');
+    Route::post('unlock-internal-certificate/{id}', 'QINCertificatesController@domestic_unlock');
 
     // /////// СТОКИ
     Route::get('/контрол/стоки/внос', 'StocksController@import_index');
@@ -193,8 +195,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     // /////// СТОКИ ВЪТРЕШНИ
     Route::any('/контрол/стоки/вътрешни', 'StocksController@domestic_index');
-    Route::post('/domestic/add-stock/store', 'StocksController@domestic_stock_store');
+    Route::post('/internal/add-stock/store', 'StocksController@domestic_stock_store');
     Route::post('/стоки/вътрешни/сортирай/{start_year?}/{end_year?}/{crop_sort?}/{inspector_sort?}', 'StocksController@domestic_sort');
+    Route::get('/internal/stock/{id}/{sid?}/edit', 'StocksController@domestic_stocks_edit');
+    Route::post('/internal/stock/{id}/delete', 'StocksController@domestic_destroy');
+//    Route::get('/internal/stock/{id}/{sid?}/edit', 'StocksController@export_stocks_edit');
+    Route::post('/internal/edit-stock/update/{id}', 'StocksController@domestic_stock_update');
+
 
     // /////// СТОКИ КОНСУМАЦИЯ ПРЕРАБОТКА
     Route::get('/контрол/стоки/консумация-преработка', 'StocksController@consume');
@@ -214,6 +221,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('контрол/фактури-износ/{id}/store', 'InvoicesController@export_store');
     Route::get('контрол/фактури-износ/{id}/edit', 'InvoicesController@export_edit');
     Route::post('контрол/фактури-износ/{id}/update', 'InvoicesController@export_update');
+
+    Route::get('контрол/фактури-вътрешни/{id}', 'InvoicesController@domestic_create');
+    Route::post('контрол/фактури-вътрешни/{id}/store', 'InvoicesController@domestic_store');
+    Route::get('контрол/фактури-вътрешни/{id}/edit', 'InvoicesController@domestic_edit');
+    Route::post('контрол/фактури-вътрешни/{id}/update', 'InvoicesController@domestic_update');
 
 
      ///// ИЗНОС
@@ -262,6 +274,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/контрол/сертификати-вътрешен/търговец/store', 'QINCertificatesController@store_exist');
 
     Route::get('контрол/сертификат-вътрешен/{id}/edit', 'QINCertificatesController@edit');
+    Route::post('контрол/сертификати-вътрешен/{id}/update', 'QINCertificatesController@update');
 
     Route::post('/domestic-finish/store', 'QINCertificatesController@domestic_finish');
 

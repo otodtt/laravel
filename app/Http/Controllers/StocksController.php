@@ -938,6 +938,89 @@ class StocksController extends Controller
         return back();
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @param $sid
+     * @return Response
+     */
+    public function domestic_stocks_edit($id, $sid)
+    {
+        $qualitys = ['1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $packages = ['4' => 'Торби/ Bags', '3' => 'Кашони/ C. boxes', '2' => 'Палети/ Cages', '1' => 'Каси/ Pl. cases', '999' => 'ДРУГО'];
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orWhere('group_id', '=', 11)
+            ->orWhere('group_id', '=', 15)
+            ->orWhere('group_id', '=', 16)
+            ->orderBy('group_id', 'asc')->get()->toArray();
+
+        $certificate = QINCertificate::findOrFail($id);
+        $stocks = $certificate->internal_stocks->toArray();
+        $count = count($stocks);
+        $lock = $certificate->is_lock;
+
+        if ($sid != 0) {
+            $article = StockInternal::select()->where('id','=', $sid)->where('certificate_id','=', $id)->get()->toArray();
+        }
+        else {
+            $article = 0;
+        }
+
+        return view('quality.certificates.domestic.edit.stock_edit', compact('id', 'crops', 'certificate', 'stocks', 'count', 'lock', 'article', 'qualitys', 'packages' ));
+    }
+
+    public function domestic_stock_update(StocksRequest $request, $id)
+    {
+
+        $stock = StockInternal::findOrFail($id);
+
+        if ($request->type_package != 999) {
+            $different = '';
+        } else {
+            $different = $request->different;
+        }
+        $data = [
+            'type_pack' => (int)$request->type_package,
+            'type_crops' => (int)$request->type_crops,
+            'number_packages' => $request->number_packages,
+            'different' => $different,
+            'crop_id' => $request->crops,
+            'crops_name' => $request->crops_name,
+            'crop_en' => $request->crop_en,
+            'variety' => $request->variety,
+            'quality_class' => $request->quality_class,
+            'weight' => $request->weight,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $stock->fill($data);
+        $stock->save();
+
+        return Redirect::to('/internal/stock/'.$stock->certificate_id.'/0/edit');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function domestic_destroy($id)
+    {
+        $stock = StockInternal::find($id);
+        $stock->delete();
+        return back();
+    }
+
 
 
     /**

@@ -25,7 +25,14 @@
             </td>
             <td>
                 <span style="text-transform: uppercase;">{{$invoice->importer_name}}</span>
-                <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-default my_btn" style="float: right"></a>
+                @if($invoice->importer_id != 0 && $invoice->farmer_id == 0 && $invoice->trader_id == 0)
+                    <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-default my_btn" style="float: right"></a>
+                @elseif($invoice->importer_id == 0 && $invoice->farmer_id != 0 && $invoice->trader_id == 0)
+                    <a href="{!!URL::to('/стопанин/'.$invoice->farmer_id)!!}" class="fa fa-binoculars btn btn-success my_btn" style="float: right"></a>
+                @elseif($invoice->importer_id == 0 && $invoice->farmer_id == 0 && $invoice->trader_id != 0)
+                    <a href="{!!URL::to('/контрол/търговци/'.$invoice->trader_id.'/show')!!}" class="fa fa-binoculars btn btn-info my_btn" style="float: right"></a>
+                @endif
+
             </td>
             <td>
                 @if($invoice->invoice_for == 1)
@@ -41,20 +48,25 @@
                 @elseif($invoice->invoice_for == 2)
                         <a href="{!!URL::to('/контрол/сертификат-износ/'.$invoice->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn" style="float: right"></a>
                 @elseif($invoice->invoice_for == 3)
-                    <span>вътрешен - </span>
+                        <a href="{!!URL::to('/контрол/сертификати-вътрешен/'.$invoice->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn" style="float: right"></a>
                 @endif
 
             </td>
-            {{--<td class="center last-column">--}}
-                {{--<a href="{!!URL::to('/контрол/вносители/'.$invoice->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"></a>--}}
-            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>
     <tfoot>
     <tr>
         <th colspan="3" style="text-align:right">Всичко:</th>
-        <th></th>
+        <th>
+            <?php  $total = 0; ?>
+            @foreach($invoices as $k=>$invoice)
+                <?php
+                $total += array_sum((array)$invoice->sum);
+                ?>
+            @endforeach
+            <p style="text-center: left; margin-left: 10px"> {{ number_format($total, 2, ',', ' ') }} лв.</p>
+        </th>
         <th></th>
         <th></th>
     </tr>

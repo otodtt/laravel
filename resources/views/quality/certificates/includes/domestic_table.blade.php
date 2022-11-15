@@ -39,7 +39,7 @@
             <td>{{mb_strtoupper($certificate->trader_name), 'utf-8'}}</td>
             <td style="text-align: right; padding-right: 4px">
                 @if( $certificate->invoice_id == '0')
-                    <a href='/контрол/фактури-износ/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                    <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
                 @else
                     {{ $certificate->invoice_number }}/{{ date('d.m.Y' ,$certificate->invoice_date ) }}
                 @endif

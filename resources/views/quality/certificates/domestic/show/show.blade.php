@@ -227,7 +227,7 @@
                         <div class="col-md-2">
                             <p >
                                 Фактура: <span class="bold" style="text-transform: uppercase"></span>
-                                <a href='/контрол/фактури-износ/{{$certificate->invoice_id}}/edit' class="fa fa-edit btn btn-success my_btn" style="float: right"> Edit</a>
+                                <a href='/контрол/фактури-вътрешни/{{$certificate->invoice_id}}/edit' class="fa fa-edit btn btn-success my_btn" style="float: right"> Edit</a>
                             </p>
                             <hr class="my_hr_in"/>
                             <p ><span class="bold" style="text-transform: none">{{$invoice[0]['number_invoice'] }}/{{ date('d.m.Y' ,$invoice[0]['date_invoice']) }}</span></p>
@@ -241,7 +241,7 @@
                             <p ><span class="bold red" style="text-transform: none">Поълни фактурта!</span></p>
                             <hr class="my_hr_in"/>
                             <p >
-                                <a href='/контрол/фактури-износ/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                                <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
                             </p>
                         </div>
                     @endif
@@ -257,7 +257,7 @@
                             <a href="{!!URL::to('/контрол/сертификат-вътрешен/'.$certificate->id.'/edit')!!}" class="fa fa-edit btn btn-primary">  Редактирай Данните</a>
                         </div>
                         <div class="btn_add" style="float: right; display: inline-block; margin-top: 5px">
-                            <a href="{!!URL::to('/export/stock/'.$certificate->id.'/0/edit')!!}" class="fa fa-edit btn btn-danger">  Редактирай Стоките</a>
+                            <a href="{!!URL::to('/internal/stock/'.$certificate->id.'/0/edit')!!}" class="fa fa-edit btn btn-danger">  Редактирай Стоките</a>
                         </div>
                     </div>
                 @endif
@@ -266,7 +266,7 @@
             <div class="col-md-12 row-table-bottom " style="display: table" >
                 @if($certificate->is_lock == 0)
                     <div class="small_field_bottom" style="display: table-cell">
-                        {!! Form::model($certificate, ['url'=>'lock-export-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
+                        {!! Form::model($certificate, ['url'=>'lock-internal-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
                         <button type="submit" class="btn-sm btn-default " id="complexConfirm">
                             <i class="fa fa-print"></i> Подготви за печат!
                         </button>
@@ -284,7 +284,7 @@
                     </div>
                     @if(Auth::user()->admin == 2 )
                         <div class="small_field_bottom" style="display: table-cell">
-                            {!! Form::model($certificate, ['url'=>'unlock-export-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
+                            {!! Form::model($certificate, ['url'=>'unlock-internal-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
                             <button type="submit" class="btn-sm btn-success " id="unlockConfirm">
                                 <i class="fa fa-unlock"></i> Откючи!
                             </button>
@@ -597,8 +597,8 @@
                                             <span style="width: 50%; margin-left: 10px" >Място и дата на издаване / <span class="bold">{{$certificate->place_bg }} / {{date('d.m.Y', $certificate->date_issue)}}</span></span>
                                         </p>
                                         <p class="" style="font-size: 11.5px;">
-                                            <span style="width: 50%; margin-left: 10px" >Place and date of issue 
-                                            {{-- <span style="width: 50%; margin-left: 10px" >Place and date of issue/ <span class="bold">{{$certificate->place_en }}/ {{date('d.m.Y', $certificate->date_issue)}}</span></span> --}}
+                                            <span style="width: 50%; margin-left: 10px" >Place and date of issue </span>
+                                            {{-- <span style="width: 50%; margin-left: 10px" >Place and date of issue/ <span class="bold">{{$certificate->place_en }}/ {{date('d.m.Y', $certificate->date_issue)}}</span> --}}
                                         </p>
                                     </div>
                                     <p class="" style="font-size: 11.5px; margin-top: 5px">

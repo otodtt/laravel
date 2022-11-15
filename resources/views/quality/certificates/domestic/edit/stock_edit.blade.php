@@ -153,7 +153,7 @@
                             <ul>
                                 <li>
                                     @if ( $count > 1)
-                                        <form action="{{ url('/export/stock/'.$stock['id'].'/delete') }}" method="post" style="display: inline-block" onsubmit="return confirm('Наистина ли искате да изтриете тази стока?');">
+                                        <form action="{{ url('/internal/stock/'.$stock['id'].'/delete') }}" method="post" style="display: inline-block" onsubmit="return confirm('Наистина ли искате да изтриете тази стока?');">
                                             <button type="submit" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></button>
                                             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                                         </form>
@@ -169,7 +169,7 @@
                                         </span>
                                     </p>
                                     <div class="btn_add" style=" display: inline-block; margin-top: 5px">
-                                        <a href="{!!URL::to('/export/stock/'.$certificate->id.'/'.$stock['id']).'/edit'!!}" class="fa fa-edit btn btn-success"></a>
+                                        <a href="{!!URL::to('/internal/stock/'.$certificate->id.'/'.$stock['id']).'/edit'!!}" class="fa fa-edit btn btn-success"></a>
                                     </div>
                                 </li>
                             </ul>
@@ -186,7 +186,7 @@
         {{-- ДОБАВЯНЕ НА СТОКИ --}}
         @if ($article == 0)
             <div class="add_stock" >
-                {!! Form::open(['url'=>'export/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                {!! Form::open(['url'=>'internal/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
                     <div class="alert alert-success my_alert" role="alert" style="margin-top: 20px">
                         <p class="my_p"><span class="fa fa-success" aria-hidden="true"></span> <span class="bold">Тук се добавят само нови стоки!</span>
                         </p>
@@ -204,7 +204,7 @@
         @else
             {{-- РЕДАКТИРАНЕ НА СТОКИ --}}
             <div class="add_stock">
-                {!! Form::model($article, ['url'=>'export/edit-stock/update/'.$article[0]['id'], 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                {!! Form::model($article, ['url'=>'internal/edit-stock/update/'.$article[0]['id'], 'method'=>'POST', 'autocomplete'=>'on']) !!}
                     <div class="alert alert-success my_alert" role="alert" style="margin-top: 20px">
                         <p class="my_p"><span class="fa fa-success" aria-hidden="true"></span> <span class="bold">Редактиране на стока!</span>
                         </p>
@@ -228,7 +228,7 @@
                 </p>
             </div>
             <div class="col-md-12" style="text-align: center;">
-                <a href="{{ '/контрол/сертификат-износ/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> КРАЙ! Назад към сертификатите!</a>
+                <a href="{{ '/контрол/сертификати-вътрешен/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> КРАЙ! Назад към сертификата!</a>
             </div>
         @endif
     @else
@@ -239,7 +239,7 @@
             </p>
         </div>
         <div class="col-md-12" style="text-align: center;">
-            <a href="{{ '/контрол/сертификат-износ/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Назад към сертификатите!</a>
+            <a href="{{ '/контрол/сертификати-вътрешен/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Назад към сертификатите!</a>
         </div>  
     @endif
 @endsection

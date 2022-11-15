@@ -494,7 +494,6 @@ class QCertificatesController extends Controller
     }
     /** ВНОС КРАЙ//////////////// */
 
-
     /**
      * ПОКАЗВА СЕРТИФИКАТА
      * Display the specified resource.

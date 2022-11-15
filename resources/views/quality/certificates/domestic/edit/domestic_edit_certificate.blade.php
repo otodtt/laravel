@@ -34,12 +34,12 @@
             @endif
 
             {!! Form::model($certificate, ['url'=>'контрол/сертификати-вътрешен/'.$certificate->id.'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
-            
+
                 @include('quality.certificates.domestic.edit.form_edit_certificate')
                 <input type="hidden" name="date_issue" value="{{$certificate['date_issue']}}">
 
                 <div class="col-md-6 " >
-                    <a href="{{ '/контрол/сертификати-вътрешен/'.$certificate->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификатa!</a>
+                    <a href="{{ '/контрол/сертификати-вътрешен/'.$certificate->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификата!</a>
                 </div>
                 <div class="col-md-6" id="add_certificate" >
                     {!! Form::submit('Редактирай!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
@@ -58,14 +58,14 @@
             </p>
         </div>
         <div class="col-md-12" style="text-align: center;">
-            <a href="{{ '/контрол/сертификати-вътрешен/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Назад към сертификата рррр!</a>
+            <a href="{{ '/контрол/сертификати-вътрешен/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Назад към сертификата!</a>
         </div>
     @endif
 @endsection
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>
 

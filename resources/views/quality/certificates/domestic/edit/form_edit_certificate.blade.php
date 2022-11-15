@@ -119,10 +119,11 @@
                             </p>
                             <label for="importer_data">Избери търговец:</label>
                             <select name="importer_data" id="importer_data" class="localsID form-control">
-                                <option value="">-- Избери --</option>
+                                <option value="0">-- Избери --</option>
                                 @foreach ($importers as $key => $importer)
                                     <option value="{{ $importer['id'] }}"
-                                        @if (old('importer_data') == null) {{ $certificate->trader_id == $importer['id'] ? 'selected' : '' }}
+                                        @if (old('importer_data') == null)
+                                            {{ $certificate->trader_id == $importer['id'] ? 'selected' : '' }}
                                         @else
                                             {{ old('importer_data') == $importer['id'] ? 'selected' : '' }} @endif
                                         address="{{ $importer['trader_address'] }}" 
