@@ -144,12 +144,12 @@ class CropsController extends Controller
         else {
             $years = [2022 => "2022"];
         }
-        //dd($years);
 
         $culture = Crop::findOrFail($id);
         $stocks_import = Stock::where('crop_id', $id)->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )->orderby('date_issue', 'desc')->get();
         $stocks_export = StockExport::where('crop_id', $id)->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )->orderby('date_issue', 'desc')->get();
         $stocks_domestic = StockInternal::where('crop_id', $id)->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )->orderby('date_issue', 'desc')->get();
+
 
         return view('crops.show', compact('culture', 'stocks_import', 'stocks_export', 'stocks_domestic', 'years', 'year_now'));
     }
