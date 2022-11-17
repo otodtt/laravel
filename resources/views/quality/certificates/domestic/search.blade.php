@@ -121,27 +121,41 @@
                         {!! Form::close() !!}
                     </div>
                 @else
-                    <div class="col-md-6 col-md-6_my " >
-                        <p class="new_farmer bold">
-                            <span class="view red">Няма намерена такъва фирма. ЕИК или Булстат са верни.</span><br/>
-                            Добави Сертификат на НОВА Фирма. ИЗБРЕИ ВИДА НА ФИРМАТА!
-                        </p>
-                    </div>
-                    <div class="col-md-6 col-md-6_my " >
-                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/нова-фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
-                            <input type="hidden" name="firm" value="{!! $firm !!}">
-                            <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
-                            <input type="hidden" name="eik" value="{!! $eik !!}">
-                        {!! Form::close() !!}
-                        <hr>
-                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                            <input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">
-                            <input type="hidden" name="firm" value="{!! $firm !!}">
-                            <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
-                            <input type="hidden" name="eik" value="{!! $eik !!}">
-                        {!! Form::close() !!}
-                    </div>
+                    @if (count($trader) == 0)
+                        <div class="col-md-6 col-md-6_my " >
+                            <p class="new_farmer bold">
+                                <span class="view red">Няма намерена такъва фирма. ЕИК или Булстат са верни.</span><br/>
+                                Добави Сертификат на НОВА Фирма. ИЗБРЕИ ВИДА НА ФИРМАТА!
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-md-6_my " >
+                            {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/нова-фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                                <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
+                                <input type="hidden" name="firm" value="{!! $firm !!}">
+                                <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
+                                <input type="hidden" name="eik" value="{!! $eik !!}">
+                            {!! Form::close() !!}
+                            <hr>
+                            {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                                <input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">
+                                <input type="hidden" name="firm" value="{!! $firm !!}">
+                                <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
+                                <input type="hidden" name="eik" value="{!! $eik !!}">
+                            {!! Form::close() !!}
+                        </div>
+                    @else
+                        <div class="col-md-6 col-md-6_my " >
+                            <p class="new_farmer bold">
+                                <span class="view" style="color: green">Намерена е фирма търговец.</span><br/>
+                                Добави Сертификат на Фирма - {{$trader[0]['trader_name']}}!
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-md-6_my " >
+                            <a href="{!!URL::to('/контрол/сертификати-вътрешен/търговец/добави/'.$trader[0]['id'])!!}" class="fa fa-retweet btn btn-primary my_btn_check" style="width: 350px"> 
+                                &nbsp;&nbsp;Добави Сертификат на тази фирма!
+                            </a>
+                        </div>
+                    @endif
                 @endif
             @else
                 @foreach($farmers as $farmer)
@@ -170,5 +184,4 @@
     {!!Html::script("js/records/search/searchFarmerByName.js" )!!}
     {!!Html::script("js/records/search/searchFirmByName.js" )!!}
     {!!Html::script("js/quality/locationDomestic.js" )!!}
-    
 @endsection

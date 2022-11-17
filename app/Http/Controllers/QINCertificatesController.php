@@ -1394,8 +1394,8 @@ class QINCertificatesController extends Controller
         $gender = $request['gender_farmer'];
         $pin = $request['pin_farmer'];
 
-        $trader = Trader::select()->where('trader_vin','=',$eik)->get();
-        dd($trader);
+        $trader = Trader::select()->where('trader_vin','=',$eik)->get()->toArray();
+        // dd($trader);
 
         $farmers = null;
         if(isset($request['firm_search']) && $request['firm_search'] == 1){
@@ -1405,9 +1405,7 @@ class QINCertificatesController extends Controller
             $farmers = Farmer::select()->where('pin','=',$pin)->orWhere('bulstat','=',$eik)->get();
         }
 
-
-
-        return view('quality.certificates.domestic.search', compact('firm', 'name', 'eik', 'gender', 'pin', 'name_firm', 'farmers'));
+        return view('quality.certificates.domestic.search', compact('firm', 'name', 'eik', 'gender', 'pin', 'name_firm', 'farmers', 'trader'));
     }
 
     /**
