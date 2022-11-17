@@ -26,8 +26,8 @@ class QINUpdateCertificateRequest extends Request
         $request = Request::all();
         if(isset($request['importer_data']) && $request['importer_data'] >= 0 ) {
             $importer_data = 'required|not_in:0';
-            $packer_name = 'required|min:3|max:100|cyrillic_with';
-            $packer_address = 'required|min:3|max:500|cyrillic_with';
+            $packer_name = 'required|min:3|max:100';
+            $packer_address = 'required|min:3|max:500';
             $packer_vin = 'digits_between:9,13';
         }
         else {

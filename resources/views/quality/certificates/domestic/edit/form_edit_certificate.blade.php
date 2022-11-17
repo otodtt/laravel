@@ -195,7 +195,7 @@
                     <legend class="small_legend">2. Опаковчик, посочен върху опаковката </legend>
                     <div class="col-md-12 col-md-6_my">
                         <p class="description">
-                            Поле № 2. Опаковчик, посочен върху .. &nbsp; &nbsp; &nbsp;<br>
+                            Поле № 2. Опаковчик, посочен върху .. &lt;br&gt;<br>
                         </p>
                         @if ($certificate->farmer_id > 0 && $certificate->type_firm > 0)
                             <br />

@@ -402,7 +402,7 @@
                                     </p>
                                     <p class="p_content" style="margin-top: 20px">
                                         @if (strlen($certificate->packer_name) != 0 && strlen($certificate->packer_address) != 0)
-                                            {{$certificate->packer_name }}, {{ $certificate->packer_address }}/ BG: {{ $certificate->packer_vin }}
+                                            {!! $certificate->packer_name  !!}, {!! $certificate->packer_address !!}/ BG: {{ $certificate->packer_vin }}
                                         @else
                                             <span>--------------</span>
                                         @endif

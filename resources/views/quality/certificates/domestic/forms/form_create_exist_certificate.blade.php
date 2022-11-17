@@ -107,7 +107,7 @@
                         </p>
 
                         <div class="packer_wrap" >
-                            <label for="packer_name">Име на Опаковчик:</label>
+                            <label for="packer_name">Име на Опаковчик: &lt;br&gt;</label>
                             {!! Form::text('packer_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Опаковчик']) !!}
                             {{--<br>--}}
                             <label for="packer_address">Адрес:</label>
