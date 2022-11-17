@@ -177,7 +177,7 @@
     </div>
     <hr class="hr_in"/>
 
-    {!! Form::open(['url'=>'domestic/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    {!! Form::open(['url'=>'internal/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
         
         @include('quality.certificates.domestic.forms.stock_form')
         <input type="hidden" name="date_issue" value="{{$certificate['date_issue']}}">
