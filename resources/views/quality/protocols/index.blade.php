@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Сертификат внос' }}
+    {{ 'Констативни протоколи' }}
 @endsection
 
 @section('css')
@@ -16,28 +16,28 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">СЕРТИФИКАТИ ВНОС</h4>
+        <h4 class="bold layout-title">КОНСТАТИВНИ ПРОТОКОЛИ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-certificate " aria-hidden="true"></i>  Сертификати</span>
-        <a href="{!! URL::to('/контрол/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
-        <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
-        <a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
-        <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-file-powerpoint-o " aria-hidden="true"></i>  Констативни протоколи</span>
+        <a href="{!! URL::to('/контрол/формуляри')!!}" class="fa fa-check-square btn btn-info my_btn"> Формуляри за съответствие</a>
+        {{--<a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>--}}
+        {{--<a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>--}}
+        {{--<a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>--}}
     </div>
     <div class="btn_add_firm">
-        <a href="{!!URL::to('/контрол/сертификат-избери')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
-            Добави Сертификат</a>
+        <a href="{!!URL::to('/контрол/протоколи/търси-търговец')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+            Добави НОВ Протокол</a>
     </div>
     <hr/>
-    <div class="btn-group" >
-        <span class="fa fa-arrow-down btn btn-default my_btn"> Сетификати/Внос</span>
-        <a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ</a>
-        <a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-retweet btn btn-info my_btn"> Вътрешни</a>
-    </div>
-    <hr/>
+    {{--<div class="btn-group" >--}}
+        {{--<span class="fa fa-arrow-down btn btn-default my_btn"> Сетификати/Внос</span>--}}
+        {{--<a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ</a>--}}
+        {{--<a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-retweet btn btn-info my_btn"> Вътрешни</a>--}}
+    {{--</div>--}}
+    {{--<hr/>--}}
     {{-- <div class="btn-group" >
         <a href="{!!URL::to('/контрол/сертификати-износ/добави')!!}" class="fa fa-retweet btn btn-primary my_btn" style="margin-right: 5px"> Добави Сертификат ИЗНОС</a>
         <a href="{!!URL::to('/контрол/сертификати-внос/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn" style="margin-right: 5px"> Добави Сертификат ВНОС</a>
@@ -97,7 +97,7 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_alls">
-                {!! Form::open(['url' => '/контрол/сертификати-внос/сортирай', 'method' => 'POST']) !!}
+                {!! Form::open(['url' => '/контрол/протоколи/сортирай', 'method' => 'POST']) !!}
                 @include('quality.certificates.includes.sorting')
                 {!! Form::close() !!}
             </div>
@@ -105,12 +105,12 @@
     </fieldset>
     <hr/>
     <div class="btn_add_certificate" style="text-align: right">
-        <a href="{!! URL::to('/контрол/сертификати-внос') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
+        <a href="{!! URL::to('/контрол/протоколи') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
             &nbsp; Изчисти сортирането!
         </a>
     </div>
     {{--<hr/>--}}
-    @include('quality.certificates.includes.table')
+    @include('quality.protocols.includes.table')
 @endsection
 
 @section('scripts')

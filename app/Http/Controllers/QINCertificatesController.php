@@ -1014,9 +1014,9 @@ class QINCertificatesController extends Controller
             'trader_name' => $request->trader_name,
             'trader_address' => $request->trader_address,
             'trader_vin' =>  $request->trader_vin,
-            'packer_name' => $request->packer_name,
-            'packer_address' => $request->packer_address,
-            'packer_vin' =>  $request->packer_vin,
+            'packer_name_one' => $request->packer_name_one,
+            'packer_name_two' => $request->packer_name_two,
+            'packer_name_three' =>  $request->packer_name_three,
             'from_country' => $request->from_country,
             'id_country' => $request->id_country,
             'for_country_bg' => $request->for_country_bg,
@@ -1132,9 +1132,9 @@ class QINCertificatesController extends Controller
             'trader_name' => $trader->trader_name,
             'trader_address' => $trader->trader_address,
             'trader_vin' =>  $trader->trader_vin,
-            'packer_name' => $request->packer_name,
-            'packer_address' => $request->packer_address,
-            'packer_vin' =>  $request->packer_vin,
+            'packer_name_one' => $request->packer_name_one,
+            'packer_name_two' => $request->packer_name_two,
+            'packer_name_three' =>  $request->packer_name_three,
             'from_country' => $request->from_country,
             'id_country' => $request->id_country,
             'for_country_bg' => $request->for_country_bg,
@@ -1256,9 +1256,9 @@ class QINCertificatesController extends Controller
                 'trader_name' => $request->name,
                 'trader_address' => $request->address,
                 'trader_vin' =>  $request->vin,
-                'packer_name' => $request->packer_name,
-                'packer_address' => $request->packer_address,
-                'packer_vin' =>  $request->packer_vin,
+                'packer_name_one' => $request->packer_name_one,
+                'packer_name_two' => $request->packer_name_two,
+                'packer_name_three' =>  $request->packer_name_three,
                 'from_country' => $request->from_country,
                 'id_country' => $request->id_country,
                 'for_country_bg' => $request->for_country_bg,
@@ -1395,7 +1395,6 @@ class QINCertificatesController extends Controller
         $pin = $request['pin_farmer'];
 
         $trader = Trader::select()->where('trader_vin','=',$eik)->get()->toArray();
-        // dd($trader);
 
         $farmers = null;
         if(isset($request['firm_search']) && $request['firm_search'] == 1){

@@ -20,7 +20,7 @@ class QINCertificate extends Model
      */
     protected $fillable = [
         'internal', 'is_all', 'what_7', 'type_crops', 'trader_id', 'trader_name', 'trader_address',
-        'trader_vin', 'packer_name', 'packer_address', 'packer_vin', 'stamp_number', 'authority_bg', 'authority_en',
+        'trader_vin', 'packer_name_one', 'packer_name_two', 'packer_name_three', 'stamp_number', 'authority_bg', 'authority_en',
         'for_country_bg', 'for_country_en', 'id_country', 'observations', 'from_country', 'customs_bg', 'place_bg',
         'date_issue', 'valid_until', 'inspector_bg', 'inspector_en', 'invoice_id',  'invoice_number',
         'invoice_date', 'sum', 'date_update', 'updated_by', 'date_add', 'added_by', 'is_lock', 'farmer_id', 'type_firm'

@@ -26,23 +26,23 @@ class QINUpdateCertificateRequest extends Request
         $request = Request::all();
         if(isset($request['importer_data']) && $request['importer_data'] >= 0 ) {
             $importer_data = 'required|not_in:0';
-            $packer_name = 'required|min:3|max:100';
-            $packer_address = 'required|min:3|max:500';
-            $packer_vin = 'digits_between:9,13';
+            $packer_name_one = 'required|min:3|max:500';
+            $packer_name_two = 'min:3|max:500';
+            $packer_name_three = 'min:3|max:500';
         }
         else {
             $importer_data = '';
-            $packer_name = '';
-            $packer_address = '';
-            $packer_vin = '';
+            $packer_name_one = '';
+            $packer_name_two = '';
+            $packer_name_three = '';
         }
 
         return [
             'importer_data' => $importer_data,
 
-            'packer_name' => $packer_name,
-            'packer_address' => $packer_address,
-            'packer_vin' => $packer_vin,
+            'packer_name_one' => $packer_name_one,
+            'packer_name_two' => $packer_name_two,
+            'packer_name_three' => $packer_name_three,
 
             'from_country'=>'required|min:5|max:300',
             'id_country'=>'required',
@@ -77,18 +77,18 @@ class QINUpdateCertificateRequest extends Request
             'trader_vin.digits_between' => 'ЕИК/Булстат се изписва с цифри. Между 9 - 13 символа!',
 
 
-            'packer_name.required' => 'Името на ОПАКОВЧИКА е задължително!',
-            'packer_name.cyrillic_with' => 'За Име на ОПАКОВЧИКА използвай само кирилица!',
-            'packer_name.min' => 'Минимален брой символи за името на ОПАКОВЧИКА - 3!',
-            'packer_name.max' => 'Максимален брой символи за името на ОПАКОВЧИКА - 100!',
+            'packer_name_one.required' => 'Името на ОПАКОВЧИКА е задължително!',
+            'packer_name_one.cyrillic_with' => 'За Име на ОПАКОВЧИКА използвай само кирилица!',
+            'packer_name_one.min' => 'Минимален брой символи за името на ОПАКОВЧИКА - 3!',
+            'packer_name_one.max' => 'Максимален брой символи за името на ОПАКОВЧИКА - 500!',
 
-            'packer_address.required' => 'Адреса на ОПАКОВЧИКА е задължителен',
-            'packer_address.cyrillic_with' => 'За Адрес на ОПАКОВЧИКА използвай само кирилица!',
-            'packer_address.min' => 'Минимален брой символи зa Адреса на ОПАКОВЧИКА - 3',
-            'packer_address.max' => 'Максимален брой символи зa Адреса на ОПАКОВЧИКА - 3',
+            'packer_name_two.cyrillic_with' => 'За Името на ОПАКОВЧИК 2 използвай само кирилица!',
+            'packer_name_two.min' => 'Минимален брой символи зa Името на ОПАКОВЧИК Две - 3',
+            'packer_name_two.max' => 'Максимален брой символи зa Името на ОПАКОВЧИК Две - 500',
 
-            'packer_vin.digits_between' => 'ЕИК/ЕГН на ОПАКОВЧИКА се изписва с цифри. Между 9 - 13 символа!',
-
+            'packer_name_three.cyrillic_with' => 'За Името на ОПАКОВЧИК 3 използвай само кирилица!',
+            'packer_name_three.min' => 'Минимален брой символи зa Името на ОПАКОВЧИК Три - 3',
+            'packer_name_three.max' => 'Максимален брой символи зa Името на ОПАКОВЧИК Три - 500',
 
             'type_crops.required' => 'Избери дали е за консумация или преработка!',
 

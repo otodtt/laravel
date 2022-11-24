@@ -126,12 +126,12 @@
                         <hr class="my_hr_in"/>
                     </div>
                     <div class="small_field_center" style="display: table-cell">
-                        <p>Опаковчик</p>
+                        <p>Опаковчици</p>
                         <hr class="my_hr_in"/>
-                        <p >Фирма/ЗС: <span class="bold" style="text-transform: uppercase">{{$certificate->packer_name }}</span></p>
-                        <p >ЕГН/ЕИК: <span class="bold">{{$certificate->packer_vin}}</span></p>
-                        <hr class="my_hr_in"/>
-                        <p >Адрес: <span class="bold">{{$certificate->packer_address }}</span></p>
+                        <p >Фирма/ЗС 1: <span class="bold" style="text-transform: none">{{$certificate->packer_name_one }}</span></p>
+                        <p >Фирма/ЗС 2: <span class="bold">{{$certificate->packer_name_two}}</span></p>
+                        {{--<hr class="my_hr_in"/>--}}
+                        <p >Фирма/ЗС 3: <span class="bold">{{$certificate->packer_name_three }}</span></p>
                         <hr class="my_hr_in"/>
                     </div>
                     <div class="small_field_right" style="display: table-cell">
@@ -400,9 +400,11 @@
                                     <p class="p_info" style="margin-bottom: 3px;">
                                         2. Опаковчик, посочен върху опаковката (ако е  различен от търговеца)/ Packer identified on packaging (if other than trader)
                                     </p>
-                                    <p class="p_content" style="margin-top: 20px">
-                                        @if (strlen($certificate->packer_name) != 0 && strlen($certificate->packer_address) != 0)
-                                            {!! $certificate->packer_name  !!}, {!! $certificate->packer_address !!}/ BG: {{ $certificate->packer_vin }}
+                                    <p class="p_contents" style="margin-top: 10px">
+                                        @if (strlen($certificate->packer_name_one) != 0 )
+                                            {!! $certificate->packer_name_one  !!}<br>
+                                            {!! $certificate->packer_name_two !!}<br>
+                                            {!! $certificate->packer_name_three !!}
                                         @else
                                             <span>--------------</span>
                                         @endif

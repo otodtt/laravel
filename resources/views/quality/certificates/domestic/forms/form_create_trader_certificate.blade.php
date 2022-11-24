@@ -126,7 +126,7 @@
     {{--Опаковчик, посочен върху опаковката--}}
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-md-4" >
+            <div class="col-md-6" >
                 <fieldset class="small_field"><legend class="small_legend">2. Опаковчик, посочен върху опаковката </legend>
                     <div class="col-md-12 col-md-6_my" >
                         <p class="description">
@@ -134,30 +134,29 @@
                         </p>
 
                         <div class="packer_wrap" >
-                            <label for="packer_name">Име на Опаковчик:</label>
-                            {!! Form::text('packer_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Опаковчик']) !!}
+                            <label for="packer_name_one">Име на Опаковчик 1:</label>
+                            {!! Form::text('packer_name_one', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Опаковчик']) !!}
                             {{--<br>--}}
-                            <label for="packer_address">Адрес:</label>
-                            {!! Form::text('packer_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Опаковчик']) !!}
-                            <label for="packer_address">ЕИК:</label>
-                            {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 40%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                            <label for="packer_name_two">Име на Опаковчик 2:</label>
+                            {!! Form::text('packer_name_two', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Име на Опаковчик']) !!}
+                            <label for="packer_name_three">Име на Опаковчик 3:</label>
+                            {!! Form::text('packer_name_three', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Име на Опаковчик']) !!}
                         </div>
                     </div>
                 </fieldset>
             </div>
-            <div class="col-md-2">
-                <fieldset class="small_field"><legend class="small_legend">3. Контролен орган</legend>
-                    <p class="description">
-                        Поле № 3. Контролен орган
-                    </p>
-                    <br>
-                    <p> <p class="bold">{{ $index[0]['authority_bg'] }}</p></p>
-                    {{-- <p> <p class="bold">{{ $index[0]['authority_en'] }}</p></p> --}}
-                    <br>
-                    <br>
-                    <br>
-                </fieldset>
-            </div>
+            {{--<div class="col-md-2">--}}
+                {{--<fieldset class="small_field"><legend class="small_legend">3. Контролен орган</legend>--}}
+                    {{--<p class="description">--}}
+                        {{--Поле № 3. Контролен орган--}}
+                    {{--</p>--}}
+                    {{--<br>--}}
+                    {{--<p> <p class="bold">{{ $index[0]['authority_bg'] }}</p></p>--}}
+                    {{--<br>--}}
+                    {{--<br>--}}
+                    {{--<br>--}}
+                {{--</fieldset>--}}
+            {{--</div>--}}
             <div class="col-md-3">
                 <fieldset class="small_field"><legend class="small_legend">4. Произход
                     </legend>

@@ -190,12 +190,12 @@
     <div class="container-fluid">
         <div class="row">
             {{-- 2. Опаковчик --}}
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <fieldset class="small_field">
                     <legend class="small_legend">2. Опаковчик, посочен върху опаковката </legend>
                     <div class="col-md-12 col-md-6_my">
                         <p class="description">
-                            Поле № 2. Опаковчик, посочен върху .. &lt;br&gt;<br>
+                            Поле № 2. Опаковчик, посочен върху .. <br>
                         </p>
                         @if ($certificate->farmer_id > 0 && $certificate->type_firm > 0)
                             <br />
@@ -203,47 +203,32 @@
                             <br />
                         @else
                             <?php
-                            if (old('packer_name') == null) {
-                                $name = $certificate->packer_name;
+                            if (old('packer_name_one') == null) {
+                                $name = $certificate->packer_name_one;
                             } else {
-                                $name = old('packer_name');
+                                $name = old('packer_name_one');
                             }
-                            if (old('packer_address') == null) {
-                                $address = $certificate->packer_address;
+                            if (old('packer_name_two') == null) {
+                                $address = $certificate->packer_name_two;
                             } else {
-                                $address = old('packer_address');
+                                $address = old('packer_name_two');
                             }
-                            if (old('packer_vin') == null) {
-                                $vin = $certificate->packer_vin;
+                            if (old('packer_name_three') == null) {
+                                $vin = $certificate->packer_name_three;
                             } else {
-                                $vin = old('packer_vin');
+                                $vin = old('packer_name_three');
                             }
                             ?>
-                            <label for="packer_name">Име на Опаковчик:</label>
-                            {!! Form::text('packer_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Опаковчик']) !!}
+                            <label for="packer_name_one">Име на Опаковчик 1: &lt;br&gt;</label>
+                            {!! Form::text('packer_name_one', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Опаковчик']) !!}
                     
-                            <label for="packer_address">Адрес:</label>
-                            {!! Form::text('packer_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Опаковчик', 'autocomplete'=>'packer_address']) !!}
+                            <label for="packer_name_two">Име на Опаковчик 2:</label>
+                            {!! Form::text('packer_name_two', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Опаковчик', 'autocomplete'=>'packer_address']) !!}
 
-                            <label for="packer_vin">ЕГН/ЕИК:</label>
-                            {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 30%', 'placeholder'=>'ЕГН/ЕИК', 'autocomplete'=>'packer_vin']) !!}
+                            <label for="packer_name_three">Име на Опаковчик 3:</label>
+                            {!! Form::text('packer_name_three', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'ЕГН/ЕИК', 'autocomplete'=>'packer_vin']) !!}
                         @endif
                     </div>
-                </fieldset>
-            </div>
-            {{-- 3. Контролен орган --}}
-            <div class="col-md-2">
-                <fieldset class="small_field">
-                    <legend class="small_legend">3. Контролен орган</legend>
-                    <p class="description">
-                        Поле № 3. Контролен орган
-                    </p>
-                    <br>
-                    <p>
-                    <p class="bold">{{ $index[0]['authority_bg'] }}</p>
-                    </p>
-                    <br>
-                    <br>
                 </fieldset>
             </div>
             {{-- 4. Произход --}}

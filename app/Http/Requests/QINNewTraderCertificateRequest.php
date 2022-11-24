@@ -40,9 +40,9 @@ class QINNewTraderCertificateRequest extends Request
             'trader_address' => $trader_address,
             'trader_vin' => $trader_vin,
 
-            'packer_name' => 'required|min:3|max:500',
-            'packer_address' => 'required|min:3|max:500',
-            'packer_vin' => 'digits_between:9,13',
+            'packer_name_one' => 'required|min:3|max:500',
+            'packer_name_two' => 'min:3|max:500',
+            'packer_name_three' => 'min:3|max:500',
 
             'from_country'=>'required|min:5|max:300',
             'id_country'=>'required',
@@ -74,18 +74,16 @@ class QINNewTraderCertificateRequest extends Request
             'trader_vin.digits_between' => 'ЕИК/Булстат се изписва с цифри. Между 9 - 13 символа!',
 
 
-            'packer_name.required' => 'Името на ОПАКОВЧИКА е задължително!',
-            // 'packer_name.cyrillic_with' => 'За Име на ОПАКОВЧИКА използвай само кирилица!',
-            'packer_name.min' => 'Минимален брой символи за името на ОПАКОВЧИКА - 3!',
-            'packer_name.max' => 'Максимален брой символи за името на ОПАКОВЧИКА - 500!',
+            'packer_name_one.required' => 'Името на ОПАКОВЧИКА е задължително!',
+            'packer_name_one.min' => 'Минимален брой символи за името на ОПАКОВЧИКА - 3!',
+            'packer_name_one.max' => 'Максимален брой символи за името на ОПАКОВЧИКА - 500!',
 
-            'packer_address.required' => 'Адреса на ОПАКОВЧИКА е задължителен',
-            // 'packer_address.cyrillic_with' => 'За Адрес на ОПАКОВЧИКА използвай само кирилица!',
-            'packer_address.min' => 'Минимален брой символи зa Адреса на ОПАКОВЧИКА - 3',
-            'packer_address.max' => 'Максимален брой символи зa Адреса на ОПАКОВЧИКА - 3',
+            'packer_name_two.min' => 'Минимален брой символи зa Име на ОПАКОВЧИК ДВЕ - 3',
+            'packer_name_two.max' => 'Максимален брой символи зa Име на ОПАКОВЧИК ДВЕ - 500',
 
-            'packer_vin.digits_between' => 'ЕИК/ЕГН на ОПАКОВЧИКА се изписва с цифри. Между 9 - 13 символа!',
-
+//            'packer_vin.digits_between' => 'ЕИК/ЕГН на ОПАКОВЧИКА се изписва с цифри. Между 9 - 13 символа!',
+            'packer_name_three.min' => 'Минимален брой символи зa Име на ОПАКОВЧИК ТРИ - 3',
+            'packer_name_three.max' => 'Максимален брой символи зa Име на ОПАКОВЧИК ТРИ - 500',
 
             'type_crops.required' => 'Избери дали е за консумация или преработка!',
 
