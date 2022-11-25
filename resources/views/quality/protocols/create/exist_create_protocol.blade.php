@@ -6,6 +6,7 @@
 @section('css')
     {!!Html::style("css/qcertificates/add_edit.css" )!!}
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
+    {!!Html::style("css/qprotocols/qprotocolsAddEdit.css" )!!}
 @endsection
 
 @section('content')
@@ -40,16 +41,16 @@
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/фермер/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/протоколи/фермер/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('quality.protocols.create.forms.form_create_exist_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
-                <a href="{{ '/контрол/сертификати-вътрешен' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификатите!</a>
+                <a href="{{ '/контрол/протоколи' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към протоколите!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
-                {!! Form::submit('Добави и продължи!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Добави протокол!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
             
@@ -61,15 +62,44 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
-    {!!Html::script("js/quality/date_issue.js" )!!}
+    {!!Html::script("js/date/in_date.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+{{--    {!!Html::script("js/quality/date_issue.js" )!!}--}}
     <script>
-        $('#id_country').change(function () {
-            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
-            var for_country_en=$(this).find('option:selected').attr('for_country_en');
-            $('#for_country_bg').val(for_country_bg);
-            $('#for_country_en').val(for_country_en);
+        function clearRadioButtons()
+        {
+            var radioButtonArray = document.getElementsByName('matches');
+
+            for (var i=0; i<radioButtonArray.length; i++)
+            {
+                var radioButton = radioButtonArray[i];
+                radioButton.checked = false;
+            }
+        }
+        $('#crops').change(function () {
+            var crops_name=$(this).find('option:selected').attr('crops_name');
+            $('#crops_name').val(crops_name);
+        });
+        $('#inspectors').change(function () {
+            var inspector_name=$(this).find('option:selected').attr('inspector_name');
+            $('#inspector_name').val(inspector_name);
         });
 
+        var test = $( "#type option:selected" ).text();
+        if (test == 'ДРУГО') {
+            $( "#different_row" ).removeClass( "hidden" );
+        } else {
+            $( "#different_row" ).addClass( "hidden" );
+        }
+
+        function run() {
+            var different = document.getElementById('type').value;
+            if (different == 999) {
+                $( "#different_row" ).removeClass( "hidden" );
+            }
+            else {
+                $( "#different_row" ).addClass( "hidden" );
+            }
+        }
     </script>
 @endsection

@@ -41,6 +41,12 @@
                 <div class="col-md-12 my_col-md-12 middle">
                     <a href="{!! URL::to('/контрол/сертификати-вътрешен/добави/'.$farmer->id )!!}" class='fa fa-certificate btn btn-danger my_btn'> ДОБАВИ СЕРТИФИКАТ ПО КАЧЕСТВО!</a>
                 </div>
+                <div class="col-md-12 my_col-md-12 middle">
+                    <a href="{!! URL::to('/контрол/протоколи/добави/'.$farmer->id )!!}" class='fa fa-file-powerpoint-o btn  my_btn'
+                       style="background-color: #e71e19; border-color: #d43f3a; color: #fff;">
+                        ДОБАВИ К. ПРОТОКОЛ ПО КАЧЕСТВО!
+                    </a>
+                </div>
             </div>
         </div>
         <div class="row-height-my">

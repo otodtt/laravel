@@ -10,6 +10,7 @@ use odbh\Crop;
 use odbh\Farmer;
 use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
+use odbh\Http\Requests\QProtocolsRequest;
 use odbh\Importer;
 use odbh\Location;
 use odbh\QCertificate;
@@ -82,10 +83,11 @@ class QProtocolsController extends Controller
      */
     public function create($id)
     {
-        $type = 3;
         $index = $this->index;
 
         $farmer = Farmer::findOrFail($id);
+        $qualitys = ['1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $packages = ['4' => 'Торби/ Bags', '3' => 'Кашони/ C. boxes', '2' => 'Палети/ Cages', '1' => 'Каси/ Pl. cases', '999' => 'ДРУГО'];
 
         $districts_farm = $this->districts_list;
         $regions = $this->areas_all_list;
@@ -94,8 +96,6 @@ class QProtocolsController extends Controller
             ->where('type_district', '=', 1)
             ->orderBy('district_id', 'asc')
             ->lists('name', 'district_id')->toArray();
-
-        $countries= Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
 
         $crops= Crop::select('id', 'name', 'name_en', 'group_id')
             ->where('group_id', '=', 4)
@@ -110,30 +110,28 @@ class QProtocolsController extends Controller
             ->orWhere('group_id', '=', 16)
             ->orderBy('group_id', 'asc')->get()->toArray();
 
-//        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
-
-        $uid = Auth::user()->id;
-        $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
-
-        if(!empty($last_internal)) {
-            $last_number = $last_internal;
-        } else {
-            $last_number[0]['internal'] = '3001';
-        }
-
-        return view('quality.protocols.create.exist_create_protocol', compact('farmer', 'index',
-            'countries', 'crops', 'user', 'last_number', 'type', 'regions', 'districts_farm', 'districts'));
+        $inspectors = User::select('id', 'short_name')
+                            ->where('active', '=', 1)
+                            ->where('ppz','=',1)
+                            ->where('stamp_number','!=',5001)
+                            ->lists('short_name', 'id')
+                            ->toArray();
+        return view('quality.protocols.create.exist_create_protocol', compact('farmer', 'index', 'crops', 'inspectors',
+                    'qualitys', 'regions', 'districts', 'districts_farm', 'packages' ));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param QProtocolsRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
+     * @internal param Request $QProtocolsRequest
      */
-    public function store(Request $request)
+    public function store(QProtocolsRequest $request, $id)
     {
-        //
+//        dd($id);
+        dd($request->all());
     }
 
     /**

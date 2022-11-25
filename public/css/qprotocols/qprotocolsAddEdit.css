@@ -1,0 +1,29 @@
+
+.full_row>td {
+    padding-bottom: 5px;
+}
+.numbers_td {
+    width: 30px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    text-align: center;
+}
+.labels_td {
+    width: 200px;
+    padding: 0 10px;
+}
+.labels_marking {
+    width: 300px;
+    padding: 0 10px;
+}
+.labels_td_last {
+    width: 300px;
+    padding: 0 10px;
+}
+.input_td {
+    width: 200px;
+    padding: 0 10px;
+}
+.my_labels {
+    margin-bottom: 0;
+}

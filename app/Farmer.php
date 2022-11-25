@@ -79,4 +79,12 @@ class Farmer extends Model
     public function qincertificates(){
         return $this->hasMany('odbh\QINCertificate');
     }
+
+    /**
+     * ЗП има много QProtocols
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function qprotocols(){
+        return $this->hasMany('odbh\QProtocols');
+    }
 }
