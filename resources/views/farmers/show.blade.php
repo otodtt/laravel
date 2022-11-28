@@ -200,6 +200,19 @@
                     </ul>
                 </li>
             @endif
+            @if(!empty($qprotocols->toArray()))
+                <li class="li_repository">
+                    <a href="{!!URL::to('/стопанин/'.$farmer->id)!!}"><i class="fa fa-certificate fa-fw"></i>
+                        <span class="bold">КОНСТАТИВНИ ПРОТОКОЛИ ПО КАЧЕСТВО</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @include('farmers.body.qprotocols')
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </ul>
     </div>
     <br/>

@@ -106,7 +106,7 @@ else{
                                 <td>{!! Form::label('tara', '5. Тегло бруто/нето(кг):', ['class'=>'my_labels']) !!}</td>
                                 <td>
                                     {!! Form::text('tara', null, ['class'=>'form-control form-control-my', 'size'=>23, 'maxlength'=>250,
-                                    'placeholder'=> 'бруто/нето(кг)', 'style'=>'margin:5px 0; float: right; width: 100%;' ]) !!}
+                                    'placeholder'=> 'бруто/нето', 'style'=>'margin:5px 0; float: right; width: 100%;' ]) !!}
                                 </td>
                             </tr>
                             <tr  style="border-bottom: 1px solid black;">
@@ -138,11 +138,9 @@ else{
                 </div>
                 <div class="col-md-6 col-md-6_my" style="padding: 0 20px">
                     <p>7. Други идентификационни белези (сорт, размер, тегло)</p>
-                    {{--<textarea id="variety" name="variety" rows="3" cols="70"></textarea>--}}
                     {!! Form::textarea('variety', null, ['class'=>'form-control', 'rows' => 3, 'cols' => 70, ]) !!}
                     <hr>
                     <p>8. Придружаващи стоката документи</p>
-                    {{--<textarea id="documents" name="documents" rows="3" cols="70"></textarea>--}}
                     {!! Form::textarea('documents', null, ['class'=>'form-control', 'rows' => 3, 'cols' => 70, ]) !!}
                 </div>
             </fieldset>
@@ -162,65 +160,69 @@ else{
                     <tbody>
                         <tr class="full_row">
                             <td class="numbers_td">01</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Маркировка:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('marking', 'Маркировка:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="marking" name="marking" min="0" max="100"> %
+                                {!! Form::input('number', 'marking', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                             <td  class="numbers_td">05</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Чистота:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('cleanliness', 'Чистота:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="cleanliness" name="cleanliness" min="0" max="100"> %
+                                {!! Form::input('number', 'cleanliness', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                             <td  class="numbers_td">08</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Оцветяване:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('coloring', 'Оцветяване:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="coloring" name="coloring" min="0" max="100"> %
+                                {!! Form::input('number', 'coloring', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                         </tr>
 
 
                         <tr class="full_row">
                             <td class="numbers_td">02</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Размери:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('dimensions', 'Размери:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="dimensions" name="dimensions" min="0" max="100"> %
+                                {!! Form::input('number', 'dimensions', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                             <td  class="numbers_td">06</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Външен вид:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('appearance', 'Външен вид:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="appearance" name="appearance" min="0" max="100"> %
+                                {!! Form::input('number', 'appearance', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                             <td  class="numbers_td">09</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Зрялост:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('maturity', 'Зрялост:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="maturity" name="maturity" min="0" max="100"> %
+                                {!! Form::input('number', 'maturity', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                         </tr>
 
 
                         <tr class="full_row">
                             <td class="numbers_td">03</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Петна и повреди:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('damage', 'Петна и повреди:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="damage" name="damage" min="0" max="100"> %
+                                {{--<input type="number" id="damage" name="damage" min="0" max="100"> %--}}
+                                {!! Form::input('number', 'damage', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                             <td  class="numbers_td">07</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Форма:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('shape', 'Форма:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="shape" name="shape" min="0" max="100"> %
+                                {{--<input type="number" id="shape" name="shape" min="0" max="100"> %--}}
+                                {!! Form::input('number', 'shape', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                             <td  class="numbers_td">10</td>
-                            <td class="labels_td">{!! Form::label('origin', 'Физиологични дефекти:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td">{!! Form::label('defects', 'Физиологични дефекти:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td">
-                                <input type="number" id="defects" name="defects" min="0" max="100"> %
+                                {{--<input type="number" id="defects" name="defects" min="0" max="100"> %--}}
+                                {!! Form::input('number', 'defects', null, ['min' => 0, 'max'=> 100 ]) !!} %
                             </td>
                         </tr>
 
                         <tr class="full_row">
                             <td class="numbers_td">04</td>
-                            <td class="labels_td_last">{!! Form::label('origin', 'Повреди болести и загнивания:', ['class'=>'my_labels']) !!}</td>
+                            <td class="labels_td_last">{!! Form::label('diseases', 'Повреди болести и загнивания:', ['class'=>'my_labels']) !!}</td>
                             <td class="input_td" colspan="6">
-                                <input type="number" id="diseases" name="diseases" min="0" max="100"> %
+                                {!! Form::input('number', 'diseases', null, ['min' => 0, 'max'=> 100 ]) !!} %
+                                {{--<input type="number" id="diseases" name="diseases" min="0" max="100"> %--}}
                             </td>
                         </tr>
                     </tbody>
@@ -244,22 +246,22 @@ else{
                             <td class="numbers_td">1</td>
                             <td class="labels_td">
                                 {!! Form::label('import', 'внос:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="import" name="matches" value="1">
+                                {!! Form::radio('matches', 1, false, ['id'=>'import']) !!}
                             </td>
                             <td  class="numbers_td">2</td>
                             <td class="labels_td">
                                 {!! Form::label('export', 'износ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="export" name="matches" value="2">
+                                {!! Form::radio('matches', 2, false, ['id'=>'export']) !!}
                             </td>
                             <td  class="numbers_td">3</td>
                             <td class="labels_td">
                                 {!! Form::label('wholesale', 'продажба на едро:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="wholesale" name="matches" value="3">
+                                {!! Form::radio('matches', 3, false, ['id'=>'wholesale']) !!}
                             </td>
                             <td  class="numbers_td">4</td>
                             <td class="labels_td">
                                 {!! Form::label('petty', 'продажба на дребно:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="petty" name="matches" value="4">
+                                {!! Form::radio('matches', 4, false, ['id'=>'petty']) !!}
                             </td>
                             <td class="input_td">
                                 <input type="button" onclick="clearRadioButtons();" value="Изчисти" class="btn btn-info my_btn" />
@@ -288,10 +290,10 @@ else{
                             </td>
                             <td class="input_td" >
                                 {!! Form::label('mark', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="mark" name="mark" value="1">
+                                {!! Form::radio('mark', 1, false, ['id'=>'mark']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('mark_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="mark_no" name="mark" value="0" checked>
+                                {!! Form::radio('mark', 0, true, ['id'=>'mark_no']) !!}
                             </td>
                             <td  class="numbers_td">04</td>
                             <td class="labels_marking">
@@ -299,10 +301,10 @@ else{
                             </td>
                             <td class="input_td">
                                 {!! Form::label('repackaging', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="repackaging" name="repackaging" value="1">
+                                {!! Form::radio('repackaging', 1, false, ['id'=>'repackaging']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('repackaging_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="repackaging_no" name="repackaging" value="0" checked>
+                                {!! Form::radio('repackaging', 0, true, ['id'=>'repackaging_no']) !!}
                             </td>
                             <td  class="numbers_td">06</td>
                             <td class="labels_marking">
@@ -310,10 +312,10 @@ else{
                             </td>
                             <td class="input_td">
                                 {!! Form::label('processing', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="processing" name="processing" value="1">
+                                {!! Form::radio('processing', 1, false, ['id'=>'processing']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('processing_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="processing_no" name="processing" value="0" checked>
+                                {!! Form::radio('processing', 0, true, ['id'=>'processing_no']) !!}
                             </td>
                         </tr>
 
@@ -324,10 +326,10 @@ else{
                             </td>
                             <td class="input_td">
                                 {!! Form::label('low', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="low" name="low" value="1">
+                                {!! Form::radio('low', 1, false, ['id'=>'low']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('low_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="low_no" name="low" value="0" checked>
+                                {!! Form::radio('low', 0, true, ['id'=>'low_no']) !!}
                             </td>
                             <td  class="numbers_td">05</td>
                             <td class="labels_marking">
@@ -335,10 +337,10 @@ else{
                             </td>
                             <td class="input_td">
                                 {!! Form::label('relabeling', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="relabeling" name="relabeling" value="1">
+                                {!! Form::radio('relabeling', 1, false, ['id'=>'relabeling']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('relabeling_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="relabeling_no" name="relabeling" value="0" checked>
+                                {!! Form::radio('relabeling', 0, true, ['id'=>'relabeling_no']) !!}
                             </td>
                             <td  class="numbers_td">07</td>
                             <td class="labels_marking">
@@ -346,10 +348,10 @@ else{
                             </td>
                             <td class="input_td">
                                 {!! Form::label('fodder', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="fodder" name="fodder" value="1">
+                                {!! Form::radio('fodder', 1, false, ['id'=>'fodder']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('fodder_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="fodder_no" name="fodder" value="0" checked>
+                                {!! Form::radio('fodder', 0, true, ['id'=>'fodder_no']) !!}
                             </td>
                         </tr>
 
@@ -360,10 +362,12 @@ else{
                             </td>
                             <td class="input_td" colspan="4">
                                 {!! Form::label('resort', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="resort" name="resort" value="1">
+                                {{--<input type="radio" id="resort" name="resort" value="1">--}}
+                                {!! Form::radio('resort', 1, false, ['id'=>'resort']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('resort_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="resort_no" name="resort" value="0" checked>
+                                {{--<input type="radio" id="resort_no" name="resort" value="0" checked>--}}
+                                {!! Form::radio('resort', 0, true, ['id'=>'resort_no']) !!}
                             </td>
                             <td  class="numbers_td">08</td>
                             <td class="labels_marking">
@@ -371,10 +375,12 @@ else{
                             </td>
                             <td class="input_td">
                                 {!! Form::label('destruction', 'ДА:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="destruction" name="destruction" value="1">
+                                {{--<input type="radio" id="destruction" name="destruction" value="1">--}}
+                                {!! Form::radio('destruction', 1, false, ['id'=>'destruction']) !!}
                                 &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('destruction_no', 'НЕ:', ['class'=>'my_labels']) !!}
-                                <input type="radio" id="destruction_no" name="destruction" value="0" checked>
+                                {{--<input type="radio" id="destruction_no" name="destruction" value="0" checked>--}}
+                                {!! Form::radio('destruction', 0, true, ['id'=>'destruction_no']) !!}
                             </td>
                         </tr>
                     </tbody>
@@ -395,7 +401,8 @@ else{
                     <p class="bold">
                         Действия на търговеца в определен от него срок съгласно предписанията на инспектора
                     </p>
-                    <textarea id="actions" name="actions" rows="2" cols="70"></textarea>
+                    {!! Form::textarea('actions', null, ['class'=>'form-control', 'rows' => 2, 'cols' => 70, ]) !!}
+                    {{--<textarea id="actions" name="actions" rows="2" cols="70"></textarea>--}}
                 </div>
             </fieldset>
         </div>
@@ -432,11 +439,11 @@ else{
                         <option value="0">-- Избери --</option>
                         @foreach($inspectors as $k=>$inspector)
                             <option value="{{$k}}"
-                                {{--@if (old('inspectors') == null)--}}
+                                @if (old('inspectors') == null)
                                 {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
-                                {{--@else--}}
-                                {{(old('inspectors') == $inspector)? 'selected':''}}
-                                {{--@endif--}}
+                                @else
+                                {{(old('inspectors') == $k)? 'selected':''}}
+                                @endif
                                 inspector_name="{{$inspector}}"
 
                             >{{ mb_strtoupper($inspector, 'utf-8') }}

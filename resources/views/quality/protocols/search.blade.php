@@ -143,8 +143,8 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!!URL::to('/контрол/сертификати-вътрешен/търговец/добави/'.$trader[0]['id'])!!}" class="fa fa-retweet btn btn-primary my_btn_check" style="width: 350px"> 
-                                &nbsp;&nbsp;Добави Сертификат на тази фирма!
+                            <a href="{!!URL::to('/контрол/протоколи/търговец/'.$trader[0]['id'])!!}" class="fa fa-file-powerpoint-o btn btn-primary my_btn_check" style="width: 350px">
+                                &nbsp;&nbsp;Добави Констативен протокол на тази фирма!
                             </a>
                         </div>
                     @endif

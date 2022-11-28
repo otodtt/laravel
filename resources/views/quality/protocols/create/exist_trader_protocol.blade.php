@@ -19,7 +19,7 @@
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
             <span class="bold">
-                Провери внимателно данните! Ако има грешки, редактирай данните на Земеделския Стопанин и тогава добави Конатативен Протокол!
+                Провери внимателно данните! Ако има грешки, редактирай данните на Търговеца и тогава добави Конатативен Протокол!
             </span>
         </p>
     </div>
@@ -37,11 +37,15 @@
             <div class="row">
                 <div class="col-md-12 ">
                     <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА</h4>
-                    @include('records.add.object_info')
+                    <p >
+                        Име на Фирма: <span class="bold">{!! $trader->trader_name !!}</span><br>
+                        С адрес: <span class="bold">{!! $trader->trader_address !!}</span>;
+                        С ЕИК/Булстат: <span class="bold">{!! $trader->trader_vin !!}</span>
+                    </p>
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/фермер/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/протоколи/търговец/'.$trader->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('quality.protocols.create.forms.form_create_exist_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">

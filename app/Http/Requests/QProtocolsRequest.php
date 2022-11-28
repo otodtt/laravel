@@ -40,16 +40,18 @@ class QProtocolsRequest extends Request
             'quality_class' => 'required|not_in:0',
             'quality_naw' => 'required|not_in:0',
             'number'=>'required|my_numeric',
+//            'tara'=>'required|my_numeric',
+            'tara'=>'required',
             'type_package' => 'required|not_in:0',
             'different' => $different,
             'variety'=>'cyrillic_with|min:3|max:1000',
             'documents'=>'cyrillic_with|min:3|max:1000',
 
-//            'id_country'=>'required',
-//            'observations'=>'min:2|max:500',
-//
-//            'place_bg'=>'required|cyrillic_with|min:3|max:300',
-//            'valid_until'=>'required|date_format:d.m.Y|after:hidden_date',
+            'actions'=>'cyrillic_with|min:3|max:1000',
+            'name_trader'=>'required|cyrillic_with|min:3|max:500',
+
+            'place'=>'required|cyrillic_with|min:3|max:100',
+            'inspectors' => 'required|not_in:0',
         ];
     }
     /**
@@ -83,6 +85,9 @@ class QProtocolsRequest extends Request
             'number.required' => 'Попълни поле 6. Брой!',
             'number.my_numeric' => 'За поле 6. Брой - използвай само цифри!',
 
+            'tara.required' => 'Попълни поле 5. Тегло бруто/нето(кг):!',
+//            'tara.my_numeric' => 'За поле 5. Тегло бруто/нето(кг): - използвай само цифри!',
+
             'type_package.required' => 'Избери вида на опаковката!',
             'type_package.not_in' => 'Избери вида на опаковката!',
 
@@ -98,6 +103,23 @@ class QProtocolsRequest extends Request
             'documents.cyrillic_with' => 'За 8. Придружаващи стоката документи използвай кирилица без символите ( )!',
             'documents.min' => 'За 8. Придружаващи стоката документи - минимален брой символи - 3!',
             'documents.max' => 'За 8. Придружаващи стоката документи - максимален брой символи - 1000!',
+
+            'actions.cyrillic_with' => 'За Действия на търговеца използвай кирилица без символите ( )!',
+            'actions.min' => 'За Действия на търговеца - минимален брой символи - 3!',
+            'actions.max' => 'За Действия на търговеца - максимален брой символи - 1000!',
+
+            'name_trader.required' => 'Попълни Трите имена на търговеца или на негов представител!',
+            'name_trader.cyrillic_with' => 'За Трите имена на търговеца или на негов представител използвай кирилица без символите ( )!',
+            'name_trader.min' => 'За Трите имена на търговеца или на негов представитела - минимален брой символи - 3!',
+            'name_trader.max' => 'За Трите имена на търговеца или на негов представител - максимален брой символи - 500!',
+
+            'place.required' => 'Попълни Място на издаване!',
+            'place.cyrillic_with' => 'За Място на издаване използвай кирилица без символите ( )!',
+            'place.min' => 'За Място на издаване - минимален брой символи - 3!',
+            'place.max' => 'За Място на издаване - максимален брой символи - 100!',
+
+            'inspectors.required' => 'Избери инспектора извършил проверката!',
+            'inspectors.not_in' => 'Избери инспектора извършил проверката!',
         ];
         return $data;
     }

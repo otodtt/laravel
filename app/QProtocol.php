@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class QProtocol extends Model
 {
+    public $timestamps = false;
+
     /**
      * Таблицата която се използва от модела
      * @var string
@@ -23,7 +25,7 @@ class QProtocol extends Model
         'number_protocol', 'date_protocol', 'crops', 'crops_name', 'origin', 'quality_class', 'quality_naw', 'tara', 'different',
         'number', 'type_package', 'variety', 'documents', 'marking', 'cleanliness', 'coloring', 'dimensions', 'appearance',
         'maturity', 'damage', 'shape', 'defects', 'diseases', 'mark', 'repackaging', 'processing', 'low', 'relabeling',
-        'fodder', 'resort', 'destruction', 'actions', 'name_trader', 'place',
+        'fodder', 'resort', 'destruction', 'actions', 'name_trader', 'place', 'matches',
         'inspectors', 'inspector_name', 'date_update', 'updated_by', 'date_add', 'added_by',
     ];
 

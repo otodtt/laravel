@@ -24,4 +24,12 @@ class Trader extends Model
     public function qincertificate(){
         return $this->hasMany('odbh\QINCertificate', 'trader_id');
     }
+
+    /**
+     * Търговеца има много QProtocols
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function qprotocols(){
+        return $this->hasMany('odbh\QProtocol');
+    }
 }

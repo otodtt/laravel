@@ -4,10 +4,12 @@
 @endsection
 
 @section('css')
-    {!!Html::style("css/qcertificates/show_opinion.css" )!!}
     {!!Html::style("css/table/jquery.dataTables.css" )!!}
+    {!!Html::style("css/metisMenu.min.css" )!!}
+    {!!Html::style("css/qcertificates/show_opinion.css" )!!}
     {!!Html::style("css/table/table_firms.css " )!!}
     {!!Html::style("css/firms_objects/firms_all_css.css" )!!}
+    {!!Html::style("css/farmers/farmer_info.css" )!!}
 @endsection
 
 @section('message')
@@ -67,6 +69,7 @@
                         </div>
                         <div class="btn_add_firm">
                             <a href="{!!URL::to('/контрол/сертификати-вътрешен/търговец/добави/'.$trader->id)!!}" class="fa fa-plus-circle btn btn-success my_btn"> Добави Сертификат за тази фирма</a>
+                            <a href="{!!URL::to('/контрол/протоколи/търговец/'.$trader->id)!!}" class="fa fa-plus-circle btn btn-danger my_btn"> Добави К. Протокол за тази фирма</a>
                         </div>
                         <br>
                         <hr class="my_hr_in"/>
@@ -159,7 +162,22 @@
             <tfoot>
             <tr>
                 <th colspan="3" style="text-align:right">Всичко лв.:</th>
-                <th></th>
+                <th>
+                    {{--@if($certificate != 0)--}}
+                        <?php $final = array(); ?>
+                        @foreach($certificate as $k=>$stock)
+                            <?php
+                        print_r($stock[0]['sum']);
+                            //$final = array_merge($final, $stock);
+                            //$total = array_sum(array_column($final, 'sum'));
+                            ?>
+                        @endforeach
+                        <?php
+                        //$total = array_sum(array_column($final, 'sum'));
+                        ?>
+                        {{--<p style="text-align: left; margin-left: 10px">{{ number_format($total, 0, ',', ' ') }}</p>--}}
+                    {{--@endif--}}
+                </th>
                 <th class="bold">Всичко кг.</th>
                 <th>
                     @if($internal_stocks != 0)
@@ -182,13 +200,34 @@
             </tfoot>
         </table>
     </div>
+    <br/><br/>
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            @if(!empty($qprotocols->toArray()))
+                <li class="li_repository">
+                    <a href="{!!URL::to('/контрол/търговци/'.$trader->id.'/show')!!}"><i class="fa fa-certificate fa-fw"></i>
+                        <span class="bold">КОНСТАТИВНИ ПРОТОКОЛИ ПО КАЧЕСТВО</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @include('farmers.body.qprotocols')
+                        </li>
+                    </ul>
+                </li>
+            @endif
+        </ul>
+    </div>
+    <br/>
 @endsection
 
 
 @section('scripts')
-    {!!Html::script("js/table/jquery-1.11.3.min.js" )!!}
+    {!!Html::script("js/metisMenu.min.js" ) !!}
+    {!!Html::script("js/sb-admin-2.js" ) !!}
     {!!Html::script("js/table/jquery.dataTables.js" )!!}
     {!!Html::script("js/quality/firmsImportersTable.js" )!!}
+
     <script>
     </script>
 @endsection

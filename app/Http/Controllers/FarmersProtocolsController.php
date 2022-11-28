@@ -351,16 +351,16 @@ class FarmersProtocolsController extends Controller
     /**
      * Сортиране на Протоколите
      *
+     * @param  \Illuminate\Http\Request $request
      * @param  int $abc_list
      * @param  int $start_year
      * @param  int $end_year
-     * @param  int $object_sort
      * @param  int $areas_sort
-     * @param  int $assay_sort
      * @param  int $inspector_sort
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  int $assay_sort
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @internal param int $object_sort
      */
     public function sort_farmers(Request $request, $abc_list = null, $start_year = null, $end_year = null,
                          $areas_sort = null, $inspector_sort = null, $assay_sort = null)

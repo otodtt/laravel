@@ -85,6 +85,6 @@ class Farmer extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function qprotocols(){
-        return $this->hasMany('odbh\QProtocols');
+        return $this->hasMany('odbh\QProtocol');
     }
 }

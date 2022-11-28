@@ -47,25 +47,25 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#example_firm').DataTable( {
-        footerCallback: function (row, data, start, end, display) {
-            var api = this.api();
-
-            // Remove the formatting to get integer data for summation
-            var intVal = function (i) {
-                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
-            };
-
-            // Total over all pages
-            total = api
-                .column(3)
-                .data()
-                .reduce(function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0);
-            $(api.column(3).footer()).html(total + ' лв.');
-
-            //console.log(api.columns(3).data());
-        },
+        //footerCallback: function (row, data, start, end, display) {
+        //    var api = this.api();
+        //
+        //    // Remove the formatting to get integer data for summation
+        //    var intVal = function (i) {
+        //        return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+        //    };
+        //
+        //    // Total over all pages
+        //    total = api
+        //        .column(3)
+        //        .data()
+        //        .reduce(function (a, b) {
+        //            return intVal(a) + intVal(b);
+        //        }, 0);
+        //    $(api.column(3).footer()).html(total + ' лв.');
+        //
+        //    //console.log(api.columns(3).data());
+        //},
         "columns": [
             null,
             { "orderable": false },

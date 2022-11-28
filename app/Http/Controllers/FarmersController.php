@@ -181,6 +181,7 @@ class FarmersController extends Controller
         $permits = $farmer->permits;
         $diaries = $farmer->diaries;
         $qcertificates = $farmer->qincertificates;
+        $qprotocols = $farmer->qprotocols;
 
         $inspectors = $this->inspectors_add;
 
@@ -195,7 +196,8 @@ class FarmersController extends Controller
         $certificate = Certificate::select('id')->where('pin','=',$farmer->pin)->orWhere('pin','=',$farmer->pin_owner)->get()->toArray();
 
         return view('farmers.show', compact('farmer', 'districts', 'districts_farm', 'regions', 'old_opinions', 'opinions',
-            'certificate', 'protocols', 'old_protocols', 'old_protocols', 'permits', 'inspectors', 'diaries', 'qcertificates'));
+                                    'certificate', 'protocols', 'old_protocols', 'old_protocols', 'permits',
+                                    'inspectors', 'diaries', 'qcertificates', 'qprotocols'));
     }
 
     /**

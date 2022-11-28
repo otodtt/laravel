@@ -1,69 +1,54 @@
-<table id="example" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
+<table id="protocols_table" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
     <thead>
         <tr>
             <th>N</th>
             <th>Номер</th>
-            <th>Дата на издаване</th>
-            <th>Фирма</th>
-            <th>Фактура</th>
-            <th>Сума</th>
+            <th>Дата </th>
+            <th></th>
+            <th>Издаден на</th>
+            <th>ЕГН/ЕИК</th>
+            <th>Вид на стоката</th>
+            <th>Място на издаване</th>
             <th>Инспектор</th>
-            <th>Завършен</th>
             <th>Виж</th>
         </tr>
     </thead>
     <tbody>
     <?php $n = 1; ?>
-    @foreach($certificates as $certificate)
-            <?php
-                if($certificate->is_all == 0) {
-                    $all = 'Не завършен';
-                    $alert = 'red';
-                } else {
-                    $all = 'OK';
-                    $alert = '';
-                }
-            ?>
+    @foreach($protocols as $protocol)
+
         <tr>
             <td class="right"><?= $n++ ?></td>
-            <td>{{$certificate->import}}</td>
-            <td>{{ date('d.m.Y', $certificate->date_issue) }}</td>
-            <td>{{strtoupper($certificate->importer_name)}}</td>
-            <td style="text-align: right; padding-right: 4px">
-                @if( $certificate->invoice_id == '0')
-                    <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
-                @else
-                    {{ $certificate->invoice_number }}/{{ date('d.m.Y' ,$certificate->invoice_date ) }}
+            <td class="right">{{$protocol->number_protocol}}</td>
+            <td>{{ date('d.m.Y', $protocol->date_protocol) }}</td>
+            <td class="right">
+                @if($protocol->farmer_id > 0 && $protocol->trader_id == 0)
+                    <span>ЗП</span>
+                @elseif($protocol->farmer_id == 0 && $protocol->trader_id > 0)
+                    <span>Търговец</span>
                 @endif
             </td>
-            <td style="text-align: right; padding-right: 4px">{{ $certificate->sum }}</td>
-            <td>{{$certificate->inspector_bg}}</td>
-            <td><span class="{{$alert}}">{{$all}}</span></td>
             <td>
-                @if ($certificate->is_all === 0)
-                <a href='/контрол/сертификат-внос/{{$certificate->id}}/завърши' class="fa fa-edit btn btn-danger my_btn"></a>
-                @else
-                <a href='/контрол/сертификат-внос/{{$certificate->id}}' class="fa fa-binoculars btn btn-primary my_btn"></a>
+                @if($protocol->farmer_id > 0 && $protocol->trader_id == 0)
+                    {{mb_strtoupper($protocol->farmer_name, 'utf-8')}}
+                @elseif($protocol->farmer_id == 0 && $protocol->trader_id > 0)
+                    {{mb_strtoupper($protocol->trader_name, 'utf-8')}}
                 @endif
+            </td>
+            <td style="text-align: right; padding-right: 4px">
+                @if($protocol->farmer_id > 0 && $protocol->trader_id == 0)
+                    {{mb_strtoupper($protocol->farmer_vin, 'utf-8')}}
+                @elseif($protocol->farmer_id == 0 && $protocol->trader_id > 0)
+                    {{mb_strtoupper($protocol->trader_vin, 'utf-8')}}
+                @endif
+            </td>
+            <td style="text-align: right; padding-right: 4px">{{ $protocol->crops_name }}</td>
+            <td><span class="">{{ $protocol->place }}</span></td>
+            <td>{{$protocol->inspector_name}}</td>
+            <td>
+                <a href='/контрол/сертификат-внос/{{$protocol->id}}/завърши' class="fa fa-edit btn btn-danger my_btn"></a>
             </td>
         </tr>
     @endforeach
     </tbody>
-    <tfoot>
-        <tr>
-            <th colspan="5" style="text-align:right">Всичко:</th>
-            <th>
-                <?php  $total = 0; ?>
-                @foreach($certificates as $k=>$certificate)
-                    <?php
-                        $total += array_sum((array)$certificate->sum);
-                    ?>
-                @endforeach
-                <p style="text-center: left; margin-left: 10px"> {{ number_format($total, 2, ',', ' ') }} лв.</p>
-            </th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </tfoot>
 </table>

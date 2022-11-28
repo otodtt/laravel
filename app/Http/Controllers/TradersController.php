@@ -94,7 +94,7 @@ class TradersController extends Controller
     {
         $trader = Trader::findOrFail($id);
         $certificates = $trader->qincertificate;
-        $trader_certificates = $trader->qincertificate;
+        $qprotocols = $trader->qprotocols;
 
         foreach($certificates as $certificate){
             $internal_stocks[] = $certificate->internal_stocks->toArray();
@@ -102,17 +102,17 @@ class TradersController extends Controller
         if(!isset($internal_stocks)) {
             $internal_stocks = array();
         }
-        
-        return view('quality.traders.show', compact( 'trader', 'certificates', 'internal_stocks'));
+
+        return view('quality.traders.show', compact( 'trader', 'certificates', 'internal_stocks', 'qprotocols'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $from = null)
+    public function edit($id)
     {
         $trader = Trader::findOrFail($id);
 

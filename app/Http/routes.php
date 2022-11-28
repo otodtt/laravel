@@ -286,6 +286,9 @@ Route::group(['middleware' => ['auth']], function () {
     //////////////СЪЩЕСТВУВАЩ ЗС//////////////////////
     Route::get('/контрол/протоколи/добави/{id}', 'QProtocolsController@create');
     Route::post('/контрол/протоколи/фермер/{id}', 'QProtocolsController@store');
+    Route::get('/контрол/протоколи/търговец/{id}', 'QProtocolsController@create_trader');
+    Route::post('/контрол/протоколи/търговец/{id}', 'QProtocolsController@store_trader');
+
 
     Route::get('/контрол/протоколи/фермер/нов', 'QProtocolsController@create_farmer');
     //////////////////////////////////////////////////////////
