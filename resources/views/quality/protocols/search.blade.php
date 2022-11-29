@@ -117,11 +117,11 @@
                         <div class="col-md-6 col-md-6_my " >
                             <p class="new_farmer bold">
                                 <span class="view red">Няма намерена такъва фирма. ЕИК или Булстат са верни.</span><br/>
-                                Добави Сертификат на НОВА Фирма. ИЗБРЕИ ВИДА НА ФИРМАТА!
+                                Добави Протокол на НОВА Фирма. ИЗБРЕИ ВИДА НА ФИРМАТА!
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/нова-фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            {!! Form::open(['url'=>'/контрол/протоколи/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                                 <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
                                 <input type="hidden" name="firm" value="{!! $firm !!}">
                                 <input type="hidden" name="name_firm" value="{!! $name_firm !!}">

@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Сертификати на фирми' }}
+    {{ 'Фирма Търговец' }}
 @endsection
 
 @section('css')
@@ -161,22 +161,15 @@
             </tbody>
             <tfoot>
             <tr>
-                <th colspan="3" style="text-align:right">Всичко лв.:</th>
+                <th colspan="3" style="text-align:right">Всичко лв.</th>
                 <th>
-                    {{--@if($certificate != 0)--}}
-                        <?php $final = array(); ?>
-                        @foreach($certificate as $k=>$stock)
-                            <?php
-                        print_r($stock[0]['sum']);
-                            //$final = array_merge($final, $stock);
-                            //$total = array_sum(array_column($final, 'sum'));
-                            ?>
-                        @endforeach
+                    <?php  $total = 0; ?>
+                    @foreach($certificates as $k=>$certificate)
                         <?php
-                        //$total = array_sum(array_column($final, 'sum'));
+                        $total += array_sum((array)$certificate->sum);
                         ?>
-                        {{--<p style="text-align: left; margin-left: 10px">{{ number_format($total, 0, ',', ' ') }}</p>--}}
-                    {{--@endif--}}
+                    @endforeach
+                    <p style="text-center: left; margin-left: 10px"> {{ number_format($total, 2, ',', ' ') }} лв.</p>
                 </th>
                 <th class="bold">Всичко кг.</th>
                 <th>

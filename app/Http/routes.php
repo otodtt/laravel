@@ -291,6 +291,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::get('/контрол/протоколи/фермер/нов', 'QProtocolsController@create_farmer');
+    Route::post('/контрол/протоколи/farmer/store', 'QProtocolsController@store_farmer');
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////

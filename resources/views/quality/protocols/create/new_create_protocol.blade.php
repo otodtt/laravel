@@ -4,7 +4,7 @@
 @endsection
 
 @section('css')
-    {!!Html::style("css/qcertificates/add_edit.css" )!!}
+    {!!Html::style("css/records/add_edit.css" )!!}
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
     {!!Html::style("css/qprotocols/qprotocolsAddEdit.css" )!!}
 @endsection
@@ -19,7 +19,7 @@
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
             <span class="bold">
-                Провери внимателно данните! Ако има грешки, редактирай данните на Земеделския Стопанин и тогава добави Конатативен Протокол!
+                Ако е Земеделски стопанин веднъж направен запис, Протокола няма да може да се коригира по Получател на К. Протокол!
             </span>
         </p>
     </div>
@@ -36,12 +36,42 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА</h4>
-                    @include('records.add.object_info')
+                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА НОВ ЗЕМЕДЕЛСКИ СТОПАНИН</h4>
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/фермер/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/протоколи/farmer/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+            @include('records.add.data_farmer.data_object')
+
+            <hr class="my_hr_in"/>
+
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-md-12" >
+                        <fieldset class="small_field"><legend class="small_legend">Адрес на Земеделския Стопанин</legend>
+                            @include('records.add.data_farmer.locations')
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-md-12" >
+                        <fieldset class="small_field"><legend class="small_legend">Други данни на Земеделския Стопанин</legend>
+                            @include('layouts.forms.phone')
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-md-12" >
+                        <fieldset class="small_field"><legend class="small_legend">Данни за Стопанството</legend>
+                            @include('records.add.data_farmer.location_farm')
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
 
             @include('quality.protocols.create.forms.form_create_exist_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
@@ -63,7 +93,8 @@
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/date/in_date.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+    {!!Html::script("js/location/findLocation.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
 {{--    {!!Html::script("js/quality/date_issue.js" )!!}--}}
     <script>
         function clearRadioButtons()

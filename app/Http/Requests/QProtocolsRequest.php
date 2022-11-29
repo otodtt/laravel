@@ -37,12 +37,12 @@ class QProtocolsRequest extends Request
 
             'crops' => 'required|not_in:0',
             'origin'=>'required|cyrillic_with|min:3|max:300',
-            'quality_class' => 'required|not_in:0',
-            'quality_naw' => 'required|not_in:0',
-            'number'=>'required|my_numeric',
-//            'tara'=>'required|my_numeric',
-            'tara'=>'required',
-            'type_package' => 'required|not_in:0',
+//            'quality_class' => 'required|not_in:0',
+//            'quality_naw' => 'required|not_in:0',
+            //'number'=>'required|my_numeric',
+            'tara'=>'required|my_numeric',
+            //'tara'=>'required',
+            //'type_package' => 'required|not_in:0',
             'different' => $different,
             'variety'=>'cyrillic_with|min:3|max:1000',
             'documents'=>'cyrillic_with|min:3|max:1000',
@@ -54,6 +54,7 @@ class QProtocolsRequest extends Request
             'inspectors' => 'required|not_in:0',
         ];
     }
+
     /**
      * Мои съобщения за грешки.
      *
@@ -76,20 +77,20 @@ class QProtocolsRequest extends Request
             'origin.min' => 'За Страна на произход минимален брой символи - 3!',
             'origin.max' => 'За Страна на произход максимален брой символи - 300!',
 
-            'quality_class.required' => 'Избери 3. Означен клас на качество!',
-            'quality_class.not_in' => 'Избери 3. Означен клас на качество!',
+            //'quality_class.required' => 'Избери 3. Означен клас на качество!',
+            //'quality_class.not_in' => 'Избери 3. Означен клас на качество!',
 
-            'quality_naw.required' => 'Избери 4. Клас на качество в момента!',
-            'quality_naw.not_in' => 'Избери 4. Клас на качество в момента!',
+            //'quality_naw.required' => 'Избери 4. Клас на качество в момента!',
+            //'quality_naw.not_in' => 'Избери 4. Клас на качество в момента!',
 
-            'number.required' => 'Попълни поле 6. Брой!',
-            'number.my_numeric' => 'За поле 6. Брой - използвай само цифри!',
+            //'number.required' => 'Попълни поле 6. Брой!',
+            //'number.my_numeric' => 'За поле 6. Брой - използвай само цифри!',
 
             'tara.required' => 'Попълни поле 5. Тегло бруто/нето(кг):!',
-//            'tara.my_numeric' => 'За поле 5. Тегло бруто/нето(кг): - използвай само цифри!',
+            'tara.my_numeric' => 'За поле 5. Тегло бруто/нето(кг): - използвай само цифри!',
 
-            'type_package.required' => 'Избери вида на опаковката!',
-            'type_package.not_in' => 'Избери вида на опаковката!',
+            //'type_package.required' => 'Избери вида на опаковката!',
+            //'type_package.not_in' => 'Избери вида на опаковката!',
 
             'different.required' => 'За Вида на опаковката е избрано - ДРУГО! Попълни Вида на опаковката',
             'different.cyrillic' => 'За Вида на опаковката използвай кирилица!',

@@ -11,6 +11,7 @@ use odbh\Crop;
 use odbh\Farmer;
 use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
+use odbh\Http\Requests\QNewProtocolsRequest;
 use odbh\Http\Requests\QProtocolsRequest;
 use odbh\Importer;
 use odbh\Location;
@@ -357,6 +358,333 @@ class QProtocolsController extends Controller
         Session::flash('message', 'Записа е успешен!');
         return Redirect::to('/контрол/протоколи');
     }
+
+    ///////////////////////////////////////
+    /**
+     * ДОБАВЯНЕ НА НОВ ЗС
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function create_farmer(Request $request)
+    {
+        $firm = $request['firm'];
+        $name = $request['name'];
+        $pin = $request['pin'];
+        $gender = $request['gender'];
+        $name_firm = $request['name_firm'];
+        $eik = $request['eik'];
+
+        $index = $this->index;
+
+        $qualitys = ['1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $packages = ['4' => 'Торби/ Bags', '3' => 'Кашони/ C. boxes', '2' => 'Палети/ Cages', '1' => 'Каси/ Pl. cases', '999' => 'ДРУГО'];
+
+
+        $districts_farm = $this->districts_list->toArray();
+        $districts_farm[0] = 'Избери община';
+        $districts_farm = array_sort_recursive($districts_farm);
+
+        $selected_array = Set::select('area_id')->get()->toArray();
+        $selected_session = $selected_array[0]['area_id'];
+
+
+        $get_session = Session::get('_old_input', 'hidden');
+        if(isset($get_session['hidden']) && ((int)$get_session != (int)$selected_session)){
+            $selected = $get_session['hidden'];
+        }
+        else{
+            $selected = $selected_array[0]['area_id'];
+        }
+        $regions = $this->areas_all_list;
+        //// Списъка с общините
+        $district_list = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $selected)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id')->toArray();
+        $district_list[0] = 'Избери община';
+        $district_list = array_sort_recursive($district_list);
+        //// Списъка с населените места
+        $get_district = Session::get('_old_input', 'localsID');
+        if(!isset($get_district['localsID']) || $get_district['localsID']==0){
+            $locations = Location::select()
+                ->where('areas_id', '=', $selected)
+                ->where('tvm', '!=', 0)
+                ->orderBy('type_district', 'desc')
+                ->orderBy('district_id', 'asc')
+                ->get()->toArray();
+        }
+        else {
+            $locations = Location::select()
+                ->where('areas_id', '=', $selected)
+                ->where('district_id', '=', $get_district['localsID'])
+                ->where('tvm', '!=', 0)
+                ->orderBy('type_district', 'desc')
+                ->orderBy('district_id', 'asc')
+                ->get()->toArray();
+        }
+
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orWhere('group_id', '=', 11)
+            ->orWhere('group_id', '=', 15)
+            ->orWhere('group_id', '=', 16)
+            ->orderBy('group_id', 'asc')->get()->toArray();
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        return view('quality.protocols.create.new_create_protocol', compact('index', 'crops', 'inspectors',
+            'regions', 'selected', 'district_list', 'locations', 'qualitys', 'packages',
+            'districts_farm', 'firm', 'name', 'pin', 'gender', 'name_firm', 'eik' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QNewProtocolsRequest|QProtocolsRequest $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     * @internal param Request $QProtocolsRequest
+     */
+    public function store_farmer(QNewProtocolsRequest $request)
+    {
+        //// ДОБАВЯ ЗС ///
+        $sex = null;
+        $pin = null;
+        $eik = null;
+        $egn_eik = null;
+        $owner = null;
+        $pin_owner = null;
+        $sex_owner = null;
+        $in = null;
+        $name = null;
+        $inspector_name_protocol = null;
+        $position_protocol = null;
+        $position_short_protocol = null;
+
+        $cyrillic= array(0=>'', 1=>'А', 2=>'Б', 3=>'В', 4=>'Г', 5=>'Д', 6=>'Е', 7=>'Ж', 8=>'З', 9=>'И', 10=>'Й',
+            11=>'К', 12=>'Л', 13=>'М', 14=>'Н', 15=>'О', 16=>'П', 17=>'Р', 18=>'С',	19=>'Т', 20=>'У',
+            21=>'Ф', 22=>'Х', 23=>'Ц', 24=>'Ч', 25=>'Ш', 26=>'Щ', 27=>'Ъ',	28=>'Ь', 29=>'Ю', 30=>'Я');
+
+        if($request['firm'] == 1){
+            $sex = null;
+            if(strlen($request['gender']) == 4){
+                $sex = 1;
+            }
+            if(strlen($request['gender']) == 6){
+                $sex = 2;
+            }
+
+            $pin = $request['pin'];
+            $eik = '';
+            $egn_eik = 1;
+            $owner = '';
+            $pin_owner = '';
+            $sex_owner = 0;
+            $name = $request['name'];
+        }
+        if($request['firm'] > 1){
+            $sex_owner = null;
+            if(strlen($request['gender_owner']) == 4){
+                $sex_owner = 1;
+            }
+            if(strlen($request['gender_owner']) == 6){
+                $sex_owner = 2;
+            }
+            if(strlen($request['gender_owner']) == 1){
+                $sex_owner = 0;
+            }
+
+            $sex = 0;
+            $pin = $request['bulstat'];
+            $eik = $request['bulstat'];
+            $egn_eik = 2;
+            $owner = $request['owner'];
+            $pin_owner = $request['pin_owner'];
+            $name = $request['name_firm'];
+        }
+
+        $abc= trim(preg_replace("/[0-9]/", "", $name));
+        $abc1= trim(preg_replace("/-/", "", $abc));
+        $abc2= trim(preg_replace("/.]/", "", $abc1));
+        $abc3 = mb_substr($abc2, 0, 1);
+        foreach ($cyrillic as $k=>$v){
+            if(preg_match("/$abc3/iu", "$v")){
+                $in=$k;
+            }
+        }
+
+        $data_farmer = ([
+            'type_firm'=>$request['firm'],
+            'name'=>$name,
+            'sex'=>$sex,
+            'pin'=>$pin,
+            'bulstat'=>$eik,
+
+            'areas_id'=>$request['areasID'],
+            'district_id'=>$request['district_id'],
+            'tvm'=>$request['data_tmv'],
+            'city_id'=>$request['data_id'],
+            'location'=>$request['list_name'],
+            'address'=>$request['address'],
+
+            'owner'=>$owner,
+            'pin_owner'=>$pin_owner,
+            'sex_owner'=>$sex_owner,
+
+            'district_object'=>$request['district_object'],
+            'location_farm'=>$request['location_farm'],
+
+            'phone'=>$request['phone'],
+            'mobil'=>$request['mobil'],
+            'email'=>$request['email'],
+
+            'date_add'=>time(),
+            'added_by'=> Auth::user()->id,
+
+            'alphabet'=>$in,
+        ]);
+
+        $farmer = Farmer::create($data_farmer);
+        $insertedId = $farmer->id;
+
+        //// ДОБАВЯ ПРОТОКОЛИТЕ ///
+        if(isset($request->matches) && $request->matches > 0) {
+            $matches = $request->matches;
+        }
+        else {
+            $matches = 0;
+        }
+        //// ЗА ИМЕТО
+        if ($request->firm == 1) {
+            $front = '';
+            $after = '';
+            $name = $request->name;
+            $vin = $request->pin;
+        }
+        elseif ($request->firm == 2) {
+            $front = 'ET ';
+            $after = '';
+            $name = $request->name_firm;
+            $vin = $request->bulstat;
+        }
+        elseif ($request->firm == 3) {
+            $front = '';
+            $after = ' ООД';
+            $name = $request->name_firm;
+            $vin = $request->bulstat;
+        }
+        elseif ($request->firm == 4) {
+            $front = '';
+            $after = ' ЕООД';
+            $name = $request->name_firm;
+            $vin = $request->bulstat;
+        }
+        elseif ($request->firm == 5) {
+            $front = '';
+            $after = ' АД';
+            $name = $request->name_firm;
+            $vin = $request->bulstat;
+        }
+        elseif ($request->firm == 6) {
+            $front = '';
+            $after = '';
+            $name = $request->name_firm;
+            $vin = $request->bulstat;
+        }
+        else {
+            $front = '';
+            $after = '';
+            $name = '';
+            $vin = '';
+        }
+        $full_name = $front.''.$name.''.$after;
+
+        $areas = Area::findOrFail($request->areasID);
+        $district = Location::select('name')->where('areas_id', $request->areasID )->where('district_id', $request->district_id)
+            ->where('type_district', 1)->get()->toArray();
+        if($request->data_tmv == 1 ) {
+            $tvm = 'гр. ';
+        }
+        elseif($request->data_tmv == 2 ) {
+            $tvm = 'с. ';
+        }
+        else {
+            $tvm = '';
+        }
+        $area_name = 'обл. '.$areas->areas_name;
+        $district_name = 'общ. '.$district[0]['name'];
+        $city = Location::select('name')->where('id','=',$request->data_id)->get()->toArray();
+
+        $full_address = $area_name.', '.$district_name.', '.$tvm.$city[0]['name'].', '.$request->address ;
+
+        $data = [
+            'farmer_id'=> $insertedId,
+            'farmer_name'=>$full_name,
+            'farmer_address'=> $full_address,
+            'farmer_vin'=>$vin,
+            'farmer_phone'=>$request->mobil,
+            'number_protocol'=> $request->number_protocol,
+            'date_protocol'=> strtotime($request->date_protocol),
+            'crops'=> $request->crops,
+            'crops_name'=> $request->crops_name,
+            'origin'=> $request->origin,
+            'quality_class'=> $request->quality_class,
+            'quality_naw'=> $request->quality_naw,
+            'tara'=> $request->tara,
+            'number'=> $request->number,
+            'type_package'=> $request->type_package,
+            'different'=> $request->different,
+            'variety'=> $request->variety,
+            'documents'=> $request->documents,
+            'marking'=> $request->marking,
+            'cleanliness'=> $request->cleanliness,
+            'coloring'=> $request->coloring,
+            'dimensions'=> $request->dimensions,
+            'appearance'=> $request->appearance,
+            'maturity'=> $request->maturity,
+            'damage'=> $request->damage,
+            'shape'=> $request->shape,
+            'defects'=> $request->defects,
+            'diseases'=> $request->diseases,
+            'matches'=> $matches,
+            'mark'=> $request->mark,
+            'repackaging'=> $request->repackaging,
+            'processing'=> $request->processing,
+            'low'=> $request->low,
+            'relabeling'=> $request->relabeling,
+            'fodder'=> $request->fodder,
+            'resort'=> $request->resort,
+            'destruction'=> $request->destruction,
+            'actions'=> $request->actions,
+            'name_trader'=> $request->name_trader,
+            'place'=> $request->place,
+            'inspectors'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
+        ];
+
+        QProtocol::create($data);
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/протоколи');
+    }
+
 
     /**
      * Display the specified resource.

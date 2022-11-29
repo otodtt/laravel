@@ -183,7 +183,6 @@ class FarmerNewProtocolRequest extends Request
             'pin_owner.digits_between' => 'ЕГН-то е само цифри!',
 
             'list_name.required' => 'Избери населено място от списъка!',
-            'address.required' => 'Адреса е задължителен!',
 
             'district_object.required' => 'Задължително избери Общината където се намира стопанството!',
             'district_object.not_in' => 'Задължително избери Общината където се намира стопанството!',
@@ -193,6 +192,15 @@ class FarmerNewProtocolRequest extends Request
             'location_farm.cyrillic_names_objects' => 'За Населено място\места пиши на кирилица без символи! Позволени символи (точка, запетая, точка и запетая) - . , ;',
 
             'error.in' => 'Избери населено място от списъка! Виж да не е избрана друга община!',
+
+            'address.required' => 'Адреса е задължителен!',
+            'address.min' => 'За Адреса минимален брой символи - 3!',
+            'address.max' => 'За Адреса максимале брой символи - 500!',
+            'address.cyrillic_with' => 'За Адреса пиши на кирилица!',
+
+            'phone.phone_validate' => 'Непозволен формат на телефонния номер!',
+            'mobil.mobile_validate' => 'Непозволен формат на мобилния номер!',
+            'email.email' => 'Непозволен формат на електронен адрес!',
 
 
             'check_id.required'=>'Задължително избери вида на проверката!',
