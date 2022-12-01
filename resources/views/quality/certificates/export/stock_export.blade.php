@@ -62,7 +62,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <br>
-                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/{{$certificate['import']}}</span></p>
+                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/{{$certificate['export']}}</span></p>
                                     <br>
                                 </div>
                             </div>

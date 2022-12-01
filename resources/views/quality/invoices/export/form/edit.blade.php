@@ -106,10 +106,10 @@
                             {!! Form::text('date_invoice', date('d.m.Y',$invoice['date_invoice']), ['class'=>'form-control form-control-my',
                             'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
                         </div>
-                        <div class="col-md-4 col-md-6_my" >
-                            {!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>
-                            {!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}
-                        </div>
+                        {{--<div class="col-md-4 col-md-6_my" >--}}
+                            {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
+                            {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
+                        {{--</div>--}}
                     </fieldset>
                 </fieldset>
             </div>

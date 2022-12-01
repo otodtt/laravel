@@ -345,6 +345,7 @@ class QXCertificatesController extends Controller
             'stamp_number' => $index[0]['q_index'].'-'.$user[0]['stamp_number'],
             'authority_bg' => $index[0]['authority_bg'],
             'authority_en' => $index[0]['authority_en'],
+            'sum' => round($request->sum, 2),
             'date_add' => date('d.m.Y', time()),
             'added_by' => Auth::user()->id,
         ];
@@ -470,6 +471,7 @@ class QXCertificatesController extends Controller
             'place_bg' => $request->place_bg,
             'place_en' => $request->place_en,
             'valid_until' => $request->valid_until,
+            'sum' => round($request->sum, 2),
             'date_update' => date('d.m.Y', time()),
             'updated_by' => Auth::user()->id,
         ];
@@ -481,6 +483,7 @@ class QXCertificatesController extends Controller
         $data_firm = [
             'importer_id' => $request->importer_data,
             'importer_name' => $request->en_name,
+            'sum' => round($request->sum, 2),
             'date_update' => date('d.m.Y', time()),
             'updated_at' => Auth::user()->id,
         ];

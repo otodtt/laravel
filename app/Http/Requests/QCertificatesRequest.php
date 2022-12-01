@@ -32,6 +32,14 @@ class QCertificatesRequest extends Request
             $address = 'latin|min:5|max:500';
         }
 
+        if($request['export'] == 1111) {
+            $forwarder = '';
+            $forwarder_address = '';
+        } else {
+            $forwarder = 'required|latin|min:3|max:500';
+            $forwarder_address = 'latin|min:5|max:500';
+        }
+
         return [
             // 'what_7'=>'required',
             'type_crops'=>'required',
@@ -48,6 +56,9 @@ class QCertificatesRequest extends Request
             'place_bg'=>'required|cyrillic_with|min:3|max:300',
             'place_en'=>'required|latin|min:3|max:300',
             'valid_until'=>'required|date_format:d.m.Y|after:hidden_date',
+            'sum'=> 'required|numeric|min:1',
+            'forwarder' => $forwarder,
+            'forwarder_address' => $forwarder_address,
         ];
     }
 
@@ -109,6 +120,19 @@ class QCertificatesRequest extends Request
             'valid_until.required' => 'Поле № 12. Валиден до .. е задължително! Избери дата!',
             'valid_until.date_format' => 'Поле № 12. Валиден до .. е в Непозволен формат за дата!',
             'valid_until.after' => 'Поле № 12. Валиден до .. трябва да е поне 1 ден след дата на Сертификата!',
+
+            'sum.required' => 'Сумата е задължителна!',
+            'sum.numeric' => 'За сумата на Фактура използвай ТОЧКА или само цифри! ',
+            'sum.min' => 'Сумата не може да е нула - 0 или отрицателно число!',
+
+            'forwarder.required' => 'Име на спедитора е задължително!',
+            'forwarder.cyrillic_with' => 'За Име на спедитора използвай кирилица!',
+            'forwarder.min' => 'Името на Спедитора се изписва с минимум 3 символа!',
+            'forwarder.max' => 'Името на Спедитора се изписва с максимум 100 символа!',
+
+            'forwarder_address.cyrillic_with' => 'За Адреса на Спедитора използвай кирилица!',
+            'forwarder_address.min' => 'Адреса на Спедитора се изписва с минимум 5 символа!',
+            'forwarder_address.max' => 'Адреса на Спедитора се изписва с максимум 500 символа!',
         ];
     }
 }

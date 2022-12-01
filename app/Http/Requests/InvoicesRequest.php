@@ -23,10 +23,16 @@ class InvoicesRequest extends Request
      */
     public function rules()
     {
+        $request = Request::all();
+        if( isset($request['domestic_sum']) && $request['domestic_sum'] == 3333) {
+            $sum = 'required|numeric|min:1';
+        } else {
+            $sum = '';
+        }
         return [
             'invoice'=> 'required|numeric|min:1',
             'date_invoice'=> 'required|date_format:d.m.Y',
-            'sum'=> 'required|numeric|min:1',
+            'sum'=> $sum,
         ];
     }
 

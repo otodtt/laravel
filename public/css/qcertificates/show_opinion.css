@@ -14,6 +14,10 @@ div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend, a{
     margin: 0 auto;
     background-color: #d8d8eb;
 }
+#wrap_in_note{
+    margin: 0 auto;
+    background-color: #d8d8eb;
+}
 .my_top_nav{
     width: 98%;
     margin: auto;
@@ -21,6 +25,10 @@ div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend, a{
 }
 #flip_all{
     /* border: 1px solid red; */
+    height: 100%;
+}
+#flip_all_note{
+    /*border: 1px solid red;*/
     height: 100%;
 }
 .page{

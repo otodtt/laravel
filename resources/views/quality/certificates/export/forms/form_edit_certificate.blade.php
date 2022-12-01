@@ -409,23 +409,15 @@
                         {!! Form::text('observations', null, ['class'=>'form-control', 'style'=>'width: 99%; margin-top: 10px;
                     }', 'autocomplete'=>'observations']) !!}
                     </fieldset>
-                    {{--<fieldset class="small_field_in" style="width: 49%; float: right">--}}
-                        {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ЗАДЪЛЖИТЕЛНО </span>--}}
-                            {{--попълни номера и датата на фактурата!</p><hr class="hr_in"/>--}}
-                        {{--<div class="col-md-3 col-md-6_my" >--}}
-                            {{--{!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>--}}
-                            {{--{!! Form::text('invoice', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20 ]) !!}--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-md-6_my" >--}}
-                            {{--{!! Form::label('date_invoice', 'Дата Фактура:', ['class'=>'my_labels']) !!}<br>--}}
-                            {{--{!! Form::text('date_invoice', null, ['class'=>'form-control form-control-my',--}}
-                            {{--'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-md-6_my" >--}}
-                            {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
-                            {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
-                        {{--</div>--}}
-                    {{--</fieldset>--}}
+                    <fieldset class="small_field_in" style="width: 49%; float: right">
+                        <p class="description"><span class="fa fa-warning red" aria-hidden="true"> ЗАДЪЛЖИТЕЛНО </span>
+                            попълни сумата!</p><hr class="hr_in"/>
+                        <div class="col-md-4 col-md-6_my" >
+                            {!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>
+                            {!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}
+                            <input type="hidden" name="export" value="1111" id="export">
+                        </div>
+                    </fieldset>
                 </fieldset>
             </div>
         </div>

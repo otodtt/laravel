@@ -102,6 +102,7 @@
                         <div class="col-md-4 col-md-6_my" >
                             {!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>
                             {!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}
+                            <input type="hidden" name="domestic_sum" value="3333">
                         </div>
                     </fieldset>
                 </fieldset>

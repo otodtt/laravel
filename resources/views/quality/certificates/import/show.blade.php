@@ -5,7 +5,6 @@
 
 @section('css')
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
-    {{-- {!!Html::style("css/opinions/logo_document.css" )!!} --}}
     {!!Html::style("css/qcertificates/show_opinion.css" )!!}
     {!!Html::style("css/qcertificates/body_table.css" )!!}
     @if($certificate->is_lock == 1)
@@ -230,10 +229,20 @@
                     @endif
                 @endif
             </div>
+            @if($certificate->is_lock != 0)
+                <div class="col-md-12 row-table-bottom " >
+                    <div  class="archive small_field_bottom print-button" >
+                        <button id="btn_archive" class="btn-sm"><i class="fa fa-print"></i> Покажи и принтирай БЕЛЕЖКА</button>
+                    </div>
+                    <div  class="hidden client small_field_bottom print-button" style="display: table-cell">
+                        <button id="btn_client" class="btn-sm" ><i class="fa fa-print"></i> Към Сертификата</button>
+                    </div>
+                </div>
+            @endif
         </fieldset>
     </div>
 
-    <div id="wrap_in" class="col-md-12">
+    <div id="wrap_in" class="col-md-12 ">
         <div class="page" >
             <div class="col-md-12_my" id="flip_all">
                 <div class="col-md-12_my" id="flip_in">
@@ -548,6 +557,196 @@
             </div>
         </div>
     </div>
+
+    <div id="wrap_in_note" class="col-md-12 hidden">
+        <div class="page" >
+            <div class="col-md-12_my" id="flip_all_note">
+                <div class="col-md-12_my" id="flip_in_note">
+                    <div class="col-md-12_my" style="margin: 0 auto">
+                        <h3 class="h3_note">Б Е Л Е Ж К А</h3>
+                        <p class="top_p">за дейност/услуга, за която се плаща в ОДБХ - Хаково</p>
+                        <p class="top_p">гр. Хаково бул. "Освобождение" 57 ИН 176986657 ИН по ЗДДС: BG 176986657</p>
+                    </div>
+
+                    {{-- Таблица 1 --}}
+                    <table id="first_table_note" style="width:100%;">
+                        <tbody>
+                            <tr id="first-row_note" >
+                                <td class="cell first-row-cell cell_note" style="height: 3cm; width: 6.5cm">
+                                    <p class="p_info_note" style="margin-bottom: 3px">
+                                        Основанието за плащане да се отбележи със знак<br>
+                                        "X"
+                                    </p>
+                                </td>
+                                <td class="cell first-row-cell cell-top cell_note" style="height: 3cm; width: 1.04cm">
+                                    <p class="p_info_note" style="margin-bottom: 3px">
+                                        Тарифа<br>"X"
+                                    </p>
+                                </td>
+                                <td class="cell first-row-cell cell-top cell_note" style="height: 3cm; width: 2.8cm">
+                                    <p class="p_info_note" style="margin-bottom: 3px">Ценоразпис</p>
+                                </td>
+                                <td class="cell first-row-cell last_cell cell_note last_cell_note" style="height: 3cm; width: 6cm">
+                                <p class="p_content_note" style="margin-bottom: 8px">
+                                    <span style="text-transform: uppercase;">{{$certificate->forwarder }}</span>
+                                    <br>
+                                    {{$certificate->forwarder_address }}
+                                </p>
+                                <p class="p_info_note p_bottom_note" style="margin-bottom: 3px">юридическо или физ. лице, булстат, адрес, МОЛ</p>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    {{-- Таблица 2 --}}
+                    <table class="table" id="second_table_note">
+                        <thead>
+                            <tr>
+                                <th style="width: 5.4cm">Вид дейност/услуга</th>
+                                <th style="width: 2.5cm">
+                                    Основание за<br>
+                                    плащане
+                                </th>
+                                <th style="width: 1.4cm; padding: 3px">
+                                    Мярка -<br>
+                                    бр,кг,тон
+                                </th>
+                                <th style="width: 1.4cm; padding: 3px">Количес<br>тво</th>
+                                <th style="width: 1.4cm">
+                                    Ед.<br>
+                                    цена
+                                </th>
+                                <th style="width: 1.4cm">
+                                    Стойно<br>ст
+                                </th>
+                                <th style="width: 1.6cm">
+                                    ДДЦ<br>
+                                    20%
+                                </th>
+                                <th style="width: 1.6cm; padding: 2px">
+                                    Обща<br>
+                                    стойност<br>
+                                    <span style="font-size: 8px">(за плащане)</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <td style="text-align: left;">
+                                    Сертификат по ККППЗ №<br>
+                                    {{ substr($certificate->stamp_number, 2) }}/{{ $certificate->import }}
+                                </td>
+                                <td>
+                                    <span>чл.54 т.1</span>
+                                </td>
+                                <td><span>бр.</span></td>
+                                <td><span>1</span></td>
+                                <td><span>{{ $certificate->sum }}</span></td>
+                                <td><span>{{ $certificate->sum }}</span></td>
+                                <td><span>0,00</span></td>
+                                <td><span>{{ $certificate->sum }}</span></td>
+                            </tr>
+                            <tr class="empty_tr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="empty_tr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="empty_tr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="empty_tr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="empty_tr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="empty_tr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><span class="bold">ВСИЧКО:</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="bold">{{ $certificate->sum }}</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <br>
+                <p class="bottom_p" style="font-weight: bold;">За дейностите/услугите, заплащани по ценоразпис се дължи и 20% ДДС.</p>
+                <p class="bottom_p" style="font-weight: bold;">
+                    <span style="text-decoration: underline">За плащане по банков път:</span>
+                    Получател - Областна дирекция по безопасност на храните -
+                </p>
+                <p class="bottom_p">
+                    Банкова сметка:
+                    <span class="bold">BG CECB 97903117 5800 00</span>;
+                    Банков код:
+                    <span class="bold">CECBBGSF</span>;
+                    Банка:
+                    <span class="bold">ЦКБ АД</span>
+                </p>
+                <br>
+                <p>
+                    Изготвил: <span class="bold">{{$certificate->inspector_bg }}</span>
+                    <span class="bold inspector_signature" >Подпис: . . . . . . . . . . . . . . . .</span>
+                </p>
+                <p class="inspector_info">
+                    <span class="inspector_nfo">(име фамилия)</span>
+                    <span class="bold inspector_signature" >(подпис)</span>
+                </p>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -560,5 +759,20 @@
     {{-- {!!Html::script("js/opinions/addressFlip.js" )!!} --}}
 
     <script>
+        $(document).ready(function(){
+            $("#btn_archive").click(function(){
+                $('.archive').addClass('hidden');
+                $('.client').removeClass('hidden');
+                $('#wrap_in').addClass('hidden');
+                $('#wrap_in_note').removeClass('hidden');
+            });
+
+            $("#btn_client").click(function(){
+                $('.client').addClass('hidden');
+                $('.archive').removeClass('hidden');
+                $('#wrap_in').removeClass('hidden');
+                $('#wrap_in_note').addClass('hidden');
+            });
+        });
     </script>
 @endsection

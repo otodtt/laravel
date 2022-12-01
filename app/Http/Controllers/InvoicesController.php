@@ -201,7 +201,7 @@ class InvoicesController extends Controller
             'invoice_for' => 1,
             'number_invoice' => $request->invoice,
             'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
+            'sum' => $certificate->sum,
             'certificate_id' => $certificate->id,
             'certificate_number' => $certificate->import,
             'importer_id' => $certificate->importer_id,
@@ -219,7 +219,7 @@ class InvoicesController extends Controller
             'invoice_id' => $invoice_id,
             'invoice_number' => $request->invoice,
             'invoice_date' => strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
+            //'sum' => round($request->sum, 2),
         ];
 
         $certificate->fill($invoice_data);
@@ -256,7 +256,6 @@ class InvoicesController extends Controller
         $data = [
             'number_invoice' => $request->invoice,
             'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
             'date_update' => date('d.m.Y', time()),
             'updated_at' => Auth::user()->id,
         ];
@@ -268,7 +267,6 @@ class InvoicesController extends Controller
         $invoice_data = [
             'invoice_number' => $request->invoice,
             'invoice_date' => strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
         ];
 
         $certificate->fill($invoice_data);
@@ -306,7 +304,7 @@ class InvoicesController extends Controller
             'invoice_for' => 2,
             'number_invoice' => $request->invoice,
             'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
+            'sum' => $certificate->sum,
             'certificate_id' => $certificate->id,
             'certificate_number' => $certificate->export,
             'importer_id' => $certificate->importer_id,
@@ -323,7 +321,7 @@ class InvoicesController extends Controller
             'invoice_id' => $invoice_id,
             'invoice_number' => $request->invoice,
             'invoice_date' => strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
+            //'sum' => round($request->sum, 2),
         ];
 
         $certificate->fill($invoice_data);
@@ -360,7 +358,6 @@ class InvoicesController extends Controller
         $data = [
             'number_invoice' => $request->invoice,
             'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
             'date_update' => date('d.m.Y', time()),
             'updated_at' => Auth::user()->id,
         ];
@@ -372,7 +369,6 @@ class InvoicesController extends Controller
         $invoice_data = [
             'invoice_number' => $request->invoice,
             'invoice_date' => strtotime(stripslashes($request->date_invoice)),
-            'sum' => round($request->sum, 2),
         ];
 
         $certificate->fill($invoice_data);
