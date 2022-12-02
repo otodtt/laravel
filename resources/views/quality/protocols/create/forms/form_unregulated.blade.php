@@ -10,14 +10,14 @@ else{
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-6" >
-            <fieldset class="small_field"><legend class="small_legend">1. Търговец /Trader</legend>
+            <fieldset class="small_field"><legend class="small_legend">1. Нерегламентиран Търговец /Trader</legend>
                 <div class="col-md-8 col-md-6_my" >
                     <p class="description">
                         Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
                     </p>
                     <div class="packer_wrap col-md-12" >
                         <label for="trader_name">Име на Търговец:</label>
-                        {!! Form::text('trader_name', $trader_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+                        {!! Form::text('trader_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
                         {{--<br>--}}
                         <label for="trader_address">Адрес:</label>
                         {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
@@ -30,8 +30,8 @@ else{
                         Полето ЕИК задължително!
                     </p>
                     <label for="trader_vin" style="margin-top: 0">ЕИК:</label>
-                    {!! Form::text('trader_vin', $trader_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
-                    <input type="hidden" name="trader_or_not" value="1">
+                    {!! Form::text('trader_vin', null, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                    <input type="hidden" name="trader_or_not" value="0">
                 </div>
             </fieldset>
         </div>

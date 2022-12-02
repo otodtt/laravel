@@ -6,6 +6,54 @@ else{
     $date_protocol = null;
 }
 ?>
+{{-- Търговец --}}
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-6" >
+            <fieldset class="small_field"><legend class="small_legend">1. Търговец /Trader</legend>
+                <div class="col-md-8 col-md-6_my" >
+                    <p class="description">
+                        Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
+                    </p>
+                    <div class="packer_wrap col-md-12" >
+                        <label for="trader_name">Име на Търговец:</label>
+                        {!! Form::text('trader_name', $trader_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+                        {{--<br>--}}
+                        <label for="trader_address">Адрес:</label>
+                        {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
+                        {{-- <label for="trader_address">ЕИК:</label> --}}
+                        {{-- {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 40%', 'placeholder'=>'ЕИК/Булстат']) !!} --}}
+                    </div>
+                </div>
+                <div  class="col-md-4">
+                    <p class="description">
+                        Полето ЕИК задължително!
+                    </p>
+                    <label for="trader_vin" style="margin-top: 0">ЕИК:</label>
+                    {!! Form::text('trader_vin', $trader_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                    <input type="hidden" name="trader_or_not" value="1">
+                </div>
+            </fieldset>
+        </div>
+
+
+        <div class="col-md-6" >
+            <fieldset class="small_field"><legend class="small_legend">Други данни</legend>
+                <div  class="col-md-12">
+                    <p class="description">
+                        Телефон ако е възможно!
+                    </p>
+                    <label for="mobile" style="margin-top: 0">Мобилен телефон:</label>
+                    {!! Form::text('mobile', null, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'0888 000 000']) !!}
+                    <br>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<hr class="my_hr_in"/>
+
 {{--Номер и Дата на Протокола--}}
 <div class="container-fluid" >
     <div class="row">

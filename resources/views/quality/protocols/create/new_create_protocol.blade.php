@@ -94,7 +94,7 @@
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/date/in_date.js" )!!}
     {!!Html::script("js/location/findLocation.js" )!!}
-{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+    {!!Html::script("js/confirm/prevent.js" )!!}
 {{--    {!!Html::script("js/quality/date_issue.js" )!!}--}}
     <script>
         function clearRadioButtons()

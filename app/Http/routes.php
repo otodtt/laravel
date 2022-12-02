@@ -267,7 +267,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('/контрол/сертификати-вътрешен/фермер/нова-фирма', 'QINCertificatesController@create_firm');
     Route::post('/контрол/сертификати-вътрешен/фермер/store_firm', 'QINCertificatesController@store_firm');
 
-    Route::any('/контрол/сертификати-вътрешен/фермер/търговец', 'QINCertificatesController@create_trader');
+    Route::any('/контрол/сертификати-вътрешен/нов/търговец', 'QINCertificatesController@create_trader');
     Route::post('/контрол/сертификати-вътрешен/фермер/store_trader', 'QINCertificatesController@store_trader');
     Route::get('/контрол/сертификати-вътрешен/търговец/добави/{id}', 'QINCertificatesController@create_exist');
     Route::post('/контрол/сертификати-вътрешен/търговец/store', 'QINCertificatesController@store_exist');
@@ -277,6 +277,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/domestic-finish/store', 'QINCertificatesController@domestic_finish');
     //////////////////////////////////////////////////////////
+
+
     //////////////////////////////////////////////////////////
     /////////Q ПРОТОЛОЛИ ////////////////////////////////////
     Route::get('/контрол/протоколи', 'QProtocolsController@index');
@@ -286,12 +288,20 @@ Route::group(['middleware' => ['auth']], function () {
     //////////////СЪЩЕСТВУВАЩ ЗС//////////////////////
     Route::get('/контрол/протоколи/добави/{id}', 'QProtocolsController@create');
     Route::post('/контрол/протоколи/фермер/{id}', 'QProtocolsController@store');
-    Route::get('/контрол/протоколи/търговец/{id}', 'QProtocolsController@create_trader');
-    Route::post('/контрол/протоколи/търговец/{id}', 'QProtocolsController@store_trader');
-
 
     Route::get('/контрол/протоколи/фермер/нов', 'QProtocolsController@create_farmer');
     Route::post('/контрол/протоколи/farmer/store', 'QProtocolsController@store_farmer');
+
+    Route::get('/контрол/протоколи/търговец/{id}', 'QProtocolsController@create_trader');
+    Route::post('/контрол/протоколи/търговец/{id}', 'QProtocolsController@store_trader');
+    Route::get('/контрол/протоколи/търговци/нов', 'QProtocolsController@new_trader');
+    Route::post('/контрол/протоколи/търговци/store', 'QProtocolsController@store_new_trader');
+
+    Route::get('/контрол/протоколи/нерегламентиран', 'QProtocolsController@unregulated');
+    Route::post('/контрол/протоколи/нерегламентиран/store', 'QProtocolsController@store_unregulated');
+
+    ///// ПРОТОЛОЛИ покажи
+    Route::get('контрол/протоколи/{id}/show', 'QProtocolsController@show');
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////

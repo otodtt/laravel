@@ -21,7 +21,7 @@ $(document).ready(function() {
         "columns": [
             null,
             null,
-            { "orderable": false },
+            null,
             null,
             { "orderable": false },
             null,

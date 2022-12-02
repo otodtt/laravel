@@ -36,18 +36,13 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА</h4>
-                    <p >
-                        Име на Фирма: <span class="bold">{!! $trader->trader_name !!}</span><br>
-                        С адрес: <span class="bold">{!! $trader->trader_address !!}</span>;
-                        С ЕИК/Булстат: <span class="bold">{!! $trader->trader_vin !!}</span>
-                    </p>
+                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА НОВ ТЪРГОВЕЦ</h4>
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/търговец/'.$trader->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/протоколи/търговци/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.protocols.create.forms.form_create_exist_farmer')
+            @include('quality.protocols.create.forms.form_create_new_trader')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >

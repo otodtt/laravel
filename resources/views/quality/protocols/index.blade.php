@@ -28,8 +28,10 @@
         {{--<a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>--}}
     </div>
     <div class="btn_add_firm">
-        <a href="{!!URL::to('/контрол/протоколи/търси-търговец')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+        <a href="{!!URL::to('/контрол/протоколи/търси-търговец')!!}" class="fa fa-arrow-circle-right btn btn-default my_btn">
             Добави НОВ Протокол</a>
+        <a href="{!!URL::to('/контрол/протоколи/нерегламентиран')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+            Добави Протокол на нерегламентиран</a>
     </div>
     <hr/>
     {{--<div class="btn-group" >--}}

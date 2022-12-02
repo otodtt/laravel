@@ -1,0 +1,48 @@
+#quality {
+    width: 100%;
+    margin-top: 10px;
+    /*border: 1px solid black;*/
+}
+.number {
+    text-align: center;
+    width: 20px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.desc {
+    /*width: auto;*/
+    padding-left: 5px;
+}
+.desc_second {
+    min-width: 100px;
+    padding-left: 5px;
+}
+.percent {
+    font-weight: bold;
+    float: right;
+    padding-right: 10px;
+}
+.percent_last {
+    font-weight: bold;
+    padding-left: 10px;
+}
+.percent_not {
+    float: right;
+    padding-right: 10px;
+}
+.underline {
+    text-decoration: underline;
+}
+.right {
+    float: right;
+    margin-right: 10px;
+}
+.stamp {
+    margin-left: 17px;
+}
+.green_info {
+    color: #1d9d13;;
+}
+.firm_info {
+    color: blue;
+}
