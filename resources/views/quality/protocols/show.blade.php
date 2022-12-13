@@ -38,7 +38,14 @@
     </div>
     <hr/>
     <div class="btn_add_edit">
-        <a href="{!!URL::to('/контрол/протоколи/edit')!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Протокола</a>
+        @if($protocol->farmer_id > 0 && $protocol->trader_id == 0 && $protocol->unregulated_id == 0)
+            <a href="{!!URL::to('/контрол/протоколи/фермер/edit/'.$protocol->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Протокола</a>
+        @elseif($protocol->farmer_id == 0 && $protocol->trader_id > 0 && $protocol->unregulated_id == 0)
+            <a href="{!!URL::to('/контрол/протоколи/търговец/edit/'.$protocol->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Протокола</a>
+        @elseif($protocol->farmer_id == 0 && $protocol->trader_id == 0 && $protocol->unregulated_id > 0)
+            <a href="{!!URL::to('/контрол/протоколи/нерегламентиран/edit/'.$protocol->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Протокола</a>
+        @endif
+
     </div>
 
     <div class="info-wrap" style="margin-top: 30px">
@@ -413,9 +420,9 @@
                                     <tr>
                                         <td class="number">04</td>
                                         <td class="desc" colspan="5">
-                                            Повреди от болести о загнивания
+                                            Повреди от болести и загнивания
                                             @if($protocol->defects != 0)
-                                                <span class="percent_last">{{$protocol->defects}} %</span>
+                                                <span class="percent_last">{{$protocol->diseases}} %</span>
                                             @else
                                                 <span class="percent_not_last">.... %</span>
                                             @endif

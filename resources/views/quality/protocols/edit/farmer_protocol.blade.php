@@ -36,13 +36,13 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА ТЪРГОВЕЦ</h4>
+                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА ФЕРМЕР</h4>
                 </div>
             </div>
         </div>
-        {!! Form::model($protocol, ['url'=>'контрол/протоколи/търговец/update/'.$protocol->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($protocol, ['url'=>'контрол/протоколи/фермер/update/'.$protocol->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.protocols.edit.forms.form_trader')
+            @include('quality.protocols.edit.forms.form_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >

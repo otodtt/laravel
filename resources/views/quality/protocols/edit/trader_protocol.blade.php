@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Добави Констативен Протокол!' }}
+    {{ 'Редактирай Констативен Протокол!' }}
 @endsection
 
 @section('css')
@@ -13,7 +13,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на КОНСТАТИВЕН ПРОТОКОЛ!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Редактиране на КОНСТАТИВЕН ПРОТОКОЛ!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -36,18 +36,13 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА</h4>
-                    <p >
-                        Име на Фирма: <span class="bold">{!! $trader->trader_name !!}</span><br>
-                        С адрес: <span class="bold">{!! $trader->trader_address !!}</span>;
-                        С ЕИК/Булстат: <span class="bold">{!! $trader->trader_vin !!}</span>
-                    </p>
+                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА ТЪРГОВЕЦ</h4>
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/търговец/'.$trader->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($protocol, ['url'=>'контрол/протоколи/търговец/update/'.$protocol->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.protocols.create.forms.form_create_exist_farmer')
+            @include('quality.protocols.edit.forms.form_trader')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
@@ -105,5 +100,21 @@
                 $( "#different_row" ).addClass( "hidden" );
             }
         }
+
+        $('#importer_data').change(function () {
+            var name=$(this).find('option:selected').attr('name');
+            var address=$(this).find('option:selected').attr('address');
+            var vin=$(this).find('option:selected').attr('vin');
+            $('#name').val(name);
+            $('#address').val(address);
+            $('#vin').val(vin);
+        });
+
+        $('#id_country').change(function () {
+            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
+            var for_country_en=$(this).find('option:selected').attr('for_country_en');
+            $('#for_country_bg').val(for_country_bg);
+            $('#for_country_en').val(for_country_en);
+        });
     </script>
 @endsection

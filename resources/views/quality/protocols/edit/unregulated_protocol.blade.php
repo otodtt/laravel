@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Добави Констативен Протокол!' }}
+    {{ 'Редактирай Констативен Протокол!' }}
 @endsection
 
 @section('css')
@@ -13,7 +13,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на КОНСТАТИВЕН ПРОТОКОЛ!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Редактиране на КОНСТАТИВЕН ПРОТОКОЛ!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -40,16 +40,16 @@
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/нерегламентиран/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($protocol, ['url'=>'контрол/протоколи/нерегламентиран/update/'.$protocol->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.protocols.create.forms.form_unregulated')
+            @include('quality.protocols.edit.forms.form_unregulated')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
                 <a href="{{ '/контрол/протоколи' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към протоколите!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
-                {!! Form::submit('Добави протокол!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Редактирай протокола!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
             

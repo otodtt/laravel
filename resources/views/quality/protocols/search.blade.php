@@ -65,10 +65,10 @@
                     </p>
                 </div>
                 <div class="col-md-4 col-md-6_my " style="text-align: center" >
-                    <span><a href="javascript:GetPinFarmerCertificate();" class="fa fa-check-square-o btn btn-danger my_btn_check" id="check_farmer_certificate"> Провери по рожденна дата!</a></span>
+                    <span><a href="javascript:GetPinFarmer();" class="fa fa-check-square-o btn btn-danger my_btn_check" id="check_farmer"> Провери по рожденна дата!</a></span>
                 </div>
                 <div class="col-md-2 col-md-6_my " style="text-align: center; margin-bottom: 5px;" >
-                    <span><a href="javascript:GetNameFarmerCertificate();" class="fa fa-check-square-o btn btn-danger my_btn_check" id="check_name_farmer_certificate"> Провери по име!</a></span>
+                    <span><a href="javascript:GetNameFarmer();" class="fa fa-check-square-o btn btn-danger my_btn_check" id="check_name_farmer"> Провери по име!</a></span>
                 </div>
                 <div class="col-md-4 col-md-6_my "  >
                     <p class="description bold" style="margin-top: 7px;">Желателно е да се търси с трите имена.</p>
@@ -86,7 +86,7 @@
                     </p>
                 </div>
                 <div class="col-md-12 col-md-6_my " style="text-align: center; margin-bottom: 5px;" >
-                    <span><a href="javascript:GetNameFirm();" class="fa fa-check-square-o btn btn-danger my_btn_check" id="check_name_firm_certificate"> Провери по име на Фирма!</a></span>
+                    <span><a href="javascript:GetNameFirm();" class="fa fa-check-square-o btn btn-danger my_btn_check" id="check_name_firm"> Провери по име на Фирма!</a></span>
                 </div>
             </div>
         @endif
@@ -100,12 +100,12 @@
                     <div class="col-md-6 col-md-6_my " >
                         <p class="new_farmer bold">
                             <span class="view red">Няма намерен такъв Земеделски Производител. ЕГН или Булстат са верни.</span><br/>
-                            Добави Сертификат на НОВ Земеделски Производител
+                            Добави Протокол на НОВ Земеделски Производител
                         </p>
                     </div>
                     <div class="col-md-6 col-md-6_my " >
                         {!! Form::open(['url'=>'/контрол/протоколи/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ СЕРТИФИКАТ ЗА НОВ СТОПАНИН">
+                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ ПРОТОКОЛ ЗА НОВ СТОПАНИН">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name" value="{!! $name !!}">
                             <input type="hidden" name="gender" value="{!! $gender !!}">
@@ -139,7 +139,7 @@
                         <div class="col-md-6 col-md-6_my " >
                             <p class="new_farmer bold">
                                 <span class="view" style="color: green">Намерена е фирма търговец.</span><br/>
-                                Добави Сертификат на Фирма - {{$trader[0]['trader_name']}}!
+                                Добави Протокол на Фирма - {{$trader[0]['trader_name']}}!
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
@@ -159,7 +159,7 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!! URL::to('/контрол/протоколи/добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a>
+                            <a href="{!! URL::to('/контрол/протоколи/добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ПРОТОКОЛ ЗА ТОЗИ ЗС!</a>
                         </div>
                     </div>
                 @endforeach
@@ -171,9 +171,19 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/records/search/searchFarmer.js" )!!}
-    {!!Html::script("js/records/search/searchFarmerByPin.js" )!!}
-    {!!Html::script("js/records/search/searchFarmerByName.js" )!!}
-    {!!Html::script("js/records/search/searchFirmByName.js" )!!}
+
+    {!!Html::script("js/quality/protocols/searchFarmer.js" )!!}
+    {!!Html::script("js/quality/protocols/searchFarmerByPin.js" )!!}
+    {!!Html::script("js/quality/protocols/searchFarmerByName.js" )!!}
+    {!!Html::script("js/quality/protocols/searchFirmByName.js" )!!}
+
+
+    {{--{!!Html::script("js/records/search/searchFarmer.js" )!!}--}}
+    {{--{!!Html::script("js/records/search/searchFarmerByPin.js" )!!}--}}
+    {{--{!!Html::script("js/records/search/searchFarmerByName.js" )!!}--}}
+    {{--{!!Html::script("js/records/search/searchFirmByName.js" )!!}--}}
     {!!Html::script("js/quality/locationDomestic.js" )!!}
+    <script>
+//        console.log(GetPinFarmerProtocol());
+    </script>
 @endsection

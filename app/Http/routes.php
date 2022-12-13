@@ -302,6 +302,20 @@ Route::group(['middleware' => ['auth']], function () {
 
     ///// ПРОТОЛОЛИ покажи
     Route::get('контрол/протоколи/{id}/show', 'QProtocolsController@show');
+
+    ///// ПРОТОЛОЛИ ЕДИТ
+    Route::get('/контрол/протоколи/нерегламентиран/edit/{id}', 'QProtocolsController@unregulated_edit');
+    Route::post('/контрол/протоколи/нерегламентиран/update/{id}', 'QProtocolsController@unregulated_update');
+
+    Route::get('/контрол/протоколи/търговец/edit/{id}', 'QProtocolsController@trader_edit');
+    Route::post('/контрол/протоколи/търговец/update/{id}', 'QProtocolsController@trader_update');
+
+    Route::get('/контрол/протоколи/фермер/edit/{id}', 'QProtocolsController@edit');
+    Route::post('/контрол/протоколи/фермер/update/{id}', 'QProtocolsController@update');
+
+    Route::any('quality/protocol/pin', 'QProtocolsController@get_pin');
+    Route::any('quality/protocol/names', 'QProtocolsController@get_name');
+    Route::any('quality/protocol/firms', 'QProtocolsController@get_firm');
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////

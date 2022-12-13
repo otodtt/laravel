@@ -282,7 +282,6 @@ class QProtocolsController extends Controller
             ->lists('short_name', 'id')
             ->toArray();
 
-//        dd($trader);
         return view('quality.protocols.create.exist_trader_protocol', compact('trader', 'index', 'crops', 'inspectors',
             'qualitys', 'packages' ));
     }
@@ -932,12 +931,240 @@ class QProtocolsController extends Controller
     {
         $index = $this->index;
         $protocol = QProtocol::findOrFail($id);
-//        dd($protocol);
 
         return view('quality.protocols.show', compact('protocol', 'index'));
     }
 
+    /** //// РЕДАКТИРАНЕ /////// */
     /**
+     * НЕРЕГЛАМЕНТИРАН
+     * Display the specified resource.
+     *
+     * @param $id
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function unregulated_edit($id)
+    {
+        $index = $this->index;
+
+        $qualitys = ['1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $packages = ['4' => 'Торби/ Bags', '3' => 'Кашони/ C. boxes', '2' => 'Палети/ Cages', '1' => 'Каси/ Pl. cases', '999' => 'ДРУГО'];
+
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orWhere('group_id', '=', 11)
+            ->orWhere('group_id', '=', 15)
+            ->orWhere('group_id', '=', 16)
+            ->orderBy('group_id', 'asc')->get()->toArray();
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        $protocol = QProtocol::findOrFail($id);
+
+        return view('quality.protocols.edit.unregulated_protocol', compact( 'protocol', 'index', 'crops', 'inspectors', 'qualitys', 'packages' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QProtocolsRequest|QProtocolTraderRequest $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     * @internal param Request $QProtocolsRequest
+     */
+    public function unregulated_update(QProtocolTraderRequest $request, $id)
+    {
+        $protocol = QProtocol::findOrFail($id);
+
+        if(isset($request->matches) && $request->matches > 0) {
+            $matches = $request->matches;
+        }
+        else {
+            $matches = 0;
+        }
+
+        $data = [
+            'unregulated_name'=>$request->trader_name,
+            'unregulated_address'=> $request->trader_address,
+            'unregulated_vin'=>$request->trader_vin,
+            'unregulated_phone'=>$request->mobile,
+            'number_protocol'=> $request->number_protocol,
+            'date_protocol'=> strtotime($request->date_protocol),
+            'crops'=> $request->crops,
+            'crops_name'=> $request->crops_name,
+            'origin'=> $request->origin,
+            'quality_class'=> $request->quality_class,
+            'quality_naw'=> $request->quality_naw,
+            'tara'=> $request->tara,
+            'number'=> $request->number,
+            'type_package'=> $request->type_package,
+            'different'=> $request->different,
+            'variety'=> $request->variety,
+            'documents'=> $request->documents,
+            'marking'=> $request->marking,
+            'cleanliness'=> $request->cleanliness,
+            'coloring'=> $request->coloring,
+            'dimensions'=> $request->dimensions,
+            'appearance'=> $request->appearance,
+            'maturity'=> $request->maturity,
+            'damage'=> $request->damage,
+            'shape'=> $request->shape,
+            'defects'=> $request->defects,
+            'diseases'=> $request->diseases,
+            'matches'=> $matches,
+            'mark'=> $request->mark,
+            'repackaging'=> $request->repackaging,
+            'processing'=> $request->processing,
+            'low'=> $request->low,
+            'relabeling'=> $request->relabeling,
+            'fodder'=> $request->fodder,
+            'resort'=> $request->resort,
+            'destruction'=> $request->destruction,
+            'actions'=> $request->actions,
+            'name_trader'=> $request->name_trader,
+            'place'=> $request->place,
+            'inspectors'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $protocol->fill($data);
+        $protocol->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/протоколи/'.$id.'/show');
+    }
+
+    /**
+     * ТЪРГОВЕЦ
+     * Display the specified resource.
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function trader_edit($id)
+    {
+
+        $protocol = QProtocol::findOrFail($id);
+
+        $index = $this->index;
+
+        $qualitys = ['1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $packages = ['4' => 'Торби/ Bags', '3' => 'Кашони/ C. boxes', '2' => 'Палети/ Cages', '1' => 'Каси/ Pl. cases', '999' => 'ДРУГО'];
+
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orWhere('group_id', '=', 11)
+            ->orWhere('group_id', '=', 15)
+            ->orWhere('group_id', '=', 16)
+            ->orderBy('group_id', 'asc')->get()->toArray();
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        $importers = Trader::select(['id', 'trader_name', 'trader_address', 'trader_vin'])->get()->toArray();
+
+        return view('quality.protocols.edit.trader_protocol', compact('index', 'crops', 'inspectors',
+            'qualitys', 'packages', 'protocol', 'importers' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QProtocolsRequest|QProtocolTraderRequest $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     * @internal param Request $QProtocolsRequest
+     */
+    public function trader_update(QProtocolsRequest $request, $id)
+    {
+        $protocol = QProtocol::findOrFail($id);
+
+        if(isset($request->matches) && $request->matches > 0) {
+            $matches = $request->matches;
+        }
+        else {
+            $matches = 0;
+        }
+
+        $data = [
+            'trader_id'=> $request->importer_data,
+            'trader_name'=>$request->name,
+            'trader_address'=> $request->address,
+            'trader_vin'=>$request->vin,
+            'trader_phone'=>$request->mobile,
+            'number_protocol'=> $request->number_protocol,
+            'date_protocol'=> strtotime($request->date_protocol),
+            'crops'=> $request->crops,
+            'crops_name'=> $request->crops_name,
+            'origin'=> $request->origin,
+            'quality_class'=> $request->quality_class,
+            'quality_naw'=> $request->quality_naw,
+            'tara'=> $request->tara,
+            'number'=> $request->number,
+            'type_package'=> $request->type_package,
+            'different'=> $request->different,
+            'variety'=> $request->variety,
+            'documents'=> $request->documents,
+            'marking'=> $request->marking,
+            'cleanliness'=> $request->cleanliness,
+            'coloring'=> $request->coloring,
+            'dimensions'=> $request->dimensions,
+            'appearance'=> $request->appearance,
+            'maturity'=> $request->maturity,
+            'damage'=> $request->damage,
+            'shape'=> $request->shape,
+            'defects'=> $request->defects,
+            'diseases'=> $request->diseases,
+            'matches'=> $matches,
+            'mark'=> $request->mark,
+            'repackaging'=> $request->repackaging,
+            'processing'=> $request->processing,
+            'low'=> $request->low,
+            'relabeling'=> $request->relabeling,
+            'fodder'=> $request->fodder,
+            'resort'=> $request->resort,
+            'destruction'=> $request->destruction,
+            'actions'=> $request->actions,
+            'name_trader'=> $request->name_trader,
+            'place'=> $request->place,
+            'inspectors'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $protocol->fill($data);
+        $protocol->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/протоколи/'.$id.'/show');
+    }
+
+    /**
+     * ФЕРМЕР
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -945,7 +1172,37 @@ class QProtocolsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $protocol = QProtocol::findOrFail($id);
+
+        $index = $this->index;
+
+        $qualitys = ['1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $packages = ['4' => 'Торби/ Bags', '3' => 'Кашони/ C. boxes', '2' => 'Палети/ Cages', '1' => 'Каси/ Pl. cases', '999' => 'ДРУГО'];
+
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orWhere('group_id', '=', 11)
+            ->orWhere('group_id', '=', 15)
+            ->orWhere('group_id', '=', 16)
+            ->orderBy('group_id', 'asc')->get()->toArray();
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        $importers = Trader::select(['id', 'trader_name', 'trader_address', 'trader_vin'])->get()->toArray();
+
+        return view('quality.protocols.edit.farmer_protocol', compact('index', 'crops', 'inspectors',
+            'qualitys', 'packages', 'protocol', 'importers' ));
     }
 
     /**
@@ -1038,21 +1295,22 @@ class QProtocolsController extends Controller
             $date = $pin;
         }
         $farmers = Farmer::select('name', 'pin', 'id')->where('pin', 'like', '%' .$date. '%')->get();
+//        dd($farmers);
 
         if(count($farmers)>0){
             foreach($farmers as $farmer) {
-                $return_farmer[] = `
+                $return_farmer[] = "
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'><span class='bold' style='font-size: 1em;'>$farmer->name с ЕГН: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/протокол-добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/протоколи/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ КОНСТАТИВЕН ПРОТОКОЛ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
-                </ul>`;
+                </ul>";
             }
         }
         else{
-            $return_farmer[] = `<span class='bold red' style='font-size: 1em;'>Няма открит ЗС с това ЕГН! Провери по име.</span>`;
+            $return_farmer[] = "<span class='bold red' style='font-size: 1em;'>Няма открит ЗС с това ЕГН! Провери по име.</span>";
         }
         return response()->json([ $return_farmer]);
     }
@@ -1071,18 +1329,18 @@ class QProtocolsController extends Controller
 
         if(count($farmers)>0){
             foreach($farmers as $farmer) {
-                $return_farmer[] = `
+                $return_farmer[] = "
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'><span class='bold' style='font-size: 1em;'>$farmer->name с ЕГН: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/протокол-добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/протоколи/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ КОНСТАТИВЕН ПРОТОКОЛ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
-                </ul>`;
+                </ul>";
             }
         }
         else{
-            $return_farmer[] = `<span class='bold red' style='font-size: 1em;'>Няма открит ЗС с това Име! Провери по ЕГН.</span>`;
+            $return_farmer[] = "<span class='bold red' style='font-size: 1em;'>Няма открит ЗС с това Име! Провери по ЕГН.</span>";
         }
         return response()->json([ $return_farmer]);
     }
@@ -1101,18 +1359,18 @@ class QProtocolsController extends Controller
 
         if(count($farmers)>0){
             foreach($farmers as $farmer) {
-                $return_farmer[] = `
+                $return_farmer[] = "
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'>Фирма <span class='bold' style='font-size: 1em;'>$farmer->name с Булстат: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/протокол-добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/протоколи/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ КОНСТАТИВЕН ПРОТОКОЛ ЗА ТОЗИ ЗСDDS!</a></span></div>
                     </li>
                     <hr/>
-                </ul>`;
+                </ul>";
             }
         }
         else{
-            $return_farmer[] = `<span class='bold red' style='font-size: 1em;'>Няма открита Фирма с това име!</span>`;
+            $return_farmer[] = "<span class='bold red' style='font-size: 1em;'>Няма открита Фирма с това име!</span>";
         }
         return response()->json([ $return_farmer]);
     }

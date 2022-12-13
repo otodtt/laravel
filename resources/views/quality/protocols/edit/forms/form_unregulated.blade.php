@@ -17,12 +17,10 @@ else{
                     </p>
                     <div class="packer_wrap col-md-12" >
                         <label for="trader_name">Име на Търговец:</label>
-                        {!! Form::text('trader_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+                        {!! Form::text('trader_name', $protocol->unregulated_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
                         {{--<br>--}}
                         <label for="trader_address">Адрес:</label>
-                        {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
-                        {{-- <label for="trader_address">ЕИК:</label> --}}
-                        {{-- {!! Form::text('packer_vin', null, ['class'=>'form-control', 'style'=>'width: 40%', 'placeholder'=>'ЕИК/Булстат']) !!} --}}
+                        {!! Form::text('trader_address', $protocol->unregulated_address, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
                     </div>
                 </div>
                 <div  class="col-md-4">
@@ -30,7 +28,7 @@ else{
                         Полето ЕИК задължително!
                     </p>
                     <label for="trader_vin" style="margin-top: 0">ЕИК:</label>
-                    {!! Form::text('trader_vin', null, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                    {!! Form::text('trader_vin', $protocol->unregulated_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
                     <input type="hidden" name="trader_or_not" value="0">
                 </div>
             </fieldset>
@@ -44,7 +42,7 @@ else{
                         Телефон ако е възможно!
                     </p>
                     <label for="mobile" style="margin-top: 0">Мобилен телефон:</label>
-                    {!! Form::text('mobile', null, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'0888 000 000']) !!}
+                    {!! Form::text('mobile', $protocol->unregulated_phone, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'0888 000 000']) !!}
                     <br>
                 </div>
             </fieldset>
@@ -97,7 +95,7 @@ else{
                                         @foreach($crops as $crop)
                                             <option value="{{$crop['id']}}"
                                                 @if (old('crops') == null)
-                                                {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
+                                                {{($protocol->crops == $crop['id'])? 'selected':''}}
                                                 @else
                                                 {{(old('crops') == $crop['id'])? 'selected':''}}
                                                 @endif
@@ -124,7 +122,7 @@ else{
                                         @foreach($qualitys as $k => $quality)
                                             <option value="{{$k}}"
                                             @if (old('quality_class') == null)
-                                                {{--{{($article[0]['quality_class'] == $k )? 'selected':''}}--}}
+                                                {{($protocol->quality_class == $k)? 'selected':''}}
                                             @else
                                                 {{(old('quality_class') == $k)? 'selected':''}}
                                             @endif
@@ -141,8 +139,8 @@ else{
                                         @foreach($qualitys as $k => $quality)
                                             <option value="{{$k}}"
                                             @if (old('quality_naw') == null)
-                                                {{--{{($article[0]['quality_class'] == $k )? 'selected':''}}--}}
-                                                    @else
+                                                {{($protocol->quality_naw == $k)? 'selected':''}}
+                                            @else
                                                 {{(old('quality_naw') == $k)? 'selected':''}}
                                                     @endif
                                             >{{$quality}}</option>
@@ -167,8 +165,8 @@ else{
                                         <option value="0">Избери вида опаковка</option>
                                         @foreach($packages as $k => $pack)
                                             <option value="{{$k}}"
-                                            @if (old('quality_class') == null)
-                                                {{--{{($article[0]['type_pack'] == $k )? 'selected':''}}--}}
+                                            @if (old('type_package') == null)
+                                                {{($protocol->type_package == $k)? 'selected':''}}
                                             @else
                                                 {{(old('type_package') == $k)? 'selected':''}}
                                             @endif
@@ -488,13 +486,12 @@ else{
                         @foreach($inspectors as $k=>$inspector)
                             <option value="{{$k}}"
                                 @if (old('inspectors') == null)
-                                {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
+                                {{($protocol->inspectors == $k)? 'selected':''}}
                                 @else
                                 {{(old('inspectors') == $k)? 'selected':''}}
                                 @endif
-                                inspector_name="{{$inspector}}"
-
-                            >{{ mb_strtoupper($inspector, 'utf-8') }}
+                                inspector_name="{{$inspector}}">
+                                {{ mb_strtoupper($inspector, 'utf-8') }}
                             </option>
                         @endforeach
                     </select>

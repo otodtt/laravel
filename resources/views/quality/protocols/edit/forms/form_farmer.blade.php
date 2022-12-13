@@ -9,28 +9,28 @@ else{
 {{-- Търговец --}}
 <div class="container-fluid" >
     <div class="row">
-        <div class="col-md-6" >
+        <div class="col-md-12" >
             <fieldset class="small_field"><legend class="small_legend">1. Търговец /Trader</legend>
                 <div class="col-md-7 col-md-6_my">
                     <p class="description">
                         Поле № 1 Избери фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
                     </p>
                     <label for="importer_data">Избери търговец:</label>
-                    <select name="importer_data" id="importer_data" class="localsID form-control">
-                        <option value="0">-- Избери --</option>
-                        @foreach ($importers as $key => $importer)
-                            <option value="{{ $importer['id'] }}"
-                                    @if (old('importer_data') == null)
-                                    {{ $protocol->trader_id == $importer['id'] ? 'selected' : '' }}
-                                    @else
-                                    {{ old('importer_data') == $importer['id'] ? 'selected' : '' }} @endif
-                                    address="{{ $importer['trader_address'] }}"
-                                    name="{{ $importer['trader_name'] }}"
-                                    vin="{{ $importer['trader_vin'] }}">
-                                {{ mb_strtoupper($importer['trader_name'], 'utf-8') }}
-                            </option>
-                        @endforeach
-                    </select>
+                    {{--<select name="importer_data" id="importer_data" class="localsID form-control">--}}
+                        {{--<option value="0">-- Избери --</option>--}}
+                        {{--@foreach ($importers as $key => $importer)--}}
+                            {{--<option value="{{ $importer['id'] }}"--}}
+                                    {{--@if (old('importer_data') == null)--}}
+                                    {{--{{ $protocol->trader_id == $importer['id'] ? 'selected' : '' }}--}}
+                                    {{--@else--}}
+                                    {{--{{ old('importer_data') == $importer['id'] ? 'selected' : '' }} @endif--}}
+                                    {{--address="{{ $importer['trader_address'] }}"--}}
+                                    {{--name="{{ $importer['trader_name'] }}"--}}
+                                    {{--vin="{{ $importer['trader_vin'] }}">--}}
+                                {{--{{ mb_strtoupper($importer['trader_name'], 'utf-8') }}--}}
+                            {{--</option>--}}
+                        {{--@endforeach--}}
+                    {{--</select>--}}
                     <?php
                     if (old('name') == null) {
                         $name = $protocol->trader_name;
@@ -80,21 +80,21 @@ else{
                 {{--</div>--}}
             </fieldset>
         </div>
-        <input type="hidden" name="trader_or_not" value="1">
+        {{--<input type="hidden" name="trader_or_not" value="1">--}}
 
 
-        <div class="col-md-6" >
-            <fieldset class="small_field"><legend class="small_legend">Други данни</legend>
-                <div  class="col-md-12">
-                    <p class="description">
-                        Телефон ако е възможно!
-                    </p>
-                    <label for="mobile" style="margin-top: 0">Мобилен телефон:</label>
-                    {!! Form::text('mobile', $protocol->unregulated_phone, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'0888 000 000']) !!}
-                    <br>
-                </div>
-            </fieldset>
-        </div>
+        {{--<div class="col-md-6" >--}}
+            {{--<fieldset class="small_field"><legend class="small_legend">Други данни</legend>--}}
+                {{--<div  class="col-md-12">--}}
+                    {{--<p class="description">--}}
+                        {{--Телефон ако е възможно!--}}
+                    {{--</p>--}}
+                    {{--<label for="mobile" style="margin-top: 0">Мобилен телефон:</label>--}}
+                    {{--{!! Form::text('mobile', $protocol->farmer_phone, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'0888 000 000']) !!}--}}
+                    {{--<br>--}}
+                {{--</div>--}}
+            {{--</fieldset>--}}
+        {{--</div>--}}
     </div>
 </div>
 
