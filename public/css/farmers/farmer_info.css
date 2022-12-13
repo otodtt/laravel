@@ -7,7 +7,6 @@ div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend, a{
 hr{margin: 3px;}
 #wrapper{
     margin: 0 auto;
-    width: 1200px;
 }
 
 fieldset{

@@ -36,7 +36,12 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА ФЕРМЕР</h4>
+                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА</h4>
+                    <p >
+                        Име на Фирма: <span class="bold" style="text-transform: uppercase">{!! $protocol->farmer_name !!}</span><br>
+                        С адрес: <span class="bold">{!! $protocol->farmer_address !!}</span>;
+                        С ЕИК/Булстат: <span class="bold">{!! $protocol->farmer_vin !!}</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -49,7 +54,7 @@
                 <a href="{{ '/контрол/протоколи' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към протоколите!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
-                {!! Form::submit('Добави протокол!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Редактирай протокол!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
             

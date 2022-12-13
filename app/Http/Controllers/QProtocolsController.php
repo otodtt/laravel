@@ -70,12 +70,12 @@ class QProtocolsController extends Controller
 
         $certs = QProtocol::get();
         foreach($certs as $cert){
-            $array[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
+            $array[date('Y', $cert->date_protocol)] = date('Y', $cert->date_protocol);
         }
         $years = array_filter(array_unique($array));
 
         $protocols = QProtocol::where('date_protocol','>=',$time_start)->where('date_protocol','<=',$time_end)->orderBy('id', 'asc')->get();
-
+        
         return view('quality.protocols.index', compact('protocols', 'years', 'year_now', 'inspectors', 'firms'));
     }
 
@@ -352,7 +352,6 @@ class QProtocolsController extends Controller
             'added_by' => Auth::user()->id,
         ];
 
-//        dd($data);
         QProtocol::create($data);
 
         Session::flash('message', 'Записа е успешен!');
@@ -1208,13 +1207,68 @@ class QProtocolsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  @param QProtocolsRequest|QProtocolTraderRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QProtocolsRequest $request, $id)
     {
-        //
+        $protocol = QProtocol::findOrFail($id);
+
+        if(isset($request->matches) && $request->matches > 0) {
+            $matches = $request->matches;
+        }
+        else {
+            $matches = 0;
+        }
+
+        $data = [
+            'number_protocol'=> $request->number_protocol,
+            'date_protocol'=> strtotime($request->date_protocol),
+            'crops'=> $request->crops,
+            'crops_name'=> $request->crops_name,
+            'origin'=> $request->origin,
+            'quality_class'=> $request->quality_class,
+            'quality_naw'=> $request->quality_naw,
+            'tara'=> $request->tara,
+            'number'=> $request->number,
+            'type_package'=> $request->type_package,
+            'different'=> $request->different,
+            'variety'=> $request->variety,
+            'documents'=> $request->documents,
+            'marking'=> $request->marking,
+            'cleanliness'=> $request->cleanliness,
+            'coloring'=> $request->coloring,
+            'dimensions'=> $request->dimensions,
+            'appearance'=> $request->appearance,
+            'maturity'=> $request->maturity,
+            'damage'=> $request->damage,
+            'shape'=> $request->shape,
+            'defects'=> $request->defects,
+            'diseases'=> $request->diseases,
+            'matches'=> $matches,
+            'mark'=> $request->mark,
+            'repackaging'=> $request->repackaging,
+            'processing'=> $request->processing,
+            'low'=> $request->low,
+            'relabeling'=> $request->relabeling,
+            'fodder'=> $request->fodder,
+            'resort'=> $request->resort,
+            'destruction'=> $request->destruction,
+            'actions'=> $request->actions,
+            'name_trader'=> $request->name_trader,
+            'place'=> $request->place,
+            'inspectors'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+        
+        $protocol->fill($data);
+        $protocol->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/протоколи/'.$id.'/show');
     }
 
     /**
@@ -1295,7 +1349,6 @@ class QProtocolsController extends Controller
             $date = $pin;
         }
         $farmers = Farmer::select('name', 'pin', 'id')->where('pin', 'like', '%' .$date. '%')->get();
-//        dd($farmers);
 
         if(count($farmers)>0){
             foreach($farmers as $farmer) {

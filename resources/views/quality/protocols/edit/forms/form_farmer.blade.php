@@ -12,25 +12,11 @@ else{
         <div class="col-md-12" >
             <fieldset class="small_field"><legend class="small_legend">1. Търговец /Trader</legend>
                 <div class="col-md-7 col-md-6_my">
-                    <p class="description">
-                        Поле № 1 Избери фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
+                    <p >
+                        Име на Фирма: <span class="bold" style="text-transform: uppercase">{!! $protocol->farmer_name !!}</span><br>
+                        С адрес: <span class="bold">{!! $protocol->farmer_address !!}</span>;<br>
+                        С ЕИК/Булстат: <span class="bold">{!! $protocol->farmer_vin !!}</span>
                     </p>
-                    <label for="importer_data">Избери търговец:</label>
-                    {{--<select name="importer_data" id="importer_data" class="localsID form-control">--}}
-                        {{--<option value="0">-- Избери --</option>--}}
-                        {{--@foreach ($importers as $key => $importer)--}}
-                            {{--<option value="{{ $importer['id'] }}"--}}
-                                    {{--@if (old('importer_data') == null)--}}
-                                    {{--{{ $protocol->trader_id == $importer['id'] ? 'selected' : '' }}--}}
-                                    {{--@else--}}
-                                    {{--{{ old('importer_data') == $importer['id'] ? 'selected' : '' }} @endif--}}
-                                    {{--address="{{ $importer['trader_address'] }}"--}}
-                                    {{--name="{{ $importer['trader_name'] }}"--}}
-                                    {{--vin="{{ $importer['trader_vin'] }}">--}}
-                                {{--{{ mb_strtoupper($importer['trader_name'], 'utf-8') }}--}}
-                            {{--</option>--}}
-                        {{--@endforeach--}}
-                    {{--</select>--}}
                     <?php
                     if (old('name') == null) {
                         $name = $protocol->trader_name;
@@ -53,48 +39,12 @@ else{
                     <input type="hidden" name="vin" id="vin" value="{{ $vin_number }}">
                 </div>
                 <div class="col-md-5">
-                    <p class="description">
-                        <span class="red">ВАЖНО!!!</span> Могат да се редактират само фирми търговци. Ако фирмата я няма в падащото меню, иди на страница
-                        „ВСИЧКИ ТЪРГОВЦИ и добави фирмата!
+                    <p class="description bold">
+                        <span class="red">ВАЖНО!!!</span> Могат да се редактират само фирми търговци.
                     </p>
                 </div>
-
-                {{--<div class="col-md-8 col-md-6_my" >--}}
-                    {{--<p class="description">--}}
-                        {{--Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>--}}
-                    {{--</p>--}}
-                    {{--<div class="packer_wrap col-md-12" >--}}
-                        {{--<label for="trader_name">Име на Търговец:</label>--}}
-                        {{--{!! Form::text('trader_name', $protocol->unregulated_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}--}}
-                        {{--<br>--}}
-                        {{--<label for="trader_address">Адрес:</label>--}}
-                        {{--{!! Form::text('trader_address', $protocol->unregulated_address, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div  class="col-md-4">--}}
-                    {{--<p class="description">--}}
-                        {{--Полето ЕИК задължително!--}}
-                    {{--</p>--}}
-                    {{--<label for="trader_vin" style="margin-top: 0">ЕИК:</label>--}}
-                    {{--{!! Form::text('trader_vin', $protocol->unregulated_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}--}}
-                {{--</div>--}}
             </fieldset>
         </div>
-        {{--<input type="hidden" name="trader_or_not" value="1">--}}
-
-
-        {{--<div class="col-md-6" >--}}
-            {{--<fieldset class="small_field"><legend class="small_legend">Други данни</legend>--}}
-                {{--<div  class="col-md-12">--}}
-                    {{--<p class="description">--}}
-                        {{--Телефон ако е възможно!--}}
-                    {{--</p>--}}
-                    {{--<label for="mobile" style="margin-top: 0">Мобилен телефон:</label>--}}
-                    {{--{!! Form::text('mobile', $protocol->farmer_phone, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'0888 000 000']) !!}--}}
-                    {{--<br>--}}
-                {{--</div>--}}
-            {{--</fieldset>--}}
-        {{--</div>--}}
     </div>
 </div>
 

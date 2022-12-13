@@ -1,19 +1,18 @@
 $(document).ready(function(){
-    $("#check_name_firm").click(GetNameFirm);
+    $("#check_farmer").click(GetPinFarmer);
 });
 
-function GetNameFirm(){
+function GetPinFarmer(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/quality/protocol/firms",
+        url: "http://odbhrz.test/quality/certificate/pin",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{
-            val1:$('#firm_name_search').val(),
+            val1:$('#pin_farmer').val(),
         }
 
     }).done(function(data){
         $('#has').html(data[0]);
     });
-
 }

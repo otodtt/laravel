@@ -1431,7 +1431,7 @@ class QINCertificatesController extends Controller
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'><span class='bold' style='font-size: 1em;'>$farmer->name с ЕГН: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/протокол-добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/сертификати-вътрешен/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ ВЪТРЕШЕН СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
                 </ul>";
@@ -1461,7 +1461,7 @@ class QINCertificatesController extends Controller
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'><span class='bold' style='font-size: 1em;'>$farmer->name с ЕГН: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/протокол-добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/сертификати-вътрешен/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ ВЪТРЕШЕН СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
                 </ul>";
@@ -1491,7 +1491,7 @@ class QINCertificatesController extends Controller
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'>Фирма <span class='bold' style='font-size: 1em;'>$farmer->name с Булстат: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/протокол-добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/сертификати-вътрешен/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ ВЪТРЕШЕН СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
                 </ul>";

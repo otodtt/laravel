@@ -256,9 +256,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('контрол/сертификат-вътрешен/{id}/завърши', 'QINCertificatesController@internal_ending');
 
-    Route::any('certificate/pin', 'QINCertificatesController@get_pin');
-    Route::any('certificate/names', 'QINCertificatesController@get_name');
-    Route::any('certificate/firms', 'QINCertificatesController@get_firm');
+    Route::any('quality/certificate/pin', 'QINCertificatesController@get_pin');
+    Route::any('quality/certificate/names', 'QINCertificatesController@get_name');
+    Route::any('quality/certificate/firms', 'QINCertificatesController@get_firm');
 
     Route::get('/контрол/сертификати-вътрешен/добави/{id}', 'QINCertificatesController@create');
     Route::get('/контрол/сертификати-вътрешен/фермер/нов', 'QINCertificatesController@create_farmer');
