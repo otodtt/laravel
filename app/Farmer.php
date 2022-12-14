@@ -87,4 +87,12 @@ class Farmer extends Model
     public function qprotocols(){
         return $this->hasMany('odbh\QProtocol');
     }
+
+    /**
+     * ЗП има много QCompliance
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function compliance(){
+        return $this->hasMany('odbh\QCompliance');
+    }
 }

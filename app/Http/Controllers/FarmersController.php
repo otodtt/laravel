@@ -182,6 +182,7 @@ class FarmersController extends Controller
         $diaries = $farmer->diaries;
         $qcertificates = $farmer->qincertificates;
         $qprotocols = $farmer->qprotocols;
+        $compliance = $farmer->compliance;
 
         $inspectors = $this->inspectors_add;
 
@@ -197,7 +198,7 @@ class FarmersController extends Controller
 
         return view('farmers.show', compact('farmer', 'districts', 'districts_farm', 'regions', 'old_opinions', 'opinions',
                                     'certificate', 'protocols', 'old_protocols', 'old_protocols', 'permits',
-                                    'inspectors', 'diaries', 'qcertificates', 'qprotocols'));
+                                    'inspectors', 'diaries', 'qcertificates', 'qprotocols', 'compliance'));
     }
 
     /**

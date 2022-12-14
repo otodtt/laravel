@@ -171,19 +171,9 @@
 @endsection
 
 @section('scripts')
-
     {!!Html::script("js/quality/protocols/searchFarmer.js" )!!}
     {!!Html::script("js/quality/protocols/searchFarmerByPin.js" )!!}
     {!!Html::script("js/quality/protocols/searchFarmerByName.js" )!!}
     {!!Html::script("js/quality/protocols/searchFirmByName.js" )!!}
-
-
-    {{--{!!Html::script("js/records/search/searchFarmer.js" )!!}--}}
-    {{--{!!Html::script("js/records/search/searchFarmerByPin.js" )!!}--}}
-    {{--{!!Html::script("js/records/search/searchFarmerByName.js" )!!}--}}
-    {{--{!!Html::script("js/records/search/searchFirmByName.js" )!!}--}}
     {!!Html::script("js/quality/locationDomestic.js" )!!}
-    <script>
-//        console.log(GetPinFarmerProtocol());
-    </script>
 @endsection

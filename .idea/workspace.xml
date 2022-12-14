@@ -7,19 +7,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/protocols/searchFarmer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/protocols/searchFarmerByName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/protocols/searchFarmerByPin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/protocols/searchFirmByName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/edit/farmer_protocol.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_farmer.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_trader.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_unregulated.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/edit/trader_protocol.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/edit/unregulated_protocol.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/compliance/searchFarmer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/compliance/searchFarmerByName.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/compliance/searchFarmerByPin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/quality/compliance/searchFirmByName.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/body/compliance.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/exist_create.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/exist_trader.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_exist_farmer.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_new.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/new_create.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/олд/form_unregulated.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/олд/new_trader_protocol.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/create/олд/unregulated_protocol.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/includes/sorting.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/includes/table.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/index.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/compliance/search.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/includes/sorting.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/User.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/User.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Farmer.php" afterPath="$PROJECT_DIR$/app/Farmer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FarmersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FarmersController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QProtocolsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QProtocolsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/quality/QcertificatesTable.js" afterPath="$PROJECT_DIR$/public/js/quality/QcertificatesTable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/protocols/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/protocols/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/search.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/protocols/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/protocols/show.blade.php" />
     </list>
@@ -65,106 +82,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.163636">
-              <caret line="317" column="32" selection-start-line="317" selection-start-column="32" selection-end-line="317" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.7612613">
+              <caret line="339" column="34" selection-start-line="339" selection-start-column="26" selection-end-line="339" selection-end-column="34" />
               <folding>
                 <element signature="e#763#4769#1#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="searchFirmByName.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/quality/protocols/searchFirmByName.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/search.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8244514">
-              <caret line="88" column="57" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QProtocolsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QProtocolsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.115385">
-              <caret line="1365" column="219" selection-start-line="1365" selection-start-column="219" selection-end-line="1365" selection-end-column="219" />
-              <folding>
-                <element signature="e#41#50#0#PHP" expanded="true" />
-                <element signature="e#577#845#0#PHP" expanded="false" />
-                <element signature="e#851#1002#0#PHP" expanded="false" />
-                <element signature="e#1007#2405#0#PHP" expanded="false" />
-                <element signature="e#2455#2599#0#PHP" expanded="false" />
-                <element signature="e#2604#4378#0#PHP" expanded="false" />
-                <element signature="e#4384#4607#0#PHP" expanded="false" />
-                <element signature="e#4612#8620#0#PHP" expanded="false" />
-                <element signature="e#8670#8820#0#PHP" expanded="false" />
-                <element signature="e#8825#10124#0#PHP" expanded="false" />
-                <element signature="e#10130#10353#0#PHP" expanded="false" />
-                <element signature="e#10358#12869#0#PHP" expanded="false" />
-                <element signature="e#12919#13105#0#PHP" expanded="false" />
-                <element signature="e#13110#16581#0#PHP" expanded="false" />
-                <element signature="e#16587#16831#0#PHP" expanded="false" />
-                <element signature="e#16836#24392#0#PHP" expanded="false" />
-                <element signature="e#24442#24622#0#PHP" expanded="false" />
-                <element signature="e#24627#26048#0#PHP" expanded="false" />
-                <element signature="e#26054#26308#0#PHP" expanded="false" />
-                <element signature="e#26313#29170#0#PHP" expanded="false" />
-                <element signature="e#29216#29399#0#PHP" expanded="false" />
-                <element signature="e#29404#30660#0#PHP" expanded="false" />
-                <element signature="e#30666#30920#0#PHP" expanded="false" />
-                <element signature="e#30925#33396#0#PHP" expanded="false" />
-                <element signature="e#31182#33246#0#PHP" expanded="false" />
-                <element signature="e#33403#33525#0#PHP" expanded="false" />
-                <element signature="e#33530#33724#0#PHP" expanded="false" />
-                <element signature="e#33766#33936#0#PHP" expanded="false" />
-                <element signature="e#33941#35237#0#PHP" expanded="false" />
-                <element signature="e#35243#35484#0#PHP" expanded="false" />
-                <element signature="e#35489#38024#0#PHP" expanded="false" />
-                <element signature="e#38030#38155#0#PHP" expanded="false" />
-                <element signature="e#38160#39582#0#PHP" expanded="false" />
-                <element signature="e#39588#39829#0#PHP" expanded="false" />
-                <element signature="e#39834#42369#0#PHP" expanded="false" />
-                <element signature="e#42375#42529#0#PHP" expanded="false" />
-                <element signature="e#43954#44136#0#PHP" expanded="false" />
-                <element signature="e#44215#44349#0#PHP" expanded="false" />
-                <element signature="e#44450#44610#0#PHP" expanded="false" />
-                <element signature="e#44615#46386#0#PHP" expanded="false" />
-                <element signature="e#46392#46476#0#PHP" expanded="false" />
-                <element signature="e#46481#47815#0#PHP" expanded="false" />
-                <element signature="e#47821#47905#0#PHP" expanded="false" />
-                <element signature="e#49061#49148#0#PHP" expanded="false" />
-                <marker date="1670944855994" expanded="true" signature="47080:47575" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="47105:47527" placeholder="..." />
-                <marker date="1670944855994" expanded="false" signature="47143:47176" placeholder="..." />
-                <marker date="1670944855994" expanded="false" signature="47204:47219" placeholder="..." />
-                <marker date="1670944855994" expanded="false" signature="47304:47337" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="47679:47694" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="48320:48815" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="48345:48767" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="48383:48416" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="48444:48459" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="48544:48577" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="48919:48934" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="49563:50071" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="49588:50023" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="49626:49659" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="49693:49708" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="49797:49830" placeholder="..." />
-                <marker date="1670944855994" expanded="true" signature="50175:50190" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -186,35 +110,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/QCertificate.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/forms/form_create_certificate.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/forms/form_edit_certificate.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/export/form/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" />
-        <option value="$PROJECT_DIR$/public/css/qcertificates/show_opinion.css" />
-        <option value="$PROJECT_DIR$/public/css/qcertificates/body_table.css" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_create_certificate.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/QCertificatesRequest.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/stock_export.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/export/form/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_edit_certificate.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/InvoicesRequest.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/quality/QcertificatesTable.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TradersController.php" />
-        <option value="$PROJECT_DIR$/app/Trader.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/create/new_trader_protocol.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/create/forms/form_create_new_trader.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/create/new_create_protocol.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/create/exist_trader_protocol.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/protocols/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/create/unregulated_protocol.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/create/forms/form_unregulated.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/QProtocolTraderRequest.php" />
@@ -224,7 +123,6 @@
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_unregulated.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/edit/unregulated_protocol.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/edit/trader_protocol.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/protocols/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_trader.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/edit/farmer_protocol.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_farmer.blade.php" />
@@ -233,10 +131,36 @@
         <option value="$PROJECT_DIR$/resources/views/quality/certificates/domestic/search.blade.php" />
         <option value="$PROJECT_DIR$/public/js/quality/protocols/searchFarmerByName.js" />
         <option value="$PROJECT_DIR$/public/js/quality/protocols/searchFarmerByPin.js" />
-        <option value="$PROJECT_DIR$/resources/views/quality/protocols/search.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QProtocolsController.php" />
         <option value="$PROJECT_DIR$/public/js/quality/protocols/searchFirmByName.js" />
+        <option value="$PROJECT_DIR$/resources/views/quality/protocols/search.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/protocols/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/protocols/includes/sorting.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QProtocolsController.php" />
+        <option value="$PROJECT_DIR$/public/js/quality/compliance/searchFarmerByName.js" />
+        <option value="$PROJECT_DIR$/public/js/quality/compliance/searchFarmerByPin.js" />
+        <option value="$PROJECT_DIR$/public/js/quality/compliance/searchFirmByName.js" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/create/exist_create_protocol.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/includes/table.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/quality/QcertificatesTable.js" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Farmer.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FarmersController.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/body/compliance.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/protocols/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_new_trader.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_new.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/QComplianceRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/QNewComplianceRequest.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/create/new_create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/search.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/create/exist_create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/create/exist_trader.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_exist_farmer.blade.php" />
+        <option value="$PROJECT_DIR$/app/QCompliance.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QComplianceController.php" />
       </list>
     </option>
   </component>
@@ -330,8 +254,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="118" />
+    <option name="x" value="8" />
+    <option name="y" value="98" />
     <option name="width" value="1243" />
     <option name="height" value="878" />
   </component>
@@ -474,7 +398,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="protocols" />
+              <option name="myItemId" value="compliance" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,76 +415,8 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quality" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -568,7 +424,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="protocols" />
+              <option name="myItemId" value="compliance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="create" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quality" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compliance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="create" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="forms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -667,18 +575,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\laravel\resources\views\farmers\body" />
+      <recent name="C:\wamp\www\laravel\resources\views\quality\compliance" />
+      <recent name="C:\wamp\www\laravel\public\js\quality\compliance" />
+      <recent name="C:\wamp\www\laravel\resources\views\quality\protocols\includes" />
       <recent name="C:\wamp\www\laravel\public\js\quality\protocols" />
-      <recent name="C:\wamp\www\laravel\public\js\quality\certificates" />
-      <recent name="C:\wamp\www\laravel\resources\views\quality\protocols\edit\forms" />
-      <recent name="C:\wamp\www\laravel\resources\views\quality\protocols\edit" />
-      <recent name="C:\wamp\www\laravel\resources\views\quality\protocols\create\forms" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\laravel\resources\views\quality\compliance\create" />
+      <recent name="C:\wamp\www\laravel\resources\views\quality\compliance\create\олд" />
       <recent name="C:\wamp\www\laravel\public\js\quality\protocols" />
       <recent name="C:\wamp\www\laravel\resources\views\quality\certificates\domestic\forms" />
       <recent name="C:\wamp\www\laravel\resources\views\quality\certificates\domestic\forms\data" />
-      <recent name="C:\wamp\www\app-kpp\public\js\quality" />
-      <recent name="C:\wamp\www\app-kpp\resources\views\quality\invoices" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -890,31 +798,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="118" width="1243" height="878" extended-state="1" />
+    <frame x="8" y="98" width="1243" height="878" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22485207" sideWeight="0.47208932" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27134404" sideWeight="0.47208932" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36797065" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12510566" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12510566" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19217686" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2884058" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28611112" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50605327" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40350878" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58162034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -938,552 +846,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/forms/form_create_new_trader.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2720126">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/exist_create_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2028302">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/new_create_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.668239">
-          <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/unregulated_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4811321">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/forms/form_unregulated.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7216981">
-          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-          <folding>
-            <marker date="1669974599859" expanded="true" signature="3215:3436" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="3227:3434" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="3261:3433" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="6078:6307" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="6090:6305" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="6107:6304" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="9171:9390" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="9183:9388" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="9198:9387" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="9743:9967" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="9755:9965" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="9772:9964" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="27641:27819" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="27653:27817" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="27675:27816" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="28312:28485" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="28324:28483" placeholder="..." />
-            <marker date="1669974599859" expanded="true" signature="28340:28482" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/farmers/body/qprotocols.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2672956">
-          <caret line="10" column="108" selection-start-line="10" selection-start-column="108" selection-end-line="10" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/farmers/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2012577">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3191824">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/includes/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07861635">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/qprotocols/body_protocol.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9465409">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21383648">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_unregulated.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81887364">
-          <caret line="44" column="73" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
-          <folding>
-            <element signature="n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#!!top" expanded="false" />
-            <marker date="1670930938564" expanded="true" signature="3082:3303" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="3094:3301" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="3128:3300" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="5931:6160" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="5943:6158" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="5960:6157" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="8988:9207" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="9000:9205" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="9015:9204" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="9560:9784" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="9572:9782" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="9589:9781" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="27447:27625" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="27459:27623" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="27481:27622" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="28118:28291" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="28130:28289" placeholder="..." />
-            <marker date="1670930938564" expanded="true" signature="28146:28288" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/QProtocolTraderRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41248098">
-          <caret line="56" column="19" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="19" />
-          <folding>
-            <element signature="e#122#225#0#PHP" expanded="false" />
-            <element signature="e#296#394#0#PHP" expanded="false" />
-            <element signature="e#2227#2298#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/QCertificate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3076925">
-          <caret line="405" column="62" selection-start-line="405" selection-start-column="62" selection-end-line="405" selection-end-column="62" />
-          <folding>
-            <element signature="e#1057#2498#0#PHP" expanded="false" />
-            <element signature="e#2504#2647#0#PHP" expanded="false" />
-            <element signature="e#2652#5312#0#PHP" expanded="false" />
-            <element signature="e#5318#9532#0#PHP" expanded="false" />
-            <element signature="e#9577#9669#0#PHP" expanded="false" />
-            <element signature="e#9674#11529#0#PHP" expanded="false" />
-            <element signature="e#11535#11692#0#PHP" expanded="false" />
-            <element signature="e#11697#14799#0#PHP" expanded="false" />
-            <element signature="e#14805#14928#0#PHP" expanded="false" />
-            <element signature="e#14933#15748#0#PHP" expanded="false" />
-            <element signature="e#15754#15920#0#PHP" expanded="false" />
-            <element signature="e#15925#18428#0#PHP" expanded="false" />
-            <element signature="e#18434#19265#0#PHP" expanded="false" />
-            <element signature="e#19271#19674#0#PHP" expanded="false" />
-            <element signature="e#19717#19849#0#PHP" expanded="false" />
-            <element signature="e#19854#20225#0#PHP" expanded="false" />
-            <element signature="e#20231#20301#0#PHP" expanded="false" />
-            <element signature="e#20306#20394#0#PHP" expanded="false" />
-            <element signature="e#20400#20566#0#PHP" expanded="false" />
-            <element signature="e#20571#20832#0#PHP" expanded="false" />
-            <element signature="e#20838#21004#0#PHP" expanded="false" />
-            <element signature="e#21009#21272#0#PHP" expanded="false" />
-            <element signature="e#21316#21400#0#PHP" expanded="false" />
-            <marker date="1669883278098" expanded="true" signature="9210:9306" placeholder="SELECT * FRO..qcertificates..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/QProtocol.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67275494">
-          <caret line="26" column="59" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/edit/unregulated_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.543379">
-          <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/exist_trader_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24961948">
-          <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/new_trader_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.83713853">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/domestic/edit/form_edit_certificate.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23287672">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#1;n#!!top" expanded="false" />
-            <marker date="1669290445964" expanded="true" signature="13105:13305" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="13117:13303" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="13140:13302" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="19881:20060" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="19893:20058" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="19912:20057" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="20879:21346" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="20891:21344" placeholder="..." />
-            <marker date="1669290445964" expanded="true" signature="20913:21343" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04109589">
-          <caret line="1202" column="7" selection-start-line="1202" selection-start-column="7" selection-end-line="1202" selection-end-column="7" />
-          <folding>
-            <element signature="e#1138#1270#0#PHP" expanded="false" />
-            <element signature="e#1275#3843#0#PHP" expanded="false" />
-            <element signature="e#3849#8253#0#PHP" expanded="false" />
-            <element signature="e#8348#8492#0#PHP" expanded="false" />
-            <element signature="e#8497#10337#0#PHP" expanded="false" />
-            <element signature="e#10343#10505#0#PHP" expanded="false" />
-            <element signature="e#10510#13704#0#PHP" expanded="false" />
-            <element signature="e#13710#13864#0#PHP" expanded="false" />
-            <element signature="e#13869#17830#0#PHP" expanded="false" />
-            <element signature="e#17836#18001#0#PHP" expanded="false" />
-            <element signature="e#18006#24342#0#PHP" expanded="false" />
-            <element signature="e#24348#24509#0#PHP" expanded="false" />
-            <element signature="e#24514#28303#0#PHP" expanded="false" />
-            <element signature="e#28309#28474#0#PHP" expanded="false" />
-            <element signature="e#28479#34593#0#PHP" expanded="false" />
-            <element signature="e#34687#34854#0#PHP" expanded="false" />
-            <element signature="e#34859#36454#0#PHP" expanded="false" />
-            <element signature="e#36460#39378#0#PHP" expanded="false" />
-            <element signature="e#39472#39647#0#PHP" expanded="false" />
-            <element signature="e#39652#40989#0#PHP" expanded="false" />
-            <element signature="e#40995#43400#0#PHP" expanded="false" />
-            <element signature="e#43406#44245#0#PHP" expanded="false" />
-            <element signature="e#44251#44655#0#PHP" expanded="false" />
-            <element signature="e#44661#44783#0#PHP" expanded="false" />
-            <element signature="e#44788#45477#0#PHP" expanded="false" />
-            <element signature="e#45483#45623#0#PHP" expanded="false" />
-            <element signature="e#46323#46513#0#PHP" expanded="false" />
-            <element signature="e#46518#49430#0#PHP" expanded="false" />
-            <element signature="e#49436#49570#0#PHP" expanded="false" />
-            <element signature="e#49575#49639#0#PHP" expanded="false" />
-            <element signature="e#49645#49811#0#PHP" expanded="false" />
-            <element signature="e#49816#50081#0#PHP" expanded="false" />
-            <element signature="e#50087#50253#0#PHP" expanded="false" />
-            <element signature="e#50258#50525#0#PHP" expanded="false" />
-            <element signature="e#50531#50691#0#PHP" expanded="false" />
-            <element signature="e#50696#52479#0#PHP" expanded="false" />
-            <element signature="e#52485#52569#0#PHP" expanded="false" />
-            <element signature="e#52574#53865#0#PHP" expanded="false" />
-            <element signature="e#53871#53955#0#PHP" expanded="false" />
-            <element signature="e#53960#55086#0#PHP" expanded="false" />
-            <element signature="e#55092#55179#0#PHP" expanded="false" />
-            <element signature="e#55184#56308#0#PHP" expanded="false" />
-            <marker date="1669293469565" expanded="true" signature="7933:8033" placeholder="SELECT * FRO..qincertificates..." />
-            <marker date="1669293469565" expanded="true" signature="53149:53625" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="53174:53577" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="53212:53245" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="53273:53288" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="53373:53406" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="53729:53744" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="54370:54846" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="54395:54798" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="54433:54466" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="54494:54509" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="54594:54627" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="54950:54965" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="55594:56080" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="55619:56032" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="55657:55690" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="55724:55739" placeholder="..." />
-            <marker date="1669293469565" expanded="false" signature="55828:55861" placeholder="..." />
-            <marker date="1669293469565" expanded="true" signature="56184:56199" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/QProtocolsRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6651447">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding>
-            <element signature="e#117#220#0#PHP" expanded="false" />
-            <element signature="e#225#285#0#PHP" expanded="false" />
-            <element signature="e#291#389#0#PHP" expanded="false" />
-            <element signature="e#1602#1673#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.traders">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/domestic/edit/domestic_edit_certificate.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10794602">
-          <caret line="66" column="69" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/edit/trader_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.310345">
-          <caret line="117" column="11" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51124436">
-          <caret line="41" column="58" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
-          <folding>
-            <element signature="e#2857#14316#0#HTML" expanded="false" />
-            <element signature="e#14322#38912#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_trader.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8125937">
-          <caret line="92" column="62" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
-          <folding>
-            <marker date="1670937133514" expanded="true" signature="5813:6034" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="5825:6032" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="5859:6031" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="8662:8891" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="8674:8889" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="8691:8888" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="11719:11938" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="11731:11936" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="11746:11935" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="12291:12515" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="12303:12513" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="12320:12512" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="30178:30356" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="30190:30354" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="30212:30353" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="30849:31022" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="30861:31020" placeholder="..." />
-            <marker date="1670937133514" expanded="true" signature="30877:31019" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/edit/forms/form_farmer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="100.19231">
-          <caret line="12" column="74" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="90" />
-          <folding>
-            <marker date="1670937320057" expanded="true" signature="6038:6259" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="6050:6257" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="6084:6256" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="8887:9116" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="8899:9114" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="8916:9113" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="11944:12163" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="11956:12161" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="11971:12160" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="12516:12740" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="12528:12738" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="12545:12737" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="30403:30581" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="30415:30579" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="30437:30578" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="31074:31247" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="31086:31245" placeholder="..." />
-            <marker date="1670937320057" expanded="true" signature="31102:31244" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/edit/farmer_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43328336">
-          <caret line="44" column="62" selection-start-line="44" selection-start-column="62" selection-end-line="44" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.qprotocols">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/records/search/searchFirmByName.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/farmers/searchFirmByName.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/farmers/searchFarmerByPin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/farmers/searchFarmerByName.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/opinions/new/search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8485758">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OpinionsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.598202">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#23875#26632#0#PHP" expanded="false" />
-            <element signature="e#26638#26817#0#PHP" expanded="false" />
-            <element signature="e#26822#36782#0#PHP" expanded="false" />
-            <element signature="e#36788#36910#0#PHP" expanded="false" />
-            <element signature="e#36915#38436#0#PHP" expanded="false" />
-            <element signature="e#38442#38589#0#PHP" expanded="false" />
-            <element signature="e#38594#41243#0#PHP" expanded="false" />
-            <element signature="e#41249#41435#0#PHP" expanded="false" />
-            <element signature="e#41440#47740#0#PHP" expanded="false" />
-            <element signature="e#47746#47893#0#PHP" expanded="false" />
-            <element signature="e#47898#50559#0#PHP" expanded="false" />
-            <element signature="e#50565#50752#0#PHP" expanded="false" />
-            <element signature="e#50757#57362#0#PHP" expanded="false" />
-            <element signature="e#57742#57902#0#PHP" expanded="false" />
-            <marker date="1667911023790" expanded="true" signature="10563:10735" placeholder="SELECT * FRO..opinions..." />
-            <marker date="1667911023790" expanded="true" signature="60248:60724" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="60273:60676" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="60311:60344" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="60372:60387" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="60472:60505" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="60828:60843" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="61473:61949" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="61498:61901" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="61536:61569" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="61597:61612" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="61697:61730" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="62053:62068" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="62697:63183" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="62722:63135" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="62760:62793" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="62827:62842" placeholder="..." />
-            <marker date="1667911023790" expanded="false" signature="62931:62964" placeholder="..." />
-            <marker date="1667911023790" expanded="true" signature="63287:63302" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/records/search/searchFarmer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/records/search/searchFarmerByName.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4170274">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/quality/protocols/searchFarmer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/diaries/search/searchFarmerByName.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1596,100 +958,676 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.163636">
-          <caret line="317" column="32" selection-start-line="317" selection-start-column="32" selection-end-line="317" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.68025076">
+          <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/quality/protocols/searchFirmByName.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04906205">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/domestic/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4527736">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/includes/domestic_sort.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
           <folding>
-            <element signature="e#763#4769#1#PHP" expanded="false" />
+            <marker date="1668426748744" expanded="true" signature="1127:1408" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="1139:1406" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="1168:1405" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="1524:1799" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="1536:1797" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="1561:1796" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="2576:2763" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="2590:2761" placeholder="..." />
+            <marker date="1668426748744" expanded="true" signature="2646:2760" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/07c10876-b0a2-4c97-806d-5232f6a46690/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.qprotocols">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/includes/sorting.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5667167">
+          <caret line="59" column="105" selection-start-line="59" selection-start-column="105" selection-end-line="59" selection-end-column="105" />
+          <folding>
+            <marker date="1671004497412" expanded="true" signature="1127:1408" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="1139:1406" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="1168:1405" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="1524:1799" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="1536:1797" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="1561:1796" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="2703:2890" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="2717:2888" placeholder="..." />
+            <marker date="1671004497412" expanded="true" signature="2773:2887" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15892054">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
+            <element signature="e#1138#1270#0#PHP" expanded="false" />
+            <element signature="e#3849#8253#0#PHP" expanded="false" />
+            <element signature="e#8348#8492#0#PHP" expanded="false" />
+            <element signature="e#8497#10337#0#PHP" expanded="false" />
+            <element signature="e#10343#10505#0#PHP" expanded="false" />
+            <element signature="e#10510#13704#0#PHP" expanded="false" />
+            <element signature="e#13710#13864#0#PHP" expanded="false" />
+            <element signature="e#13869#17830#0#PHP" expanded="false" />
+            <element signature="e#17836#18001#0#PHP" expanded="false" />
+            <element signature="e#18006#24342#0#PHP" expanded="false" />
+            <element signature="e#24348#24509#0#PHP" expanded="false" />
+            <element signature="e#24514#28303#0#PHP" expanded="false" />
+            <element signature="e#28309#28474#0#PHP" expanded="false" />
+            <element signature="e#28479#34593#0#PHP" expanded="false" />
+            <element signature="e#34687#34854#0#PHP" expanded="false" />
+            <element signature="e#34859#36454#0#PHP" expanded="false" />
+            <element signature="e#36460#39378#0#PHP" expanded="false" />
+            <element signature="e#39472#39647#0#PHP" expanded="false" />
+            <element signature="e#39652#40989#0#PHP" expanded="false" />
+            <element signature="e#40995#43400#0#PHP" expanded="false" />
+            <element signature="e#43406#44245#0#PHP" expanded="false" />
+            <element signature="e#44251#44655#0#PHP" expanded="false" />
+            <element signature="e#44661#44783#0#PHP" expanded="false" />
+            <element signature="e#44788#45477#0#PHP" expanded="false" />
+            <element signature="e#45483#45623#0#PHP" expanded="false" />
+            <element signature="e#45628#46317#0#PHP" expanded="false" />
+            <element signature="e#46323#46513#0#PHP" expanded="false" />
+            <element signature="e#46518#49430#0#PHP" expanded="false" />
+            <element signature="e#49436#49570#0#PHP" expanded="false" />
+            <element signature="e#49575#49639#0#PHP" expanded="false" />
+            <element signature="e#49645#49811#0#PHP" expanded="false" />
+            <element signature="e#49816#50081#0#PHP" expanded="false" />
+            <element signature="e#50087#50253#0#PHP" expanded="false" />
+            <element signature="e#50258#50525#0#PHP" expanded="false" />
+            <element signature="e#50531#50691#0#PHP" expanded="false" />
+            <element signature="e#50696#52479#0#PHP" expanded="false" />
+            <element signature="e#52485#52569#0#PHP" expanded="false" />
+            <element signature="e#52574#53894#0#PHP" expanded="false" />
+            <element signature="e#53900#53984#0#PHP" expanded="false" />
+            <element signature="e#53989#55144#0#PHP" expanded="false" />
+            <element signature="e#55150#55237#0#PHP" expanded="false" />
+            <element signature="e#55242#56395#0#PHP" expanded="false" />
+            <marker date="1671001340990" expanded="true" signature="7933:8033" placeholder="SELECT * FRO..qincertificates..." />
+            <marker date="1671001340990" expanded="true" signature="53149:53424" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="53149:53654" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="53174:53424" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="53212:53245" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="53273:53288" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="53373:53406" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="53758:53773" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="54399:54904" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="54424:54856" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="54462:54495" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="54523:54538" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="54623:54656" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="55008:55023" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="55652:56167" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="55715:55748" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="55782:55797" placeholder="..." />
+            <marker date="1671001340990" expanded="false" signature="55886:55919" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="56054:56119" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="56054:56167" placeholder="..." />
+            <marker date="1671001340990" expanded="true" signature="56271:56286" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13343328">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/QProtocol.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12743628">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/quality/compliance/searchFarmer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4906205">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/quality/compliance/searchFarmerByName.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46608946">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/quality/compliance/searchFarmerByPin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17171717">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/quality/compliance/searchFirmByName.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17171717">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/create/forms/form_create_exist_farmer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43928036">
+          <caret line="275" column="0" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+          <folding>
+            <element signature="n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#!!top" expanded="false" />
+            <marker date="1669634122406" expanded="true" signature="819:1040" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="831:1038" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="865:1037" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="3682:3911" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="3694:3909" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="3711:3908" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="6775:6994" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="6787:6992" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="6802:6991" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="7347:7571" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="7359:7569" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="7376:7568" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="25245:25423" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="25257:25421" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="25279:25420" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="25916:26089" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="25928:26087" placeholder="..." />
+            <marker date="1669634122406" expanded="true" signature="25944:26086" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/records/add/object_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2683659">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/QProtocolsRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5667167">
+          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="48" />
+          <folding>
+            <element signature="e#1678#5627#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8423423">
+          <caret line="24" column="136" selection-start-line="24" selection-start-column="136" selection-end-line="24" selection-end-column="136" />
+          <folding>
+            <element signature="e#486#531#0#HTML" expanded="false" />
+            <element signature="e#4145#4170#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/quality/QcertificatesTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21387284">
+          <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/includes/table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="28" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Farmer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8993994">
+          <caret line="94" column="30" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="30" />
+          <folding>
+            <element signature="e#199#263#0#PHP" expanded="false" />
+            <element signature="e#631#741#0#PHP" expanded="false" />
+            <element signature="e#871#981#0#PHP" expanded="false" />
+            <element signature="e#1072#1188#0#PHP" expanded="false" />
+            <element signature="e#1274#1396#0#PHP" expanded="false" />
+            <element signature="e#1527#1649#0#PHP" expanded="false" />
+            <element signature="e#1781#1884#0#PHP" expanded="false" />
+            <element signature="e#1972#2081#0#PHP" expanded="false" />
+            <element signature="e#2186#2291#0#PHP" expanded="false" />
+            <element signature="e#2386#2492#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46396396">
+          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
+          <folding>
+            <element signature="e#4011#11363#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/body/compliance.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25525525">
+          <caret line="10" column="145" selection-start-line="10" selection-start-column="145" selection-end-line="10" selection-end-column="145" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FarmersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3843844">
+          <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding>
+            <element signature="e#858#959#0#PHP" expanded="false" />
+            <element signature="e#964#1570#0#PHP" expanded="false" />
+            <element signature="e#1576#1775#0#PHP" expanded="false" />
+            <element signature="e#1780#3620#0#PHP" expanded="false" />
+            <element signature="e#3626#3735#0#PHP" expanded="false" />
+            <element signature="e#3772#3931#0#PHP" expanded="false" />
+            <element signature="e#3983#4161#0#PHP" expanded="false" />
+            <element signature="e#6743#6883#0#PHP" expanded="false" />
+            <element signature="e#6888#8730#0#PHP" expanded="false" />
+            <element signature="e#8736#8934#0#PHP" expanded="false" />
+            <element signature="e#8939#12915#0#PHP" expanded="false" />
+            <element signature="e#12921#13055#0#PHP" expanded="false" />
+            <marker date="1671020370555" expanded="true" signature="3241:3379" placeholder="SELECT `id`,..farmers..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33183184">
+          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13063063">
+          <caret line="126" column="99" selection-start-line="126" selection-start-column="99" selection-end-line="126" selection-end-column="99" />
+          <folding>
+            <element signature="e#11965#12963#0#HTML" expanded="false" />
+            <element signature="e#12973#15367#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_new.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.384615">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <marker date="1671023431318" expanded="true" signature="536:759" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="548:757" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="584:756" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="1711:1900" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="1723:1898" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="1748:1897" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="2316:2494" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="2328:2492" placeholder="..." />
+            <marker date="1671023431318" expanded="true" signature="2350:2491" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/олд/unregulated_protocol.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/QNewProtocolsRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43393394">
+          <caret line="250" column="0" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
+          <folding>
+            <element signature="e#120#223#0#PHP" expanded="false" />
+            <element signature="e#228#288#0#PHP" expanded="false" />
+            <element signature="e#294#392#0#PHP" expanded="false" />
+            <element signature="e#397#3591#0#PHP" expanded="false" />
+            <element signature="e#3597#3668#0#PHP" expanded="false" />
+            <element signature="e#3673#11045#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/QComplianceRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25975975">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#118#221#0#PHP" expanded="false" />
+            <element signature="e#292#390#0#PHP" expanded="false" />
+            <element signature="e#747#818#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/QNewComplianceRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2852853">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#121#224#0#PHP" expanded="false" />
+            <element signature="e#295#393#0#PHP" expanded="false" />
+            <element signature="e#2985#3056#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/new_create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6096096">
+          <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6741742">
+          <caret line="145" column="66" selection-start-line="145" selection-start-column="66" selection-end-line="145" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/exist_create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1021021">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/олд/new_trader_protocol.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/олд/form_unregulated.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1669974599859" expanded="true" signature="3215:3436" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="3227:3434" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="3261:3433" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="6078:6307" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="6090:6305" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="6107:6304" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="9171:9390" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="9183:9388" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="9198:9387" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="9743:9967" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="9755:9965" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="9772:9964" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="27641:27819" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="27653:27817" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="27675:27816" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="28312:28485" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="28324:28483" placeholder="..." />
+            <marker date="1669974599859" expanded="true" signature="28340:28482" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QProtocolsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.115385">
-          <caret line="1365" column="219" selection-start-line="1365" selection-start-column="219" selection-end-line="1365" selection-end-column="219" />
+        <state vertical-scroll-proportion="0.15315315">
+          <caret line="374" column="0" selection-start-line="374" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
           <folding>
             <element signature="e#41#50#0#PHP" expanded="true" />
-            <element signature="e#577#845#0#PHP" expanded="false" />
-            <element signature="e#851#1002#0#PHP" expanded="false" />
-            <element signature="e#1007#2405#0#PHP" expanded="false" />
-            <element signature="e#2455#2599#0#PHP" expanded="false" />
-            <element signature="e#2604#4378#0#PHP" expanded="false" />
-            <element signature="e#4384#4607#0#PHP" expanded="false" />
-            <element signature="e#4612#8620#0#PHP" expanded="false" />
-            <element signature="e#8670#8820#0#PHP" expanded="false" />
-            <element signature="e#8825#10124#0#PHP" expanded="false" />
-            <element signature="e#10130#10353#0#PHP" expanded="false" />
-            <element signature="e#10358#12869#0#PHP" expanded="false" />
-            <element signature="e#12919#13105#0#PHP" expanded="false" />
-            <element signature="e#13110#16581#0#PHP" expanded="false" />
-            <element signature="e#16587#16831#0#PHP" expanded="false" />
-            <element signature="e#16836#24392#0#PHP" expanded="false" />
-            <element signature="e#24442#24622#0#PHP" expanded="false" />
-            <element signature="e#24627#26048#0#PHP" expanded="false" />
-            <element signature="e#26054#26308#0#PHP" expanded="false" />
-            <element signature="e#26313#29170#0#PHP" expanded="false" />
-            <element signature="e#29216#29399#0#PHP" expanded="false" />
-            <element signature="e#29404#30660#0#PHP" expanded="false" />
-            <element signature="e#30666#30920#0#PHP" expanded="false" />
-            <element signature="e#30925#33396#0#PHP" expanded="false" />
-            <element signature="e#31182#33246#0#PHP" expanded="false" />
-            <element signature="e#33403#33525#0#PHP" expanded="false" />
-            <element signature="e#33530#33724#0#PHP" expanded="false" />
-            <element signature="e#33766#33936#0#PHP" expanded="false" />
-            <element signature="e#33941#35237#0#PHP" expanded="false" />
-            <element signature="e#35243#35484#0#PHP" expanded="false" />
-            <element signature="e#35489#38024#0#PHP" expanded="false" />
-            <element signature="e#38030#38155#0#PHP" expanded="false" />
-            <element signature="e#38160#39582#0#PHP" expanded="false" />
-            <element signature="e#39588#39829#0#PHP" expanded="false" />
-            <element signature="e#39834#42369#0#PHP" expanded="false" />
-            <element signature="e#42375#42529#0#PHP" expanded="false" />
-            <element signature="e#43954#44136#0#PHP" expanded="false" />
-            <element signature="e#44215#44349#0#PHP" expanded="false" />
-            <element signature="e#44450#44610#0#PHP" expanded="false" />
-            <element signature="e#44615#46386#0#PHP" expanded="false" />
-            <element signature="e#46392#46476#0#PHP" expanded="false" />
-            <element signature="e#46481#47815#0#PHP" expanded="false" />
-            <element signature="e#47821#47905#0#PHP" expanded="false" />
-            <element signature="e#49061#49148#0#PHP" expanded="false" />
-            <marker date="1670944855994" expanded="true" signature="47080:47575" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="47105:47527" placeholder="..." />
-            <marker date="1670944855994" expanded="false" signature="47143:47176" placeholder="..." />
-            <marker date="1670944855994" expanded="false" signature="47204:47219" placeholder="..." />
-            <marker date="1670944855994" expanded="false" signature="47304:47337" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="47679:47694" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="48320:48815" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="48345:48767" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="48383:48416" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="48444:48459" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="48544:48577" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="48919:48934" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="49563:50071" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="49588:50023" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="49626:49659" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="49693:49708" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="49797:49830" placeholder="..." />
-            <marker date="1670944855994" expanded="true" signature="50175:50190" placeholder="..." />
+            <element signature="e#1174#1325#0#PHP" expanded="false" />
+            <element signature="e#1330#3258#0#PHP" expanded="false" />
+            <element signature="e#3264#7699#0#PHP" expanded="false" />
+            <element signature="e#7750#7894#0#PHP" expanded="false" />
+            <element signature="e#7899#9673#0#PHP" expanded="false" />
+            <element signature="e#9679#9902#0#PHP" expanded="false" />
+            <element signature="e#9907#13915#0#PHP" expanded="false" />
+            <element signature="e#13965#14115#0#PHP" expanded="false" />
+            <element signature="e#14120#15419#0#PHP" expanded="false" />
+            <element signature="e#15425#15648#0#PHP" expanded="false" />
+            <element signature="e#15653#18143#0#PHP" expanded="false" />
+            <element signature="e#18193#18379#0#PHP" expanded="false" />
+            <element signature="e#18384#21855#0#PHP" expanded="false" />
+            <element signature="e#21861#22089#0#PHP" expanded="false" />
+            <element signature="e#22094#29650#0#PHP" expanded="false" />
+            <element signature="e#29700#29880#0#PHP" expanded="false" />
+            <element signature="e#29885#31306#0#PHP" expanded="false" />
+            <element signature="e#31312#31566#0#PHP" expanded="false" />
+            <element signature="e#31571#34407#0#PHP" expanded="false" />
+            <element signature="e#34457#34640#0#PHP" expanded="false" />
+            <element signature="e#34645#35901#0#PHP" expanded="false" />
+            <element signature="e#35907#36161#0#PHP" expanded="false" />
+            <element signature="e#36166#38637#0#PHP" expanded="false" />
+            <element signature="e#38644#38766#0#PHP" expanded="false" />
+            <element signature="e#38771#38965#0#PHP" expanded="false" />
+            <element signature="e#39007#39177#0#PHP" expanded="false" />
+            <element signature="e#39182#40478#0#PHP" expanded="false" />
+            <element signature="e#40484#40725#0#PHP" expanded="false" />
+            <element signature="e#40730#43265#0#PHP" expanded="false" />
+            <element signature="e#43271#43396#0#PHP" expanded="false" />
+            <element signature="e#43401#44823#0#PHP" expanded="false" />
+            <element signature="e#44829#45070#0#PHP" expanded="false" />
+            <element signature="e#45075#47610#0#PHP" expanded="false" />
+            <element signature="e#47616#47770#0#PHP" expanded="false" />
+            <element signature="e#47775#49189#0#PHP" expanded="false" />
+            <element signature="e#49195#49399#0#PHP" expanded="false" />
+            <element signature="e#49404#51709#0#PHP" expanded="false" />
+            <element signature="e#51715#51849#0#PHP" expanded="false" />
+            <element signature="e#51950#52110#0#PHP" expanded="false" />
+            <element signature="e#52115#53886#0#PHP" expanded="false" />
+            <element signature="e#53981#55291#0#PHP" expanded="false" />
+            <element signature="e#55297#55381#0#PHP" expanded="false" />
+            <element signature="e#55386#56531#0#PHP" expanded="false" />
+            <element signature="e#56537#56624#0#PHP" expanded="false" />
+            <element signature="e#56629#57775#0#PHP" expanded="false" />
+            <marker date="1671007916407" expanded="true" signature="7190:7279" placeholder="SELECT * FRO..qprotocols..." />
+            <marker date="1671007916407" expanded="true" signature="54556:55051" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="54581:55003" placeholder="..." />
+            <marker date="1671007916407" expanded="false" signature="54619:54652" placeholder="..." />
+            <marker date="1671007916407" expanded="false" signature="54680:54695" placeholder="..." />
+            <marker date="1671007916407" expanded="false" signature="54780:54813" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="55155:55170" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="55796:56291" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="55821:56243" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="55859:55892" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="55920:55935" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="56020:56053" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="56395:56410" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="57039:57547" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="57064:57499" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="57102:57135" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="57169:57184" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="57273:57306" placeholder="..." />
+            <marker date="1671007916407" expanded="true" signature="57651:57666" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/quality/protocols/searchFirmByName.js">
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_exist_farmer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="44" column="80" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
+          <folding>
+            <marker date="1671030420847" expanded="true" signature="536:759" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="548:757" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="584:756" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="2621:2810" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="2633:2808" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="2658:2807" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="3226:3404" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="3238:3402" placeholder="..." />
+            <marker date="1671030420847" expanded="true" signature="3260:3401" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.qcompliances">
+      <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/QCompliance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43393394">
+          <caret line="23" column="84" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="84" />
+          <folding>
+            <element signature="e#136#211#0#PHP" expanded="false" />
+            <element signature="e#256#320#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/exist_trader.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.484985">
+          <caret line="49" column="78" selection-start-line="49" selection-start-column="78" selection-end-line="49" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/protocols/search.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QComplianceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8244514">
-          <caret line="88" column="57" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="57" />
-          <folding />
+        <state vertical-scroll-proportion="0.9174174">
+          <caret line="569" column="0" selection-start-line="569" selection-start-column="0" selection-end-line="569" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#50#0#PHP" expanded="true" />
+            <element signature="e#477#942#0#PHP" expanded="false" />
+            <element signature="e#948#1063#0#PHP" expanded="false" />
+            <element signature="e#1068#3575#0#PHP" expanded="false" />
+            <element signature="e#3625#3752#0#PHP" expanded="false" />
+            <element signature="e#3757#4667#0#PHP" expanded="false" />
+            <element signature="e#4673#4880#0#PHP" expanded="false" />
+            <element signature="e#7417#7603#0#PHP" expanded="false" />
+            <element signature="e#7608#10256#0#PHP" expanded="false" />
+            <element signature="e#10262#10473#0#PHP" expanded="false" />
+            <element signature="e#10478#16548#0#PHP" expanded="false" />
+            <element signature="e#16594#16744#0#PHP" expanded="false" />
+            <element signature="e#16749#17252#0#PHP" expanded="false" />
+            <element signature="e#17258#17481#0#PHP" expanded="false" />
+            <element signature="e#18513#18618#0#PHP" expanded="false" />
+            <element signature="e#18623#18671#0#PHP" expanded="false" />
+            <element signature="e#18677#18800#0#PHP" expanded="false" />
+            <element signature="e#18805#18853#0#PHP" expanded="false" />
+            <element signature="e#18859#19024#0#PHP" expanded="false" />
+            <element signature="e#19029#19097#0#PHP" expanded="false" />
+            <element signature="e#19103#19220#0#PHP" expanded="false" />
+            <element signature="e#19225#19276#0#PHP" expanded="false" />
+            <element signature="e#19320#19463#0#PHP" expanded="false" />
+            <element signature="e#19468#21240#0#PHP" expanded="false" />
+            <element signature="e#21246#21330#0#PHP" expanded="false" />
+            <element signature="e#21335#22645#0#PHP" expanded="false" />
+            <element signature="e#22651#22735#0#PHP" expanded="false" />
+            <element signature="e#22740#23885#0#PHP" expanded="false" />
+            <element signature="e#23891#23978#0#PHP" expanded="false" />
+            <element signature="e#23983#25129#0#PHP" expanded="false" />
+            <marker date="1671031329088" expanded="true" signature="21910:22405" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="21935:22357" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="21973:22006" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="22034:22049" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="22134:22167" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="22509:22524" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="23150:23645" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="23175:23597" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="23213:23246" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="23274:23289" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="23374:23407" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="23749:23764" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="24393:24901" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="24418:24853" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="24456:24489" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="24523:24538" placeholder="..." />
+            <marker date="1671031329088" expanded="false" signature="24627:24660" placeholder="..." />
+            <marker date="1671031329088" expanded="true" signature="25005:25020" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7612613">
+          <caret line="339" column="34" selection-start-line="339" selection-start-column="26" selection-end-line="339" selection-end-column="34" />
+          <folding>
+            <element signature="e#763#4769#1#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

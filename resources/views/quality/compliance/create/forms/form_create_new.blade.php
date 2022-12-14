@@ -30,20 +30,6 @@ else{
 
 <hr class="my_hr_in"/>
 
-{{--Вид на стока и други данни:--}}
-<div class="container-fluid" >
-    <div class="row">
-        <div class="col-md-12" >
-            <fieldset class="small_field"><legend class="small_legend">Наименование и адрс на фирмата:</legend>
-                <div class="col-md-12 col-md-6_my"  >
-                    <p>Добавя се формуляр за съответствие на:</p>
-{{--                    @include('records.add.object_info')--}}
-                </div>
-            </fieldset>
-        </div>
-    </div>
-</div>
-
 <hr class="my_hr_in"/>
 
 

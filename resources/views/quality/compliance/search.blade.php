@@ -14,13 +14,13 @@
 
 @section('content')
     <div class="div-layout-title">
-        <h4 class="bold red layout-title">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН ИЛИ ТЪРГОВЕЦ И ДОБАВИ НОВ ПРОТОКОЛ ЗА КАЧЕСТВО</h4>
+        <h4 class="bold red layout-title">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН ИЛИ ТЪРГОВЕЦ И ДОБАВИ НОВ ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-file-powerpoint-o " aria-hidden="true"></i>  Констативни протоколи</span>
-        <a href="{!! URL::to('/контрол/формуляри')!!}" class="fa fa-check-square btn btn-info my_btn"> Формуляри за съответствие</a>
+        <a href="{!! URL::to('/контрол/протоколи')!!}" class="fa  fa-file-powerpoint-o btn btn-info my_btn"> Констативни протоколи </a>
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-check-square " aria-hidden="true"></i> Формуляри за съответствие</span>
     </div>
 
     <hr/>
@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-md-12" >
                 <fieldset class="small_field"><legend class="small_legend">Данни на Фирмата/Лицето</legend>
-                {!! Form::open(['url'=>'/контрол/протоколи/търси-търговец' , 'method'=>'POST', 'id'=>'form']) !!}
+                {!! Form::open(['url'=>'/контрол/формуляри/търси' , 'method'=>'POST', 'id'=>'form']) !!}
                     @include('layouts.forms.search_protocol')
 
                     <div class="col-md-12 col-md-6_my div_btn" >
@@ -104,8 +104,8 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-md-6_my " >
-                        {!! Form::open(['url'=>'/контрол/протоколи/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ ПРОТОКОЛ ЗА НОВ СТОПАНИН">
+                        {!! Form::open(['url'=>'/контрол/формуляр/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ ФОРМУЛЯР ЗА НОВ СТОПАНИН">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name" value="{!! $name !!}">
                             <input type="hidden" name="gender" value="{!! $gender !!}">
@@ -121,14 +121,14 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            {!! Form::open(['url'=>'/контрол/протоколи/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            {!! Form::open(['url'=>'/контрол/формуляр/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                                 <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
                                 <input type="hidden" name="firm" value="{!! $firm !!}">
                                 <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
                                 <input type="hidden" name="eik" value="{!! $eik !!}">
                             {!! Form::close() !!}
                             <hr>
-                            {!! Form::open(['url'=>'/контрол/протоколи/търговци/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            {!! Form::open(['url'=>'/контрол/формуляр/нов-търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                                 <input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">
                                 <input type="hidden" name="firm" value="{!! $firm !!}">
                                 <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
@@ -139,12 +139,12 @@
                         <div class="col-md-6 col-md-6_my " >
                             <p class="new_farmer bold">
                                 <span class="view" style="color: green">Намерена е фирма търговец.</span><br/>
-                                Добави Протокол на Фирма - {{$trader[0]['trader_name']}}!
+                                Добави Формуляр на Фирма - {{$trader[0]['trader_name']}}!
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!!URL::to('/контрол/протоколи/търговец/'.$trader[0]['id'])!!}" class="fa fa-file-powerpoint-o btn btn-primary my_btn_check" style="width: 350px">
-                                &nbsp;&nbsp;Добави Констативен протокол на тази фирма!
+                            <a href="{!!URL::to('/контрол/формуляр/търговец/'.$trader[0]['id'])!!}" class="fa fa-file-powerpoint-o btn btn-primary my_btn_check" style="width: 350px">
+                                &nbsp;&nbsp;Добави Формуляр на тази фирма!
                             </a>
                         </div>
                     @endif
@@ -159,7 +159,7 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!! URL::to('/контрол/протоколи/добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ПРОТОКОЛ ЗА ТОЗИ ЗС!</a>
+                            <a href="{!! URL::to('/контрол/формуляр/добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ФОРМУЛЯР ЗА ТОЗИ ЗС!</a>
                         </div>
                     </div>
                 @endforeach
@@ -171,9 +171,9 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/quality/protocols/searchFarmer.js" )!!}
-    {!!Html::script("js/quality/protocols/searchFarmerByPin.js" )!!}
-    {!!Html::script("js/quality/protocols/searchFarmerByName.js" )!!}
-    {!!Html::script("js/quality/protocols/searchFirmByName.js" )!!}
+    {!!Html::script("js/quality/compliance/searchFarmer.js" )!!}
+    {!!Html::script("js/quality/compliance/searchFarmerByPin.js" )!!}
+    {!!Html::script("js/quality/compliance/searchFarmerByName.js" )!!}
+    {!!Html::script("js/quality/compliance/searchFirmByName.js" )!!}
     {!!Html::script("js/quality/locationDomestic.js" )!!}
 @endsection

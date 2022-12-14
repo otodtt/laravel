@@ -23,6 +23,8 @@ use odbh\Trader;
 use odbh\User;
 use Redirect;
 use Session;
+use DB;
+use Input;
 
 class QProtocolsController extends Controller
 {
@@ -31,7 +33,11 @@ class QProtocolsController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose']]);
+        $this->middleware('quality', ['only'=>['create', 'store', 'edit', 'update', 'choose',
+            'create_farmer', 'store_farmer', 'create_firm', 'store_firm', 'create_trader',
+            'store_trader', 'new_trader', 'store_new_trader', 'unregulated', 'store_unregulated',
+            'trader_edit', 'trader_update', 'store_new_trader', 'unregulated_edit', 'unregulated_update'
+        ]]);
 
 
         $this->index = Set::select('q_index', 'authority_bg', 'authority_en')->get()->toArray();
@@ -55,7 +61,7 @@ class QProtocolsController extends Controller
             ->lists('short_name', 'id')->toArray();
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
-        $firms = Importer::where('is_active', '=', 1)->where('trade', '=', 0)->orWhere('trade', '=', 2)->lists('name_en', 'id')->toArray();
+        $firms = Trader::where('id', '>', 0)->lists('trader_name', 'id')->toArray();
 
         if(isset($request['years'])){
             $year_now = $request['years'];
@@ -75,9 +81,130 @@ class QProtocolsController extends Controller
         $years = array_filter(array_unique($array));
 
         $protocols = QProtocol::where('date_protocol','>=',$time_start)->where('date_protocol','<=',$time_end)->orderBy('id', 'asc')->get();
+
+        $search_return = $request['search'];
+        $search_value_return = $request['search_value'];
+
+        if((int)$request['search'] == 1){
+            $this->validate($request,
+                ['search_value' => 'required|digits_between:1,5'],
+                [
+                    'search_value.required' => 'Попълни търсения номер!',
+                    'search_value.digits_between' => 'Номера трябва да е между една и пет цифри!',
+                ]);
+            $protocols = QProtocol::where('number_protocol','=',$request['search_value'])->get();
+        };
         
         return view('quality.protocols.index', compact('protocols', 'years', 'year_now', 'inspectors', 'firms'));
     }
+
+    public function sort(Request $request, $start_year = null, $end_year = null, $crop_sort = null, $inspector_sort = null, $firm_sort = null )
+    {
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+        $firms = Trader::where('id', '>', 0)->lists('trader_name', 'id')->toArray();
+
+        if(isset($request['get_year'])){
+            $year_now = $request['get_year'];
+        }
+        else{
+            $year_now = date('Y', time());
+        }
+        $start_year = '01.01.'. $year_now;
+        $time_start = strtotime(stripslashes($start_year));
+        $end_year = '31.12.'. $year_now;
+        $time_end = strtotime(stripslashes($end_year));
+
+        $certs = QProtocol::get();
+        foreach($certs as $cert){
+            $array[date('Y', $cert->date_protocol)] = date('Y', $cert->date_protocol);
+        }
+        $years = array_filter(array_unique($array));
+
+        if (Input::has('start_year') || Input::has('end_year') || Input::has('inspector_sort') || Input::has('firm_sort')) {
+            $years_start_sort = Input::get('start_year');
+            $years_end_sort = Input::get('end_year');
+            $sort_inspector = Input::get('inspector_sort');
+            $sort_firm = Input::get('firm_sort');
+        }
+        else {
+            $years_start_sort = $start_year;
+            $years_end_sort = $end_year;
+            $sort_inspector = $inspector_sort;
+            $sort_firm = $firm_sort;
+        }
+
+        if ((isset($years_start_sort) && $years_start_sort != '') || (isset($years_end_sort) && $years_end_sort != '')) {
+            $this->validate($request, ['start_year' => 'date_format:d.m.Y']);
+            $this->validate($request, ['end_year' => 'date_format:d.m.Y']);
+
+            $start = strtotime($years_start_sort);
+            $timezone_paris_start = strtotime($years_start_sort.'Europe/Paris');
+
+            $end = strtotime($years_end_sort);
+            $timezone_paris_end = strtotime($years_end_sort.'Europe/Paris');
+            if($start > 0 && $end == false){
+                $years_sql = ' AND date_protocol='.$start;
+            }
+            if($end > 0 && $start == false){
+                $years_sql = ' AND date_protocol='.$end;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start == (int)$end)){
+                $years_sql = ' AND date_protocol='.$start;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start < (int)$end)){
+                $years_sql = ' AND date_protocol>='.$start.' AND date_protocol<='.$end.'';
+            }
+            if(($start > 0 && $end > 0) && ($start > $end)){
+                $years_sql = ' AND date_protocol>='.$end.' AND date_protocol<='.$start.'';
+            }
+        }
+        else{
+            $years_sql =' AND date_protocol>='.$time_start.' AND date_protocol<='.$time_end.'';
+        }
+
+        // Сортиране по инспектор
+        if (isset($sort_inspector) && (int)$sort_inspector > 0){
+            $inspector_sql = ' AND inspectors= '.$sort_inspector;
+        }
+        else{
+            $inspector_sql = '';
+        }
+
+        // Сортиране по фирма
+        if (isset($sort_firm) && $sort_firm != 0) {
+
+            if($sort_firm < 99999){
+                $firm_sql = ' AND trader_id='.$sort_firm;
+            }
+            if($sort_firm == 99999){
+                $firm_sql = ' AND farmer_id >0';
+            }
+            if($sort_firm == 88888){
+                $firm_sql = ' AND trader_id >0';
+            }
+            if($sort_firm == 77777){
+                $firm_sql = ' AND unregulated_id >0';
+            }
+        }
+        else{
+            $firm_sql = ' ';
+        }
+
+        $protocols = DB::select("SELECT * FROM qprotocols WHERE id >0 $years_sql $inspector_sql $firm_sql ORDER BY id DESC");
+
+        return view('quality.protocols.index', compact('protocols', 'years', 'year_now', 'inspectors', 'firms',
+            'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm'));
+
+//        return view('quality.certificates.domestic.index', compact('certificates', 'firms', 'inspectors', 'years',
+//            'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm', 'year_now'));
+    }
+
 
     ///////////////////////////////////////
     /**
@@ -455,7 +582,7 @@ class QProtocolsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param QNewProtocolsRequest|QProtocolsRequest $request
-     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      * @internal param Request $QProtocolsRequest
      */
@@ -802,14 +929,13 @@ class QProtocolsController extends Controller
             'added_by' => Auth::user()->id,
         ];
 
-        //dd($data);
         QProtocol::create($data);
 
         Session::flash('message', 'Записа е успешен!');
         return Redirect::to('/контрол/протоколи');
     }
 
-///////////////////////////////////////
+    ///////////////////////////////////////
     /**
      * НЕРЕГЛАМЕНТИРАН
      * Display the specified resource.

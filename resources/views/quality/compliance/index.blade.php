@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Сертификати вътрешни' }}
+    {{ 'Формуляри за съответствие' }}
 @endsection
 
 @section('css')
@@ -16,26 +16,17 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">СЕРТИФИКАТИ ВЪТРЕШНИ</h4>
+        <h4 class="bold layout-title">ФОРМУЛЯРИ ЗА СЪОТВЕТСТВИЕ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-certificate " aria-hidden="true"></i>  Сертификати</span>
-        <a href="{!! URL::to('/контрол/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
-        <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
-        <a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
-        <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
+        <a href="{!! URL::to('/контрол/протоколи')!!}" class="fa  fa-file-powerpoint-o btn btn-info my_btn"> Констативни протоколи </a>
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-check-square " aria-hidden="true"></i> Формуляри за съответствие</span>
     </div>
     <div class="btn_add_firm">
-        <a href="{!!URL::to('/контрол/сертификат-избери')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
-            Добави Сертификат</a>
-    </div>
-    <hr/>
-    <div class="btn-group" >
-        <a href="{!! URL::to('/контрол/сертификати-внос')!!}" class="fa fa-arrow-down btn btn-info my_btn"> Сетификати/Внос</a>
-        <a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ </a>
-        <span class="fa fa-retweet btn btn-default my_btn"> Вътрешни</span>
+        <a href="{!!URL::to('/контрол/формуляри/търси')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+            Добави Формуляр</a>
     </div>
     <hr/>
     @if(count($errors)>0)
@@ -52,7 +43,7 @@
             <div id="wr_choiz_all">
                 <div class="row">
                     <div class="col-md-5">
-                        {!! Form::open(array('url'=>'/контрол/сертификати-вътрешен', 'method'=>'POST')) !!}
+                        {!! Form::open(array('url'=>'/контрол/формуляри', 'method'=>'POST')) !!}
                             {!! Form::label('years', 'Справка за:', ['class'=>'labels']) !!}
                             {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ', 'style'=> 'width: 80px;', 'id'=>'years']) !!}
                             <span class="bold"> година. </span>&nbsp;&nbsp;
@@ -73,7 +64,7 @@
                             $search_value_ret = null;
                         }
                         ?>
-                        {!! Form::open(array('url'=>'/контрол/сертификати-вътрешен', 'method'=>'POST')) !!}
+                        {!! Form::open(array('url'=>'/контрол/формуляри', 'method'=>'POST')) !!}
                             {!! Form::label('search', ' Тъпси по:', ['class'=>'labels']) !!}
                             {!! Form::select('search', array(0 =>'', 1=>'Сертификат №', 2=>'Фактура №'), $search_ret, ['class'=>'form-control class_search', 'style'=>'display: inline-block; width: 150px']) !!}
                             {!! Form::text('search_value', $search_value_ret, ['class'=>'form-control search_value', 'size'=>30, 'style'=>'display: inline-block; width: 120px']) !!}
@@ -88,20 +79,20 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_alls">
-                {!! Form::open(['url' => '/контрол/сертификати-вътрешни/сортирай', 'method' => 'POST']) !!}
-                @include('quality.certificates.includes.domestic_sort')
+                {!! Form::open(['url' => '/контрол/формуляри/сортирай', 'method' => 'POST']) !!}
+                @include('quality.compliance.includes.sorting')
                 {!! Form::close() !!}
             </div>
         </div>
     </fieldset>
     <hr/>
     <div class="btn_add_certificate" style="text-align: right">
-        <a href="{!! URL::to('/контрол/сертификати-вътрешен') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
+        <a href="{!! URL::to('/контрол/формуляри') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
             &nbsp; Изчисти сортирането!
         </a>
     </div>
     {{--<hr/>--}}
-    @include('quality.certificates.includes.domestic_table')
+    @include('quality.compliance.includes.table')
 @endsection
 
 @section('scripts')

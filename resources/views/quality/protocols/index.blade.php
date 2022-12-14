@@ -63,7 +63,7 @@
             <div id="wr_choiz_all">
                 <div class="row">
                     <div class="col-md-5">
-                        {!! Form::open(array('url'=>'/контрол/сертификати-внос', 'method'=>'POST')) !!}
+                        {!! Form::open(array('url'=>'/контрол/протоколи', 'method'=>'POST')) !!}
                             {!! Form::label('years', 'Справка за:', ['class'=>'labels']) !!}
                             {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ', 'style'=> 'width: 80px;', 'id'=>'years']) !!}
                             <span class="bold"> година. </span>&nbsp;&nbsp;
@@ -84,10 +84,10 @@
                             $search_value_ret = null;
                         }
                         ?>
-                        {!! Form::open(array('url'=>'/контрол/сертификати-внос', 'method'=>'POST')) !!}
-                            {!! Form::label('search', ' Тъпси по:', ['class'=>'labels']) !!}
-                            {!! Form::select('search', array(0 =>'', 1=>'Сертификат №', 2=>'Фактура №'), $search_ret, ['class'=>'form-control class_search', 'style'=>'display: inline-block; width: 150px']) !!}
+                        {!! Form::open(array('url'=>'/контрол/протоколи', 'method'=>'POST')) !!}
+                            {!! Form::label('search', ' Тъпси по номер на КП:', ['class'=>'labels']) !!}
                             {!! Form::text('search_value', $search_value_ret, ['class'=>'form-control search_value', 'size'=>30, 'style'=>'display: inline-block; width: 120px']) !!}
+                            <input type="hidden" name="search" value="1">
                             {!! Form::submit(' ТЪРСИ', array('class' => 'fa fa-search btn btn-primary my_btn')) !!}
                         {!! Form::close() !!}
                     </div>
@@ -100,7 +100,7 @@
         <div class="wrap_sort">
             <div id="wr_choiz_alls">
                 {!! Form::open(['url' => '/контрол/протоколи/сортирай', 'method' => 'POST']) !!}
-                @include('quality.certificates.includes.sorting')
+                @include('quality.protocols.includes.sorting')
                 {!! Form::close() !!}
             </div>
         </div>

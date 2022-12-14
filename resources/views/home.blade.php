@@ -124,7 +124,7 @@
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/сертификати-вътрешен') !!}"> <i class="fa fa-retweet fa-fw "></i> Сертификати вътрешен</a>
                                     <hr style="margin-bottom: 5px; margin-top: 5px"/>
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/протоколи') !!}"> <i class="fa fa-file-powerpoint-o fa-fw " style="color: #347bb7;"></i> Констативни Протоколи</a><br/>
-                                    <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Формуляри за съответствие</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( 'контрол/формуляри') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Формуляри за съответствие</a><br/>
                                     {{-- <a class="my_a back_link" href="{!! URL::to( '/контрол/вносители') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( '/контрол/култури/внос') !!}"><i class="fa fa-leaf fa-fw green_color"></i> Всички култури</a><br/> --}}
                                     <a class="my_a back_link" href="{!! URL::to( '/test') !!}"><i class="fa fa-cubes fa-fw green_color"></i> ТЕСТ</a>
@@ -213,4 +213,25 @@
             </div>
         </div>
     </div>
+
+    <?PHP
+    function visitorIP() {
+        //Check if visitor is from shared network
+        if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $vIP = $_SERVER['HTTP_CLIENT_IP'];
+        }
+        //Check if visitor is using a proxy
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+            $vIP = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        //check for the remote address of visitor.
+        else{
+            $vIP = $_SERVER['REMOTE_ADDR'];
+        }
+        return $vIP;
+    }
+    $vIP = visitorIP();
+    echo 'The visitors Real address : '.$vIP;
+    ?>
+
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Добави Констативен Протокол!' }}
+    {{ 'Добави Формуляр за съответствие!' }}
 @endsection
 
 @section('css')
@@ -13,13 +13,13 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на КОНСТАТИВЕН ПРОТОКОЛ!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
             <span class="bold">
-                Ако е Земеделски стопанин веднъж направен запис, Протокола няма да може да се коригира по Получател на К. Протокол!
+                Ако е Земеделски стопанин веднъж направен запис, Формуляра няма да може да се коригира по Получател!
             </span>
         </p>
     </div>
@@ -36,11 +36,11 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА НОВ ЗЕМЕДЕЛСКИ СТОПАНИН</h4>
+                    <h4 class="my_center bold">ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ НА НОВ ЗЕМЕДЕЛСКИ СТОПАНИН</h4>
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/farmer/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/формуляр/farmer/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
             @include('records.add.data_farmer.data_object')
 
             <hr class="my_hr_in"/>
@@ -73,14 +73,14 @@
                 </div>
             </div>
 
-            @include('quality.protocols.create.forms.form_create_exist_farmer')
+            @include('quality.compliance.create.forms.form_create_new')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
                 <a href="{{ '/контрол/протоколи' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към протоколите!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
-                {!! Form::submit('Добави протокол!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Добави формуляр!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
             

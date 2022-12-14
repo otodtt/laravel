@@ -26,9 +26,6 @@
         {{--<span class="fa  btn btn-default my_btn"><i class="fa fa-file-powerpoint-o " aria-hidden="true"></i>  Констативни протоколи</span>--}}
         <a href="{!! URL::to('/контрол/протоколи')!!}" class="fa fa-check-square btn btn-info my_btn"> Констативни протоколи</a>
         <a href="{!! URL::to('/контрол/формуляри')!!}" class="fa fa-check-square btn btn-info my_btn"> Формуляри за съответствие</a>
-        {{--<a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>--}}
-        {{--<a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>--}}
-        {{--<a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>--}}
     </div>
     <div class="btn_add_firm">
         <a href="{!!URL::to('/контрол/протоколи/търси-търговец')!!}" class="fa fa-arrow-circle-right btn btn-default my_btn">
@@ -73,6 +70,16 @@
                 </div>
                 <div style="display: table-row">
                     <div class="small_field_left " style="display: table-cell">
+                        @if($protocol->farmer_id > 0 && $protocol->trader_id == 0 && $protocol->unregulated_id == 0)
+                            <a href="{!!URL::to('/стопанин/'.$protocol->farmer_id)!!}" class="fa fa-arrow-circle-right btn btn-success my_btn">
+                                Към Земеделския Стопанин</a>
+                        @elseif($protocol->farmer_id == 0 && $protocol->trader_id > 0 && $protocol->unregulated_id == 0)
+                            <a href="{!!URL::to('/контрол/търговци/'.$protocol->trader_id.'/show')!!}" class="fa fa-arrow-circle-right btn btn-success my_btn">
+                                Към Фирмата Търговец</a>
+                        @elseif($protocol->farmer_id == 0 && $protocol->trader_id == 0 && $protocol->unregulated_id > 0)
+                        @endif
+
+                        <hr class="my_hr_in"/>
                         <p >Фирма/ЗС:
                             @if($protocol->farmer_id > 0 && $protocol->trader_id == 0 && $protocol->unregulated_id == 0)
                                 <span class="bold" style="text-transform: uppercase">{{$protocol->farmer_name }}</span>

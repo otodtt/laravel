@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Добави Констативен Протокол!' }}
+    {{ 'Добави Формуляр за Съответствие!' }}
 @endsection
 
 @section('css')
@@ -13,13 +13,13 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на КОНСТАТИВЕН ПРОТОКОЛ!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на ФОРМУЛЯР ЗА СЪОТВЕТСВИЕ!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
             <span class="bold">
-                Провери внимателно данните! Ако има грешки, редактирай данните на Търговеца и тогава добави Конатативен Протокол!
+                Провери внимателно данните! Ако има грешки, редактирай данните на Търговеца и тогава добави Формуляр за Съответствие!
             </span>
         </p>
     </div>
@@ -36,7 +36,7 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">КОНСТАТИВЕН ПРОТОКОЛ НА</h4>
+                    <h4 class="my_center bold">ФОРМУЛЯР ЗА СЪОТВЕТСВИЕ</h4>
                     <p >
                         Име на Фирма: <span class="bold">{!! $trader->trader_name !!}</span><br>
                         С адрес: <span class="bold">{!! $trader->trader_address !!}</span>;
@@ -45,9 +45,9 @@
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/протоколи/търговец/'.$trader->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/формуляр/търговец/'.$trader->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.protocols.create.forms.form_create_exist_farmer')
+            @include('quality.compliance.create.forms.form_create_exist_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >

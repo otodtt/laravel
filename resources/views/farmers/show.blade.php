@@ -47,6 +47,12 @@
                         ДОБАВИ К. ПРОТОКОЛ ПО КАЧЕСТВО!
                     </a>
                 </div>
+                <div class="col-md-12 my_col-md-12 middle">
+                    <a href="{!! URL::to('/контрол/формуляр/добави/'.$farmer->id )!!}" class='fa fa-check-square btn  my_btn'
+                       style="background-color: #1d9d13; border-color: #d43f3a; color: #fff;">
+                        ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ!
+                    </a>
+                </div>
             </div>
         </div>
         <div class="row-height-my">
@@ -209,6 +215,19 @@
                     <ul class="nav nav-second-level">
                         <li>
                             @include('farmers.body.qprotocols')
+                        </li>
+                    </ul>
+                </li>
+            @endif
+            @if(!empty($compliance->toArray()))
+                <li class="li_repository">
+                    <a href="{!!URL::to('/стопанин/'.$farmer->id)!!}"><i class="fa fa-check-square fa-fw"></i>
+                        <span class="bold">ФОРМУЛЯРИ ЗА СЪОТВЕТСТВИЕ</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @include('farmers.body.compliance')
                         </li>
                     </ul>
                 </li>
