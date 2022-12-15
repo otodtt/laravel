@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 
 use Illuminate\Http\Response;
 use odbh\Area;
+use odbh\Article;
 use odbh\Crop;
 use odbh\Farmer;
 use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
+use odbh\Http\Requests\ArticleRequest;
 use odbh\Http\Requests\QComplianceRequest;
 use odbh\Http\Requests\QNewComplianceRequest;
+use odbh\Http\Requests\QTraderComplianceRequest;
 use odbh\Location;
 use odbh\QCompliance;
 use odbh\Set;
@@ -196,12 +199,6 @@ class QComplianceController extends Controller
 
         $full_address = $area_name.', '.$district_name.', '.$tvm.$city[0]['name'].', '.$farmer->address ;
 
-        if($request->notes == 0 ) {
-            $note = 'не';
-        }
-        if($request->notes == 1 ) {
-            $note = 'да';
-        }
         $data = [
             'farmer_id'=> $farmer->id,
             'farmer_name'=>$full_name,
@@ -210,7 +207,7 @@ class QComplianceController extends Controller
             'date_compliance'=> strtotime($request->date_compliance),
             'object_control'=> $request->object_control,
             'name_trader'=> $request->name_trader,
-            'notes'=>$note,
+            'notes'=>$request->notes,
 
             'inspector_id'=> $request->inspectors,
             'inspector_name'=> $request->inspector_name,
@@ -473,12 +470,7 @@ class QComplianceController extends Controller
         $city = Location::select('name')->where('id','=',$request->data_id)->get()->toArray();
 
         $full_address = $area_name.', '.$district_name.', '.$tvm.$city[0]['name'].', '.$request->address ;
-        if($request->notes == 0 ) {
-            $note = 'не';
-        }
-        if($request->notes == 1 ) {
-            $note = 'да';
-        }
+
         $data = [
             'farmer_id'=> $insertedId,
             'farmer_name'=>$full_name,
@@ -487,7 +479,7 @@ class QComplianceController extends Controller
             'date_compliance'=> strtotime($request->date_compliance),
             'object_control'=> $request->object_control,
             'name_trader'=> $request->name_trader,
-            'notes'=>$note,
+            'notes'=>$request->notes,
 
             'inspector_id'=> $request->inspectors,
             'inspector_name'=> $request->inspector_name,
@@ -502,7 +494,7 @@ class QComplianceController extends Controller
         return Redirect::to('/контрол/формуляри');
     }
 
-///////////////////////////////////////
+    ///////////////////////////////////////
     /**
      * СЪЩЕСТВУВАЩ ТЪРГОВЕЦ
      * Display the specified resource.
@@ -538,12 +530,7 @@ class QComplianceController extends Controller
     public function store_trader(QComplianceRequest $request, $id)
     {
         $trader = Trader::findOrFail($id);
-        if($request->notes == 0 ) {
-            $note = 'не';
-        }
-        if($request->notes == 1 ) {
-            $note = 'да';
-        }
+
         $data = [
             'trader_id'=> $trader->id,
             'trader_name'=>$trader->trader_name,
@@ -552,15 +539,165 @@ class QComplianceController extends Controller
             'date_compliance'=> strtotime($request->date_compliance),
             'object_control'=> $request->object_control,
             'name_trader'=> $request->name_trader,
-            'notes'=>$note,
-
+            'notes'=>$request->notes,
             'inspector_id'=> $request->inspectors,
             'inspector_name'=> $request->inspector_name,
             'date_add' => date('d.m.Y', time()),
             'added_by' => Auth::user()->id,
 
         ];
-//        dd($data);
+
+        QCompliance::create($data);
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляри');
+    }
+
+
+    ///////////////////////////////////////
+    /**
+     * НОВ ТЪРГОВЕЦ
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function new_trader(Request $request)
+    {
+        $type_firm = $request['firm'];
+        $trader_name = $request['name_firm'];
+        $trader_vin = $request['eik'];
+
+        $index = $this->index;
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        return view('quality.compliance.create.new_trader', compact('index', 'inspectors', 'type_firm', 'trader_name', 'trader_vin' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QProtocolsRequest|QProtocolTraderRequest $request
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     * @internal param Request $QProtocolsRequest
+     */
+    public function store_new_trader(QTraderComplianceRequest $request)
+    {
+        if($request->type_firm == 2){
+            $name_a = 'ET';
+            $name_back = '';
+        }
+        elseif($request->type_firm == 3) {
+            $name_a = '';
+            $name_back = 'ООД';
+        }
+        elseif($request->type_firm == 4) {
+            $name_a = '';
+            $name_back = 'ЕООД';
+        }
+        elseif($request->type_firm == 5) {
+            $name_a = '';
+            $name_back = 'АД';
+        }
+        elseif($request->type_firm == 6) {
+            $name_a = '';
+            $name_back = '';
+        }
+        else {
+            $name_a = '';
+            $name_back = '';
+        }
+        $full_name = $name_a.' '.$request->trader_name.' '.$name_back;
+
+        $data_trader = [
+            'trader_name'=> $full_name,
+            'trader_address'=> $request->trader_address,
+            'trader_vin'=> $request->trader_vin,
+            'created_by'=> Auth::user()->id,
+            'date_create' => date('d.m.Y H:i:s', time()) ,
+        ];
+
+        $trader = Trader::create($data_trader);
+        $insertedId = $trader->id;
+
+        $data = [
+            'trader_id'=> $insertedId,
+            'trader_name'=>$full_name,
+            'trader_address'=> $request->trader_address,
+
+            'date_compliance'=> strtotime($request->date_compliance),
+            'object_control'=> $request->object_control,
+            'name_trader'=> $request->name_trader,
+            'notes'=>$request->notes,
+
+            'inspector_id'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
+        ];
+
+        QCompliance::create($data);
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляри');
+    }
+
+///////////////////////////////////////
+    /**
+     * НЕРЕГЛАМЕНТИРАН
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function unregulated(Request $request)
+    {
+        $index = $this->index;
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        return view('quality.compliance.create.unregulated', compact('index', 'inspectors' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QProtocolsRequest|QProtocolTraderRequest|QTraderComplianceRequest $request
+     * @return Response
+     * @internal param int $id
+     * @internal param Request $QProtocolsRequest
+     */
+    public function store_unregulated(QTraderComplianceRequest $request)
+    {
+        $data = [
+            'unregulated_id'=> 1,
+            'unregulated_name'=>$request->trader_name,
+            'unregulated_address'=> $request->trader_address,
+
+            'date_compliance'=> strtotime($request->date_compliance),
+            'object_control'=> $request->object_control,
+            'name_trader'=> $request->name_trader,
+            'notes'=>$request->notes,
+            'inspector_id'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
+        ];
+
         QCompliance::create($data);
 
         Session::flash('message', 'Записа е успешен!');
@@ -570,13 +707,100 @@ class QComplianceController extends Controller
 
 
 
+    //// АРТИКУЛИ /////////
+    /**
+     * Добавя артикулите към формуляра.
+     *
+     * @param  int $id
+     * @param $sid
+     * @return Response
+     */
+    public function add_articles($id, $sid)
+    {
+        $qualitys = ['127' => 'БЕЗ КЛАС', '1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orWhere('group_id', '=', 11)
+            ->orWhere('group_id', '=', 15)
+            ->orWhere('group_id', '=', 16)
+            ->orderBy('group_id', 'asc')->get()->toArray();
 
+        $compliance = QCompliance::findOrFail($id);
+        $stocks = $compliance->articles->toArray();
+        $count = count($stocks);
 
+        if ($sid != 0) {
+            $article = Article::select()->where('id','=', $sid)->where('compliance_id','=', $id)->get()->toArray();
+        }
+        else {
+            $article = 0;
+        }
+//        dd($article);
+        return view('quality.compliance.articles.articles', compact('id', 'crops', 'compliance', 'stocks', 'count', 'qualitys', 'article'));
+    }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param Request|ArticleRequest $request $request
+     * @param  int $id
+     * @return Response
+     */
+    public function store_articles(ArticleRequest $request, $id)
+    {
+        $data = [
+            'compliance_id' => $request->compliance_id,
+            'product_id' => $request->crops,
+            'product' => $request->crops_name,
+            'country' => $request->country,
+            'class' => $request->class,
+            'quantity' => $request->quantity,
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
+        ];
 
+        Article::create($data);
+        Session::flash('message', 'Записа е успешен!');
+        return back();
+    }
 
+    public function article_update(ArticleRequest $request, $id)
+    {
+        $stock = Article::findOrFail($id);
 
+        $data = [
+            'product_id' => $request->crops,
+            'product' => $request->crops_name,
+            'country' => $request->country,
+            'class' => $request->class,
+            'quantity' => $request->quantity,
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
+        ];
+        $stock->fill($data);
+        $stock->save();
 
+        return Redirect::to('/контрол/артикули/'.$stock->compliance_id.'/0/add');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function article_destroy($id)
+    {
+        $stock = Article::find($id);
+        $stock->delete();
+        return back();
+    }
 
 
     /**
@@ -587,7 +811,7 @@ class QComplianceController extends Controller
      */
     public function show($id)
     {
-        //
+        echo('OK');
     }
 
     /**

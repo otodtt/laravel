@@ -95,6 +95,7 @@ class TradersController extends Controller
         $trader = Trader::findOrFail($id);
         $certificates = $trader->qincertificate;
         $qprotocols = $trader->qprotocols;
+        $compliance = $trader->compliance;
 
         foreach($certificates as $certificate){
             $internal_stocks[] = $certificate->internal_stocks->toArray();
@@ -103,7 +104,7 @@ class TradersController extends Controller
             $internal_stocks = array();
         }
 
-        return view('quality.traders.show', compact( 'trader', 'certificates', 'internal_stocks', 'qprotocols'));
+        return view('quality.traders.show', compact( 'trader', 'certificates', 'internal_stocks', 'qprotocols', 'compliance'));
     }
 
     /**

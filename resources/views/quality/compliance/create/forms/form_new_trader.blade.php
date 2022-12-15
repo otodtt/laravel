@@ -30,8 +30,37 @@ else{
 
 <hr class="my_hr_in"/>
 
-<hr class="my_hr_in"/>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-12" >
+            <fieldset class="small_field"><legend class="small_legend">1. Търговец /Trader</legend>
+                <div class="col-md-8 col-md-6_my" >
+                    <p class="description">
+                        Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
+                    </p>
+                    <div class="packer_wrap col-md-12" >
+                        <label for="trader_name">Име на Търговец:</label>
+                        {!! Form::text('trader_name', $trader_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+                        {{--<br>--}}
+                        <label for="trader_address">Адрес:</label>
+                        {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
+                    </div>
+                </div>
+                <div  class="col-md-4">
+                    <p class="description">
+                        Полето ЕИК задължително!
+                    </p>
+                    <label for="trader_vin" style="margin-top: 0">ЕИК:</label>
+                    {!! Form::text('trader_vin', $trader_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
+                    <input type="hidden" name="trader_or_not" value="1">
+                    <input type="hidden" name="type_firm" value="{{$type_firm}}">
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
 
+<hr class="my_hr_in"/>
 
 {{--Действия на търговеца--}}
 <div class="container-fluid" >

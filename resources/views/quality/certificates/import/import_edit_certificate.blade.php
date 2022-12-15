@@ -36,7 +36,7 @@
             {!! Form::model($certificate, ['url'=>'контрол/сертификат-внос/'.$certificate->id.'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
             
                 @include('quality.certificates.forms.form_edit_certificate')
-
+                <input type="hidden" name="export" value="0">
 
                 <div class="col-md-6 " >
                     <a href="{{ '/контрол/сертификат-внос/'.$certificate->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификатa!</a>

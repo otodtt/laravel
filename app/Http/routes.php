@@ -320,6 +320,8 @@ Route::group(['middleware' => ['auth']], function () {
     /////////Q ФОРМУЛЯРИ ////////////////////////////////////
     Route::get('/контрол/формуляри', 'QComplianceController@index');
     Route::post('/контрол/формуляри', 'QComplianceController@index');
+
+    Route::get('/контрол/формуляр/{id}', 'QComplianceController@show');
     Route::post('контрол/формуляри/сортирай', 'QComplianceController@sort');
 
     Route::get('/контрол/формуляри/търси', 'QComplianceController@farmer_request');
@@ -338,8 +340,17 @@ Route::group(['middleware' => ['auth']], function () {
     ////////////// ТЪРГОВЦИ //////////////////////
     Route::get('/контрол/формуляр/търговец/{id}', 'QComplianceController@create_trader');
     Route::post('/контрол/формуляр/търговец/{id}', 'QComplianceController@store_trader');
-    Route::get('/контрол/протоколи/търговци/нов', 'QProtocolsController@new_trader');
-    Route::post('/контрол/протоколи/търговци/store', 'QProtocolsController@store_new_trader');
+    Route::get('/контрол/формуляр/нов-търговец', 'QComplianceController@new_trader');
+    Route::post('/контрол/формуляр/нов-търговец/store', 'QComplianceController@store_new_trader');
+
+    Route::get('/контрол/формуляр/нерегламентиран', 'QComplianceController@unregulated');
+    Route::post('/контрол/формуляр/нерегламентиран/store', 'QComplianceController@store_unregulated');
+
+    Route::get('/контрол/артикули/{id}/{sid?}/add', 'QComplianceController@add_articles');
+    Route::post('/контрол/артикули/store/{id}', 'QComplianceController@store_articles');
+    Route::post('/контрол/артикули/{id}/delete', 'QComplianceController@article_destroy');
+    Route::post('/контрол/артикули/edit/{id}', 'QComplianceController@article_update');
+    Route::post('/контрол/артикули/завърши', 'QComplianceController@article_finish');
 
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////

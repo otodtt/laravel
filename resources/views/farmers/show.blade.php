@@ -214,7 +214,7 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @include('farmers.body.qprotocols')
+                            @include('quality.traders.body.qprotocols')
                         </li>
                     </ul>
                 </li>

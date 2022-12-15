@@ -32,4 +32,12 @@ class Trader extends Model
     public function qprotocols(){
         return $this->hasMany('odbh\QProtocol');
     }
+
+    /**
+     * Търговеца има много QCompliance
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function compliance(){
+        return $this->hasMany('odbh\QCompliance');
+    }
 }

@@ -209,6 +209,19 @@
                     </ul>
                 </li>
             @endif
+            @if(!empty($compliance->toArray()))
+                <li class="li_repository">
+                    <a href="{!!URL::to('/контрол/търговци/'.$trader->id.'/show')!!}"><i class="fa fa-check-square fa-fw"></i>
+                        <span class="bold">ФОРМУЛЯРИ ЗА СЪОТВЕТСТВИЕ</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @include('farmers.body.compliance')
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </ul>
     </div>
     <br/>

@@ -32,7 +32,7 @@ class QNewProtocolsRequest extends Request
 
         ///////
         $request = Request::all();
-//        dd($request['firm']);
+
         if(isset($request['firm']) && $request['firm'] == 1){
             $name = 'required|min:3|max:150|cyrillic';
             $gender = 'required';
@@ -132,7 +132,7 @@ class QNewProtocolsRequest extends Request
             'firm.required' => 'Маркирай вида на фирмата или ЧЗС!',
             'name.required' => 'Попълни името на фирмата/ЧЗС!',
             'name.min' => 'Минимален брой символи за името - 3!',
-            'name.max' => 'Минимален брой символи за името - 100!',
+            'name.max' => 'Максимален брой символи за името - 100!',
             'name.cyrillic' => 'За име на ЧЗС пиши само на кирилица без символи! Позволени символи: (тире - )!',
 
             'name_firm.required' => 'Попълни името на фирмата/ЧЗС!',
@@ -166,7 +166,7 @@ class QNewProtocolsRequest extends Request
 
             'address.required' => 'Адреса е задължителен!',
             'address.min' => 'За Адреса минимален брой символи - 3!',
-            'address.max' => 'За Адреса максимале брой символи - 500!',
+            'address.max' => 'За Адреса максимален брой символи - 500!',
             'address.cyrillic_with' => 'За Адреса пиши на кирилица!',
 
             'phone.phone_validate' => 'Непозволен формат на телефонния номер!',

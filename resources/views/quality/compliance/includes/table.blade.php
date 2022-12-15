@@ -38,7 +38,11 @@
             <td><span class="">{{$compliance->object_control}}</span></td>
             <td>{{$compliance->inspector_name}}</td>
             <td>
-                <a href='/контрол/формуляри/{{$compliance->id}}/show' class="fa fa-binoculars btn btn-info my_btn"></a>
+                @if($compliance->is_all == 0)
+                    <a href='/контрол/артикули/{{$compliance->id}}/0/add' class="fa fa-edit btn btn-danger my_btn"></a>
+                @else
+                    <a href='/контрол/формуляри/{{$compliance->id}}/show' class="fa fa-binoculars btn btn-info my_btn"></a>
+                @endif
             </td>
         </tr>
     @endforeach

@@ -24,6 +24,7 @@ class QCertificatesRequest extends Request
     public function rules()
     {
         $request = Request::all();
+//        dd($request);
         if($request['packer_data'] == 999) {
             $name = 'required|latin|min:3|max:500';
             $address = 'latin|min:5|max:500';
@@ -36,12 +37,11 @@ class QCertificatesRequest extends Request
             $forwarder = '';
             $forwarder_address = '';
         } else {
-            $forwarder = 'required|latin|min:3|max:500';
-            $forwarder_address = 'latin|min:5|max:500';
+            $forwarder = 'required|cyrillic_with|min:3|max:500';
+            $forwarder_address = 'cyrillic_with|min:5|max:500';
         }
 
         return [
-            // 'what_7'=>'required',
             'type_crops'=>'required',
             'importer_data'=>'required',
             'packer_data'=>'required',

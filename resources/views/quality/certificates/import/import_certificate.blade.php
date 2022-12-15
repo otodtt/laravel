@@ -37,6 +37,7 @@
         
            
             @include('quality.certificates.forms.form_create_certificate')
+            <input type="hidden" name="export" value="0">
 
             <div class="col-md-6 " >
                 <a href="{{ '/контрол/сертификати-внос' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификатите!</a>

@@ -25,8 +25,11 @@
         <span class="fa  btn btn-default my_btn"><i class="fa fa-check-square " aria-hidden="true"></i> Формуляри за съответствие</span>
     </div>
     <div class="btn_add_firm">
-        <a href="{!!URL::to('/контрол/формуляри/търси')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
-            Добави Формуляр</a>
+        <a href="{!!URL::to('/контрол/формуляри/търси')!!}" class="fa fa-arrow-circle-right btn btn-default my_btn">
+            Добави НОВ Формуляр</a>
+
+        <a href="{!!URL::to('/контрол/формуляр/нерегламентиран')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+            Добави Формуляр на нерегламентиран</a>
     </div>
     <hr/>
     @if(count($errors)>0)
