@@ -157,3 +157,26 @@ legend{
     padding: 5px;
     background-color: unset;
 }
+
+table {
+    border: 1px solid black;
+}
+th{
+    border: 1px solid black;
+    text-align: center;
+}
+td{
+    border: 1px solid black;
+    padding-left: 5px;
+}
+.first {
+    width: 30px;
+    text-align: center;
+}
+.class {
+    text-align: center;
+}
+.last_td {
+    text-align: right;
+    padding-right: 10px;
+}

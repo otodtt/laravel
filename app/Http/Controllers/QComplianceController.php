@@ -522,7 +522,7 @@ class QComplianceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param QProtocolsRequest $request
+     * @param QComplianceRequest $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      * @internal param Request $QProtocolsRequest
@@ -584,8 +584,8 @@ class QComplianceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param QProtocolsRequest|QProtocolTraderRequest $request
-     * @return \Illuminate\Http\Response
+     * @param QTraderComplianceRequest $request
+     * @return Response
      * @internal param int $id
      * @internal param Request $QProtocolsRequest
      */
@@ -650,7 +650,7 @@ class QComplianceController extends Controller
         return Redirect::to('/контрол/формуляри');
     }
 
-///////////////////////////////////////
+    ///////////////////////////////////////
     /**
      * НЕРЕГЛАМЕНТИРАН
      * Display the specified resource.
@@ -705,8 +705,6 @@ class QComplianceController extends Controller
     }
 
 
-
-
     //// АРТИКУЛИ /////////
     /**
      * Добавя артикулите към формуляра.
@@ -741,7 +739,7 @@ class QComplianceController extends Controller
         else {
             $article = 0;
         }
-//        dd($article);
+
         return view('quality.compliance.articles.articles', compact('id', 'crops', 'compliance', 'stocks', 'count', 'qualitys', 'article'));
     }
 
@@ -802,6 +800,19 @@ class QComplianceController extends Controller
         return back();
     }
 
+    public function article_finish(Request $request)
+    {
+        $compliance = QCompliance::findOrFail($request->compliance_id);
+        $data = [
+            'is_all' => 1,
+        ];
+        $compliance->fill($data);
+        $compliance->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляр/'.$request->compliance_id);
+    }
+
 
     /**
      * Display the specified resource.
@@ -811,7 +822,11 @@ class QComplianceController extends Controller
      */
     public function show($id)
     {
-        echo('OK');
+        $index = $this->index;
+        $compliance = QCompliance::findOrFail($id);
+        $articles = $compliance->articles;
+
+        return view('quality.compliance.show', compact('compliance', 'articles', 'index'));
     }
 
     /**
@@ -921,7 +936,7 @@ class QComplianceController extends Controller
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'><span class='bold' style='font-size: 1em;'>$farmer->name с ЕГН: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/протоколи/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ КОНСТАТИВЕН ПРОТОКОЛ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/формуляр/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
                 </ul>";
@@ -951,7 +966,7 @@ class QComplianceController extends Controller
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'><span class='bold' style='font-size: 1em;'>$farmer->name с ЕГН: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/протоколи/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ КОНСТАТИВЕН ПРОТОКОЛ ЗА ТОЗИ ЗС!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/формуляр/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
                 </ul>";
@@ -981,7 +996,7 @@ class QComplianceController extends Controller
                 <ul>
                     <li>
                         <div style='width: 40%; display: inline-block'>Фирма <span class='bold' style='font-size: 1em;'>$farmer->name с Булстат: $farmer->pin</span></div>
-                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/протоколи/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ КОНСТАТИВЕН ПРОТОКОЛ ЗА ТОЗИ ЗСDDS!</a></span></div>
+                        <div style='width: 50%; display: inline-block'><span><a href='/контрол/формуляр/добави/$farmer->id' class='fa fa-address-card-o btn btn-warning my_btn'> ДОБАВИ ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ ЗА ТОЗИ ЗС!</a></span></div>
                     </li>
                     <hr/>
                 </ul>";

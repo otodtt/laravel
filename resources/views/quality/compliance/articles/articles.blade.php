@@ -12,7 +12,11 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на Продукти към Формуляр за Съответствие!</h3>
+            @if($compliance->is_all == 0)
+                <h3 class="my_center" style="color: #d9534f;">Добавяне на Продукти към Формуляр за Съответствие!</h3>
+            @else
+                <h3 class="my_center" style="color: #d9534f;">Редактиране на Продукти към Формуляр за Съответствие!</h3>
+            @endif
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -222,9 +226,10 @@
             </div>
         @else
             <div class="alert alert-success my_alert" role="alert" style="margin-top: 100px">
-                <p class="my_p"><span class="fa fa-success" aria-hidden="true"></span> <span class="bold">След като са добавени всички артикули, натисни бутона "КРАЙ" за да отидеш към Формуляра!</span>
+                <p class="my_p"><span class="fa fa-success" aria-hidden="true"></span> <span class="bold">
+                        След като са добавени всички артикули, натисни бутона "КРАЙ" за да отидеш към Формуляра!</span>
                 </p>
-                {!! Form::open(['url'=>'контрол/артикули/завърши', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                {!! Form::open(['url'=>'контрол/артикули/finish', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
                     <div class="col-md-12" id="finish_stock" style="text-align: center; margin-top: 10px;">
                         {!! Form::submit('КРАЙ', ['class'=>'btn btn-success btn-lg', 'id'=>'submit-finish']) !!}

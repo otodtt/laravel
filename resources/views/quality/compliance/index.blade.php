@@ -28,7 +28,7 @@
         <a href="{!!URL::to('/контрол/формуляри/търси')!!}" class="fa fa-arrow-circle-right btn btn-default my_btn">
             Добави НОВ Формуляр</a>
 
-        <a href="{!!URL::to('/контрол/формуляр/нерегламентиран')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+        <a href="{!!URL::to('/контрол/нерегламентиран/формуляр')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
             Добави Формуляр на нерегламентиран</a>
     </div>
     <hr/>

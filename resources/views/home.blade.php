@@ -127,7 +127,7 @@
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/формуляри') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Формуляри за съответствие</a><br/>
                                     {{-- <a class="my_a back_link" href="{!! URL::to( '/контрол/вносители') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( '/контрол/култури/внос') !!}"><i class="fa fa-leaf fa-fw green_color"></i> Всички култури</a><br/> --}}
-                                    <a class="my_a back_link" href="{!! URL::to( '/test') !!}"><i class="fa fa-cubes fa-fw green_color"></i> ТЕСТ</a>
+                                    {{--<a class="my_a back_link" href="{!! URL::to( '/test') !!}"><i class="fa fa-cubes fa-fw green_color"></i> ТЕСТ</a>--}}
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">
@@ -144,7 +144,7 @@
                                             <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa-industry fa-fw control_color"></i> Протоколи Производители на ПРЗ</a><br/> --}}
                                             <br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
-                                            <a class="my_a back_link " href="{!! URL::to( '/') !!}" style="float: right; margin-right: 10px"> <i class="fa fa-flask fa-fw brown"></i> Дневник взети проби от ПРЗ </a>
+                                            {{--<a class="my_a back_link " href="{!! URL::to( '/') !!}" style="float: right; margin-right: 10px"> <i class="fa fa-flask fa-fw brown"></i> Дневник взети проби от ПРЗ </a>--}}
 
                                         </div>
                                     </div>

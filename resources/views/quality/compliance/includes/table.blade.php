@@ -13,7 +13,6 @@
     <tbody>
     <?php $n = 1; ?>
     @foreach($compliances as $compliance)
-
         <tr>
             <td class="right"><?= $n++ ?></td>
             <td>{{ date('d.m.Y', $compliance->date_compliance) }}</td>
@@ -41,7 +40,7 @@
                 @if($compliance->is_all == 0)
                     <a href='/контрол/артикули/{{$compliance->id}}/0/add' class="fa fa-edit btn btn-danger my_btn"></a>
                 @else
-                    <a href='/контрол/формуляри/{{$compliance->id}}/show' class="fa fa-binoculars btn btn-info my_btn"></a>
+                    <a href='/контрол/формуляр/{{$compliance->id}}' class="fa fa-binoculars btn btn-info my_btn"></a>
                 @endif
             </td>
         </tr>
