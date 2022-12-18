@@ -362,7 +362,7 @@ class RegistersController extends Controller
 
         return view('registers.market.index_reference', compact('city', 'years', 'year_now', 'all_protocols',
             'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september',
-            'october', 'november', 'december', 'proba'));
+            'october', 'november', 'december'));
     }
 
     /**
