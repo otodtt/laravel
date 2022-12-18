@@ -31,13 +31,13 @@ class CertificatesUpdateRequest extends Request
             $pin_validation = 'required|pin_validate|digits_between:9,10';
         }
         if(strlen($request['date_diploma']) == 4){
-            $diploma_validation = 'date_format:Y|after:1940|before:2020';
+            $diploma_validation = 'date_format:Y|after:1940|before:2030';
         } elseif(strlen($request['date_diploma']) == 10) {
-            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2020';
+            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2030';
         } elseif(strlen($request['date_diploma']) == 0) {
             $diploma_validation = 'required';
         } else {
-            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2020';
+            $diploma_validation = 'date_format:d.m.Y|after:01.01.1940|before:01.01.2030';
         }
 
         $data = [
