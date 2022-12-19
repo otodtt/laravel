@@ -1,6 +1,6 @@
 <?php
 if(isset($compliance) && !empty($compliance)){
-    $date_protocol = date('d.m.Y', $compliance->date_protocol);
+    $date_protocol = date('d.m.Y', $compliance->date_compliance);
 }
 else{
     $date_protocol = null;
@@ -37,14 +37,7 @@ else{
             <fieldset class="small_field"><legend class="small_legend">Наименование и адрс на фирмата:</legend>
                 <div class="col-md-12 col-md-6_my"  >
                     <p>Добавя се формуляр за съответствие на:</p>
-                    {{--@if($is_trader == 0)--}}
                         @include('records.add.object_info')
-                    {{--@elseif($is_trader == 1)--}}
-                        {{--<p>Фирма <span class="bold">{{$trader->trader_name}}</span></p>--}}
-                        {{--<p>С адрес: <span class="bold">{{$trader->trader_address}}</span></p>--}}
-                        {{--<p>ЕИК/Булстат: <span class="bold">{{$trader->trader_vin}}</span></p>--}}
-                    {{--@else--}}
-                    {{--@endif--}}
                 </div>
             </fieldset>
         </div>
@@ -103,7 +96,7 @@ else{
                         @foreach($inspectors as $k=>$inspector)
                             <option value="{{$k}}"
                                 @if (old('inspectors') == null)
-                                {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
+                                {{($compliance->inspector_id == $k)? 'selected':''}}
                                 @else
                                 {{(old('inspectors') == $k)? 'selected':''}}
                                 @endif

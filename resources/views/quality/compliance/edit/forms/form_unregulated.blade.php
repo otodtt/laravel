@@ -1,6 +1,6 @@
 <?php
-if(isset($protocol) && !empty($protocol)){
-    $date_protocol = date('d.m.Y', $protocol->date_protocol);
+if(isset($compliance) && !empty($compliance)){
+    $date_protocol = date('d.m.Y', $compliance->date_compliance);
 }
 else{
     $date_protocol = null;
@@ -40,10 +40,10 @@ else{
                     </p>
                     <div class="packer_wrap col-md-12" >
                         <label for="trader_name">Име на Търговец:</label>
-                        {!! Form::text('trader_name', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+                        {!! Form::text('trader_name', $compliance->unregulated_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
                         {{--<br>--}}
                         <label for="trader_address">Адрес:</label>
-                        {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
+                        {!! Form::text('trader_address', $compliance->unregulated_address, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
                         <input type="hidden" name="trader_or_not" value="0">
                     </div>
                 </div>
@@ -103,7 +103,7 @@ else{
                         @foreach($inspectors as $k=>$inspector)
                             <option value="{{$k}}"
                                     @if (old('inspectors') == null)
-                                    {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
+                                    {{($compliance->inspector_id == $k)? 'selected':''}}
                                     @else
                                     {{(old('inspectors') == $k)? 'selected':''}}
                                     @endif

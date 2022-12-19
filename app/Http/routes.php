@@ -346,12 +346,25 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/контрол/нерегламентиран/формуляр', 'QComplianceController@unregulated');
     Route::post('/контрол/формуляр/нерегламентиран/store', 'QComplianceController@store_unregulated');
 
+    ////// EDIT
+    Route::get('/контрол/нерегламентиран/формуляр/edit/{id}', 'QComplianceController@edit_unregulated');
+    Route::post('/контрол/формуляр/нерегламентиран/update/{id}', 'QComplianceController@update_unregulated');
+
+    Route::get('/контрол/формуляри/търговец/edit/{id}', 'QComplianceController@edit_trader');
+    Route::post('/контрол/формуляри/търговец/update/{id}', 'QComplianceController@update_trader');
+
+    Route::get('/контрол/формуляри/фермер/edit/{id}', 'QComplianceController@edit_farmer');
+    Route::post('/контрол/формуляри/фермер/update/{id}', 'QComplianceController@update_farmer');
+
+
     Route::get('/контрол/артикули/{id}/{sid?}/add', 'QComplianceController@add_articles');
     Route::post('/контрол/артикули/store/{id}', 'QComplianceController@store_articles');
     Route::post('/контрол/артикули/{id}/delete', 'QComplianceController@article_destroy');
     Route::post('/контрол/артикули/edit/{id}', 'QComplianceController@article_update');
     Route::post('/контрол/артикули/finish', 'QComplianceController@article_finish');
 
+    ////// ДОБАВЯНЕ НА ПРОТОКОЛИ
+    Route::post('/контрол/формуляри/add_protocol/{id}', 'QComplianceController@add_compliance_protocol');
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////

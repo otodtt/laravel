@@ -8,7 +8,7 @@
             </p>
         </div>
         <div class="col-md-5" >
-            <a class="fa fa-binoculars btn btn-info my_btn" href="/контрол/формуляри/{{$protocol->id}}/show" style="margin: 3px 0"> Виж Формуляра!</a>
+            <a class="fa fa-binoculars btn btn-info my_btn" href="/контрол/формуляр/{{$protocol->id}}" style="margin: 3px 0"> Виж Формуляра!</a>
         </div>
     @endforeach
 </fieldset>

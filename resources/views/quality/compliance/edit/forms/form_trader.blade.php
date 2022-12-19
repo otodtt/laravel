@@ -1,6 +1,6 @@
 <?php
-if(isset($protocol) && !empty($protocol)){
-    $date_protocol = date('d.m.Y', $protocol->date_protocol);
+if(isset($compliance) && !empty($compliance)){
+    $date_protocol = date('d.m.Y', $compliance->date_compliance);
 }
 else{
     $date_protocol = null;
@@ -39,21 +39,58 @@ else{
                         Поле № 1 Попълни фирмата! Търговец /Trader &nbsp; &nbsp; &nbsp;<br>
                     </p>
                     <div class="packer_wrap col-md-12" >
-                        <label for="trader_name">Име на Търговец:</label>
-                        {!! Form::text('trader_name', $trader_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}
+                        <label for="trader_data">Избери търговеца:</label>
+                        <select name="trader_data" id="trader_data" class="localsID form-control">
+                            <option value="">-- Избери --</option>
+                            @foreach($traders as $trader)
+                                <option value="{{$trader['id']}}"
+
+                                        @if (old('trader_data') == null)
+                                        {{($trader['id'] == $compliance->trader_id) ? 'selected':''}}
+                                        @else
+                                        {{(old('trader_data') == $trader['id'])? 'selected':''}}
+                                        @endif
+                                        {{--{{(old('trader_data') == $trader->id)? 'selected':''}}--}}
+                                        trader_name="{{ $trader['trader_name'] }}"
+                                        trader_address="{{$trader['trader_address']}}" >
+                                    {{ mb_strtoupper($trader['trader_name']), 'utf-8' }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <?php
+                        if(old('trader_name') == null){
+                            $name = $compliance->trader_name;
+                        }else{
+                            $name = old('trader_name');
+                        };
+                        if(old('trader_address') == null){
+                            $address = $compliance->trader_address;;
+                        }else{
+                            $address = old('trader_address');
+                        };
+                        ?>
+                        <input type="hidden" name="trader_name" id="trader_name" value="{{$name}}">
+                        <input type="hidden" name="trader_address" id="trader_address" value="{{$address}}">
+                        <input type="hidden" name="trader_or_not" value="2">
+
+
+
+                        {{--<label for="trader_name">Име на Търговец:</label>--}}
+                        {{--{!! Form::text('trader_name', $compliance->trader_name, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=> 'Име на Търговец']) !!}--}}
                         {{--<br>--}}
-                        <label for="trader_address">Адрес:</label>
-                        {!! Form::text('trader_address', null, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}
+                        {{--<label for="trader_address">Адрес:</label>--}}
+                        {{--{!! Form::text('trader_address', $compliance->trader_address, ['class'=>'form-control', 'style'=>'width: 97%', 'placeholder'=>'Адрес на Търговец']) !!}--}}
+
                     </div>
                 </div>
                 <div  class="col-md-4">
-                    <p class="description">
-                        Полето ЕИК задължително!
-                    </p>
-                    <label for="trader_vin" style="margin-top: 0">ЕИК:</label>
-                    {!! Form::text('trader_vin', $trader_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}
-                    <input type="hidden" name="trader_or_not" value="1">
-                    <input type="hidden" name="type_firm" value="{{$type_firm}}">
+                    {{--<p class="description">--}}
+                        {{--Ако името или адреса на търговеца са сгрешени, редактирай в !--}}
+                    {{--</p>--}}
+                    {{--<label for="trader_vin" style="margin-top: 0">ЕИК:</label>--}}
+                    {{--{!! Form::text('trader_vin', $trader_vin, ['class'=>'form-control', 'style'=>'width: 80%', 'placeholder'=>'ЕИК/Булстат']) !!}--}}
+
+                    {{--<input type="hidden" name="type_firm" value="{{$type_firm}}">--}}
                 </div>
             </fieldset>
         </div>
@@ -111,7 +148,7 @@ else{
                         @foreach($inspectors as $k=>$inspector)
                             <option value="{{$k}}"
                                     @if (old('inspectors') == null)
-                                    {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
+                                    {{($compliance->inspector_id == $k)? 'selected':''}}
                                     @else
                                     {{(old('inspectors') == $k)? 'selected':''}}
                                     @endif

@@ -24,25 +24,36 @@ class QTraderComplianceRequest extends Request
     public function rules()
     {
         $request = Request::all();
+        $trader_data = '';
         $trader_name = '';
         $trader_address = '';
         $trader_vin = '';
         $name_trader = '';
 
         if($request['trader_or_not'] == 1) {
+            $trader_data = '';
             $trader_name = 'required|cyrillic_with|min:3|max:100';
             $trader_address = 'required|cyrillic_with|min:3|max:500';
             $trader_vin = 'required|is_valid|digits_between:9,13';
             $name_trader = 'required|cyrillic_with|min:3|max:500';
         }
+        if($request['trader_or_not'] == 2) {
+            $trader_data = 'required|not_in:0';
+            $trader_name = '';
+            $trader_address = '';
+            $trader_vin = '';
+            $name_trader = 'required|cyrillic_with|min:3|max:500';
+        }
 
         if($request['trader_or_not'] == 0) {
+            $trader_data = '';
             $trader_name = 'required|cyrillic_with|min:3|max:100';
             $trader_address = 'cyrillic_with|min:5|max:500';
             $trader_vin = 'digits_between:9,13';
             $name_trader = 'cyrillic_with|min:3|max:500';
         }
         return [
+            'trader_data' => $trader_data,
             'trader_name' => $trader_name,
             'trader_address' => $trader_address,
             'trader_vin' => $trader_vin,
@@ -62,6 +73,9 @@ class QTraderComplianceRequest extends Request
      */
     public function messages() {
         $data = [
+            'trader_data.required' => 'Избери Търговеца!',
+            'trader_data.not_in' => 'Избери Търговеца!',
+
             'trader_name.required' => 'Попълни името на фирмата/Търговеца!',
             'trader_name.min' => 'Минимален брой символи за името - 3!',
             'trader_name.max' => 'Максимален брой символи за името - 100!',

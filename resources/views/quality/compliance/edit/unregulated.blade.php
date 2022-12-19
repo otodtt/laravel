@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Добави Формуляр за съответствие!' }}
+    {{ 'Редактирай Формуляр за съответствие!' }}
 @endsection
 
 @section('css')
@@ -13,7 +13,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Редактиране на ФОРМУЛЯР ЗА СЪОТВЕТСТВИЕ!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -40,16 +40,16 @@
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/формуляр/нерегламентиран/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($compliance, ['url'=>'контрол/формуляр/нерегламентиран/update/'.$compliance->id , 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.compliance.create.forms.form_unregulated')
+            @include('quality.compliance.edit.forms.form_unregulated')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
-                <a href="{{ '/контрол/формуляри' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към формулярите!</a>
+                <a href="{{ '/контрол/формуляр/'.$compliance->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към формуляра!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
-                {!! Form::submit('Добави формуляр!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Реактирай формуляр!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
             
@@ -62,7 +62,7 @@
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/date/in_date.js" )!!}
-{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+    {!!Html::script("js/confirm/prevent.js" )!!}
     <script>
         $('#inspectors').change(function () {
             var inspector_name=$(this).find('option:selected').attr('inspector_name');

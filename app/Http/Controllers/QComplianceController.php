@@ -18,6 +18,7 @@ use odbh\Http\Requests\QNewComplianceRequest;
 use odbh\Http\Requests\QTraderComplianceRequest;
 use odbh\Location;
 use odbh\QCompliance;
+use odbh\QProtocol;
 use odbh\Set;
 use odbh\Trader;
 use odbh\User;
@@ -704,6 +705,185 @@ class QComplianceController extends Controller
         return Redirect::to('/контрол/формуляри');
     }
 
+    ///////////////////////////////////////
+    /**
+     * НЕРЕГЛАМЕНТИРАН EDIT
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function edit_unregulated(Request $request, $id)
+    {
+        $index = $this->index;
+        $compliance = QCompliance::findOrFail($id);
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        return view('quality.compliance.edit.unregulated', compact( 'compliance', 'index', 'inspectors' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QProtocolsRequest|QProtocolTraderRequest|QTraderComplianceRequest $request
+     * @return Response
+     * @internal param int $id
+     * @internal param Request $QProtocolsRequest
+     */
+    public function update_unregulated(QTraderComplianceRequest $request, $id)
+    {
+        $compliance = QCompliance::findOrFail($id);
+        $data = [
+            'unregulated_name'=>$request->trader_name,
+            'unregulated_address'=> $request->trader_address,
+
+            'date_compliance'=> strtotime($request->date_compliance),
+            'object_control'=> $request->object_control,
+            'name_trader'=> $request->name_trader,
+            'notes'=>$request->notes,
+            'inspector_id'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $compliance->fill($data);
+        $compliance->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляр/'.$id);
+    }
+
+    ///////////////////////////////////////
+    /**
+     * ТЪРГОВЕЦ EDIT
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function edit_trader(Request $request, $id)
+    {
+        $index = $this->index;
+        $compliance = QCompliance::findOrFail($id);
+        $traders = Trader::select(['id', 'trader_name', 'trader_address', 'trader_vin'])->get()->toArray();
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+
+        return view('quality.compliance.edit.trader', compact( 'compliance', 'traders', 'index', 'inspectors' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QProtocolsRequest|QProtocolTraderRequest|QTraderComplianceRequest $request
+     * @return Response
+     * @internal param int $id
+     * @internal param Request $QProtocolsRequest
+     */
+    public function update_trader(QTraderComplianceRequest $request, $id)
+    {
+        $compliance = QCompliance::findOrFail($id);
+        $data = [
+            'trader_id'=>$request->trader_data,
+            'trader_name'=>$request->trader_name,
+            'trader_address'=> $request->trader_address,
+
+            'date_compliance'=> strtotime($request->date_compliance),
+            'object_control'=> $request->object_control,
+            'name_trader'=> $request->name_trader,
+            'notes'=>$request->notes,
+            'inspector_id'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $compliance->fill($data);
+        $compliance->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляр/'.$id);
+    }
+
+
+    ///////////////////////////////////////
+    /**
+     * ФЕРМЕР EDIT
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function edit_farmer(Request $request, $id)
+    {
+        $index = $this->index;
+        $compliance = QCompliance::findOrFail($id);
+        $farmer = Farmer::findOrFail($compliance->farmer_id);
+
+        $districts_farm = $this->districts_list;
+        $regions = $this->areas_all_list;
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $farmer->areas_id)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id')->toArray();
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=',1)
+            ->where('stamp_number','!=',5001)
+            ->lists('short_name', 'id')
+            ->toArray();
+//        dd($farmer);
+        return view('quality.compliance.edit.farmer', compact( 'compliance', 'farmer', 'index', 'inspectors', 'regions', 'districts', 'districts_farm' ));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param QComplianceRequest $request
+     * @return Response
+     * @internal param int $id
+     * @internal param Request $QProtocolsRequest
+     */
+    public function update_farmer(QComplianceRequest $request, $id)
+    {
+        $compliance = QCompliance::findOrFail($id);
+        $data = [
+            'date_compliance'=> strtotime($request->date_compliance),
+            'object_control'=> $request->object_control,
+            'name_trader'=> $request->name_trader,
+            'notes'=>$request->notes,
+            'inspector_id'=> $request->inspectors,
+            'inspector_name'=> $request->inspector_name,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $compliance->fill($data);
+        $compliance->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляр/'.$id);
+    }
+
+
+
 
     //// АРТИКУЛИ /////////
     /**
@@ -814,6 +994,76 @@ class QComplianceController extends Controller
     }
 
 
+    //// PROTOCOLS
+    /**
+     * Display the specified resource.
+     *
+     * @param Request $request
+     * @param  int $id
+     * @return Response
+     */
+    public function add_compliance_protocol (Request $request, $id) {
+
+        $this->validate($request,
+            ['number_protocol' => 'required|digits_between:1,5'],
+            [
+                'number_protocol.required' => 'Попълни номера на протокола!',
+                'number_protocol.digits_between' => 'Номера трябва да е между една и пет цифри!',
+            ]);
+
+        $this->validate($request,
+            ['date_protocol' => 'required|date_format:d.m.Y'],
+            [
+                'date_protocol.required' => 'Попълни датата на протокола!',
+                'date_protocol.date_format' => 'Непозволен формат за Дата на Протокола!',
+            ]);
+        $number_protocol = $request->number_protocol;
+        $date_protocol = $request->date_protocol;
+
+        $protocol = QProtocol::select()
+                            ->where('number_protocol', '=', $request->number_protocol)
+                            ->where('date_protocol', '=', strtotime($request->date_protocol))
+                            ->get()->toArray();
+        $count = count($protocol);
+//        dd($count);
+        if(empty($protocol)){
+            $errors_protocol = 'Няма открит такъв номер!';
+        }
+        else {
+//            $count = count($protocol);
+            if($count > 1){
+
+            }
+            foreach($protocol as $value) {
+                if($value['date_protocol'] ==  strtotime($date_protocol)){
+                    $errors_protocol = $value['trader_name'];
+//                    $errors_protocol = $value['farmer_name'];
+//                    $errors_protocol = $value['unregulated_name'];
+//                    $errors_protocol = 'Otkrit e nomer i se dobawq protokola!';
+                    $errors_protocol = 'Има!';
+                }
+                else {
+                    $errors_protocol = 'Датата не отговаря!';
+                }
+            }
+//            dd($protocol[0]['date_protocol'].'--'.strtotime($date_protocol));
+//            if( $protocol[0]['date_protocol'] ==  $date_protocol){
+//
+//            }
+//            $errors_protocol = 'DDDSD!';
+        }
+
+//        return back();
+
+        $index = $this->index;
+        $compliance = QCompliance::findOrFail($id);
+        $articles = $compliance->articles;
+
+
+        return view('quality.compliance.show', compact('compliance', 'articles', 'index', 'errors_protocol', 'number_protocol', 'date_protocol', 'count'));
+    }
+
+
     /**
      * Display the specified resource.
      *
@@ -825,8 +1075,9 @@ class QComplianceController extends Controller
         $index = $this->index;
         $compliance = QCompliance::findOrFail($id);
         $articles = $compliance->articles;
+        $count = 0;
 
-        return view('quality.compliance.show', compact('compliance', 'articles', 'index'));
+        return view('quality.compliance.show', compact('compliance', 'articles', 'index', 'count'));
     }
 
     /**

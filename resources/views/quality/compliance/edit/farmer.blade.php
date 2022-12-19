@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Добави Формуляр за Съответствие!' }}
+    {{ 'Редактиране Формуляр за Съответствие!' }}
 @endsection
 
 @section('css')
@@ -13,7 +13,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на ФОРМУЛЯР ЗА СЪОТВЕТСВИЕ!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Редактиране на ФОРМУЛЯР ЗА СЪОТВЕТСВИЕ!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -41,16 +41,16 @@
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/формуляр/фермер/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($compliance, ['url'=>'контрол/формуляри/фермер/update/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.compliance.create.forms.form_create_exist_farmer')
+            @include('quality.compliance.edit.forms.form_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
                 <a href="{{ '/контрол/формуляри' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към формулярите!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
-                {!! Form::submit('Добави формуляр!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Редактирай формуляр!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
             

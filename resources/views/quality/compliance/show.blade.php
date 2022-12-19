@@ -9,7 +9,7 @@
 {{--    {!!Html::style("css/table/table_firms.css " )!!}--}}
     {!!Html::style("css/qcertificates/show_opinion.css" )!!}
     {!!Html::style("css/qprotocols/body_protocol.css" )!!}
-{{--    {!!Html::style("css/date/jquery.datetimepicker.css" )!!}--}}
+    {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
 @endsection
 
 @section('message')
@@ -158,11 +158,11 @@
                     <div class="col-md-6">
                         <div class="btn_add_edit">
                             @if($compliance->farmer_id > 0 && $compliance->trader_id == 0 && $compliance->unregulated_id == 0)
-                                <a href="{!!URL::to('/контрол/протоколи/фермер/edit/'.$compliance->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Формуляра</a>
+                                <a href="{!!URL::to('/контрол/формуляри/фермер/edit/'.$compliance->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Формуляра</a>
                             @elseif($compliance->farmer_id == 0 && $compliance->trader_id > 0 && $compliance->unregulated_id == 0)
-                                <a href="{!!URL::to('/контрол/протоколи/търговец/edit/'.$compliance->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Формуляра</a>
+                                <a href="{!!URL::to('/контрол/формуляри/търговец/edit/'.$compliance->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Формуляра</a>
                             @elseif($compliance->farmer_id == 0 && $compliance->trader_id == 0 && $compliance->unregulated_id > 0)
-                                <a href="{!!URL::to('/контрол/протоколи/нерегламентиран/edit/'.$compliance->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Формуляра</a>
+                                <a href="{!!URL::to('/контрол/нерегламентиран/формуляр/edit/'.$compliance->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Формуляра</a>
                             @endif
                         </div>
                     </div>
@@ -190,16 +190,50 @@
                                 Ако има издаен констативен протокол, може да се добави тук.
                             </p>
                             <hr class="my_hr_in"/>
-                            {!! Form::open(['url'=>'контрол/артикули/finish', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                            @if(count($errors)>0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error  }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if(isset($errors_protocol) && strlen($errors_protocol)>0)
+                                <div class="alert alert-danger">
+                                    {{ $errors_protocol  }}
+                                </div>
+                            @endif
+                            {{$count}}
+                            {!! Form::open(['url'=>'контрол/формуляри/add_protocol/'.$compliance->id , 'method'=>'POST', 'autocomplete'=>'on']) !!}
                                 <div class="row">
                                     <div class="col-md-3">
+                                        <?php
+                                        if(isset($number_protocol) && !empty($number_protocol)){
+                                            $protocol_number = $number_protocol;
+                                            //$date_protocol = date('d.m.Y', $compliance->date_compliance);
+                                        }
+                                        else{
+                                            $protocol_number = null;
+                                        }
+                                        ?>
                                         <label for="number_protocol" style="display: inline-block">Номер:</label>
-                                        {!! Form::number('number_protocol', null,  ['class'=>'hide_number form-control form-control-my', 'style'=>'width: 150px; display: inline-block', 'size'=>'5', 'maxlength'=>'10']) !!}
+                                        {!! Form::number('number_protocol', $protocol_number,  ['class'=>'hide_number form-control form-control-my', 'style'=>'width: 150px; display: inline-block', 'size'=>'5', 'maxlength'=>'10']) !!}
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="quantity" style="display: inline-block">Дата:</label>
-                                        {!! Form::text('country', null, ['class'=>'form-control', 'style'=>'width: 150px; display: inline-block']) !!}
+                                        <?php
+
+                                        if(isset($date_protocol) && !empty($date_protocol)){
+                                            $protocol_date = $date_protocol;
+                                        }
+                                        else{
+                                            $protocol_date = null;
+                                        }
+                                        ?>
+                                        {!! Form::text('date_protocol', $protocol_date, ['class'=>'form-control form-control-my date_certificate',
+                                        'id'=>'date', 'size'=>15, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг', 'autocomplete'=>'off' ]) !!}
                                     </div>
+
                                     <div class="col-md-2" id="finish_stock" style="text-align: center; margin-top: 10px;">
                                         {!! Form::submit('Даобави Протокол', ['class'=>'btn btn-success btn-sm', 'id'=>'submit-finish']) !!}
                                     </div>
