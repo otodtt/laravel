@@ -1,32 +1,51 @@
 <?php
-if (Input::has('start_year') || Input::has('end_year') || Input::has('inspector_sort') || Input::has('firm_sort')) {
-    // $sort_abc = Input::get('abc');
-    $start_years = Input::get('start_year');
-    $end_years = Input::get('end_year');
-    //$sort_crop_return = Input::get('crop_sort');
-    $sort_inspector_return = Input::get('inspector_sort');
-    $sort_firm_return = Input::get('firm_sort');
-} else {
-    if (isset($years_start_sort) || isset($years_end_sort) || isset($sort_inspector)  || isset($sort_firm)) {
-        $start_years = $years_start_sort;
-        $end_years = $years_end_sort;
-        //$sort_crop_return = $sort_crop;
-        $sort_inspector_return = $sort_inspector;
-        $sort_firm_return = $sort_firm;
+    if (Input::has('start_year') || Input::has('end_year') || Input::has('inspector_sort') || Input::has('firm_sort')  || Input::has('protocol_sort') ) {
+        $start_years = Input::get('start_year');
+        $end_years = Input::get('end_year');
+        $sort_inspector_return = Input::get('inspector_sort');
+        $sort_firm_return = Input::get('firm_sort');
+        $sort_protocol_return = Input::get('protocol_sort');
     } else {
-        $start_years = 0;
-        $end_years = 0;
-        //$sort_crop_return = 0;
-        $sort_inspector_return = 0;
-        $sort_firm_return = 0;
+        if (isset($years_start_sort) || isset($years_end_sort) || isset($sort_inspector)  || isset($sort_firm)   || isset($sort_protocol) ) {
+            $start_years = $years_start_sort;
+            $end_years = $years_end_sort;
+            $sort_inspector_return = $sort_inspector;
+            $sort_firm_return = $sort_firm;
+            $sort_protocol_return = $sort_protocol;
+        } else {
+            $start_years = 0;
+            $end_years = 0;
+            $sort_inspector_return = 0;
+            $sort_firm_return = 0;
+            $sort_protocol_return = 0;
+        }
     }
-}
-if ((int) $start_years == 0) {
-    $start_years = null;
-}
-if ((int) $end_years == 0) {
-    $end_years = null;
-}
+    if ((int) $start_years == 0) {
+        $start_years = null;
+    }
+    if ((int) $end_years == 0) {
+        $end_years = null;
+    }
+    if($sort_protocol_return == 0) {
+        $checked0 = 'checked';
+        $checked1 = '';
+        $checked2 = '';
+    }
+    elseif($sort_protocol_return == 1) {
+        $checked0 = '';
+        $checked1 = 'checked';
+        $checked2 = '';
+    }
+    elseif($sort_protocol_return == 2) {
+        $checked0 = '';
+        $checked1 = '';
+        $checked2 = 'checked';
+    }
+    else {
+        $checked0 = 'checked';
+        $checked1 = '';
+        $checked2 = '';
+    }
 ?>
 <div class="col-md-4">
     {!! Form::label('start_year', 'От дата: ', ['class' => 'labels']) !!}
@@ -68,6 +87,16 @@ if ((int) $end_years == 0) {
         'class' => 'form-control inspector_sort',
         'style' => 'display: inline-block; width: 150px;',
     ]) !!}
+    &nbsp;&nbsp;
+    <label class="labels_limit"><span>С КП</span>
+        {!! Form::radio('protocol_sort', 1, $checked1) !!}
+    </label>&nbsp;&nbsp;|
+    <label class="labels_limit"><span>&nbsp;&nbsp;БЕЗ</span>
+        {!! Form::radio('protocol_sort', 2, $checked2) !!}
+    </label>
+    <label class="labels_limit"><span>&nbsp;&nbsp;Всички</span>
+        {!! Form::radio('protocol_sort', 0, $checked0) !!}
+    </label>
 </div>
 <input type="hidden" name="get_year" id="get_year" value="">
 <div class="col-md-1" style="padding: 0; margin-top: 5px;">

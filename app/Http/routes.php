@@ -365,6 +365,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     ////// ДОБАВЯНЕ НА ПРОТОКОЛИ
     Route::post('/контрол/формуляри/add_protocol/{id}', 'QComplianceController@add_compliance_protocol');
+    Route::post('/контрол/формуляри/this_protocol/{id}', 'QComplianceController@add_this_protocol');
+    Route::get('/контрол/формуляри/edit_protocol/{id}', 'QComplianceController@edit_protocol');
+    Route::post('/контрол/формуляри/edit_protocol/{id}', 'QComplianceController@edit_protocol');
+    Route::post('/контрол/формуляри/update_protocol/{id}', 'QComplianceController@update_protocol');
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////

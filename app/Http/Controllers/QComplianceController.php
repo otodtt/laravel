@@ -6,6 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 
 use Illuminate\Http\Response;
+use Input;
 use odbh\Area;
 use odbh\Article;
 use odbh\Crop;
@@ -24,6 +25,7 @@ use odbh\Trader;
 use odbh\User;
 use Redirect;
 use Session;
+use DB;
 
 class QComplianceController extends Controller
 {
@@ -49,6 +51,7 @@ class QComplianceController extends Controller
     {
         $array = array();
         $year_now = null;
+        $sort_p = 0;
 
         $inspectors = User::select('id', 'short_name')
             ->where('active', '=', 1)
@@ -70,7 +73,7 @@ class QComplianceController extends Controller
         $end_year = '31.12.'. $year_now;
         $time_end = strtotime(stripslashes($end_year));
 
-        $certs = QCompliance::get();
+        $certs = QCompliance::orderBy('date_compliance', 'asc')->get();
         foreach($certs as $cert){
             $array[date('Y', $cert->date_compliance)] = date('Y', $cert->date_compliance);
         }
@@ -103,8 +106,152 @@ class QComplianceController extends Controller
         };
 
 
-        return view('quality.compliance.index', compact('compliances', 'years', 'year_now', 'inspectors', 'firms'));
+        return view('quality.compliance.index', compact('compliances', 'years', 'year_now', 'inspectors', 'firms', 'sort_p'));
     }
+
+
+    public function sort(Request $request, $start_year = null, $end_year = null, $protocol_sort = null, $inspector_sort = null, $firm_sort = null )
+    {
+//        dd($request->all());
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+        $firms = Trader::where('id', '>', 0)->lists('trader_name', 'id')->toArray();
+
+        if(isset($request['get_year'])){
+            $year_now = $request['get_year'];
+        }
+        else{
+            $year_now = date('Y', time());
+        }
+        $start_year = '01.01.'. $year_now;
+        $time_start = strtotime(stripslashes($start_year));
+        $end_year = '31.12.'. $year_now;
+        $time_end = strtotime(stripslashes($end_year));
+
+        $certs = QProtocol::get();
+        foreach($certs as $cert){
+            $array[date('Y', $cert->date_protocol)] = date('Y', $cert->date_protocol);
+        }
+        $years = array_filter(array_unique($array));
+
+        if (Input::has('start_year') || Input::has('end_year') || Input::has('inspector_sort') || Input::has('firm_sort') || Input::has('protocol_sort') ) {
+            $years_start_sort = Input::get('start_year');
+            $years_end_sort = Input::get('end_year');
+            $sort_inspector = Input::get('inspector_sort');
+            $sort_firm = Input::get('firm_sort');
+            $sort_protocol = Input::get('protocol_sort');
+        }
+        else {
+            $years_start_sort = $start_year;
+            $years_end_sort = $end_year;
+            $sort_inspector = $inspector_sort;
+            $sort_firm = $firm_sort;
+            $sort_protocol = $protocol_sort;
+        }
+
+        if ((isset($years_start_sort) && $years_start_sort != '') || (isset($years_end_sort) && $years_end_sort != '')) {
+            $this->validate($request, ['start_year' => 'date_format:d.m.Y']);
+            $this->validate($request, ['end_year' => 'date_format:d.m.Y']);
+
+            $start = strtotime($years_start_sort);
+            $timezone_paris_start = strtotime($years_start_sort.'Europe/Paris');
+
+            $end = strtotime($years_end_sort);
+            $timezone_paris_end = strtotime($years_end_sort.'Europe/Paris');
+            if($start > 0 && $end == false){
+                $years_sql = ' AND date_compliance='.$start;
+            }
+            if($end > 0 && $start == false){
+                $years_sql = ' AND date_compliance='.$end;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start == (int)$end)){
+                $years_sql = ' AND date_compliance='.$start;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start < (int)$end)){
+                $years_sql = ' AND date_compliance>='.$start.' AND date_compliance<='.$end.'';
+            }
+            if(($start > 0 && $end > 0) && ($start > $end)){
+                $years_sql = ' AND date_compliance>='.$end.' AND date_compliance<='.$start.'';
+            }
+        }
+        else{
+            $years_sql =' AND date_compliance>='.$time_start.' AND date_compliance<='.$time_end.'';
+        }
+
+        // Сортиране по инспектор
+        if (isset($sort_inspector) && (int)$sort_inspector > 0){
+            $inspector_sql = ' AND inspector_id= '.$sort_inspector;
+        }
+        else{
+            $inspector_sql = '';
+        }
+
+        // Сортиране по фирма
+        if (isset($sort_firm) && $sort_firm != 0) {
+
+            if($sort_firm < 99999){
+                $firm_sql = ' AND trader_id='.$sort_firm;
+            }
+            if($sort_firm == 99999){
+                $firm_sql = ' AND farmer_id >0';
+            }
+            if($sort_firm == 88888){
+                $firm_sql = ' AND trader_id >0';
+            }
+            if($sort_firm == 77777){
+                $firm_sql = ' AND unregulated_id >0';
+            }
+        }
+        else{
+            $firm_sql = ' ';
+        }
+
+        // Сортиране по протокол
+        if (isset($sort_firm) && $sort_firm != 0) {
+
+            if($sort_firm < 99999){
+                $firm_sql = ' AND trader_id='.$sort_firm;
+            }
+            if($sort_firm == 99999){
+                $firm_sql = ' AND farmer_id >0';
+            }
+            if($sort_firm == 88888){
+                $firm_sql = ' AND trader_id >0';
+            }
+            if($sort_firm == 77777){
+                $firm_sql = ' AND unregulated_id >0';
+            }
+        }
+        else{
+            $firm_sql = ' ';
+        }
+
+        // Сортиране по протокол
+        if (isset($sort_protocol) && (int)$sort_protocol == 1){
+            $sort_sql = ' AND protocol_id> 0';
+        }
+        elseif (isset($sort_protocol) && (int)$sort_protocol == 2){
+            $sort_sql = ' AND protocol_id= 0';
+        }
+        else{
+            $sort_sql = '';
+        }
+
+//        dd($sort_protocol);
+        $compliances = DB::select("SELECT * FROM qcompliances WHERE id >0 $years_sql $inspector_sql $firm_sql $sort_sql ORDER BY id DESC");
+
+
+        return view('quality.compliance.index', compact('compliances', 'years', 'year_now', 'inspectors', 'firms',
+            'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm', 'sort_protocol'));
+    }
+
+
+
 
     ///////////////////////////////////////
     /**
@@ -1025,42 +1172,137 @@ class QComplianceController extends Controller
                             ->where('date_protocol', '=', strtotime($request->date_protocol))
                             ->get()->toArray();
         $count = count($protocol);
-//        dd($count);
+
         if(empty($protocol)){
-            $errors_protocol = 'Няма открит такъв номер!';
+            $errors_protocol = 'Няма открит такъв номер с тази дата!';
         }
         else {
-//            $count = count($protocol);
-            if($count > 1){
+            if($count == 1){
+                $compliance = QCompliance::findOrFail($id);
+                $data = [
+                    'protocol_id' => $protocol[0]['id'],
+                    'number_protocol' => $protocol[0]['number_protocol'],
+                    'date_protocol' => $protocol[0]['date_protocol'],
+                ];
 
+                $compliance->fill($data);
+                $compliance->save();
+
+                Session::flash('message', 'Записа е успешен!');
+                return Redirect::to('/контрол/формуляр/'.$id);
             }
-            foreach($protocol as $value) {
-                if($value['date_protocol'] ==  strtotime($date_protocol)){
-                    $errors_protocol = $value['trader_name'];
-//                    $errors_protocol = $value['farmer_name'];
-//                    $errors_protocol = $value['unregulated_name'];
-//                    $errors_protocol = 'Otkrit e nomer i se dobawq protokola!';
-                    $errors_protocol = 'Има!';
-                }
-                else {
-                    $errors_protocol = 'Датата не отговаря!';
-                }
+            elseif($count > 1){
+                $errors_protocol = 'Констативни Протоколи с един и същ номер и дата';
             }
-//            dd($protocol[0]['date_protocol'].'--'.strtotime($date_protocol));
-//            if( $protocol[0]['date_protocol'] ==  $date_protocol){
-//
-//            }
-//            $errors_protocol = 'DDDSD!';
+            else{}
         }
-
-//        return back();
 
         $index = $this->index;
         $compliance = QCompliance::findOrFail($id);
         $articles = $compliance->articles;
 
 
-        return view('quality.compliance.show', compact('compliance', 'articles', 'index', 'errors_protocol', 'number_protocol', 'date_protocol', 'count'));
+        return view('quality.compliance.show', compact('compliance', 'articles', 'index', 'errors_protocol',
+                                            'number_protocol', 'date_protocol', 'count', 'protocol'));
+    }
+
+    public function add_this_protocol (Request $request, $id) {
+
+        $compliance = QCompliance::findOrFail($request->compliance_id);
+        $data = [
+            'protocol_id' => $id,
+            'number_protocol' => $request->number_protocol,
+            'date_protocol' => $request->date_protocol,
+        ];
+
+        $compliance->fill($data);
+        $compliance->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляр/'.$request->compliance_id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     *  @param Request $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit_protocol(Request $request, $id)
+    {
+        $count = 0;
+        $number_protocol = '';
+        $date_protocol = '';
+        $errors_protocol = '';
+        $protocol = '';
+
+        if(isset($request['search'])){
+            $this->validate($request,
+                ['number_protocol' => 'required|digits_between:1,5'],
+                [
+                    'number_protocol.required' => 'Попълни номера на протокола!',
+                    'number_protocol.digits_between' => 'Номера трябва да е между една и пет цифри!',
+                ]);
+
+            $this->validate($request,
+                ['date_protocol' => 'required|date_format:d.m.Y'],
+                [
+                    'date_protocol.required' => 'Попълни датата на протокола!',
+                    'date_protocol.date_format' => 'Непозволен формат за Дата на Протокола!',
+                ]);
+            $number_protocol = $request->number_protocol;
+            $date_protocol = $request->date_protocol;
+
+            $protocol = QProtocol::select()
+                ->where('number_protocol', '=', $request->number_protocol)
+                ->where('date_protocol', '=', strtotime($request->date_protocol))
+                ->get()->toArray();
+            $count = count($protocol);
+
+            if(empty($protocol)){
+                $errors_protocol = 'Няма открит такъв номер с тази дата!';
+            }
+            else {
+                if($count == 1){
+                    $errors_protocol = 'Открит е Констативен Протокол';
+                }
+                elseif($count > 1){
+                    $errors_protocol = 'Констативни Протоколи с един и същ номер и дата';
+                }
+                else{}
+            }
+        }
+
+        $index = $this->index;
+        $compliance = QCompliance::findOrFail($id);
+        $articles = $compliance->articles;
+
+        return view('quality.compliance.edit.edit_show', compact('compliance', 'articles', 'index', 'count',
+            'number_protocol', 'date_protocol', 'errors_protocol', 'protocol'));
+    }
+
+    /**
+     * Edit the specified resource.
+     *
+     * @param Request $request
+     * @param  int $id
+     * @return Response
+     */
+    public function update_protocol (Request $request, $id) {
+
+        $compliance = QCompliance::findOrFail($request->compliance_id);
+        $data = [
+            'protocol_id' => $id,
+            'number_protocol' => $request->number_protocol,
+            'date_protocol' => $request->date_protocol,
+        ];
+
+        $compliance->fill($data);
+        $compliance->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/формуляр/'.$request->compliance_id);
     }
 
 
@@ -1079,6 +1321,12 @@ class QComplianceController extends Controller
 
         return view('quality.compliance.show', compact('compliance', 'articles', 'index', 'count'));
     }
+
+
+
+
+
+
 
     /**
      * Show the form for editing the specified resource.

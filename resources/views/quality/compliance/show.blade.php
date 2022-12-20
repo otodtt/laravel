@@ -184,7 +184,16 @@
                         </div>
                     @endif
                     @if($compliance->notes == 0)
-                        <div class="col-md-12">
+                        @if($compliance->protocol_id > 1)
+                            <p >
+                                Има издаден Констативен Протокол с
+                                Номер: <span class="bold">{{$compliance->number_protocol}}</span> и
+                                Дата: <span class="bold">{{date('d.m.Y', $compliance->date_protocol)}}</span> г.
+                                <a href="{!!URL::to('/контрол/формуляри/edit_protocol/'.$compliance->id)!!}" class="fa fa-edit btn btn-primary my_btn"> Промени ако е необходимо!</a>
+                            </p>
+
+                        @else
+                            <div class="col-md-12">
                             <p class="description">
                                 Маркирано е с <span class="bold">"НЕ"</span> - не отговаря на изискванията за качество.
                                 Ако има издаен констативен протокол, може да се добави тук.
@@ -202,16 +211,42 @@
                             @if(isset($errors_protocol) && strlen($errors_protocol)>0)
                                 <div class="alert alert-danger">
                                     {{ $errors_protocol  }}
+                                    @if($count > 1)
+                                        @foreach($protocol as $value)
+                                            <div class="row">
+                                                <div class="col-md-6" style="margin-top: 5px">
+                                                    <p class="bold">
+                                                        Номер КП {{$value['number_protocol']}} с Дата: {{date('d.m.Y', $value['date_protocol'])}}
+                                                        @if($value['farmer_id'] > 0 && $value['trader_id'] == 0 && $value['unregulated_id'] == 0)
+                                                            Издаен на: {{$value['farmer_name']}}
+                                                        @elseif($value['farmer_id'] == 0 && $value['trader_id'] > 0 && $value['unregulated_id'] == 0)
+                                                            Издаен на: {{$value['trader_name']}}
+                                                        @elseif($value['farmer_id'] == 0 && $value['trader_id'] == 0 && $value['unregulated_id'] > 0)
+                                                            Издаен на: {{$value['unregulated_name']}}
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-6" style="padding: 0; margin: 0">
+                                                    {!! Form::open(['url'=>'контрол/формуляри/this_protocol/'.$value['id'] , 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                                                        {!! Form::submit('Даобави Този Протокол ', ['class'=>'btn btn-success btn-sm', 'id'=>'submit-finish']) !!}
+                                                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
+                                                        <input type="hidden" name="number_protocol" value="{{$value['number_protocol']}}" id="number_protocol">
+                                                        <input type="hidden" name="date_protocol" value="{{$value['date_protocol']}}" id="date_protocol">
+                                                        <input type="hidden" name="compliance_id" value="{{ $compliance->id }}" id="compliance_id">
+                                                    {!! Form::close() !!}
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             @endif
-                            {{$count}}
+                            {{--{{$count}}--}}
                             {!! Form::open(['url'=>'контрол/формуляри/add_protocol/'.$compliance->id , 'method'=>'POST', 'autocomplete'=>'on']) !!}
                                 <div class="row">
                                     <div class="col-md-3">
                                         <?php
                                         if(isset($number_protocol) && !empty($number_protocol)){
                                             $protocol_number = $number_protocol;
-                                            //$date_protocol = date('d.m.Y', $compliance->date_compliance);
                                         }
                                         else{
                                             $protocol_number = null;
@@ -222,7 +257,6 @@
                                     </div>
                                     <div class="col-md-3">
                                         <?php
-
                                         if(isset($date_protocol) && !empty($date_protocol)){
                                             $protocol_date = $date_protocol;
                                         }
@@ -242,6 +276,7 @@
                                 </div>
                             {!! Form::close() !!}
                         </div>
+                        @endif
                     @endif
                 </div>
             </div>
@@ -355,7 +390,12 @@
                             @if($compliance->number_protocol == 0)
                                 Няма издаден Констативен протокол.
                             @else
-                                Констативен протокол<span class="bold">"ДА"</span>
+                                <p >
+                                    Има издаден Констативен Протокол с
+                                    Номер: <span class="bold">{{$compliance->number_protocol}}</span> и
+                                    Дата: <span class="bold">{{date('d.m.Y', $compliance->date_protocol)}}</span> г.
+                                    <a href="{!!URL::to('/контрол/протоколи/'.$compliance->protocol_id.'/show')!!}" class="fa fa-binoculars btn btn-info my_btn"> Виж Протокола</a>
+                                </p>
                             @endif
                         @endif
                     </div>

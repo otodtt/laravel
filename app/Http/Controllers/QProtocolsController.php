@@ -200,9 +200,6 @@ class QProtocolsController extends Controller
 
         return view('quality.protocols.index', compact('protocols', 'years', 'year_now', 'inspectors', 'firms',
             'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm'));
-
-//        return view('quality.certificates.domestic.index', compact('certificates', 'firms', 'inspectors', 'years',
-//            'years_start_sort', 'years_end_sort', 'sort_inspector', 'sort_firm', 'year_now'));
     }
 
 
