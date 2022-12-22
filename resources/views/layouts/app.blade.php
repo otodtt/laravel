@@ -47,6 +47,7 @@
                 <li><a href="{!! URL::to('/проби-тор')!!}" class="my_a back_link"> <i class="fa fa-leaf fa-fw brown"></i> Дневник проби от ТОРОВЕ</a></li>
             </ul>
         </li>
+
         <li>
             <a href="{!! '/' !!}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users green_color" aria-hidden="true"></i>
                 &nbsp;Контрол на Употребата &nbsp;<span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
@@ -115,6 +116,22 @@
                 <li><a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър - Услуги</a></li>
             </ul>
         </li>
+
+        <li>
+            <a href="{!! '/' !!}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-info" aria-hidden="true"></i>
+                &nbsp;Полезно &nbsp;<span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <ul class="dropdown-menu" >
+                <li><a href="{!! '/полезно/регламенти' !!}" class="my_a back_link"> <i class="fa fa fa-euro fa-fw blue_colorA"></i> Регламенти</a></li>
+                <li><a href="{!! '/полезно/закони' !!}" class="my_a back_link"> <i class="fa fa fa-balance-scale fa-fw brownА"></i> Закони</a></li>
+                <li><a href="{!! '/полезно/наредби' !!}" class="my_a back_link"> <i class="fa fa fa-gavel fa-fw green_colorA"></i> Наредби</a></li>
+                {{--<li><a href="{!! '/' !!}" class="my_a back_link"> <i class="fa fa fa-male fa-fw brown"></i> Консултански услуги</a></li>--}}
+                <li role="separator" class="divider"></li>
+                <li><a class="text" href="{!! URL::to( '/регистър-въздушни') !!}"><i class="fa fa-file fa-fw control_color"></i> Бланки</a></li>
+                {{--<li><a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър - Услуги</a></li>--}}
+            </ul>
+        </li>
+
     </ul>
     <!-- Right Side Of Navbar -->
     <ul class="nav navbar-nav navbar-right">

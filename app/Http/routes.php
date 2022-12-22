@@ -771,8 +771,6 @@ Route::group(['middleware' => ['auth']], function () {
     /////// КРАЙ ДНЕВНИЦИ
     ////// КРАЙ ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛИ
 
-
-
     /////// ВЪЗДУШНИ
     Route::resource('въздушни', 'AirPermitsController');
     Route::post('въздушни', 'AirPermitsController@index');
@@ -800,6 +798,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('permit/names', 'AirPermitsController@get_name');
     Route::any('permit/firms', 'AirPermitsController@get_firm');
     ///////КРАЙ ВЪЗДУШНИ
+
+
+    /////// ПОЕЗНО
+    Route::get('полезно/регламенти', 'UsefulController@regulations');
+    Route::get('полезно/закони', 'UsefulController@laws');
+    Route::get('полезно/наредби', 'UsefulController@ordinances');
+
+    Route::get('полезно/добави-документ', 'UsefulController@create');
+    Route::post('useful/document/store', 'UsefulController@store');
 });
 
 

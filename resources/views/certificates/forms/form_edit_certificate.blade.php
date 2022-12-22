@@ -12,6 +12,14 @@ if ($certificate->number <= 9) {
 $date_certificate = date('d.m.Y', $certificate->date);
 $date_petition = date('d.m.Y', $certificate->date_petition);
 $date_invoice = date('d.m.Y', $certificate->date_invoice);
+if($certificate->to_date > 0){
+    $date_end = date('d.m.Y', $certificate->to_date);
+}
+else{
+    $date_end = '';
+}
+
+
 if($certificate->sex == 1){
     $male = true;
     $female = false;
@@ -207,6 +215,10 @@ if($certificate->limit_certificate == 2){
                         <label class="labels_limit"><span>&nbsp;&nbsp;С ОГРАНИЧЕН СРОК: </span>
                             {!! Form::radio('limit_certificate', 2, $limit) !!}
                         </label>
+                        &nbsp; | &nbsp;
+                        {!! Form::label('date_end', 'До Дата:', ['class'=>'my_labels hidden', 'id' =>'date_end_label']) !!}
+                        {!! Form::text('date_end', $date_end, ['class'=>'form-control form-control-my date_end hidden',
+                        'id'=>'date_end', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг' ]) !!}
                     </fieldset>
                 </div>
                 <div class="col-md-6 col-md-6_my in_table" >

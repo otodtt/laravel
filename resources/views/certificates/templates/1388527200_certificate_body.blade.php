@@ -1,5 +1,5 @@
 <div class="number_doc_all col-md-12">
-    <div class="img_wrap" style="display: inline-block; width: 5cm" >
+    <div class="img_wrap" style="display: inline-block;" >
         <img id="pic" src="{{ asset($img_src) }}" alt="img">
     </div>
     <div class="col-md-12 row_top" >

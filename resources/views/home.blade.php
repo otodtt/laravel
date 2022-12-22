@@ -183,7 +183,7 @@
                         <h3 class="panel-title">УСЛУГИ</h3>
                     </div>
                     <div class="panel-body">
-                       <div class="row">
+                        <div class="row">
                             <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Разрешения за авиационно третиране</legend>
                                     <a class="my_a back_link" href="{!! URL::to( '/въздушни') !!}"><i class="fa fa fa-plane fa-fw blue_color"></i> Издадени Разрешения</a><br/>
@@ -200,6 +200,41 @@
                             </div>
                             <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Консултантски услуги</legend>
+                                    <div class="row">
+                                        <a class="my_a back_link" href="/"> <i class="fa fa fa-male fa-fw brown"></i>Консултански услуги</a><br/>
+                                        <br/>
+                                        <a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър</a>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">ПОЛЕЗНО</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <fieldset class=""><legend class="">Регламенти</legend>
+                                    <a class="my_a back_link" href="{!! URL::to( '/полезно/регламенти') !!}"><i class="fa fa fa-euro fa-fw blue_colorA"></i> Регламенти</a><br/>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-4">
+                                <fieldset class=""><legend class="">Закони и Наредби</legend>
+                                    <a class="my_a back_link" href="{!! URL::to( '/полезно/закони') !!}"> <i class="fa fa-balance-scale fa-fw brownA"></i> Закони</a><br/>
+                                    <hr style="margin-top: 5px; margin-bottom: 5px"/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/полезно/наредби') !!}"><i class="fa fa-gavel fa-fw green_colorA"></i> Нардби</a><br/>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-4">
+                                <fieldset class=""><legend class="">Бланки</legend>
                                     <div class="row">
                                         <a class="my_a back_link" href="/"> <i class="fa fa fa-male fa-fw brown"></i>Консултански услуги</a><br/>
                                         <br/>

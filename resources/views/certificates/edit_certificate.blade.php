@@ -47,4 +47,41 @@
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/date/in_date.js" )!!}
     {!!Html::script("js/confirm/prevent.js" )!!}
+    <script>
+        $('input[name="limit_certificate"]').on('click', function(){
+            if($('input[name=limit_certificate]:checked').val() == 1){
+                $( "#date_end" ).addClass( "hidden" );
+                $( "#date_end_label" ).addClass( "hidden" );
+            }
+            else if($('input[name=limit_certificate]:checked').val() >= 2){
+                $( "#date_end" ).removeClass( "hidden" );
+                $( "#date_end_label" ).removeClass( "hidden" );
+
+            }
+            else{
+                $( "#date_end" ).addClass( "hidden" );
+                $( "#date_end_label" ).addClass( "hidden" );
+            }
+        });
+
+        if ($("input[name='limit_certificate']").is(':checked')){
+            if($('input[name=limit_certificate]:checked').val() == 1){
+                $( "#date_end" ).addClass( "hidden" );
+                $( "#date_end_label" ).addClass( "hidden" );
+            }
+            else if($('input[name=limit_certificate]:checked').val() >= 2){
+                $( "#date_end" ).removeClass( "hidden" );
+                $( "#date_end_label" ).removeClass( "hidden" );
+
+            }
+            else{
+                $( "#date_end" ).addClass( "hidden" );
+                $( "#date_end_label" ).addClass( "hidden" );
+            }
+        }
+        else{
+            $( "#date_end" ).addClass( "hidden" );
+            $( "#date_end_label" ).addClass( "hidden" );
+        }
+    </script>
 @endsection

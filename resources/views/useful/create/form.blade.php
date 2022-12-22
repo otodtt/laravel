@@ -1,7 +1,33 @@
 <div class="form-group">
-    <label class="col-md-4 control-label">Цялото име</label>
+    <label class="col-md-4 control-label">Избери Вида на Документа</label>
     <div class="col-md-6">
-        {!! Form::text('full_name', null, ['class'=>'form-control', 'placeholder'=>'Проверка на Земеделски Стопанин']) !!}
+{{--        {!! Form::label('place', 'Инспектор:', ['class'=>'my_labels']) !!}--}}
+        <select name="document_type" id="document_type" class="localsID form-control" style=" margin: 5px 0; width: 200px; display: inline-block">
+            <option value="0">-- Избери --</option>
+            <option value="1" {{(old('document_type') == 1)? 'selected':''}}>Регламент / Директива</option>
+            <option value="2" {{(old('document_type') == 2)? 'selected':''}}>Закон</option>
+            <option value="3" {{(old('document_type') == 3)? 'selected':''}}>Наредба</option>
+            <option value="4" {{(old('document_type') == 4)? 'selected':''}}>Бланка</option>
+            {{--@foreach($inspectors as $k=>$inspector)--}}
+                {{--<option value="{{$k}}"--}}
+                        {{--@if (old('inspectors') == null)--}}
+                        {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
+                        {{--@else--}}
+                        {{--{{(old('inspectors') == $k)? 'selected':''}}--}}
+                        {{--@endif--}}
+                        {{--inspector_name="{{$inspector}}"--}}
+                {{-->{{ mb_strtoupper($inspector, 'utf-8') }}--}}
+                {{--</option>--}}
+            {{--@endforeach--}}
+        </select>
+    </div>
+    <br/>
+</div>
+<br/>
+<div class="form-group">
+    <label class="col-md-4 control-label">Цялото име на документа</label>
+    <div class="col-md-6">
+        {!! Form::text('document_name', null, ['class'=>'form-control', 'placeholder'=>'Цялото име']) !!}
     </div>
     <br/>
 </div>
@@ -9,7 +35,7 @@
 <div class="form-group">
     <label class="col-md-4 control-label">Кратко име</label>
     <div class="col-md-6">
-        {!! Form::text('short_name', null, ['class'=>'form-control', 'placeholder'=>'Проверка на ЗС']) !!}
+        {!! Form::text('document_short', null, ['class'=>'form-control', 'placeholder'=>'Кратко име']) !!}
     </div>
     <br/>
 </div>
@@ -18,35 +44,40 @@
     <table class="radio_table">
         <tbody>
             <tr>
-                <td class="buttons_radio"><label class="col-md-4 control-label my_label">Проверки с ДФЗ:</label></td>
-                <td>&nbsp;&nbsp;{!! Form::radio('type_check', 2, false) !!} </td>
+                <td class="buttons_radio"><label class="col-md-4 control-label my_label">Всички</label></td>
+                <td>&nbsp;&nbsp;{!! Form::radio('document_for', 0, false) !!} </td>
             </tr>
             <tr>
-                <td class="buttons_radio"><label class="col-md-4 control-label my_label">Държавни помощи:</label></td>
-                <td>&nbsp;&nbsp;{!! Form::radio('type_check', 3, false) !!}</td>
+                <td class="buttons_radio"><label class="col-md-4 control-label my_label">Контрол</label></td>
+                <td>&nbsp;&nbsp;{!! Form::radio('document_for', 1, false) !!}</td>
             </tr>
             <tr>
-                <td class="buttons_radio"><label class="col-md-4 control-label my_label">Друго:</label></td>
-                <td>&nbsp;&nbsp;{!! Form::radio('type_check', 1, false) !!}</td>
+                <td class="buttons_radio"><label class="col-md-4 control-label my_label">ФСК</label></td>
+                <td>&nbsp;&nbsp;{!! Form::radio('document_for', 2, false) !!}</td>
+            </tr>
+            <tr>
+                <td class="buttons_radio"><label class="col-md-4 control-label my_label">КППЗ</label></td>
+                <td>&nbsp;&nbsp;{!! Form::radio('document_for', 3, false) !!}</td>
             </tr>
         </tbody>
     </table>
 </div>
+
 <div class="radio_description">
     <p class="bold">Задължително избери една от следните възможности!</p>
-    <p>1. Маркирай когато проверките са заедно с ДФЗ!</p>
-    <p>2. Маркирай когато проверките са по държавни плащания!</p>
+    <p>В кой отдел ще се ползва документа</p>
 </div>
-
+<hr/>
 <div class="form-group">
     <br/>
-    {!! Form::label('new', 'Да се показва?', ['class'=>'col-md-4 control-label']) !!}
+    {!! Form::label('new', 'Действаш ли е документа?', ['class'=>'col-md-4 control-label']) !!}
     <div class="col-md-6">
         <label><span>&nbsp;&nbsp;Да: </span>
-            {!! Form::radio('show_check', 1, false) !!}
+            {!! Form::radio('is_active', 1, true) !!}
         </label>
         <label><span>&nbsp;&nbsp;Не: </span>
-            {!! Form::radio('show_check', 0, false) !!}
+            {!! Form::radio('is_active', 0, false) !!}
         </label>
     </div>
 </div>
+<hr/>

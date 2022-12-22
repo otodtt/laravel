@@ -182,6 +182,10 @@ if (isset($last_number[0]['number'])){
                         <label class="labels_limit"><span>&nbsp;&nbsp;С ОГРАНИЧЕН СРОК: </span>
                             {!! Form::radio('limit_certificate', 2) !!}
                         </label>
+                        &nbsp; | &nbsp;
+                        {!! Form::label('date_end', 'До Дата:', ['class'=>'my_labels hidden', 'id' =>'date_end_label']) !!}
+                        {!! Form::text('date_end', null, ['class'=>'form-control form-control-my date_end hidden',
+                        'id'=>'date_end', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг' ]) !!}
                     </fieldset>
                 </div>
                 <div class="col-md-6 col-md-6_my in_table" >

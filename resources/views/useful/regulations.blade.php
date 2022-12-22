@@ -1,12 +1,12 @@
 @extends('layouts.useful')
 @section('title')
-    {{ 'Всички Разрешителни за въздушно третиране' }}
+    {{ 'Регламенти и директиви' }}
 @endsection
 
 @section('css')
+    {!!Html::style("css/firms_objects/firms_all_css.css" )!!}
     {!!Html::style("css/table/jquery.dataTables.css" )!!}
-    {!!Html::style("css/services/table_permits.css" )!!}
-    {!!Html::style("css/certificates/index_certificates.css" )!!}
+    {!!Html::style("css/table/table_firms.css " )!!}
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
 @endsection
 
@@ -15,8 +15,29 @@
 @endsection
 
 @section('content')
-    <h4 class=" title_doc" >ZAKONIII</h4>
-    <hr class="my_hr"/>
+    <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
+        <h4 class="bold layout-title">РЕГЛАМЕНТИ И ДИРЕКТИВИ</h4>
+    </div>
+    <hr/>
+    <div class="btn-group">
+        <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-euro " aria-hidden="true"></i>  Регламенти</span>
+        <a href="{!! URL::to('/полезно/закони')!!}" class="fa fa-balance-scale btn btn-info my_btn"> Закони</a>
+        <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
+        <a href="{!! URL::to('/полезно/Бланки')!!}" class="fa fa-tags btn btn-info my_btn"> Бланки</a>
+    </div>
+    <div class="btn_add_firm">
+        <a href="{!!URL::to('/полезно/добави-документ')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+            Добави Документ
+        </a>
+    </div>
+    {{--<hr/>--}}
+    {{--<div class="btn-group" >--}}
+        {{--<span class="fa fa-arrow-down btn btn-default my_btn"> Сетификати/Внос</span>--}}
+        {{--<a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ</a>--}}
+        {{--<a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-retweet btn btn-info my_btn"> Вътрешни</a>--}}
+    {{--</div>--}}
+    <hr/>
     @if(count($errors)>0)
         <div class="alert alert-danger">
             <ul>
@@ -28,39 +49,33 @@
     @endif
     <fieldset class="form-group">
         <div class="wrap_sort">
-            <div id="wr_choiz_all">
-                <div id="wr_choiz_all" class="col-md-5">
-                    {!! Form::open(array('url'=>'/въздушни', 'method'=>'POST')) !!}
-                        {!! Form::label('years', 'Справка за:', ['class'=>'labels']) !!}
-                        {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ']) !!}
-                        <span class="bold" > година. </span>&nbsp;&nbsp;
-                        {!! Form::submit('Сортирай по година!', ['class'=>'fa btn btn-success my_btn']) !!}
-                        {!!Form::hidden('_token', csrf_token() )!!}
-                    {!! Form::close() !!}
-                </div>
-                <div id="search_wrap" class="col-md-5">
-                    {!! Form::open(array('url'=>'/въздушни/сортирай', 'method'=>'POST')) !!}
-                    @include('services.air.index.sorting')
-                </div>
-                <div class="refresh col-md-2">
-                    <a href="{{ url('/въздушни') }}" class="fa fa-eraser btn btn-primary my_btn right_btn">&nbsp; Изчисти сортирането!</a>
-                </div>
-            </div>
+
         </div>
     </fieldset>
-    <hr class="my_hr"/>
-        @include('services.air.index.alphabet')
-    <div class="btn_add_certificate">
-        <a href="{!!URL::to('/търси-въздушно')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn add_certificate"> Добави НОВО Разрешително</a>
-    </div>
-    <br/>
-    <hr class="my_hr"/>
-    @include('services.air.index.table')
+    <hr/>
+    <ol>
+        @foreach($regulations as $regulation)
+            <li>{{$regulation->document_name}}</li>
+        @endforeach
+    </ol>
+    {{--<div class="btn_add_certificate" style="text-align: right">--}}
+        {{--<a href="{!! URL::to('/контрол/сертификати-внос') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">--}}
+            {{--&nbsp; Изчисти сортирането!--}}
+        {{--</a>--}}
+    {{--</div>--}}
+    {{--<hr/>--}}
+{{--    @include('quality.certificates.includes.table')--}}
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/table/jquery-1.11.3.min.js" )!!}
-    {!!Html::script("js/table/jquery.dataTables.js" )!!}
-    {!!Html::script("js/table/date-de.js" )!!}
-    {!!Html::script("js/table/airTable.js" )!!}
+    {{--{!!Html::script("js/table/jquery-1.11.3.min.js" )!!}--}}
+    {{--{!!Html::script("js/table/jquery.dataTables.js" )!!}--}}
+    {{--{!!Html::script("js/quality/QcertificatesTable.js" )!!}--}}
+
+    {{--{!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}--}}
+    {{--{!!Html::script("js/date/in_date.js" )!!}--}}
+    {{--<script>--}}
+        {{--var selectedVal = $("#years option:selected").val();--}}
+        {{--var getYear = document.getElementById("get_year").value = selectedVal;--}}
+    {{--</script>--}}
 @endsection
