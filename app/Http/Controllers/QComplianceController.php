@@ -112,7 +112,6 @@ class QComplianceController extends Controller
 
     public function sort(Request $request, $start_year = null, $end_year = null, $protocol_sort = null, $inspector_sort = null, $firm_sort = null )
     {
-//        dd($request->all());
         $inspectors = User::select('id', 'short_name')
             ->where('active', '=', 1)
             ->where('ppz','=', 1)

@@ -54,12 +54,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="alert alert-success alert-dismissible">
-                        <p class="description_alert"><span class="red">ВНИМАНИЕ!</span> Тук се описват всички проверки на ЗС за които се издава Констативен Протокол!<br/>
-                        <p class="description_alert"><span class="red">ВНИМАНИЕ!</span> Не се описват проверките на Агроаптеките и Нерегламентираните обекти<br/>
-                            1. Изпиши пълното име на Проверката!<br/>
-                            2. Изпиши съкратено име!<br/>
-
-                        </p>
+                        <p class="description_alert"><span class="red">ВНИМАНИЕ!</span> Тук се описват всички необходими Документи и бланки!</p>
                     </div>
                     <div class="panel-body">
                         @if(count($errors)>0)

@@ -20,6 +20,6 @@ class Useful extends Model
      * @var array
      */
     protected $fillable = ['document_type', 'document_name', 'document_path', 'document_for', 'document_short',
-                            'is_active',  'created_by', 'updated_by', 'date_create', 'date_update'];
+                           'filename', 'is_active',  'created_by', 'updated_by', 'date_create', 'date_update'];
 
 }

@@ -24,7 +24,7 @@ class UsefulController extends Controller
     {
         $regulations = Useful::select()->where('document_type','=', 1)->where('is_active','=', 1)->get();
 //        dd($regulations);
-//        return view('services.useful.regulations', compact('permits', 'alphabet','abc', 'inspectors', 'year_now', 'years'));
+
         return view('useful.regulations', compact( 'regulations'));
     }
 
@@ -80,6 +80,7 @@ class UsefulController extends Controller
             'document_name' => $request->document_name,
             'document_short' => $request->document_short,
             'document_path' => $destinationPath,
+            'filename' => $filename,
             'document_for' => $request->document_for,
             'is_active' => $request->is_active,
             'date_create' => date('d.m.Y', time()),
@@ -128,7 +129,8 @@ class UsefulController extends Controller
      */
     public function edit($id)
     {
-        //
+        $document = Useful::FindOrFail($id);
+        return view('useful.edit.edit', compact( 'document'));
     }
 
     /**
@@ -140,7 +142,99 @@ class UsefulController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+//        dd($request->all());
+        $this->validate($request,
+            [
+                'document_type' => 'required|not_in:0',
+                'document_name' => 'required|min:3|max:500',
+                'document_short' => 'min:3|max:300',
+                'document_for' => 'required',
+                'is_active' => 'required',
+            ],
+            [
+                'blade.required' => 'Избери файл!',
+                'document_type.required'=>'Задължително избери вида на документа!',
+                'document_type.not_in'=>'Задължително избери вида на документа!',
+
+                'document_name.required' => 'Попълни името на документа!',
+                'document_name.min' => 'Минимален брой символи за името - 3!',
+                'document_name.max' => 'Максимален брой символи за името - 500!',
+
+                'document_short.min' => 'Минимален брой символи за краткото име - 3!',
+                'document_short.max' => 'Максимален брой символи за краткото име - 300!',
+
+                'document_for.required'=>'Задължително избери за кого се отнася документа!',
+            ]);
+
+        $document = Useful::findOrFail($id);
+        $message_del = '';
+
+        $destinationPath = base_path('public'.DIRECTORY_SEPARATOR.'documents'.DIRECTORY_SEPARATOR); // upload path
+
+        if(Input::file('blade') != null ) {
+            $file = Input::file('blade');
+            $filename = $file->getClientOriginalName();
+
+            $location_with_name = $destinationPath.$document->filename;
+            if(file_exists($location_with_name)){
+                $delete  = unlink($location_with_name);
+                if($delete){
+//                    Session::flash('message_delete', 'Изтрит е стария файл!');
+                    $message_del = 'Изтрит е стария файл!';
+                }else{
+                    $message_del = 'Стария файл не можа да се изтрие!';
+                }
+            }
+
+            Input::file('blade')->move($destinationPath, $filename); // uploading file to given path
+
+            $data = [
+                'document_type' => $request->document_type,
+                'document_name' => $request->document_name,
+                'document_short' => $request->document_short,
+                'document_path' => $destinationPath,
+                'filename' => $filename,
+                'document_for' => $request->document_for,
+                'is_active' => $request->is_active,
+                'date_update' => date('d.m.Y', time()),
+                'updated_by' => Auth::user()->id,
+            ];
+        }
+        else {
+            $data = [
+                'document_type' => $request->document_type,
+                'document_name' => $request->document_name,
+                'document_short' => $request->document_short,
+                'document_for' => $request->document_for,
+                'is_active' => $request->is_active,
+                'date_update' => date('d.m.Y', time()),
+                'updated_by' => Auth::user()->id,
+            ];
+        }
+
+        $document->fill($data);
+        $document->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        Session::put('message_del', $message_del);
+//        dd($message_del);
+        if($request->document_type == 1) {
+            return Redirect::to('/полезно/регламенти');
+//            return redirect('/полезно/регламенти')->with(['errors' => $message_del]);
+        }
+        elseif($request->document_type == 2){
+            return Redirect::to('/полезно/закони');
+        }
+        elseif($request->document_type == 3){
+            return Redirect::to('/полезно/наредби');
+        }
+        elseif($request->document_type == 4){
+            return Redirect::to('/полезно/бланки');
+        }
+        else {
+            return Redirect::to('/полезно/регламенти');
+        }
+
     }
 
     /**

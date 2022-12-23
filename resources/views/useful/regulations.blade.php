@@ -26,11 +26,13 @@
         <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
         <a href="{!! URL::to('/полезно/Бланки')!!}" class="fa fa-tags btn btn-info my_btn"> Бланки</a>
     </div>
+    @if(Auth::user()->admin == 2 )
     <div class="btn_add_firm">
         <a href="{!!URL::to('/полезно/добави-документ')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
             Добави Документ
         </a>
     </div>
+    @endif
     {{--<hr/>--}}
     {{--<div class="btn-group" >--}}
         {{--<span class="fa fa-arrow-down btn btn-default my_btn"> Сетификати/Внос</span>--}}
@@ -53,18 +55,41 @@
         </div>
     </fieldset>
     <hr/>
-    <ol>
-        @foreach($regulations as $regulation)
-            <li>{{$regulation->document_name}}</li>
-        @endforeach
-    </ol>
-    {{--<div class="btn_add_certificate" style="text-align: right">--}}
-        {{--<a href="{!! URL::to('/контрол/сертификати-внос') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">--}}
-            {{--&nbsp; Изчисти сортирането!--}}
-        {{--</a>--}}
-    {{--</div>--}}
+    <h3 style="text-align: center; margin: 20px 0">ЕВРОПЕЙСКО ЗАКОНОДАТЕЛСТВО</h3>
+    <hr/>
+    <div class="row" style="">
+        <div class="col-lg-12">
+            <table>
+                <tbody>
+                <?php $n = 1; ?>
+                @foreach($regulations as $regulation)
+                    <tr style="border-bottom: 1px solid rgba(0, 0, 0, 0.45);">
+                        <td style="padding: 10px"><?= $n++ ?></td>
+                        <td>{{$regulation->document_name}}</td>
+                        <td>
+                            <a href="{{$regulation->document_path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" download="{{$regulation->filename}}">
+                                <i class="btn btn-default btn-sm fa fa-download" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                        @if(Auth::user()->admin == 2 )
+                            <td>
+                                <a href="{!! URL::to('/полезно/редактирай-документ/'.$regulation->id)!!}" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{!! URL::to('/полезно/редактирай-документ')!!}"  class="btn btn-danger btn-sm">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        @endif
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
     {{--<hr/>--}}
-{{--    @include('quality.certificates.includes.table')--}}
 @endsection
 
 @section('scripts')

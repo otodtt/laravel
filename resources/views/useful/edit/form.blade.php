@@ -4,10 +4,10 @@
 {{--        {!! Form::label('place', 'Инспектор:', ['class'=>'my_labels']) !!}--}}
         <select name="document_type" id="document_type" class="localsID form-control" style=" margin: 5px 0; width: 200px; display: inline-block">
             <option value="0">-- Избери --</option>
-            <option value="1" {{(old('document_type') == 1)? 'selected':''}}>Регламент / Директива</option>
-            <option value="2" {{(old('document_type') == 2)? 'selected':''}}>Закон</option>
-            <option value="3" {{(old('document_type') == 3)? 'selected':''}}>Наредба</option>
-            <option value="4" {{(old('document_type') == 4)? 'selected':''}}>Бланка</option>
+            <option value="1" {{(old('document_type') == 1 || $document->document_type == 1)? 'selected':''}}>Регламент / Директива</option>
+            <option value="2" {{(old('document_type') == 2 || $document->document_type == 2)? 'selected':''}}>Закон</option>
+            <option value="3" {{(old('document_type') == 3 || $document->document_type == 3)? 'selected':''}}>Наредба</option>
+            <option value="4" {{(old('document_type') == 4 || $document->document_type == 4)? 'selected':''}}>Бланка</option>
         </select>
     </div>
     <br/>

@@ -8,17 +8,6 @@
             <option value="2" {{(old('document_type') == 2)? 'selected':''}}>Закон</option>
             <option value="3" {{(old('document_type') == 3)? 'selected':''}}>Наредба</option>
             <option value="4" {{(old('document_type') == 4)? 'selected':''}}>Бланка</option>
-            {{--@foreach($inspectors as $k=>$inspector)--}}
-                {{--<option value="{{$k}}"--}}
-                        {{--@if (old('inspectors') == null)--}}
-                        {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
-                        {{--@else--}}
-                        {{--{{(old('inspectors') == $k)? 'selected':''}}--}}
-                        {{--@endif--}}
-                        {{--inspector_name="{{$inspector}}"--}}
-                {{-->{{ mb_strtoupper($inspector, 'utf-8') }}--}}
-                {{--</option>--}}
-            {{--@endforeach--}}
         </select>
     </div>
     <br/>

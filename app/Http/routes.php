@@ -807,6 +807,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('полезно/добави-документ', 'UsefulController@create');
     Route::post('useful/document/store', 'UsefulController@store');
+
+    Route::get('полезно/редактирай-документ/{id}', 'UsefulController@edit');
+    Route::post('useful/document/update/{id}', 'UsefulController@update');
 });
 
 

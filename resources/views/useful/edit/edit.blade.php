@@ -1,6 +1,6 @@
 @extends('layouts.useful')
 @section('title')
-    {{ 'Добавяне на документ' }}
+    {{ 'Редактиране на документ' }}
 @endsection
 
 @section('css')
@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">ДОБАВЯНЕ НА ДОКУМЕНТ</h4>
+        <h4 class="bold layout-title">РЕДАКТИРАНЕ НА ДОКУМЕНТ</h4>
     </div>
     <hr/>
     <div class="btn-group">
@@ -54,15 +54,17 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="alert alert-success alert-dismissible">
-                        <p class="description_alert"><span class="red">ВНИМАНИЕ!</span> Тук се описват всички проверки на ЗС за които се издава Констативен Протокол!<br/>
-                        <p class="description_alert"><span class="red">ВНИМАНИЕ!</span> Не се описват проверките на Агроаптеките и Нерегламентираните обекти<br/>
-                            1. Изпиши пълното име на Проверката!<br/>
-                            2. Изпиши съкратено име!<br/>
-
-                        </p>
+                        <p class="description_alert"><span class="red">ВНИМАНИЕ!</span> Тук се описват всички необходими Документи и бланки!</p>
                     </div>
                     <div class="panel-body">
+
                         @if(count($errors)>0)
+                            <?php print_r($message_del) ?>
+{{--                            @if(isset($message_del) && strlen($message_del) > 0)--}}
+                                {{--@foreach($message_del as $message)--}}
+                                    <li>{{ $message_del  }}</li>
+                                {{--@endforeach--}}
+                            {{--@endif--}}
                             <div class="alert alert-danger">
                                 <ul>
                                     @foreach($errors->all() as $error)
@@ -72,9 +74,9 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['url'=>'useful/document/store', 'method'=>'POST', 'id'=>'form', 'files'=>true]) !!}
+                        {!! Form::model($document, ['url'=>'useful/document/update/'.$document->id, 'method'=>'POST', 'id'=>'form', 'files'=>true]) !!}
 
-                            @include('useful.create.form')
+                            @include('useful.edit.form')
                             <br/>
                             <div class="form-group">
                                 <label class="col-md-5 control-label">Избери файл</label>&nbsp;&nbsp;
@@ -86,7 +88,7 @@
                             <br/>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">Добави!</button>
+                                    <button type="submit" class="btn btn-primary">Редактирай!</button>
                                 </div>
                             </div>
                         {!! Form::close() !!}
