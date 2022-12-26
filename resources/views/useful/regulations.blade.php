@@ -67,7 +67,8 @@
                         <td style="padding: 10px"><?= $n++ ?></td>
                         <td>{{$regulation->document_name}}</td>
                         <td>
-                            <a href="{{$regulation->document_path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" download="{{$regulation->filename}}">
+                            {{-- <a href="{{$regulation->document_path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" download="{{$regulation->filename}}"> --}}
+                            <a href="{{$path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" download="{{$regulation->filename}}">
                                 <i class="btn btn-default btn-sm fa fa-download" aria-hidden="true"></i>
                             </a>
                         </td>

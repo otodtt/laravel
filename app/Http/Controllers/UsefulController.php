@@ -14,6 +14,12 @@ use Session;
 
 class UsefulController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->path = '../../../public/documents/';
+    }
 
     /**
      * Display a listing of the resource.
@@ -22,10 +28,10 @@ class UsefulController extends Controller
      */
     public function regulations()
     {
+        $path =  $this->path;
         $regulations = Useful::select()->where('document_type','=', 1)->where('is_active','=', 1)->get();
-//        dd($regulations);
 
-        return view('useful.regulations', compact( 'regulations'));
+        return view('useful.regulations', compact( 'regulations', 'path'));
     }
 
     /**
@@ -71,6 +77,8 @@ class UsefulController extends Controller
             ]);
 
         $destinationPath = base_path('public'.DIRECTORY_SEPARATOR.'documents'.DIRECTORY_SEPARATOR); // upload path
+        // $path = 'public'.DIRECTORY_SEPARATOR.'documents'.DIRECTORY_SEPARATOR;
+        // dd($path);
 
         $file = Input::file('blade');
         $filename = $file->getClientOriginalName();
@@ -142,7 +150,6 @@ class UsefulController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        dd($request->all());
         $this->validate($request,
             [
                 'document_type' => 'required|not_in:0',
@@ -176,10 +183,10 @@ class UsefulController extends Controller
             $filename = $file->getClientOriginalName();
 
             $location_with_name = $destinationPath.$document->filename;
+
             if(file_exists($location_with_name)){
                 $delete  = unlink($location_with_name);
                 if($delete){
-//                    Session::flash('message_delete', 'Изтрит е стария файл!');
                     $message_del = 'Изтрит е стария файл!';
                 }else{
                     $message_del = 'Стария файл не можа да се изтрие!';
@@ -217,10 +224,9 @@ class UsefulController extends Controller
 
         Session::flash('message', 'Записа е успешен!');
         Session::put('message_del', $message_del);
-//        dd($message_del);
+        
         if($request->document_type == 1) {
             return Redirect::to('/полезно/регламенти');
-//            return redirect('/полезно/регламенти')->with(['errors' => $message_del]);
         }
         elseif($request->document_type == 2){
             return Redirect::to('/полезно/закони');
