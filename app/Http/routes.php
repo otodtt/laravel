@@ -800,16 +800,25 @@ Route::group(['middleware' => ['auth']], function () {
     ///////КРАЙ ВЪЗДУШНИ
 
 
-    /////// ПОЕЗНО
+    /////// ПОЛЕЗНО
     Route::get('полезно/регламенти', 'UsefulController@regulations');
     Route::get('полезно/закони', 'UsefulController@laws');
     Route::get('полезно/наредби', 'UsefulController@ordinances');
+
+    Route::get('полезно/заявления', 'UsefulController@applications');
+    Route::get('полезно/декларации', 'UsefulController@declarations');
+    Route::get('полезно/въздушни', 'UsefulController@aerial');
+    Route::get('полезно/други', 'UsefulController@others');
+    // Route::get('полезно/неактивни', 'UsefulController@not_active');
 
     Route::get('полезно/добави-документ', 'UsefulController@create');
     Route::post('useful/document/store', 'UsefulController@store');
 
     Route::get('полезно/редактирай-документ/{id}', 'UsefulController@edit');
     Route::post('useful/document/update/{id}', 'UsefulController@update');
+
+    /////// Изтриване
+    Route::post('useful/document/destroy/{id}', 'UsefulController@destroy');
 });
 
 

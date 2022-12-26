@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">РЕГЛАМЕНТИ И ДИРЕКТИВИ</h4>
+        <h4 class="bold layout-title">ЕВРОПЕЙСКО ЗАКОНОДАТЕЛСТВО</h4>
     </div>
     <hr/>
     <div class="btn-group">
@@ -24,7 +24,11 @@
         <span class="fa  btn btn-default my_btn"><i class="fa fa-euro " aria-hidden="true"></i>  Регламенти</span>
         <a href="{!! URL::to('/полезно/закони')!!}" class="fa fa-balance-scale btn btn-info my_btn"> Закони</a>
         <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
-        <a href="{!! URL::to('/полезно/Бланки')!!}" class="fa fa-tags btn btn-info my_btn"> Бланки</a>
+        <a href="{!! URL::to('/полезно/бланки')!!}" class="fa fa-tags btn btn-info my_btn"> Бланки</a>
+        
+        @if(Auth::user()->admin == 2 )
+            <a href="{!! URL::to('/полезно/неактивни')!!}" class="fa fa-minus btn btn-info my_btn"> Не активни</a>
+        @endif
     </div>
     @if(Auth::user()->admin == 2 )
     <div class="btn_add_firm">
@@ -55,7 +59,7 @@
         </div>
     </fieldset>
     <hr/>
-    <h3 style="text-align: center; margin: 20px 0">ЕВРОПЕЙСКО ЗАКОНОДАТЕЛСТВО</h3>
+    <h3 style="text-align: center; margin: 20px 0">РЕГЛАМЕНТИ И ДИРЕКТИВИ</h3>
     <hr/>
     <div class="row" style="">
         <div class="col-lg-12">
@@ -67,8 +71,7 @@
                         <td style="padding: 10px"><?= $n++ ?></td>
                         <td>{{$regulation->document_name}}</td>
                         <td>
-                            {{-- <a href="{{$regulation->document_path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" download="{{$regulation->filename}}"> --}}
-                            <a href="{{$path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" download="{{$regulation->filename}}">
+                            <a href="{{URL::to('/')}}{{$path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" >
                                 <i class="btn btn-default btn-sm fa fa-download" aria-hidden="true"></i>
                             </a>
                         </td>
@@ -76,11 +79,6 @@
                             <td>
                                 <a href="{!! URL::to('/полезно/редактирай-документ/'.$regulation->id)!!}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-edit" aria-hidden="true"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{!! URL::to('/полезно/редактирай-документ')!!}"  class="btn btn-danger btn-sm">
-                                    <i class="fa fa-minus" aria-hidden="true"></i>
                                 </a>
                             </td>
                         @endif

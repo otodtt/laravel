@@ -18,10 +18,11 @@ class UsefulController extends Controller
     {
         parent::__construct();
 
-        $this->path = '../../../public/documents/';
+        $this->path = '/documents/';
     }
 
-    /**
+    /** РЕГЛАМЕНТИ
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -32,6 +33,65 @@ class UsefulController extends Controller
         $regulations = Useful::select()->where('document_type','=', 1)->where('is_active','=', 1)->get();
 
         return view('useful.regulations', compact( 'regulations', 'path'));
+    }
+
+    /** ЗАКОНИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function laws()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 2)->where('is_active','=', 1)->get();
+
+        return view('useful.laws', compact( 'regulations', 'path'));
+    }
+
+    /** НАРЕДБИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ordinances()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 3)->where('document_for','=', 0)->where('is_active','=', 1)->get();
+        $controls = Useful::select()->where('document_type','=', 3)->where('document_for','=', 1)->where('is_active','=', 1)->get();
+        $fsc = Useful::select()->where('document_type','=', 3)->where('document_for','=', 2)->where('is_active','=', 1)->get();
+        $quality = Useful::select()->where('document_type','=', 3)->where('document_for','=', 3)->where('is_active','=', 1)->get();
+
+        return view('useful.ordinances', compact( 'regulations', 'controls', 'fsc', 'quality', 'path'));
+    }
+
+    /** БЛАНКИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function applications()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 1)->where('is_active','=', 1)->get();
+
+        return view('useful.regulations', compact( 'regulations', 'path'));
+    }
+
+    /** НЕ АКТИВНИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function not_active()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 1)->where('is_active','=', 0)->get();
+
+        return view('useful.active', compact( 'regulations', 'path'));
     }
 
     /**
@@ -77,8 +137,6 @@ class UsefulController extends Controller
             ]);
 
         $destinationPath = base_path('public'.DIRECTORY_SEPARATOR.'documents'.DIRECTORY_SEPARATOR); // upload path
-        // $path = 'public'.DIRECTORY_SEPARATOR.'documents'.DIRECTORY_SEPARATOR;
-        // dd($path);
 
         $file = Input::file('blade');
         $filename = $file->getClientOriginalName();
@@ -251,6 +309,10 @@ class UsefulController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $document = Useful::FindOrFail($id);
+        $document->delete();
+
+        Session::flash('message', 'Документът е изтрит успешно!');
+        return Redirect::to('/полезно/неактивни');
     }
 }

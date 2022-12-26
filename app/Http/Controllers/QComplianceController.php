@@ -241,7 +241,7 @@ class QComplianceController extends Controller
             $sort_sql = '';
         }
 
-//        dd($sort_protocol);
+        
         $compliances = DB::select("SELECT * FROM qcompliances WHERE id >0 $years_sql $inspector_sql $firm_sql $sort_sql ORDER BY id DESC");
 
 
