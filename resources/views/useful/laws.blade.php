@@ -24,7 +24,7 @@
         <a href="{!! URL::to('/полезно/регламенти')!!}" class="fa fa-euro btn btn-info my_btn"> Регламенти</a>
         <span class="fa  btn btn-default my_btn"><i class="fa fa-balance-scale" aria-hidden="true"></i>  Закони</span>
         <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
-        <a href="{!! URL::to('/полезно/бланки')!!}" class="fa fa-tags btn btn-info my_btn"> Бланки</a>
+        <a href="{!! URL::to('/полезно/заявления')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Бланки</a>
         
         @if(Auth::user()->admin == 2 )
             <a href="{!! URL::to('/полезно/неактивни')!!}" class="fa fa-minus btn btn-info my_btn"> Не активни</a>
@@ -86,14 +86,4 @@
 @endsection
 
 @section('scripts')
-    {{--{!!Html::script("js/table/jquery-1.11.3.min.js" )!!}--}}
-    {{--{!!Html::script("js/table/jquery.dataTables.js" )!!}--}}
-    {{--{!!Html::script("js/quality/QcertificatesTable.js" )!!}--}}
-
-    {{--{!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}--}}
-    {{--{!!Html::script("js/date/in_date.js" )!!}--}}
-    {{--<script>--}}
-        {{--var selectedVal = $("#years option:selected").val();--}}
-        {{--var getYear = document.getElementById("get_year").value = selectedVal;--}}
-    {{--</script>--}}
 @endsection

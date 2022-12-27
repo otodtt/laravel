@@ -1,6 +1,6 @@
 @extends('layouts.useful')
 @section('title')
-    {{ 'Регламенти и директиви' }}
+    {{ 'Въздушни' }}
 @endsection
 
 @section('css')
@@ -16,16 +16,15 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">ЕВРОПЕЙСКО ЗАКОНОДАТЕЛСТВО</h4>
+        <h4 class="bold layout-title">НЕОБХОДИМИ ДОКУМЕНТИ И БЛАНКИ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-euro " aria-hidden="true"></i>  Регламенти</span>
+        <a href="{!! URL::to('/полезно/регламенти')!!}" class="fa fa-tags btn btn-info my_btn"> Регламенти</a>
         <a href="{!! URL::to('/полезно/закони')!!}" class="fa fa-balance-scale btn btn-info my_btn"> Закони</a>
         <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
-        <a href="{!! URL::to('/полезно/заявления')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Бланки</a>
-        
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Бланки</span>
         @if(Auth::user()->admin == 2 )
             <a href="{!! URL::to('/полезно/неактивни')!!}" class="fa fa-minus btn btn-info my_btn"> Не активни</a>
         @endif
@@ -37,12 +36,14 @@
         </a>
     </div>
     @endif
-    {{--<hr/>--}}
-    {{--<div class="btn-group" >--}}
-        {{--<span class="fa fa-arrow-down btn btn-default my_btn"> Сетификати/Внос</span>--}}
-        {{--<a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ</a>--}}
-        {{--<a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-retweet btn btn-info my_btn"> Вътрешни</a>--}}
-    {{--</div>--}}
+    <hr/>
+    <div class="btn-group" >
+        <a href="{!! URL::to('/полезно/заявления')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Заявления</a>
+        <a href="{!! URL::to('/полезно/декларации')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Декларации</a>
+        <span class="fa fa-pencil-square-o btn btn-default my_btn"> Въздушни</span>
+        <a href="{!! URL::to('/полезно/процедури')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Процедури</a>
+        <a href="{!! URL::to('/полезно/други')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Други</a>
+    </div>
     <hr/>
     @if(count($errors)>0)
         <div class="alert alert-danger">
@@ -59,7 +60,7 @@
         </div>
     </fieldset>
     <hr/>
-    <h3 style="text-align: center; margin: 20px 0">РЕГЛАМЕНТИ И ДИРЕКТИВИ</h3>
+    <h3 style="text-align: center; margin: 20px 0">ВЪЗДУШНИ</h3>
     <hr/>
     <div class="row" style="">
         <div class="col-lg-12">

@@ -1,6 +1,6 @@
 @extends('layouts.useful')
 @section('title')
-    {{ 'Наредби' }}
+    {{ 'Процедури' }}
 @endsection
 
 @section('css')
@@ -16,15 +16,17 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">БЪЛГАРСКО ЗАКОНОДАТЕЛСТВО</h4>
+        <h4 class="bold layout-title">НЕОБХОДИМИ ДОКУМЕНТИ И БЛАНКИ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         <a href="{!! URL::to('/полезно/регламенти')!!}" class="fa fa-euro btn btn-info my_btn"> Регламенти</a>
         <a href="{!! URL::to('/полезно/закони')!!}" class="fa fa-balance-scale btn btn-info my_btn"> Закони</a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-gavel" aria-hidden="true"></i>  Наредби</span>
-        <a href="{!! URL::to('/полезно/заявления')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Бланки</a>
+        
+        <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
+
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Бланки</span>
         
         @if(Auth::user()->admin == 2 )
             <a href="{!! URL::to('/полезно/неактивни')!!}" class="fa fa-minus btn btn-info my_btn"> Не активни</a>
@@ -37,6 +39,14 @@
         </a>
     </div>
     @endif
+    <hr/>
+    <div class="btn-group" >
+        <a href="{!! URL::to('/полезно/заявления')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Заявления</a>
+        <a href="{!! URL::to('/полезно/декларации')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Декларации</a>
+        <a href="{!! URL::to('/полезно/въздушни')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Въздушни</a>
+        <span class="fa fa-pencil-square-o btn btn-default my_btn"> Процедури</span>
+        <a href="{!! URL::to('/полезно/други')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Други</a>
+    </div>
     <hr/>
     @if(count($errors)>0)
         <div class="alert alert-danger">
@@ -53,13 +63,13 @@
         </div>
     </fieldset>
     <hr/>
-    <h3 style="text-align: center; margin: 20px 0">НАРЕДБИ</h3>
+    <h3 style="text-align: center; margin: 20px 0">ПРОЦЕДУРИ (СОП)</h3>
     <hr/>
     {{-- ВСИЧКИ --}}
     @if(count($regulations) !== 0)
         <div class="row" style="margin-top:20px">
             <div class="col-lg-12">
-                <h3 style="text-align: left">Наредби касаещи всички отдели</h3>
+                <h3 style="text-align: left">Процедури касаещи всички отдели</h3>
                 <table>
                     <tbody>
                     <?php $n = 1; ?>
@@ -92,7 +102,7 @@
         {{-- <hr/> --}}
         <div class="row" style="margin-top:20px">
             <div class="col-lg-12">
-                <h3>Наредби касаещи контрола</h3>
+                <h3>Процедури касаещи контрола</h3>
                 <table>
                     <tbody>
                     <?php $n = 1; ?>
@@ -126,7 +136,7 @@
         {{-- <hr/> --}}
         <div class="row" style="margin-top:20px">
             <div class="col-lg-12">
-                <h3>Наредби касаещи ФСК</h3>
+                <h3>Процедури касаещи ФСК</h3>
                 <table>
                     <tbody>
                     <?php $n = 1; ?>
@@ -160,7 +170,7 @@
         {{-- <hr/> --}}
         <div class="row" style="margin-top:20px">
             <div class="col-lg-12">
-                <h3>Наредби касаещи КППЗ</h3>
+                <h3>Процедури касаещи КППЗ</h3>
                 <table>
                     <tbody>
                     <?php $n = 1; ?>

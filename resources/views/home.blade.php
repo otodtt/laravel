@@ -125,9 +125,6 @@
                                     <hr style="margin-bottom: 5px; margin-top: 5px"/>
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/протоколи') !!}"> <i class="fa fa-file-powerpoint-o fa-fw " style="color: #347bb7;"></i> Констативни Протоколи</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/формуляри') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Формуляри за съответствие</a><br/>
-                                    {{-- <a class="my_a back_link" href="{!! URL::to( '/контрол/вносители') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
-                                    <a class="my_a back_link" href="{!! URL::to( '/контрол/култури/внос') !!}"><i class="fa fa-leaf fa-fw green_color"></i> Всички култури</a><br/> --}}
-                                    {{--<a class="my_a back_link" href="{!! URL::to( '/test') !!}"><i class="fa fa-cubes fa-fw green_color"></i> ТЕСТ</a>--}}
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">
@@ -138,14 +135,8 @@
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/вносители') !!}"><i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/стоки/внос') !!}"><i class="fa fa-tags fa-fw"></i> Стоки</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/култури') !!}"><i class="fa fa-leaf fa-fw green_color"></i> Култури</a><br/>
-                                            {{-- <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи Контрол на Пазара</a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa-object-ungroup fa-fw control_color"></i> Протоколи Нерегламентирани Обекти</a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/и') !!}"><i class="fa fa-external-link fa-fw control_color"></i> Протоколи в други Области </a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa-industry fa-fw control_color"></i> Протоколи Производители на ПРЗ</a><br/> --}}
                                             <br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
-                                            {{--<a class="my_a back_link " href="{!! URL::to( '/') !!}" style="float: right; margin-right: 10px"> <i class="fa fa-flask fa-fw brown"></i> Дневник взети проби от ПРЗ </a>--}}
-
                                         </div>
                                     </div>
                                 </fieldset>
@@ -222,23 +213,24 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-4">
-                                <fieldset class=""><legend class="">Регламенти</legend>
+                                <fieldset class=""><legend class="">Регламенти, Закони и Наредби</legend>
                                     <a class="my_a back_link" href="{!! URL::to( '/полезно/регламенти') !!}"><i class="fa fa fa-euro fa-fw blue_colorA"></i> Регламенти</a><br/>
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-4">
-                                <fieldset class=""><legend class="">Закони и Наредби</legend>
                                     <a class="my_a back_link" href="{!! URL::to( '/полезно/закони') !!}"> <i class="fa fa-balance-scale fa-fw brownA"></i> Закони</a><br/>
-                                    <hr style="margin-top: 5px; margin-bottom: 5px"/>
                                     <a class="my_a back_link" href="{!! URL::to( '/полезно/наредби') !!}"><i class="fa fa-gavel fa-fw green_colorA"></i> Нардби</a><br/>
                                 </fieldset>
                             </div>
                             <div class="col-lg-4">
-                                <fieldset class=""><legend class="">Бланки</legend>
+                                <fieldset class=""><legend class="">Необходими документи и бланки</legend>
+                                    <a class="my_a back_link" href="{!! URL::to( '/полезно/заявления') !!}"> <i class="fa fa-pencil-square-o fa-fw brownA"></i> Заявления</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/полезно/декларации') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Декларации</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/полезно/въздушни') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Въздушни</a><br/>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-4">
+                                <fieldset class=""><legend class="">Процедури и други</legend>
                                     <div class="row">
-                                        <a class="my_a back_link" href="/"> <i class="fa fa fa-male fa-fw brown"></i>Консултански услуги</a><br/>
-                                        <br/>
-                                        <a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър</a>
+                                        <a class="my_a back_link" href="{!! URL::to( '/полезно/процедури') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Процедури</a><br/>
+                                        <a class="my_a back_link" href="{!! URL::to( '/полезно/други') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Други</a><br/>
                                     </div>
                                 </fieldset>
                             </div>

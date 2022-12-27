@@ -33,15 +33,11 @@
                 <li><a href="{!! URL::to( '/полезно/наредби') !!}" class="my_a back_link"> <i class="fa fa-gavel fa-fw "></i> Наредби</a></li>
 
                 <li role="separator" class="divider"></li>
-                <li><a class="my_a back_link" href="{!! URL::to( 'контрол/протоколи') !!}"> <i class="fa fa-file-powerpoint-o fa-fw " style="color: #347bb7;"></i> Бланки</a></li>
-                <li><a class="my_a back_link" href="{!! URL::to( 'контрол/формуляри') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Заявления</a></li>
-
-                {{--<li role="separator" class="divider"></li>--}}
-                {{--<li ><a href="{!! URL::to( '/контрол/фактури') !!}" class="my_a back_link"> <i class="fa fa-files-o fa-fw  "></i> Издадени фактури</a></li>--}}
-                {{--<li ><a href="{!! URL::to( '/контрол/вносители') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>--}}
-                {{--<li><a href="{!! URL::to('/контрол/стоки/внос')!!}" class="my_a back_link"> <i class="fa fa-tags fa-fw "></i> Стоки</a></li>--}}
-                {{--<li><a href="{!! URL::to('/контрол/култури')!!}" class="my_a back_link"> <i class="fa fa-leaf fa-fw green_color"></i> Култури</a></li>--}}
-
+                <li><a class="my_a back_link" href="{!! URL::to( 'полезно/заявления') !!}"><i class="fa fa-pencil-square-o fa-fw "></i> Заявления</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( 'полезно/декларации') !!}"> <i class="fa fa-pencil-square-o fa-fw "></i> Декларации</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( 'полезно/въздушни') !!}"> <i class="fa fa-pencil-square-o fa-fw "></i> Въздушни</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( 'полезно/процедури') !!}"> <i class="fa fa-pencil-square-o fa-fw "></i> Процедури</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( 'полезно/други') !!}"> <i class="fa fa-pencil-square-o fa-fw "></i> Други</a></li>
             </ul>
         </li>
     </ul>

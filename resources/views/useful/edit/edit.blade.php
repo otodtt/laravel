@@ -28,7 +28,7 @@
         <a href="{!! URL::to('/полезно/регламенти')!!}" class="fa fa-euro btn btn-info my_btn"> Регламенти</a>
         <a href="{!! URL::to('/полезно/закони')!!}" class="fa fa-balance-scale btn btn-info my_btn"> Закони</a>
         <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
-        <a href="{!! URL::to('/полезно/Бланки')!!}" class="fa fa-tags btn btn-info my_btn"> Бланки</a>
+        <a href="{!! URL::to('/полезно/Бланки')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Бланки</a>
     </div>
     {{--<div class="btn_add_firm">--}}
         {{--<a href="{!!URL::to('/полезно/добави-документ')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">--}}

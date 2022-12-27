@@ -66,7 +66,7 @@ class UsefulController extends Controller
         return view('useful.ordinances', compact( 'regulations', 'controls', 'fsc', 'quality', 'path'));
     }
 
-    /** БЛАНКИ
+    /** ЗАЯВЛЕНИЯ
      * 
      * Display a listing of the resource.
      *
@@ -75,10 +75,76 @@ class UsefulController extends Controller
     public function applications()
     {
         $path =  $this->path;
-        $regulations = Useful::select()->where('document_type','=', 1)->where('is_active','=', 1)->get();
+        $regulations = Useful::select()->where('document_type','=', 4)->where('document_for','=', 0)->where('is_active','=', 1)->get();
+        $controls = Useful::select()->where('document_type','=', 4)->where('document_for','=', 1)->where('is_active','=', 1)->get();
+        $fsc = Useful::select()->where('document_type','=', 4)->where('document_for','=', 2)->where('is_active','=', 1)->get();
+        $quality = Useful::select()->where('document_type','=', 4)->where('document_for','=', 3)->where('is_active','=', 1)->get();
 
-        return view('useful.regulations', compact( 'regulations', 'path'));
+        return view('useful.applications', compact( 'regulations', 'controls', 'fsc', 'quality', 'path'));
     }
+
+    /** ДЕКЛАРАЦИИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function declarations()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 5)->where('document_for','=', 0)->where('is_active','=', 1)->get();
+        $controls = Useful::select()->where('document_type','=', 5)->where('document_for','=', 1)->where('is_active','=', 1)->get();
+        $fsc = Useful::select()->where('document_type','=', 5)->where('document_for','=', 2)->where('is_active','=', 1)->get();
+        $quality = Useful::select()->where('document_type','=', 5)->where('document_for','=', 3)->where('is_active','=', 1)->get();
+
+        return view('useful.declarations', compact( 'regulations', 'controls', 'fsc', 'quality', 'path'));
+    }
+
+    /** ВЪЗДУШНИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function aerial()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 6)->where('is_active','=', 1)->get();
+
+        return view('useful.aerial', compact( 'regulations', 'path'));
+    }
+
+    /** ПРОЦЕДУРИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function procedures()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 7)->where('document_for','=', 0)->where('is_active','=', 1)->get();
+        $controls = Useful::select()->where('document_type','=', 7)->where('document_for','=', 1)->where('is_active','=', 1)->get();
+        $fsc = Useful::select()->where('document_type','=', 7)->where('document_for','=', 2)->where('is_active','=', 1)->get();
+        $quality = Useful::select()->where('document_type','=', 7)->where('document_for','=', 3)->where('is_active','=', 1)->get();
+
+        return view('useful.procedures', compact( 'regulations', 'controls', 'fsc', 'quality', 'path'));
+    }
+
+    /** ДРУГИ
+     * 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function others()
+    {
+        $path =  $this->path;
+        $regulations = Useful::select()->where('document_type','=', 8)->where('is_active','=', 1)->get();
+
+        return view('useful.others', compact( 'regulations', 'path'));
+    }
+    
 
     /** НЕ АКТИВНИ
      * 
@@ -89,7 +155,9 @@ class UsefulController extends Controller
     public function not_active()
     {
         $path =  $this->path;
-        $regulations = Useful::select()->where('document_type','=', 1)->where('is_active','=', 0)->get();
+        $regulations = Useful::select()->where('document_type','>', 0)->where('is_active','=', 0)->get();
+
+
 
         return view('useful.active', compact( 'regulations', 'path'));
     }
@@ -168,7 +236,19 @@ class UsefulController extends Controller
             return Redirect::to('/полезно/наредби');
         }
         elseif($request->document_type == 4){
-            return Redirect::to('/полезно/бланки');
+            return Redirect::to('/полезно/заявления');
+        }
+        elseif($request->document_type == 5){
+            return Redirect::to('/полезно/декларации');
+        }
+        elseif($request->document_type == 6){
+            return Redirect::to('/полезно/въздушни');
+        }
+        elseif($request->document_type == 7){
+            return Redirect::to('/полезно/процедури');
+        }
+        elseif($request->document_type == 8){
+            return Redirect::to('/полезно/други');
         }
         else {
             return Redirect::to('/полезно/регламенти');
@@ -293,12 +373,23 @@ class UsefulController extends Controller
             return Redirect::to('/полезно/наредби');
         }
         elseif($request->document_type == 4){
-            return Redirect::to('/полезно/бланки');
+            return Redirect::to('/полезно/заявления');
+        }
+        elseif($request->document_type == 5){
+            return Redirect::to('/полезно/декларации');
+        }
+        elseif($request->document_type == 6){
+            return Redirect::to('/полезно/въздушни');
+        }
+        elseif($request->document_type == 7){
+            return Redirect::to('/полезно/процедури');
+        }
+        elseif($request->document_type == 8){
+            return Redirect::to('/полезно/други');
         }
         else {
             return Redirect::to('/полезно/регламенти');
         }
-
     }
 
     /**
@@ -310,6 +401,14 @@ class UsefulController extends Controller
     public function destroy($id)
     {
         $document = Useful::FindOrFail($id);
+        $destinationPath = base_path('public'.DIRECTORY_SEPARATOR.'documents'.DIRECTORY_SEPARATOR); // upload path
+
+        $location_with_name = $destinationPath.$document->filename;
+
+        if(file_exists($location_with_name)){
+            unlink($location_with_name);
+        }
+        
         $document->delete();
 
         Session::flash('message', 'Документът е изтрит успешно!');

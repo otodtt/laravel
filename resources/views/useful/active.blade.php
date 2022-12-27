@@ -1,6 +1,6 @@
 @extends('layouts.useful')
 @section('title')
-    {{ 'Регламенти и директиви' }}
+    {{ 'Не активни' }}
 @endsection
 
 @section('css')
@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">РЕГЛАМЕНТИ И ДИРЕКТИВИ</h4>
+        <h4 class="bold layout-title">ДОКУМЕНТИ И БЛАНКИ</h4>
     </div>
     <hr/>
     <div class="btn-group">
@@ -24,7 +24,7 @@
         <a href="{!! URL::to('/полезно/регламенти')!!}" class="fa fa-euro btn btn-info my_btn"> Регламенти</a>
         <a href="{!! URL::to('/полезно/закони')!!}" class="fa fa-balance-scale btn btn-info my_btn"> Закони</a>
         <a href="{!! URL::to('/полезно/наредби')!!}" class="fa fa-gavel btn btn-info my_btn"> Наредби</a>
-        <a href="{!! URL::to('/полезно/бланки')!!}" class="fa fa-tags btn btn-info my_btn"> Бланки</a>
+        <a href="{!! URL::to('/полезно/заявления')!!}" class="fa fa-pencil-square-o btn btn-info my_btn"> Бланки</a>
         
         @if(Auth::user()->admin == 2 )
             <span class="fa  btn btn-default my_btn"><i class="fa fa-minus " aria-hidden="true"></i>  Не активни</span>
@@ -37,12 +37,6 @@
         </a>
     </div>
     @endif
-    {{--<hr/>--}}
-    {{--<div class="btn-group" >--}}
-        {{--<span class="fa fa-arrow-down btn btn-default my_btn"> Сетификати/Внос</span>--}}
-        {{--<a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ</a>--}}
-        {{--<a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-retweet btn btn-info my_btn"> Вътрешни</a>--}}
-    {{--</div>--}}
     <hr/>
     @if(count($errors)>0)
         <div class="alert alert-danger">
@@ -59,7 +53,7 @@
         </div>
     </fieldset>
     <hr/>
-    <h3 style="text-align: center; margin: 20px 0">НЕАКТИВНИ ЗАКОНИ И БЛАНКИ</h3>
+    <h3 style="text-align: center; margin: 20px 0">НЕАКТИВНИ ДОКУМЕНТИ И БЛАНКИ</h3>
     <hr/>
     <div class="row" style="">
         <div class="col-lg-12">
@@ -73,6 +67,11 @@
                         <td>
                             <a href="{{URL::to('/')}}{{$path}}{{$regulation->filename}}" target="_blank" rel="noopener noreferrer" download="{{$regulation->filename}}">
                                 <i class="btn btn-default btn-sm fa fa-download" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{!! URL::to('/полезно/редактирай-документ/'.$regulation->id)!!}" class="btn btn-primary btn-sm">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
                             </a>
                         </td>
                         @if(Auth::user()->admin == 2 )
@@ -93,14 +92,4 @@
 @endsection
 
 @section('scripts')
-    {{--{!!Html::script("js/table/jquery-1.11.3.min.js" )!!}--}}
-    {{--{!!Html::script("js/table/jquery.dataTables.js" )!!}--}}
-    {{--{!!Html::script("js/quality/QcertificatesTable.js" )!!}--}}
-
-    {{--{!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}--}}
-    {{--{!!Html::script("js/date/in_date.js" )!!}--}}
-    {{--<script>--}}
-        {{--var selectedVal = $("#years option:selected").val();--}}
-        {{--var getYear = document.getElementById("get_year").value = selectedVal;--}}
-    {{--</script>--}}
 @endsection

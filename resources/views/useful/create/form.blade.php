@@ -7,7 +7,11 @@
             <option value="1" {{(old('document_type') == 1)? 'selected':''}}>Регламент / Директива</option>
             <option value="2" {{(old('document_type') == 2)? 'selected':''}}>Закон</option>
             <option value="3" {{(old('document_type') == 3)? 'selected':''}}>Наредба</option>
-            <option value="4" {{(old('document_type') == 4)? 'selected':''}}>Бланка</option>
+            <option value="4" {{(old('document_type') == 4)? 'selected':''}}>Заявления</option>
+            <option value="5" {{(old('document_type') == 5)? 'selected':''}}>Декларации</option>
+            <option value="6" {{(old('document_type') == 6)? 'selected':''}}>Въздушни</option>
+            <option value="7" {{(old('document_type') == 7)? 'selected':''}}>Процедури</option>
+            <option value="8" {{(old('document_type') == 8)? 'selected':''}}>Други</option>
         </select>
     </div>
     <br/>

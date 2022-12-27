@@ -808,8 +808,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('полезно/заявления', 'UsefulController@applications');
     Route::get('полезно/декларации', 'UsefulController@declarations');
     Route::get('полезно/въздушни', 'UsefulController@aerial');
+    Route::get('полезно/процедури', 'UsefulController@procedures');
     Route::get('полезно/други', 'UsefulController@others');
-    // Route::get('полезно/неактивни', 'UsefulController@not_active');
+    Route::get('полезно/неактивни', 'UsefulController@not_active');
 
     Route::get('полезно/добави-документ', 'UsefulController@create');
     Route::post('useful/document/store', 'UsefulController@store');
