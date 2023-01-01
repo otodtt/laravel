@@ -118,23 +118,38 @@ class CropsController extends Controller
         $time_start = strtotime(stripslashes($start_year));
         $end_year = '31.12.'. $year_now;
         $time_end = strtotime(stripslashes($end_year));
-
+        /// IMPORT
         $certs_import = Stock::get();
-        foreach($certs_import as $cert){
-            $array_import[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
-            $yearsI = array_filter(array_unique($array_import));
+        if(count($certs_import) > 0) {
+            foreach($certs_import as $cert){
+                $array_import[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
+                $yearsI = array_filter(array_unique($array_import));
+            }
         }
-        
+        else{
+            $yearsI = array();
+        }
+        /// EXPORT
         $certs_export = StockExport::get();
-        foreach($certs_export as $cert){
-            $array_export[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
-            $yearsX = array_filter(array_unique($array_export));
+        if(count($certs_export) > 0) {
+            foreach($certs_export as $cert){
+                $array_export[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
+                $yearsX = array_filter(array_unique($array_export));
+            }
         }
-
+        else {
+            $yearsX = array();
+        }
+        /// DOMESTIC
         $certs_domestic = StockInternal::get();
-        foreach($certs_domestic as $cert){
-            $array_domestic[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
-            $yearsD = array_filter(array_unique($array_domestic));
+        if(count($certs_domestic) > 0){
+            foreach($certs_domestic as $cert){
+                $array_domestic[date('Y', $cert->date_issue)] = date('Y', $cert->date_issue);
+                $yearsD = array_filter(array_unique($array_domestic));
+            }
+        }
+        else {
+            $yearsD = array();
         }
         
         if(isset($yearsI) || isset($yearsX) || isset($yearsD)  ) {
@@ -144,6 +159,9 @@ class CropsController extends Controller
         else {
             $years = [2022 => "2022"];
         }
+        // dd($yearsD);
+        
+       
 
         $culture = Crop::findOrFail($id);
         $stocks_import = Stock::where('crop_id', $id)->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )->orderby('date_issue', 'desc')->get();
