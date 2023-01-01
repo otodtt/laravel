@@ -159,7 +159,6 @@ class CropsController extends Controller
         else {
             $years = [2022 => "2022"];
         }
-        // dd($yearsD);
         
        
 
