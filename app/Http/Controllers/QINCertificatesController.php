@@ -288,8 +288,25 @@ class QINCertificatesController extends Controller
 
         $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
 
+        $one = 3;
+        $hundred = 1000;
+        $thousand = 10000;
         if(!empty($last_internal)) {
-            $internal = $last_internal[0]['internal'] + 1;
+            if($last_internal[0]['internal'] < 3999 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 3999 ){
+                $internal = $one.$hundred ;
+            }
+            if($last_internal[0]['internal'] >= 31000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 39999 ){
+                $internal = $one.$thousand ;
+            }
+            if($last_internal[0]['internal'] >= 310000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
         } else {
             $internal = '3001';
         }
@@ -487,8 +504,25 @@ class QINCertificatesController extends Controller
 
         $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
 
+        $one = 3;
+        $hundred = 1000;
+        $thousand = 10000;
         if(!empty($last_internal)) {
-            $internal = $last_internal[0]['internal'] + 1;
+            if($last_internal[0]['internal'] < 3999 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 3999 ){
+                $internal = $one.$hundred ;
+            }
+            if($last_internal[0]['internal'] >= 31000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 39999 ){
+                $internal = $one.$thousand ;
+            }
+            if($last_internal[0]['internal'] >= 310000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
         } else {
             $internal = '3001';
         }
@@ -864,8 +898,25 @@ class QINCertificatesController extends Controller
 
         $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
 
+        $one = 3;
+        $hundred = 1000;
+        $thousand = 10000;
         if(!empty($last_internal)) {
-            $internal = $last_internal[0]['internal'] + 1;
+            if($last_internal[0]['internal'] < 3999 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 3999 ){
+                $internal = $one.$hundred ;
+            }
+            if($last_internal[0]['internal'] >= 31000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 39999 ){
+                $internal = $one.$thousand ;
+            }
+            if($last_internal[0]['internal'] >= 310000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
         } else {
             $internal = '3001';
         }
@@ -995,8 +1046,25 @@ class QINCertificatesController extends Controller
 
         $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
 
+        $one = 3;
+        $hundred = 1000;
+        $thousand = 10000;
         if(!empty($last_internal)) {
-            $internal = $last_internal[0]['internal'] + 1;
+            if($last_internal[0]['internal'] < 3999 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 3999 ){
+                $internal = $one.$hundred ;
+            }
+            if($last_internal[0]['internal'] >= 31000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 39999 ){
+                $internal = $one.$thousand ;
+            }
+            if($last_internal[0]['internal'] >= 310000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
         } else {
             $internal = '3001';
         }
@@ -1110,8 +1178,25 @@ class QINCertificatesController extends Controller
 
         $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
 
+        $one = 3;
+        $hundred = 1000;
+        $thousand = 10000;
         if(!empty($last_internal)) {
-            $internal = $last_internal[0]['internal'] + 1;
+            if($last_internal[0]['internal'] < 3999 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 3999 ){
+                $internal = $one.$hundred ;
+            }
+            if($last_internal[0]['internal'] >= 31000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
+            if($last_internal[0]['internal'] == 39999 ){
+                $internal = $one.$thousand ;
+            }
+            if($last_internal[0]['internal'] >= 310000 ){
+                $internal = $last_internal[0]['internal'] + 1;
+            }
         } else {
             $internal = '3001';
         }

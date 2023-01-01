@@ -299,8 +299,26 @@ class QXCertificatesController extends Controller
 
         $last_export = QXCertificate::select('export')->orderBy('export', 'desc')->limit(1)->get()->toArray();
 
+        $one = 2;
+        $hundred = 1000;
+        $thousand = 10000;
+
         if(!empty($last_export)) {
-            $export = $last_export[0]['export'] + 1;
+            if($last_export[0]['export'] < 2999 ){
+                $export = $last_export[0]['export'] + 1;
+            }
+            if($last_export[0]['export'] == 2999 ){
+                $export = $one.$hundred ;
+            }
+            if($last_export[0]['export'] >= 21000 ){
+                $export = $last_export[0]['export'] + 1;
+            }
+            if($last_export[0]['export'] == 29999 ){
+                $export = $one.$thousand ;
+            }
+            if($last_export[0]['export'] >= 210000 ){
+                $export = $last_export[0]['export'] + 1;
+            }
         } else {
             $export = '2001';
         }

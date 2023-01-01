@@ -303,11 +303,33 @@ class QCertificatesController extends Controller
 
         $last_import = QCertificate::select('import')->orderBy('import', 'desc')->limit(1)->get()->toArray();
 
+        $one = 1;
+        $hundred = 1000;
+        $thousand = 10000;
+
         if(!empty($last_import)) {
-            $import = $last_import[0]['import'] + 1;
+            if($last_import[0]['import'] < 1999 ){
+                $import = $last_import[0]['import'] + 1;
+            }
+            if($last_import[0]['import'] == 1999 ){
+                $import = $one.$hundred ;
+            }
+            if($last_import[0]['import'] >= 11000 ){
+                $import = $last_import[0]['import'] + 1;
+            }
+            if($last_import[0]['import'] == 19999 ){
+                $import = $one.$thousand ;
+            }
+            if($last_import[0]['import'] >= 110000 ){
+                $import = $last_import[0]['import'] + 1;
+            }
         } else {
             $import = '1001';
         }
+
+        
+        // dd($import);
+        // dd($last_import[0]['import']);
 
         if($request->packer_data == 999  ) {
             $packer_name = $request->packer_name;
