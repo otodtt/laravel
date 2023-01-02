@@ -327,10 +327,6 @@ class QCertificatesController extends Controller
             $import = '1001';
         }
 
-        
-        // dd($import);
-        // dd($last_import[0]['import']);
-
         if($request->packer_data == 999  ) {
             $packer_name = $request->packer_name;
             $packer_address = $request->packer_address;

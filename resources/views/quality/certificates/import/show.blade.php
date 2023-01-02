@@ -217,7 +217,7 @@
                     <div class="small_field_bottom" style="display: table-cell">
                         <p class="bold">Сертификата е заключен и не може да се редактира повече.</p>
                     </div>
-                    @if(Auth::user()->admin == 2 || Auth::user()->dlaznost == 1 )
+                    @if(Auth::user()->admin == 2 || Auth::user()->dlaznost == 1 || Auth::user()->id == $certificate->added_by )
                         <div class="small_field_bottom" style="display: table-cell">
                             {!! Form::model($certificate, ['url'=>'unlock-import-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
                             <button type="submit" class="btn-sm btn-success " id="unlockConfirm">
