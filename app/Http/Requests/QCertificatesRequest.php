@@ -24,7 +24,7 @@ class QCertificatesRequest extends Request
     public function rules()
     {
         $request = Request::all();
-//        dd($request);
+
         if($request['packer_data'] == 999) {
             $name = 'required|latin|min:3|max:500';
             $address = 'latin|min:5|max:500';
@@ -56,7 +56,7 @@ class QCertificatesRequest extends Request
             'place_bg'=>'required|cyrillic_with|min:3|max:300',
             'place_en'=>'required|latin|min:3|max:300',
             'valid_until'=>'required|date_format:d.m.Y|after:hidden_date',
-            'sum'=> 'required|numeric|min:1',
+            // 'sum'=> 'required|numeric|min:1',
             'forwarder' => $forwarder,
             'forwarder_address' => $forwarder_address,
         ];

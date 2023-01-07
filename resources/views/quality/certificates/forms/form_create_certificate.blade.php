@@ -344,10 +344,10 @@
                         <p class="description"><span class="fa fa-warning red" aria-hidden="true"> ЗАДЪЛЖИТЕЛНО </span>
                             попълни сумата и името на спедитора!</p>
                         <hr class="hr_in"/>
-                        <div class="col-md-12 col-md-6_my" >
+                        {{-- <div class="col-md-12 col-md-6_my" >
                             {!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>
                             {!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>5, 'maxlength'=>10 ]) !!}
-                        </div>
+                        </div> --}}
                         <div class="col-md-12 col-md-6_my" >
                             {!! Form::label('forwarder', 'Име на спедитора:', ['class'=>'my_labels']) !!}<br>
                             {!! Form::text('forwarder', null, ['class'=>'form-control form-control-my', 'size'=>70, 'maxlength'=>100, 'placeholder'=>'Име на спедитора', ]) !!}

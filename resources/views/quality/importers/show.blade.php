@@ -44,7 +44,7 @@
             {{--<span class="fa fa-truck btn btn-default my_btn"> Търговци</span>--}}
             <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-truck btn btn-info my_btn"> Вносител</a>
             <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-archive btn btn-info my_btn"> Опаковчици</a>
-            <a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-shopping-cart btn btn-info my_btn"> Търговци</a>
+            <a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-shopping-cart btn btn-info my_btn"> Търговци</a>
         </div>
         {{-- <hr/> --}}
 
@@ -162,7 +162,15 @@
                 <tfoot>
                 <tr>
                     <th colspan="3" style="text-align:right">Всичко лв.:</th>
-                    <th></th>
+                    <th>
+                        <?php  $total_sum = 0; ?>
+                        @foreach($import_certificates as $k=>$certificate)
+                            <?php
+                            $total_sum += array_sum((array)$certificate->sum);
+                        ?>
+                        @endforeach
+                        <p style="text-center: left; margin-left: 10px"> {{ number_format($total_sum, 2, ',', ' ') }} лв.</p>
+                    </th>
                     <th class="bold">Всичко кг.</th>
                     <th>
                         @if($import_stocks != 0)
@@ -201,7 +209,7 @@
                         <th>Kg</th>
                         <th>Издаден от</th>
                         <th>Виж</th>
-                        <th>Добави</th>
+                        {{-- <th>Добави</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -252,13 +260,22 @@
                         <td class="center">
                             <a href="{!!URL::to('/контрол/сертификат-износ/'.$certificate['id'] )!!}" class="fa fa-binoculars btn btn-success my_btn"></a>
                         </td>
+                        
                     </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
                     <th colspan="3" style="text-align:right">Всичко лв.:</th>
-                    <th></th>
+                    <th>
+                        <?php  $total_sum = 0; ?>
+                        @foreach($import_certificates as $k=>$certificate)
+                            <?php
+                            $total_sum += array_sum((array)$certificate->sum);
+                        ?>
+                        @endforeach
+                        <p style="text-center: left; margin-left: 10px"> {{ number_format($total_sum, 2, ',', ' ') }} лв.</p>
+                    </th>
                     <th class="bold">Всичко кг.</th>
                     <th>
                         @if($export_stocks != 0)
@@ -354,7 +371,15 @@
                 <tfoot>
                 <tr>
                     <th colspan="3" style="text-align:right">Всичко лв.:</th>
-                    <th></th>
+                    <th>
+                        <?php  $total_sum = 0; ?>
+                        @foreach($import_certificates as $k=>$certificate)
+                            <?php
+                            $total_sum += array_sum((array)$certificate->sum);
+                        ?>
+                        @endforeach
+                        <p style="text-center: left; margin-left: 10px"> {{ number_format($total_sum, 2, ',', ' ') }} лв.</p>
+                    </th>
                     <th class="bold">Всичко кг.</th>
                     <th>
                         @if($import_stocks != 0)

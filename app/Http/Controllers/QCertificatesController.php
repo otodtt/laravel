@@ -367,7 +367,7 @@ class QCertificatesController extends Controller
             'stamp_number' => $index[0]['q_index'].'-'.$user[0]['stamp_number'],
             'authority_bg' => $index[0]['authority_bg'],
             'authority_en' => $index[0]['authority_en'],
-            'sum' => round($request->sum, 2),
+            // 'sum' => round($request->sum, 2),
             'forwarder' => $request->forwarder,
             'forwarder_address' => $request->forwarder_address,
             'date_add' => date('d.m.Y', time()),
@@ -444,7 +444,6 @@ class QCertificatesController extends Controller
             'place_bg' => $request->place_bg,
             'place_en' => $request->place_en,
             'valid_until' => $request->valid_until,
-            'sum' => round($request->sum, 2),
             'forwarder' => $request->forwarder,
             'forwarder_address' => $request->forwarder_address,
             'date_update' => date('d.m.Y', time()),
@@ -531,7 +530,61 @@ class QCertificatesController extends Controller
         $firm = Importer::findOrFail($certificate->importer_id);
         $invoice = $certificate->invoice->toArray();
 
-        return view('quality.certificates.import.show', compact('certificate', 'stocks', 'firm', 'invoice'));
+        $total_weight = 0;
+        foreach ($stocks as $key => $value){
+            $total_weight += array_sum((array)$value['weight']);
+        }
+
+        if($total_weight <= 20000) {
+            $sum_import = 50;
+            $sum_type = 25;
+        }
+        elseif($total_weight > 20000 && $total_weight <= 21000) {
+            $sum_import = 51;
+            $sum_type = 25.5;
+        }
+        elseif($total_weight > 21000 && $total_weight <= 22000) {
+            $sum_import = 52;
+            $sum_type = 26;
+        }
+        elseif($total_weight > 22000 && $total_weight <= 23000) {
+            $sum_import = 53;
+            $sum_type = 26.5;
+        }
+        elseif($total_weight > 23000 && $total_weight <= 24000) {
+            $sum_import = 54;
+            $sum_type = 27;
+        }
+        elseif($total_weight > 24000 && $total_weight <= 25000) {
+            $sum_import = 55;
+            $sum_type = 27.5;
+        }
+        elseif($total_weight > 25000 && $total_weight <= 26000) {
+            $sum_import = 56;
+            $sum_type = 28;
+        }
+        elseif($total_weight > 26000 && $total_weight <= 27000) {
+            $sum_import = 57;
+            $sum_type = 28.5;
+        }
+        elseif($total_weight > 27000 && $total_weight <= 28000) {
+            $sum_import = 58;
+            $sum_type = 29;
+        }
+        elseif($total_weight > 28000 && $total_weight <= 29000) {
+            $sum_import = 59;
+            $sum_type = 29.5;
+        }
+        elseif($total_weight > 29000 && $total_weight <= 30000) {
+            $sum_import = 60;
+            $sum_type = 30;
+        }
+        else {
+            $sum_import = 0;
+            $sum_type = 0;
+        }
+
+        return view('quality.certificates.import.show', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_import', 'sum_type'));
     }
 
     /**
@@ -553,6 +606,14 @@ class QCertificatesController extends Controller
      */
     public function import_lock(Request $request, $id)
     {
+        $this->validate($request,
+            ['is_sum' => 'required|numeric|min:1'],
+            [
+                'is_sum.required' => 'Преди да заключиш добави сумата!',
+                'is_sum.numeric' => 'За сумата на Фактура използвай ТОЧКА или само цифри! ',
+                'is_sum.min' => 'Преди да заключиш добави сумата!',
+            ]);
+
         $certificate = QCertificate::findOrFail($id);
         $data = [
             'is_lock' => 1,
@@ -580,10 +641,174 @@ class QCertificatesController extends Controller
         return back();
     }
 
-    /** FOR DELETE//////////////// */
-    public function test()
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request|QCertificatesRequest $request
+     * @param  int $id
+     * @return Response
+     */
+    public function import_add_sum(Request $request, $id)
     {
-        return view('quality.certificates.test');
+        $this->validate($request,
+            ['sum' => 'required|numeric|min:1'],
+            [
+                'sum.required' => 'Преди да заключиш добави сумата!',
+                'sum.numeric' => 'За сумата на Фактура използвай ТОЧКА или само цифри! ',
+                'sum.min' => 'Преди да заключиш добави сумата!',
+            ]);
+        if($request->percent == 0){
+            $final_sum =  $request->sum;
+        }
+        elseif($request->percent == 1){
+            $final_sum = $request->sum + ($request->sum*42)/100;
+        }
+        elseif($request->percent == 2){
+            $final_sum = $request->sum + ($request->sum*84)/100;
+        }
+        else{
+            if($request->type == 1){
+                $final_sum = 50;
+            }
+            elseif($request->type == 2){
+                $final_sum = 25;
+            }
+            else {
+                $final_sum = 50;
+            }
+        }
+       
+        $certificate = QCertificate::findOrFail($id);
+        $data = [
+            'base_sum' => $request->sum,
+            'sum' => $final_sum,
+            'percent' => $request->percent,
+        ];
+        
+        $certificate->fill($data);
+        $certificate->save();
+        return redirect()->back()->withInput($request->all());
+        // return back();
     }
+
+    /** ЗА РЕДАКЦИЯ НА СУМИТЕ
+     * 
+     * @param  int $id
+     */
+    public function my_edit_sum($id)
+    {
+        $certificate = QCertificate::findOrFail($id);
+        $stocks = $certificate->stocks->toArray();
+        
+        $total_weight = 0;
+        foreach ($stocks as $key => $value){
+            $total_weight += array_sum((array)$value['weight']);
+        }
+
+        if($total_weight <= 20000) {
+            $sum_import = 50;
+            $sum_type = 25;
+        }
+        elseif($total_weight > 20000 && $total_weight <= 21000) {
+            $sum_import = 51;
+            $sum_type = 25.5;
+        }
+        elseif($total_weight > 21000 && $total_weight <= 22000) {
+            $sum_import = 52;
+            $sum_type = 26;
+        }
+        elseif($total_weight > 22000 && $total_weight <= 23000) {
+            $sum_import = 53;
+            $sum_type = 26.5;
+        }
+        elseif($total_weight > 23000 && $total_weight <= 24000) {
+            $sum_import = 54;
+            $sum_type = 27;
+        }
+        elseif($total_weight > 24000 && $total_weight <= 25000) {
+            $sum_import = 55;
+            $sum_type = 27.5;
+        }
+        elseif($total_weight > 25000 && $total_weight <= 26000) {
+            $sum_import = 56;
+            $sum_type = 28;
+        }
+        elseif($total_weight > 26000 && $total_weight <= 27000) {
+            $sum_import = 57;
+            $sum_type = 28.5;
+        }
+        elseif($total_weight > 27000 && $total_weight <= 28000) {
+            $sum_import = 58;
+            $sum_type = 29;
+        }
+        elseif($total_weight > 28000 && $total_weight <= 29000) {
+            $sum_import = 59;
+            $sum_type = 29.5;
+        }
+        elseif($total_weight > 29000 && $total_weight <= 30000) {
+            $sum_import = 60;
+            $sum_type = 30;
+        }
+        else {
+            $sum_import = 0;
+            $sum_type = 0;
+        }
+
+        return view('quality.certificates.sum.index', compact('certificate', 'stocks', 'total_weight', 'sum_import', 'sum_type'));
+    }
+
+    /** ЗА РЕДАКЦИЯ НА СУМИТЕ
+     * Update the specified resource in storage.
+     *
+     * @param Request|QCertificatesRequest $request
+     * @param  int $id
+     * @return Response
+     */
+    public function my_update_sum(Request $request, $id)
+    {
+        $this->validate($request,
+            [
+                'sum' => 'required|numeric|min:1',
+                'percent' => 'required',
+            ],
+            [
+                'sum.required' => 'Преди да заключиш добави сумата!',
+                'sum.numeric' => 'За сумата на Фактура използвай ТОЧКА или само цифри! ',
+                'sum.min' => 'Преди да заключиш добави сумата!',
+                'percent.required' => 'Избери процента!!',
+            ]);
+        // if($request->percent == 0){
+        //     $final_sum =  $request->sum;
+        // }
+        // elseif($request->percent == 1){
+        //     $final_sum = $request->sum + ($request->sum*42)/100;
+        // }
+        // elseif($request->percent == 2){
+        //     $final_sum = $request->sum + ($request->sum*84)/100;
+        // }
+        // else{
+        //     if($request->type == 1){
+        //         $final_sum = 50;
+        //     }
+        //     elseif($request->type == 2){
+        //         $final_sum = 25;
+        //     }
+        //     else {
+        //         $final_sum = 50;
+        //     }
+        // }
+       
+        $certificate = QCertificate::findOrFail($id);
+        $data = [
+            'base_sum' => $request->sum,
+            'percent' => $request->percent,
+        ];
+        // dd($data);
+        $certificate->fill($data);
+        $certificate->save();
+        return redirect()->back()->withInput($request->all());
+        // return back();
+    }
+
 
 }
