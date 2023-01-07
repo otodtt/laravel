@@ -60,7 +60,7 @@
             </div>
         @endif
         {!! Form::open(['url' => 'myedit/certificate-import/update/'. $certificate->id,'method' => 'POST','autocomplete' => 'on',]) !!}
-            <div class="col-md-6 ">
+            <div class="col-md-8 ">
                 <?php
                 // ЗА ИМПУТА SUM
                 if ($certificate->type_crops == 1) {
@@ -123,7 +123,7 @@
                 
                 <input type="hidden" name="added_sum" value="{{ $certificate->sum }}" id="added_sum">
             </div>
-            <div class="col-md-6" id="add_certificate">
+            <div class="col-md-4" id="add_certificate">
                 <button type="button" id="loadCheck" class="btn btn-success"> ПРОВЕРИ! </button>
                 {!! Form::submit('Редактирай!', ['class' => 'btn btn-danger', 'id' => 'submit']) !!}
             </div>
