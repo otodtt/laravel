@@ -698,8 +698,8 @@ class OpinionsController extends Controller
                 ->get()->toArray();
         }
 
-        return view('opinions.new.create_new', compact('opinions', 'farmer', 'areas_name', 'district_name', 'districts_list', 'eik',
-            'inspectors', 'type', 'regions', 'selected', 'district_list', 'locations', 'firm', 'name', 'pin', 'gender', 'name_firm'));
+        return view('opinions.new.create_new', compact('opinions', 'districts_list', 'eik',
+            'inspectors', 'regions', 'selected', 'district_list', 'locations', 'firm', 'name', 'pin', 'gender', 'name_firm'));
     }
 
     /**

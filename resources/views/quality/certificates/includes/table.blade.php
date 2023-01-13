@@ -10,7 +10,7 @@
             <th>Инспектор</th>
             <th>Завършен</th>
             <th>Виж</th>
-            @if(Auth::user()->admin == 2 || Auth::user()->id == 2 )
+            @if(Auth::user()->admin == 2 && Auth::user()->id == 2222 )
             <th>База</th>
             <th>%</th>
             <th>Сума</th>
@@ -52,8 +52,8 @@
                 <a href='/контрол/сертификат-внос/{{$certificate->id}}' class="fa fa-binoculars btn btn-primary my_btn"></a>
                 @endif
             </td>
-            @if(Auth::user()->admin == 2 || Auth::user()->id == 2 )
-            <?php 
+            @if(Auth::user()->admin == 2 && Auth::user()->id == 2222 )
+            <?php
             if($certificate->percent == 0) {
                 $percent = '0%';
             }
@@ -92,7 +92,7 @@
             <th></th>
             <th></th>
             <th></th>
-            @if(Auth::user()->admin == 2 || Auth::user()->id == 2 )
+            @if(Auth::user()->admin == 2 && Auth::user()->id == 2222 )
             <th></th>
             <th></th>
             <th></th>
