@@ -692,8 +692,9 @@ class QCertificatesController extends Controller
     }
 
     /** ЗА РЕДАКЦИЯ НА СУМИТЕ
-     * 
+     *
      * @param  int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function my_edit_sum($id)
     {
@@ -777,37 +778,15 @@ class QCertificatesController extends Controller
                 'sum.min' => 'Преди да заключиш добави сумата!',
                 'percent.required' => 'Избери процента!!',
             ]);
-        // if($request->percent == 0){
-        //     $final_sum =  $request->sum;
-        // }
-        // elseif($request->percent == 1){
-        //     $final_sum = $request->sum + ($request->sum*42)/100;
-        // }
-        // elseif($request->percent == 2){
-        //     $final_sum = $request->sum + ($request->sum*84)/100;
-        // }
-        // else{
-        //     if($request->type == 1){
-        //         $final_sum = 50;
-        //     }
-        //     elseif($request->type == 2){
-        //         $final_sum = 25;
-        //     }
-        //     else {
-        //         $final_sum = 50;
-        //     }
-        // }
        
         $certificate = QCertificate::findOrFail($id);
         $data = [
             'base_sum' => $request->sum,
             'percent' => $request->percent,
         ];
-        // dd($data);
         $certificate->fill($data);
         $certificate->save();
         return redirect()->back()->withInput($request->all());
-        // return back();
     }
 
 

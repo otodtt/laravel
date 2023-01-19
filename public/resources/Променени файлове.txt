@@ -1,0 +1,13 @@
+1 QINCertificate.php
+2 QINCertificateController.php
+3 QXCertificate.php
+4 QXCertificateController.php
+5 routes
+6 show.blade.php /w/domestic
+7 show.blade.php /w/export 
+8 form_create_certificate.blade.php
+9 form_edit_certificate.blade.php
+
+
+да се копира ц€лата папка certificates/export
+да се копира ц€лата папка certificates/domestic

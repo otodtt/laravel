@@ -126,6 +126,7 @@
                     </div>
                 </div>
             </div>
+
             <hr class="my_hr_in"/>
 
             <div class="col-md-12 row-table-bottom " style="display: table">
@@ -781,14 +782,14 @@
                                 <td><span>бр.</span></td>
                                 <td><span>1</span></td>
                                 <td>
-                                    <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}
+                                    <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}</span>
                                 </td>
                                 <td>
-                                    <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}
+                                    <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}</span>
                                 </td>
                                 <td><span>0,00</span></td>
                                 <td>
-                                    <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}
+                                    <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}</span>
                                 </td>
                             </tr>
                             <tr class="empty_tr">

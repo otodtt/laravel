@@ -23,7 +23,7 @@ class QXCertificate extends Model
         'importer_vin', 'packer_id', 'packer_name', 'packer_address', 'stamp_number', 'authority_bg', 'authority_en',
         'for_country_bg', 'for_country_en', 'id_country', 'observations', 'transport', 'from_country', 'customs_bg', 'customs_en',
         'place_bg', 'place_en', 'date_issue', 'valid_until', 'inspector_bg', 'inspector_en', 'invoice_id',  'invoice_number',
-        'invoice_date', 'sum', 'date_update', 'updated_by', 'date_add', 'added_by', 'is_lock'
+        'invoice_date', 'sum', 'base_sum', 'percent', 'date_update', 'updated_by', 'date_add', 'added_by', 'is_lock'
     ];
 
     /**

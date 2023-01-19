@@ -373,6 +373,7 @@ Route::group(['middleware' => ['auth']], function () {
     //////////////////////////////////////////////////////////
     ////// ДОБАВЯНЕ НА СУМА КЪМ СЕРТИФИКАТ
     Route::post('import/add-sum/store/{id}', 'QCertificatesController@import_add_sum');
+    Route::post('export/add-sum/store/{id}', 'QXCertificatesController@export_add_sum');
 
     //////////////////////////////////////////////////////////
     /////////////////////////////

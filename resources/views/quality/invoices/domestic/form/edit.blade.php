@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="info-wrap">
-        <a href="{!! URL::to('/контрол/сертификат-износ/'.$invoice->certificate_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Назад към сертификата!</a>
+        <a href="{!! URL::to('/контрол/сертификати-вътрешен/'.$invoice->certificate_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Назад към сертификата!</a>
     </div>
 
     <div class="form-group">
