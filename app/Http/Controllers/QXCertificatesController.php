@@ -492,10 +492,10 @@ class QXCertificatesController extends Controller
         // $add = round(($total_weight - 20000)/1000);
         // $sum = 50 + $add ;
 
-        $total_weight = 1560;
-        $add = (ceil(($total_weight-1000)/1000));
-        $add_no = ($total_weight-1000)/1000;
-        $sum = 9 + $add ;
+        $total_weight = 2660;
+        $add = (ceil(($total_weight-1000)/500));
+        $add_no = $add*0.3;
+        $sum = 9 + $add_no ;
 
         echo ($add_no.'+'.$add.'=='.$sum);
 
