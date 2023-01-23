@@ -167,7 +167,7 @@
                             <hr class="my_hr_in"/>
                             <p ><span class="bold" style="text-transform: none">{{$invoice[0]['number_invoice'] }}/{{ date('d.m.Y' ,$invoice[0]['date_invoice']) }}</span></p>
                             <hr class="my_hr_in"/>
-                            <p >Сума: <span class="bold" style="text-transform: none">{{$invoice[0]['sum']}} лв.</span></p>
+                            <p >Сума: <span class="bold" style="text-transform: none">{{number_format($invoice[0]['sum'], 2, ',', ' ')}} лв.</span></p>
                         </div>
                     @else
                         <div class="col-md-2">
@@ -175,9 +175,11 @@
                             <hr class="my_hr_in"/>
                             <p ><span class="bold red" style="text-transform: none">Поълни фактурта!</span></p>
                             <hr class="my_hr_in"/>
-                            <p >
-                                <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
-                            </p>
+                            @if($certificate->sum != 0)
+                                <p >
+                                    <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                                </p>
+                            @endif
                         </div>
                     @endif
                 </div>

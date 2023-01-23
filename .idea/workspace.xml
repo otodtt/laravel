@@ -7,18 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/QINCertificate.php" afterPath="$PROJECT_DIR$/app/QINCertificate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/QXCertificate.php" afterPath="$PROJECT_DIR$/app/QXCertificate.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_create_certificate.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_create_certificate.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_edit_certificate.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_edit_certificate.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/includes/domestic_table.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/includes/domestic_table.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/includes/export_table.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/includes/export_table.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/includes/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/includes/table.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/create.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/export/form/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/export/form/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/table.blade.php" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,13 +69,124 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13193403">
-              <caret line="213" column="37" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
+            <state vertical-scroll-proportion="-7.9615383">
+              <caret line="376" column="43" selection-start-line="376" selection-start-column="43" selection-end-line="376" selection-end-column="43" />
               <folding>
-                <element signature="e#763#4769#1#PHP" expanded="false" />
+                <element signature="e#764#4770#1#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QINCertificatesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.807693">
+              <caret line="1317" column="13" selection-start-line="1317" selection-start-column="13" selection-end-line="1317" selection-end-column="13" />
+              <folding>
+                <element signature="e#41#69#0#PHP" expanded="true" />
+                <element signature="e#681#1146#0#PHP" expanded="false" />
+                <element signature="e#1152#1284#0#PHP" expanded="false" />
+                <element signature="e#1289#3857#0#PHP" expanded="false" />
+                <element signature="e#3863#8267#0#PHP" expanded="false" />
+                <element signature="e#8362#8506#0#PHP" expanded="false" />
+                <element signature="e#8511#10351#0#PHP" expanded="false" />
+                <element signature="e#10357#10519#0#PHP" expanded="false" />
+                <element signature="e#10524#14360#0#PHP" expanded="false" />
+                <element signature="e#14366#14520#0#PHP" expanded="false" />
+                <element signature="e#14525#18486#0#PHP" expanded="false" />
+                <element signature="e#18492#18657#0#PHP" expanded="false" />
+                <element signature="e#18662#25640#0#PHP" expanded="false" />
+                <element signature="e#25646#25807#0#PHP" expanded="false" />
+                <element signature="e#25812#29601#0#PHP" expanded="false" />
+                <element signature="e#29607#29772#0#PHP" expanded="false" />
+                <element signature="e#29777#36533#0#PHP" expanded="false" />
+                <element signature="e#36627#36794#0#PHP" expanded="false" />
+                <element signature="e#36799#38394#0#PHP" expanded="false" />
+                <element signature="e#38400#41960#0#PHP" expanded="false" />
+                <element signature="e#42054#42229#0#PHP" expanded="false" />
+                <element signature="e#42234#43571#0#PHP" expanded="false" />
+                <element signature="e#43577#46624#0#PHP" expanded="false" />
+                <element signature="e#46630#47469#0#PHP" expanded="false" />
+                <element signature="e#47475#47879#0#PHP" expanded="false" />
+                <element signature="e#47885#48007#0#PHP" expanded="false" />
+                <element signature="e#49213#49353#0#PHP" expanded="false" />
+                <element signature="e#49358#50047#0#PHP" expanded="false" />
+                <element signature="e#50053#50243#0#PHP" expanded="false" />
+                <element signature="e#50248#53160#0#PHP" expanded="false" />
+                <element signature="e#53166#53300#0#PHP" expanded="false" />
+                <element signature="e#53305#53369#0#PHP" expanded="false" />
+                <element signature="e#53375#53520#0#PHP" expanded="false" />
+                <element signature="e#53525#54141#0#PHP" expanded="false" />
+                <element signature="e#54147#54313#0#PHP" expanded="false" />
+                <element signature="e#54318#54585#0#PHP" expanded="false" />
+                <element signature="e#54591#54751#0#PHP" expanded="false" />
+                <element signature="e#54756#56539#0#PHP" expanded="false" />
+                <element signature="e#56545#56629#0#PHP" expanded="false" />
+                <element signature="e#56634#57954#0#PHP" expanded="false" />
+                <element signature="e#57960#58044#0#PHP" expanded="false" />
+                <element signature="e#58049#59204#0#PHP" expanded="false" />
+                <element signature="e#59210#59297#0#PHP" expanded="false" />
+                <element signature="e#59302#60455#0#PHP" expanded="false" />
+                <element signature="e#60461#60627#0#PHP" expanded="false" />
+                <element signature="e#60632#62153#0#PHP" expanded="false" />
+                <marker date="1674214447140" expanded="true" signature="7947:8047" placeholder="SELECT * FRO..qincertificates..." />
+                <marker date="1674214447140" expanded="true" signature="57209:57714" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="57234:57666" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="57272:57305" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="57333:57348" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="57433:57466" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="57818:57833" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="58459:58964" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="58484:58916" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="58522:58555" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="58583:58598" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="58683:58716" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="59068:59083" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="59712:60227" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="59737:60179" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="59775:59808" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="59842:59857" placeholder="..." />
+                <marker date="1674214447140" expanded="false" signature="59946:59979" placeholder="..." />
+                <marker date="1674214447140" expanded="true" signature="60331:60346" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QXCertificatesController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.051051">
+              <caret line="647" column="57" selection-start-line="647" selection-start-column="57" selection-end-line="647" selection-end-column="57" />
+              <folding>
+                <element signature="e#776#908#0#PHP" expanded="false" />
+                <element signature="e#913#2356#0#PHP" expanded="false" />
+                <element signature="e#2362#2505#0#PHP" expanded="false" />
+                <element signature="e#2510#5134#0#PHP" expanded="false" />
+                <element signature="e#5140#9347#0#PHP" expanded="false" />
+                <element signature="e#9353#9462#0#PHP" expanded="false" />
+                <element signature="e#9467#11192#0#PHP" expanded="false" />
+                <element signature="e#11198#11381#0#PHP" expanded="false" />
+                <element signature="e#11386#14979#0#PHP" expanded="false" />
+                <element signature="e#14985#15809#0#PHP" expanded="false" />
+                <element signature="e#15815#16212#0#PHP" expanded="false" />
+                <element signature="e#16218#16340#0#PHP" expanded="false" />
+                <element signature="e#18608#18748#0#PHP" expanded="false" />
+                <element signature="e#18753#19569#0#PHP" expanded="false" />
+                <element signature="e#19575#19758#0#PHP" expanded="false" />
+                <element signature="e#19763#22172#0#PHP" expanded="false" />
+                <element signature="e#22178#22312#0#PHP" expanded="false" />
+                <element signature="e#22374#22540#0#PHP" expanded="false" />
+                <element signature="e#22545#23158#0#PHP" expanded="false" />
+                <element signature="e#23164#23330#0#PHP" expanded="false" />
+                <element signature="e#23335#23599#0#PHP" expanded="false" />
+                <element signature="e#23605#23771#0#PHP" expanded="false" />
+                <element signature="e#23776#25295#0#PHP" expanded="false" />
+                <marker date="1674214447124" expanded="true" signature="9032:9129" placeholder="SELECT * FRO..qxcertificates..." />
               </folding>
             </state>
           </provider>
@@ -90,14 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/quality/compliance/includes/table.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/qcertificates/show_opinion.css" />
-        <option value="$PROJECT_DIR$/resources/views/quality/compliance/articles/articles.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/compliance/edit/forms/form_unregulated.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/forms/form_edit_certificate.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/QTraderComplianceRequest.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/compliance/edit/forms/form_create_exist_farmer.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/compliance/edit/unregulated.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/farmers/body/compliance.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/compliance/edit/trader.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/compliance/edit/forms/form_trader.blade.php" />
@@ -126,21 +236,29 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/UsefulController.php" />
         <option value="$PROJECT_DIR$/resources/views/useful/edit/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OpinionsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/includes/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/opinions/templates/1655672400_opinion_body.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/QCertificatesRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_edit_certificate.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/forms/form_create_certificate.blade.php" />
         <option value="$PROJECT_DIR$/app/QXCertificate.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show.blade.php" />
         <option value="$PROJECT_DIR$/app/QINCertificate.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/export/form/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/certificates/includes/domestic_table.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/certificates/includes/table.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/certificates/includes/export_table.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/table.blade.php" />
       </list>
     </option>
   </component>
@@ -234,8 +352,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="35" />
-    <option name="y" value="57" />
+    <option name="x" value="28" />
+    <option name="y" value="93" />
     <option name="width" value="1243" />
     <option name="height" value="878" />
   </component>
@@ -336,150 +454,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quality" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quality" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="certificates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quality" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="certificates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domestic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quality" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="certificates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domestic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="show" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -545,7 +519,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -779,31 +753,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="57" width="1243" height="878" extended-state="0" />
-    <editor active="false" />
+    <frame x="28" y="93" width="1243" height="878" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2476754" sideWeight="0.47208932" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2696534" sideWeight="0.47208932" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36797065" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19273035" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19217686" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4368932" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50605327" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40350878" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.58162034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -851,104 +825,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/templates/add_certificate.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.07646177">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/opinions/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.27436283">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/verifications/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1784108">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_create_exist_farmer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4077961">
-          <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/exist_create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6371814">
-          <caret line="43" column="52" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/templates/add_document.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25487256">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/FactoryProtocolUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/FarmerNewProtocolRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2293853">
-          <caret line="81" column="60" selection-start-line="81" selection-start-column="60" selection-end-line="81" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/new_create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2998501">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/forms/form_new_trader.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7136432">
-          <caret line="115" column="80" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/QComplianceRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TemplatesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15592204">
-          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TradersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6371814">
-          <caret line="33" column="64" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.041979">
-          <caret line="225" column="82" selection-start-line="225" selection-start-column="82" selection-end-line="225" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/useful.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.88605696">
@@ -1052,13 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/includes/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30584708">
-          <caret line="12" column="68" selection-start-line="12" selection-start-column="68" selection-end-line="12" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.050974514">
@@ -1091,7 +960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7781109">
           <caret line="159" column="19" selection-start-line="159" selection-start-column="19" selection-end-line="159" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1099,7 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.68815595">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1115,23 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.66866565">
           <caret line="408" column="126" selection-start-line="408" selection-start-column="126" selection-end-line="408" selection-end-column="126" />
-          <folding>
-            <marker date="1674136293427" expanded="true" signature="18016:18191" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="18028:18189" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="18049:18188" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="18411:18586" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="18423:18584" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="18444:18583" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="19197:19367" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="19209:19365" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="19228:19364" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="19581:19751" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="19593:19749" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="19612:19748" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="20512:20726" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="20524:20724" placeholder="..." />
-            <marker date="1674136293427" expanded="true" signature="20546:20723" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1139,43 +989,137 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.988006">
           <caret line="349" column="31" selection-start-line="349" selection-start-column="31" selection-end-line="349" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/export/form/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0644677">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1674136293415" expanded="true" signature="14886:15061" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="14898:15059" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="14919:15058" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="15281:15456" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="15293:15454" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="15314:15453" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="16066:16236" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="16078:16234" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="16097:16233" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="16450:16620" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="16462:16618" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="16481:16617" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="17317:17532" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="17329:17530" placeholder="..." />
-            <marker date="1674136293415" expanded="true" signature="17351:17529" placeholder="..." />
+            <marker date="1669903398148" expanded="true" signature="4816:5026" placeholder="..." />
+            <marker date="1669903398148" expanded="true" signature="4828:5024" placeholder="..." />
+            <marker date="1669903398148" expanded="true" signature="4851:5023" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/QCertificate.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6371814">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="53" />
-          <folding />
+        <state vertical-scroll-proportion="0.08395802">
+          <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
+          <folding>
+            <marker date="1674202343751" expanded="true" signature="4926:5136" placeholder="..." />
+            <marker date="1674202343751" expanded="true" signature="4938:5134" placeholder="..." />
+            <marker date="1674202343751" expanded="true" signature="4961:5133" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10194903">
+          <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+          <folding>
+            <marker date="1674202329151" expanded="true" signature="5418:5662" placeholder="..." />
+            <marker date="1674202329151" expanded="true" signature="5430:5660" placeholder="..." />
+            <marker date="1674202329151" expanded="true" signature="5487:5659" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/export/form/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="108" column="42" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+          <folding>
+            <marker date="1674202372983" expanded="true" signature="5411:5655" placeholder="..." />
+            <marker date="1674202372983" expanded="true" signature="5423:5653" placeholder="..." />
+            <marker date="1674202372983" expanded="true" signature="5480:5652" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8155922">
+          <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+          <folding>
+            <marker date="1674202419990" expanded="true" signature="5409:5653" placeholder="..." />
+            <marker date="1674202419990" expanded="true" signature="5421:5651" placeholder="..." />
+            <marker date="1674202419990" expanded="true" signature="5478:5650" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3568216">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <marker date="1674202404967" expanded="true" signature="4894:5104" placeholder="..." />
+            <marker date="1674202404967" expanded="true" signature="4906:5102" placeholder="..." />
+            <marker date="1674202404967" expanded="true" signature="4929:5101" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6696697">
+          <caret line="259" column="16" selection-start-line="259" selection-start-column="16" selection-end-line="259" selection-end-column="16" />
+          <folding>
+            <element signature="e#418#949#0#PHP" expanded="false" />
+            <element signature="e#955#1103#0#PHP" expanded="false" />
+            <element signature="e#1108#2848#0#PHP" expanded="false" />
+            <element signature="e#2854#3158#0#PHP" expanded="false" />
+            <element signature="e#3163#6351#0#PHP" expanded="false" />
+            <element signature="e#6358#6480#0#PHP" expanded="false" />
+            <element signature="e#6565#6692#0#PHP" expanded="false" />
+            <element signature="e#6697#6875#0#PHP" expanded="false" />
+            <element signature="e#6881#7055#0#PHP" expanded="false" />
+            <element signature="e#8397#8537#0#PHP" expanded="false" />
+            <element signature="e#8542#8801#0#PHP" expanded="false" />
+            <element signature="e#8807#9010#0#PHP" expanded="false" />
+            <element signature="e#9981#10108#0#PHP" expanded="false" />
+            <element signature="e#10113#10299#0#PHP" expanded="false" />
+            <element signature="e#10305#10479#0#PHP" expanded="false" />
+            <element signature="e#10484#11816#0#PHP" expanded="false" />
+            <element signature="e#11822#11962#0#PHP" expanded="false" />
+            <element signature="e#11967#12234#0#PHP" expanded="false" />
+            <element signature="e#12240#12443#0#PHP" expanded="false" />
+            <element signature="e#12448#13385#0#PHP" expanded="false" />
+            <element signature="e#13420#13547#0#PHP" expanded="false" />
+            <element signature="e#13552#13743#0#PHP" expanded="false" />
+            <element signature="e#13749#13923#0#PHP" expanded="false" />
+            <element signature="e#13928#15690#0#PHP" expanded="false" />
+            <element signature="e#15696#15836#0#PHP" expanded="false" />
+            <element signature="e#15841#16113#0#PHP" expanded="false" />
+            <element signature="e#16119#16322#0#PHP" expanded="false" />
+            <element signature="e#16327#17271#0#PHP" expanded="false" />
+            <element signature="e#17279#17413#0#PHP" expanded="false" />
+            <marker date="1674203209824" expanded="true" signature="6108:6165" placeholder="SELECT * FRO..invoices..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34032983">
-          <caret line="593" column="7" selection-start-line="593" selection-start-column="7" selection-end-line="593" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.43693694">
+          <caret line="678" column="9" selection-start-line="678" selection-start-column="9" selection-end-line="678" selection-end-column="9" />
           <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
             <element signature="e#916#1052#0#PHP" expanded="false" />
             <element signature="e#1057#2498#0#PHP" expanded="false" />
             <element signature="e#2504#2647#0#PHP" expanded="false" />
-            <element signature="e#2652#5312#0#PHP" expanded="false" />
             <element signature="e#5318#9532#0#PHP" expanded="false" />
             <element signature="e#9577#9669#0#PHP" expanded="false" />
             <element signature="e#9674#11529#0#PHP" expanded="false" />
@@ -1184,196 +1128,266 @@
             <element signature="e#15415#15538#0#PHP" expanded="false" />
             <element signature="e#15543#16358#0#PHP" expanded="false" />
             <element signature="e#16364#16530#0#PHP" expanded="false" />
-            <element signature="e#16535#18992#0#PHP" expanded="false" />
             <element signature="e#18998#19829#0#PHP" expanded="false" />
             <element signature="e#19835#20238#0#PHP" expanded="false" />
             <element signature="e#20281#20413#0#PHP" expanded="false" />
+            <element signature="e#20418#22516#0#PHP" expanded="false" />
             <element signature="e#22522#22592#0#PHP" expanded="false" />
             <element signature="e#22597#22685#0#PHP" expanded="false" />
             <element signature="e#22691#22857#0#PHP" expanded="false" />
+            <element signature="e#22862#23474#0#PHP" expanded="false" />
             <element signature="e#23480#23646#0#PHP" expanded="false" />
             <element signature="e#23651#23914#0#PHP" expanded="false" />
             <element signature="e#23920#24086#0#PHP" expanded="false" />
-            <element signature="e#24091#25445#0#PHP" expanded="false" />
-            <element signature="e#25451#25586#0#PHP" expanded="false" />
-            <element signature="e#25591#27565#0#PHP" expanded="false" />
-            <element signature="e#27571#27759#0#PHP" expanded="false" />
-            <element signature="e#27764#28601#0#PHP" expanded="false" />
-            <marker date="1674137365372" expanded="true" signature="9210:9306" placeholder="SELECT * FRO..qcertificates..." />
+            <element signature="e#25622#25757#0#PHP" expanded="false" />
+            <element signature="e#27742#27930#0#PHP" expanded="false" />
+            <marker date="1674213755914" expanded="true" signature="9210:9306" placeholder="SELECT * FRO..qcertificates..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68815595">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-          <folding>
-            <marker date="1674138995356" expanded="true" signature="5344:5588" placeholder="..." />
-            <marker date="1674138995356" expanded="true" signature="5356:5586" placeholder="..." />
-            <marker date="1674138995356" expanded="true" signature="5413:5585" placeholder="..." />
-          </folding>
+    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.qcertificates">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63868064">
-          <caret line="784" column="105" selection-start-line="784" selection-start-column="105" selection-end-line="784" selection-end-column="105" />
-          <folding>
-            <element signature="e#3610#6429#0#HTML" expanded="false" />
-            <element signature="e#6521#10194#0#HTML" expanded="false" />
-            <element signature="e#10368#19516#0#HTML" expanded="false" />
-            <element signature="e#19556#20804#0#HTML" expanded="false" />
-            <element signature="e#20836#23170#0#HTML" expanded="false" />
-            <element signature="e#23836#45342#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/domestic/form/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1784108">
-          <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
-          <folding>
-            <marker date="1669907355849" expanded="true" signature="4852:5062" placeholder="..." />
-            <marker date="1669907355849" expanded="true" signature="4864:5060" placeholder="..." />
-            <marker date="1669907355849" expanded="true" signature="4887:5059" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17391305">
-          <caret line="245" column="0" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-          <folding>
-            <element signature="e#955#1103#0#PHP" expanded="false" />
-            <element signature="e#1108#2848#0#PHP" expanded="false" />
-            <element signature="e#2854#3158#0#PHP" expanded="false" />
-            <element signature="e#3163#6351#0#PHP" expanded="false" />
-            <element signature="e#6358#6480#0#PHP" expanded="false" />
-            <element signature="e#6564#6691#0#PHP" expanded="false" />
-            <element signature="e#6696#6874#0#PHP" expanded="false" />
-            <element signature="e#6880#7054#0#PHP" expanded="false" />
-            <element signature="e#7059#8390#0#PHP" expanded="false" />
-            <element signature="e#8396#8536#0#PHP" expanded="false" />
-            <element signature="e#8541#8800#0#PHP" expanded="false" />
-            <element signature="e#8806#9009#0#PHP" expanded="false" />
-            <element signature="e#9014#9949#0#PHP" expanded="false" />
-            <element signature="e#9980#10107#0#PHP" expanded="false" />
-            <element signature="e#10112#10298#0#PHP" expanded="false" />
-            <element signature="e#10304#10478#0#PHP" expanded="false" />
-            <element signature="e#10483#11815#0#PHP" expanded="false" />
-            <element signature="e#11821#11961#0#PHP" expanded="false" />
-            <element signature="e#11966#12233#0#PHP" expanded="false" />
-            <element signature="e#12239#12442#0#PHP" expanded="false" />
-            <element signature="e#12447#13384#0#PHP" expanded="false" />
-            <element signature="e#13419#13546#0#PHP" expanded="false" />
-            <element signature="e#13748#13922#0#PHP" expanded="false" />
-            <element signature="e#13927#15740#0#PHP" expanded="false" />
-            <element signature="e#15746#15886#0#PHP" expanded="false" />
-            <element signature="e#15891#16163#0#PHP" expanded="false" />
-            <element signature="e#16169#16372#0#PHP" expanded="false" />
-            <element signature="e#16377#17413#0#PHP" expanded="false" />
-            <element signature="e#17421#17555#0#PHP" expanded="false" />
-            <marker date="1669903940807" expanded="true" signature="6108:6165" placeholder="SELECT * FRO..invoices..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33133432">
-          <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
-          <folding>
-            <element signature="e#10358#18874#0#HTML" expanded="false" />
-            <element signature="e#23033#44798#0#HTML" expanded="false" />
-            <element signature="e#44804#57307#0#HTML" expanded="false" />
-            <element signature="e#47329#56026#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/QXCertificate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25487256">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/backups/import.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4197901">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        <state vertical-scroll-proportion="-0.22972973">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1138#1270#0#PHP" expanded="false" />
-            <element signature="e#1275#3843#0#PHP" expanded="false" />
-            <element signature="e#3849#8253#0#PHP" expanded="false" />
-            <element signature="e#8348#8492#0#PHP" expanded="false" />
-            <element signature="e#8497#10337#0#PHP" expanded="false" />
-            <element signature="e#10343#10505#0#PHP" expanded="false" />
-            <element signature="e#10510#14346#0#PHP" expanded="false" />
-            <element signature="e#14352#14506#0#PHP" expanded="false" />
-            <element signature="e#14511#18472#0#PHP" expanded="false" />
-            <element signature="e#18478#18643#0#PHP" expanded="false" />
-            <element signature="e#18648#25626#0#PHP" expanded="false" />
-            <element signature="e#25632#25793#0#PHP" expanded="false" />
-            <element signature="e#25798#29587#0#PHP" expanded="false" />
-            <element signature="e#29593#29758#0#PHP" expanded="false" />
-            <element signature="e#29763#36519#0#PHP" expanded="false" />
-            <element signature="e#36613#36780#0#PHP" expanded="false" />
-            <element signature="e#36785#38380#0#PHP" expanded="false" />
-            <element signature="e#38386#41946#0#PHP" expanded="false" />
-            <element signature="e#42040#42215#0#PHP" expanded="false" />
-            <element signature="e#42220#43557#0#PHP" expanded="false" />
-            <element signature="e#43563#46610#0#PHP" expanded="false" />
-            <element signature="e#46616#47455#0#PHP" expanded="false" />
-            <element signature="e#47461#47865#0#PHP" expanded="false" />
-            <marker date="1674140615808" expanded="true" signature="7933:8033" placeholder="SELECT * FRO..qincertificates..." />
-            <marker date="1674140615808" expanded="true" signature="56359:56864" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="56384:56816" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="56422:56455" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="56483:56498" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="56583:56616" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="56968:56983" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="57609:58114" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="57634:58066" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="57672:57705" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="57733:57748" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="57833:57866" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="58218:58233" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="58862:59377" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="58887:59329" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="58925:58958" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="58992:59007" placeholder="..." />
-            <marker date="1674140615808" expanded="false" signature="59096:59129" placeholder="..." />
-            <marker date="1674140615808" expanded="true" signature="59481:59496" placeholder="..." />
+            <marker date="1668077872407" expanded="true" signature="2289:2570" placeholder="..." />
+            <marker date="1668077872407" expanded="true" signature="2303:2568" placeholder="..." />
+            <marker date="1668077872407" expanded="true" signature="2332:2567" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/export/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1396396">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.qincertificates">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.qxcertificates">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62068963">
-          <caret line="249" column="43" selection-start-line="249" selection-start-column="43" selection-end-line="249" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.36786786">
+          <caret line="234" column="136" selection-start-line="234" selection-start-column="86" selection-end-line="234" selection-end-column="136" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/includes/table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.484985">
+          <caret line="46" column="113" selection-start-line="46" selection-start-column="113" selection-end-line="46" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/includes/export_table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3813814">
+          <caret line="41" column="113" selection-start-line="41" selection-start-column="113" selection-end-line="41" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/includes/domestic_table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15765765">
+          <caret line="49" column="97" selection-start-line="49" selection-start-column="97" selection-end-line="49" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4129129">
+          <caret line="168" column="136" selection-start-line="168" selection-start-column="136" selection-end-line="168" selection-end-column="136" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17867868">
+          <caret line="169" column="120" selection-start-line="169" selection-start-column="120" selection-end-line="169" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/8b84eeea/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.invoices">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/QXCertificate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25525525">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/QINCertificate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6371814">
+        <state vertical-scroll-proportion="0.6381381">
           <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/QCertificate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6381381">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.5">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#a#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9615383">
+          <caret line="376" column="43" selection-start-line="376" selection-start-column="43" selection-end-line="376" selection-end-column="43" />
+          <folding>
+            <element signature="e#764#4770#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.807693">
+          <caret line="1317" column="13" selection-start-line="1317" selection-start-column="13" selection-end-line="1317" selection-end-column="13" />
+          <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
+            <element signature="e#681#1146#0#PHP" expanded="false" />
+            <element signature="e#1152#1284#0#PHP" expanded="false" />
+            <element signature="e#1289#3857#0#PHP" expanded="false" />
+            <element signature="e#3863#8267#0#PHP" expanded="false" />
+            <element signature="e#8362#8506#0#PHP" expanded="false" />
+            <element signature="e#8511#10351#0#PHP" expanded="false" />
+            <element signature="e#10357#10519#0#PHP" expanded="false" />
+            <element signature="e#10524#14360#0#PHP" expanded="false" />
+            <element signature="e#14366#14520#0#PHP" expanded="false" />
+            <element signature="e#14525#18486#0#PHP" expanded="false" />
+            <element signature="e#18492#18657#0#PHP" expanded="false" />
+            <element signature="e#18662#25640#0#PHP" expanded="false" />
+            <element signature="e#25646#25807#0#PHP" expanded="false" />
+            <element signature="e#25812#29601#0#PHP" expanded="false" />
+            <element signature="e#29607#29772#0#PHP" expanded="false" />
+            <element signature="e#29777#36533#0#PHP" expanded="false" />
+            <element signature="e#36627#36794#0#PHP" expanded="false" />
+            <element signature="e#36799#38394#0#PHP" expanded="false" />
+            <element signature="e#38400#41960#0#PHP" expanded="false" />
+            <element signature="e#42054#42229#0#PHP" expanded="false" />
+            <element signature="e#42234#43571#0#PHP" expanded="false" />
+            <element signature="e#43577#46624#0#PHP" expanded="false" />
+            <element signature="e#46630#47469#0#PHP" expanded="false" />
+            <element signature="e#47475#47879#0#PHP" expanded="false" />
+            <element signature="e#47885#48007#0#PHP" expanded="false" />
+            <element signature="e#49213#49353#0#PHP" expanded="false" />
+            <element signature="e#49358#50047#0#PHP" expanded="false" />
+            <element signature="e#50053#50243#0#PHP" expanded="false" />
+            <element signature="e#50248#53160#0#PHP" expanded="false" />
+            <element signature="e#53166#53300#0#PHP" expanded="false" />
+            <element signature="e#53305#53369#0#PHP" expanded="false" />
+            <element signature="e#53375#53520#0#PHP" expanded="false" />
+            <element signature="e#53525#54141#0#PHP" expanded="false" />
+            <element signature="e#54147#54313#0#PHP" expanded="false" />
+            <element signature="e#54318#54585#0#PHP" expanded="false" />
+            <element signature="e#54591#54751#0#PHP" expanded="false" />
+            <element signature="e#54756#56539#0#PHP" expanded="false" />
+            <element signature="e#56545#56629#0#PHP" expanded="false" />
+            <element signature="e#56634#57954#0#PHP" expanded="false" />
+            <element signature="e#57960#58044#0#PHP" expanded="false" />
+            <element signature="e#58049#59204#0#PHP" expanded="false" />
+            <element signature="e#59210#59297#0#PHP" expanded="false" />
+            <element signature="e#59302#60455#0#PHP" expanded="false" />
+            <element signature="e#60461#60627#0#PHP" expanded="false" />
+            <element signature="e#60632#62153#0#PHP" expanded="false" />
+            <marker date="1674214447140" expanded="true" signature="7947:8047" placeholder="SELECT * FRO..qincertificates..." />
+            <marker date="1674214447140" expanded="true" signature="57209:57714" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="57234:57666" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="57272:57305" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="57333:57348" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="57433:57466" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="57818:57833" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="58459:58964" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="58484:58916" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="58522:58555" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="58583:58598" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="58683:58716" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="59068:59083" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="59712:60227" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="59737:60179" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="59775:59808" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="59842:59857" placeholder="..." />
+            <marker date="1674214447140" expanded="false" signature="59946:59979" placeholder="..." />
+            <marker date="1674214447140" expanded="true" signature="60331:60346" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6431784">
-          <caret line="475" column="65" selection-start-line="475" selection-start-column="65" selection-end-line="475" selection-end-column="65" />
+        <state vertical-scroll-proportion="1.051051">
+          <caret line="647" column="57" selection-start-line="647" selection-start-column="57" selection-end-line="647" selection-end-column="57" />
           <folding>
             <element signature="e#776#908#0#PHP" expanded="false" />
             <element signature="e#913#2356#0#PHP" expanded="false" />
@@ -1387,26 +1401,18 @@
             <element signature="e#14985#15809#0#PHP" expanded="false" />
             <element signature="e#15815#16212#0#PHP" expanded="false" />
             <element signature="e#16218#16340#0#PHP" expanded="false" />
-            <element signature="e#18453#18593#0#PHP" expanded="false" />
-            <element signature="e#18598#19414#0#PHP" expanded="false" />
-            <element signature="e#19420#19603#0#PHP" expanded="false" />
-            <element signature="e#19608#22017#0#PHP" expanded="false" />
-            <element signature="e#22023#22157#0#PHP" expanded="false" />
-            <element signature="e#22219#22385#0#PHP" expanded="false" />
-            <element signature="e#23009#23175#0#PHP" expanded="false" />
-            <element signature="e#23180#23444#0#PHP" expanded="false" />
-            <element signature="e#23450#23616#0#PHP" expanded="false" />
-            <marker date="1674137945226" expanded="true" signature="9032:9129" placeholder="SELECT * FRO..qxcertificates..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13193403">
-          <caret line="213" column="37" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
-          <folding>
-            <element signature="e#763#4769#1#PHP" expanded="false" />
+            <element signature="e#18608#18748#0#PHP" expanded="false" />
+            <element signature="e#18753#19569#0#PHP" expanded="false" />
+            <element signature="e#19575#19758#0#PHP" expanded="false" />
+            <element signature="e#19763#22172#0#PHP" expanded="false" />
+            <element signature="e#22178#22312#0#PHP" expanded="false" />
+            <element signature="e#22374#22540#0#PHP" expanded="false" />
+            <element signature="e#22545#23158#0#PHP" expanded="false" />
+            <element signature="e#23164#23330#0#PHP" expanded="false" />
+            <element signature="e#23335#23599#0#PHP" expanded="false" />
+            <element signature="e#23605#23771#0#PHP" expanded="false" />
+            <element signature="e#23776#25295#0#PHP" expanded="false" />
+            <marker date="1674214447124" expanded="true" signature="9032:9129" placeholder="SELECT * FRO..qxcertificates..." />
           </folding>
         </state>
       </provider>

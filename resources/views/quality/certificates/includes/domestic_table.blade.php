@@ -39,12 +39,15 @@
             <td>{{mb_strtoupper($certificate->trader_name), 'utf-8'}}</td>
             <td style="text-align: right; padding-right: 4px">
                 @if( $certificate->invoice_id == '0')
-                    <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                    @if($certificate->sum != 0)
+                        <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                    @endif
+                    {{--<a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>--}}
                 @else
                     {{ $certificate->invoice_number }}/{{ date('d.m.Y' ,$certificate->invoice_date ) }}
                 @endif
             </td>
-            <td style="text-align: right; padding-right: 4px">{{ $certificate->sum }}</td>
+            <td style="text-align: right; padding-right: 4px">{{ number_format($certificate->sum, 2, ',', ' ') }}</td>
             <td>{{$certificate->inspector_bg}}</td>
             <td><span class="{{$alert}}">{{$all}}</span></td>
             <td>

@@ -95,8 +95,10 @@
             <div class="col-md-12">
                 <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
                     <fieldset class="small_field_in" style="width: 50%">
-                        <p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!
-                            В сумата когато се налага изпозвай ТОЧКА!</span></p><hr class="hr_in"/>
+                        {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
+                            {{--В сумата когато се налага изпозвай ТОЧКА!</span>--}}
+                        {{--</p>--}}
+                        <hr class="hr_in"/>
                         <div class="col-md-3 col-md-6_my" >
                             {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>
                             {!! Form::text('invoice', $invoice['number_invoice'], ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20 ]) !!}

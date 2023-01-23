@@ -232,7 +232,7 @@
                             <hr class="my_hr_in"/>
                             <p ><span class="bold" style="text-transform: none">{{$invoice[0]['number_invoice'] }}/{{ date('d.m.Y' ,$invoice[0]['date_invoice']) }}</span></p>
                             <hr class="my_hr_in"/>
-                            <p >Сума: <span class="bold" style="text-transform: none">{{$invoice[0]['sum']}} лв.</span></p>
+                            <p >Сума: <span class="bold" style="text-transform: none">{{number_format($invoice[0]['sum'], 2, ',', ' ')}} лв.</span></p>
                         </div>
                     @else
                         <div class="col-md-2">
@@ -240,9 +240,11 @@
                             <hr class="my_hr_in"/>
                             <p ><span class="bold red" style="text-transform: none">Поълни фактурта!</span></p>
                             <hr class="my_hr_in"/>
-                            <p >
-                                <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
-                            </p>
+                            @if($certificate->sum != 0)
+                                <p >
+                                    <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                                </p>
+                            @endif
                         </div>
                     @endif
                 </div>
@@ -250,17 +252,12 @@
             @if($certificate->is_lock == 0)
                 <div class=" col-md-12 row-table-bottom " style="display: table" id="wrap_sum">
                     <div  class=" small_field_bottom print-button" >
-                        {!! Form::open(['url'=>'export/add-sum/store/'.$certificate->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                        {!! Form::open(['url'=>'domestic/add-sum/store/'.$certificate->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
                         @if($certificate->sum == 0)
                             @if($certificate->type_crops == 1)
                                 <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span>
                                     Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
-                                    Предлагана сума за плащане -
-                                    @if ($sum_import == 0)
-                                        <span class="bold">Килограмите са над 30000. Добави сумата </span>
-                                    @else
-                                        <span class="bold">{{$sum_import}}</span> лв.
-                                    @endif
+                                    Предлагана сума за плащане - <span class="bold">{{$sum_domestic}}</span> лв.
                                 </p>
                             @elseif ($certificate->type_crops == 2)
                                 <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!! СТОКИТЕ СА ЗА ПРЕРАБОТКА</span>
@@ -309,12 +306,11 @@
                         <div class="btn_add" style="text-align: left; display: inline-block; margin-top: 5px; width: 100%">
                             <?php
                             if($certificate->type_crops == 1) {
-                                if($sum_import == 0) {
+                                if($sum_domestic == 0) {
                                     $sum_for_pay = $certificate->base_sum;
-
                                 }
                                 else {
-                                    $sum_for_pay = $sum_import;
+                                    $sum_for_pay = $sum_domestic;
                                 }
                             }
                             elseif ($certificate->type_crops == 2) {
@@ -402,6 +398,7 @@
                             <i class="fa fa-print"></i> Подготви за печат!
                         </button>
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
+                        <input type="hidden" name="is_sum" value="{{$certificate->sum}}" id="is_sum">
                         {!! Form::close() !!}
                     </div>
                     <div class="small_field_bottom" style="display: table-cell">
@@ -820,9 +817,9 @@
                             </td>
                             <td class="cell first-row-cell last_cell cell_note last_cell_note" style="height: 3cm; width: 6cm">
                                 <p class="p_content_note" style="margin-bottom: 8px">
-                                    <span style="text-transform: uppercase;">{{$certificate->trader_name }}</span>
+                                    <span style="text-transform: uppercase;">{{$certificate->forwarder }}</span>
                                     <br>
-                                    {{$certificate->trader_address }}
+                                    {{$certificate->forwarder_address }}
                                 </p>
                                 <p class="p_info_note p_bottom_note" style="margin-bottom: 3px">юридическо или физ. лице, булстат, адрес, МОЛ</p>
                             </td>
@@ -852,7 +849,7 @@
                                 Стойно<br>ст
                             </th>
                             <th style="width: 1.6cm">
-                                ДДЦ<br>
+                                ДДС<br>
                                 20%
                             </th>
                             <th style="width: 1.6cm; padding: 2px">
@@ -866,27 +863,77 @@
                         <tr >
                             <td style="text-align: left;">
                                 Сертификат по ККППЗ №<br>
-                                {{ substr($certificate->stamp_number, 2) }}/{{ $certificate->internal }}
+                                {{ substr($certificate->stamp_number, 2) }}/{{ $certificate->export }}
                             </td>
                             <td>
-                                <span>чл.54 т.1</span>
+                                @if ($certificate->type_crops == 1)
+                                    <span>чл.55 т. 1</span>
+                                @elseif ($certificate->type_crops == 2)
+                                    <span>чл.55 т. 2</span>
+                                @else
+                                    <span>Error</span>
+                                @endif
+
                             </td>
                             <td><span>бр.</span></td>
                             <td><span>1</span></td>
-                            <td><span>{{ $certificate->sum }}</span></td>
-                            <td><span>{{ $certificate->sum }}</span></td>
+                            <td>
+                                <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}</span>
+                            </td>
+                            <td>
+                                <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}</span>
+                            </td>
                             <td><span>0,00</span></td>
-                            <td><span>{{ $certificate->sum }}</span></td>
+                            <td>
+                                <span>{{ number_format($certificate->base_sum, 2, ',', '' ) }}</span>
+                            </td>
                         </tr>
                         <tr class="empty_tr">
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                <?php
+                                if($certificate->percent == 1){
+                                    $txt = 'чл.56 т.1';
+                                    $br = 'бр.';
+                                    $num = '1';
+                                    $prcent = '42%';
+                                    $sum_prcent = ($certificate->base_sum*42)/100;
+                                }
+                                elseif($certificate->percent == 2){
+                                    $txt = 'чл.56 т.2';
+                                    $br = 'бр.';
+                                    $num = '1';
+                                    $prcent = '84%';
+                                    $sum_prcent = ($certificate->base_sum*84)/100;
+                                }
+                                else {
+                                    $txt = '';
+                                    $br = '';
+                                    $num = '';
+                                    $prcent = '';
+                                    $sum_prcent = 0;
+                                }0
+                                ?>
+                                <span>{{ $txt}}</span>
+                            </td>
+                            <td>{{$br}}</td>
+                            <td>{{$num}}</td>
+                            <td>{{$prcent}}</td>
+                            <td>
+                                @if($sum_prcent != 0)
+                                    {{ number_format($sum_prcent, 2, ',', '') }}
+                                @endif
+                            </td>
+                            <td>
+                                @if($sum_prcent != 0)
+                                    0,00
+                                @endif
+                            </td>
+                            <td>
+                                @if($sum_prcent != 0)
+                                    {{ number_format($sum_prcent, 2, ',', '') }}
+                                @endif
+                            </td>
                         </tr>
                         <tr class="empty_tr">
                             <td></td>
@@ -948,7 +995,31 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td><span class="bold">{{ $certificate->sum }}</span></td>
+                            <td>
+                                <?php
+                                if($certificate->type_crops == 1) {
+                                    $sum_cert = $sum_domestic;
+                                }
+                                if($certificate->type_crops == 2) {
+                                    $sum_cert = $sum_type;
+                                }
+                                $percent_sum = $sum_prcent;
+                                $total = $sum_cert + $percent_sum ;
+                                if($total = $certificate->sum ) {
+                                    $total_sum = $total;
+                                }
+                                else {
+                                    $total_sum = 0;
+                                }
+
+                                ?>
+                                @if ($total_sum != 0)
+                                    <span class="bold">{{ number_format($total_sum, 2, ',', '' ) }}</span>
+                                @else
+                                    <span class="bold">грешка</span>
+                                @endif
+
+                            </td>
                         </tr>
                         </tfoot>
                     </table>

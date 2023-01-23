@@ -21,6 +21,7 @@ use odbh\User;
 use odbh\Importer;
 use Auth;
 use Redirect;
+use Response;
 use Session;
 use DB;
 use Input;
@@ -1300,7 +1301,24 @@ class QINCertificatesController extends Controller
         
         $invoice = $certificate->internal_invoice->toArray();
 
-        return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm'));
+        $total_weight = 0;
+        foreach ($stocks as $key => $value){
+            $total_weight += array_sum((array)$value['weight']);
+        }
+
+        $sum_type = 9;
+        if(($total_weight-1000) <= 0) {
+            $sum_domestic = 9;
+        }
+        else {
+            $weight = (ceil(($total_weight-1000)/500));
+            $add = $weight*0.3;
+            $sum_domestic = 9 + $add ;
+
+            echo ($weight.'+'.$add.'=='.$sum_domestic);
+        }
+
+        return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm', 'total_weight', 'sum_domestic', 'sum_type'));
     }
 
     /**
@@ -1411,12 +1429,20 @@ class QINCertificatesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request|QCertificatesRequest $request
+     * @param Request $request
      * @param  int $id
      * @return Response
      */
     public function domestic_lock(Request $request, $id)
     {
+        $this->validate($request,
+            ['is_sum' => 'required|numeric|min:1'],
+            [
+                'is_sum.required' => 'Преди да заключиш добави сумата!',
+                'is_sum.numeric' => 'За сумата на Фактура използвай ТОЧКА или само цифри! ',
+                'is_sum.min' => 'Преди да заключиш добави сумата!',
+            ]);
+
         $certificate = QINCertificate::findOrFail($id);
         $data = [
             'is_lock' => 1,
@@ -1586,5 +1612,60 @@ class QINCertificatesController extends Controller
             $return_farmer[] = "<span class='bold red' style='font-size: 1em;'>Няма открита Фирма с това име!</span>";
         }
         return response()->json([ $return_farmer]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request|QCertificatesRequest $request
+     * @param  int $id
+     * @return Response
+     */
+    public function domestic_add_sum(Request $request, $id)
+    {
+        $this->validate($request,
+            ['sum' => 'required|numeric|min:1'],
+            [
+                'sum.required' => 'Преди да заключиш добави сумата!',
+                'sum.numeric' => 'За сумата на Фактура използвай ТОЧКА или само цифри! ',
+                'sum.min' => 'Преди да заключиш добави сумата!',
+            ]);
+        if($request->percent == 0){
+            $final_sum =  $request->sum;
+        }
+        elseif($request->percent == 1){
+            $final_sum = $request->sum + ($request->sum*42)/100;
+        }
+        elseif($request->percent == 2){
+            $final_sum = $request->sum + ($request->sum*84)/100;
+        }
+        else{
+            if($request->type == 1){
+                $final_sum = 9;
+            }
+            elseif($request->type == 2){
+                $final_sum = 9;
+            }
+            else {
+                $final_sum = 9;
+            }
+        }
+
+        $certificate = QINCertificate::findOrFail($id);
+        $data = [
+            'base_sum' => $request->sum,
+            'sum' => $final_sum,
+            'percent' => $request->percent,
+        ];
+
+        $data_invoice = [
+            'sum' => $final_sum,
+        ];
+
+        Invoice::where('certificate_id', $certificate->id)->where('certificate_number',$certificate->internal)->update($data_invoice);
+
+        $certificate->fill($data);
+        $certificate->save();
+        return redirect()->back()->withInput($request->all());
     }
 }

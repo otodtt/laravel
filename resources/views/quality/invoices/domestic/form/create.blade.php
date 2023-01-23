@@ -88,8 +88,10 @@
             <div class="col-md-12">
                 <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
                     <fieldset class="small_field_in" style="width: 50%">
-                        <p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!
-                            В сумата когато се налага изпозвай ТОЧКА!</span></p><hr class="hr_in"/>
+                        {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
+                            {{--В сумата когато се налага изпозвай ТОЧКА!</span>--}}
+                        {{--</p>--}}
+                        <hr class="hr_in"/>
                         <div class="col-md-3 col-md-6_my" >
                             {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>
                             {!! Form::text('invoice', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20 ]) !!}
@@ -99,11 +101,11 @@
                             {!! Form::text('date_invoice', null, ['class'=>'form-control form-control-my',
                             'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
                         </div>
-                        <div class="col-md-4 col-md-6_my" >
-                            {!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>
-                            {!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}
-                            <input type="hidden" name="domestic_sum" value="3333">
-                        </div>
+                        {{--<div class="col-md-4 col-md-6_my" >--}}
+                            {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
+                            {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
+                            {{--<input type="hidden" name="domestic_sum" value="3333">--}}
+                        {{--</div>--}}
                     </fieldset>
                 </fieldset>
             </div>

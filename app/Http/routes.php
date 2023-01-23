@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::resource('/', 'LogController');
 Route::post('log/store', 'LogController@store');
 Route::get('/logout', 'LogController@logout');
@@ -106,7 +107,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(/**
+ *
+ */
+    ['middleware' => ['auth']], function () {
 
     Route::get('/test', 'QCertificatesController@test');
     /////////////////////////////
@@ -374,6 +378,7 @@ Route::group(['middleware' => ['auth']], function () {
     ////// ДОБАВЯНЕ НА СУМА КЪМ СЕРТИФИКАТ
     Route::post('import/add-sum/store/{id}', 'QCertificatesController@import_add_sum');
     Route::post('export/add-sum/store/{id}', 'QXCertificatesController@export_add_sum');
+    Route::post('domestic/add-sum/store/{id}', 'QINCertificatesController@domestic_add_sum');
 
     //////////////////////////////////////////////////////////
     /////////////////////////////

@@ -486,23 +486,10 @@ class QXCertificatesController extends Controller
             $sum_type = 0;
         }
 
-    
         //////  OK ////
         // $total_weight = round(31520, -3);
         // $add = round(($total_weight - 20000)/1000);
         // $sum = 50 + $add ;
-
-        $total_weight = 2660;
-        $add = (ceil(($total_weight-1000)/500));
-        $add_no = $add*0.3;
-        $sum = 9 + $add_no ;
-
-        echo ($add_no.'+'.$add.'=='.$sum);
-
-    //    echo $add;
-        // echo $sum;
-        // echo $shippingAmount = (ceil($numItem / 3)) * 10;
-
 
         return view('quality.certificates.export.show', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_import', 'sum_type'));
     }
@@ -694,6 +681,12 @@ class QXCertificatesController extends Controller
             'sum' => $final_sum,
             'percent' => $request->percent,
         ];
+
+        $data_invoice = [
+            'sum' => $final_sum,
+        ];
+
+        Invoice::where('certificate_id', $certificate->id)->where('certificate_number',$certificate->export)->update($data_invoice);
 
         $certificate->fill($data);
         $certificate->save();

@@ -21,12 +21,17 @@
                 {{substr($invoice->identifier, 2)}}
             </td>
             <td class="right">
-                {{$invoice->sum}}
+                {{number_format($invoice->sum, 2, ',', ' ')}}
             </td>
             <td>
                 <span style="text-transform: uppercase;">{{$invoice->importer_name}}</span>
                 @if($invoice->importer_id != 0 && $invoice->farmer_id == 0 && $invoice->trader_id == 0)
-                    <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-default my_btn" style="float: right"></a>
+                    @if($invoice->importer_id != 0 && $invoice->invoice_for == 1)
+                        <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-default my_btn" style="float: right"></a>
+                    @elseif($invoice->importer_id != 0 && $invoice->invoice_for == 2)
+                        <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-warning my_btn" style="float: right"></a>
+                    @endif
+
                 @elseif($invoice->importer_id == 0 && $invoice->farmer_id != 0 && $invoice->trader_id == 0)
                     <a href="{!!URL::to('/стопанин/'.$invoice->farmer_id)!!}" class="fa fa-binoculars btn btn-success my_btn" style="float: right"></a>
                 @elseif($invoice->importer_id == 0 && $invoice->farmer_id == 0 && $invoice->trader_id != 0)

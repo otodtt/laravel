@@ -684,11 +684,16 @@ class QCertificatesController extends Controller
             'sum' => $final_sum,
             'percent' => $request->percent,
         ];
-        
+
+        $data_invoice = [
+            'sum' => $final_sum,
+        ];
+
+        Invoice::where('certificate_id', $certificate->id)->where('certificate_number',$certificate->import)->update($data_invoice);
+
         $certificate->fill($data);
         $certificate->save();
         return redirect()->back()->withInput($request->all());
-        // return back();
     }
 
     /** ЗА РЕДАКЦИЯ НА СУМИТЕ
