@@ -1314,8 +1314,6 @@ class QINCertificatesController extends Controller
             $weight = (ceil(($total_weight-1000)/500));
             $add = $weight*0.3;
             $sum_domestic = 9 + $add ;
-
-            echo ($weight.'+'.$add.'=='.$sum_domestic);
         }
 
         return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm', 'total_weight', 'sum_domestic', 'sum_type'));

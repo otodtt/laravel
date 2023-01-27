@@ -78,47 +78,68 @@
             </div>
         </div>
     </div>
+
     <hr class="hr_in"/>
 
-    {!! Form::open(['url'=>'контрол/фактури-вътрешни/'.$certificate['id'].'/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    @if($certificate->invoice_id == 0 && $certificate->invoice_date == 0)
+        {!! Form::open(['url'=>'контрол/фактури-вътрешни/'.$certificate['id'].'/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-    {{--ФАКТУРА И ДАТА--}}
-    <div class="container-fluid" >
-        <div class="row">
-            <div class="col-md-12">
-                <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
-                    <fieldset class="small_field_in" style="width: 50%">
-                        {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
-                            {{--В сумата когато се налага изпозвай ТОЧКА!</span>--}}
-                        {{--</p>--}}
-                        <hr class="hr_in"/>
-                        <div class="col-md-3 col-md-6_my" >
-                            {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>
-                            {!! Form::text('invoice', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20 ]) !!}
-                        </div>
-                        <div class="col-md-4 col-md-6_my" >
-                            {!! Form::label('date_invoice', 'Дата Фактура:', ['class'=>'my_labels']) !!}<br>
-                            {!! Form::text('date_invoice', null, ['class'=>'form-control form-control-my',
-                            'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
-                        </div>
-                        {{--<div class="col-md-4 col-md-6_my" >--}}
-                            {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
-                            {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
-                            {{--<input type="hidden" name="domestic_sum" value="3333">--}}
-                        {{--</div>--}}
+        {{--ФАКТУРА И ДАТА--}}
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
+                        <fieldset class="small_field_in" style="width: 50%">
+                            {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
+                                {{--В сумата когато се налага изпозвай ТОЧКА!</span>--}}
+                            {{--</p>--}}
+                            <hr class="hr_in"/>
+                            <div class="col-md-3 col-md-6_my" >
+                                {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>
+                                {!! Form::text('invoice', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20 ]) !!}
+                            </div>
+                            <div class="col-md-4 col-md-6_my" >
+                                {!! Form::label('date_invoice', 'Дата Фактура:', ['class'=>'my_labels']) !!}<br>
+                                {!! Form::text('date_invoice', null, ['class'=>'form-control form-control-my',
+                                'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
+                            </div>
+                            {{--<div class="col-md-4 col-md-6_my" >--}}
+                                {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
+                                {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
+                                {{--<input type="hidden" name="domestic_sum" value="3333">--}}
+                            {{--</div>--}}
+                        </fieldset>
                     </fieldset>
-                </fieldset>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-12" id="add_stock" style="text-align: center; margin-top: 10px;">
-        {!! Form::submit('Добави Фактура!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
-    </div>
-    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
+        <div class="col-md-12" id="add_stock" style="text-align: center; margin-top: 10px;">
+            {!! Form::submit('Добави Фактура!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+        </div>
+        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
 
-    {!! Form::close() !!}
-
+        {!! Form::close() !!}
+    @else
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset class="small_field"><legend class="small_legend">
+                            <span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red" style="font-weight: bold; text-transform: uppercase;" >Внимание! Има изданена фактура на този сертификат!</span>
+                        </legend>
+                        <fieldset class="small_field_in" style="width: 100%">
+                            <p>
+                                <span class="bold red" style="font-weight: bold; text-transform: none;" >Внимание! Има изданена фактура на този сертификат!</span>
+                                <span class="bold red" style="font-weight: bold; text-transform: none;" >Не може да има две фактури за един сертификат!</span>
+                            </p>
+                            <p>Серификат номер: <span class="bold">{{$certificate->internal}}/{{date('d.m.Y', $certificate->date_issue)}}</span> г.</p>
+                            <p>Фактура номер: <span class="bold">{{$certificate->invoice_number}}/{{date('d.m.Y', $certificate->invoice_date)}}</span> г.</p>
+                        </fieldset>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    @endif
 
 @endsection
 

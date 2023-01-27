@@ -88,7 +88,8 @@
                 <li ><a href="{!! URL::to( '/контрол/вносители') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>
                 <li><a href="{!! URL::to('/контрол/стоки/внос')!!}" class="my_a back_link"> <i class="fa fa-tags fa-fw "></i> Стоки</a></li>
                 <li><a href="{!! URL::to('/контрол/култури')!!}" class="my_a back_link"> <i class="fa fa-leaf fa-fw green_color"></i> Култури</a></li>
-
+                <li role="separator" class="divider"></li>
+                <li><a href="{!! URL::to('/контрол/месечни-справки')!!}" class="my_a back_link"> <i class="fa fa-calendar fa-fw red"></i> Месечни-справки</a></li>
             </ul>
         </li>
 

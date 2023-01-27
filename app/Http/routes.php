@@ -212,6 +212,7 @@ Route::group(/**
 
     // /////// ФАКТУРИ
     Route::resource('контрол/фактури', 'InvoicesController');
+    Route::get('контрол/фактура/{id}/{date}', 'InvoicesController@show');
     Route::post('контрол/фактури', 'InvoicesController@index');
     Route::post('контрол/фактури/сортирай', 'InvoicesController@sort');
     Route::get('контрол/фактури-внос/{id}', 'InvoicesController@import_create');
@@ -374,7 +375,11 @@ Route::group(/**
     Route::post('/контрол/формуляри/edit_protocol/{id}', 'QComplianceController@edit_protocol');
     Route::post('/контрол/формуляри/update_protocol/{id}', 'QComplianceController@update_protocol');
     //////////////////////////////////////////////////////////
+
     //////////////////////////////////////////////////////////
+    ///////////////////////////////////////месечни-справки///////////////////
+    Route::any('/контрол/месечни-справки', 'QReportsController@index');
+
     ////// ДОБАВЯНЕ НА СУМА КЪМ СЕРТИФИКАТ
     Route::post('import/add-sum/store/{id}', 'QCertificatesController@import_add_sum');
     Route::post('export/add-sum/store/{id}', 'QXCertificatesController@export_add_sum');

@@ -1,6 +1,6 @@
-@extends('layouts.farmers')
+@extends('layouts.quality')
 @section('title')
-    {{ 'Месечни справки - Земеделски Стопани' }}
+    {{ 'Месечни справки - Контрол ППЗ' }}
 @endsection
 
 @section('css')
@@ -16,35 +16,76 @@
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-
-        <span class="fa fa-calendar btn btn-default my_btn"> Регистър - Инспекции на ЗС</span>
-        <a href="{!! URL::to('/месечни-справки-становища')!!}" class="fa fa-address-card-o btn btn-primary my_btn"> Регистър - Издадени Становища</a>
-        <a href="{!! URL::to('/месечни-справки-контрол')!!}" class="fa fa-check-circle-o btn btn-primary my_btn"> Регистър - Контрол на Употребата</a>
-        <a href="{!! URL::to('/месечни-справки-дфз')!!}" class="fa fa-money btn btn-primary my_btn"> Регистър - Контрол на ДРЗП</a>
-        <a href="{!! URL::to('/протоколи-регистър')!!}" class="fa fa-file-powerpoint-o btn btn-primary my_btn"> Регистър - Констативни Протоколи</a>
+        <a href="{!! URL::to('/контрол/сертификати-внос')!!}" class="fa fa-certificate btn btn-info my_btn"> Сертификати</a>
+        <a href="{!! URL::to('/контрол/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
+        <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
+        <a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
+        <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
     </div>
     <hr/>
     <div class="div-layout-title">
-        <h4 class="bold layout-title title">ТАБЛИЦА ЗА ПРОВЕДЕНИТЕ ИНСПЕКЦИИ НА ЗЕМЕДЕЛСКИ СТОПАНИ ЗА {{ $year_now }} Г.<br/>
+        <h4 class="bold layout-title title">Обобщени месечни отчети на контрола по качеството на пресни плодове и зеленчуци за {{ $year_now }} Г.<br/>
             ОДБХ {!! mb_strtoupper($city->odbh_city, "utf-8") !!}
         </h4>
     </div>
-    <fieldset class="form-group">
+    <hr>
+    <fieldset class="form-group" style="margin-bottom: 0">
         <div class="wrap_sort">
-            <div id="wr_choiz_all" class="col-md-12">
-                {!! Form::open(array('url'=>'/месечни-справки-зс', 'method'=>'POST')) !!}
-                {!! Form::label('years', ' Направи справка за:', ['class'=>'labels']) !!}
-                {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ']) !!}
-                <span class="bold" > година. </span>&nbsp;&nbsp;
-                {!! Form::submit('Сортирай по година!', ['class'=>'fa btn btn-success my_btn']) !!}
-                {!!Form::hidden('_token', csrf_token() )!!}
+            <div id="wr_choiz_all" class="col-md-3">
+                {!! Form::open(array('url'=>'контрол/месечни-справки', 'method'=>'POST')) !!}
+                    {!! Form::label('years', ' Направи справка за:', ['class'=>'labels']) !!}
+                    {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ']) !!}
+                    <span class="bold" > година. </span>&nbsp;&nbsp;
+                    {!!Form::hidden('_token', csrf_token() )!!}
+            </div>
+            <div id="wr_choiz_all" class="col-md-6">
+                    {!! Form::label('month_select', ' Направи справка за масец:', ['class'=>'labels']) !!}
+                    {!! Form::select('month_select', $month_select, $selected_month , ['class'=>'form-control form-control-my-search inspector_sort', 'style'=>'width: 150px;']) !!}
+                    {!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}
                 {!! Form::close() !!}
+            </div>
+            <div class="btn_add_certificate col-md-2" style="text-align: right; padding-top: 7px">
+                <a href="{!! URL::to('/контрол/месечни-справки') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
+                    &nbsp; Изчисти сортирането!
+                </a>
             </div>
         </div>
     </fieldset>
-    @include('registers.farmers.tables.farmers')
+    {{--<hr>--}}
+    {{--<fieldset class="form-group">--}}
+        {{--<div class="wrap_sort">--}}
+            {{--<div id="wr_choiz_all" class="col-md-12">--}}
+                {{--{!! Form::label('month_select', ' Направи справка за масец:', ['class'=>'labels']) !!}--}}
+                {{--{!! Form::select('month_select', $month_select, $selected_month , ['class'=>'form-control form-control-my-search inspector_sort', 'style'=>'width: 150px;']) !!}--}}
+                {{--<span class="bold" > година. </span>&nbsp;&nbsp;--}}
+                {{--{!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}--}}
+                {{--{!!Form::hidden('_token', csrf_token() )!!}--}}
+                {{--{!! Form::close() !!}--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</fieldset>--}}
+    <hr>
+    @if($selected_month != 0)
+        @foreach($month_select as $k=>$month)
+            @if($k !=0 && $k == $selected_month)
+                <h4 style="text-align: center; margin: 20px 0" class="text-uppercase">Месечна справка за {{$month}} {{$year_now}} г.</h4>
+            @endif
+        @endforeach
+    @else
+        @if( strlen($selected_month) == 5 )
+            <h4 style="text-align: center; margin: 20px 0; " class="text-uppercase">Обобщен отчет на КППЗ до дата {{date('d.m.Y')}} г.</h4>
+        @endif
+        @if(strlen($selected_month) != 5 )
+            <h4 style="text-align: center; margin: 20px 0" class="text-uppercase">Обобщен отчет на КППЗ за {{$year_now}} г.</h4>
+        @endif
+    @endif
+    @include('quality.reports.table')
+    <br>
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/registers/countTableColumns.js" )!!}
+{{--    {!!Html::script("js/registers/countTableColumns.js" )!!}--}}
+    <script>
+
+    </script>
 @endsection

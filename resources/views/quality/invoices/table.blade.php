@@ -16,6 +16,9 @@
             <td class="center"><?= $n++ ?></td>
             <td>
                 {{$invoice->number_invoice}}/{{ date('d.m.Y', $invoice->date_invoice)  }}
+
+                <a href="{!!URL::to('/контрол/фактура/'.$invoice->number_invoice.'/'.$invoice->date_invoice )!!}" class="fa fa-search-plus btn btn-default my_btn" style="float: right"></a>
+
             </td>
             <td>
                 {{substr($invoice->identifier, 2)}}

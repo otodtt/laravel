@@ -1078,6 +1078,7 @@ class QComplianceController extends Controller
      */
     public function store_articles(ArticleRequest $request, $id)
     {
+        $compliance = QCompliance::findOrFail($id);
         $data = [
             'compliance_id' => $request->compliance_id,
             'product_id' => $request->crops,
@@ -1085,10 +1086,10 @@ class QComplianceController extends Controller
             'country' => $request->country,
             'class' => $request->class,
             'quantity' => $request->quantity,
+            'date_compliance' => $compliance->date_compliance,
             'date_add' => date('d.m.Y', time()),
             'added_by' => Auth::user()->id,
         ];
-
         Article::create($data);
         Session::flash('message', 'Записа е успешен!');
         return back();
@@ -1104,8 +1105,8 @@ class QComplianceController extends Controller
             'country' => $request->country,
             'class' => $request->class,
             'quantity' => $request->quantity,
-            'date_add' => date('d.m.Y', time()),
-            'added_by' => Auth::user()->id,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
         ];
         $stock->fill($data);
         $stock->save();

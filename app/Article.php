@@ -11,5 +11,5 @@ class Article extends Model
     public $timestamps = false;
 
     protected $fillable = ['compliance_id', 'product_id', 'product', 'country', 'class', 'quantity',
-                            'date_update', 'updated_by', 'date_add', 'added_by'];
+                            'date_compliance', 'date_update', 'updated_by', 'date_add', 'added_by'];
 }

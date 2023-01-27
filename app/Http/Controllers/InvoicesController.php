@@ -165,14 +165,18 @@ class InvoicesController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
+     * @param  int  $date
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $date)
     {
-        //
+        $invoice = Invoice::select()->where('number_invoice',$id)->where('date_invoice',$date)->get();
+        $invoices = $invoice->toArray();
+
+        return view('quality.invoices.show', compact( 'invoice', 'invoices', 'id', 'date'));
     }
 
-    /** ФАКТУРИ ИЗНОС  */
+    /** ФАКТУРИ ВНОС   */
     /**
      * Show the form for creating a new resource.
      *
@@ -275,7 +279,7 @@ class InvoicesController extends Controller
         return Redirect::to('/контрол/сертификат-внос/'.$certificate->id);
     }
 
-    /** ФАКТУРИ ВНОС  */
+    /** ФАКТУРИ ИЗНОС */
     /**
      * Show the form for creating a new resource.
      *

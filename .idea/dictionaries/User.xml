@@ -1,7 +1,10 @@
 <component name="ProjectDictionaryState">
   <dictionary name="User">
     <words>
+      <w>clists</w>
       <w>compliances</w>
+      <w>incertificates</w>
+      <w>inlists</w>
       <w>qarticles</w>
       <w>qcertificate</w>
       <w>qcertificates</w>
@@ -15,6 +18,9 @@
       <w>qxcertificate</w>
       <w>qxcertificates</w>
       <w>qxstocks</w>
+      <w>xcertificate</w>
+      <w>xcertificates</w>
+      <w>xlists</w>
     </words>
   </dictionary>
 </component>

@@ -136,7 +136,7 @@
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/стоки/внос') !!}"><i class="fa fa-tags fa-fw"></i> Стоки</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/култури') !!}"><i class="fa fa-leaf fa-fw green_color"></i> Култури</a><br/>
                                             <br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
+                                            <a class="my_a back_link" href="{!! URL::to( '/контрол/месечни-справки') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
                                         </div>
                                     </div>
                                 </fieldset>
