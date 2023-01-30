@@ -121,6 +121,7 @@ class CertificatesController extends Controller
      */
     public function sort(Request $request, $abc_list = null, $start_year = null, $end_year = null, $limit_sort = null, $inspector_sort = null)
     {
+        //dd($request->all());
         $inspectors = $this->inspectors_edit_db;
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
@@ -180,7 +181,7 @@ class CertificatesController extends Controller
         }
         elseif (isset($sort_limit) && (int)$sort_limit == 3){
             $date_now = time();
-            $limit_sql = ' AND to_date < '.$date_now .' AND to_date!=1';
+            $limit_sql = ' AND to_date < '.$date_now .' AND to_date!=1 AND limit_certificate!=1';
         }
         else{
             $limit_sql = ' ';
