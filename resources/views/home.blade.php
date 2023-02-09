@@ -231,6 +231,7 @@
                                     <div class="row">
                                         <a class="my_a back_link" href="{!! URL::to( '/полезно/процедури') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Процедури</a><br/>
                                         <a class="my_a back_link" href="{!! URL::to( '/полезно/други') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Други</a><br/>
+                                        <a class="my_a back_link" href="{!! URL::to( '/полезно/бележки') !!}"><i class="fa fa-print fa-fw green_colorA"></i> Бележки Каса</a><br/>
                                     </div>
                                 </fieldset>
                             </div>

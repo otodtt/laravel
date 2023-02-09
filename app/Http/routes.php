@@ -835,6 +835,9 @@ Route::group(/**
     Route::get('полезно/добави-документ', 'UsefulController@create');
     Route::post('useful/document/store', 'UsefulController@store');
 
+    Route::get('полезно/бележки', 'UsefulController@notes');
+    Route::post('полезно/бележки/подготви', 'UsefulController@prepare');
+
     Route::get('полезно/редактирай-документ/{id}', 'UsefulController@edit');
     Route::post('useful/document/update/{id}', 'UsefulController@update');
 

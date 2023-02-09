@@ -38,6 +38,8 @@
                 <li><a class="my_a back_link" href="{!! URL::to( 'полезно/въздушни') !!}"> <i class="fa fa-pencil-square-o fa-fw "></i> Въздушни</a></li>
                 <li><a class="my_a back_link" href="{!! URL::to( 'полезно/процедури') !!}"> <i class="fa fa-pencil-square-o fa-fw "></i> Процедури</a></li>
                 <li><a class="my_a back_link" href="{!! URL::to( 'полезно/други') !!}"> <i class="fa fa-pencil-square-o fa-fw "></i> Други</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a class="my_a back_link" href="{!! URL::to( '/полезно/бележки') !!}"><i class="fa fa-print fa-fw green_colorA"></i> Бележки Каса</a></li>
             </ul>
         </li>
     </ul>

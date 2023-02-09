@@ -144,7 +144,163 @@ class UsefulController extends Controller
 
         return view('useful.others', compact( 'regulations', 'path'));
     }
-    
+
+    /** ДРУГИ
+     *
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function notes(Request $request)
+    {
+        $select = [
+            0 => 'Избери',
+            1 => 'За издаване на удостоверение за търговия с ПРЗ',
+            2 => 'За всеки следващ обект за търговия (склад или селскостопанска аптека)',
+            3 => 'За издаване на удостоверение за преопаковане на ПРЗ',
+            4 => 'За всеки следващ обект за преопаковане на ПРЗ ',
+            5 => 'За промяна в обстоятелствата на удостоверение',
+            6 => 'За преиздаване на удостоверение',
+            7 => 'Сертификат по чл. 83',
+            8 => 'Становище на земеделски производители',
+            9 => 'За разрешение за въздушно пръскане',
+        ];
+
+        $number = 1;
+        $selected = 0;
+        $selected_name = '';
+        $reason = '';
+        $sum = '';
+        $text = '';
+        $total = 0;
+
+        return view('useful.notes', compact('select', 'selected', 'selected_name', 'reason', 'sum', 'text', 'number', 'total'));
+    }
+
+    /** ДРУГИ
+     *
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function prepare(Request $request)
+    {
+        $this->validate($request,
+            [
+                'select' => 'required|not_in:0',
+                'name' => 'required|min:3|max:150|cyrillic_names'
+            ],
+            [
+                'select.required' => 'Избери за какво се издава бележката!',
+                'select.not_in' => 'Избери за какво се издава бележката!',
+                'name.required' => 'Попълни името на фирмата/ЧЗС!',
+                'name.min' => 'Минимален брой символи за името - 3!',
+                'name.max' => 'Минимален брой символи за името - 100!',
+                'name.cyrillic_names' => 'За име пиши само на кирилица!',
+            ]);
+
+        $select = [
+            0 => 'Избери',
+            1 => 'За издаване на удостоверение за търговия с ПРЗ',
+            2 => 'За всеки следващ обект за търговия (склад или селскостопанска аптека)',
+            3 => 'За издаване на удостоверение за преопаковане на ПРЗ',
+            4 => 'За всеки следващ обект за преопаковане на ПРЗ ',
+            5 => 'За промяна в обстоятелствата на удостоверение',
+            6 => 'За преиздаване на удостоверение',
+            7 => 'Сертификат по чл. 83',
+            8 => 'Становище на земеделски производители',
+            9 => 'За разрешение за въздушно пръскане',
+        ];
+
+        if(isset($request['select'])){
+            $selected = $request['select'];
+        }
+        else{
+            $selected = 0;
+        }
+
+        if(isset($request['number'])){
+            $number = $request['number'];
+        }
+        else{
+            $number = 1;
+        }
+
+        if(isset($request['name'])){
+            $selected_name = $request['name'];
+        }
+        else{
+            $selected_name = '';
+        }
+
+        //dd((int)$number);
+
+        if( $selected == 1 ) {
+            $reason = 'Чл. 7. т. 1';
+            $sum = '300,00';
+            $text = 'Издаване на удостоверение';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 2){
+            $reason = 'Чл. 7. т. 1.1';
+            $sum = '150,00';
+            $text = 'Издаване на удостоверение';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 3){
+            $reason = 'Чл. 7 т. 2';
+            $sum = '300,00';
+            $text = 'Издаване на удостоверение';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 4){
+            $reason = 'Чл. 7 т 2.1 ';
+            $sum = '150,00';
+            $text = 'Издаване на удостоверение';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 5){
+            $reason = 'Чл. 7 т. 3';
+            $sum = '50,00';
+            $text = 'Промяна в обстоятелствата';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 6){
+            $reason = 'Чл. 7 т. 4';
+            $sum = '20,00';
+            $text = 'Преиздаване на удостоверение';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 7){
+            $reason = 'Чл. 17 т. 3';
+            $sum = '40,00';
+            $text = 'Издаване на Сертификат по чл. 83';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 8){
+            $reason = 'Чл. 17 т. 4';
+            $sum = '50,00';
+            $text = 'Издаване на Становище';
+            $total = (int)$sum * (int)$number;
+        }
+        elseif($selected == 9){
+            $reason = 'Чл. 17 т. 5';
+            $sum = '50,00';
+            $text = 'Издаване на въздушно';
+            $total = (int)$sum * (int)$number;
+        }
+        else{
+            $reason = '';
+            $sum = '';
+            $text = '';
+            $total = 0;
+        }
+
+
+        return view('useful.notes', compact( 'select', 'selected', 'selected_name', 'reason', 'sum', 'text', 'number', 'total'));
+    }
 
     /** НЕ АКТИВНИ
      * 

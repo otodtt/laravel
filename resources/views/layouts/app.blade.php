@@ -128,8 +128,13 @@
                 <li><a href="{!! '/полезно/наредби' !!}" class="my_a back_link"> <i class="fa fa fa-gavel fa-fw green_colorA"></i> Наредби</a></li>
                 {{--<li><a href="{!! '/' !!}" class="my_a back_link"> <i class="fa fa fa-male fa-fw brown"></i> Консултански услуги</a></li>--}}
                 <li role="separator" class="divider"></li>
-                <li><a class="text" href="{!! URL::to( '/регистър-въздушни') !!}"><i class="fa fa-file fa-fw control_color"></i> Бланки</a></li>
-                {{--<li><a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър - Услуги</a></li>--}}
+                <li><a class="my_a back_link" href="{!! URL::to( '/полезно/заявления') !!}"> <i class="fa fa-pencil-square-o fa-fw brownA"></i> Заявления</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( '/полезно/декларации') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Декларации</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( '/полезно/въздушни') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Въздушни</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( '/полезно/процедури') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Процедури</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( '/полезно/други') !!}"><i class="fa fa-pencil-square-o fa-fw green_colorA"></i> Други</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a class="my_a back_link" href="{!! URL::to( '/полезно/бележки') !!}"><i class="fa fa-print fa-fw green_colorA"></i> Бележки Каса</a></li>
             </ul>
         </li>
 
