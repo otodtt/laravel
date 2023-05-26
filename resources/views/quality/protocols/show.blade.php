@@ -5,11 +5,10 @@
 
 @section('css')
     {!!Html::style("css/firms_objects/firms_all_css.css" )!!}
-{{--    {!!Html::style("css/table/jquery.dataTables.css" )!!}--}}
-{{--    {!!Html::style("css/table/table_firms.css " )!!}--}}
     {!!Html::style("css/qcertificates/show_opinion.css" )!!}
     {!!Html::style("css/qprotocols/body_protocol.css" )!!}
-{{--    {!!Html::style("css/date/jquery.datetimepicker.css" )!!}--}}
+
+    {!!Html::style("css/qprotocols/print.css", array('media' => 'print'))!!}
 @endsection
 
 @section('message')
@@ -20,7 +19,7 @@
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
         <h4 class="bold layout-title">КОНСТАТИВЕН ПРОТОКОЛ</h4>
     </div>
-    <hr/>
+    <hr id="hide1" />
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         {{--<span class="fa  btn btn-default my_btn"><i class="fa fa-file-powerpoint-o " aria-hidden="true"></i>  Констативни протоколи</span>--}}
@@ -33,7 +32,7 @@
         <a href="{!!URL::to('/контрол/протоколи/нерегламентиран')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
             Добави Протокол на нерегламентиран</a>
     </div>
-    <hr/>
+    <hr id="hide2"/>
     <div class="btn_add_edit">
         @if($protocol->farmer_id > 0 && $protocol->trader_id == 0 && $protocol->unregulated_id == 0)
             <a href="{!!URL::to('/контрол/протоколи/фермер/edit/'.$protocol->id)!!}" class="fa fa-edit btn btn-danger my_btn">Редактирай Протокола</a>
@@ -245,7 +244,7 @@
         <div class="page" >
             <div class="col-md-12_my" id="flip_all">
                 <div class="col-md-12_my" id="flip_in">
-                    <div class="col-md-12_my" style="margin: 0 auto; padding: 50px 0 0 0">
+                    <div class="col-md-12_my" style="margin: 0 auto; padding: 0">
                         <p >Контролен орган: <span class="bold" style="text-transform: none">{{$index[0]['authority_bg'] }}</span></p>
                         <p >
                             Получател:
@@ -282,7 +281,7 @@
                             @endif
                         </p>
                         <div class="row" style="margin: 30px 0 20px 0">
-                            <h5 class="bold title_doc" style="text-align: center; margin: 0">
+                            <h5 class="bold title_doc_show" style="text-align: center; margin: 0">
                                 КОНСТАТИВЕН ПРОТОКОЛ № {{$protocol->number_protocol }}
                             </h5>
                             <p>
@@ -596,19 +595,30 @@
                     <div class="row" style="margin: 30px 0 20px 0">
                         <div class="col-md-12" style="padding: 0">
                             <p>Трите имена на търговеца или на негов представител <span class="bold">{{ $protocol->name_trader }}</span> <span class="right">Подпис</span></p>
-                            <p ><span class="bold"></span></p>
                         </div>
                     </div>
                     <div class="row" style="margin: 30px 0 20px 0">
-                        <div class="col-md-6" style="padding: 0">
-                            <p >Място и дата на издаване<span class="bold"></span></p>
+                        {{--<p >Място и дата на издаване<span style="margin-left:90px">Инспектор</span>--}}
+                            {{--<span style="float: right">--}}
+                                {{--Подпис--}}
+                                    {{--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--}}
+                                {{--Печат--}}
+                            {{--</span>--}}
+                        {{--</p>--}}
+                        {{--<p >--}}
+                            {{--<span class="bold">гр./с {{ $protocol->place }} / {{ date('d.m.Y', $protocol->date_protocol) }}</span>--}}
+                            {{--<span id="position" class="bold" style="margin-left: 80px">{{ $protocol->inspector_name }}</span>--}}
+                        {{--</p>--}}
+
+                        <div class="col-lg" id="col5" style="padding: 0; width: 41.66666667%; display: inline-block">
+                            <p >Място и дата на издаване</p>
                             <p ><span class="bold">гр./с {{ $protocol->place }} / {{ date('d.m.Y', $protocol->date_protocol) }}</span></p>
                         </div>
-                        <div class="col-md-4" style="padding: 0">
+                        <div class="col-lg" id="col4" style="padding: 0; width: 33.33333333%; display: inline-block">
                             <p >Инспектор</p>
                             <p ><span class="bold">{{ $protocol->inspector_name }}</span></p>
                         </div>
-                        <div class="col-md-2" style="padding: 0">
+                        <div class="col-lg" id="col3" style="padding: 0; display: inline-block">
                             <p >Подпис <span class="stamp">Печат</span></p>
                         </div>
                     </div>
@@ -621,14 +631,11 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/table/jquery-1.11.3.min.js" )!!}
-    {!!Html::script("js/table/jquery.dataTables.js" )!!}
-    {!!Html::script("js/quality/QcertificatesTable.js" )!!}
+    {{--{!!Html::script("js/table/jquery-1.11.3.min.js" )!!}--}}
+    {{--{!!Html::script("js/table/jquery.dataTables.js" )!!}--}}
+    {{--{!!Html::script("js/quality/QcertificatesTable.js" )!!}--}}
 
-    {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/date/in_date.js" )!!}
-    <script>
-//        var selectedVal = $("#years option:selected").val();
-//        var getYear = document.getElementById("get_year").value = selectedVal;
-    </script>
+{{--    {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}--}}
+{{--    {!!Html::script("js/date/in_date.js" )!!}--}}
+
 @endsection

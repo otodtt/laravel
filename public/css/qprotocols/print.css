@@ -1,3 +1,4 @@
-.my_top_nav, .big_field, .title_doc, .my_hr, .my_btn, .title_doc, .div-layout-title, .layout-title{
+.my_btn, .layout-title, hr, .info-wrap {
     display: none;
 }
+

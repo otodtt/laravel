@@ -8,6 +8,7 @@
     width: 20px;
     border-left: 1px solid black;
     border-right: 1px solid black;
+    padding-right: 2px;
 }
 .desc {
     /*width: auto;*/
@@ -38,7 +39,7 @@
     margin-right: 10px;
 }
 .stamp {
-    margin-left: 17px;
+    margin-left: 50px;
 }
 .green_info {
     color: #1d9d13;;
