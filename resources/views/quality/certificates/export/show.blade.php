@@ -942,7 +942,7 @@
                 </p>
                 <p class="bottom_p">
                     Банкова сметка:
-                    <span class="bold">BG CECB 97903117 5800 00</span>;
+                    <span class="bold">BG83 CECB 979031I7 5800 00</span>;
                     Банков код:
                     <span class="bold">CECBBGSF</span>;
                     Банка:
