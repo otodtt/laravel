@@ -38,20 +38,32 @@
                     <span class="bold" > година. </span>&nbsp;&nbsp;
                     {!!Form::hidden('_token', csrf_token() )!!}
             </div>
-            <div id="wr_choiz_all" class="col-md-5">
+            <div id="wr_choiz_all" class="col-md-6">
                     {!! Form::label('month_select', ' Направи справка за масец:', ['class'=>'labels']) !!}
                     {!! Form::select('month_select', $month_select, $selected_month , ['class'=>'form-control form-control-my-search inspector_sort', 'style'=>'width: 150px;']) !!}
                     {!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}
                 {!! Form::close() !!}
             </div>
-            <div class="btn_add_certificate col-md-4" style="text-align: left; padding-top: 7px">
+            <div class="btn_add_certificate col-md-2" style="text-align: right; padding-top: 7px">
                 <a href="{!! URL::to('/контрол/месечни-справки') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
                     &nbsp; Изчисти сортирането!
                 </a>
-                {{--<button class="btn btn-xs btn-danger" id="button" onclick="htmlTableToExcel('xlsx')">Export</button>--}}
             </div>
         </div>
     </fieldset>
+    {{--<hr>--}}
+    {{--<fieldset class="form-group">--}}
+        {{--<div class="wrap_sort">--}}
+            {{--<div id="wr_choiz_all" class="col-md-12">--}}
+                {{--{!! Form::label('month_select', ' Направи справка за масец:', ['class'=>'labels']) !!}--}}
+                {{--{!! Form::select('month_select', $month_select, $selected_month , ['class'=>'form-control form-control-my-search inspector_sort', 'style'=>'width: 150px;']) !!}--}}
+                {{--<span class="bold" > година. </span>&nbsp;&nbsp;--}}
+                {{--{!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}--}}
+                {{--{!!Form::hidden('_token', csrf_token() )!!}--}}
+                {{--{!! Form::close() !!}--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</fieldset>--}}
     <hr>
     @if($selected_month != 0)
         @foreach($month_select as $k=>$month)
@@ -72,13 +84,8 @@
 @endsection
 
 @section('scripts')
-    {{--<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>--}}
-    {{--<script>--}}
-        {{--function htmlTableToExcel(type){--}}
-            {{--var data = document.getElementById('table');--}}
-            {{--var excelFile = XLSX.utils.table_to_book(data, {sheet: "sheet1"});--}}
-            {{--XLSX.write(excelFile, { bookType: type, bookSST: true, type: 'base64' });--}}
-            {{--XLSX.writeFile(excelFile, 'ExportedFile:HTMLTableToExcel.' + type);--}}
-        {{--}--}}
-    {{--</script>--}}
+{{--    {!!Html::script("js/registers/countTableColumns.js" )!!}--}}
+    <script>
+
+    </script>
 @endsection

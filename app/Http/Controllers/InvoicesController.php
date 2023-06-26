@@ -165,7 +165,6 @@ class InvoicesController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @param  int  $date
      * @return \Illuminate\Http\Response
      */
     public function show($id, $date)
@@ -176,7 +175,7 @@ class InvoicesController extends Controller
         return view('quality.invoices.show', compact( 'invoice', 'invoices', 'id', 'date'));
     }
 
-    /** ФАКТУРИ ВНОС   */
+    /** ФАКТУРИ ИЗНОС  */
     /**
      * Show the form for creating a new resource.
      *
@@ -279,7 +278,7 @@ class InvoicesController extends Controller
         return Redirect::to('/контрол/сертификат-внос/'.$certificate->id);
     }
 
-    /** ФАКТУРИ ИЗНОС */
+    /** ФАКТУРИ ВНОС  */
     /**
      * Show the form for creating a new resource.
      *

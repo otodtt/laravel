@@ -637,5 +637,4 @@
 
 {{--    {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}--}}
 {{--    {!!Html::script("js/date/in_date.js" )!!}--}}
-
 @endsection

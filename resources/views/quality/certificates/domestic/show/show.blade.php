@@ -793,8 +793,8 @@
                 <div class="col-md-12_my" id="flip_in_note">
                     <div class="col-md-12_my" style="margin: 0 auto">
                         <h3 class="h3_note">Б Е Л Е Ж К А</h3>
-                        <p class="top_p">за дейност/услуга, за която се плаща в ОДБХ - Хаково</p>
-                        <p class="top_p">гр. Хаково бул. "Освобождение" 57 ИН 176986657 ИН по ЗДДС: BG 176986657</p>
+                        <p class="top_p">за дейност/услуга, за която се плаща в ОДБХ - Хасково</p>
+                        <p class="top_p">гр. Хасково бул. "Освобождение" 57 ИН 176986657 ИН по ЗДДС: BG 176986657</p>
                     </div>
 
                     {{-- Таблица 1 --}}
@@ -817,9 +817,9 @@
                             </td>
                             <td class="cell first-row-cell last_cell cell_note last_cell_note" style="height: 3cm; width: 6cm">
                                 <p class="p_content_note" style="margin-bottom: 8px">
-                                    <span style="text-transform: uppercase;">{{$certificate->forwarder }}</span>
+                                    <span style="text-transform: uppercase;">{{$certificate->trader_name }}</span>
                                     <br>
-                                    {{$certificate->forwarder_address }}
+                                    {{$certificate->trader_address }}
                                 </p>
                                 <p class="p_info_note p_bottom_note" style="margin-bottom: 3px">юридическо или физ. лице, булстат, адрес, МОЛ</p>
                             </td>
@@ -863,13 +863,13 @@
                         <tr >
                             <td style="text-align: left;">
                                 Сертификат по ККППЗ №<br>
-                                {{ substr($certificate->stamp_number, 2) }}/{{ $certificate->export }}
+                                {{ substr($certificate->stamp_number, 2) }}/{{ $certificate->internal }}
                             </td>
                             <td>
                                 @if ($certificate->type_crops == 1)
-                                    <span>чл.55 т. 1</span>
+                                    <span>чл.54 т. 3</span>
                                 @elseif ($certificate->type_crops == 2)
-                                    <span>чл.55 т. 2</span>
+                                    <span>чл.54 т. 3</span>
                                 @else
                                     <span>Error</span>
                                 @endif

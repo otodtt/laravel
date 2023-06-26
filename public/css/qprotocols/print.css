@@ -1,4 +1,7 @@
 .my_btn, .layout-title, hr, .info-wrap {
     display: none;
 }
-
+.page {
+    margin: 0;
+    padding: 0 40px;
+}

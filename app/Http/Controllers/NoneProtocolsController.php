@@ -268,7 +268,7 @@ class NoneProtocolsController extends Controller
                                 $assay_sql $abc_sql ORDER BY date_protocol ASC ");
 
         return view('protocols.none.index', compact('protocols', 'alphabet', 'abc', 'years_start_sort', 'years_end_sort',
-            'inspectors', 'sort_object', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay'));
+            'inspectors', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay'));
     }
 
     /**

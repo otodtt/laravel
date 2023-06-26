@@ -8,7 +8,7 @@ $(document).ready(function(){
 function load(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/firms/locations",
+        url: "http://93.183.140.127/firms/locations",
         headers:{'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         data: "areasID="+$("#areasID").val(),
         dataType:'json'
@@ -22,7 +22,7 @@ function load(){
 function load_locals(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/firms/locations",
+        url: "http://93.183.140.127/firms/locations",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

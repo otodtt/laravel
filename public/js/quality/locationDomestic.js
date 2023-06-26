@@ -7,7 +7,7 @@ $(document).ready(function(){
 function GetPinFarmerCertificate(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/certificate/pin",
+        url: "http://93.183.140.127/certificate/pin",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{
@@ -21,7 +21,7 @@ function GetPinFarmerCertificate(){
 function GetNameFarmerCertificate(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/certificate/names",
+        url: "http://93.183.140.127/certificate/names",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{
@@ -35,7 +35,7 @@ function GetNameFarmerCertificate(){
 function GetNameFirmCertificate(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/certificate/firms",
+        url: "http://93.183.140.127/certificate/firms",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

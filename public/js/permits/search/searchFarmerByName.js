@@ -5,7 +5,7 @@ $(document).ready(function(){
 function GetNameFarmer(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/permit/names",
+        url: "http://93.183.140.127/permit/names",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

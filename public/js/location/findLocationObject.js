@@ -7,7 +7,7 @@ $(document).ready(function(){
 function load_object(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/others/locations",
+        url: "http://93.183.140.127/others/locations",
         headers:{'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         data: "areasIDObject="+$("#areasIDObject").val(),
         dataType:'json'
@@ -21,7 +21,7 @@ function load_object(){
 function load_locals_object(){
     $.ajax({
         type: "POST",
-        url: "http://odbhrz.test/others/locations",
+        url: "http://93.183.140.127/others/locations",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

@@ -156,8 +156,8 @@
         @endif
 		<p style="font-size: 0.8em; margin-top: 15px">
 			&#x2610; Ниво 3, TPL-RED &nbsp;&nbsp;&nbsp;&nbsp; 
-			&#x2610; Ниво 2, TPL-AMBER &nbsp;&nbsp;&nbsp;&nbsp;
-            &#9745; Ниво 1, TPL-GREEN &nbsp;&nbsp;&nbsp;&nbsp;
+			&#x2610; Ниво 2, TPL-AMBER &nbsp;&nbsp;&nbsp;&nbsp;  
+			&#9745; Ниво 1, TPL-GREEN &nbsp;&nbsp;&nbsp;&nbsp;
 			&#x2610; Ниво 0, TPL-WHITE &nbsp;&nbsp;&nbsp;&nbsp;
 		</p>
     </div>

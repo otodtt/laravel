@@ -121,7 +121,6 @@ class CertificatesController extends Controller
      */
     public function sort(Request $request, $abc_list = null, $start_year = null, $end_year = null, $limit_sort = null, $inspector_sort = null)
     {
-        //dd($request->all());
         $inspectors = $this->inspectors_edit_db;
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);

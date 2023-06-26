@@ -464,7 +464,7 @@ class FarmersProtocolsController extends Controller
           ORDER BY `date_protocol` DESC, `number_protocol` ASC" );
 
         return view('records.index_farmers', compact('protocols', 'districts_list', 'districts_farm', 'alphabet','abc', 'areas',
-            'inspectors','sort_object', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay', 'years_start_sort', 'years_end_sort'));
+            'inspectors', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay', 'years_start_sort', 'years_end_sort'));
     }
 
     /** ПРОТОКОЛИ СЪВМВЕСТНО С ДФЗ*/
@@ -862,7 +862,7 @@ class FarmersProtocolsController extends Controller
           ORDER BY `date_protocol` DESC, `number_protocol` ASC" );
 
         return view('records.index_opinion', compact('protocols', 'districts_list', 'districts_farm', 'alphabet','abc', 'type_opinion',
-            'areas', 'inspectors','sort_object', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay', 'years_start_sort', 'years_end_sort'));
+            'areas', 'inspectors', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay', 'years_start_sort', 'years_end_sort'));
     }
 
     /** ПРОТОКОЛИ ЗА ДРУГИ ПЛАЩАНИЯ*/
@@ -1061,7 +1061,7 @@ class FarmersProtocolsController extends Controller
           ORDER BY `date_protocol` DESC, `number_protocol` ASC" );
 
         return view('records.index_others', compact('protocols', 'districts_list', 'districts_farm', 'alphabet','abc', 'type_check',
-            'areas', 'inspectors','sort_object', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay', 'years_start_sort', 'years_end_sort'));
+            'areas', 'inspectors', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay', 'years_start_sort', 'years_end_sort'));
     }
 
     //** ПРОТОКОЛИ С НАРУШЕНИЯ, ПРЕДПИСАНИЯ И АКТОВЕ*/
@@ -1222,7 +1222,7 @@ class FarmersProtocolsController extends Controller
           ORDER BY `date_protocol` DESC, `number_protocol` ASC" );
 
         return view('records.index_violation', compact('protocols', 'alphabet','abc', 'inspectors','sort_object',
-                    'sort_inspector', 'sort_assay', 'years_start_sort', 'years_end_sort'));
+                    'sort_inspector', 'years_start_sort', 'years_end_sort'));
     }
 
 

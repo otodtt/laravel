@@ -273,7 +273,7 @@
                         @endforeach
                     @endforeach
                     <span style="float: right" class="bold">
-                        ВСИЧКО ИЗНОС: {{ number_format($quantity_consume/1000, 3, ',', ' ') }}
+                        ВСИЧКО ЗА ПРЕРАБОТКА: {{ number_format($quantity_consume/1000, 3, ',', ' ') }}
                     </span>
                 </td>
             </tr>
