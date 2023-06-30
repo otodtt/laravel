@@ -1,10 +1,11 @@
 <table id="example" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
     <thead>
         <tr>
-            <th>N</th>
-            <th>Номер</th>
+            {{--<th>N</th>--}}
+            <th>ID</th>
             <th>Дата на издаване</th>
             <th>Фирма</th>
+            <th>Спедитор</th>
             <th>Фактура</th>
             <th>Сума</th>
             <th>Инспектор</th>
@@ -31,14 +32,17 @@
                 }
             ?>
         <tr>
-            <td class="right"><?= $n++ ?></td>
-            <td>{{$certificate->import}}</td>
+            {{--<td class="right">--}}
+                <?php //$n++ ?>
+            {{--</td>--}}
+            <td class="right">{{$certificate->id}}</td>
             <td>{{ date('d.m.Y', $certificate->date_issue) }}</td>
             <td>{{strtoupper($certificate->importer_name)}}</td>
+            <td>{{mb_strtoupper($certificate->forwarder, 'utf-8')}}</td>
             <td style="text-align: right; padding-right: 4px">
                 @if( $certificate->invoice_id == '0')
                     @if($certificate->sum != 0)
-                        <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                        <a href='/контрол/фактури-идентификация/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
                     @endif
                 @else
                     {{ $certificate->invoice_number }}/{{ date('d.m.Y' ,$certificate->invoice_date ) }}
@@ -49,9 +53,9 @@
             <td><span class="{{$alert}}">{{$all}}</span></td>
             <td>
                 @if ($certificate->is_all === 0)
-                <a href='/контрол/сертификат-внос/{{$certificate->id}}/завърши' class="fa fa-edit btn btn-danger my_btn"></a>
+                <a href='/контрол/идентификация/{{$certificate->id}}/завърши' class="fa fa-edit btn btn-danger my_btn"></a>
                 @else
-                <a href='/контрол/сертификат-внос/{{$certificate->id}}' class="fa fa-binoculars btn btn-primary my_btn"></a>
+                <a href='/контрол/идентификация/{{$certificate->id}}' class="fa fa-binoculars btn btn-primary my_btn"></a>
                 @endif
             </td>
             @if(Auth::user()->admin == 2 && Auth::user()->id == 2222 )

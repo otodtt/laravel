@@ -91,6 +91,9 @@
                 elseif($value->invoice_for == 3) {
                     $for = 'вътрешен';
                 }
+                elseif($value->invoice_for == 4) {
+                    $for = 'проверка';
+                }
                 else{
                     $for = '';
                 }
@@ -108,6 +111,8 @@
                     <a href="{!!URL::to('/контрол/сертификат-износ/'.$value->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn"></a>
                 @elseif($value->invoice_for == 3)
                     <a href="{!!URL::to('/контрол/сертификати-вътрешен/'.$value->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn"></a>
+                @elseif($value->invoice_for == 4)
+                    <a href="{!!URL::to('/контрол/идентификация/'.$value->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn"></a>
                 @endif
 
             </li>

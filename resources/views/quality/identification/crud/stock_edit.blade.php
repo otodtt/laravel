@@ -12,7 +12,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Редактиране на Стоки към Сертификат за ВНОС!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Редактиране на Стоки към Проверка и Идентификация!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -163,7 +163,7 @@
                             <ul>
                                 <li>
                                     @if ( $count > 1)
-                                        <form action="{{ url('/import/stock/'.$stock['id'].'/delete') }}" method="post" style="display: inline-block" onsubmit="return confirm('Наистина ли искате да изтриете тази стока?');">
+                                        <form action="{{ url('/identification/stock/'.$stock['id'].'/delete') }}" method="post" style="display: inline-block" onsubmit="return confirm('Наистина ли искате да изтриете тази стока?');">
                                             <button type="submit" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i></button>
                                             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                                         </form>
@@ -182,7 +182,7 @@
                                         </span>
                                     </p>
                                     <div class="btn_add" style=" display: inline-block; margin-top: 5px">
-                                        <a href="{!!URL::to('/import/stock/'.$certificate->id.'/'.$stock['id']).'/edit'!!}" class="fa fa-edit btn btn-success"></a>
+                                        <a href="{!!URL::to('/identification/stock/'.$certificate->id.'/'.$stock['id']).'/edit'!!}" class="fa fa-edit btn btn-success"></a>
                                     </div>
                                 </li>
                             </ul>
@@ -199,7 +199,7 @@
         {{-- ДОБАВЯНЕ НА СТОКИ --}}
         @if ($article == 0)
             <div class="add_stock" >
-                {!! Form::open(['url'=>'import/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                {!! Form::open(['url'=>'identification/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
                     <div class="alert alert-success my_alert" role="alert" style="margin-top: 20px">
                         <p class="my_p"><span class="fa fa-success" aria-hidden="true"></span> <span class="bold">Тук се добавят само нови стоки!</span>
                         </p>
@@ -217,10 +217,9 @@
         @else
             {{-- РЕДАКТИРАНЕ НА СТОКИ --}}
             <div class="add_stock">
-                {!! Form::model($article, ['url'=>'import/edit-stock/update/'.$article[0]['id'], 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                {!! Form::model($article, ['url'=>'identification/edit-stock/update/'.$article[0]['id'], 'method'=>'POST', 'autocomplete'=>'on']) !!}
                     <div class="alert alert-success my_alert" role="alert" style="margin-top: 20px">
-                        <p class="my_p"><span class="fa fa-success" aria-hidden="true"></span> <span class="bold">Редактиране на стока!</span>
-                        </p>
+                        <p class="my_p"><span class="fa fa-success" aria-hidden="true"></span> <span class="bold">Редактиране на стока!</span></p>
                     </div>
                     @include('quality.certificates.forms.stock_edit_form')
                 
@@ -241,7 +240,7 @@
                 </p>
             </div>
             <div class="col-md-12" style="text-align: center;">
-                <a href="{{ '/контрол/сертификат-внос/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> КРАЙ! Назад към сертификатите!</a>
+                <a href="{{ '/контрол/идентификация/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> КРАЙ! Назад към проверката!</a>
             </div>
         @endif
     @else
@@ -252,7 +251,7 @@
             </p>
         </div>
         <div class="col-md-12" style="text-align: center;">
-            <a href="{{ '/контрол/сертификат-внос/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Назад към сертификатите!</a>
+            <a href="{{ '/контрол/идентификация/'.$certificate['id'] }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Назад към проверката!</a>
         </div>  
     @endif
 @endsection

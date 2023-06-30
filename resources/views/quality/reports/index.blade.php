@@ -51,19 +51,7 @@
             </div>
         </div>
     </fieldset>
-    {{--<hr>--}}
-    {{--<fieldset class="form-group">--}}
-        {{--<div class="wrap_sort">--}}
-            {{--<div id="wr_choiz_all" class="col-md-12">--}}
-                {{--{!! Form::label('month_select', ' Направи справка за масец:', ['class'=>'labels']) !!}--}}
-                {{--{!! Form::select('month_select', $month_select, $selected_month , ['class'=>'form-control form-control-my-search inspector_sort', 'style'=>'width: 150px;']) !!}--}}
-                {{--<span class="bold" > година. </span>&nbsp;&nbsp;--}}
-                {{--{!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}--}}
-                {{--{!!Form::hidden('_token', csrf_token() )!!}--}}
-                {{--{!! Form::close() !!}--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</fieldset>--}}
+
     <hr>
     @if($selected_month != 0)
         @foreach($month_select as $k=>$month)
@@ -84,8 +72,4 @@
 @endsection
 
 @section('scripts')
-{{--    {!!Html::script("js/registers/countTableColumns.js" )!!}--}}
-    <script>
-
-    </script>
 @endsection

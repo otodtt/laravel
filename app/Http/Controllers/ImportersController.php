@@ -125,12 +125,21 @@ class ImportersController extends Controller
     public function show($id)
     {
         $importer  = Importer::findOrFail($id);
+
         $import_certificates = $importer->qcertificate;
         foreach($import_certificates as $certificate){
             $import_stocks[] = $certificate->stocks->toArray();
         }
         if(!isset($import_stocks)) {
             $import_stocks = array();
+        }
+
+        $import_identification = $importer->qidentification;
+        foreach($import_identification as $certificate){
+            $identification[] = $certificate->stocks->toArray();
+        }
+        if(!isset($import_stocks)) {
+            $identification = array();
         }
 
         $export_certificates = $importer->qxcertificate;
@@ -141,8 +150,8 @@ class ImportersController extends Controller
             $export_stocks = array();
         }
 
-        return view('quality.importers.show', compact( 'importer', 'import_certificates', 'import_stocks',
-                                            'export_certificates', 'export_stocks'));
+        return view('quality.importers.show', compact( 'importer', 'import_certificates','import_identification',
+                                    'import_stocks', 'export_certificates', 'export_stocks', 'identification'));
     }
 
     /**

@@ -50,7 +50,7 @@ if ((int) $end_years == 0) {
     ]) !!}
 </div>
 <div class="col-md-7">
-    {!! Form::label('limit_sort', ' Сортирай:', ['class' => 'labels']) !!}
+    {!! Form::label('search_firm', ' Сортирай:', ['class' => 'labels']) !!}
     {{--<select name="crop_sort" id="crop_sort" class="localsID form-control"--}}
         {{--style="display: inline-block; width: 150px; margin-right: 30px;">--}}
         {{--<option value="0">по стока</option>--}}

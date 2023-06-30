@@ -14,11 +14,11 @@
         <div class="row">
             {{--@if()--}}
             {{--@elseif()--}}
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на Фактура към Сертификат за Вътрешен!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на Фактура към Проверка и Идентификация!</h3>
         </div>
     </div>
     <div class="info-wrap">
-        <a href="{!! URL::to('/контрол/сертификати-вътрешен/'.$certificate->id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Назад към сертификата!</a>
+        <a href="{!! URL::to('/контрол/идентификация/'.$certificate->id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Назад към проверката!</a>
     </div>
 
     <div class="form-group">
@@ -46,7 +46,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     {{--<br>--}}
-                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/{{$certificate['internal']}}</span></p>
+                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['stamp_number']}}/</span></p>
                                     <br>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                             <p class="description">1. Търговец /Trader</p><hr class="hr_in"/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Фирма/ЗС: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['trader_name']}}</span></p><br>
+                                    <p>Фирма/ЗС: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate['importer_name']}}</span></p><br>
                                 </div>
                             </div>
                         </fieldset>
@@ -82,7 +82,7 @@
     <hr class="hr_in"/>
 
     @if($certificate->invoice_id == 0 && $certificate->invoice_date == 0)
-        {!! Form::open(['url'=>'контрол/фактури-вътрешни/'.$certificate['id'].'/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/фактури-идентификация/'.$certificate['id'].'/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
         {{--ФАКТУРА И ДАТА--}}
         <div class="container-fluid" >
@@ -90,9 +90,6 @@
                 <div class="col-md-12">
                     <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
                         <fieldset class="small_field_in" style="width: 50%">
-                            {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
-                                {{--В сумата когато се налага изпозвай ТОЧКА!</span>--}}
-                            {{--</p>--}}
                             <hr class="hr_in"/>
                             <div class="col-md-3 col-md-6_my" >
                                 {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>
@@ -103,11 +100,6 @@
                                 {!! Form::text('date_invoice', null, ['class'=>'form-control form-control-my',
                                 'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
                             </div>
-                            {{--<div class="col-md-4 col-md-6_my" >--}}
-                                {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
-                                {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
-                                {{--<input type="hidden" name="domestic_sum" value="3333">--}}
-                            {{--</div>--}}
                         </fieldset>
                     </fieldset>
                 </div>

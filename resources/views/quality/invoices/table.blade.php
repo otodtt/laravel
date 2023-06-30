@@ -33,6 +33,8 @@
                         <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-default my_btn" style="float: right"></a>
                     @elseif($invoice->importer_id != 0 && $invoice->invoice_for == 2)
                         <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-warning my_btn" style="float: right"></a>
+                    @elseif($invoice->importer_id != 0 && $invoice->invoice_for == 4)
+                        <a href="{!!URL::to('/контрол/вносители/'.$invoice->importer_id.'/show')!!}" class="fa fa-binoculars btn btn-danger my_btn" style="float: right"></a>
                     @endif
 
                 @elseif($invoice->importer_id == 0 && $invoice->farmer_id != 0 && $invoice->trader_id == 0)
@@ -49,14 +51,19 @@
                     <span>износ - </span>
                 @elseif($invoice->invoice_for == 3)
                     <span>вътрешен - </span>
+                @elseif($invoice->invoice_for == 4)
+                    <span>проверка - </span>
                 @endif
                 {{$invoice->certificate_number}}
+
                 @if($invoice->invoice_for == 1)
                         <a href="{!!URL::to('/контрол/сертификат-внос/'.$invoice->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn" style="float: right"></a>
                 @elseif($invoice->invoice_for == 2)
                         <a href="{!!URL::to('/контрол/сертификат-износ/'.$invoice->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn" style="float: right"></a>
                 @elseif($invoice->invoice_for == 3)
                         <a href="{!!URL::to('/контрол/сертификати-вътрешен/'.$invoice->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn" style="float: right"></a>
+                @elseif($invoice->invoice_for == 4)
+                    <a href="{!!URL::to('/контрол/идентификация/'.$invoice->certificate_id )!!}" class="fa fa-search-plus btn btn-default my_btn" style="float: right"></a>
                 @endif
 
             </td>

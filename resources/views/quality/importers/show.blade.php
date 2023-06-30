@@ -193,6 +193,109 @@
                 </tfoot>
             </table>
         </div>
+
+        <div style="text-align: center;margin-top: 20px">
+            <h4>СТОКИ С ПРОВЕРКА И ИДЕНТИФИКАЦИЯ</h4>
+        </div>
+        <div style="width: 95%; margin: 0 auto">
+            <table id="example_identification" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
+                <thead>
+                <tr>
+                    <th>N</th>
+                    <th>Номер/дата на Сертификата</th>
+                    <th>Номер/дата на Фактурата</th>
+                    <th>Стойност</th>
+                    <th>Стоки</th>
+                    <th>Kg</th>
+                    <th>Издаден от</th>
+                    <th>Виж</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php $n = 1; ?>
+                    @foreach($import_identification as $certificate)
+                        <tr>
+                            <td class="center"><?= $n++ ?></td>
+                            <td>
+                                {{$certificate['id'] }} /{{ date('d.m.Y', $certificate['date_issue']) }}
+                            </td>
+                            <td>
+                                @if($certificate['invoice_number'] != 0)
+                                    {{$certificate['invoice_number']}} /{{date('d.m.Y', $certificate['invoice_date']) }}
+                                @else
+                                    <p class="red">Не е въведана фактурата</p>
+                                @endif
+                            </td>
+                            <td class="center">
+                                @if($certificate['sum'] != 0)
+                                    {{$certificate['sum']}}
+                                @endif
+                            </td>
+                            <td>
+                                @if($identification != 0)
+                                    @foreach($identification as $stock)
+                                        @foreach($stock as $val)
+                                            @if($val['identification_id'] == $certificate->id)
+                                                <p>{{$val['crops_name']}}</p>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                @endif
+                            </td>
+                            <td>
+                                @if($import_stocks != 0)
+                                    @foreach($identification as $stock)
+                                        @foreach($stock as $val)
+                                            @if($val['identification_id'] == $certificate->id)
+                                                <p style="text-align: right; margin-right: 10px">{{ number_format($val['weight'], 0, ',', ' ') }}</p>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                @endif
+                            </td>
+                            <td>
+                                {{$certificate['inspector_bg']}}
+                            </td>
+                            <td class="center">
+                                <a href="{!!URL::to('/контрол/идентификация/'.$certificate['id'] )!!}" class="fa fa-binoculars btn btn-success my_btn"></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="3" style="text-align:right">Всичко лв.:</th>
+                    <th>
+                        <?php  $total_sum = 0; ?>
+                        @foreach($import_identification as $k=>$certificate)
+                            <?php
+                            $total_sum += array_sum((array)$certificate->sum);
+                            ?>
+                        @endforeach
+                        <p style="text-center: left; margin-left: 10px"> {{ number_format($total_sum, 2, ',', ' ') }} лв.</p>
+                    </th>
+                    <th class="bold">Всичко кг.</th>
+                    <th>
+                        @if($identification != 0)
+                            <?php $final = array(); ?>
+                            @foreach($identification as $k=>$stock)
+                                <?php
+                                $final = array_merge($final, $stock);
+                                $total = array_sum(array_column($final, 'weight'));
+                                ?>
+                            @endforeach
+                            <?php
+                            $total = array_sum(array_column($final, 'weight'));
+                            ?>
+                            <p style="text-align: left; margin-left: 10px">{{ number_format($total, 0, ',', ' ') }}</p>
+                        @endif
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
     @elseif($importer->trade == 1 )
         <div style="text-align: center; margin-top: 20px">
             <h4>ИЗНЕСЕНИ СТОКИ</h4>
@@ -298,6 +401,7 @@
                 </tfoot>
             </table>
         </div>
+
     @elseif($importer->trade == 2 )
         <div style="text-align: center;margin-top: 20px">
             <h4>ВНЕСЕНИ СТОКИ</h4>
@@ -505,5 +609,70 @@
     {!!Html::script("js/table/jquery.dataTables.js" )!!}
     {!!Html::script("js/quality/firmsImportersTable.js" )!!}
     <script>
+        $(document).ready(function() {
+            $('#example_identification').DataTable( {
+                footerCallback: function (row, data, start, end, display) {
+                    var api = this.api();
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                    };
+
+                    // Total over all pages
+                    total = api
+                            .column(3)
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+                    $(api.column(3).footer()).html(total + ' лв.');
+                },
+                "columns": [
+                    null,
+                    { "orderable": false },
+                    { "orderable": false },
+                    { "orderable": false },
+                    { "orderable": false },
+                    { "orderable": false },
+                    { "orderable": false },
+                    { "orderable": false },
+                ],
+                "pagingType": "full_numbers",
+                searching: true,
+
+                "lengthMenu": [[-1, 10, 20, 30], ["Всички", 10, 20, 30]],
+                "language": {
+                    "sProcessing":   "Обработка на резултатите...",
+                    "sLengthMenu":   "Колко резултата да се покажат?  _MENU_ ",
+                    "sZeroRecords":  "Няма намерени резултати",
+                    "sInfo":         "Показване на резултати от _START_ до _END_ от общо _TOTAL_",
+                    "sInfoEmpty":    "Показване на резултати от 0 до 0 от общо 0",
+                    "sInfoFiltered": "(филтрирани от общо _MAX_ резултата)",
+                    "sInfoPostFix":  "",
+                    "sSearch":       "Търсене във всички колони:",
+                    "sUrl":          "",
+                    "oPaginate": {
+                        "sFirst":    " < ",
+                        "sPrevious": " <<< ",
+                        "sNext":     " >>> ",
+                        "sLast":     " > "
+                    }
+                },
+                "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'
+            } );
+            var table = $('#example_identification').DataTable();
+
+            $('#example_export tbody').on( 'click', 'tr', function () {
+                if ( $(this).hasClass('selected') ) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            } );
+        } );
+
     </script>
 @endsection

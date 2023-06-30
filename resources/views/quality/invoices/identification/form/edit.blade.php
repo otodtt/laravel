@@ -13,11 +13,13 @@
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
             @if($invoice->invoice_for == 1)
-            <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура към Сертификат за Внос!</h3>
+                <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура към Сертификат за Внос!</h3>
             @elseif($invoice->invoice_for == 2)
-            <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура към Сертификат за Износ!</h3>
+                <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура към Сертификат за Износ!</h3>
             @elseif($invoice->invoice_for == 3)
-            <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура към Вътрешен Сертификат!</h3>
+                <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура към Вътрешен Сертификат!</h3>
+            @elseif($invoice->invoice_for == 4)
+                <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура за Проверка и Идентификация!</h3>
             @else
             <h3 class="my_center" style="color: #d9534f;">Редактиране на Фактура към Сертификат!</h3>
             @endif
@@ -53,7 +55,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <br>
-                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['stamp_number']}}/{{$certificate[0]['internal']}}</span></p>
+                                    <p>Номер: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['stamp_number']}}/{{$certificate[0]['id']}}</span></p>
                                     <br>
                                 </div>
                             </div>
@@ -76,7 +78,7 @@
                             <p class="description">1. Търговец /Trader</p><hr class="hr_in"/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['trader_name']}}</span></p><br>
+                                    <p>Фирма: <span style="font-weight: bold; text-transform: uppercase;">{{$certificate[0]['importer_name']}}</span></p><br>
                                 </div>
                             </div>
                         </fieldset>
@@ -87,7 +89,7 @@
     </div>
     <hr class="hr_in"/>
 
-    {!! Form::model($invoice, ['url'=>'контрол/фактури-вътрешни/'.$invoice['id'].'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    {!! Form::model($invoice, ['url'=>'контрол/фактури-идентификация/'.$invoice['id'].'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
     {{--ФАКТУРА И ДАТА--}}
     <div class="container-fluid" >
@@ -95,9 +97,6 @@
             <div class="col-md-12">
                 <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
                     <fieldset class="small_field_in" style="width: 50%">
-                        {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
-                            {{--В сумата когато се налага изпозвай ТОЧКА!</span>--}}
-                        {{--</p>--}}
                         <hr class="hr_in"/>
                         <div class="col-md-3 col-md-6_my" >
                             {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>
@@ -108,10 +107,6 @@
                             {!! Form::text('date_invoice', date('d.m.Y',$invoice['date_invoice']), ['class'=>'form-control form-control-my',
                             'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
                         </div>
-                        {{--<div class="col-md-4 col-md-6_my" >--}}
-                            {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
-                            {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
-                        {{--</div>--}}
                     </fieldset>
                 </fieldset>
             </div>

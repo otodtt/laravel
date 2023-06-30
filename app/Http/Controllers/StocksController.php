@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
+use odbh\QIdentification;
 use odbh\QINCertificate;
 use odbh\QXCertificate;
 use odbh\Stock;
 use odbh\QCertificate;
 use odbh\Http\Requests\StocksRequest;
 use odbh\StockExport;
+use odbh\StockIdentification;
 use odbh\StockInternal;
 use odbh\Trader;
 use odbh\User;
@@ -743,7 +745,6 @@ class StocksController extends Controller
         return back();
     }
 
-
     //////////////////////////////////////
     //////////////////////////////////////
 
@@ -1020,6 +1021,313 @@ class StocksController extends Controller
         $stock->delete();
         return back();
     }
+
+
+    /**
+     * ПРОВЕРКИ И ИДЕНТИФИЦАЦИЯ СТОКИТЕ
+     * Display the specified resource.
+     *
+     * @return Response
+     */
+    public function identification()
+    {
+        $stocks = StockIdentification::where('id', '>', 0)->orderBy('id', 'desc')->get();
+        $list = StockIdentification::orderBy('crop_id', 'asc')->lists('crops_name', 'crop_id')->toArray();
+        $firms = Importer::where('is_active', '=', 1)->where('trade', '=', 0)->orWhere('trade', '=', 2)->lists('name_en', 'id')->toArray();
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+
+        if(count($stocks) != 0) {
+            foreach ($stocks as $stock) {
+                $forwarders[] = QIdentification::select('id', 'forwarder')->where('id', '=', $stock->identification_id)->get()->toArray();
+            }
+        }
+        else {
+            $forwarders = [];
+        }
+
+        return view('quality.stocks.identification.index', compact('stocks', 'list', 'firms', 'inspectors', 'forwarders'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     *
+     * @param StocksRequest $request
+     * @return Response
+     */
+    public function identification_stock_store(StocksRequest $request)
+    {
+        $data = [
+            'identification_id' => $request->certificate_id,
+            'firm_id' => $request->firm_id,
+            'firm_name' => $request->firm_name,
+            'date_issue' => $request->date_issue,
+            'import' => 2,
+            'type_pack' => (int)$request->type_package,
+            'type_crops' => $request->type_crops,
+            'number_packages' => $request->number_packages,
+            'different' => $request->different,
+            'crop_id' => $request->crops,
+            'crops_name' => $request->crops_name,
+            'crop_en' => $request->crop_en,
+            'variety' => $request->variety,
+            'quality_class' => $request->quality_class,
+            'weight' => $request->weight,
+            'date_add' => date('d.m.Y', time()),
+            'inspector_name' => Auth::user()->short_name,
+            'added_by' => Auth::user()->id,
+        ];
+
+        StockIdentification::create($data);
+        return back();
+    }
+
+    public function identification_stock_update(StocksRequest $request, $id)
+    {
+        $stock = StockIdentification::findOrFail($id);
+
+        if ($request->type_package != 999) {
+            $different = '';
+        } else {
+            $different = $request->different;
+        }
+        $data = [
+            'type_pack' => (int)$request->type_package,
+            'type_crops' => (int)$request->type_crops,
+            'number_packages' => $request->number_packages,
+            'different' => $different,
+            'crop_id' => $request->crops,
+            'crops_name' => $request->crops_name,
+            'crop_en' => $request->crop_en,
+            'variety' => $request->variety,
+            'quality_class' => $request->quality_class,
+            'weight' => $request->weight,
+            'date_update' => date('d.m.Y', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $stock->fill($data);
+        $stock->save();
+
+        return Redirect::to('/identification/stock/'.$stock->identification_id.'/0/edit');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @param $sid
+     * @return Response
+     */
+    public function identification_stocks_edit($id, $sid)
+    {
+        $qualitys = ['1' => 'I клас/I class', '2' => 'II клас/II class', '3' => 'OПС/GPS'];
+        $packages = ['4' => 'Торби/ Bags', '3' => 'Кашони/ C. boxes', '2' => 'Палети/ Cages', '1' => 'Каси/ Pl. cases', '999' => 'ДРУГО'];
+        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+            ->where('group_id', '=', 4)
+            ->orWhere('group_id', '=', 5)
+            ->orWhere('group_id', '=', 6)
+            ->orWhere('group_id', '=', 7)
+            ->orWhere('group_id', '=', 8)
+            ->orWhere('group_id', '=', 9)
+            ->orWhere('group_id', '=', 10)
+            ->orWhere('group_id', '=', 11)
+            ->orWhere('group_id', '=', 15)
+            ->orWhere('group_id', '=', 16)
+            ->orderBy('group_id', 'asc')->get()->toArray();
+
+        $certificate = QIdentification::findOrFail($id);
+        $stocks = $certificate->stocks->toArray();
+        $count = count($stocks);
+        $lock = $certificate->is_lock;
+        if ($sid != 0) {
+            $article = StockIdentification::select()->where('id','=', $sid)->where('identification_id','=', $id)->get()->toArray();
+        }
+        else {
+            $article = 0;
+        }
+
+        return view('quality.identification.crud.stock_edit', compact('id', 'crops', 'certificate', 'stocks', 'count', 'lock', 'article', 'qualitys', 'packages' ));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function identification_destroy($id)
+    {
+        $stock = StockIdentification::find($id);
+        $stock->delete();
+        return back();
+    }
+
+    /**
+     * Сортира по задедени критерии.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param null $crop_sort
+     * @param  int $start_year
+     * @param  int $end_year
+     * @param  int $inspector_sort
+     *
+     * @return \Illuminate\Http\Response
+     * @internal param Crop $int
+     */
+    public function identification_sort(Request $request, $start_year = null, $end_year = null, $crop_sort = null, $inspector_sort = null, $firm_sort = null )
+    {
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+
+        if (Input::has('start_year') || Input::has('end_year') || Input::has('crop_sort') || Input::has('inspector_sort') || Input::has('firm_sort')) {
+            $years_start_sort = Input::get('start_year');
+            $years_end_sort = Input::get('end_year');
+            $sort_crop = Input::get('crop_sort');
+            $sort_inspector = Input::get('inspector_sort');
+            $sort_firm = Input::get('firm_sort');
+        } else {
+            $years_start_sort = $start_year;
+            $years_end_sort = $end_year;
+            $sort_crop = $crop_sort;
+            $sort_inspector = $inspector_sort;
+            $sort_firm = $firm_sort;
+        }
+
+        if ((isset($years_start_sort) && $years_start_sort != '') || (isset($years_end_sort) && $years_end_sort != '')) {
+            $this->validate($request, ['start_year' => 'date_format:d.m.Y']);
+            $this->validate($request, ['end_year' => 'date_format:d.m.Y']);
+
+            $start = strtotime($years_start_sort);
+            $timezone_paris_start = strtotime($years_start_sort.'Europe/Paris');
+
+            $end = strtotime($years_end_sort);
+            $timezone_paris_end = strtotime($years_end_sort.'Europe/Paris');
+            if($start > 0 && $end == false){
+                // $years_sql = ' AND date_issue='.$start.' OR date_issue='.$timezone_paris_start;
+                $years_sql = ' AND date_issue='.$start;
+            }
+            if($end > 0 && $start == false){
+                // $years_sql = ' AND date_issue='.$end.' OR date_issue='.$timezone_paris_end;
+                $years_sql = ' AND date_issue='.$end;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start == (int)$end)){
+                // $years_sql = ' AND date_issue='.$start.' OR date_issue='.$timezone_paris_start;
+                $years_sql = ' AND date_issue='.$start;
+            }
+            if(((int)$start > 0 && (int)$end > 0) && ((int)$start < (int)$end)){
+                $years_sql = ' AND date_issue>='.$start.' AND date_issue<='.$end.'';
+            }
+            if(($start > 0 && $end > 0) && ($start > $end)){
+                $years_sql = ' AND date_issue>='.$end.' AND date_issue<='.$start.'';
+            }
+        }
+        else{
+            $years_sql = ' ';
+        }
+        // Сортиране по култура
+        if (isset($sort_crop) && (int)$sort_crop != 0) {
+            $crop_sql = ' AND crop_id='.$sort_crop;
+        }
+        else{
+            $crop_sql = ' ';
+        }
+        // Сортиране по инспектор
+        if (isset($sort_inspector) && (int)$sort_inspector > 0){
+            $inspector_sql = ' AND added_by= '.$sort_inspector;
+        }
+        else{
+            $inspector_sql = '';
+        }
+        // Сортиране по фирма
+        if (isset($sort_firm) && (int)$sort_firm != 0) {
+            $firm_sql = ' AND firm_id='.$sort_firm;
+        }
+        else{
+            $firm_sql = ' ';
+        }
+
+        $list = StockIdentification::orderBy('crop_id', 'asc')->lists('crops_name', 'crop_id')->toArray();
+        $firms = Importer::where('is_active', '=', 1)->where('trade', '=', 0)->orWhere('trade', '=', 2)->lists('name_en', 'id')->toArray();
+
+        $stocks = DB::select("SELECT * FROM stocks_identification WHERE import >0 $years_sql $crop_sql $inspector_sql $firm_sql ORDER BY identification_id DESC;");
+
+        if(!empty($stocks)) {
+            foreach ($stocks as $stock) {
+                $forwarders[] = QIdentification::select('id', 'forwarder')->where('id', '=', $stock->identification_id)->get()->toArray();
+            }
+        } else {
+            $forwarders[] = [];
+        }
+
+
+        return view('quality.stocks.identification.index', compact('stocks', 'list', 'firms', 'inspectors',
+            'years_start_sort', 'years_end_sort', 'sort_crop', 'sort_inspector', 'sort_firm', 'forwarders'));
+    }
+
+    /**
+     * Търси по задедени критерии.
+     *
+     * @param  int $type
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function identification_search(Request $request, $type)
+    {
+        $search_value_return = $request['stock_number'];
+        $search_firm_return = $request['search_firm'];
+
+        if($type == 1) {
+            $this->validate($request, ['stock_number' => 'required|digits_between:1,4'],
+                [
+                    'stock_number.required' => 'Попълни търсения номер!',
+                    'stock_number.digits_between' => 'Номера трябва да е между една и четири цифри!',
+                ]);
+            $stocks = StockIdentification::where('identification_id', '=', $request['stock_number'])->get();
+        }
+        if($type == 2) {
+            $this->validate($request, ['search_firm' => 'required|not_in:0'],
+                [
+                    'search_firm.required' => 'Избери фирма!',
+                    'search_firm.not_in' => 'Избери фирма!',
+                ]);
+
+            $stocks = StockIdentification::where('firm_id', '=', $request['search_firm'])->get();
+        }
+
+        $list = StockIdentification::orderBy('crop_id', 'asc')->lists('crops_name', 'crop_id')->toArray();
+        $firms = Importer::where('is_active', '=', 1)->where('trade', '=', 0)->orWhere('trade', '=', 2)->lists('name_en', 'id')->toArray();
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('ppz','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors[''] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+
+        foreach ($stocks as $stock) {
+            $forwarders[] = QIdentification::select('id', 'forwarder')->where('id', '=', $stock->identification_id)->get()->toArray();
+        }
+
+        return view('quality.stocks.identification.index', compact('stocks', 'search_value_return', 'search_firm_return',
+            'list', 'firms', 'inspectors', 'forwarders'));
+    }
+
+
+
+
 
 
 

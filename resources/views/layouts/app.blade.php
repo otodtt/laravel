@@ -83,6 +83,8 @@
                 <li role="separator" class="divider"></li>
                 <li><a class="my_a back_link" href="{!! URL::to( 'контрол/протоколи') !!}"> <i class="fa fa-file-powerpoint-o fa-fw " style="color: #347bb7;"></i> Констативни Протоколи</a></li>
                 <li><a class="my_a back_link" href="{!! URL::to( 'контрол/формуляри') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Формуляри за съответствие</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( 'контрол/идентификация') !!}"><i class="fa fa-id-card-o fa-fw blue_color"></i> Проверка и идентификация</a></li>
+
                 <li role="separator" class="divider"></li>
                 <li ><a href="{!! URL::to( '/контрол/фактури') !!}" class="my_a back_link"> <i class="fa fa-files-o fa-fw  "></i> Издадени фактури</a></li>
                 <li ><a href="{!! URL::to( '/контрол/вносители') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>

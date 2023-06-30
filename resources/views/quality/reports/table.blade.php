@@ -24,7 +24,7 @@
     </thead>
     <tbody>
         <tr>
-            <td class="bold">{{count($certificates_year) + count($certificates_year_cons) + count($xcertificates_year) + count($incertificates_year) + count($protocols_year) + count($compliance_year)}}</td>
+            <td class="bold">{{count($certificates_year) + count($certificates_year_cons) + count($xcertificates_year) + count($incertificates_year) + count($protocols_year) + count($compliance_year) + count($identification_year)}}</td>
             <td class="bold">{{count($protocols_year)}}</td>
             <td class="bold">{{count($compliance_year)}}</td>
             <td class="bold"></td>
@@ -118,6 +118,60 @@
         @else
             <?php
             $quantity_import = 0;
+            ?>
+        @endif
+        {{-- ИДЕНТИФИКАЦИЯ --}}
+        @if(count($identification_year) != 0)
+            <tr>
+                <td colspan="7" style="text-align: right"><span class="bold">Внос само с Проверки: Брой:</span></td>
+                <td><span class="bold">{{count($identification_year)}}</span></td>
+                <td colspan="5"></td>
+            </tr>
+            @foreach($stocks_identification as $key => $stock)
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: left"><span >{{ $key }}</span></td>
+                    <td class="rowDataSd" >
+                        <?php $total_id = 0; ?>
+                        @foreach ($stock as $val)
+                            <?php
+                                $total_id += array_sum((array) $val['weight']);
+                            ?>
+                        @endforeach
+                        <span style="float: right">
+                            {{ number_format($total_id / 1000, 3, ',', ' ') }}
+                        </span>
+                    </td>
+                </tr>
+            @endforeach
+            <tr>
+                <td colspan="13" style="text-align: right">
+                    <?php $quantity_id = 0; ?>
+                    @foreach($stocks_identification as $key => $article)
+                        @foreach($article as $k => $val)
+                            <?php
+                                $quantity_id += $val['weight'];
+                            ?>
+                        @endforeach
+                    @endforeach
+                    <span style="float: right" class="bold">
+                        ПРОВЕРКИ И ИДЕНТИФИКАЦИЯ: {{ number_format($quantity_id/1000, 3, ',', ' ') }}
+                    </span>
+                </td>
+            </tr>
+        @else
+            <?php
+            $quantity_id = 0;
             ?>
         @endif
         {{-- ИЗНОС --}}
@@ -286,7 +340,7 @@
 
     <tfoot>
         <tr>
-            <td class="foot bottom">{{count($certificates_year) + count($certificates_year_cons) + count($xcertificates_year) + count($incertificates_year) + count($protocols_year) + count($compliance_year)}}</td>
+            <td class="foot bottom">{{count($certificates_year) + count($certificates_year_cons) + count($xcertificates_year) + count($incertificates_year) + count($protocols_year) + count($compliance_year) + count($identification_year)}}</td>
             <td class="foot bottom">{{count($protocols_year)}}</td>
             <td class="foot bottom">{{count($compliance_year)}}</td>
             <td class="foot bottom"></td>
@@ -305,13 +359,18 @@
             </td>
             <td class="foot bottom"></td>
             <td class="foot bottom"></td>
-            <td class="foot bottom">{{count($certificates_year)}}</td>
+            <td class="foot bottom">
+                {{count($certificates_year)}}
+                @if(count($identification_year) != 0)
+                     + {{count($identification_year)}}
+                @endif
+            </td>
             <td class="foot bottom">{{count($xcertificates_year)}}</td>
             <td class="foot bottom">{{count($incertificates_year)}}</td>
             <td class="foot bottom">{{count($certificates_year_cons)}}</td>
             <td class="foot bottom"></td>
             <td class="foot bottom">
-                {{ number_format(($quantity_import + $quantity_export + $quantity_internal + $quantity_consume)/1000, 3, ',', ' ') }}
+                {{ number_format(($quantity_import + $quantity_export + $quantity_internal + $quantity_consume + $quantity_id)/1000, 3, ',', ' ') }}
             </td>
         </tr>
     </tfoot>

@@ -1,6 +1,6 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Формуляри за съответствие' }}
+    {{ 'Проверки и идентификация' }}
 @endsection
 
 @section('css')
@@ -16,23 +16,21 @@
 
 @section('content')
     <div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px">
-        <h4 class="bold layout-title">ФОРМУЛЯРИ ЗА СЪОТВЕТСТВИЕ</h4>
+        <h4 class="bold layout-title">ПРОВЕРКИ И ИДЕНТИФИКАЦИЯ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         <a href="{!! URL::to('/контрол/протоколи')!!}" class="fa  fa-file-powerpoint-o btn btn-info my_btn"> Констативни протоколи </a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-check-square " aria-hidden="true"></i> Формуляри за съответствие</span>
-        <a href="{!! URL::to('/контрол/идентификация')!!}" class="fa fa-id-card-o btn btn-info my_btn"> Проверки за идентификация</a>
+        <a href="{!! URL::to('/контрол/формуляри')!!}" class="fa fa-check-square btn btn-info my_btn"> Формуляри за съответствие </a>
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-id-card-o" aria-hidden="true"></i> Проверки и идентификация</span>
     </div>
     <div class="btn_add_firm">
-        <a href="{!!URL::to('/контрол/формуляри/търси')!!}" class="fa fa-arrow-circle-right btn btn-default my_btn">
-            Добави НОВ Формуляр</a>
-
-        <a href="{!!URL::to('/контрол/нерегламентиран/формуляр')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
-            Добави Формуляр на нерегламентиран</a>
+        <a href="{!!URL::to('/контрол/идентификация/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn">
+            Добави проверка и идентификация</a>
     </div>
     <hr/>
+
     @if(count($errors)>0)
         <div class="alert alert-danger">
             <ul>
@@ -47,16 +45,33 @@
             <div id="wr_choiz_all">
                 <div class="row">
                     <div class="col-md-5">
-                        {!! Form::open(array('url'=>'/контрол/формуляри', 'method'=>'POST')) !!}
-                            {!! Form::label('years', 'Справка за:', ['class'=>'labels']) !!}
-                            {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ', 'style'=> 'width: 80px;', 'id'=>'years']) !!}
-                            <span class="bold"> година. </span>&nbsp;&nbsp;
-                            {!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}
-                            {!!Form::hidden('_token', csrf_token() )!!}
+                        {!! Form::open(array('url'=>'/контрол/идентификация', 'method'=>'POST')) !!}
+                        {!! Form::label('years', 'Справка за:', ['class'=>'labels']) !!}
+                        {!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ', 'style'=> 'width: 80px;', 'id'=>'years']) !!}
+                        <span class="bold"> година. </span>&nbsp;&nbsp;
+                        {!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}
+                        {!!Form::hidden('_token', csrf_token() )!!}
                         {!! Form::close() !!}
                     </div>
                     <div class="col-md-7">
-
+                        <?php
+                        if (isset($search_return)) {
+                            $search_ret = $search_return;
+                        } else {
+                            $search_ret = null;
+                        }
+                        if (isset($search_value_return)) {
+                            $search_value_ret = $search_value_return;
+                        } else {
+                            $search_value_ret = null;
+                        }
+                        ?>
+                        {!! Form::open(array('url'=>'/контрол/идентификация', 'method'=>'POST')) !!}
+                        {!! Form::label('search', ' Тъпси по:', ['class'=>'labels']) !!}
+                        {!! Form::select('search', array(0 =>'', 1=>'Проверка №', 2=>'Фактура №'), $search_ret, ['class'=>'form-control class_search', 'id'=>'search', 'style'=>'display: inline-block; width: 150px']) !!}
+                        {!! Form::text('search_value', $search_value_ret, ['class'=>'form-control search_value', 'size'=>30, 'style'=>'display: inline-block; width: 120px']) !!}
+                        {!! Form::submit(' ТЪРСИ', array('class' => 'fa fa-search btn btn-primary my_btn')) !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
@@ -66,20 +81,22 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_alls">
-                {!! Form::open(['url' => '/контрол/формуляри/сортирай', 'method' => 'POST']) !!}
-                @include('quality.compliance.includes.sorting')
+                {!! Form::open(['url' => '/контрол/идентификация/сортирай', 'method' => 'POST']) !!}
+                @include('quality.certificates.includes.sorting')
                 {!! Form::close() !!}
             </div>
         </div>
     </fieldset>
     <hr/>
     <div class="btn_add_certificate" style="text-align: right">
-        <a href="{!! URL::to('/контрол/формуляри') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
+        <a href="{!! URL::to('/контрол/идентификация') !!}" class="fa fa-eraser btn btn-primary my_btn right_btn">
             &nbsp; Изчисти сортирането!
         </a>
     </div>
     {{--<hr/>--}}
-    @include('quality.compliance.includes.table')
+
+    {{--<hr/>--}}
+    @include('quality.identification.table')
 @endsection
 
 @section('scripts')

@@ -38,9 +38,9 @@
     <div class="btn-group">
         <a href="{!! URL::to('/контрол/стоки/внос') !!}" class="fa fa-arrow-down btn btn-info my_btn"> Стоки/Внос</a>
         <a href="{!! URL::to('/контрол/стоки/износ') !!}" class="fa fa-arrow-up btn btn-info my_btn"> Стоки/Износ</a>
-{{--        <a href="{!! URL::to('/контрол/стоки/вътрешни') !!}" class="fa fa-retweet btn btn-info my_btn"> Стоки/Вътрешни</a>--}}
         <span class="fa fa-retweet btn btn-default my_btn"> Стоки/Вътрешни</span>
         <a href="{!! URL::to('/контрол/стоки/консумация-преработка') !!}" class="fa fa-cutlery btn btn-info my_btn"> Стоки за</a>
+        <a href="{!! URL::to('/контрол/стоки/идентификация') !!}" class="fa fa-id-card-o btn btn-info my_btn"> Проверки и идентификация</a>
     </div>
     <hr />
     @if(count($errors)>0)

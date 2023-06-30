@@ -12,7 +12,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на Стоки към Сертификат за ВНОС!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на Стоки към Проверка и Идентификация!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -187,7 +187,7 @@
     </div>
     <hr class="hr_in"/>
 
-    {!! Form::open(['url'=>'import/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    {!! Form::open(['url'=>'identification/add-stock/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
         
         @include('quality.certificates.forms.stock_form')
         <input type="hidden" name="date_issue" value="{{$certificate['date_issue']}}">
@@ -211,7 +211,7 @@
             </p>
         </div>
 
-        {!! Form::open(['url'=>'import-finish/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'identification-finish/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             <div class="col-md-12" id="finish_stock" style="text-align: center; margin-top: 10px;">
                 {!! Form::submit('КРАЙ', ['class'=>'btn btn-success btn-lg', 'id'=>'submit-finish']) !!}

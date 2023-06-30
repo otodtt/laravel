@@ -40,11 +40,12 @@
                         </p>
                         <hr class="hr_in"/>
                         <label class="labels_limit"><span>За консумация</span>
-                            {!! Form::radio('type_crops', 1) !!}
+                            <span>&nbsp;&nbsp;<i class="fa fa-check-circle-o" aria-hidden="true"></i></span>
                         </label>&nbsp;&nbsp;|
                         <label class="labels_limit"><span>&nbsp;&nbsp;За преработка</span>
-                            {!! Form::radio('type_crops', 2) !!}
+                            <span>&nbsp;&nbsp;<i class="fa fa-circle-o" aria-hidden="true"></i></span>
                         </label>&nbsp; | &nbsp;
+                        <input type="hidden" name="type_crops" value="1">
                     </fieldset>
                 </div>
             </fieldset>
@@ -97,8 +98,8 @@
                         </p>
                         <br>
                         <p class="bold">
-                            №/No {{ $index[0]['q_index'] }}-{{$user[0]['stamp_number']}}/ {{$last_number[0]['import'] + 1}}
-                            <span class="number_import hidden" id="number_import">{{$last_number[0]['import']}}</span>
+                            №/No {{ $index[0]['q_index'] }}-{{$user[0]['stamp_number']}}/ Без номер
+                            <span class="number_import hidden" id="number_import"></span>
                         </p>
                         <p class="description red">
                             Провери дали данните са верни!

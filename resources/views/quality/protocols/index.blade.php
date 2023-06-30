@@ -23,9 +23,7 @@
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         <span class="fa  btn btn-default my_btn"><i class="fa fa-file-powerpoint-o " aria-hidden="true"></i>  Констативни протоколи</span>
         <a href="{!! URL::to('/контрол/формуляри')!!}" class="fa fa-check-square btn btn-info my_btn"> Формуляри за съответствие</a>
-        {{--<a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>--}}
-        {{--<a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>--}}
-        {{--<a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>--}}
+        <a href="{!! URL::to('/контрол/идентификация')!!}" class="fa fa-id-card-o btn btn-info my_btn"> Проверки и идентификация</a>
     </div>
     <div class="btn_add_firm">
         <a href="{!!URL::to('/контрол/протоколи/търси-търговец')!!}" class="fa fa-arrow-circle-right btn btn-default my_btn">

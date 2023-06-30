@@ -188,6 +188,7 @@ Route::group(/**
     Route::post('/import/stock/{id}/delete', 'StocksController@import_destroy');
     Route::post('/контрол/стоки/внос/{type}', 'StocksController@import_search');
     Route::post('/стоки/внос/сортирай/{start_year?}/{end_year?}/{crop_sort?}/{inspector_sort?}', 'StocksController@import_sort');
+
     // /////// СТОКИ ИЗНОС
     Route::any('/контрол/стоки/износ', 'StocksController@export_index');
     Route::post('/export/add-stock/store', 'StocksController@export_stock_store');
@@ -204,11 +205,19 @@ Route::group(/**
     Route::post('/internal/stock/{id}/delete', 'StocksController@domestic_destroy');
     Route::post('/internal/edit-stock/update/{id}', 'StocksController@domestic_stock_update');
 
-
     // /////// СТОКИ КОНСУМАЦИЯ ПРЕРАБОТКА
     Route::get('/контрол/стоки/консумация-преработка', 'StocksController@consume');
     Route::post('/контрол/стоки/консумация-преработка', 'StocksController@consume');
     Route::post('/контрол/стоки/консумация-преработка/сортирай', 'StocksController@consume_sort');
+
+    // /////// СТОКИ КОНСУМАЦИЯ ПРЕРАБОТКА
+    Route::get('/контрол/стоки/идентификация', 'StocksController@identification');
+    Route::post('/контрол/стоки/идентификация', 'StocksController@identification');
+
+    Route::post('/контрол/стоки/идентификация/{type}', 'StocksController@identification_search');
+    Route::post('/стоки/идентификация/сортирай/{start_year?}/{end_year?}/{crop_sort?}/{inspector_sort?}', 'StocksController@identification_sort');
+
+
 
     // /////// ФАКТУРИ
     Route::resource('контрол/фактури', 'InvoicesController');
@@ -229,6 +238,11 @@ Route::group(/**
     Route::post('контрол/фактури-вътрешни/{id}/store', 'InvoicesController@domestic_store');
     Route::get('контрол/фактури-вътрешни/{id}/edit', 'InvoicesController@domestic_edit');
     Route::post('контрол/фактури-вътрешни/{id}/update', 'InvoicesController@domestic_update');
+
+    Route::get('контрол/фактури-идентификация/{id}', 'InvoicesController@identification_create');
+    Route::post('контрол/фактури-идентификация/{id}/store', 'InvoicesController@identification_store');
+    Route::get('контрол/фактури-идентификация/{id}/edit', 'InvoicesController@identification_edit');
+    Route::post('контрол/фактури-идентификация/{id}/update', 'InvoicesController@identification_update');
 
      ///// ИЗНОС
     Route::resource('/контрол/сертификати-износ', 'QXCertificatesController');
@@ -384,6 +398,7 @@ Route::group(/**
     Route::post('import/add-sum/store/{id}', 'QCertificatesController@import_add_sum');
     Route::post('export/add-sum/store/{id}', 'QXCertificatesController@export_add_sum');
     Route::post('domestic/add-sum/store/{id}', 'QINCertificatesController@domestic_add_sum');
+    Route::post('identification/add-sum/store/{id}', 'QIdentificationController@add_sum');
 
     //////////////////////////////////////////////////////////
     /////////////////////////////
@@ -398,21 +413,29 @@ Route::group(/**
 
 
 
+    //////////////////////////////////////////////////////////
+    //////////////  ПРОВЕРКИ ЗА ИДЕНТИФИКАЦИЯ  ///////////////////
+    Route::resource('контрол/идентификация', 'QIdentificationController');
+    Route::resource('контрол/идентификация', 'QIdentificationController@index');
+    Route::get('/контрол/идентификация/добави', 'QIdentificationController@create');
+    Route::post('/контрол/идентификация/store', 'QIdentificationController@store');
+    Route::get('контрол/идентификация/{id}', 'QIdentificationController@show');
+    Route::get('контрол/идентификация/{id}/edit', 'QIdentificationController@edit');
+    Route::post('контрол/идентификация/{id}/update', 'QIdentificationController@update');
+    ///// LOCK UNLOCK
+    Route::post('lock-identification/{id}', 'QIdentificationController@lock');
+    Route::post('unlock-identification/{id}', 'QIdentificationController@unlock');
 
+    Route::get('контрол/идентификация/{id}/завърши', 'QIdentificationController@ending');
+    Route::post('/identification-finish/store', 'QIdentificationController@finish');
+    Route::post('контрол/идентификация', 'QIdentificationController@search');
+    Route::post('контрол/идентификация/сортирай', 'QIdentificationController@sort');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // /////// СТОКИ ПРОВЕРКИ И ИДЕНТИФИКАЦИЯ
+    Route::post('/identification/add-stock/store', 'StocksController@identification_stock_store');
+    Route::post('/identification/edit-stock/update/{id}', 'StocksController@identification_stock_update');
+    Route::get('/identification/stock/{id}/{sid?}/edit', 'StocksController@identification_stocks_edit');
+    Route::post('/identification/stock/{id}/delete', 'StocksController@identification_destroy');
 
 
 

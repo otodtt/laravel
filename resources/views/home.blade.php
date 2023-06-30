@@ -125,6 +125,7 @@
                                     <hr style="margin-bottom: 5px; margin-top: 5px"/>
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/протоколи') !!}"> <i class="fa fa-file-powerpoint-o fa-fw " style="color: #347bb7;"></i> Констативни Протоколи</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( 'контрол/формуляри') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Формуляри за съответствие</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( 'контрол/идентификация') !!}"><i class="fa fa-id-card-o fa-fw blue_color"></i> Проверка и идентификация</a>
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">

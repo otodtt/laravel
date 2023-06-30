@@ -23,6 +23,7 @@
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
         <a href="{!! URL::to('/контрол/протоколи')!!}" class="fa  fa-file-powerpoint-o btn btn-info my_btn"> Констативни протоколи </a>
         <span class="fa  btn btn-default my_btn"><i class="fa fa-check-square " aria-hidden="true"></i> Формуляри за съответствие</span>
+        <a href="{!! URL::to('/контрол/идентификация')!!}" class="fa fa-id-card-o btn btn-info my_btn"> Проверки и идентификация</a>
     </div>
     <div class="btn_add_firm">
         <a href="{!!URL::to('/контрол/формуляри/търси')!!}" class="fa fa-arrow-circle-right btn btn-default my_btn">

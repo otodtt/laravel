@@ -110,6 +110,7 @@
         </a>
     </div>
     {{--<hr/>--}}
+
     @include('quality.certificates.includes.table')
 @endsection
 

@@ -13,7 +13,7 @@
         <hr class="my_hr"/>
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
-                <h3 class="my_center" style="color: #d9534f;">Редактиране на Сертификат за ВНОС с НОМЕР {{$certificate->import}}!</h3>
+                <h3 class="my_center" style="color: #d9534f;">Редактиране на Проверка и Идентификация с НОМЕР {{$certificate->id}}!</h3>
             </div>
         </div>
         <div class="alert alert-danger my_alert" role="alert">
@@ -33,13 +33,13 @@
                 </div>
             @endif
 
-            {!! Form::model($certificate, ['url'=>'контрол/сертификат-внос/'.$certificate->id.'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+            {!! Form::model($certificate, ['url'=>'контрол/идентификация/'.$certificate->id.'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
             
                 @include('quality.certificates.forms.form_edit_certificate')
                 <input type="hidden" name="export" value="0">
 
                 <div class="col-md-6 " >
-                    <a href="{{ '/контрол/сертификат-внос/'.$certificate->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификатa!</a>
+                    <a href="{{ '/контрол/идентификация/'.$certificate->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към Проверката!</a>
                 </div>
                 <div class="col-md-6" id="add_certificate" >
                     {!! Form::submit('Редактирай!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}

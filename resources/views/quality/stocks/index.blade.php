@@ -9,9 +9,6 @@
     {!! Html::style('css/table/jquery.dataTables.css') !!}
     {!! Html::style('css/table/table_firms.css') !!}
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
-    {{-- {!! Html::style('css/table/crop.css') !!} --}}
-    {{-- {!!Html::style("css/certificates/index_certificates.css" )!!} --}}
-    {{-- {!!Html::style("css/certificates/table_certificates.css" )!!} --}}
 @endsection
 
 @section('message')
@@ -40,6 +37,7 @@
         <a href="{!! URL::to('/контрол/стоки/износ') !!}" class="fa fa-arrow-up btn btn-info my_btn"> Стоки/Износ</a>
         <a href="{!! URL::to('/контрол/стоки/вътрешни') !!}" class="fa fa-retweet btn btn-info my_btn"> Стоки/Вътрешни</a>
         <a href="{!! URL::to('/контрол/стоки/консумация-преработка') !!}" class="fa fa-cutlery btn btn-info my_btn"> Стоки за</a>
+        <a href="{!! URL::to('/контрол/стоки/идентификация') !!}" class="fa fa-id-card-o btn btn-info my_btn"> Проверки и идентификация</a>
     </div>
     <hr />
     @if(count($errors)>0)

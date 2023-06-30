@@ -47,9 +47,7 @@ if ((int) $end_years == 0) {
     ]) !!}
 </div>
 <div class="col-md-7">
-    {!! Form::label('limit_sort', ' Сортирай:', ['class' => 'labels']) !!}
-
-
+    {!! Form::label('search_firm', 'Сортирай:', ['class' => 'labels']) !!}
     <select name="firm_sort" id="search_firm" class="form-control form-control-my search_value"
         style="padding: 0 8px; width: 200px; display: inline-block;  margin-right: 30px;">
         <option value="0"> по фирма</option>
@@ -59,7 +57,7 @@ if ((int) $end_years == 0) {
         @endforeach
     </select>
 
-    <select name="for_sort" id="search_firm" class="form-control form-control-my search_value"
+    <select name="for_sort" id="search_certificate" class="form-control form-control-my search_value"
             style="padding: 0 8px; width: 200px; display: inline-block;  margin-right: 30px;">
         @foreach ($for_sort as $k => $for)
             <option value="{{ $k }}" {{ $sort_for_return == $k ? 'selected' : '' }}>{{ $for }}</option>

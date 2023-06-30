@@ -32,6 +32,9 @@ class Importer extends Model
     public function qxcertificate(){
         return $this->hasMany('odbh\QXCertificate', 'importer_id');
     }
+    public function qidentification(){
+        return $this->hasMany('odbh\QIdentification', 'importer_id');
+    }
 }
 
 

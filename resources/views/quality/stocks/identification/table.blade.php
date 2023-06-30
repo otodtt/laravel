@@ -1,10 +1,11 @@
-<table id="example_stock" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
+<table id="example_identification" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
     <thead>
         <tr>
             <th>N</th>
             {{-- <th>Дата на издаване</th> --}}
             <th>Серт. Номер/Дата</th>
             <th>Издаден на</th>
+            <th>Спедитор</th>
             <th>Култура</th>
             <th>Опаковки</th>
             <th>Количество</th>
@@ -18,10 +19,22 @@
             <tr>
                 <td class="right"><?= $n++ ?></td>
                 <td>
-                    {{ $stock->certificate_number }} / {{ date('d.m.Y', $stock->date_issue) }}
+                    {{ $stock->identification_id }} / {{ date('d.m.Y', $stock->date_issue) }}
                 </td>
                 <td>
                     <p style="text-transform: uppercase;">{{ $stock->firm_name }}</p>
+                </td>
+                <td>
+                    @foreach($forwarders as $forwarder)
+                        <?php
+                            if($forwarder[0]['id'] ==  $stock->identification_id) {
+                                ?>
+                                <p style="text-transform: uppercase;">{{ $forwarder[0]['forwarder'] }}</p>
+                                <?php
+                            break;
+                            }
+                        ?>
+                    @endforeach
                 </td>
                 <td style="text-align: left">
                     <?php
@@ -57,7 +70,7 @@
                  {{--<td style="text-align: right; padding-right: 4px">{{ number_format($stock->weight, 0, ',', ' ') }}</td>--}}
                 <td>{{ $stock->inspector_name }}</td>
                 <td>
-                    <a href='/контрол/сертификат-внос/{{ $stock->certificate_id }}'class="fa fa-binoculars btn btn-primary my_btn"></a>
+                    <a href='/контрол/идентификация/{{ $stock->identification_id }}'class="fa fa-binoculars btn btn-primary my_btn"></a>
                 </td>
             </tr>
         @endforeach
@@ -77,6 +90,7 @@
                 @endforeach
                 <p style="text-center: left; margin-left: 10px"> {{ number_format($total, 0, ',', ' ') }} kg.</p>
             </th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>

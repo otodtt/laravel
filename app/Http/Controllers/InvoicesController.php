@@ -10,6 +10,7 @@ use odbh\Http\Requests\InvoicesRequest;
 use odbh\Importer;
 use odbh\Invoice;
 use odbh\QCertificate;
+use odbh\QIdentification;
 use odbh\QINCertificate;
 use odbh\QXCertificate;
 use odbh\User;
@@ -72,7 +73,7 @@ class InvoicesController extends Controller
             $invoices = Invoice::orderBy('date_invoice', 'desc')->get();
         };
 
-        $for_sort = array(''=>'издаден за', 1=>'Сетификат за внос', 2=>'Сетификат за износ', 3=>'Вътрешен Сетификат');
+        $for_sort = array(''=>'издаден за', 1=>'Сетификат за внос', 2=>'Сетификат за износ', 3=>'Вътрешен Сетификат', 4=>'Проверка Идентификация');
 
         return view('quality.invoices.invoices', compact('invoices', 'firms', 'search_return', 'search_value_return', 'for_sort'));
     }
@@ -151,7 +152,7 @@ class InvoicesController extends Controller
             $firm_sql = ' ';
         }
 
-        $for_sort = array(''=>'издаден за', 1=>'Сетификат за внос', 2=>'Сетификат за износ', 3=>'Вътрешен Сетификат');
+        $for_sort = array(''=>'издаден за', 1=>'Сетификат за внос', 2=>'Сетификат за износ', 3=>'Вътрешен Сетификат', 4=>'Проверка Идентификация');
         $firms = Importer::where('is_active', '=', 1)->where('trade', '>=', 0)->lists('name_en', 'id')->toArray();
 
         $invoices = DB::select("SELECT * FROM invoices WHERE id >0 $years_sql  $firm_sql $for_sql");
@@ -495,6 +496,108 @@ class InvoicesController extends Controller
     }
 
 
+
+    /** ФАКТУРИ ИДЕНТИФИКАЦИЯ  */
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function identification_create($id)
+    {
+        $certificate = QIdentification::findOrFail($id);
+
+        return view('quality.invoices.identification.form.create', compact('certificate'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request|InvoicesRequest $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function identification_store(InvoicesRequest $request, $id)
+    {
+        $certificate = QIdentification::findOrFail($id);
+
+        $data = [
+            'invoice_for' => 4,
+            'number_invoice' => $request->invoice,
+            'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
+            'sum' => $certificate->sum,
+            'certificate_id' => $certificate->id,
+            'certificate_number' => $certificate->id,
+            'importer_id' => $certificate->importer_id,
+            'importer_name' => $certificate->importer_name,
+            'identifier' => $certificate->stamp_number.'/'.$certificate->id,
+            'date_create' => date('d.m.Y', time()),
+            'created_by' => Auth::user()->id,
+        ];
+
+        $invoice = Invoice::create($data);
+        $invoice_id = $invoice->id;
+
+        // Добавяне данни към сертификата
+        $invoice_data = [
+            'invoice_id' => $invoice_id,
+            'invoice_number' => $request->invoice,
+            'invoice_date' => strtotime(stripslashes($request->date_invoice)),
+        ];
+
+        $certificate->fill($invoice_data);
+        $certificate->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/идентификация/'.$id);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function identification_edit($id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $certificate = QIdentification::where('id', $invoice->certificate_id)->get();
+
+        return view('quality.invoices.identification.form.edit', compact('invoice', 'certificate'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\InvoicesRequest|InvoicesRequest $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function identification_update(InvoicesRequest $request, $id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $data = [
+            'number_invoice' => $request->invoice,
+            'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
+            'date_update' => date('d.m.Y', time()),
+            'updated_at' => Auth::user()->id,
+        ];
+        $invoice->fill($data);
+        $invoice->save();
+
+        // Редактиране данни към сертификата
+        $certificate = QIdentification::where('invoice_id', $invoice->id)->firstOrFail();
+        $invoice_data = [
+            'invoice_number' => $request->invoice,
+            'invoice_date' => strtotime(stripslashes($request->date_invoice)),
+        ];
+
+        $certificate->fill($invoice_data);
+        $certificate->save();
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/идентификация/'.$certificate->id);
+    }
 
     /**
      * Remove the specified resource from storage.

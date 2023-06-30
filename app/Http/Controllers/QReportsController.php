@@ -12,12 +12,14 @@ use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
 use odbh\QCertificate;
 use odbh\QCompliance;
+use odbh\QIdentification;
 use odbh\QINCertificate;
 use odbh\QProtocol;
 use odbh\QXCertificate;
 use odbh\Set;
 use odbh\Stock;
 use odbh\StockExport;
+use odbh\StockIdentification;
 use odbh\StockInternal;
 
 class QReportsController extends Controller
@@ -49,6 +51,7 @@ class QReportsController extends Controller
         $incertificates = QINCertificate::get();
         $protocols = QProtocol::get();
         $compliances = QCompliance::get();
+        $identifications = QIdentification::get();
 
         $month_select = [
             0 => 'Избери Месец',
@@ -68,25 +71,28 @@ class QReportsController extends Controller
             14 => 'Вторите 6 месеца',
         ];
 
-        if(count($certificates) != 0 && count($xcertificates) == 0 && count($incertificates) == 0) {
+        if(count($certificates) != 0 && count($xcertificates) == 0 && count($incertificates) == 0 && count($identifications) == 0) {
             $all = $certificates;
         }
-        elseif(count($certificates) == 0 && count($xcertificates) != 0 && count($incertificates) == 0) {
+        elseif(count($certificates) == 0 && count($xcertificates) != 0 && count($incertificates) == 0 && count($identifications) == 0) {
             $all = $xcertificates;
         }
-        elseif(count($certificates) == 0 && count($xcertificates) == 0 && count($incertificates) != 0) {
+        elseif(count($certificates) == 0 && count($xcertificates) == 0 && count($incertificates) != 0 && count($identifications) == 0) {
             $all = $incertificates;
         }
-        elseif(count($certificates) != 0 && count($xcertificates) != 0 && count($incertificates) == 0) {
+        elseif(count($certificates) == 0 && count($xcertificates) == 0 && count($incertificates) == 0 && count($identifications) != 0) {
+            $all = $identifications;
+        }
+        elseif(count($certificates) != 0 && count($xcertificates) != 0 && count($incertificates) == 0 && count($identifications) == 0) {
             $all = $certificates;
         }
-        elseif(count($certificates) != 0 && count($xcertificates) == 0 && count($incertificates) != 0) {
+        elseif(count($certificates) != 0 && count($xcertificates) == 0 && count($incertificates) != 0 && count($identifications) == 0) {
             $all = $certificates;
         }
-        elseif(count($certificates) == 0 && count($xcertificates) != 0 && count($incertificates) != 0) {
+        elseif(count($certificates) == 0 && count($xcertificates) != 0 && count($incertificates) != 0 && count($identifications) == 0) {
             $all = $incertificates;
         }
-        elseif(count($certificates) != 0 && count($xcertificates) != 0 && count($incertificates) != 0) {
+        elseif(count($certificates) != 0 && count($xcertificates) != 0 && count($incertificates) != 0 && count($identifications) == 0) {
             $all = $certificates;
         }
         else {
@@ -183,11 +189,7 @@ class QReportsController extends Controller
         }
         else{
             $selected_month = 'false';
-//            $start = '01.01.';
-//            $end = '31.12.';
         }
-//        dd(isset($request['month_select']));
-//        dd($request->all());
 
         $start_year = $start. $year_now;
         $time_start = strtotime(stripslashes($start_year));
@@ -206,6 +208,7 @@ class QReportsController extends Controller
         $incertificates_year = QINCertificate::where('date_issue', '>=', $time_start)->where('date_issue', '<=', $time_end)->get();
         $protocols_year = QProtocol::where('date_protocol', '>=', $time_start)->where('date_protocol', '<=', $time_end)->get();
         $compliance_year = QCompliance::where('date_compliance', '>=', $time_start)->where('date_compliance', '<=', $time_end)->get();
+        $identification_year = QIdentification::where('date_issue', '>=', $time_start)->where('date_issue', '<=', $time_end)->where('type_crops', '=', 1)->get();
 
         //// ЗА СТОКИТЕ ВНОС
         $lists = Stock::orderBy('crops_name', 'asc')->where('date_issue', '>=', $time_start)->where('date_issue', '<=', $time_end)->where('type_crops', '=', 1)->lists('crops_name', 'crop_id')->toArray();
@@ -214,6 +217,14 @@ class QReportsController extends Controller
             $stocks[$list] = DB::select("SELECT `crops_name`, `weight` FROM stocks WHERE crop_id=$k AND type_crops=1 AND date_issue >= $time_start AND date_issue <= $time_end ");
         }
         $stocks = json_decode(json_encode(array_filter($stocks)), true);
+
+        //// ЗА СТОКИТЕ IDENTIFICATION
+        $lists = StockIdentification::orderBy('crops_name', 'asc')->where('date_issue', '>=', $time_start)->where('date_issue', '<=', $time_end)->where('type_crops', '=', 1)->lists('crops_name', 'crop_id')->toArray();
+        $stocks_identification = array();
+        foreach($lists as $k=>$list){
+            $stocks_identification[$list] = DB::select("SELECT `crops_name`, `weight` FROM stocks_identification WHERE crop_id=$k AND type_crops=1 AND date_issue >= $time_start AND date_issue <= $time_end ");
+        }
+        $stocks_identification = json_decode(json_encode(array_filter($stocks_identification)), true);
 
         //// ЗА СТОКИТЕ ИЗНОС
         $xlists = StockExport::orderBy('crops_name', 'asc')->where('date_issue', '>=', $time_start)->where('date_issue', '<=', $time_end)->lists('crops_name', 'crop_id')->toArray();
@@ -238,7 +249,6 @@ class QReportsController extends Controller
             $stocks_consume[$list] = DB::select("SELECT `crops_name`, `weight` FROM stocks WHERE crop_id=$k AND type_crops=2  AND date_issue >= $time_start AND date_issue <= $time_end ");
         }
         $stocks_consume = json_decode(json_encode(array_filter($stocks_consume)), true);
-//        dd($stocks_consume);
 
         //// ЗА СТОКИТЕ ВЪВ ФОРМУЛЯР
         $lists_compliance = Article::orderBy('product', 'asc')->where('date_compliance', '>=', $time_start)->where('date_compliance', '<=', $time_end)->lists('product', 'product_id')->toArray();
@@ -250,11 +260,12 @@ class QReportsController extends Controller
 
         return view('quality.reports.index', compact('city', 'years', 'year_now',
             'certificates', 'certificates_year', 'certificates_year_cons',
+            'identifications', 'identification_year',
             'xcertificates', 'xcertificates_year',
             'incertificates', 'incertificates_year',
             'protocols', 'protocols_year',
             'compliances', 'compliance_year',
-            'stocks_compliance', 'stocks', 'stocks_export', 'stocks_internal', 'stocks_consume',
+            'stocks_compliance', 'stocks', 'stocks_export', 'stocks_internal', 'stocks_consume', 'stocks_identification',
             'month_select', 'selected_month'));
     }
 
