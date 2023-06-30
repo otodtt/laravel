@@ -97,6 +97,27 @@ class ProtocolsController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_old()
+    {
+        $abc = null;
+        $alphabet = Protocol::lists('alphabet')->toArray();
+
+        $areas = $this->ph_area_sort;
+
+        $protocols = Protocol::where('ot','>=', 1)->where('ot','<=', 3)->orderBy('date_protocol', 'desc')->orderBy('number', 'desc')->get();
+
+        $inspectors = $this->inspectors_edit_db;
+        $inspectors[0] = 'по инспектор';
+        $inspectors = array_sort_recursive($inspectors);
+
+        return view('control.old_protocols.home', compact('alphabet', 'protocols', 'abc', 'inspectors', 'areas'));
+    }
+
+    /**
      * Търси по задедени критерии.
      *
      * @param  \Illuminate\Http\Request $request
@@ -818,4 +839,5 @@ class ProtocolsController extends Controller
         Session::flash('message', 'Пробата от ПРЗ е добавена успешно!');
         return Redirect::to('/протокол/'.$id);
     }
+
 }

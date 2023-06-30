@@ -866,6 +866,11 @@ Route::group(/**
 
     /////// Изтриване
     Route::post('useful/document/destroy/{id}', 'UsefulController@destroy');
+
+
+    /// КОНТРОЛ НОВИ ДОКЛАДИ И КОНСТАТИВНИ ПРОТОКОЛИ
+    Route::get('протоколи-стари', 'ProtocolsController@index_old');
+
 });
 
 
