@@ -67,4 +67,8 @@ class Firm extends Model
     public function protocols(){
         return $this->hasMany('odbh\Protocol', 'id_from_firm')->orderBy('date_protocol','asc');
     }
+
+    public function reports(){
+        return $this->hasMany('odbh\Report', 'id_from_firm')->orderBy('date_protocol','asc');
+    }
 }

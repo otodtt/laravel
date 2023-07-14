@@ -22,6 +22,8 @@ Route::get('/logout', 'LogController@logout');
 Route::get('начало', 'FrontController@index');
 Route::get('админ', 'FrontController@admin');
 
+
+
 Route::group(['middleware' => ['auth', 'admin']], function () {
     //За Настройки
     Route::resource('admin/settings', 'SettingsController');
@@ -112,7 +114,6 @@ Route::group(/**
  */
     ['middleware' => ['auth']], function () {
 
-    Route::get('/test', 'QCertificatesController@test');
     /////////////////////////////
     //СМЯНА НА ПАРОЛА
     Route::get('парола/{id}', 'PersonalDataController@show');
@@ -870,6 +871,27 @@ Route::group(/**
 
     /// КОНТРОЛ НОВИ ДОКЛАДИ И КОНСТАТИВНИ ПРОТОКОЛИ
     Route::get('протоколи-стари', 'ProtocolsController@index_old');
+
+    /////// ДОКЛАДИ Аптеки Складове Цехове
+    Route::resource('доклади-контрол', 'ReportsController');
+    Route::post('доклади-контрол', 'ReportsController@search');
+    // Сортиране на Протоколи
+    Route::any('доклади-контрол/сортирай/{abc_list?}/{start_year?}/{end_year?}/{object_sort?}/{areas_sort?}/{inspector_sort?}/{assay_sort?}', 'ReportsController@sort');
+//    // Добавяне и редактиране на Протоколи
+    Route::get('доклад-аптека/{id}/добави/{type}', 'ReportsController@create');
+    Route::post('доклад-аптека/store/{object_id}/{type}', 'ReportsController@store');
+    Route::get('доклад/{id}/редактирай', 'ReportsController@edit');
+    Route::post('доклад/{id}/update', 'ReportsController@update');
+//    // Край Добавяне и редактиране на ДОКЛАДИ
+//
+    Route::get('доклад/{id}', 'ReportsController@show');
+//    Route::get('протоколи-фирма/{id}', 'ProtocolsController@protocols_show');
+//    Route::any('протоколи-фирма/{id}/сортирай/{id_object?}/{type?}/{years?}', 'ProtocolsController@protocols_sort');
+    // Добавяне на взети проби от ПРЗ и ТОР
+//    Route::post('assay-prz/add/{id}', 'ProtocolsController@add_prz');
+//    Route::post('assay-tor/add/{id}', 'ProtocolsController@add_tor');
+
+    Route::get('/test', 'ReportsController@test');
 
 });
 

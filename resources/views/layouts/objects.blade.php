@@ -43,10 +43,12 @@
                         &nbsp;Контрол на Пазара &nbsp;<span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
                     </a>
                     <ul class="dropdown-menu" >
-                        <li><a href="{!! URL::to('/протоколи')!!}" class="my_a back_link"> <i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи Контрол на Пазара</a></li>
+                        <li><a href="{!! URL::to('/доклади-контрол')!!}" class="my_a back_link"> <i class="fa fa-file-text-o fa-fw control_color"></i> Доклади Контрол на Пазара</a></li>
                         <li><a href="{!! URL::to('/протоколи-обекти')!!}" class="my_a back_link"> <i class="fa fa-object-ungroup fa-fw control_color"></i> Протоколи Нерегламентирани Обекти</a></li>
                         <li><a href="{!! URL::to('/други-обекти')!!}" class="my_a back_link"> <i class="fa fa-external-link fa-fw control_color"></i> Протоколи в други Области</a></li>
                         <li><a href="{!! URL::to('/производители')!!}" class="my_a back_link"> <i class="fa fa-industry fa-fw control_color"></i> Протоколи Производители на ПРЗ</a></li>
+                        <hr style="margin-bottom: 5px; margin-top: 5px"/>
+                        <li><a class="my_a back_link" href="{!! URL::to( '/протоколи-стари') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Стари Протоколи Контрол на Пазара до 30.06.2023</a><li/>
                     </ul>
                 </li>
 

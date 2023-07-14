@@ -24,6 +24,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <a href="{!! URL::to( '/земеделци') !!}"><i class="fa fa-users green_color"></i> Всички Земеделски Стопани</a>
+                                <a href="{!! URL::to( '/test') !!}"><i class="fa fa-users green_color"></i> TESTOVE</a>
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
@@ -94,7 +95,7 @@
                                         <div class="col-lg-12  ">
                                             {{--<a class="my_a back_link" href="{!! URL::to( '/протоколи-стари') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Стари Протоколи Контрол на Пазара до 30.06.2023</a><br/>--}}
                                             {{--<hr style="margin-bottom: 5px; margin-top: 5px"/>--}}
-                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Доклади Контрол на Пазара</a><br/>
+                                            <a class="my_a back_link" href="{!! URL::to( '/доклади-контрол') !!}"><i class="fa fa-file-text-o fa-fw control_color"></i> Доклади Контрол на Пазара</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/протоколи-обекти') !!}"><i class="fa fa-object-ungroup fa-fw control_color"></i> Доклади Нерегламентирани Обекти</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/други-обекти') !!}"><i class="fa fa-external-link fa-fw control_color"></i> Доклади в други Области </a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/производители') !!}"><i class="fa fa-industry fa-fw control_color"></i> Доклади Производители на ПРЗ</a><br/>

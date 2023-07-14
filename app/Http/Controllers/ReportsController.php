@@ -10,11 +10,11 @@ use Input;
 use odbh\Firm;
 use odbh\Http\Requests;
 
-use odbh\Http\Requests\ProtocolsRequest;
+use odbh\Http\Requests\ReportsPharmaciesRequest;
 use odbh\Http\Requests\ProtocolsUpdateRequest;
 use odbh\Location;
 use odbh\Pharmacy;
-use odbh\Protocol;
+use odbh\Report;
 use odbh\Repository;
 use odbh\Sample;
 use odbh\Set;
@@ -23,7 +23,7 @@ use odbh\Workshop;
 use Redirect;
 use Session;
 
-class ProtocolsController extends Controller
+class ReportsController extends Controller
 {
     private $logo = null;
 
@@ -62,7 +62,7 @@ class ProtocolsController extends Controller
         $inspectors_db = array();
         $inspectors_db_two = array();
         $inspectors_db_three = array();
-        $inspectors_db_all = Protocol::select('inspector_name', 'inspector', 'inspector_two_name', 'inspector_two', 'inspector_three_name', 'inspector_three')
+        $inspectors_db_all = Report::select('inspector_name', 'inspector', 'inspector_two_name', 'inspector_two', 'inspector_three_name', 'inspector_three')
             ->where('inspector','!=',0)->where('inspector_two','!=',0)->where('inspector_three','!=',0)->get()->toArray();
         foreach($inspectors_db_all as $value){
             $inspectors_db[$value['inspector']] = $value['inspector_name'];
@@ -83,38 +83,17 @@ class ProtocolsController extends Controller
     public function index()
     {
         $abc = null;
-        $alphabet = Protocol::lists('alphabet')->toArray();
+        $alphabet = Report::lists('alphabet')->toArray();
 
         $areas = $this->ph_area_sort;
 
-        $protocols = Protocol::where('ot','>=', 1)->where('ot','<=', 3)->orderBy('date_protocol', 'desc')->orderBy('number', 'desc')->get();
+        $protocols = Report::where('ot','>=', 1)->where('ot','<=', 3)->orderBy('date_protocol', 'desc')->orderBy('number', 'desc')->get();
 
         $inspectors = $this->inspectors_edit_db;
         $inspectors[0] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
 
-        return view('protocols.market.index', compact('alphabet', 'protocols', 'abc', 'inspectors', 'areas'));
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index_old()
-    {
-        $abc = null;
-        $alphabet = Protocol::lists('alphabet')->toArray();
-
-        $areas = $this->ph_area_sort;
-
-        $protocols = Protocol::where('ot','>=', 1)->where('ot','<=', 3)->orderBy('date_protocol', 'desc')->orderBy('number', 'desc')->get();
-
-        $inspectors = $this->inspectors_edit_db;
-        $inspectors[0] = 'по инспектор';
-        $inspectors = array_sort_recursive($inspectors);
-
-        return view('control.old_protocols.home', compact('alphabet', 'protocols', 'abc', 'inspectors', 'areas'));
+        return view('control.reports.index', compact('alphabet', 'protocols', 'abc', 'inspectors', 'areas'));
     }
 
     /**
@@ -131,15 +110,15 @@ class ProtocolsController extends Controller
 
         if ((int)$request['search'] == 1) {
             $this->validate($request, ['search_protocols' => 'required|digits_between:1,6']);
-            $protocols = Protocol::where('number', '=', $request['search_protocols'])->get();
+            $protocols = Report::where('number', '=', $request['search_protocols'])->get();
         };
 
         $areas = $this->ph_area_sort;
 
         $abc = null;
-        $alphabet = Protocol::lists('alphabet')->toArray();
+        $alphabet = Report::lists('alphabet')->toArray();
 
-        return view('protocols.market.index', compact('protocols', 'alphabet', 'abc', 'inspectors', 'areas'));
+        return view('control.reports.index', compact('protocols', 'alphabet', 'abc', 'inspectors', 'areas'));
     }
 
     /**
@@ -165,7 +144,7 @@ class ProtocolsController extends Controller
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
 
-        $alphabet = Protocol::lists('alphabet')->toArray();
+        $alphabet = Report::lists('alphabet')->toArray();
         $abc = null;
         $years_sql = '';
 
@@ -256,12 +235,13 @@ class ProtocolsController extends Controller
             $abc_sql = ' ';
         }
 
-        $protocols = DB::select("SELECT * FROM objects_protocols WHERE id>0  $years_sql $object_sql $areas_sql
+        $protocols = DB::select("SELECT * FROM objects_reports WHERE id>0  $years_sql $object_sql $areas_sql
          $inspector_sql $assay_sql $abc_sql ORDER BY `date_protocol` DESC, `number` DESC");
 
-        return view('protocols.market.index', compact('protocols', 'alphabet', 'abc', 'years_start_sort', 'years_end_sort',
+        return view('control.reports.index', compact('protocols', 'alphabet', 'abc', 'years_start_sort', 'years_end_sort',
             'inspectors', 'sort_object', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -274,7 +254,7 @@ class ProtocolsController extends Controller
     public function create($id, $type)
     {
         if((int)$type == 1){
-           $object = Pharmacy::findOrFail($id);
+            $object = Pharmacy::findOrFail($id);
         }
         if((int)$type == 2){
             $object = Repository::findOrFail($id);
@@ -285,26 +265,24 @@ class ProtocolsController extends Controller
 
         $inspectors = $this->inspectors_add;
 
-        return view('protocols.market.create', compact('object', 'type', 'inspectors'));
+        return view('control.reports.crud.create', compact('object', 'type', 'inspectors'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param int $object_id  ИД на обекта за който се добавя протокола
-     * @param int $type  Вида на обекта за който се добавя протокола
-     *
-     * @param  \odbh\Http\Requests\ProtocolsRequest $request
+     * @param ReportsPharmaciesRequest|Requests\ReportsPharmaciesRequest $request
+     * @param int $object_id ИД на обекта за който се добавя протокола
+     * @param int $type Вида на обекта за който се добавя протокола
      * @return \Illuminate\Http\Response
      */
-    public function store(ProtocolsRequest $request, $object_id, $type)
+    public function store(ReportsPharmaciesRequest $request, $object_id, $type)
     {
-        $unique_number = Protocol::where('number','=',$request['number'])->where('date_protocol','=',strtotime(stripslashes($request['date_protocol'])))->get();
+        $unique_number = Report::where('number','=',$request['number'])->where('date_protocol','=',strtotime(stripslashes($request['date_protocol'])))->get();
         if(count($unique_number)>0){
             $this->validate($request, [
                 'number' => 'not_in:'.$request['number'],
             ]);
-
         }
 
         $inspector_name_sql1 = User::where('id', '=', $request['inspector'])->get()->toArray();
@@ -334,15 +312,17 @@ class ProtocolsController extends Controller
             $position_short_three = '';
         }
 
-        if($type == 1){
-            $object = Pharmacy::findOrFail($object_id);
-        }
-        if($type == 2){
-            $object = Repository::findOrFail($object_id);
-        }
-        if($type == 3){
-            $object = Workshop::findOrFail($object_id);
-        }
+        $object = Pharmacy::findOrFail($object_id);
+
+//        if($type == 1){
+//            $object = Pharmacy::findOrFail($object_id);
+//        }
+//        if($type == 2){
+//            $object = Repository::findOrFail($object_id);
+//        }
+//        if($type == 3){
+//            $object = Workshop::findOrFail($object_id);
+//        }
         $assay_prz = null;
         $assay_more = null;
         if($request['assay_prz'] == 1) {
@@ -377,9 +357,48 @@ class ProtocolsController extends Controller
             'place'=>$object->location,
             'address'=>$object->address,
             'district_object'=>$object->district_object,
-            'ascertainment'=>$request['ascertainment'],
-            'taken'=>$request['taken'],
-            'order_protocol'=>$request['order_protocol'],
+
+            'activity'=>$request['activity'],
+            'activity_note'=>$request['activity_note'],
+            'certificate'=>$request['certificate'],
+            'certificate_note'=>$request['certificate_note'],
+            'delivery'=>$request['delivery'],
+            'delivery_note'=>$request['delivery_note'],
+            'sales'=>$request['sales'],
+            'sales_note'=>$request['sales_note'],
+            'unauthorized'=>$request['unauthorized'],
+            'unauthorized_note'=>$request['unauthorized_note'],
+            'first'=>$request['first'],
+            'first_note'=>$request['first_note'],
+            'improperly'=>$request['improperly'],
+            'improperly_note'=>$request['improperly_note'],
+            'repackaged'=>$request['repackaged'],
+            'repackaged_note'=>$request['repackaged_note'],
+            'expired'=>$request['expired'],
+            'expired_note'=>$request['expired_note'],
+            'compliance'=>$request['compliance'],
+            'compliance_note'=>$request['compliance_note'],
+            'leaflet'=>$request['leaflet'],
+            'leaflet_note'=>$request['leaflet_note'],
+            'larger'=>$request['larger'],
+            'larger_note'=>$request['larger_note'],
+            'purpose'=>$request['purpose'],
+            'purpose_note'=>$request['purpose_note'],
+            'storage'=>$request['storage'],
+            'storage_note'=>$request['storage_note'],
+            'warehouse'=>$request['warehouse'],
+            'warehouse_note'=>$request['warehouse_note'],
+            'separated'=>$request['separated'],
+            'separated_note'=>$request['separated_note'],
+            'access'=>$request['access'],
+            'access_note'=>$request['access_note'],
+            'flooring'=>$request['flooring'],
+            'flooring_note'=>$request['flooring_note'],
+            'combustible'=>$request['combustible'],
+            'combustible_note'=>$request['combustible_note'],
+            'contract'=>$request['contract'],
+            'contract_note'=>$request['contract_note'],
+            'protocol'=>$request['protocol'],
 
             'date_add'=>time(),
             'added_by'=> Auth::user()->id,
@@ -388,8 +407,6 @@ class ProtocolsController extends Controller
             'assay_more'=>$assay_more,
             'assay_tor'=>$request['assay_tor'],
             'type_check'=>$request['type_check'],
-            'act'=>$request['act'],
-            'violation'=>$request['violation'],
             'inspector_name'=>$inspector_name,
             'inspector_two_name'=>$inspector_two_name,
             'inspector_three_name'=>$inspector_three_name,
@@ -402,8 +419,8 @@ class ProtocolsController extends Controller
         ]);
 
         $firm = Firm::findOrfail($object->firm_id);
-        $protocols = new Protocol($data);
-        $firm->protocols()->save($protocols);
+        $protocols = new Report($data);
+        $firm->reports()->save($protocols);
 
         if ($object->type_firm == 1) {
             $et = 'ET';
@@ -471,14 +488,13 @@ class ProtocolsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $logo = $this->logo;
-        $protocol = Protocol::findOrFail($id);
+        $protocol = Report::findOrFail($id);
         $inspectors = User::get();
         $city = Set::first();
         $firm = Firm::findOrFail($protocol->id_from_firm);
@@ -521,40 +537,41 @@ class ProtocolsController extends Controller
         else{
             $tor = array();
         }
-        return view('protocols.market.show', compact('logo', 'protocol', 'inspectors', 'city', 'firm', 'areas',
-                    'districts_firm', 'districts_object', 'prz', 'more', 'tor'));
+        return view('control.reports.show', compact('logo', 'protocol', 'inspectors', 'city', 'firm', 'areas',
+            'districts_firm', 'districts_object', 'prz', 'more', 'tor'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $protocols = Protocol::findOrFail($id);
+        $protocols = Report::findOrFail($id);
         $object = $protocols;
 
         $inspectors = $this->inspectors_edit_db;
         $inspectors[''] = '';
         $inspectors = array_sort_recursive($inspectors);
 
-        return view('protocols.market.edit', compact('object', 'protocols', 'inspectors'));
+        return view('control.reports.crud.edit', compact('object', 'protocols', 'inspectors'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \odbh\Http\Requests\ProtocolsUpdateRequest $request
+     * @param \Illuminate\Http\ReportsPharmaciesRequest|ReportsPharmaciesRequest $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProtocolsUpdateRequest $request, $id)
+    public function update(ReportsPharmaciesRequest $request, $id)
     {
-        $unique_number = Protocol::where('number','=',$request['number'])
-                                    ->where('date_protocol','=',strtotime(stripslashes($request['date_protocol'])))
-                                    ->where('id','!=',$id)->get();
+//         dd($request->all());
+        $unique_number = Report::where('number','=',$request['number'])
+            ->where('date_protocol','=',strtotime(stripslashes($request['date_protocol'])))
+            ->where('id','!=',$id)->get();
         if(count($unique_number)>0){
             $this->validate($request, [
                 'number' => 'not_in:'.$request['number'],
@@ -588,7 +605,7 @@ class ProtocolsController extends Controller
             $position_short_three = '';
         }
 
-        $protocol = Protocol::findOrFail($id);
+        $protocol = Report::findOrFail($id);
         $data = ([
             'number'=>$request['number'],
             'date_protocol'=>strtotime(stripslashes($request['date_protocol'])),
@@ -597,9 +614,6 @@ class ProtocolsController extends Controller
             'inspector_three'=>$request['inspector_three'],
             'inspector_another'=>$request['inspector_another'],
             'inspector_from'=>$request['inspector_from'],
-            'ascertainment'=>$request['ascertainment'],
-            'taken'=>$request['taken'],
-            'order_protocol'=>$request['order_protocol'],
 
             'date_update'=>time(),
             'updated_by'=> Auth::user()->id,
@@ -607,8 +621,7 @@ class ProtocolsController extends Controller
             'assay_prz'=>$request['assay_prz'],
             'assay_tor'=>$request['assay_tor'],
             'type_check'=>$request['type_check'],
-            'act'=>$request['act'],
-            'violation'=>$request['violation'],
+
             'inspector_name'=>$inspector_name,
             'inspector_two_name'=>$inspector_two_name,
             'inspector_three_name'=>$inspector_three_name,
@@ -618,229 +631,73 @@ class ProtocolsController extends Controller
             'position_short_two'=>$position_short_two,
             'position_three'=>$position_three,
             'position_short_three'=>$position_short_three,
+
+            'activity'=>$request['activity'],
+            'activity_note'=>$request['activity_note'],
+            'certificate'=>$request['certificate'],
+            'certificate_note'=>$request['certificate_note'],
+            'delivery'=>$request['delivery'],
+            'delivery_note'=>$request['delivery_note'],
+            'sales'=>$request['sales'],
+            'sales_note'=>$request['sales_note'],
+            'unauthorized'=>$request['unauthorized'],
+            'unauthorized_note'=>$request['unauthorized_note'],
+            'first'=>$request['first'],
+            'first_note'=>$request['first_note'],
+            'improperly'=>$request['improperly'],
+            'improperly_note'=>$request['improperly_note'],
+            'repackaged'=>$request['repackaged'],
+            'repackaged_note'=>$request['repackaged_note'],
+            'expired'=>$request['expired'],
+            'expired_note'=>$request['expired_note'],
+            'compliance'=>$request['compliance'],
+            'compliance_note'=>$request['compliance_note'],
+            'leaflet'=>$request['leaflet'],
+            'leaflet_note'=>$request['leaflet_note'],
+            'larger'=>$request['larger'],
+            'larger_note'=>$request['larger_note'],
+            'purpose'=>$request['purpose'],
+            'purpose_note'=>$request['purpose_note'],
+            'storage'=>$request['storage'],
+            'storage_note'=>$request['storage_note'],
+            'warehouse'=>$request['warehouse'],
+            'warehouse_note'=>$request['warehouse_note'],
+            'separated'=>$request['separated'],
+            'separated_note'=>$request['separated_note'],
+            'access'=>$request['access'],
+            'access_note'=>$request['access_note'],
+            'flooring'=>$request['flooring'],
+            'flooring_note'=>$request['flooring_note'],
+            'combustible'=>$request['combustible'],
+            'combustible_note'=>$request['combustible_note'],
+            'contract'=>$request['contract'],
+            'contract_note'=>$request['contract_note'],
+            'protocol'=>$request['protocol'],
         ]);
+
+
         $protocol->fill($data);
         $protocol->save();
 
         Session::flash('message', 'Протокола е редактиран успешно!');
-        return Redirect::to('/протокол/'.$protocol->id);
+        return Redirect::to('/доклад/'.$protocol->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id){}
-
-    /**
-     * Всички Протоколи издадени на фирмата
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function protocols_show($id)
+    public function destroy($id)
     {
-        $array = array();
-        $firm = Firm::findOrFail($id);
-
-        $protocols = $firm->protocols;
-        $pharmacies = $firm->pharmacies;
-        $repositories = $firm->repositories;
-        $workshops = $firm->workshops;
-
-        foreach($protocols as $protocol){
-            $array[date('Y', $protocol->date_protocol)] = date('Y', $protocol->date_protocol);
-        }
-
-        $years=array_filter(array_unique($array));
-
-        return view('protocols.market.firm_protocols',  compact('firm', 'protocols', 'pharmacies', 'repositories', 'workshops',
-                    'years'));
+        //
     }
 
-    /**
-     * Сортиране на Протоколите издадени на фирма
-     *
-     * @param  int $id
-     * @param  int $id_object
-     * @param  int $type
-     * @param  int $years_sort
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function protocols_sort($id = null, $id_object = null, $type = null, $years_sort = null)
+
+    public function test()
     {
-        $array = array();
-        $firm = Firm::findOrFail($id);
-
-        $protocols_year = $firm->protocols;
-        $pharmacies = $firm->pharmacies;
-        $repositories = $firm->repositories;
-        $workshops = $firm->workshops;
-
-        foreach($protocols_year as $protocol){
-            $array[date('Y', $protocol->date_protocol)] = date('Y', $protocol->date_protocol);
-        }
-
-        $years=array_filter(array_unique($array));
-
-        if (Input::has('id_object') || Input::has('type') || Input::has('years_sort')) {
-            $sort_object = Input::get('id_object');
-            $sort_type = Input::get('type');
-            $sort_years = Input::get('years_sort');
-        } else {
-            $sort_object = $id_object;
-            $sort_type = $type;
-            $sort_years = $years_sort;
-        }
-        /** Сортиране по дата **/
-        if (isset($sort_years)) {
-            $start_year = '01.01.' . $sort_years;
-            $time_start = strtotime(stripslashes($start_year));
-            $end_year = '31.12.' . $sort_years;
-            $time_end = strtotime(stripslashes($end_year));
-
-            $years_sql = ' AND date_protocol > ' . $time_start . ' AND date_protocol < ' . $time_end ;
-        }
-        else{
-            $years_sql = '';
-        }
-
-        if (isset($sort_object) && strlen($sort_object) != 0) {
-            $object_sql = ' AND id_from_object = '.$sort_object.' AND ot = '.$sort_type;
-        }
-        else{
-            $object_sql = '';
-        }
-
-        $protocols = DB::select("SELECT * FROM objects_protocols WHERE id_from_firm =$id  $years_sql $object_sql
-        ORDER BY date_protocol ASC ");
-
-        return view('protocols.market.firm_protocols',  compact('firm', 'protocols', 'pharmacies', 'repositories', 'workshops',
-            'years', 'sort_object', 'sort_type', 'sort_years'));
-    }
-
-    /**
-     * Добавя проби от ПРЗ.
-     *
-     * @param  int $id
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function add_prz(Request $request, $id)
-    {
-        $assay_prz = null;
-        $data_update_protocol = null;
-
-        $this->validate($request, [
-            'prz_name' => 'required:',
-            'prz_av' => 'required:',
-        ]);
-        $protocol = Protocol::findOrFail($id);
-        if ($protocol->firm == 1) {
-            $et = 'ET';
-            $ood = '';
-        } elseif ($protocol->firm == 2) {
-            $et = '';
-            $ood = 'ООД';
-        } elseif ($protocol->firm == 3) {
-            $et = '';
-            $ood = 'ЕООД';
-        } elseif ($protocol->firm == 4) {
-            $et = '';
-            $ood = 'АД';
-        } else {
-            $et = '';
-            $ood = '';
-        }
-        if($request['assay_prz'] == 0){
-            $assay_prz = 0;
-        }
-        if($request['assay_prz'] == 1){
-            if($request['more'] == 0){
-                $assay_prz = 1;
-                $data_update_protocol = (['assay_prz'=>1]);
-            }
-            if($request['more'] == 1){
-                $assay_prz = 100;
-                $data_update_protocol = (['assay_more'=>1]);
-            }
-        }
-        $data_assay_prz = ([
-            'number_sample'=>$protocol->number,
-            'date_number'=>$protocol->date_protocol,
-            'firm_id'=>$protocol->id_from_firm,
-            'from_firm'=>$et.' "'.$protocol->name.'" '.$ood,
-            'from_object'=>$protocol->ot,
-            'name'=>$request['prz_name'],
-            'active_subs'=>$request['prz_av'],
-            'inspector'=>$protocol->inspector_name,
-            'type_assay'=>$assay_prz,
-        ]);
-
-        Sample::create($data_assay_prz);
-
-        $protocol->fill($data_update_protocol);
-        $protocol->save();
-
-        Session::flash('message', 'Пробата от ПРЗ е добавена успешно!');
-        return Redirect::to('/протокол/'.$id);
-    }
-
-    /**
-     * Добавя проби от ТОР.
-     *
-     * @param  int $id
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function add_tor(Request $request, $id)
-    {
-        $this->validate($request, [
-            'tor_name' => 'required:',
-            'tor_av' => 'required:',
-            'eo_tor' => 'required:',
-        ]);
-        $protocol = Protocol::findOrFail($id);
-        if ($protocol->firm == 1) {
-            $et = 'ET';
-            $ood = '';
-        } elseif ($protocol->firm == 2) {
-            $et = '';
-            $ood = 'ООД';
-        } elseif ($protocol->firm == 3) {
-            $et = '';
-            $ood = 'ЕООД';
-        } elseif ($protocol->firm == 4) {
-            $et = '';
-            $ood = 'АД';
-        } else {
-            $et = '';
-            $ood = '';
-        }
-        $data_assay_tor = ([
-            'number_sample'=>$protocol->number,
-            'date_number'=>$protocol->date_protocol,
-            'firm_id'=>$protocol->id_from_firm,
-            'from_firm'=>$et.' "'.$protocol->name.'" '.$ood,
-            'from_object'=>$protocol->ot,
-            'name'=>$request['tor_name'],
-            'active_subs'=>$request['tor_av'],
-            'eo'=>$request['eo_tor'],
-            'inspector'=>$protocol->inspector_name,
-            'type_assay'=>2,
-        ]);
-
-        Sample::create($data_assay_tor);
-
-        $data = (['assay_tor'=>1]);
-        $protocol->fill($data);
-        $protocol->save();
-
-        Session::flash('message', 'Пробата от ПРЗ е добавена успешно!');
-        return Redirect::to('/протокол/'.$id);
+        return view('test');
     }
 
 }

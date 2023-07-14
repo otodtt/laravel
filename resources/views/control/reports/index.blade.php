@@ -1,6 +1,6 @@
 @extends('layouts.objects')
 @section('title')
-    {{ 'Всички Констативни Протоколи' }}
+    {{ 'Всички Доклади' }}
 @endsection
 
 @section('css')
@@ -16,12 +16,12 @@
 
 @section('content')
     <div class="div-layout-title">
-        <h4 class="bold layout-title">КОНСТАТИВНИ ПРОТОКОЛИ НА АПТЕКИ СКЛАДОВЕ ЦЕХОВЕ</h4>
+        <h4 class="bold layout-title">ДОКЛАДИ ОТ ПРОВЕРКИ НА АПТЕКИ СКЛАДОВЕ ЦЕХОВЕ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa fa-file-powerpoint-o btn btn-default my_btn"> Протоколи Контрол на Пазара</span>
+        <span class="fa fa-file-text-o btn btn-default my_btn"> Доклади Контрол на Пазара</span>
         <a href="{!! URL::to('/протоколи-обекти')!!}" class="fa fa-object-ungroup btn btn-info my_btn"> Протоколи Нерегламентирани Обекти</a>
         <a href="{!! URL::to('/други-обекти')!!}" class="fa fa-external-link btn btn-info my_btn"> Протоколи в други Области</a>
         <a href="{!! URL::to('/производители')!!}" class="fa fa-industry btn btn-info my_btn"> Протоколи Производители на ПРЗ</a>
@@ -31,8 +31,8 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div id="search_wrap" class="col-md-6">
-                    {!! Form::open(array('url'=>'/протоколи', 'method'=>'POST')) !!}
-                    @include('protocols.market.index.search')
+                    {!! Form::open(array('url'=>'/доклади-контрол', 'method'=>'POST')) !!}
+                    @include('control.reports.includes.search')
                     {!! Form::close() !!}
                 </div>
                 <div class="col-md-6">
@@ -48,8 +48,8 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all" class="col-md-12">
-                {!! Form::open(array('url'=>'/протоколи/сортирай', 'method'=>'POST')) !!}
-                @include('protocols.market.index.years_sort')
+                {!! Form::open(array('url'=>'/доклади-контрол/сортирай', 'method'=>'POST')) !!}
+                @include('control.reports.includes.years_sort')
                 {!! Form::close() !!}
                 <span class="errors">
                     @if ($errors->has('start_year'))
@@ -65,8 +65,8 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all">
-                {!! Form::open(array('url'=>'/протоколи/сортирай', 'method'=>'POST')) !!}
-                @include('protocols.market.index.sorting')
+                {!! Form::open(array('url'=>'/доклади-контрол/сортирай', 'method'=>'POST')) !!}
+                @include('control.reports.includes.sorting')
                 {!! Form::close() !!}
             </div>
         </div>
@@ -75,10 +75,10 @@
 
     @include('protocols.market.index.alphabet')
     <div class="refresh">
-        <a href="{{ url('/протоколи') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
+        <a href="{{ url('/доклади-контрол') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
     </div>
     <hr/>
-    @include('protocols.market.index.table')
+    @include('control.reports.includes.table')
 @endsection
 
 @section('scripts')

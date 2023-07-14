@@ -57,7 +57,7 @@
         </div>
         <div class="col-md-12 admin">
             <div class="my_col-md-12 " style="font-family: 'Times New Roman'">
-                <span class="bottom"><i class="fa fa-file-code-o green_color" aria-hidden="true"></i> Всички Доклади издадени на Фирмата &nbsp;</span>
+                <span class="bottom"><i class="fa fa-file-text-o green_color" aria-hidden="true"></i> Всички Доклади издадени на Фирмата &nbsp;</span>
                 <a class="fa fa-binoculars btn btn-success my_btn" style="float: right" href="{!!URL::to('протоколи-фирма/'.$firm->id.'')!!}"> ВИЖ</a>
                 <hr style="clear: both;"/>
                 <span class="bottom"><i class="fa fa-file-powerpoint-o red" aria-hidden="true"></i> Констативни Протоколи за Нарушения към Доклади &nbsp;</span>

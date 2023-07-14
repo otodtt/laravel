@@ -10,7 +10,7 @@
         <th>Инспектор</th>
         <th>Проба ПРЗ</th>
         <th>Проба ТОР</th>
-        <th>Нарушение</th>
+        <th>С К. Протокол</th>
         <th></th>
     </tr>
     </thead>
@@ -79,7 +79,7 @@
                 <td class="center">{!! $assay_tor !!}</td>
                 <td class="center">{!! $violation !!}</td>
                 <td class="center last-column">
-                    <a href="{!!URL::to('/протокол/'.$protocol->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                    <a href="{!!URL::to('/доклад/'.$protocol->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
                         &nbsp;Виж!
                     </a>
                 </td>

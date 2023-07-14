@@ -34,10 +34,11 @@
                 <li><a href="{!! URL::to('/цехове')!!}" class="my_a back_link"> <i class="fa fa-cubes fa-fw blue_color"></i> Всички цехове</a></li>
                 <li><a href="{!!URL::to('/изтекъл-срок')!!}" class="my_a back_link"> <i class="fa fa-times fa-fw blue_color"></i> С изтекъл или прекратен срок</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="{!! URL::to('/протоколи')!!}" class="my_a back_link"> <i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи Контрол на Пазара</a></li>
+                <li><a href="{!! URL::to('/доклади-контрол')!!}" class="my_a back_link"> <i class="fa fa-file-text-o fa-fw control_color"></i> Доклади Контрол на Пазара</a></li>
                 <li><a href="{!! URL::to('/протоколи-обекти')!!}" class="my_a back_link"> <i class="fa fa-object-ungroup fa-fw control_color"></i> Протоколи Нерегламентирани Обекти</a></li>
                 <li><a href="{!! URL::to('/други-обекти')!!}" class="my_a back_link"> <i class="fa fa-external-link fa-fw control_color"></i> Протоколи в други Области</a></li>
                 <li><a href="{!! URL::to('/производители')!!}" class="my_a back_link"> <i class="fa fa-industry fa-fw control_color"></i> Протоколи Производители на ПРЗ</a></li>
+                <li><a class="my_a back_link" href="{!! URL::to( '/протоколи-стари') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Стари Протоколи Контрол на Пазара до 30.06.2023</a><li/>
                 <li role="separator" class="divider"></li>
                 <li><a href="{!! URL::to('/регистър-фирми')!!}" class="my_a back_link"> <i class="fa fa-bank fa-fw red"></i> Таблица Регистър на фирми с Удостоверение</a></li>
                 <li><a href="{!! URL::to('/регистър-протоколи')!!}" class="my_a back_link"> <i class="fa fa-file-powerpoint-o fa-fw red"></i>  Таблица Регистър на Констативни Протоколи</a></li>

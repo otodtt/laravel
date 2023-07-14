@@ -1,0 +1,169 @@
+body, div, p, form, select, option, input, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+.my_btn{
+    padding: 1px 10px;
+}
+hr {
+    margin: 3px;
+    height: 1px;
+    background-color: black;
+}
+.page{
+    width: 90%;
+    margin: 0 auto;
+}
+#flip_in{
+    position: relative;
+}
+.back{
+    margin: 0 auto;
+    width: 600px;
+    height: 800px;
+    /*background: url(bg.png) no-repeat left top;*/
+    background-size:600px 800px;
+    position: absolute;
+    opacity: 0.5;
+    top: 0;
+    right: 37px;
+
+}
+.middle_hr{
+    margin-top: 20px;
+    height: 2px;
+    background-color: black;
+}
+.middle_h3{
+    text-align: center;
+    margin-top: 10px;
+}
+.h4_bottom{
+    margin-bottom: 20px;
+}
+.bold{
+    font-weight: bold;
+}
+.right_span{
+    float: right;
+}
+.red{
+    color: #ff0000;
+}
+.my_div{
+    margin: 0;
+    padding: 0;
+}
+.my_alert{
+    margin-bottom: 0;
+}
+.assay_doc{
+    text-decoration: none;
+}
+.assay_doc:hover{
+    color: #900f0e;
+    text-decoration: none;
+}
+
+#prz_check{
+    background-color: rgba(0, 0, 255, 0.2);
+}
+#tor_check{
+    background-color: rgba(79, 0, 0, 0.2);
+}
+/*/////////////*/
+/*/////////////*/
+/*.first_table {*/
+    /*width: 100%;*/
+    /*border: 2px solid black;*/
+/*}*/
+/*.first_table thead > tr > td {*/
+    /*border-bottom: 2px solid black;*/
+    /*border-left: 2px solid black;*/
+    /*border-right: 2px solid black;*/
+    /*border-top: none;*/
+    /*padding-left: 5px;*/
+/*}*/
+/*.first_table tbody > tr > td {*/
+    /*border: 2px solid black;*/
+    /*padding-left: 5px;*/
+/*}*/
+/*.my_column {*/
+/*width: 33%;*/
+/*}*/
+.top_position {
+    vertical-align: sub;
+}
+.first_column {
+    /*width: 5.5%;*/
+    /*max-width: 10px !important;*/
+    vertical-align: sub;
+}
+.second_column {
+    width: 26%;
+}
+.third_column {
+    width: 34%;
+}
+.fourth_column {
+    width: 32%;
+}
+.five_columns {
+    width: 22%;
+}
+.six_columns {
+    width: 12%;
+}
+.second_table {
+    border: 2px solid black;
+}
+.second_table thead > tr > td {
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: none;
+    padding-left: 5px;
+}
+.second_table tbody > tr > td {
+    border: 1px solid black;
+    padding-left: 5px;
+}
+.second_table thead {
+    background-color: rgba(128, 128, 128, 0.15);
+    padding: 0;
+    margin: 0;
+}
+.my_top {
+    padding-left: 5px !important;
+    font-weight: bold;
+}
+.my_middle {
+    text-align: left;
+    padding-left: 5px !important;
+    background-color: white;
+    vertical-align: sub;
+}
+.my_bottom {
+    text-align: center;
+    font-weight: bold;
+}
+.second_table thead >tr >td {
+    padding: 0;
+    margin: 0;
+}
+.second_table tfoot {
+    border-top: 2px solid black;
+}
+.second_table tfoot > tr > td {
+    border: 1px solid black;
+    padding-left: 5px;
+}
+.second_table tfoot {
+    background-color: rgba(128, 128, 128, 0.15);
+    padding: 0;
+    margin: 0;
+}
+img {
+    width: 30px;
+    margin-right: 15%;
+}

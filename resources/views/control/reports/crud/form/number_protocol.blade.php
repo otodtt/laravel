@@ -11,9 +11,9 @@ else{
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-12" >
-            <fieldset class="small_field"><legend class="small_legend">Номер и Дата на Протокола</legend>
+            <fieldset class="small_field"><legend class="small_legend">Номер и Дата на Доклада</legend>
                 <div class="col-md-4 col-md-6_my" >
-                    {!! Form::label('number', 'Протокол №', ['class'=>'my_labels']) !!}
+                    {!! Form::label('number', 'Доклад №', ['class'=>'my_labels']) !!}
                     {!! Form::text('number', $return_number, ['class'=>'form-control form-control-my', 'size'=>2, 'maxlength'=>6 ]) !!}
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     {!! Form::label('date_protocol', 'Дата:', ['class'=>'my_labels']) !!}
