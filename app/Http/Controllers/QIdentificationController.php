@@ -50,6 +50,7 @@ class QIdentificationController extends Controller
     {
         $array = array();
         $year_now = null;
+        $request = array();
 
         $inspectors = User::select('id', 'short_name')
             ->where('active', '=', 1)
