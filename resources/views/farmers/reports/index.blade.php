@@ -1,6 +1,6 @@
 @extends('layouts.farmers')
 @section('title')
-    {{ 'Всички Констативни Протоколи' }}
+    {{ 'Всички Доклади от проверки' }}
 @endsection
 
 @section('css')
@@ -16,25 +16,25 @@
 
 @section('content')
     <div class="div-layout-title">
-        <h4 class="bold layout-title">ВСИЧКИ КОНСТАТИВНИ ПРОТОКОЛИ</h4>
+        <h4 class="bold layout-title">ВСИЧКИ ДОКЛАДИ ОТ ПРОВЕРКИ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa fa-file-powerpoint-o btn btn-default my_btn"> Всички Констативни Протоколи</span>
-        <a href="{!! URL::to('/протоколи-становища')!!}" class="fa fa-address-card-o btn btn-info my_btn"> За Становища</a>
-        <a href="{!! URL::to('/протоколи-стопани')!!}" class="fa fa-user btn btn-info my_btn"> Проверки на ЗС</a>
-        <a href="{!! URL::to('/протоколи-дфз')!!}" class="fa fa-money btn btn-info my_btn"> Съвместно с ДФЗ</a>
-        <a href="{!! URL::to('/протоколи-други')!!}" class="fa fa-euro btn btn-info my_btn"> Други плащания</a>
-        <a href="{!! URL::to('/протоколи-нарушения')!!}" class="fa fa-user-times btn btn-info my_btn"> С нарушение</a>
-        <a href="{!! URL::to('/протоколи-проби')!!}" class="fa fa-flask btn btn-info my_btn"> С взети проби</a>
+        <span class="fa fa-file-powerpoint-o btn btn-default my_btn"> Всички Доклади от проверки</span>
+        {{--<a href="{!! URL::to('/протоколи-становища')!!}" class="fa fa-address-card-o btn btn-info my_btn"> За Становища</a>--}}
+        {{--<a href="{!! URL::to('/протоколи-стопани')!!}" class="fa fa-user btn btn-info my_btn"> Проверки на ЗС</a>--}}
+        {{--<a href="{!! URL::to('/протоколи-дфз')!!}" class="fa fa-money btn btn-info my_btn"> Съвместно с ДФЗ</a>--}}
+        {{--<a href="{!! URL::to('/протоколи-други')!!}" class="fa fa-euro btn btn-info my_btn"> Други плащания</a>--}}
+        {{--<a href="{!! URL::to('/протоколи-нарушения')!!}" class="fa fa-user-times btn btn-info my_btn"> С нарушение</a>--}}
+        {{--<a href="{!! URL::to('/протоколи-проби')!!}" class="fa fa-flask btn btn-info my_btn"> С взети проби</a>--}}
     </div>
     <hr/>
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div id="search_wrap" class="col-md-5">
-                    {!! Form::open(array('url'=>'/протоколи-всички', 'method'=>'POST')) !!}
+                    {!! Form::open(array('url'=>'/доклади-всички', 'method'=>'POST')) !!}
                         @include('protocols.market.index.search')
                     {!! Form::close() !!}
                 </div>
@@ -46,7 +46,7 @@
                     </span>
                 </div>
                 <div class="col-md-3">
-                    <a href="{!! URL::to('/търси-протокол')!!}" class="fa fa-plus btn btn-danger my_btn" style="float: right; margin-right: 10px;"> Добави НОВ Протокол</a>
+                    <a href="{!! URL::to('/търси-доклад')!!}" class="fa fa-plus btn btn-danger my_btn" style="float: right; margin-right: 10px;"> Добави НОВ Доклад</a>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all" class="col-md-12">
-                {!! Form::open(array('url'=>'/протоколи-всички/сортирай', 'method'=>'POST')) !!}
+                {!! Form::open(array('url'=>'/доклади-всички/сортирай', 'method'=>'POST')) !!}
                 @include('records.index.years_sort')
                 {!! Form::close() !!}
                 <span class="errors">
@@ -71,7 +71,7 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all">
-                {!! Form::open(array('url'=>'/протоколи-всички/сортирай', 'method'=>'POST')) !!}
+                {!! Form::open(array('url'=>'/доклади-всички/сортирай', 'method'=>'POST')) !!}
                 @include('records.index.sorting')
                 {!! Form::close() !!}
             </div>
@@ -80,10 +80,10 @@
     <hr/>
     @include('records.index.alphabet')
     <div class="refresh">
-        <a href="{{ url('/протоколи-всички') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
+        <a href="{{ url('/доклади-всички') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
     </div>
     <hr/>
-    @include('records.index.table')
+    @include('farmers.reports.index.table')
 @endsection
 
 @section('scripts')

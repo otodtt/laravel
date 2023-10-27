@@ -51,7 +51,7 @@ else{
         $certificate2 = true;
         $certificate3 = false;
     }
-    if($protocols->activity == 3){
+    if($protocols->certificate == 3){
         $certificate1 = false;
         $certificate2 = false;
         $certificate3 = true;
@@ -111,7 +111,7 @@ else{
         $sales2 = true;
         $sales3 = false;
     }
-    if($protocols->activity == 3){
+    if($protocols->sales == 3){
         $sales1 = false;
         $sales2 = false;
         $sales3 = true;

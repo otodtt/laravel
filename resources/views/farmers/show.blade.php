@@ -33,7 +33,7 @@
                     <a href="{!! URL::to('/добави/становище/'.$farmer->id.'/1' )!!}" class='fa fa-address-card-o btn btn-success my_btn'> ДОБАВИ СТАНОВИЩЕ!</a>
                 </div>
                 <div class="col-md-12 my_col-md-12 border_bottom middle">
-                    <a href="{!! URL::to('/протокол-добави/'.$farmer->id )!!}" class='fa fa-file-powerpoint-o btn btn-primary my_btn'> ДОБАВИ КОНСТАТИВЕН ПРОТОКОЛ!</a>
+                    <a href="{!! URL::to('/доклад-добави/'.$farmer->id )!!}" class='fa fa-file-powerpoint-o btn btn-primary my_btn'> ДОБАВИ ДОКЛАД ОТ ПРОВЕРКА!</a>
                 </div>
                 <div class="col-md-12 my_col-md-12 middle">
                     <a href="{!! URL::to('/въздушни/добави/'.$farmer->id )!!}" class='fa fa-plane btn btn-info my_btn'> ДОБАВИ РАЗРЕШИТЕЛНО - ВЪЗДУШНО!</a>

@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="div-layout-title">
-        <h4 class="bold red layout-title">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН И ДОБАВИ НОВ КОНСТАТИВЕН ПРОТОКОЛ</h4>
+        <h4 class="bold red layout-title">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН И ДОБАВИ НОВ ДОКЛАД</h4>
     </div>
     <hr/>
     <div class="btn-group">
@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-md-12" >
                 <fieldset class="small_field"><legend class="small_legend">Данни на Фирмата/Лицето</legend>
-                {!! Form::open(['url'=>'/търси-протокол' , 'method'=>'POST', 'id'=>'form']) !!}
+                {!! Form::open(['url'=>'/търси-доклад' , 'method'=>'POST', 'id'=>'form']) !!}
                     @include('layouts.forms.search_protocol')
 
                     <div class="col-md-12 col-md-6_my div_btn" >
@@ -98,12 +98,12 @@
                 <div class="col-md-6 col-md-6_my " >
                     <p class="new_farmer bold">
                         <span class="view red">Няма намерен такъв Земеделски Производител. ЕГН или Булстат са верни.</span><br/>
-                        Добави Протокол на НОВ Земеделски Производител
+                        Добави Доклад на НОВ Земеделски Производител
                     </p>
                 </div>
                 <div class="col-md-6 col-md-6_my " >
-                    {!! Form::open(['url'=>'/нов/протокол-зс' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                        <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ ПРОТОКОЛ">
+                    {!! Form::open(['url'=>'/нов/доклад-зс' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                        <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ ДОКЛАД">
                         @if($firm == 1)
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name" value="{!! $name !!}">
@@ -127,7 +127,7 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!! URL::to('/протокол-добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ПРОТОКОЛ ЗА ТОЗИ ЗС!</a>
+                            <a href="{!! URL::to('/доклад-добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ДОКЛАД ЗА ТОЗИ ЗС!</a>
                         </div>
                     </div>
                 @endforeach
@@ -139,8 +139,9 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/records/search/searchFarmer.js" )!!}
-    {!!Html::script("js/records/search/searchFarmerByPin.js" )!!}
-    {!!Html::script("js/records/search/searchFarmerByName.js" )!!}
-    {!!Html::script("js/records/search/searchFirmByName.js" )!!}
+    {!!Html::script("js/farmers/reports/search/searchFarmer.js" )!!}
+    {!!Html::script("js/farmers/reports/search/searchFarmerByPin.js" )!!}
+    {!!Html::script("js/farmers/reports/search/searchFarmerByName.js" )!!}
+    {!!Html::script("js/farmers/reports/search/searchFirmByName.js" )!!}
 @endsection
+{{--C:\wamp64\www\laravel\public\js\farmers\reports\search\searchFarmer.js--}}

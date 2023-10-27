@@ -893,6 +893,29 @@ Route::group(/**
 
     Route::get('/test', 'ReportsController@test');
 
+
+    /////ДОКЛАДИ ЗП
+    /// Всички ДОКЛАДИ
+    Route::get('доклади-всички', 'FarmersReportsController@index');
+    Route::post('доклади-всички', 'FarmersReportsController@search');
+    Route::any('доклади-всички/сортирай/{abc_list?}/{start_year?}/{end_year?}/{object_sort?}/{areas_sort?}/{inspector_sort?}/{assay_sort?}', 'FarmersReportsController@sort');
+    /////// Търси ЗС за Доклад
+    Route::get('търси-доклад', 'FarmersReportsController@farmer_request');
+    Route::post('търси-доклад', 'FarmersReportsController@farmer_request');
+    Route::any('report/pin', 'FarmersReportsController@get_pin');
+    Route::any('report/names', 'FarmersReportsController@get_name');
+    Route::any('report/firms', 'FarmersReportsController@get_firm');
+
+    //////// Съществуващ ЗС
+    Route::get('доклад-добави/{id}', 'FarmersReportsController@create');
+    Route::get('доклад-добави/{id}/{idr}/{part?}', 'FarmersReportsController@create_part');
+
+    Route::post('доклад-зс/first/{id}', 'FarmersReportsController@store_first');
+    Route::post('доклад-зс/first-edit/{id}', 'FarmersReportsController@update_first');
+
+    Route::post('доклад-зс/second/{id}/{idr}', 'FarmersReportsController@store_second');
+    Route::post('доклад-зс/third/{id}/{idr}', 'FarmersReportsController@store_third');
+    Route::post('доклад-зс/fourth/{id}/{idr}', 'FarmersReportsController@store_fourth');
 });
 
 

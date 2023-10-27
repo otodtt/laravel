@@ -8,44 +8,51 @@
         <th >ЕГН/ЕИК </th>
         <th >Стопанство в<br/> община </th>
         <th >Издаден за:</th>
-        <th >Инспектор </th>
         <th >Вид Пр-ка</th>
+        <th >Инспектор </th>
         <th >Виж</th>
     </tr>
     </thead>
     <tbody>
     <?php $n = 1; ?>
-    @foreach($protocols as $protocol)
+    @foreach($reports as $report)
         <?php
-        if ($protocol->type_check == 1) {
-            $check = 'документи';
+        if ($report->where_check == 1) {
+            $check = 'в ОДБХ';
         }
         else{
             $check = 'на терен';
         }
         foreach($districts_farm as $key=>$object){
-            if($key == $protocol->district_object){
+            if($key == $report->district_object){
                 $farm_district = $object;
             }
         }
         ?>
         <tr>
             <td class="right">{!! $n++ !!}</td>
-            <td class="right">{!! $protocol->number_protocol !!}</td>
-            <td class="center">{!! date('d.m.Y', $protocol->date_protocol) !!}</td>
-            <td>{{ $protocol->name }}</td>
-            <td>{{$protocol->pin}}</td>
+            <td class="right">{!! $report->number_report !!}</td>
+            <td class="center">{!! date('d.m.Y', $report->date_report) !!}</td>
+            <td>{{ $report->name }}</td>
+            <td>{{$report->pin}}</td>
 
             <td>{{ $farm_district }}</td>
 
-            <td>{!! $protocol->description !!}</td>
-            <td>{!! $protocol->inspector_name !!}</td>
-
+            <td>{!! $report->description !!}</td>
             <td>{!! $check !!}</td>
+
+            <td>{!! $report->inspector_name !!} </td>
             <td class="center last-column">
-                <a href="{!!URL::to('/протокол-зс/'.$protocol->id)!!}" class="fa fa-binoculars btn btn-primary my_btn">
-                    &nbsp;Виж!
-                </a>
+
+                @if($report->is_all != 11)
+                    <a href="{!!URL::to('/доклад-добави/'.$report->farmer_id.'/'.$report->id.'/'.$report->is_all)!!}" class="fa fa-edit btn btn-danger my_btn">
+                        Продължи!
+                    </a>
+                @else
+                    <a href="{!!URL::to('/доклад-зс/'.$report->id)!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                        &nbsp;Виж!
+                    </a>
+                @endif
             </td>
         </tr>
     @endforeach

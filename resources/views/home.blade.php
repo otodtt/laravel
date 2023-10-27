@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <a href="{!! URL::to( '/земеделци') !!}"><i class="fa fa-users green_color"></i> Всички Земеделски Стопани</a>
-                                <a href="{!! URL::to( '/test') !!}"><i class="fa fa-users green_color"></i> TESTOVE</a>
+                                {{--<a href="{!! URL::to( '/test') !!}"><i class="fa fa-users green_color"></i> TESTOVE</a>--}}
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
@@ -46,20 +46,25 @@
                                 <a class="text" href="{!! URL::to( '/становища-стари') !!}"><i class="fa fa-address-card-o fa-fw old_color"></i> Издадени становища до 2015 г.</a><br/>
                                     <a class="text" href="{!! URL::to( '/стари-протоколи-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Констативни протоколи до 2015 г.</a><br/>
                                 </fieldset>
+                                <br>
+                                <fieldset class=""><legend class="">Констативни Протоколи преди 01.11.2023 г.</legend>
+{{--                                    <a class="text" href="{!! URL::to( '/становища-стари') !!}"><i class="fa fa-address-card-o fa-fw old_color"></i> Издадени становища до 2015 г.</a><br/>--}}
+                                    <a class="" href="{!! URL::to( '/протоколи-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i>Стари Констативни протоколи преди 01.11.2023 г.</a><br/>
+                                </fieldset>
                             </div>
                             <div class="col-lg-6">
                                 <fieldset class=""><legend class="">Становища и Констативни Протоколи от 2015 г.</legend>
                                     <div class="row">
-
                                         <div class="col-lg-6  ">
                                             <a class="" href="{!! URL::to( '/становища') !!}"><i class="fa fa-address-card-o green_color" aria-hidden="true"></i> Становища</a><br/>
-                                            <a class="" href="{!! URL::to( '/протоколи-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Констативни протоколи</a>
+                                            <a class="" href="{!! URL::to( '/доклади-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Доклади от проверки</a>
                                             <br/>
                                             <a class="" href="{!! URL::to( '/месечни-справки-зс') !!}"><i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
                                         </div>
                                         <div class="col-lg-6 text-right ">
                                             <a class="fa fa-plus btn btn-xs btn-danger my_btn" href="{!! URL::to( '/търси-становище') !!}" style="float: right; margin-right: 10px;"> Добави НОВО Становище</a>
-                                            <a class="fa fa-plus btn btn-danger btn-xs"  href="{!! URL::to( '/търси-протокол') !!}" style="float: right; margin-right: 10px; margin-top: 15px"> Добави НОВ Констативен Протокол</a>
+                                            <a class="fa fa-plus btn btn-danger btn-xs"  href="{!! URL::to( '/търси-протокол') !!}" style="float: right; margin-right: 10px; margin-top: 15px"> Добави НОВ Доклад от проверка</a>
+                                            {{--<a class="fa fa-plus btn btn-danger btn-xs"  href="{!! URL::to( '/търси-протокол') !!}" style="float: right; margin-right: 10px; margin-top: 15px"> Добави НОВ Констативен Протокол</a>--}}
                                         </div>
                                     </div>
                                 </fieldset>
@@ -144,6 +149,43 @@
                                             <br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/контрол/месечни-справки') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
                                         </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">ФИТОСАНИТАРЕН КОНТРОЛ</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <fieldset class=""><legend class="">Сертификати</legend>
+                                    <a class="my_a back_link" href="{!! URL::to( '/въздушни') !!}"><i class="fa fa fa-plane fa-fw blue_color"></i> Издадени Разрешения</a><br/>
+                                    <br/>
+                                    <a class="text" href="{!! URL::to( '/регистър-въздушни') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър - Издадени Разрешения</a>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-4">
+                                <fieldset class=""><legend class="">Регистри</legend>
+                                    <a class="my_a back_link" href="/"> <i class="fa fa-registered fa-fw "></i> Официален регистър на оператори</a><br/>
+                                    {{--<a class="my_a back_link" href="/"><i class="fa fa-leaf fa-fw green_color"></i> Третиране на семена </a><br/>--}}
+                                    {{--<a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър</a>--}}
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-4">
+                                <fieldset class=""><legend class="">Фирми и други справки</legend>
+                                    <div class="row">
+                                        <a class="my_a back_link" href="/"> <i class="fa fa fa-truck fa-fw "></i> Всички фирми търговци</a><br/>
+                                        <br/>
+                                        {{--<a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър</a>--}}
                                     </div>
                                 </fieldset>
                             </div>

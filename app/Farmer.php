@@ -95,4 +95,13 @@ class Farmer extends Model
     public function compliance(){
         return $this->hasMany('odbh\QCompliance');
     }
+
+    /**
+     * ЗП има много костативни DOKLADI
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reports(){
+        return $this->hasMany('odbh\FarmerReport')->orderBy('date_report','asc');
+    }
 }

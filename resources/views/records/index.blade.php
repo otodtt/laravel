@@ -46,7 +46,7 @@
                     </span>
                 </div>
                 <div class="col-md-3">
-                    <a href="{!! URL::to('/търси-протокол')!!}" class="fa fa-plus btn btn-danger my_btn" style="float: right; margin-right: 10px;"> Добави НОВ Протокол</a>
+                    {{--<a href="{!! URL::to('/търси-протокол')!!}" class="fa fa-plus btn btn-danger my_btn" style="float: right; margin-right: 10px;"> Добави НОВ Протокол</a>--}}
                 </div>
             </div>
         </div>

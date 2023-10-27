@@ -52,6 +52,8 @@
                     &nbsp;Контрол на Употребата &nbsp;<span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
                 </a>
                 <ul class="dropdown-menu" >
+                    <li><a href="{!! URL::to('/доклади-всички')!!}" class=""> <i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Всички Доклади от проверки</a></li>
+                    <li role="separator" class="divider"></li>
                     <li><a href="{!! URL::to('/протоколи-всички')!!}" class=""> <i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Всички Констативни Протоколи</a></li>
                     <li><a href="{!! URL::to('/протоколи-становища')!!}" class=""> <i class="fa fa-address-card-o fa-fw control_color"></i> Констативни Протоколи - Становища</a></li>
                     <li><a href="{!! URL::to('/протоколи-стопани')!!}" class=""> <i class="fa fa-user fa-fw control_color"></i> Констативни Протоколи - ЗС</a></li>

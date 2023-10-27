@@ -52,7 +52,7 @@
             @include('control.reports.crud.form.data_protocol')
             <hr class="my_hr"/>
 
-            @include('control.reports.crud.form.edit_example')
+            {{--@include('control.reports.crud.form.edit_example')--}}
             <hr class="my_hr"/>
 
             <div class="col-md-6 ">

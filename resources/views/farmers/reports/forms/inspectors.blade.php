@@ -4,15 +4,15 @@
             <fieldset class="small_field"><legend class="small_legend">Инспектори</legend>
                 <div class="col-md-7 col-md-6_my inspectors_divs border_divs" >
                     {!! Form::label('inspector', 'Водещ:', ['class'=>'my_labels']) !!}
-                    {!! Form::select('inspector', $inspectors, null, ['id' =>'id_user',
+                    {!! Form::select('inspector', $inspectors, null, ['id' =>'inspector',
                             'class' =>'inspector form-control form-control_my_insp' ]) !!}
 
                     {!! Form::label('inspector_two', 'Инспектор 2:', ['class'=>'my_labels']) !!}
-                    {!! Form::select('inspector_two', $inspectors, null, ['id' =>'id_user',
+                    {!! Form::select('inspector_two', $inspectors, null, ['id' =>'inspector_two',
                             'class' =>'inspector form-control form-control_my_insp' ]) !!}
 
                     {!! Form::label('inspector_three', 'Инспектор 3:', ['class'=>'my_labels']) !!}
-                    {!! Form::select('inspector_three', $inspectors, null, ['id' =>'id_user',
+                    {!! Form::select('inspector_three', $inspectors, null, ['id' =>'inspector_three',
                             'class' =>'inspector form-control form-control_my_insp' ]) !!}
                 </div>
                 <div class="col-md-5 col-md-6_my inspectors_divs">

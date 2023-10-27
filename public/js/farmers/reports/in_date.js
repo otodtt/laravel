@@ -3,384 +3,138 @@ var currentYear = (new Date).getFullYear();
 var currentMonth = (new Date).getMonth() + 1;
 var currentDay = (new Date).getDate();
 
-jQuery('#date_licence').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
+$('#starting_time').datetimepicker({
+        ownerDocument: document,
+        contentWindow: window,
 
-    scrollInput: false,
+        value: '',
+        rtl: false,
 
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
+        format: 'd.m.Y в H:i',
+        formatTime: 'H:i',
+        formatDate: 'd.m.Y',
 
-    maxDate: Date(currentYear, currentMonth, currentDay)
+        // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
+        startDate:  false,
+
+        step: 60,
+        monthChangeSpinner: true,
+
+        closeOnDateSelect: false,
+        closeOnTimeSelect: true,
+        closeOnWithoutClick: true,
+        closeOnInputClick: true,
+        openOnFocus: true,
+
+        timepicker: true,
+        datepicker: true,
+        weeks: false,
+
+        // use formatTime format (ex. '10:00' for formatTime: 'H:i')
+        defaultTime: false,
+
+        // use formatDate format (ex new Date() or '1986/12/08' or '-1970/01/05' or '-1970/01/05')
+        defaultDate: false,
+
+        minDate: false,
+        maxDate: false,
+        minTime: false,
+        maxTime: false,
+        minDateTime: false,
+        maxDateTime: false,
+
+        allowTimes: [],
+        opened: false,
+        initTime: true,
+        inline: false,
+        theme: '',
+        touchMovedThreshold: 5,
+
+        // callbacks
+        onSelectDate: function () {},
+        onSelectTime: function () {},
+        onChangeMonth: function () {},
+        onGetWeekOfYear: function () {},
+        onChangeYear: function () {},
+        onChangeDateTime: function () {},
+        onShow: function () {},
+        onClose: function () {},
+        onGenerate: function () {},
+
+        withoutCopyright: true,
+        inverseButton: false,
+        hours12: false,
+        next: 'xdsoft_next',
+        prev : 'xdsoft_prev',
+        dayOfWeekStart: 0,
+        parentID: 'body',
+        timeHeightInTimePicker: 25,
 });
 
-jQuery('#date_opinion').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
+$('#final_hour').datetimepicker({
+        ownerDocument: document,
+        contentWindow: window,
 
-    scrollInput: false,
+        value: '',
+        rtl: false,
 
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
+        format: 'd.m.Y в H:i',
+        formatTime: 'H:i',
+        formatDate: 'd.m.Y',
 
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
+        // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
+        startDate:  false,
 
-jQuery('#date_protocol').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
+        step: 60,
+        monthChangeSpinner: true,
 
-    scrollInput: false,
+        closeOnDateSelect: false,
+        closeOnTimeSelect: true,
+        closeOnWithoutClick: true,
+        closeOnInputClick: true,
+        openOnFocus: true,
 
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
+        timepicker: true,
+        datepicker: true,
+        weeks: false,
 
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
+        // use formatTime format (ex. '10:00' for formatTime: 'H:i')
+        defaultTime: false,
 
-jQuery('#date_petition').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-    scrollInput: false,
+        // use formatDate format (ex new Date() or '1986/12/08' or '-1970/01/05' or '-1970/01/05')
+        defaultDate: false,
 
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
+        minDate: false,
+        maxDate: false,
+        minTime: false,
+        maxTime: false,
+        minDateTime: false,
+        maxDateTime: false,
 
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
+        allowTimes: [],
+        opened: false,
+        initTime: true,
+        inline: false,
+        theme: '',
+        touchMovedThreshold: 5,
 
-jQuery('#date_invoice').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-    scrollInput: false,
+        // callbacks
+        onSelectDate: function () {},
+        onSelectTime: function () {},
+        onChangeMonth: function () {},
+        onGetWeekOfYear: function () {},
+        onChangeYear: function () {},
+        onChangeDateTime: function () {},
+        onShow: function () {},
+        onClose: function () {},
+        onGenerate: function () {},
 
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#date_certificate').datetimepicker({
-
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2014,
-    yearEnd: currentYear ,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#date_change').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#date_edition').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#start_year').datetimepicker({
-
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2014,
-    yearEnd: currentYear ,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#end_year').datetimepicker({
-
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2014,
-    yearEnd: currentYear ,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('.date_certificate').datetimepicker({
-
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2007,
-    yearEnd: currentYear ,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#start_year_protocols').datetimepicker({
-
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2007,
-    yearEnd: currentYear ,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#end_year_protocols').datetimepicker({
-
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2007,
-    yearEnd: currentYear ,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
-
-jQuery('#date_diary').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
+        withoutCopyright: true,
+        inverseButton: false,
+        hours12: false,
+        next: 'xdsoft_next',
+        prev : 'xdsoft_prev',
+        dayOfWeekStart: 0,
+        parentID: 'body',
+        timeHeightInTimePicker: 25,
 });

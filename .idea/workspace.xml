@@ -6,7 +6,48 @@
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="" />
+    <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/air_part.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/application_part.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/common_part.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/final_part.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/in_date.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByName.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByPin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFirmByName.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/storage_part.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/crud/create.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/application_part.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/aviation_part.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/common_part.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/inspectors.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/integrated_part.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/number_protocol.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/radio_type.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/storage_part.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/alphabet.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/sorting.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/table.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/years_sort.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/search/search.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/documents/Заявление_за_Сертификат_чл_83.doc" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/resources/haskovo.sql.gz" afterPath="$PROJECT_DIR$/public/resources/haskovo.sql.gz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/dtenev.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/dtenev.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Farmer.php" afterPath="$PROJECT_DIR$/app/Farmer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/farmers.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/farmers.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/records/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/records/index.blade.php" />
+    </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -52,7 +93,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="reports_pharmacy" />
+        <option name="myItemId" value="farmers_reports" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -66,129 +107,145 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="605" column="26" selection-start-line="605" selection-start-column="17" selection-end-line="605" selection-end-column="26" />
+            <state vertical-scroll-proportion="-22.538462">
+              <caret line="917" column="33" selection-start-line="917" selection-start-column="27" selection-end-line="917" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SamplesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SamplesController.php">
+      <file leaf-file-name="FarmersReportsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FarmersReportsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#533#1722#0#PHP" expanded="false" />
-                <element signature="e#1728#1854#0#PHP" expanded="false" />
-                <element signature="e#1859#2880#0#PHP" expanded="false" />
-                <element signature="e#2886#3008#0#PHP" expanded="false" />
-                <element signature="e#3191#3337#0#PHP" expanded="false" />
-                <element signature="e#3343#3534#0#PHP" expanded="false" />
-                <element signature="e#3539#6970#0#PHP" expanded="false" />
-                <element signature="e#6976#7116#0#PHP" expanded="false" />
-                <element signature="e#7281#7475#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sample.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Sample.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SampleRequest.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/SampleRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit_tor.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/samples/market/edit_tor.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Report.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Report.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReportsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="571" column="31" selection-start-line="571" selection-start-column="25" selection-end-line="571" selection-end-column="31" />
+            <state vertical-scroll-proportion="-40.76923">
+              <caret line="1834" column="0" selection-start-line="1834" selection-start-column="0" selection-end-line="1834" selection-end-column="0" />
               <folding>
                 <element signature="e#41#50#0#PHP" expanded="true" />
-                <element signature="e#648#699#0#PHP" expanded="false" />
-                <element signature="e#704#2512#0#PHP" expanded="false" />
-                <element signature="e#2518#2619#0#PHP" expanded="false" />
-                <element signature="e#2624#3176#0#PHP" expanded="false" />
-                <element signature="e#3182#3325#0#PHP" expanded="false" />
-                <element signature="e#3330#4002#0#PHP" expanded="false" />
-                <element signature="e#4008#4404#0#PHP" expanded="false" />
-                <element signature="e#4409#9114#0#PHP" expanded="false" />
-                <element signature="e#9121#9392#0#PHP" expanded="false" />
-                <element signature="e#9397#9849#0#PHP" expanded="false" />
-                <element signature="e#9855#10185#0#PHP" expanded="false" />
-                <element signature="e#18758#18880#0#PHP" expanded="false" />
-                <element signature="e#18885#20651#0#PHP" expanded="false" />
-                <element signature="e#20657#20797#0#PHP" expanded="false" />
-                <element signature="e#20802#21149#0#PHP" expanded="false" />
-                <element signature="e#21155#21376#0#PHP" expanded="false" />
-                <element signature="e#26612#26746#0#PHP" expanded="false" />
-                <marker date="1689169708473" expanded="true" signature="8719:8883" placeholder="SELECT * FRO..objects_reports..." />
+                <element signature="e#747#2176#0#PHP" expanded="false" />
+                <element signature="e#2209#2310#0#PHP" expanded="false" />
+                <element signature="e#2315#3649#0#PHP" expanded="false" />
+                <element signature="e#3655#3798#0#PHP" expanded="false" />
+                <element signature="e#3803#5147#0#PHP" expanded="false" />
+                <element signature="e#5153#5549#0#PHP" expanded="false" />
+                <element signature="e#5554#10760#0#PHP" expanded="false" />
+                <element signature="e#10820#10921#0#PHP" expanded="false" />
+                <element signature="e#10926#11962#0#PHP" expanded="false" />
+                <element signature="e#11968#12111#0#PHP" expanded="false" />
+                <element signature="e#12116#13142#0#PHP" expanded="false" />
+                <element signature="e#13148#13552#0#PHP" expanded="false" />
+                <element signature="e#13557#18064#0#PHP" expanded="false" />
+                <element signature="e#18107#18208#0#PHP" expanded="false" />
+                <element signature="e#18213#19469#0#PHP" expanded="false" />
+                <element signature="e#19475#19618#0#PHP" expanded="false" />
+                <element signature="e#19623#20869#0#PHP" expanded="false" />
+                <element signature="e#20875#21239#0#PHP" expanded="false" />
+                <element signature="e#21244#26095#0#PHP" expanded="false" />
+                <element signature="e#26143#26244#0#PHP" expanded="false" />
+                <element signature="e#26249#27456#0#PHP" expanded="false" />
+                <element signature="e#27462#27605#0#PHP" expanded="false" />
+                <element signature="e#27610#28809#0#PHP" expanded="false" />
+                <element signature="e#28815#29179#0#PHP" expanded="false" />
+                <element signature="e#29184#33977#0#PHP" expanded="false" />
+                <element signature="e#34021#34122#0#PHP" expanded="false" />
+                <element signature="e#34127#35387#0#PHP" expanded="false" />
+                <element signature="e#35393#35536#0#PHP" expanded="false" />
+                <element signature="e#35541#36791#0#PHP" expanded="false" />
+                <element signature="e#36797#37161#0#PHP" expanded="false" />
+                <element signature="e#37166#42010#0#PHP" expanded="false" />
+                <element signature="e#42071#42172#0#PHP" expanded="false" />
+                <element signature="e#42177#43018#0#PHP" expanded="false" />
+                <element signature="e#43024#43167#0#PHP" expanded="false" />
+                <element signature="e#43172#43928#0#PHP" expanded="false" />
+                <element signature="e#43934#44268#0#PHP" expanded="false" />
+                <element signature="e#44273#48462#0#PHP" expanded="false" />
+                <element signature="e#48524#48625#0#PHP" expanded="false" />
+                <element signature="e#48630#49824#0#PHP" expanded="false" />
+                <element signature="e#49830#49973#0#PHP" expanded="false" />
+                <element signature="e#49978#50726#0#PHP" expanded="false" />
+                <element signature="e#50732#51066#0#PHP" expanded="false" />
+                <element signature="e#51071#55735#0#PHP" expanded="false" />
+                <element signature="e#55745#55876#0#PHP" expanded="false" />
+                <element signature="e#55881#56714#0#PHP" expanded="false" />
+                <element signature="e#56720#56901#0#PHP" expanded="false" />
+                <element signature="e#56906#57797#0#PHP" expanded="false" />
+                <element signature="e#57803#58003#0#PHP" expanded="false" />
+                <element signature="e#58008#62122#0#PHP" expanded="false" />
+                <element signature="e#62128#62330#0#PHP" expanded="false" />
+                <element signature="e#62335#65392#0#PHP" expanded="false" />
+                <element signature="e#65398#65622#0#PHP" expanded="false" />
+                <element signature="e#65627#67026#0#PHP" expanded="false" />
+                <element signature="e#67032#67263#0#PHP" expanded="false" />
+                <element signature="e#67268#68358#0#PHP" expanded="false" />
+                <element signature="e#68364#68595#0#PHP" expanded="false" />
+                <element signature="e#68600#70313#0#PHP" expanded="false" />
+                <element signature="e#70319#70550#0#PHP" expanded="false" />
+                <element signature="e#72278#72486#0#PHP" expanded="false" />
+                <element signature="e#72491#79115#0#PHP" expanded="false" />
+                <element signature="e#79122#79263#0#PHP" expanded="false" />
+                <element signature="e#79268#81848#0#PHP" expanded="false" />
+                <element signature="e#81854#82033#0#PHP" expanded="false" />
+                <element signature="e#82038#91537#0#PHP" expanded="false" />
+                <element signature="e#91544#91698#0#PHP" expanded="false" />
+                <element signature="e#91703#92746#0#PHP" expanded="false" />
+                <element signature="e#92752#92892#0#PHP" expanded="false" />
+                <element signature="e#92897#93993#0#PHP" expanded="false" />
+                <element signature="e#93999#94201#0#PHP" expanded="false" />
+                <element signature="e#94206#102562#0#PHP" expanded="false" />
+                <element signature="e#102568#102702#0#PHP" expanded="false" />
+                <element signature="e#102743#102902#0#PHP" expanded="false" />
+                <element signature="e#102907#105539#0#PHP" expanded="false" />
+                <element signature="e#105545#105705#0#PHP" expanded="false" />
+                <element signature="e#105710#107391#0#PHP" expanded="false" />
+                <element signature="e#107397#107481#0#PHP" expanded="false" />
+                <element signature="e#107486#108783#0#PHP" expanded="false" />
+                <element signature="e#108789#108873#0#PHP" expanded="false" />
+                <element signature="e#108878#110010#0#PHP" expanded="false" />
+                <element signature="e#110016#110103#0#PHP" expanded="false" />
+                <element signature="e#110108#111238#0#PHP" expanded="false" />
+                <marker date="1698415753797" expanded="true" signature="10267:10451" placeholder="SELECT * FRO..farmers_protocols..." />
+                <marker date="1698415753797" expanded="true" signature="17623:17803" placeholder="SELECT * FRO..farmers_protocols..." />
+                <marker date="1698415753797" expanded="true" signature="25642:25809" placeholder="SELECT * FRO..farmers_protocols..." />
+                <marker date="1698415753797" expanded="true" signature="33533:33700" placeholder="SELECT * FRO..farmers_protocols..." />
+                <marker date="1698415753797" expanded="true" signature="41569:41736" placeholder="SELECT * FRO..farmers_protocols..." />
+                <marker date="1698415753797" expanded="true" signature="48071:48267" placeholder="SELECT * FRO..farmers_protocols..." />
+                <marker date="1698415753797" expanded="true" signature="55280:55530" placeholder="SELECT * FRO..farmers_protocols..." />
+                <marker date="1698415753797" expanded="true" signature="108061:108543" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="108086:108122" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="108086:108495" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="108124:108157" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="108185:108200" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="108285:108318" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="108647:108662" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="109288:109770" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="109313:109349" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="109313:109722" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="109351:109384" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="109412:109427" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="109512:109545" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="109874:109889" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="110518:111010" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="110543:110579" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="110543:110962" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="110581:110614" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="110648:110663" placeholder="..." />
+                <marker date="1698415753797" expanded="false" signature="110752:110785" placeholder="..." />
+                <marker date="1698415753797" expanded="true" signature="111114:111129" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
+      <file leaf-file-name="haskovo.farmers_reports" pinned="false" current-in-tab="true">
+        <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.farmers_reports">
+          <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="elements.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="204" column="29" selection-start-line="204" selection-start-column="29" selection-end-line="204" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit_example.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/edit_example.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="89" selection-start-line="59" selection-start-column="89" selection-end-line="59" selection-end-column="89" />
-              <folding />
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -198,8 +255,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -209,57 +266,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QIdentificationController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/protocols/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/compliance/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/identification/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/stocks/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/stocks/export/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/stocks/domestic/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/stocks/consume/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/stocks/identification/table.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/table.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/stocks/identification/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Importer.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/importers/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ImportersController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/reports/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/reports/table.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QReportsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/identification/forms/import.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StocksController.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/old_protocols/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/objects.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/objects/firms/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/objects/firms/body/pharmacies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/number_protocol.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/inspectors.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FrontController.php" />
-        <option value="$PROJECT_DIR$/resources/views/test.blade.php" />
-        <option value="$PROJECT_DIR$/app/Firm.php" />
-        <option value="$PROJECT_DIR$/app/Report.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/includes/table.blade.php" />
         <option value="$PROJECT_DIR$/public/css/protocols/show.css" />
         <option value="$PROJECT_DIR$/public/css/protocols/reports.css" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProtocolsController.php" />
         <option value="$PROJECT_DIR$/public/css/protocols/report_show.css" />
         <option value="$PROJECT_DIR$/resources/views/control/reports/form/body_show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/control/reports/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/data_protocol.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/protocols/market/form_add/test.blad.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/example.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ReportsPharmaciesRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReportsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/edit_example.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/farmers/FarmersReportsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/farmers.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/records/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/farmers/searchFarmerByName.js" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/search/searchFirmByName.js" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByName.js" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByPin.js" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/search/search.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/inspectors.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/common_part.blad.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/crud/common_part.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/common_part_AAA.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/for_storage.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/storage_part.js" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/search/application_part.js" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/air_part.js" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/final_part.js" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/app/Farmer.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/radio_type.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/common_part.js" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/number_protocol.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/farmers/reports/in_date.js" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/index/table.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/FarmerReportRequest.php" />
+        <option value="$PROJECT_DIR$/app/FarmerReport.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/common_part.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/storage_part.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/crud/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FarmersReportsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/application_part.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/integrated_part.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/farmers/reports/forms/aviation_part.blade.php" />
       </list>
     </option>
   </component>
@@ -353,10 +410,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="y" value="3" />
-    <option name="width" value="1671" />
-    <option name="height" value="891" />
+    <option name="x" value="216" />
+    <option name="y" value="72" />
+    <option name="width" value="1693" />
+    <option name="height" value="960" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -378,7 +435,13 @@
             <id>Invalid elementsCSS</id>
           </State>
           <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
             <id>PHP</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
           </State>
           <State>
             <id>UndefinedPHP</id>
@@ -386,7 +449,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>PhpUndefinedClassInspection</id>
+            <id>CommaExpressionJS</id>
           </State>
         </selected-state>
       </profile-state>
@@ -417,32 +480,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="laravel">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Tests" />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -497,11 +534,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="samples" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="market" />
+              <option name="myItemId" value="farmers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -523,7 +556,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="control" />
+              <option name="myItemId" value="farmers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -549,7 +582,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="control" />
+              <option name="myItemId" value="farmers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -557,7 +590,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="crud" />
+              <option name="myItemId" value="forms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -579,7 +612,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="control" />
+              <option name="myItemId" value="farmers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -590,10 +623,6 @@
               <option name="myItemId" value="crud" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="form" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -608,12 +637,18 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="control" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -627,7 +662,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -709,6 +748,32 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="laravel">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
+      </pane>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -722,19 +787,19 @@
     <property name="Console.TableResult.DefaultCopyAction" value="Tab Separated Values (TSV)" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\laravel\resources\views\farmers\reports" />
+      <recent name="C:\wamp64\www\laravel\public\js\farmers\reports" />
+      <recent name="C:\wamp64\www\laravel\resources\views\farmers\reports\forms" />
+      <recent name="C:\wamp64\www\laravel\public\js\farmers\reports\search" />
+      <recent name="C:\wamp64\www\laravel\resources\views\farmers\reports\crud" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\laravel\public\js\farmers\reports" />
+      <recent name="C:\wamp64\www\laravel\resources\views\farmers\reports\forms" />
+      <recent name="C:\wamp64\www\laravel\app\Http\Controllers" />
       <recent name="C:\wamp64\www\laravel\resources\views\control\reports" />
       <recent name="C:\wamp64\www\laravel\resources\views\quality\identification\crud" />
-      <recent name="C:\wamp64\www\laravel\resources\views\quality\identification" />
-      <recent name="C:\wamp64\www\laravel\resources\views\quality\identification\stock" />
-      <recent name="C:\wamp\www\laravel\app\Http\Controllers" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\laravel\resources\views\control\reports\crud" />
-      <recent name="C:\wamp64\www\laravel\resources\views\control\reports\form" />
-      <recent name="C:\wamp64\www\laravel\resources\views\control\reports" />
-      <recent name="C:\wamp64\www\laravel\resources\views\control\crud" />
-      <recent name="C:\wamp64\www\laravel\resources\views\control\reports\includes" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -946,31 +1011,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="3" width="1671" height="891" extended-state="0" />
+    <frame x="216" y="72" width="1693" height="960" extended-state="1" />
     <editor active="false" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17442583" sideWeight="0.47208932" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1972422" sideWeight="0.53375196" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18187386" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36797065" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.119801365" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15370484" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19128172" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22267759" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21744472" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50605327" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40350878" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5800933" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -989,416 +1054,650 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="84" />
+      <option name="time" value="85" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/includes/sorting.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/search/searchFirmByName.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7410256">
-          <caret line="85" column="36" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3923077">
-          <caret line="36" column="150" selection-start-line="36" selection-start-column="150" selection-end-line="36" selection-end-column="150" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/objects.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5884615">
-          <caret line="45" column="110" selection-start-line="45" selection-start-column="110" selection-end-line="45" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/objects/firms/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9818182">
-          <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/objects/firms/body/pharmacies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923">
-          <caret line="160" column="48" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/number_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7410256">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/inspectors.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6724368">
-          <caret line="31" column="90" selection-start-line="31" selection-start-column="90" selection-end-line="31" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/records/selectAssayProtocol.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8598015">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/records/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.78717947">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FarmersProtocolsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.946154">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50128204">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/protocols/market/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.43846154">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.874359">
-          <caret line="30" column="58" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29514825">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/compliance/create/new_create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38679245">
-          <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Firm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9352708">
-          <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/includes/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7080581">
-          <caret line="81" column="48" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6406869">
-          <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/bg1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/1_logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/protocols/show.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12536873">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/tables.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33238637">
-          <caret line="217" column="16" selection-start-line="217" selection-start-column="16" selection-end-line="217" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.market_assay">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.objects_protocols">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/form/body_show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33281973">
-          <caret line="117" column="34" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/protocols/report_show.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6120944">
-          <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ProtocolsRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9705015">
-          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4218289">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/data_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3259587">
-          <caret line="19" column="98" selection-start-line="19" selection-start-column="98" selection-end-line="19" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/protocols/market/form_add/data_protocol.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/protocols/market/form_add/test.blad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7117552">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.reports_pharmacy">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.15275995">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/PharmaciesUpdateRequest.php">
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByPin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/example.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4761171">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ProtocolsUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14749263">
-          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/protocols/market/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6681416">
-          <caret line="45" column="60" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14749263">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ReportsPharmaciesRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7492625">
-          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProtocolsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5147493">
-          <caret line="627" column="0" selection-start-line="627" selection-start-column="0" selection-end-line="627" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="571" column="31" selection-start-line="571" selection-start-column="25" selection-end-line="571" selection-end-column="31" />
-          <folding>
-            <element signature="e#41#50#0#PHP" expanded="true" />
-            <element signature="e#648#699#0#PHP" expanded="false" />
-            <element signature="e#704#2512#0#PHP" expanded="false" />
-            <element signature="e#2518#2619#0#PHP" expanded="false" />
-            <element signature="e#2624#3176#0#PHP" expanded="false" />
-            <element signature="e#3182#3325#0#PHP" expanded="false" />
-            <element signature="e#3330#4002#0#PHP" expanded="false" />
-            <element signature="e#4008#4404#0#PHP" expanded="false" />
-            <element signature="e#4409#9114#0#PHP" expanded="false" />
-            <element signature="e#9121#9392#0#PHP" expanded="false" />
-            <element signature="e#9397#9849#0#PHP" expanded="false" />
-            <element signature="e#9855#10185#0#PHP" expanded="false" />
-            <element signature="e#18758#18880#0#PHP" expanded="false" />
-            <element signature="e#18885#20651#0#PHP" expanded="false" />
-            <element signature="e#20657#20797#0#PHP" expanded="false" />
-            <element signature="e#20802#21149#0#PHP" expanded="false" />
-            <element signature="e#21155#21376#0#PHP" expanded="false" />
-            <element signature="e#26612#26746#0#PHP" expanded="false" />
-            <marker date="1689169708473" expanded="true" signature="8719:8883" placeholder="SELECT * FRO..objects_reports..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="53" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.15275995">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByName.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15275995">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="204" column="29" selection-start-line="204" selection-start-column="29" selection-end-line="204" selection-end-column="29" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/search/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4807437">
+          <caret line="129" column="64" selection-start-line="129" selection-start-column="58" selection-end-line="129" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/date/in_date.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7637997">
+          <caret line="92" column="59" selection-start-line="92" selection-start-column="59" selection-end-line="92" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/edit_example.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.8428571">
           <caret line="59" column="89" selection-start-line="59" selection-start-column="89" selection-end-line="59" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/samples/market/edit_tor.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39">
+          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/FarmerProtocol.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.095684804">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5465837">
+          <caret line="188" column="25" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/records/selectAssayProtocol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6389892">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40869564">
+          <caret line="65" column="60" selection-start-line="65" selection-start-column="60" selection-end-line="65" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/application_part.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9566327">
+          <caret line="46" column="91" selection-start-line="46" selection-start-column="91" selection-end-line="46" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/storage_part.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0867347">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/air_part.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2338377">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/final_part.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46408045">
+          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.verifications">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6860759">
+          <caret line="185" column="107" selection-start-line="185" selection-start-column="107" selection-end-line="185" selection-end-column="107" />
+          <folding>
+            <element signature="e#274#5011#0#HTML" expanded="false" />
+            <element signature="e#5021#9019#0#HTML" expanded="false" />
+            <element signature="e#9029#12329#0#HTML" expanded="false" />
+            <element signature="e#14761#15759#0#HTML" expanded="false" />
+            <element signature="e#15799#18149#0#HTML" expanded="false" />
+            <element signature="e#18174#21021#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/records/add/number_protocol.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1672373878000" expanded="true" signature="785:983" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="797:981" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="831:980" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/records/add/data_protocol.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.038107753">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/records/add/radio_type.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7148489">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+          <folding>
+            <marker date="1672373878000" expanded="true" signature="427:571" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="441:569" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="469:568" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="872:1012" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="886:1010" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="914:1009" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/records/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3324573">
+          <caret line="39" column="43" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Farmer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80632913">
+          <caret line="103" column="27" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="27" />
+          <folding>
+            <element signature="e#1274#1396#0#PHP" expanded="false" />
+            <element signature="e#2186#2291#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FarmersProtocolsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.34079">
+          <caret line="287" column="0" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#50#0#PHP" expanded="true" />
+            <marker date="1686213014000" expanded="true" signature="10240:10424" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1686213014000" expanded="true" signature="17588:17768" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1686213014000" expanded="true" signature="25610:25777" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1686213014000" expanded="true" signature="33497:33664" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1686213014000" expanded="true" signature="41535:41702" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1686213014000" expanded="true" signature="48037:48233" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1686213014000" expanded="true" signature="55258:55508" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1686213014000" expanded="true" signature="92393:92879" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="92418:92831" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="92456:92489" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="92517:92532" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="92617:92650" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="92983:92998" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="93624:94110" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="93649:94062" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="93687:93720" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="93748:93763" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="93848:93881" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="94214:94229" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="94858:95354" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="94883:95306" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="94921:94954" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="94988:95003" placeholder="..." />
+            <marker date="1686213014000" expanded="false" signature="95092:95125" placeholder="..." />
+            <marker date="1686213014000" expanded="true" signature="95458:95473" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/FactoryRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69982845">
+          <caret line="51" column="62" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/FactoryProtocol.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.22469983">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.77701545">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/FarmerProtocolRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30017152">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="58" />
+          <folding>
+            <element signature="e#297#395#0#PHP" expanded="false" />
+            <element signature="e#2768#8075#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/CertificatesCreateRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1372212">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/inspectors.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2915952">
+          <caret line="10" column="95" selection-start-line="10" selection-start-column="95" selection-end-line="10" selection-end-column="95" />
+          <folding>
+            <marker date="1697811056025" expanded="true" signature="367:521" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="381:519" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="414:518" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="646:808" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="660:806" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="697:805" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="935:1101" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="949:1099" placeholder="..." />
+            <marker date="1697811056025" expanded="true" signature="988:1098" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.96842104">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1672373878000" expanded="true" signature="2658:2882" placeholder="..." />
+            <marker date="1672373878000" expanded="true" signature="2672:2880" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/radio_type.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1698313767572" expanded="true" signature="270:414" placeholder="..." />
+            <marker date="1698313767572" expanded="true" signature="284:412" placeholder="..." />
+            <marker date="1698313767572" expanded="true" signature="312:411" placeholder="..." />
+            <marker date="1698313767572" expanded="true" signature="715:855" placeholder="..." />
+            <marker date="1698313767572" expanded="true" signature="729:853" placeholder="..." />
+            <marker date="1698313767572" expanded="true" signature="757:852" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4745308">
+          <caret line="85" column="18" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.farmers_protocols">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/common_part.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20725389">
+          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OldProtocolsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44962215">
+          <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="28" />
+          <folding>
+            <marker date="1671598824000" expanded="true" signature="9963:10151" placeholder="SELECT * FRO..old_farmers_protocols..." />
+            <marker date="1671598824000" expanded="true" signature="17312:17496" placeholder="SELECT * FRO..old_farmers_protocols..." />
+            <marker date="1671598824000" expanded="true" signature="25373:25544" placeholder="SELECT * FRO..old_farmers_protocols..." />
+            <marker date="1671598824000" expanded="true" signature="33292:33463" placeholder="SELECT * FRO..old_farmers_protocols..." />
+            <marker date="1671598824000" expanded="true" signature="41370:41541" placeholder="SELECT * FRO..old_farmers_protocols..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/farmers/reports/in_date.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45609757">
+          <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/number_protocol.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72574383">
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="62" />
+          <folding>
+            <marker date="1698328436261" expanded="true" signature="833:1063" placeholder="..." />
+            <marker date="1698328436261" expanded="true" signature="845:1061" placeholder="..." />
+            <marker date="1698328436261" expanded="true" signature="879:1060" placeholder="..." />
+            <marker date="1698328436261" expanded="true" signature="1234:1456" placeholder="..." />
+            <marker date="1698328436261" expanded="true" signature="1246:1454" placeholder="..." />
+            <marker date="1698328436261" expanded="true" signature="1274:1453" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/index/table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81371284">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/FarmerReportRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5821475">
+          <caret line="76" column="25" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="25" />
+          <folding>
+            <element signature="e#293#391#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/FarmerReport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22897801">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+          <folding>
+            <element signature="e#104#179#0#PHP" expanded="false" />
+            <element signature="e#227#291#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/storage_part.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5653299">
+          <caret line="270" column="30" selection-start-line="270" selection-start-column="30" selection-end-line="270" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/common_part.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3182406">
+          <caret line="270" column="30" selection-start-line="270" selection-start-column="30" selection-end-line="270" selection-end-column="30" />
+          <folding>
+            <marker date="1698415040873" expanded="true" signature="7377:7522" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/crud/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26390687">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FarmersReportsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-40.76923">
+          <caret line="1834" column="0" selection-start-line="1834" selection-start-column="0" selection-end-line="1834" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#50#0#PHP" expanded="true" />
+            <element signature="e#747#2176#0#PHP" expanded="false" />
+            <element signature="e#2209#2310#0#PHP" expanded="false" />
+            <element signature="e#2315#3649#0#PHP" expanded="false" />
+            <element signature="e#3655#3798#0#PHP" expanded="false" />
+            <element signature="e#3803#5147#0#PHP" expanded="false" />
+            <element signature="e#5153#5549#0#PHP" expanded="false" />
+            <element signature="e#5554#10760#0#PHP" expanded="false" />
+            <element signature="e#10820#10921#0#PHP" expanded="false" />
+            <element signature="e#10926#11962#0#PHP" expanded="false" />
+            <element signature="e#11968#12111#0#PHP" expanded="false" />
+            <element signature="e#12116#13142#0#PHP" expanded="false" />
+            <element signature="e#13148#13552#0#PHP" expanded="false" />
+            <element signature="e#13557#18064#0#PHP" expanded="false" />
+            <element signature="e#18107#18208#0#PHP" expanded="false" />
+            <element signature="e#18213#19469#0#PHP" expanded="false" />
+            <element signature="e#19475#19618#0#PHP" expanded="false" />
+            <element signature="e#19623#20869#0#PHP" expanded="false" />
+            <element signature="e#20875#21239#0#PHP" expanded="false" />
+            <element signature="e#21244#26095#0#PHP" expanded="false" />
+            <element signature="e#26143#26244#0#PHP" expanded="false" />
+            <element signature="e#26249#27456#0#PHP" expanded="false" />
+            <element signature="e#27462#27605#0#PHP" expanded="false" />
+            <element signature="e#27610#28809#0#PHP" expanded="false" />
+            <element signature="e#28815#29179#0#PHP" expanded="false" />
+            <element signature="e#29184#33977#0#PHP" expanded="false" />
+            <element signature="e#34021#34122#0#PHP" expanded="false" />
+            <element signature="e#34127#35387#0#PHP" expanded="false" />
+            <element signature="e#35393#35536#0#PHP" expanded="false" />
+            <element signature="e#35541#36791#0#PHP" expanded="false" />
+            <element signature="e#36797#37161#0#PHP" expanded="false" />
+            <element signature="e#37166#42010#0#PHP" expanded="false" />
+            <element signature="e#42071#42172#0#PHP" expanded="false" />
+            <element signature="e#42177#43018#0#PHP" expanded="false" />
+            <element signature="e#43024#43167#0#PHP" expanded="false" />
+            <element signature="e#43172#43928#0#PHP" expanded="false" />
+            <element signature="e#43934#44268#0#PHP" expanded="false" />
+            <element signature="e#44273#48462#0#PHP" expanded="false" />
+            <element signature="e#48524#48625#0#PHP" expanded="false" />
+            <element signature="e#48630#49824#0#PHP" expanded="false" />
+            <element signature="e#49830#49973#0#PHP" expanded="false" />
+            <element signature="e#49978#50726#0#PHP" expanded="false" />
+            <element signature="e#50732#51066#0#PHP" expanded="false" />
+            <element signature="e#51071#55735#0#PHP" expanded="false" />
+            <element signature="e#55745#55876#0#PHP" expanded="false" />
+            <element signature="e#55881#56714#0#PHP" expanded="false" />
+            <element signature="e#56720#56901#0#PHP" expanded="false" />
+            <element signature="e#56906#57797#0#PHP" expanded="false" />
+            <element signature="e#57803#58003#0#PHP" expanded="false" />
+            <element signature="e#58008#62122#0#PHP" expanded="false" />
+            <element signature="e#62128#62330#0#PHP" expanded="false" />
+            <element signature="e#62335#65392#0#PHP" expanded="false" />
+            <element signature="e#65398#65622#0#PHP" expanded="false" />
+            <element signature="e#65627#67026#0#PHP" expanded="false" />
+            <element signature="e#67032#67263#0#PHP" expanded="false" />
+            <element signature="e#67268#68358#0#PHP" expanded="false" />
+            <element signature="e#68364#68595#0#PHP" expanded="false" />
+            <element signature="e#68600#70313#0#PHP" expanded="false" />
+            <element signature="e#70319#70550#0#PHP" expanded="false" />
+            <element signature="e#72278#72486#0#PHP" expanded="false" />
+            <element signature="e#72491#79115#0#PHP" expanded="false" />
+            <element signature="e#79122#79263#0#PHP" expanded="false" />
+            <element signature="e#79268#81848#0#PHP" expanded="false" />
+            <element signature="e#81854#82033#0#PHP" expanded="false" />
+            <element signature="e#82038#91537#0#PHP" expanded="false" />
+            <element signature="e#91544#91698#0#PHP" expanded="false" />
+            <element signature="e#91703#92746#0#PHP" expanded="false" />
+            <element signature="e#92752#92892#0#PHP" expanded="false" />
+            <element signature="e#92897#93993#0#PHP" expanded="false" />
+            <element signature="e#93999#94201#0#PHP" expanded="false" />
+            <element signature="e#94206#102562#0#PHP" expanded="false" />
+            <element signature="e#102568#102702#0#PHP" expanded="false" />
+            <element signature="e#102743#102902#0#PHP" expanded="false" />
+            <element signature="e#102907#105539#0#PHP" expanded="false" />
+            <element signature="e#105545#105705#0#PHP" expanded="false" />
+            <element signature="e#105710#107391#0#PHP" expanded="false" />
+            <element signature="e#107397#107481#0#PHP" expanded="false" />
+            <element signature="e#107486#108783#0#PHP" expanded="false" />
+            <element signature="e#108789#108873#0#PHP" expanded="false" />
+            <element signature="e#108878#110010#0#PHP" expanded="false" />
+            <element signature="e#110016#110103#0#PHP" expanded="false" />
+            <element signature="e#110108#111238#0#PHP" expanded="false" />
+            <marker date="1698415753797" expanded="true" signature="10267:10451" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1698415753797" expanded="true" signature="17623:17803" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1698415753797" expanded="true" signature="25642:25809" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1698415753797" expanded="true" signature="33533:33700" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1698415753797" expanded="true" signature="41569:41736" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1698415753797" expanded="true" signature="48071:48267" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1698415753797" expanded="true" signature="55280:55530" placeholder="SELECT * FRO..farmers_protocols..." />
+            <marker date="1698415753797" expanded="true" signature="108061:108543" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="108086:108122" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="108086:108495" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="108124:108157" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="108185:108200" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="108285:108318" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="108647:108662" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="109288:109770" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="109313:109349" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="109313:109722" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="109351:109384" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="109412:109427" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="109512:109545" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="109874:109889" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="110518:111010" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="110543:110579" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="110543:110962" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="110581:110614" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="110648:110663" placeholder="..." />
+            <marker date="1698415753797" expanded="false" signature="110752:110785" placeholder="..." />
+            <marker date="1698415753797" expanded="true" signature="111114:111129" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="605" column="26" selection-start-line="605" selection-start-column="17" selection-end-line="605" selection-end-column="26" />
+        <state vertical-scroll-proportion="-22.538462">
+          <caret line="917" column="33" selection-start-line="917" selection-start-column="27" selection-end-line="917" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SamplesController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/integrated_part.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.1923075">
+          <caret line="298" column="1" selection-start-line="298" selection-start-column="1" selection-end-line="298" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/aviation_part.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.653846">
+          <caret line="462" column="5" selection-start-line="462" selection-start-column="5" selection-end-line="462" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/farmers/reports/forms/application_part.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15523933">
+          <caret line="318" column="27" selection-start-line="318" selection-start-column="27" selection-end-line="318" selection-end-column="27" />
           <folding>
-            <element signature="e#533#1722#0#PHP" expanded="false" />
-            <element signature="e#1728#1854#0#PHP" expanded="false" />
-            <element signature="e#1859#2880#0#PHP" expanded="false" />
-            <element signature="e#2886#3008#0#PHP" expanded="false" />
-            <element signature="e#3191#3337#0#PHP" expanded="false" />
-            <element signature="e#3343#3534#0#PHP" expanded="false" />
-            <element signature="e#3539#6970#0#PHP" expanded="false" />
-            <element signature="e#6976#7116#0#PHP" expanded="false" />
-            <element signature="e#7281#7475#0#PHP" expanded="false" />
+            <element signature="n#div#0;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#7;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#8;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#9;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
+            <element signature="n#div#10;n#fieldset#0;n#div#0;n#div#0;n#fieldset#1;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Sample.php">
-      <provider selected="true" editor-type-id="text-editor">
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.farmers_reports">
+      <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SampleRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
