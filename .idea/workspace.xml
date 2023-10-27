@@ -7,46 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/air_part.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/application_part.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/common_part.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/final_part.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/in_date.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFarmerByPin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/search/searchFirmByName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/farmers/reports/storage_part.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/crud/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/application_part.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/aviation_part.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/common_part.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/inspectors.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/integrated_part.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/number_protocol.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/radio_type.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/forms/storage_part.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/alphabet.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/sorting.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/table.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/index/years_sort.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/farmers/reports/search/search.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/documents/Заявление_за_Сертификат_чл_83.doc" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/resources/haskovo.sql.gz" afterPath="$PROJECT_DIR$/public/resources/haskovo.sql.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/dtenev.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/dtenev.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Farmer.php" afterPath="$PROJECT_DIR$/app/Farmer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/form/elements.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/farmers.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/farmers.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/records/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/records/index.blade.php" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -410,8 +371,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="216" />
-    <option name="y" value="72" />
+    <option name="x" value="171" />
+    <option name="y" value="67" />
     <option name="width" value="1693" />
     <option name="height" value="960" />
   </component>
@@ -1011,7 +972,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="216" y="72" width="1693" height="960" extended-state="1" />
+    <frame x="171" y="67" width="1693" height="960" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1972422" sideWeight="0.53375196" order="2" side_tool="true" content_ui="tabs" />
