@@ -5,7 +5,7 @@ $(document).ready(function(){
 function GetNameFarmer(){
     $.ajax({
         type: "POST",
-        url: "http://93.183.140.127/quality/certificate/names",
+        url: "http://odbhrz.test/фито/оператор/names",
         headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
         dataType:'json',
         data:{

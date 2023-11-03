@@ -168,14 +168,14 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Сертификати</legend>
-                                    <a class="my_a back_link" href="{!! URL::to( '/въздушни') !!}"><i class="fa fa fa-plane fa-fw blue_color"></i> Издадени Разрешения</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa fa-plane fa-fw blue_color"></i> Издадени Разрешения</a><br/>
                                     <br/>
-                                    <a class="text" href="{!! URL::to( '/регистър-въздушни') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър - Издадени Разрешения</a>
+                                    <a class="text" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър - Издадени Разрешения</a>
                                 </fieldset>
                             </div>
                             <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Регистри</legend>
-                                    <a class="my_a back_link" href="/"> <i class="fa fa-registered fa-fw "></i> Официален регистър на оператори</a><br/>
+                                    <a class="my_a back_link" href="фито/регистър-оператори"> <i class="fa fa-registered fa-fw "></i> Официален регистър на оператори</a><br/>
                                     {{--<a class="my_a back_link" href="/"><i class="fa fa-leaf fa-fw green_color"></i> Третиране на семена </a><br/>--}}
                                     {{--<a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър</a>--}}
                                 </fieldset>

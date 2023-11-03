@@ -1,18 +1,49 @@
 @extends('layouts.quality')
 @section('title')
-    {{ 'Добави Сертификат!' }}
+    {{ 'Добави Оператор!' }}
 @endsection
 
 @section('css')
     {!!Html::style("css/qcertificates/add_edit.css" )!!}
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
+    <style>
+        .table {
+            width: 95%;
+            /*border: 1px solid black;*/
+        }
+        .table>thead>tr>th {
+            /*border: 1px solid black;*/
+        }
+        th {
+            /*border: 1px solid black;*/
+            text-align: center;
+        }
+        .first {
+            width: 45%;
+        }
+        .second {
+            width: 20%;
+        }
+        .third {
+            width: 35%;
+        }
+        tbody {
+            /*border: 1px solid black;*/
+        }
+        td {
+            /*border: 1px solid black;*/
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
 @endsection
 
 @section('content')
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на ВЪТРЕШЕН Сертификат!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -35,18 +66,33 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">ДОБАВЯ СЕ СЕРТИФИКАТ НА</h4>
+                    <h4 class="my_center bold">ДОБАВЯ СЕ ОПЕРАТОР</h4>
                     @include('records.add.object_info')
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/фермер/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'фито/оператор/фермер/store/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('quality.certificates.domestic.forms.form_create_certificate')
+            @include('phytosanitary.crud.forms.number_petition')
+            <hr class="my_hr_in"/>
+            @include('phytosanitary.crud.forms.entry_new')
+            <hr class="my_hr_in"/>
+            @include('phytosanitary.crud.forms.data_places')
+            <hr class="my_hr_in"/>
+            @include('phytosanitary.crud.forms.activity')
+            <hr class="my_hr_in"/>
+            @include('phytosanitary.crud.forms.common')
+            <hr class="my_hr_in"/>
+            @include('phytosanitary.crud.forms.contacts')
+            <hr class="my_hr_in"/>
+            @include('phytosanitary.crud.forms.corresponding')
+            <hr class="my_hr_in"/>
+
+
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
-                <a href="{{ '/контрол/сертификати-вътрешен' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификатите!</a>
+                <a href="{{ '/фито/регистър-оператори' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към регистъра!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
                 {!! Form::submit('Добави и продължи!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
@@ -61,15 +107,22 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>
-        $('#id_country').change(function () {
-            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
-            var for_country_en=$(this).find('option:selected').attr('for_country_en');
-            $('#for_country_bg').val(for_country_bg);
-            $('#for_country_en').val(for_country_en);
+//        $('#id_country').change(function () {
+//            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
+//            var for_country_en=$(this).find('option:selected').attr('for_country_en');
+//            $('#for_country_bg').val(for_country_bg);
+//            $('#for_country_en').val(for_country_en);
+//        });
+        $('#accepted').change(function () {
+            var inspector_name=$(this).find('option:selected').attr('inspector_name');
+            $('#inspector_name').val(inspector_name);
         });
-
+        $('#checked').change(function () {
+            var inspector_checked=$(this).find('option:selected').attr('inspector_checked');
+            $('#inspector_checked').val(inspector_checked);
+        });
     </script>
 @endsection

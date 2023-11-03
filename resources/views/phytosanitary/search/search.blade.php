@@ -14,24 +14,24 @@
 
 @section('content')
     <div class="div-layout-title">
-        <h4 class="bold red layout-title">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН И ДОБАВИ НОВ СЕРТИФИКАТ</h4>
+        <h4 class="bold red layout-title" style="margin-bottom: 15px; margin-top: 20px">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН И ДОБАВИ НОВ ОПЕРАТОР КЪМ РЕГИСТЪРА</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-certificate " aria-hidden="true"></i>  Сертификати</span>
-        <a href="{!! URL::to('/контрол/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
-        <a href="{!! URL::to('/контрол/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
-        <a href="{!! URL::to('/контрол/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
-        <a href="{!! URL::to('/контрол/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
+        <span class="fa  btn btn-default my_btn"><i class="fa fa-registered " aria-hidden="true"></i>  Официален регистър</span>
+        <a href="{!! URL::to('/фито/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
+        <a href="{!! URL::to('/фито/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
+        <a href="{!! URL::to('/фито/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
+        <a href="{!! URL::to('/фито/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
     </div>
 
-    <hr/>
-    <div class="btn-group" >
-        <a href="{!! URL::to('/контрол/сертификати-внос')!!}" class="fa fa-arrow-down btn btn-info my_btn"> Сетификати/Внос</a>
-        <a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ </a>
-        <span class="fa fa-retweet btn btn-default my_btn"> Вътрешни</span>
-    </div>
+    {{--<hr/>--}}
+    {{--<div class="btn-group" >--}}
+        {{--<a href="{!! URL::to('/контрол/сертификати-внос')!!}" class="fa fa-arrow-down btn btn-info my_btn"> Сетификати/Внос</a>--}}
+        {{--<a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ </a>--}}
+        {{--<span class="fa fa-retweet btn btn-default my_btn"> Вътрешни</span>--}}
+    {{--</div>--}}
     <hr/>
 
     <div class="form-group">
@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-md-12" >
                 <fieldset class="small_field"><legend class="small_legend">Данни на Фирмата/Лицето</legend>
-                {!! Form::open(['url'=>'/контрол/търси-земеделец' , 'method'=>'POST', 'id'=>'form']) !!}
+                {!! Form::open(['url'=>'/фито/търси-оператор' , 'method'=>'POST', 'id'=>'form']) !!}
                     @include('layouts.forms.search_protocol')
 
                     <div class="col-md-12 col-md-6_my div_btn" >
@@ -112,8 +112,8 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-md-6_my " >
-                        {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ СЕРТИФИКАТ ЗА НОВ СТОПАНИН">
+                        {!! Form::open(['url'=>'/фито/оператор/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ НОВ СТОПАНИН КАТО ОПЕРАТОР">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name" value="{!! $name !!}">
                             <input type="hidden" name="gender" value="{!! $gender !!}">
@@ -129,14 +129,14 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/фермер/нова-фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            {!! Form::open(['url'=>'/фито/оператор/фермер/нова-фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                                 <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
                                 <input type="hidden" name="firm" value="{!! $firm !!}">
                                 <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
                                 <input type="hidden" name="eik" value="{!! $eik !!}">
                             {!! Form::close() !!}
                             <hr>
-                            {!! Form::open(['url'=>'/контрол/сертификати-вътрешен/нов/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            {!! Form::open(['url'=>'/фито/оператор/нов/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                                 <input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">
                                 <input type="hidden" name="firm" value="{!! $firm !!}">
                                 <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
@@ -147,12 +147,12 @@
                         <div class="col-md-6 col-md-6_my " >
                             <p class="new_farmer bold">
                                 <span class="view" style="color: green">Намерена е фирма търговец.</span><br/>
-                                Добави Сертификат на Фирма - {{$trader[0]['trader_name']}}!
+                                Добави тази Фирма - {{$trader[0]['trader_name']}}!
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!!URL::to('/контрол/сертификати-вътрешен/търговец/добави/'.$trader[0]['id'])!!}" class="fa fa-retweet btn btn-primary my_btn_check" style="width: 350px"> 
-                                &nbsp;&nbsp;Добави Сертификат на тази фирма!
+                            <a href="{!!URL::to('/фито/оператор/търговец/добави/'.$trader[0]['id'])!!}" class="fa fa-retweet btn btn-primary my_btn_check" style="width: 350px">
+                                &nbsp;&nbsp;Добави тази фирма!
                             </a>
                         </div>
                     @endif
@@ -167,7 +167,7 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!! URL::to('/контрол/сертификати-вътрешен/добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ СЕРТИФИКАТ ЗА ТОЗИ ЗС!</a>
+                            <a href="{!! URL::to('/фито/оператор/земеделец/добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ТОЗИ ЗС КАТО ОПЕРАТОР!</a>
                         </div>
                     </div>
                 @endforeach
@@ -179,9 +179,9 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/quality/search/searchFarmer.js" )!!}
-    {!!Html::script("js/quality/search/searchFarmerByPin.js" )!!}
-    {!!Html::script("js/quality/search/searchFarmerByName.js" )!!}
-    {!!Html::script("js/quality/search/searchFirmByName.js" )!!}
-    {!!Html::script("js/quality/locationDomestic.js" )!!}
+    {!!Html::script("js/sanitary/search/searchFarmer.js" )!!}
+    {!!Html::script("js/sanitary/search/searchFarmerByPin.js" )!!}
+    {!!Html::script("js/sanitary/search/searchFarmerByName.js" )!!}
+    {!!Html::script("js/sanitary/search/searchFirmByName.js" )!!}
+    {!!Html::script("js/sanitary/locationDomestic.js" )!!}
 @endsection

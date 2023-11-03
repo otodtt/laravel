@@ -147,4 +147,8 @@
         </tr>
         </tbody>
     </table>
+
+    <div class="alert-info" role="alert" style="text-align: center" >
+        <p class="bold">Индех преди номер на професионалните оператори. Пример за Хасково - BG HKV</p>
+    </div>
 @endsection

@@ -184,7 +184,7 @@ else{
             {!! Form::text('firm_name_search', $firm_return, ['class'=>'form-control form-control-my', 'size'=>50, 'maxlength'=>250 ]) !!}
             &nbsp;
             {!! Form::label('eik_search', '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ЕИК/Булстат:', ['class'=>'my_labels', 'id'=>'label_bulstat']) !!}
-            {!! Form::text('eik_search', $eik_return, ['class'=>'form-control form-control-my ', 'maxlength'=>13, 'size'=>10, 'id'=>'bulstat' ]) !!}
+            {!! Form::text('eik_search', $eik_return, ['class'=>'form-control form-control-my ', 'maxlength'=>13, 'size'=>10, 'id'=>'eik_search' ]) !!}
         </div>
         <div class="col-md-12 col-md-6_my hidden" id="pin_div">
             {!! Form::label('name_farmer', ' Име на ЧЗС:', ['class'=>'my_labels']) !!}

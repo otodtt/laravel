@@ -68,5 +68,18 @@ abstract class Controller extends BaseController
                                         ->where('active', '=', 1)
                                         ->where('rz','=',1)
                                         ->lists('short_name', 'id');
+
+
+        //////////// ИНСПЕКТОРИ
+        /** Генерира списък с всички инспектори от FITO*/
+        $this->inspectors_all_fsk_list = User::select('id', 'short_name')
+                                        ->where('fsk','=',1)
+                                        ->lists('short_name', 'id');
+
+        /** Генерира списък с активните инспектори от FITO*/
+        $this->inspectors_active_fsk_list = User::select('id', 'short_name')
+                                        ->where('active', '=', 1)
+                                        ->where('fsk','=',1)
+                                        ->lists('short_name', 'id');
     }
 }

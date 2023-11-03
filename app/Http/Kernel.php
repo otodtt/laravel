@@ -32,5 +32,6 @@ class Kernel extends HttpKernel
         'admin' => \odbh\Http\Middleware\Admin::class,
         'control' => \odbh\Http\Middleware\Control::class,
         'quality' => \odbh\Http\Middleware\Quality::class,
+        'sanitary' => \odbh\Http\Middleware\Sanitary::class,
     ];
 }

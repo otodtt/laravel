@@ -1,6 +1,6 @@
-@extends('layouts.certificates')
+@extends('layouts.phyto')
 @section('title')
-    {{ 'Всички Сертификати' }}
+    {{ 'Официален регистър' }}
 @endsection
 
 @section('css')
@@ -15,12 +15,12 @@
 @endsection
 
 @section('content')
-    <h4 class=" title_doc" >ВСИЧКИ СЕРТИФИКАТИ</h4>
+    <h4 class=" title_doc" >ОФИЦИАЛЕН РЕГИСТЪР НА ПРОФЕСИОНАЛНИТЕ ОПЕРАТОРИ</h4>
     <hr class="my_hr"/>
     <div class="btn-group my_group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa fa-certificate btn btn-default my_btn"> Всички издадени Сертификати</span>
-        <a href="{!! URL::to('/регистър-сертификати')!!}" class="fa fa-registered btn btn-info my_btn"> Таблица Регистър на издадените Сертификати</a>
+        <span class="fa fa-registered btn btn-default my_btn"> Официален регистър на оператори</span>
+        {{--<a href="{!! URL::to('фито/регистър-сертификати')!!}" class="fa fa-registered btn btn-info my_btn"> Таблица Регистър на издадените Сертификати</a>--}}
     </div>
     <hr class="my_hr"/>
     @if(count($errors)>0)
@@ -36,12 +36,12 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div id="search_wrap" class="col-md-9">
-                    {!! Form::open(array('url'=>'/сертификати', 'method'=>'POST')) !!}
-                    @include('certificates.index.search')
+                    {!! Form::open(array('url'=>'/сертификати/eg', 'method'=>'POST')) !!}
+                    {{--@include('certificates.index.search')--}}
                     {!! Form::close() !!}
                 </div>
                 <div class="refresh col-md-3">
-                    <a href="{!!URL::to('/сертификати/добави')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn right_btn"> Добави НОВ Сертификат</a>
+                    <a href="{!!URL::to('/фито/търси-оператор')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn right_btn"> Добави НОВ ОПЕРАТОР</a>
                 </div>
             </div>
         </div>
