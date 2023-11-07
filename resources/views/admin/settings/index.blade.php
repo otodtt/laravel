@@ -151,4 +151,22 @@
     <div class="alert-info" role="alert" style="text-align: center" >
         <p class="bold">Индех преди номер на професионалните оператори. Пример за Хасково - BG HKV</p>
     </div>
+    <table class="table">
+        <tbody>
+        <tr>
+            {{--<td>--}}
+                {{--<p>За Номер на Печат <span class="bold red">{{ $settings[0]['q_index'] }}</span> - 0000 <span class="bold red">{{ $settings[0]['in_second'] }}</span> </p>--}}
+            {{--</td>--}}
+            <td>
+                <p>Идентификационен код на областта без BG <span class="bold red">{{ $settings[0]['operator_index_not'] }} </span></p>
+            </td>
+            <td>
+                <p>Идентификационен код на областта с BG <span class="bold red">{{ $settings[0]['operator_index_bg'] }}</span> </p>
+            </td>
+            <td>
+                <a class="fa fa-edit btn btn-primary my_btn" href="{!!URL::to('/админ/настройки/оператор/1')!!}">  Редактирай!</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 @endsection

@@ -28,7 +28,6 @@ class FarmerReportRequest extends Request
         $data = array();
 
         $request = Request::all();
-//        dd($request);
 
         if ($request['is_all'] == 1) {
             $data = [

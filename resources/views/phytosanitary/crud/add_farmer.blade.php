@@ -108,8 +108,32 @@
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
 {{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
-    {!!Html::script("js/quality/date_issue.js" )!!}
+    {!!Html::script("js/sanitary/date_issue.js" )!!}
     <script>
+        function clearRadioButtons()
+        {
+            var radioEuropa = document.getElementsByName('europa');
+            var radioBulgaria = document.getElementsByName('bulgaria');
+            var radioOwn = document.getElementsByName('own');
+
+            for (var i=0; i<radioEuropa.length; i++)
+            {
+                var radioButtonE = radioEuropa[i];
+                radioButtonE.checked = false;
+            }
+
+            for (var i=0; i<radioBulgaria.length; i++)
+            {
+                var radioButtonB = radioBulgaria[i];
+                radioButtonB.checked = false;
+            }
+
+            for (var i=0; i<radioOwn.length; i++)
+            {
+                var radioButtonO = radioOwn[i];
+                radioButtonO.checked = false;
+            }
+        }
 //        $('#id_country').change(function () {
 //            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
 //            var for_country_en=$(this).find('option:selected').attr('for_country_en');

@@ -9,6 +9,7 @@ use odbh\Http\Requests;
 
 use odbh\Set;
 use odbh\Http\Requests\SetStampRequest;
+use odbh\Http\Requests\SetCodeRequest;
 
 use odbh\Http\Requests\SetRequest;
 use odbh\Http\Requests\SetIndexRequest;
@@ -197,8 +198,8 @@ class SettingsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \odbh\Http\Requests\SetIndexRequest  $request
-     * @param  int  $id
+     * @param SetIndexRequest|SetStampRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function add_stamp(SetStampRequest $request, $id)
@@ -209,6 +210,42 @@ class SettingsController extends Controller
             'q_index'=> $request['q_index'],
             'authority_bg'=> $request['authority_bg'],
             'authority_en'=> $request['authority_en'],
+        ]);
+        $set->fill($data);
+        $set->save();
+
+        Session::flash('message', 'Настройките са добавени успешно!');
+        return Redirect::to('/админ/настройки');
+    }
+
+    //////////// НОВО ///////////////////
+    /**
+     * Промяна на индексите ЗА ОПЕРАТОРИ.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function operator_index($id)
+    {
+        $districts = $this->district_full;
+        $area = Set::findOrFail($id);
+        return view('admin.settings.operator_index', compact('area', 'districts'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param SetIndexRequest|SetStampRequest $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function add_operator_index(SetCodeRequest $request, $id)
+    {
+        $set = Set::findOrFail($id);
+
+        $data = ([
+            'operator_index_not'=> strtoupper($request['operator_index_not']),
+            'operator_index_bg'=> 'BG '.strtoupper($request['operator_index_not']),
         ]);
         $set->fill($data);
         $set->save();

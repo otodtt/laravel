@@ -47,6 +47,18 @@ class LocationsController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function locations_codes()
+    {
+        $districts = $this->district_full;
+
+        return view('admin.locations.codes', compact( 'districts' ));
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

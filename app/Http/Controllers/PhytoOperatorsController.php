@@ -14,15 +14,15 @@ use odbh\Set;
 use odbh\User;
 use Redirect;
 use Input;
-use odbh\Http\Requests\CertificatesCreateRequest;
-use odbh\Http\Requests\CertificatesUpdateRequest;
+use odbh\Http\Requests\PhitoOperatorsRequests;
+//use odbh\Http\Requests\CertificatesUpdateRequest;
 use Session;
 use odbh\Trader;
 use odbh\Farmer;
 use odbh\Location;
 use odbh\Country;
-use odbh\Crop;
-use odbh\QINCertificate;
+use odbh\PhitoOperator;
+//use odbh\Crop;
 
 class PhytoOperatorsController extends Controller
 {
@@ -57,9 +57,7 @@ class PhytoOperatorsController extends Controller
         $inspectors_db = Certificate::lists('short_name', 'inspector_id')->toArray();
         $this->inspectors_edit_db = $inspectors_active + $inspectors_db;
 
-//        dd($inspectors_add);
-
-        $this->index = Set::select('area_id', 'index_in', 'index_out', 'in_second', 'out_second')->get()->toArray();
+        $this->index = Set::select('area_id', 'index_in', 'index_out', 'in_second', 'out_second', 'operator_index_not', 'operator_index_bg')->get()->toArray();
     }
 
     /**
@@ -92,7 +90,6 @@ class PhytoOperatorsController extends Controller
      */
     public function create($id)
     {
-        $type = 3;
         $index = $this->index;
 
         $farmer = Farmer::findOrFail($id);
@@ -113,34 +110,35 @@ class PhytoOperatorsController extends Controller
             ->orderBy('district_id', 'asc')
             ->lists('name', 'district_id')->toArray();
 
-        $countries= Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
+//        $countries= Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
 
-        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
-            ->where('group_id', '=', 4)
-            ->orWhere('group_id', '=', 5)
-            ->orWhere('group_id', '=', 6)
-            ->orWhere('group_id', '=', 7)
-            ->orWhere('group_id', '=', 8)
-            ->orWhere('group_id', '=', 9)
-            ->orWhere('group_id', '=', 10)
-            ->orWhere('group_id', '=', 11)
-            ->orWhere('group_id', '=', 15)
-            ->orWhere('group_id', '=', 16)
-            ->orderBy('group_id', 'asc')->get()->toArray();
+//        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
+//            ->where('group_id', '=', 4)
+//            ->orWhere('group_id', '=', 5)
+//            ->orWhere('group_id', '=', 6)
+//            ->orWhere('group_id', '=', 7)
+//            ->orWhere('group_id', '=', 8)
+//            ->orWhere('group_id', '=', 9)
+//            ->orWhere('group_id', '=', 10)
+//            ->orWhere('group_id', '=', 11)
+//            ->orWhere('group_id', '=', 15)
+//            ->orWhere('group_id', '=', 16)
+//            ->orderBy('group_id', 'asc')->get()->toArray();
 
-        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
+        $last_operator = PhitoOperator::select('number_petition')->orderBy('number_petition', 'desc')->limit(1)->get()->toArray();
 
         $uid = Auth::user()->id;
         $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
 
-        if(!empty($last_internal)) {
-            $last_number = $last_internal;
+        if(!empty($last_operator)) {
+            $last_number = $last_operator;
         } else {
-            $last_number[0]['internal'] = '3001';
+            $last_number[0]['number_petition'] = '1';
         }
+//        dd($last_number);
 
-        return view('phytosanitary.crud.add_farmer', compact('farmer', 'index',
-            'countries', 'crops', 'user', 'last_number', 'type', 'regions', 'districts_farm', 'districts', 'inspectors'));
+        return view('phytosanitary.crud.add_farmer', compact('farmer', 'index', 'user', 'districts', 'districts_farm',
+                    'regions', 'inspectors', 'last_number'));
     }
 
     /**
@@ -150,7 +148,7 @@ class PhytoOperatorsController extends Controller
      * @param $id
      * @return \Illuminate\Http\Response
      */
-    public function store_old(Request $request, $id)
+    public function store_old(PhitoOperatorsRequests $request, $id)
     {
         dd($request->all());
         $region = '';
@@ -161,7 +159,7 @@ class PhytoOperatorsController extends Controller
         $index = $this->index;
         $user = User::select('id', 'all_name', 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', Auth::user()->id)->get()->toArray();
 
-        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
+//        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
 
         dd($request->all());
 //        $one = 3;

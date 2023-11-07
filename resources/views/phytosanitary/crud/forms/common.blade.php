@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label class="labels_limit">
-                                    {!! Form::radio('bulgariq', 1) !!}<span>&nbsp;&nbsp; България  </span>
+                                    {!! Form::radio('bulgaria', 1) !!}<span>&nbsp;&nbsp; България  </span>
                                 </label>
                             </div>
                             <div class="col-md-2">
@@ -38,7 +38,8 @@
                                     <i class="fa fa-circle-o" aria-hidden="true"></i>
                                     <span>&nbsp;&nbsp; внос от трета/и държава/и</span>
                                     {!! Form::text('origin_from', null, ['class'=>'form-control form-control-my',  'size'=>50, 'id'=>'origin_from' ]) !!}
-                                </label>
+                                </label> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                <input type="button" onclick="clearRadioButtons();" value="Изчисти" class="btn btn-info my_btn" />
                             </div>
                         </div>
                     </div>

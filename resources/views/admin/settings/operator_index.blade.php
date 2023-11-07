@@ -22,25 +22,17 @@
                                 </ul>
                             </div>
                         @endif
-                            {!! Form::model($area, ['url'=>'admin/settings/add_stamp/'.$area->id , 'method'=>'POST', 'id'=>'form']) !!}
+                            {!! Form::model($area, ['url'=>'admin/settings/operator/'.$area->id , 'method'=>'POST', 'id'=>'form']) !!}
 
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-12">
-                                            <div class="col-md-12" style="margin-bottom: 15px">
-                                                {!! Form::label('q_index', 'Индех преди номера на печата') !!}
-                                                {!! Form::text('q_index', null, ['class'=>'form-control my_input_index', 'maxlength'=>5]) !!}
-                                            </div>
+                                            <p style="margin-left: 15px;" ><span class="red">ВНИМАНИЕ !!!</span> Попълни САМО Идентификационен код на областа! Пример "HKV".</p>
 
                                             <div class="col-md-12" style="margin-bottom: 15px">
-                                                {!! Form::label('authority_bg', 'Контролен орган на български') !!}
-                                                {!! Form::text('authority_bg', null, ['class'=>'form-control ',  'maxlength'=>100, 'placeholder'=> 'БАБХ: ОДБХ-Хасково']) !!}
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                {!! Form::label('authority_en', 'Контролен орган на англиски') !!}
-                                                {!! Form::text('authority_en', null, ['class'=>'form-control ',  'maxlength'=>100, 'placeholder'=> 'BFSA: RDFS-HASKOVO']) !!}
+                                                {!! Form::label('operator_index_not', 'Идентификационен код на областа') !!}
+                                                {!! Form::text('operator_index_not', null, ['class'=>'form-control ', 'minlength'=>3,  'maxlength'=>3, 'placeholder'=> 'HKV', 'style'=>'width:15%']) !!}
                                             </div>
                                         </div>
                                     </div>

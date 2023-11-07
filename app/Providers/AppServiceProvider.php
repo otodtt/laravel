@@ -54,7 +54,7 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::extend('cyrillic_with', function($attribute, $value)
         {
-            $pattern = "/^[\p{Cyrillic}0-9\s -\ –\"\'\-\, _\.\; \“ \” \„ \” \: \/ ! ? ! ? N № 0-9]+$/u";
+            $pattern = "/^[\p{Cyrillic}0-9\s -\ –\"\'\-\, _\.\; \“ \” \„ \” \: \/ \( \) ! ? ! ? N № 0-9]+$/u";
             return trim(preg_match($pattern, $value));
         });
 

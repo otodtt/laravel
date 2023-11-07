@@ -95,6 +95,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     //За Населените места
     Route::resource('admin/locations', 'LocationsController');
     Route::get('admin/locations-added/', 'LocationsController@added');
+    Route::get('admin/codes/locations', 'LocationsController@locations_codes');
     //КРАЙ - За Населените места
 
     //За Производители на ПРЗ
@@ -105,6 +106,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('админ/производители/{id}', 'FactoriesController@show');
 
     /////////////////////////////
+
+    //НОВО ЗА INDEX ПРИ НОМЕРА НА ОПЕРАТОРА /////////////////////////////////////////////////////
+    Route::get('админ/настройки/оператор/{id}', 'SettingsController@operator_index');
+    Route::post('admin/settings/operator/{id}', 'SettingsController@add_operator_index');
     ////  КРАЙ АДМИНИСТРАТОР
 });
 

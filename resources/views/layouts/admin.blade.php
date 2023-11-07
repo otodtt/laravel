@@ -129,6 +129,14 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="{!!URL::to('/админ')!!}"><i class="fa fa-map fa-fw"></i> Кодове на областите в БГ<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/admin/codes/locations')!!}"><i class='fa fa-binoculars fa-fw'></i> Виж Кодовете!</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="{!!URL::to('/админ/производители')!!}"><i class="fa fa-industry fa-fw"></i> Производители на ПРЗ<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -137,16 +145,11 @@
                                 <li>
                                     <a href="{!!URL::to('/админ/производители')!!}"><i class='fa fa-binoculars fa-fw'></i> Виж Фирмите!</a>
                                 </li>
-                                {{--@foreach($obstini as $district)--}}
-                                    {{--<li>--}}
-                                        {{--<a href="{!!URL::to('/admin/locations', $district->obstina_id)!!}"><i class='fa fa-arrow-circle-right fa-fw'></i> {{$district->name}}</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
                             </ul>
                         </li>
 
                         <li>
-                            <a href="{!!URL::to('/админ')!!}"><i class="fa fa-globe fa-fw"></i> Държави в Европа<span class="fa arrow"></span></a>
+                            <a href="{!!URL::to('/admin/countries')!!}"><i class="fa fa-globe fa-fw"></i> Държави в Европа<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -158,7 +161,6 @@
                                 </ul>
                             </ul>
                         </li>
-                       
                     </ul>
                 </div>
             </div>
