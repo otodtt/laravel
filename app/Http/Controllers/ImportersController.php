@@ -125,6 +125,7 @@ class ImportersController extends Controller
     public function show($id)
     {
         $importer  = Importer::findOrFail($id);
+		$identification = array();
 
         $import_certificates = $importer->qcertificate;
         foreach($import_certificates as $certificate){

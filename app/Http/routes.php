@@ -922,9 +922,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     ///// ФИТОСАНИТАРИ
-    Route::resource('/фито/регистър-оператори', 'PhytoOperatorsController');
+//    Route::resource('/фито/регистър-оператори', 'PhytoOperatorsController');
+    Route::get('/фито/регистър-оператори', 'PhytoOperatorsController@index');
     Route::post('фито/регистър-оператори', 'PhytoOperatorsController@search');
-    Route::get('фито/регистър-оператори/{id}', 'PhytoOperatorsController@show');
+    Route::get('фито/оператор/{id}', 'PhytoOperatorsController@show');
     // Сортиране на регистър
     Route::any('фито/регистър-оператори/сортирай/{abc_list?}/{start_year?}/{end_year?}/{limit_sort?}/{inspector_sort?}', 'PhytoOperatorsController@sort');
     // КРАЙ Сортиране на регистър
@@ -941,10 +942,10 @@ Route::group(['middleware' => ['auth']], function () {
 //    Route::post('сертификати/update/{id}', 'PhytoOperatorsController@update');
 
     // Добавяне и Редакция на регистър
-    Route::get('фито/оператори/добави', 'PhytoOperatorsController@create');
-    Route::post('фито/регистър-оператори/store', 'PhytoOperatorsController@store');
+//    Route::get('фито/оператори/добави', 'PhytoOperatorsController@create');
+//    Route::post('фито/регистър-оператори/store', 'PhytoOperatorsController@store');
 
-    Route::get('/фито/оператор/земеделец/добави/{id}', 'PhytoOperatorsController@create');
+    Route::get('/фито/оператор/земеделец/добави/{id}', 'PhytoOperatorsController@create_old');
     Route::any('/фито/оператор/фермер/store/{id}', 'PhytoOperatorsController@store_old');
 //    Route::get('/фито/оператор/фирма-зс/добави/{id}', 'PhytoOperatorsController@create');
 //    Route::get('/контрол/сертификати-вътрешен/фермер/нов', 'QINCertificatesController@create_farmer');

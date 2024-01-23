@@ -94,7 +94,7 @@ else{
                                 <td class="center" >
                                 </td>
                                 <td>
-                                    {!! Form::text('others_inspector', null, ['class'=>'form-control form-control-my', 'size'=>30, 'id'=>'others_inspector' ]) !!}
+                                    {!! Form::text('others_note', null, ['class'=>'form-control form-control-my', 'size'=>30, 'id'=>'others_note' ]) !!}
                                 </td>
                             </tr>
                             <tr>

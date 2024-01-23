@@ -67,18 +67,17 @@ class PhytoOperatorsController extends Controller
      */
     public function index()
     {
-        $certificates = Certificate::get();
+        $operators = PhitoOperator::get();
+//        dd($operators);
 
-//        $inspectors = $this->inspectors_edit_db;
-        $inspectors = $this->inspectors_add;
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
-//        dd($inspectors);
+
 
         $abc = null;
-        $alphabet = Certificate::lists('alphabet')->toArray();
+//        $alphabet = Certificate::lists('alphabet')->toArray();
 
-        return view('phytosanitary.index', compact('certificates', 'alphabet','abc', 'inspectors'));
+        return view('phytosanitary.index', compact('operators', 'inspectors'));
     }
 
     /**
@@ -88,7 +87,7 @@ class PhytoOperatorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create_old($id)
     {
         $index = $this->index;
 
@@ -99,7 +98,6 @@ class PhytoOperatorsController extends Controller
             ->where('fsk','=', 1)
             ->where('stamp_number','<', 5000)
             ->lists('short_name', 'id')->toArray();
-//        $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
 
         $districts_farm = $this->districts_list;
@@ -110,35 +108,20 @@ class PhytoOperatorsController extends Controller
             ->orderBy('district_id', 'asc')
             ->lists('name', 'district_id')->toArray();
 
-//        $countries= Country::select('id', 'name', 'name_en', 'EC')->where('EC', '=', 1)->orderBy('name', 'asc')->get()->toArray();
-
-//        $crops= Crop::select('id', 'name', 'name_en', 'group_id')
-//            ->where('group_id', '=', 4)
-//            ->orWhere('group_id', '=', 5)
-//            ->orWhere('group_id', '=', 6)
-//            ->orWhere('group_id', '=', 7)
-//            ->orWhere('group_id', '=', 8)
-//            ->orWhere('group_id', '=', 9)
-//            ->orWhere('group_id', '=', 10)
-//            ->orWhere('group_id', '=', 11)
-//            ->orWhere('group_id', '=', 15)
-//            ->orWhere('group_id', '=', 16)
-//            ->orderBy('group_id', 'asc')->get()->toArray();
-
-        $last_operator = PhitoOperator::select('number_petition')->orderBy('number_petition', 'desc')->limit(1)->get()->toArray();
+//        $last_operator = PhitoOperator::select('number_petition')->orderBy('number_petition', 'desc')->limit(1)->get()->toArray();
 
         $uid = Auth::user()->id;
         $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
 
-        if(!empty($last_operator)) {
-            $last_number = $last_operator;
-        } else {
-            $last_number[0]['number_petition'] = '1';
-        }
+//        if(!empty($last_operator)) {
+//            $last_number = $last_operator;
+//        } else {
+//            $last_number[0]['number_petition'] = '1';
+//        }
 //        dd($last_number);
 
         return view('phytosanitary.crud.add_farmer', compact('farmer', 'index', 'user', 'districts', 'districts_farm',
-                    'regions', 'inspectors', 'last_number'));
+                    'regions', 'inspectors'));
     }
 
     /**
@@ -150,108 +133,125 @@ class PhytoOperatorsController extends Controller
      */
     public function store_old(PhitoOperatorsRequests $request, $id)
     {
-        dd($request->all());
+//        dd($id);
+//        dd($request->all());
         $region = '';
         $dist = '';
 
         $farmer = Farmer::findOrFail($id);
-
+//        dd($farmer);
         $index = $this->index;
         $user = User::select('id', 'all_name', 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', Auth::user()->id)->get()->toArray();
 
 //        $last_internal = QINCertificate::select('internal')->orderBy('internal', 'desc')->limit(1)->get()->toArray();
 
-        dd($request->all());
-//        $one = 3;
-//        $hundred = 1000;
-//        $thousand = 10000;
-//        if(!empty($last_internal)) {
-//            if($last_internal[0]['internal'] < 3999 ){
-//                $internal = $last_internal[0]['internal'] + 1;
-//            }
-//            if($last_internal[0]['internal'] == 3999 ){
-//                $internal = $one.$hundred ;
-//            }
-//            if($last_internal[0]['internal'] >= 31000 ){
-//                $internal = $last_internal[0]['internal'] + 1;
-//            }
-//            if($last_internal[0]['internal'] == 39999 ){
-//                $internal = $one.$thousand ;
-//            }
-//            if($last_internal[0]['internal'] >= 310000 ){
-//                $internal = $last_internal[0]['internal'] + 1;
-//            }
-//        } else {
-//            $internal = '3001';
-//        }
-//
-//        $date_now = time();
-//        $convert_date = date('d.m.Y', $date_now);
-//        $final_date = strtotime($convert_date);
-//
-//        if($farmer->tvm == 1){
-//            $tvm = 'гр. ';
-//        }
-//        elseif($farmer->tvm == 2 ){
-//            $tvm = 'с. ';
-//        }
-//        else{
-//            $tvm = 'гр./с. ';
-//        }
-//        $regions = $this->areas_all_list;
-//        foreach ($regions as $k=>$items) {
-//            if ($k == $farmer->areas_id) {
-//                $region = $items;
-//            }
-//        }
-//
-//        /** Генерира списък с общините */
-//        $districts = Location::select('name', 'district_id')
-//            ->where('areas_id', '=', $farmer->areas_id)
-//            ->where('type_district', '=', 1)
-//            ->orderBy('district_id', 'asc')
-//            ->lists('name', 'district_id');
-//
-//        foreach ($districts as $k=>$items) {
-//            if ($k == $farmer->district_id) {
-//                $dist = $items;
-//            }
-//        }
-//
-//        $address =$farmer->address.', '.$tvm.''.$farmer->location.', общ. '.$dist.', обл. '.$region;
-//        $data = [
-//            'internal' => $internal,
-//            'what_7' => 1,
-//            'type_crops' => $request->type_crops,
-//            'farmer_id' => $farmer->id,
-//            'type_firm' => $farmer->type_firm,
-//            'trader_id' => 0,
-//            'trader_name' => $farmer->name,
-//            'trader_address' => $address,
-//            'trader_vin' => $farmer->pin,
-//            'from_country' => $request->from_country,
-//            'id_country' => $request->id_country,
-//            'for_country_bg' => $request->for_country_bg,
-//            'for_country_en' => $request->for_country_en,
-//            'observations' => $request->observations,
-//            'place_bg' => $request->place_bg,
-//            'date_issue' => $final_date,
-//            'valid_until' => $request->valid_until,
-//            'inspector_bg' => $user[0]['all_name'],
-//            'inspector_en' => $user[0]['all_name_en'],
-//            'stamp_number' => $index[0]['q_index'].'-'.$user[0]['stamp_number'],
-//            'authority_bg' => $index[0]['authority_bg'],
-//            'authority_en' => $index[0]['authority_en'],
-//            'date_add' => date('d.m.Y', time()),
-//            'added_by' => Auth::user()->id,
-//        ];
-//
+        if($farmer->tvm == 1){
+            $tvm = 'гр. ';
+        }
+        elseif($farmer->tvm == 2 ){
+            $tvm = 'с. ';
+        }
+        else{
+            $tvm = 'гр./с. ';
+        }
+        $regions = $this->areas_all_list;
+        foreach ($regions as $k=>$items) {
+            if ($k == $farmer->areas_id) {
+                $region = $items;
+            }
+        }
+
+        /** Генерира списък с общините */
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $farmer->areas_id)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id');
+
+        foreach ($districts as $k=>$items) {
+            if ($k == $farmer->district_id) {
+                $dist = $items;
+            }
+        }
+
+        $address = $farmer->address.', '.$tvm.''.$farmer->location.', общ. '.$dist.', обл. '.$region;
+
+        $data = [
+            'number_petition' => $request->number_petition,
+            'date_petition' => strtotime($request->date_petition),
+
+            'description_objects_one' => $request->description_objects_one,
+            'description_places_one' => $request->description_places_one,
+            'description_objects_two' => $request->description_objects_two,
+            'description_places_two' => $request->description_places_two,
+            'production' => $request->production,
+            'processing' =>  $request->processing,
+            'import' => $request->import,
+            'trade' => $request->trade,
+            'storage' => $request->storage,
+            'treatment' => $request->treatment,
+            'others' => $request->others,
+            'plants' => $request->plants,
+            'europa' => $request->europa,
+            'bulgaria' => $request->bulgaria,
+            'own' => $request->own,
+            'origin_from' => $request->origin_from,
+            'passports' => $request->passports,
+            'passports_list' => $request->passports_list,
+            'marking' => $request->marking,
+            'marking_list' => $request->marking_list,
+            'contact' => $request->contact,
+            'contact_phone' => $request->contact_phone,
+            'contact_address' => $request->contact_address,
+            'contact_city' => $request->contact_city,
+            'date_place' => $request->date_place,
+            'place' => $request->place,
+            'registration' => $request->registration,
+            'registration_note' => $request->registration_note,
+            'disposition' => $request->disposition,
+            'disposition_note' => $request->disposition_note,
+            'property' => $request->property,
+            'property_note' => $request->property_note,
+            'plants_origin' => $request->plants_origin,
+            'plants_note' => $request->plants_note,
+            'others_note' => $request->others_note,
+            'accepted' => $request->accepted,
+            'inspector_name' => $request->inspector_name,
+            'free_text' => $request->free_text,
+            'checked' => $request->checked,
+            'inspector_checked' => $request->inspector_checked,
+            'date_operator' => $request->date_operator,
+
+            'date_add' => date('d.m.Y', time()),
+            'added_by' => Auth::user()->id,
+
+            'farmer_id' => $farmer->id,
+            'type_firm' => $farmer->type_firm,
+            'pin' => $farmer->pin,
+            'trader_id' => 0,
+            'name_operator' => $farmer->name,
+            'address_operator' => $farmer->address,
+            'address' => $address,
+            'tvm' => $tvm,
+            'city' => $farmer->location,
+            'municipality' => $dist,
+            'area' => $region,
+
+            'activity' => $request->activity,
+            'products' => $request->products,
+            'derivation' => $request->derivation,
+            'purpose' => $request->purpose,
+            'room' => $request->room,
+            'action' => $request->action
+        ];
+        dd($address);
+        PhitoOperator::create($data);
 //        QINCertificate::create($data);
 //
 //        $last_id = QINCertificate::select('id')->orderBy('id', 'desc')->limit(1)->get()->toArray();
 //
-//        Session::flash('message', 'Записа е успешен!');
-//        return Redirect::to('/контрол/сертификат-вътрешен/'.$last_id[0]['id'] .'/завърши');
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/фито/регистър-оператори');
     }
 
 
@@ -277,7 +277,7 @@ class PhytoOperatorsController extends Controller
      */
     public function show($id)
     {
-        //
+        dd($id);
     }
 
     /**

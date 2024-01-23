@@ -1,13 +1,13 @@
 <?php
 if(Input::has('start_year') || Input::has('end_year') || Input::has('limit_sort') || Input::has('inspector_sort') || Input::has('abc')){
-    $sort_abc = Input::get('abc');
+    // $sort_abc = Input::get('abc');
     $start_years = Input::get('start_year');
     $end_years =  Input::get('end_year');
     $sort_limit_return =  Input::get('limit_sort');
     $sort_inspector_return =  Input::get('inspector_sort');
 }
 else{
-    $sort_abc = $abc;
+    // $sort_abc = $abc;
     if(isset($years_start_sort) || isset($years_end_sort) || isset($sort_limit) || isset($sort_inspector)){
         $start_years = $years_start_sort;
         $end_years = $years_end_sort;
@@ -42,5 +42,5 @@ if((int)$end_years == 0){
     {!! Form::select('inspector_sort', $inspectors, $sort_inspector_return, ['class'=>'form-control inspector_sort']) !!}
     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
     {!! Form::submit(' СОРТИРАЙ', array('class' => 'fa fa-search btn btn-primary my_btn ')) !!}
-    <input type="hidden" name="abc" value="{!! $sort_abc !!}">
+    {{--<input type="hidden" name="abc" value="{!! $sort_abc !!}">--}}
 </div>

@@ -9,7 +9,9 @@
                     </p>
                     <br>
                     <hr class="hr_in" />
-                    {!! Form::textarea('description_objects', null, ['class'=>'form-control', 'style'=>'width: 99%; margin-top: 10px;',
+                    {!! Form::textarea('description_objects_one', null, ['class'=>'form-control', 'style'=>'width: 99%; margin-top: 10px;',
+                            'autocomplete'=>'observations', 'rows'=>2 ]) !!}
+                    {!! Form::textarea('description_objects_two', null, ['class'=>'form-control', 'style'=>'width: 99%; margin-top: 10px;',
                             'autocomplete'=>'observations', 'rows'=>2 ]) !!}
                 </fieldset>
                 <fieldset class="small_field_in" style="width: 49%; float: right">
@@ -18,7 +20,11 @@
                     </p>
                     <hr class="hr_in"/>
                     <div class="col-md-12 col-md-6_my" >
-                        {!! Form::textarea('description_places', null, ['class'=>'form-control', 'style'=>' margin-top: 10px;',
+                        {!! Form::textarea('description_places_one', null, ['class'=>'form-control', 'style'=>' margin-top: 10px;',
+                           'autocomplete'=>'observations', 'rows'=>2 ]) !!}
+                    </div>
+                    <div class="col-md-12 col-md-6_my" >
+                        {!! Form::textarea('description_places_two', null, ['class'=>'form-control', 'style'=>' margin-top: 10px;',
                            'autocomplete'=>'observations', 'rows'=>2 ]) !!}
                     </div>
 

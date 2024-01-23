@@ -51,8 +51,10 @@
                                 <span>&nbsp;&nbsp; 8. други (изброяват се)</span>
                                 {!! Form::text('others', null, ['class'=>'form-control form-control-my',  'size'=>50, 'id'=>'others' ]) !!}
                             </label>
+                            <input style="float: right; margin-right: 100px;" type="button" onclick="clearRadioButtonsOne();" value="Изчисти" class="btn btn-danger my_btn" />
                         </div>
                     </div>
+
                 </fieldset>
             </fieldset>
         </div>

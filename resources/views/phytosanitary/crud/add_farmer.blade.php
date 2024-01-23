@@ -10,6 +10,8 @@
         .table {
             width: 95%;
             /*border: 1px solid black;*/
+            /*float: right;*/
+            /*margin-right: 50px;*/
         }
         .table>thead>tr>th {
             /*border: 1px solid black;*/
@@ -87,7 +89,8 @@
             <hr class="my_hr_in"/>
             @include('phytosanitary.crud.forms.corresponding')
             <hr class="my_hr_in"/>
-
+            @include('phytosanitary.crud.forms.table')
+            <hr class="my_hr_in"/>
 
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
@@ -134,12 +137,60 @@
                 radioButtonO.checked = false;
             }
         }
-//        $('#id_country').change(function () {
-//            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
-//            var for_country_en=$(this).find('option:selected').attr('for_country_en');
-//            $('#for_country_bg').val(for_country_bg);
-//            $('#for_country_en').val(for_country_en);
-//        });
+        function clearRadioButtonsOne()
+        {
+            var radioProduction = document.getElementsByName('production');
+            var radioProcessing = document.getElementsByName('processing');
+            var radioImport = document.getElementsByName('import');
+
+            var radioExport = document.getElementsByName('export');
+            var radioTrade = document.getElementsByName('trade');
+            var radioStorage = document.getElementsByName('storage');
+            var radioTreatment = document.getElementsByName('treatment');
+
+            for (var i=0; i<radioProduction.length; i++)
+            {
+                var radioButtonPR = radioProduction[i];
+                radioButtonPR.checked = false;
+            }
+
+            for (var i=0; i<radioProcessing.length; i++)
+            {
+                var radioButtonP = radioProcessing[i];
+                radioButtonP.checked = false;
+            }
+
+            for (var i=0; i<radioImport.length; i++)
+            {
+                var radioButtonI = radioImport[i];
+                radioButtonI.checked = false;
+            }
+
+            for (var i=0; i<radioExport.length; i++)
+            {
+                var radioButtonE = radioExport[i];
+                radioButtonE.checked = false;
+            }
+
+            for (var i=0; i<radioTrade.length; i++)
+            {
+                var radioButtonT = radioTrade[i];
+                radioButtonT.checked = false;
+            }
+
+            for (var i=0; i<radioStorage.length; i++)
+            {
+                var radioButtonS = radioStorage[i];
+                radioButtonS.checked = false;
+            }
+
+            for (var i=0; i<radioTreatment.length; i++)
+            {
+                var radioButtonTR = radioTreatment[i];
+                radioButtonTR.checked = false;
+            }
+        }
+
         $('#accepted').change(function () {
             var inspector_name=$(this).find('option:selected').attr('inspector_name');
             $('#inspector_name').val(inspector_name);

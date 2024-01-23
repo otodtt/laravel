@@ -37,7 +37,7 @@
             <div id="wr_choiz_all">
                 <div id="search_wrap" class="col-md-9">
                     {!! Form::open(array('url'=>'/сертификати/eg', 'method'=>'POST')) !!}
-                    {{--@include('certificates.index.search')--}}
+                    @include('phytosanitary.index.search')
                     {!! Form::close() !!}
                 </div>
                 <div class="refresh col-md-3">
@@ -50,20 +50,21 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 {!! Form::open(array('url'=>'/сертификати/сортирай', 'method'=>'POST')) !!}
-                    @include('certificates.index.sorting')
+                    @include('phytosanitary.index.sorting')
                 {!! Form::close() !!}
             </div>
         </div>
     </fieldset>
     <hr class="my_hr"/>
-        @include('certificates.index.alphabet')
+{{--        @include('certificates.index.alphabet')--}}
     <div class="btn_add_certificate">
         <a href="{!!URL::to('/сертификати')!!}" class="fa fa-eraser btn btn-primary my_btn right_btn">&nbsp; Изчисти сортирането!</a>
-
+        <br/>
     </div>
     <br/>
-    <hr class="my_hr"/>
-    @include('certificates.index.table')
+    <hr class="my_hr" style="margin: 5px"/>
+    <br/>
+    @include('phytosanitary.index.table')
 @endsection
 
 @section('scripts')

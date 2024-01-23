@@ -67,6 +67,9 @@
                     <p class="description">
                         ПРИ ДА (прилага се подробен опис на растенията, за които се иска разрешение за издаване на растителен паспорт – посочват се до вид, по възможност)
                     </p>
+                    <hr class="hr_in" />
+                    {!! Form::text('passports_list', null, ['class'=>'form-control', 'style'=>'width: 98%; margin-top: 10px;',
+                            'autocomplete'=>'observations', 'rows'=>3 ]) !!}
                 </fieldset>
                 <fieldset class="small_field_in" style="width: 49%; float: right"><legend class="small_legend">ЗАЯВЯВАНЕ за РАЗРЕШЕНИЕ</legend>
                     <p class="description">
@@ -84,6 +87,9 @@
                     <p class="description">
                         ПРИ ДА (прилагат се технически спецификации на съоръжението/ята и оборудването за извършване на дейността/ите)
                     </p>
+                    <hr class="hr_in" />
+                    {!! Form::text('marking_list', null, ['class'=>'form-control', 'style'=>'width: 98%; margin-top: 10px;',
+                            'autocomplete'=>'observations', 'rows'=>3 ]) !!}
                 </fieldset>
             </fieldset>
         </div>

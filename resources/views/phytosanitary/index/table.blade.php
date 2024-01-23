@@ -1,50 +1,75 @@
 <table id="example" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
     <thead>
     <tr>
-        <th>N</th>
-        <th>Ид - номер</th>
-        <th>Дата на издаване</th>
-        <th>Име Презиме Фамилия</th>
-        <th>ЕГН</th>
-        <th>Валиден до</th>
-        <th>Инспектор</th>
-        <th>Виж</th>
+        <th rowspan="2">N</th>
+        <th rowspan="2">Вх.№ на заявление за <br/>първоначална регистрация <br/>/актуализация /промяна във вписаните  обстоятелства</th>
+        <th rowspan="2">Номер и дата на <br/>удостоверението за <br/>регистрация Официален регистрационен номер</th>
+        <th colspan="3">Име и адрес на <br/>професионалният оператор Данни за връзка </th>
+        <th rowspan="2">Дейност/и по чл. 65(1) </th>
+        <th colspan="3">Растения, растителни <br/>продукти и други обекти</th>
+        {{--<th>произход</th>--}}
+        {{--<th>предназначение</th>--}}
+        <th rowspan="2">Адрес на помещенията, <br/>разположение на поземлените парцели</th>
+        <th rowspan="2">Дейност/и по чл. 66(2)</th>
+        <th rowspan="2">Дата на <br/>заличаване на регистрацията/ <br/>Причина</th>
+        <th rowspan="2">Виж</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Име</th>
+        <th>Адрес</th>
+
+        <th>естество</th>
+        <th>произход</th>
+        <th>предназначение</th>
     </tr>
     </thead>
     <tbody>
     <?php $n = 1; ?>
-    @foreach($certificates as $certificate)
+    @foreach($operators as $operator)
         <?php
-        if ($certificate->number <= 9) {
-            $certificate_number = '000' . $certificate->number;
-        } elseif ($certificate->number <= 99) {
-            $certificate_number = '00' . $certificate->number;
-        } elseif ($certificate->number <= 999) {
-            $certificate_number = '0' . $certificate->number;
+        if ($operator->type_firm == 1) {
+            $et = 'ЗС';
+            $eik = 'ЕГН';
+        }  elseif ($operator->type_firm == 2) {
+            $et = 'ET';
+            $eik = 'Булс.';
+        } elseif ($operator->type_firm == 3) {
+            $et = 'ООД';
+            $eik = 'Булс.';
+        } elseif ($operator->type_firm == 4) {
+            $et = 'ЕООД';
+            $eik = 'Булс.';
+        } elseif ($operator->type_firm == 5) {
+            $et = 'АД';
+            $eik = 'Булс.';
+        } elseif ($operator->type_firm == 6) {
+            $et = 'КООП';
+            $eik = 'Булс.';
         } else {
-            $certificate_number = $certificate->number;
-        }
-        if ($certificate->limit_certificate == 1) {
-            $valid = 'БЕЗСРОЧЕН';
-        } else {
-            $date_now = time();
-            if ($date_now > $certificate->to_date) {
-                $valid = 'Изтекъл срок';
-            } else {
-                $valid = date('d.m.Y', $certificate->to_date);
-            }
+            $et = '';
+            $eik = 'Булс.';
         }
         ?>
         <tr>
             <td class="right"><?= $n++ ?></td>
-            <td class="right">{!! $certificate->index_cert !!} - {!! $certificate_number !!}</td>
-            <td class="center">{{date('d.m.Y', $certificate->date)}}</td>
-            <td>{{$certificate->name}}</td>
-            <td class="center">{{$certificate->pin}}</td>
-            <td class="center">{{ $valid }}</td>
-            <td class="center">{{$certificate->short_name}}</td>
+            <td class="left">{!! $operator->number_petition !!} / {{date('d.m.Y', $operator->date_petition)}}</td>
+            <td class="">{{date('d.m.Y', $operator->date_petition)}}</td>
+{{--            <td>{{$operator->name_operator}}</td>--}}
+
+            <td class="right">{{$et}}</td>
+            <td class="">{{ $operator->name_operator }}</td>
+            <td class="">{{$operator->address}}</td>
+
+            <td class="">{{$operator->activity}}</td>
+            <td class="">{{ $operator->products }}</td>
+            <td class="">{{$operator->derivation}}</td>
+            <td class="">{{$operator->purpose}}</td>
+            <td class="">{{$operator->room}}</td>
+            <td class="">{{$operator->action}}</td>
+            <td class="center">{{$operator->deletion}}</td>
             <td class="center last-column">
-                <a href="{!!URL::to('/сертификат/'.$certificate->number)!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                <a href="{!!URL::to('/фито/оператор/'.$operator->id)!!}" class="fa fa-binoculars btn btn-primary my_btn">
                     &nbsp;Виж!
                 </a>
             </td>
