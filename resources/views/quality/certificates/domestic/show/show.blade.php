@@ -1034,9 +1034,9 @@
                     Банкова сметка:
                     <span class="bold">BG83 CECB 979031I7 5800 00</span>;
                     Банков код:
-                    <span class="bold">CECBBGSF</span>;
+                    <span class="bold">IORTBGSF</span>;
                     Банка:
-                    <span class="bold">ЦКБ АД</span>
+                    <span class="bold">Инвестбанк АД</span>
                 </p>
                 <br>
                 <p>

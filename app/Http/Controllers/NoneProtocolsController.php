@@ -561,7 +561,7 @@ class NoneProtocolsController extends Controller
                 ->get();
         }
 
-        return view('protocols.none.show', compact('logo', 'protocol', 'inspectors', 'city', 'areas', 'districts_firm', 'districts_object', 'tor'));
+        return view('protocols.none.show', compact('logo', 'protocol', 'inspectors', 'city', 'areas', 'districts_firm', 'districts_object'));
     }
 
     /**
