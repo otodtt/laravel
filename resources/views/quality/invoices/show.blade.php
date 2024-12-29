@@ -66,12 +66,6 @@
                     @endforeach
                     <p >На обща стойност: <span class="bold" style="text-transform: none">{{number_format($total, 2, ',', ' ')}} лв.</span></p>
                     <hr class="my_hr_in"/>
-                    {{--<p >Адрес: <span class="bold">{{$importer->address_bg }}</span></p>--}}
-                    {{--<hr class="my_hr_in"/>--}}
-                    {{--<p >Фирма: <span class="bold" style="text-transform: uppercase">{{$importer->name_en }}</span></p>--}}
-                    {{--<p >Адрес: <span class="bold">{{$importer->address_en }}</span></p>--}}
-                    {{--<hr class="my_hr_in"/>--}}
-                    {{--<p >ЕИК/VIN: <span class="bold">{{$importer->vin }}</span></p>--}}
                 </div>
             </div>
         </div>
@@ -83,10 +77,10 @@
         @foreach($invoice as $value)
             <?php
                 if($value->invoice_for == 1) {
-                    $for = 'износ';
+                    $for = 'внос';
                 }
                 elseif($value->invoice_for == 2) {
-                    $for = 'внос';
+                    $for = 'износ';
                 }
                 elseif($value->invoice_for == 3) {
                     $for = 'вътрешен';

@@ -9,6 +9,7 @@ $(function() {
     // ////  0  ///
     const crop0 = document.querySelector('.crop0').offsetHeight
     const quality0 = document.querySelector('.quality0').offsetHeight
+    //console.log(crop0 * 2 + "->" + quality0);
     if ( quality0 * 2 ==  crop0 ) {
         $('.pack0').css('margin-bottom', quality0 + 'px');
         $('.quality0').css('margin-bottom', quality0 + 'px');

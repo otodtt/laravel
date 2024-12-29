@@ -228,7 +228,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('контрол/фактури', 'InvoicesController@index');
     Route::post('контрол/фактури/сортирай', 'InvoicesController@sort');
     Route::get('контрол/фактури-внос/{id}', 'InvoicesController@import_create');
-    Route::post('контрол/фактури-внос/{id}/store', 'InvoicesController@import_store');
+    Route::any('контрол/фактури-внос/запази/{id}', 'InvoicesController@import_store');
+    Route::any('контрол/фактури-внос/{id}/check', 'InvoicesController@check_invoice');
     Route::get('контрол/фактури-внос/{id}/edit', 'InvoicesController@import_edit');
     Route::post('контрол/фактури-внос/{id}/update', 'InvoicesController@import_update');
 

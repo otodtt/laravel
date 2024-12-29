@@ -197,9 +197,23 @@ class InvoicesController extends Controller
      * @param $id
      * @return \Illuminate\Http\Response
      */
-    public function import_store(InvoicesRequest $request, $id)
-    {
+    public function check_invoice(InvoicesRequest $request, $id){
+        $number = $request->invoice;
+        $date = $request->date_invoice;
+
         $certificate = QCertificate::findOrFail($id);
+        $is_invoice =  QCertificate::where('invoice_number', '=', $number)->get();
+        $added_by = $certificate->added_by;
+
+        if($added_by != Auth::user()->id) {
+            $alert = 2;
+            return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date'));
+        };
+
+        if (count($is_invoice) != 0) {
+            $alert = 1;
+            return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date'));
+        }
 
         $data = [
             'invoice_for' => 1,
@@ -223,7 +237,50 @@ class InvoicesController extends Controller
             'invoice_id' => $invoice_id,
             'invoice_number' => $request->invoice,
             'invoice_date' => strtotime(stripslashes($request->date_invoice)),
-            //'sum' => round($request->sum, 2),
+        ];
+
+        $certificate->fill($invoice_data);
+        $certificate->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/сертификат-внос/'.$id);;
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request|InvoicesRequest $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function import_store(InvoicesRequest $request, $id)
+    {
+//        $invoice_check = Invoice::select('created_by')->where('number_invoice', '=', $request->invoice)->get()->toArray();
+        $certificate = QCertificate::findOrFail($id);
+        $added_by = $certificate->added_by;
+
+        $data = [
+            'invoice_for' => 1,
+            'number_invoice' => $request->invoice,
+            'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
+            'sum' => $certificate->sum,
+            'certificate_id' => $certificate->id,
+            'certificate_number' => $certificate->import,
+            'importer_id' => $certificate->importer_id,
+            'importer_name' => $certificate->importer_name,
+            'identifier' => $certificate->stamp_number.'/'.$certificate->import,
+            'date_create' => date('d.m.Y', time()),
+            'created_by' => Auth::user()->id,
+        ];
+
+        $invoice = Invoice::create($data);
+        $invoice_id = $invoice->id;
+
+        // Добавяне данни към сертификата
+        $invoice_data = [
+            'invoice_id' => $invoice_id,
+            'invoice_number' => $request->invoice,
+            'invoice_date' => strtotime(stripslashes($request->date_invoice)),
         ];
 
         $certificate->fill($invoice_data);

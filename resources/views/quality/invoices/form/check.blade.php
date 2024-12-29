@@ -12,8 +12,6 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            {{--@if()--}}
-            {{--@elseif()--}}
             <h3 class="my_center" style="color: #d9534f;">Добавяне на Фактура към Сертификат за Внос!</h3>
         </div>
     </div>
@@ -81,107 +79,61 @@
 
     <hr class="hr_in"/>
     <?php
-    // print_r($certificate);
+    //print_r(Auth::user());
     if (isset($alert) ) {
-        $is_alert = 1;
         $invoice = $number;
         $date_invoice = $date;
     }
     else {
         $invoice = null;
         $date_invoice = null;
-        $is_alert = 0;
     }
     ?>
-    @if(isset($alert) && $alert != 0)
+    @if(isset($alert) && $alert == 1 || Auth::user()->id == 2 || Auth::user()->id == 10)
         <div class="alert-danger" style=" text-align: center; margin: 10px 0; border: 1px solid black; ">
             <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има вече издадена фактура с този номер и дата <span style="font-weight: bold; color: black">{{$invoice}}/{{$date}}</span></p>
             <div class="row" style="margin: 15px 0 0 0">
-                <div class="col-md-6" style="text-align: center">
+                <div class="col-md-4" style="text-align: center">
                     <p class="" style="color: black; font-size: 15px">Откажи и въведи друг номер.</p>
                 </div>
-                <div class="col-md-6" style="text-align: center">
+                <div class="col-md-8" style="text-align: center">
                     <p class="" style="color: black; font-size: 15px">Продължи и въведи номера.</p>
                 </div>
             </div>
             <div class="row" style="margin: 10px 0 10px 0">
-                <div class="col-md-6" style="text-align: center">
+                <div class="col-md-4" style="text-align: center">
                     <a href="{{ url('/контрол/фактури-внос/'.$certificate['id']) }}" class="fa fa-eraser btn btn-primary my_btn"> ОТКАЖИ</a>
                 </div>
-                <div class="col-md-6" style="text-align: center">
-                    {{--<form action="/control/invoices/store/{{$certificate['id']}}"  method="get">--}}
-                    {{--<form action="{{ route('control/invoices/store/'.$certificate['id']) }}" method="post">--}}
-                    {{--<a href="{{ url('контрол/фактури-внос/запази/'.$certificate['id']) }}" class="fa fa-eraser btn btn-success my_btn"> ПРОДЪЛЖИ</a>--}}
+                <div class="col-md-8" style="text-align: center">
                     {!! Form::open(['url'=>url('контрол/фактури-внос/запази/'.$certificate['id']) , 'method'=>'POST']) !!}
+                    <div class="col-md-3 col-md-6_my" >
+{{--                        {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>--}}
+                        {!! Form::text('invoice', $invoice, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20, 'readonly' ]) !!}
+                    </div>
+                    <div class="col-md-4 col-md-6_my" >
+{{--                        {!! Form::label('date_invoice', 'Дата Фактура:', ['class'=>'my_labels']) !!}<br>--}}
+                        {!! Form::text('date_invoice', $date_invoice, ['class'=>'form-control form-control-my',
+                        'id'=>'date_invoices', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off', 'readonly'   ]) !!}
+                    </div>
                         {!! Form::submit('ПРОДЪЛЖИ', ['class'=>'btn btn-danger', 'id'=>'submit_yes']) !!}
                         {{--<button  class="btn btn-success">ПРОДЪЛЖИ</button>--}}
-                        {{--<input type="hidden" name="number_invoice" value="{{$certificate['invoice_number']}}">--}}
-                        {{--<input type="hidden" name="date_invoice" value="{{$certificate['invoice_date']}}">--}}
-                        {{--<input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">--}}
+                        <input type="hidden" name="hidden_number" value="{{$number}}">
+                        <input type="hidden" name="hidden_date" value="{{$date}}">
+                        <input type="hidden" name="user" value="{{Auth::user()->id}}">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                     {!! Form::close() !!}
-                    {{--</form>--}}
                 </div>
             </div>
         </div>
-    @endif
-
-    @if($certificate->invoice_id == 0 && $certificate->invoice_date == 0)
-        {!! Form::open(['url'=>'контрол/фактури-внос/'.$certificate['id'].'/check', 'method'=>'POST', 'autocomplete'=>'on']) !!}
-        @if($is_alert == 0)
-            {!! Form::open(['url'=>'контрол/фактури-внос/'.$certificate['id'].'/check', 'method'=>'POST', 'autocomplete'=>'on']) !!}
-        @endif
-{{--        {!! Form::open(['url'=>'контрол/фактури-внос/'.$certificate['id'].'/check', 'method'=>'POST', 'autocomplete'=>'on']) !!}--}}
-        {{--ФАКТУРА И ДАТА--}}
-        <div class="container-fluid" >
-            <div class="row">
-                <div class="col-md-12">
-
-                    <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
-                        <fieldset class="small_field_in" style="width: 50%">
-                            {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
-                                {{--В сумата когато се налага изпозвай ТОЧКА!</span>--}}
-                            {{--</p>--}}
-                            <hr class="hr_in"/>
-                            <div class="col-md-3 col-md-6_my" >
-                                {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>
-                                {!! Form::text('invoice', $invoice, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20 ]) !!}
-                            </div>
-                            <div class="col-md-4 col-md-6_my" >
-                                {!! Form::label('date_invoice', 'Дата Фактура:', ['class'=>'my_labels']) !!}<br>
-                                {!! Form::text('date_invoice', $date_invoice, ['class'=>'form-control form-control-my',
-                                'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
-                            </div>
-                        </fieldset>
-                    </fieldset>
+    @elseif(isset($alert) && $alert == 2)
+        <div class="alert-danger" style=" text-align: center; margin: 10px 0; border: 1px solid black; ">
+            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Сертифката не е издаден от Вас и нямате право да добавяте кyм него факури. </p>
+            <div class="row" style="margin: 15px 0 0 0">
+                <div class="col-md-12" style="text-align: center">
+                    <p class="" style="color: black; font-size: 15px">Откажи и въведи друг номер.</p>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-12" id="add_stock" style="text-align: center; margin-top: 10px;">
-            @if($is_alert == 0)
-                {!! Form::submit('Добави Фактура!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
-            @endif
-            {{--{!! Form::submit('Добави Фактура!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}--}}
-        </div>
-        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
-
-        {!! Form::close() !!}
-    @else
-        <div class="container-fluid" >
-            <div class="row">
-                <div class="col-md-12">
-                    <fieldset class="small_field"><legend class="small_legend">
-                            <span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red" style="font-weight: bold; text-transform: uppercase;" >Внимание! Има изданена фактура на този сертификат!</span>
-                        </legend>
-                        <fieldset class="small_field_in" style="width: 100%">
-                            <p>
-                                <span class="bold red" style="font-weight: bold; text-transform: none;" >Внимание! Има изданена фактура на този сертификат!</span>
-                                <span class="bold red" style="font-weight: bold; text-transform: none;" >Не може да има две фактури за един сертификат!</span>
-                            </p>
-                            <p>Серификат номер: <span class="bold">{{$certificate->import}}/{{date('d.m.Y', $certificate->date_issue)}}</span> г.</p>
-                            <p>Фактура номер: <span class="bold">{{$certificate->invoice_number}}/{{date('d.m.Y', $certificate->invoice_date)}}</span> г.</p>
-                        </fieldset>
-                    </fieldset>
+                <div class="col-md-12" style="text-align: center; margin-bottom: 20px">
+                    <a href="{{ url('/контрол/фактури-внос/'.$certificate['id']) }}" class="fa fa-eraser btn btn-primary my_btn"> ОТКАЖИ</a>
                 </div>
             </div>
         </div>

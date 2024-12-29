@@ -38,10 +38,10 @@ div, p, form, select, option, input, h1, h2, h3, h4, h5, fieldset, legend, a{
     height: 29.6cm;
     margin: 0 auto;
     font-family: "Times New Roman", serif;
-    padding-left: 2.5cm;
-    padding-right: 2.5cm;
-    padding-top: 1cm;
-    padding-bottom: 1.7cm;
+    padding-left: .6cm;
+    padding-right: 1.1cm;
+    padding-top: 1.4cm;
+    padding-bottom: 2.4cm;
 }
 
 .red{ color: #ff0000;  }

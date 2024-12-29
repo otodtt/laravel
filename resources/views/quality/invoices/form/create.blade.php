@@ -81,13 +81,15 @@
 
     <hr class="hr_in"/>
 
-    @if($certificate->invoice_id == 0 && $certificate->invoice_date == 0)
-        {!! Form::open(['url'=>'контрол/фактури-внос/'.$certificate['id'].'/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
+    @if($certificate->invoice_id == 0 && $certificate->invoice_date == 0)
+        {!! Form::open(['url'=>'контрол/фактури-внос/'.$certificate['id'].'/check', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'контрол/фактури-внос/check/'.$certificate['id'], 'method'=>'POST', 'autocomplete'=>'on']) !!}
         {{--ФАКТУРА И ДАТА--}}
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-md-12">
+
                     <fieldset class="small_field"><legend class="small_legend">Фактура</legend>
                         <fieldset class="small_field_in" style="width: 50%">
                             {{--<p class="description"><span class="fa fa-warning red" aria-hidden="true"> ВАЖНО!!!--}}
@@ -103,10 +105,6 @@
                                 {!! Form::text('date_invoice', null, ['class'=>'form-control form-control-my',
                                 'id'=>'date_invoice', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off' ]) !!}
                             </div>
-                            {{--<div class="col-md-4 col-md-6_my" >--}}
-                                {{--{!! Form::label('sum', 'Сума', ['class'=>'my_labels']) !!}<br>--}}
-                                {{--{!! Form::text('sum', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10 ]) !!}--}}
-                            {{--</div>--}}
                         </fieldset>
                     </fieldset>
                 </div>
@@ -144,7 +142,7 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>
         function enforceNumberValidation(ele) {
@@ -168,5 +166,17 @@
                 }
             }
         }
+
+        function refreshPage(){
+            window.location.reload();
+        }
+
+        {{--var msg = '{{Session::get('alert')}}';--}}
+        {{--var exist = '{{Session::has('alert')}}';--}}
+        {{--var date = '{{Session()}}';--}}
+//        console.log(date);
+//        if(exist){
+//            alert(date);
+//        }
     </script>
 @endsection

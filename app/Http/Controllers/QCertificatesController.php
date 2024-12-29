@@ -584,7 +584,13 @@ class QCertificatesController extends Controller
             $sum_type = 0;
         }
 
-        return view('quality.certificates.import.show', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_import', 'sum_type'));
+        if ($certificate->date_issue >= 17356896) {
+            return view('quality.certificates.import.show_next', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_import', 'sum_type'));
+        } else {
+            return view('quality.certificates.import.show', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_import', 'sum_type'));
+        }
+
+
     }
 
     /**
@@ -613,6 +619,13 @@ class QCertificatesController extends Controller
                 'is_sum.numeric' => 'За сумата на Фактура използвай ТОЧКА или само цифри! ',
                 'is_sum.min' => 'Преди да заключиш добави сумата!',
             ]);
+        $this->validate($request,
+            ['is_invoice' => 'required|not_in:0'],
+            [
+                'is_invoice.required' => 'Преди да заключиш добави номера и датата на фактурата!',
+                'is_invoice.not_in' => 'Преди да заключиш добави номера и датата на фактурата!',
+            ]);
+
 
         $certificate = QCertificate::findOrFail($id);
         $data = [

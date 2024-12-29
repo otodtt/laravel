@@ -103,6 +103,10 @@
         </div>
     </div>
     <hr class="hr_in"/>
+    <div class="alert-danger" style="text-align: center">
+        <p style="font-weight: bold; font-size: 25px">ВНИМАНИЕ! Могат да се добавят само до 9 артикула!</p>
+    </div>
+    <hr class="hr_in"/>
     <div class="container-fluid"  id="show_stckr">
         <div class="row">
             <div class="col-md-12" >
