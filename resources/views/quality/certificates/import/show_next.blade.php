@@ -6,7 +6,12 @@
 @section('css')
     {!!Html::style("css/date/jquery.datetimepicker.css" )!!}
     {!!Html::style("css/qcertificates/show_opinion.css" )!!}
-    {!!Html::style("css/qcertificates/body_table.css" )!!}
+    @if($certificate->date_issue >= 1735689600)
+
+        {!!Html::style("css/qcertificates/body_table_next.css" )!!}
+    @else
+        {!!Html::style("css/qcertificates/body_table.css" )!!}
+    @endif
     @if($certificate->is_lock == 1)
         {!!Html::style("css/qcertificates/print.css", array('media' => 'print'))!!}
     @endif
@@ -381,7 +386,7 @@
         <div class="page" >
             <div class="col-md-12_my" id="flip_all">
                 <div class="col-md-12_my" id="flip_in">
-                    <div class="col-md-12_my" style="margin: 0 auto">
+                    <div class="col-md-12_my" style="margin: 0 auto; display: none">
                         <h3 class="h3_top">
                             СЕРТИФИКАТ ЗА СЪОТВЕТСТВИЕ С ПАЗАРНИТЕ СТАНДАРТИ НА ЕВРОПЕЙСКИЯ СЪЮЗ ЗА ПРЕСНИ ПЛОДОВЕ И ЗЕЛЕНЧУЦИ, ПОСОЧЕНИ В ЧЛЕНОВЕ 12, 13 И 14
                         </h3>
@@ -393,10 +398,10 @@
                     {{-- Таблица 1 --}}
                     <table id="first_table">
                         <tbody>
-                            <tr id="first-row" >
-                                <td class="cell first-row-cell" style="height: 5.2cm">
-                                    <p class="p_info" style="margin-bottom: 3px">1. Търговец / Trader</p>
-                                    <p class="p_content" style="margin-bottom: 8px">{{$certificate->importer_name }}</p>
+                            <tr id="first-row">
+                                <td class="cell first-row-cell no-print" style="height: 4.7cm" rowspan="2">
+                                    <p class="p_info no-print" style="margin-bottom: 3px">1. Търговец / Trader</p>
+                                    <p class="p_content print" style="margin-bottom: 8px">{{$certificate->importer_name }}</p>
                                     <?php
                                         if($firm->is_bulgarian == 0) {
                                             $vin = 'BG:'.$certificate->importer_vin;
@@ -406,31 +411,43 @@
                                             $vin = $certificate->importer_vin;
                                         }
                                     ?>
-                                    <p class="p_content" style="">{{$certificate->importer_address }} / {{ $vin }}</p>
+                                    <p class="p_content print" style="">{{$certificate->importer_address }} / {{ $vin }}</p>
                                 </td>
-                                <td class="cell first-row-cell cell-top" style="height: 5.2cm">
+                                <td colspan="2" class="no-print">
+                                    <p class="p_info type line no-print" style="margin-bottom: 1px; font-weight: bold; margin-left: 50px">
+                                        РЕПУБЛИКА БЪЛГАРИЯ/REPUBLIC OF BULGARIA<br>
+                                        БЪЛГАРСКА АГЕНЦИЯ ПО БЕЗОПАСНОСТ НА ХРАНИТЕ/<br>
+                                        BULGARIAN FOOD SAFETY AGENCY
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr id="first-row_2">
+
+                                <td class="cell first-row-cell_2 cell-top no-print" style="height: 3.4cm">
                                     @if ($certificate->type_crops == 1)
-                                        <p class="p_info type line" style="margin-bottom: 2px">
-                                            Сертификат за съответствие с пазарните стандарти на Европейския съюз, приложими към пресни плодове и зеленчуци, съгласно Регламент 543/2011
+                                        <p class="p_info type line no-print" style="margin-bottom: 1px; font-weight: bold; text-align: center">
+                                            Сертификат за съответствие/Certificate of conformity<br>
+                                            с пазарните стандарти на Европейския съюз,/with the European Union
+                                            marketing standards
                                         </p>
                                     @endif
                                     @if ($certificate->type_crops == 2)
-                                        <p class="p_info type line" style="margin-bottom: 2px">
+                                        <p class="p_info type line no-print" style="">
                                             Сертификат за съответствие с пазарните стандарти на Европейския съюз, приложими към пресни плодове и зеленчуци, предназначени за преработка, съгласно Регламент 543/2011
                                         </p>
                                     @endif
-                                    <p class="p_info line" style="margin-bottom: 3px">
-                                        Certificate of conformity with the European Union marketing standards applicable to fresh fruit and vegetables, according Regulation 543/2011
+                                    <p class="p_info line no-print" style="">
+                                        приложими към пресните плодове, зеленчуци и банани/applicable to fresh fruit and vegetables and bananas
                                     </p>
-                                    <p class="p_content number_sert" style="">
+                                    <p class="p_content number_certificate no-print" style="font-weight: bold">
                                         №/No {{ $certificate->stamp_number }}/{{ $certificate->import }}
                                     </p>
-                                    <p class="p_info line" style="margin-bottom: 3px">
-                                        (Настоящият сертификат е предназначен изключително за контролните органи)
+                                    <p class="p_info line no-print" style="">
+                                        (Настоящият сертификат е предназначен изключително за контролните органи)/(This certificate is exclusively for the use of inspection bodies)
                                     </p>
-                                    <p class="p_info line" style="margin-bottom: 3px">
-                                        (This certificate is exclusively for the use of inspectionbodies)
-                                    </p>
+                                    {{--<p class="p_info line" style="">--}}
+                                        {{--(This certificate is exclusively for the use of inspection bodies)--}}
+                                    {{--</p>--}}
                                 </td>
                             </tr>
                         </tbody>
@@ -439,11 +456,11 @@
                     <table id="second_table">
                         <tbody>
                             <tr>
-                                <td class="cell second-row-cell cell-control autority" style=" height: 3.6cm" rowspan="2">
-                                    <p class="p_info" style="margin-bottom: 3px;">
-                                        2. Опаковчик, посочен върху опаковката (ако е  различен от търговеца)/ Packer identified on packaging (if other than trader)
+                                <td class="cell second-row-cell cell-control authority no-print" style=" height: 2.6cm" rowspan="2">
+                                    <p class="p_info no-print" style="margin-bottom: 3px;">
+                                        2. Опаковчик, посочен на опаковката (ако е  различен от търговеца)/ Packer identified on packaging (if other than trader)
                                     </p>
-                                    <p class="p_content" style="margin-top: 20px">
+                                    <p class="p_content print" style="margin-top: 20px">
                                         @if( strlen($certificate->packer_address) > 0)
                                             {{$certificate->packer_name }}, {{ $certificate->packer_address }}
                                         @else
@@ -455,39 +472,43 @@
                                         {{--{{$certificate->packer_address }}--}}
                                     {{--</p>--}}
                                 </td>
-                                <td class="cell second-row-cell cell-control autority" style="height: 1cm  !important" colspan="2">
+                                <td class="cell second-row-cell_2 cell-control authority no-print" style="height: .6cm  !important" colspan="2">
                                     <p class="p_info" style="margin-bottom: 3px">
-                                        3. Контролен орган / Inspection body
+                                        <span class="no-print">3. Контролен орган/Inspection body</span> <span class="bold print">{{ mb_strcut ( $certificate->authority_bg, 10) }}/{{ substr($certificate->authority_en, 6) }}</span>
                                     </p>
-                                    <p class="p_content bold"  style="line-height: 15px">
-                                        {{$certificate->authority_bg }}
-                                    </p>
-                                    <p class="p_content bold" style="line-height: 15px">
-                                        {{$certificate->authority_en }}
-                                    </p>
+                                    {{--<p class="p_content bold"  style="line-height: 15px">--}}
+                                        {{--{{ mb_strcut ( $certificate->authority_bg, 10) }}/{{ substr($certificate->authority_en, 6)  }}--}}
+                                    {{--</p>--}}
+                                    {{--<p class="p_content bold" style="line-height: 15px">--}}
+                                        {{--{{$certificate->authority_en }}--}}
+                                    {{--</p>--}}
                                 </td>
                             </tr>
                             <tr >
-                                <td class="cell third-row-cell" style="height: 2.2cm; width: 3.9cm" >
-                                    <p class="p_info" style="margin-bottom: 3px">
-                                        4. Място на инспекцията/ <span style="text-decoration: underline">страна на произход</span> (<sup>1</sup>)
+                                <td class="cell second-row-cell_2 no-print" style="height: 2cm; width: 5.4cm" >
+                                    <p class="p_info no-print" style="margin-bottom: 3px">
+                                        4. Място на инспекцията/ <span style="">страна на произход</span> (<sup>1</sup>)
+                                        /Place of inspection/ <span style="">country of origin </span> (<sup>1</sup>)
                                     </p>
-                                    <p class="p_info" style="margin-bottom: 3px">
-                                        Place of inspection/ <span style="text-decoration: underline">country of origin </span> (<sup>1</sup>)
-                                    </p>
-                                    <p class="p_content bold" style="text-transform: none; margin-top: 8px">
+                                    {{--<p class="p_info no-print" style="margin-bottom: 3px">--}}
+                                        {{--Place of inspection/ <span style="text-decoration: underline">country of origin </span> (<sup>1</sup>)--}}
+                                    {{--</p>--}}
+                                    <p class="p_content bold print" style="text-transform: none; margin-top: 10px">
                                         {{$certificate->from_country }}
                                     </p>
                                 </td>
-                                <td class="cell third-row-cell" style="height: 2.2cm; width: 3.8cm" >
-                                    <p class="p_info" style="margin-bottom: 3px">
+                                <td class="cell third-row-cell no-print" style="height: 2cm; width: 5.4cm" >
+                                    <p class="p_info no-print" style="margin-bottom: 3px; text-align: inherit">
                                         5. Регион или страна на местоназначение/ Region or country of destination
                                     </p>
-                                    <div id="country_wrapp">
-                                        <p class="p_content bold" id="country_p" style="">
-                                            {{$certificate->for_country_bg }}/ <span style="text-transform: none">{{$certificate->for_country_en }}</span>
-                                        </p>
-                                    </div>
+                                    <p class="p_content bold print" id="country_p" style="margin-top: 10px">
+                                        {{$certificate->for_country_bg }}/ <span style="text-transform: none">{{$certificate->for_country_en }}</span>
+                                    </p>
+                                    {{--<div id="country_wrapp">--}}
+                                        {{--<p class="p_content bold print" id="country_p" style="">--}}
+                                            {{--{{$certificate->for_country_bg }}/ <span style="text-transform: none">{{$certificate->for_country_en }}</span>--}}
+                                        {{--</p>--}}
+                                    {{--</div>--}}
                                 </td>
                             </tr>
                         </tbody>
@@ -496,39 +517,44 @@
                     <table id="third_table">
                         <tbody>
                             <tr >
-                                <td class="cell second-row-cell cell-rowspan"  >
-                                    <p class="p_info" style="margin-bottom: 3px;">
-                                        6. Идентификация на транспортните средства/ Identifier of means of transport BY TRUCK
+                                <td class="cell third-row-cell cell-rowspan no-print"  >
+                                    <p class="p_info no-print" style="margin-bottom: 3px;">
+                                        6. Идентификация на транспортните средства/ Identifier of means of transport
                                     </p>
-                                    <p class="p_content transport" style="margin-bottom: 3px">
+                                    <p class="p_content transport print" style="margin-bottom: 3px; font-weight: bold">
                                         {{$certificate->transport }}
                                     </p>
                                 </td>
-                                <td class="cell second-row-cell cell-controlss" >
-                                    <p class="p_info" id="p_seven" style="margin-bottom: 10px;">
+                                <td class="cell third-row-cell_2 cell-controls no-print" >
+                                    <p class="p_info no-print" id="p_seven" style="margin-bottom: 1px;">
                                         7.
                                     </p>
                                     @if ($certificate->what_7  == 1)
-                                    <p id="p_internal_yes" class="p_content7"><i class="fa fa-check-square-o" aria-hidden="true"></i> <span style="text-decoration: underline">вътрешен/internal</span></p>
+                                    <p id="p_internal_yes" class="p_content7"><i class="fa fa-check print" aria-hidden="true"></i> <span style="text-decoration: underline">вътрешен/internal</span></p>
                                     @else
-                                    <p id="p_internal_no" class="p_content7"><i class="fa fa-square-o" aria-hidden="true"></i> <span>вътрешен/internal</span></p>
+                                    <p id="p_internal_no" class="p_content7"><i class="fa fa-square-o no-print" aria-hidden="true"></i> <span>вътрешен/internal</span></p>
                                     @endif
 
                                     @if ($certificate->what_7  == 2)
-                                    <p id="p_import_yes" class="p_content7"><i class="fa fa-check-square-o" aria-hidden="true"></i> <span style="text-decoration: underline">внос/import</span></p>
+                                    <p id="p_import_yes" class="p_content7"><i class="fa fa-check print" aria-hidden="true"></i> <span style="text-decoration: underline">внос/import</span></p>
                                     @else  
-                                    <p id="p_import_no" class="p_content7"><i class="fa fa-square-o" aria-hidden="true"></i> <span >внос/import</span></p>  
+                                    <p id="p_import_no" class="p_content7"><i class="fa fa-square-o no-print" aria-hidden="true"></i> <span >внос/import</span></p>
                                     @endif
 
                                     @if ($certificate->what_7  == 3)
-                                    <p id="p_export_yes" class="p_content7"><i class="fa fa-check-square-o" aria-hidden="true"></i> <span style="text-decoration: underline">износ/export</span></p>
+                                    <p id="p_export_yes" class="p_content7"><i class="fa fa-check print" aria-hidden="true"></i> <span style="text-decoration: underline">износ/export</span></p>
                                     @else   
-                                    <p id="p_export_no" class="p_content7"><i class="fa fa-square-o" aria-hidden="true"></i> <span>износ/export</span></p> 
+                                    <p id="p_export_no" class="p_content7"><i class="fa fa-square-o no-print" aria-hidden="true"></i> <span>износ/export</span></p>
                                     @endif
+                                    <p class="p_info no-print" style="margin-bottom: 3px; margin-top: 3px;">
+                                        (В случая на банани, се отнася за проверки в мястото на местоназначението, когато е целесъобразно)
+                                        /(For bananas, it refers to checks at destination where appropriate)
+                                    </p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+
                     {{-- Таблица 4 --}}
                     <table id="fourth_table">
                         <tbody>
@@ -693,7 +719,7 @@
         </div>
     </div>
 
-    <div id="wrap_in_note" class="col-md-12 hidden">
+    <div id="wrap_in_note" class="col-md-12 hidden" style="display: none">
         <div class="page" >
             <div class="col-md-12_my" id="flip_all_note">
                 <div class="col-md-12_my" id="flip_in_note">
