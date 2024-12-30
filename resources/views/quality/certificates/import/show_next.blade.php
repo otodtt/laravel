@@ -651,11 +651,11 @@
                         <tbody>
                             <tr >
                                 <td class="fifth-row-cell no-print" >
-                                    <p class="p_info no-print"  style="margin-bottom: 11px">
-                                        12. Към момента на издаване на сертификата посочената по-горе пратка съответства на 
-                                        действащите пазарни стандарти на Европейския съюз, съгласно Регламент 543/2011/
+                                    <p class="p_info "  style="margin-bottom: 11px">
+                                        <span class="no-print">12. Към момента на издаване на сертификата посочената по-горе пратка съответства на
+                                        действащите пазарни стандарти на Европейския съюз/
                                         The consignment referred to above conforms, at the issue time, with the European Union 
-                                        marketing standards in force, according Regulation 543/2011
+                                        marketing standards in force,</span> <span class="bold print">R (EC 2023/2429)</span>
                                     </p>
 
                                     <div class="com-md-12" style="display: inline-block">
@@ -693,7 +693,7 @@
                                 <td class="sixth-row-cell cell-rowspan no-print" >
                                     @if ($certificate->type_crops == 2 )
                                         <p class="p_content print" style="text-transform: none; padding-left: 150px">
-                                            Сертификатът се издава на основание чл.4 т.7 от Регламент (ЕС) 543/2011 г.
+                                            Сертификатът се издава на основание R (ЕС) 2023/2429.
                                             @if ($certificate->invoice_date > 0)
                                                 <span class="print" style="float: right; margin-right: 5px">Ф-ра <span class="bold">{{$certificate->invoice_number}} / {{ date("d.m.Y", $certificate->invoice_date) }} </span> </span>
                                             @endif
@@ -706,7 +706,7 @@
                                         <p class="p_content" style="text-transform: none; margin-bottom: 4px">
                                             <span class="no-print">13. Бележки/ Observations</span>  {{$certificate->observations}}
                                             @if ($certificate->invoice_date > 0)
-                                                <span class="print" style="float: right; margin-right: 5px">Фактура <span class="bold">{{$certificate->invoice_number}} / {{ date("d.m.Y", $certificate->invoice_date) }} </span></span>
+                                                <span class="print" style="float: right; margin-right: 5px">Фактура/Invoice <span class="bold">{{$certificate->invoice_number}} / {{ date("d.m.Y", $certificate->invoice_date) }} </span></span>
                                             @endif
 
                                         </p>
