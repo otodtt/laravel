@@ -33,7 +33,7 @@ table, th, td {
 }
 .first-row-cell {
     border: 1px solid black;
-    width: 43.5%;
+    width: 44.1%;
 }
 .first-row-cell_2 {
     border: 1px solid black;
@@ -43,11 +43,11 @@ table, th, td {
 #second_table {
     margin: 0 auto;
     /* width: 15.2cm; */
-    height: 2.6cm;
+    height: 2.8cm;
     padding: 0;
 }
 .second-row-cell  {
-    width: 43.5%;
+    width: 44.1%;
     border: 1px solid black;
     border-top: none;
     /* margin-top: 10px; */
@@ -65,7 +65,7 @@ table, th, td {
 }
 
 .third-row-cell {
-    width: 43.5%;
+    width: 44.1%;
     border: 1px solid black;
     border-top: none;
 }
@@ -78,19 +78,18 @@ table, th, td {
 #third_table {
     margin: 0 auto;
     width: 100%;
-    /*height: 3cm;*/
     padding: 0;
 }
 /* 4 table */
 #fourth_table {
     margin: 0 auto;
-    /* width: 15.2cm; */
-    height: 10.3cm;
+    width: 100%;
+    height: 11.6cm;
     padding: 0;
     /* background-color: #f08351; */
 }
 .fourth-row-cell_1 {
-    width: 2.3cm;
+    width: 2.5cm;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     border-top: none;
@@ -99,14 +98,14 @@ table, th, td {
     padding-left: 0;
 }
 .fourth-row-cell_2 {
-    width: 6.1cm;
+    width: 6.4cm;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     border-top: none;
     padding-top: 1px !important;
 }
 .fourth-row-cell_3 {
-    width: 5.4cm;
+    width: 5.6cm;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     border-top: none;
@@ -124,8 +123,7 @@ table, th, td {
 }
 #fifth_table {
     margin: 0 auto;
-    /* width: 15.2cm; */
-    height: 4.1cm;
+    height: 4.7cm;
     padding: 0;
     /* background-color: #71d836; */
 }
@@ -140,7 +138,7 @@ table, th, td {
 #sixth_table {
     margin: 0 auto;
     width: 100%;
-    /*height: 1.8cm;*/
+    height: 1.7cm;
     padding: 0;
 }
 .sixth-row-cell {
@@ -233,9 +231,9 @@ table, th, td {
     position: absolute;
     bottom: 0;
 }
-#p_bottom_set{
-    margin-top: 5px !important;
-}
+/*#p_bottom_set{*/
+    /*padding-top: 10px !important;*/
+/*}*/
 #second_table_note {
     margin: 0 auto;
     width: 100%;
@@ -279,12 +277,12 @@ table, th, td {
 
 #table_pack {
     border: none !important;
-    margin-top: 5px !important;
+    margin-top: 30px !important;
 }
 
 #table_crop {
     border: none !important;
-    margin-top: 39px !important;
+    margin-top: 65px !important;
     /*padding-left: ;*/
 }
 /*#cell_tariff {*/

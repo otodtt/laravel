@@ -127,6 +127,7 @@
     @elseif(isset($alert) && $alert == 2)
         <div class="alert-danger" style=" text-align: center; margin: 10px 0; border: 1px solid black; ">
             <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има издаена фактура с този номер но не е издадена от Вас и нямате право да добавяте сетификати към нея. </p>
+            <p style="font-weight: bold; font-size: 20px">Издаена от <span style="font-weight: bold; color: black">{{$is_invoice[0]['inspector_bg']}} - {{$invoice}}/{{$date_invoice}}</span></p>
             <div class="row" style="margin: 15px 0 0 0">
                 <div class="col-md-12" style="text-align: center">
                     <p class="" style="color: black; font-size: 15px">Откажи и въведи друг номер.</p>
@@ -142,7 +143,7 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+    {!!Html::script("js/confirm/prevent.js" )!!}
     {!!Html::script("js/quality/date_issue.js" )!!}
     <script>
         function enforceNumberValidation(ele) {

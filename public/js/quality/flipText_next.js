@@ -10,12 +10,12 @@ $(function() {
     //   КОГАТО ОПАКОВЧИКА Е НА ПОВЕЧЕ ОР $ РЕДА
 
     const div = document.querySelector('#second-row').offsetHeight
-    if (div > 103) {
+    if (div > 106) {
         const packers = document.getElementById("packers").style.fontSize
         const font = packers.slice(0, packers.length - 2);
 
         document.getElementById("packers").style.fontSize = font - 1 + 'px'
-        document.getElementById("second-row").style.height = '103px'
+        document.getElementById("second-row").style.height = '106px'
     }
 
     //   ЗА ПОДРАВНЯВАНЕ НА КУЛТУРИТВ
@@ -33,18 +33,20 @@ $(function() {
     console.log((first + second + third + fourth + fifth + sixth_cell + seven_cell)  * cent);
     console.log("first ->" + first  * cent);
     console.log("second ->" + second  * cent);
+    console.log("second ->" + second );
     console.log("third ->" + third  * cent);
     console.log("fourth ->" + fourth  * cent);
     console.log("fifth ->" + fifth  * cent);
     console.log("sixth ->" + sixth  * cent);
 
 
-    $('.quality0').css('margin-top', '65px');
-    $('.weight0').css('margin-top', '50px');
+    $('.quality0').css('margin-top', '93px');
+    $('.weight0').css('margin-top', '80px');
 
     // ////  0  ///
     const pack0 = document.querySelector('.pack0').offsetHeight
     const crop0 = document.querySelector('.crop0').offsetHeight
+    console.log(pack0+ "---->" + crop0 );
     if ( pack0 >=  crop0 ) {
         $('.crop0').css('height', pack0 + 'px');
         $('.quality0').css('height', pack0 + 'px');
@@ -56,7 +58,7 @@ $(function() {
     }
 
     // ////  1  ///
-    if ( document.querySelector('.crop4') !== null ) {
+    if ( document.querySelector('.crop1') !== null ) {
         const pack1 = document.querySelector('.pack1').offsetHeight
         const crop1 = document.querySelector('.crop1').offsetHeight
         if (pack1 >= crop1) {

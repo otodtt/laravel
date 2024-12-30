@@ -118,6 +118,7 @@
                         {{--<button  class="btn btn-success">ПРОДЪЛЖИ</button>--}}
                         <input type="hidden" name="hidden_number" value="{{$is_invoice[0]['invoice_number']}}">
                         <input type="hidden" name="hidden_date" value="{{$is_invoice[0]['invoice_date']}}">
+                        <input type="hidden" name="hidden_id" value="{{$invoice_id}}">
                         <input type="hidden" name="user" value="{{Auth::user()->id}}">
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                     {!! Form::close() !!}
@@ -127,7 +128,7 @@
     @elseif(isset($alert) && $alert == 2)
         <div class="alert-danger" style=" text-align: center; margin: 10px 0; border: 1px solid black; ">
             <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има издаена фактура с този номер но не е издадена от Вас и нямате право да добавяте сетификати към нея. </p>
-            <p style="font-weight: bold; font-size: 20px">Издадена от инспектор <span style="font-weight: bold; color: black">{{$invoice}}/{{$date_invoice}} от {{$is_invoice[0]['inspector_bg']}}</span> </p>
+            <p style="font-weight: bold; font-size: 20px">Издаена от <span style="font-weight: bold; color: black">{{$is_invoice[0]['inspector_bg']}} - {{$invoice}}/{{$date_invoice}}</span></span> </p>
             <div class="row" style="margin: 15px 0 0 0">
                 <div class="col-md-12" style="text-align: center">
                     <p class="" style="color: black; font-size: 15px">Откажи и въведи друг номер.</p>

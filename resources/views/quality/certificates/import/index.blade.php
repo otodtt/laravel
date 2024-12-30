@@ -69,6 +69,7 @@
                             {!!Form::hidden('_token', csrf_token() )!!}
                         {!! Form::close() !!}
                     </div>
+                    {{--<hr class="my_hr">--}}
                     <div class="col-md-7">
                         <?php
                         if (isset($search_return)) {

@@ -43,6 +43,26 @@ class InvoicesController extends Controller
      */
     public function index(Request $request)
     {
+        $array = array();
+        $year_now = null;
+
+        if(isset($request['years'])){
+            $year_now = $request['years'];
+        }
+        else{
+            $year_now = date('Y', time());
+        }
+        $start_year = '01.01.'. $year_now;
+        $time_start = strtotime(stripslashes($start_year));
+        $end_year = '31.12.'. $year_now;
+        $time_end = strtotime(stripslashes($end_year));
+        $certs = Invoice::get();
+        foreach($certs as $cert){
+            $array[date('Y', $cert->date_invoice)] = date('Y', $cert->date_invoice);
+        }
+        $years = array_filter(array_unique($array));
+//        dd($years);
+
         $firms = Importer::where('is_active', '=', 1)->where('trade', '>=', 0)->lists('name_en', 'id')->toArray();
 
         $search_return = $request['search'];
@@ -59,6 +79,8 @@ class InvoicesController extends Controller
                     'search_value.digits_between' => 'Номера трябва да е между една и пет цифри!',
                 ]);
             $invoices = Invoice::orderBy('date_invoice', 'desc')->where('certificate_number','=',$request['search_value'])->get();
+//            $invoices = Invoice::where('date_invoice','>=',$time_start)->where('date_invoice','<=',$time_end)
+//                ->where('number_invoice','=',$request['search_value'])->orderBy('date_invoice', 'desc')->get();
         }
         elseif((int)$request['search'] == 2){
             $this->validate($request,
@@ -68,14 +90,18 @@ class InvoicesController extends Controller
                     'search_value.digits_between' => 'Номера трябва да е между 3 и 10 цифри!',
                 ]);
             $invoices = Invoice::orderBy('date_invoice', 'desc')->where('number_invoice','=',$request['search_value'])->get();
+//            $invoices = Invoice::where('date_invoice','>=',$time_start)->where('date_invoice','<=',$time_end)
+//                                            ->where('number_invoice','=',$request['search_value'])->orderBy('date_invoice', 'desc')->get();
         }
         else {
             $invoices = Invoice::orderBy('date_invoice', 'desc')->get();
+//            $invoices = Invoice::where('date_invoice','>=',$time_start)->where('date_invoice','<=',$time_end)
+//                ->where('number_invoice','=',$request['search_value'])->orderBy('date_invoice', 'desc')->get();
         };
 
         $for_sort = array(''=>'издаден за', 1=>'Сетификат за внос', 2=>'Сетификат за износ', 3=>'Вътрешен Сетификат', 4=>'Проверка Идентификация');
 
-        return view('quality.invoices.invoices', compact('invoices', 'firms', 'search_return', 'search_value_return', 'for_sort'));
+        return view('quality.invoices.invoices', compact('invoices', 'firms', 'search_return', 'search_value_return', 'for_sort', 'years', 'year_now'));
     }
 
     /**
@@ -315,17 +341,16 @@ class InvoicesController extends Controller
         $invoice = Invoice::findOrFail($id);
         $is_invoice =  QCertificate::where('invoice_number', '=', $number)->get()->toArray();
         $certificate =  QCertificate::where('id', '=', $invoice->certificate_id)->get()->toArray();
-//        dd($is_invoice);
+        $invoice_id = $invoice->id;
+
         if (count($is_invoice) != 0) {
             if($is_invoice[0]['added_by'] != Auth::user()->id && Auth::user()->admin == 1) {
                 $alert = 2;
-                return view('quality.invoices.form.check_update', compact('certificate', 'alert', 'number', 'date', 'is_invoice'));
+                return view('quality.invoices.form.check_update', compact('invoice_id', 'certificate', 'alert', 'number', 'date', 'is_invoice'));
             };
             $alert = 1;
-            return view('quality.invoices.form.check_update', compact('certificate','alert', 'number', 'date', 'is_invoice'));
+            return view('quality.invoices.form.check_update', compact('invoice_id', 'certificate','alert', 'number', 'date', 'is_invoice'));
         }
-
-
 
         $data = [
             'number_invoice' => $request->invoice,
@@ -333,6 +358,39 @@ class InvoicesController extends Controller
             'date_update' => date('d.m.Y', time()),
             'updated_at' => Auth::user()->id,
         ];
+        $invoice->fill($data);
+        $invoice->save();
+
+        // Редактиране данни към сертификата
+        $certificate = QCertificate::where('invoice_id', $invoice->id)->firstOrFail();
+        $invoice_data = [
+            'invoice_number' => $request->invoice,
+            'invoice_date' => strtotime(stripslashes($request->date_invoice)),
+        ];
+
+        $certificate->fill($invoice_data);
+        $certificate->save();
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/контрол/сертификат-внос/'.$certificate->id);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request|InvoicesRequest $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function import_update_store(InvoicesRequest $request, $id)
+    {
+        $invoice = Invoice::findOrFail($request->hidden_id);
+
+        $data = [
+            'number_invoice' => $request->invoice,
+            'date_invoice' =>strtotime(stripslashes($request->date_invoice)),
+            'date_update' => date('d.m.Y', time()),
+            'updated_at' => Auth::user()->id,
+        ];
+
         $invoice->fill($data);
         $invoice->save();
 

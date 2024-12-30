@@ -41,6 +41,15 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div class="row">
+                    {{--<div class="col-md-5">--}}
+                        {{--{!! Form::open(array('url'=>'/контрол/фактури', 'method'=>'POST')) !!}--}}
+                        {{--{!! Form::label('years', 'Справка за:', ['class'=>'labels']) !!}--}}
+                        {{--{!! Form::select('years', $years, $year_now, ['class'=>'form-control form-control-my-search inspector_sort ', 'style'=> 'width: 80px;', 'id'=>'years']) !!}--}}
+                        {{--<span class="bold"> година. </span>&nbsp;&nbsp;--}}
+                        {{--{!! Form::submit('Сортирай!', ['class'=>'fa btn btn-success my_btn']) !!}--}}
+                        {{--{!!Form::hidden('_token', csrf_token() )!!}--}}
+                        {{--{!! Form::close() !!}--}}
+                    {{--</div>--}}
                     <div class="col-md-12">
                         <?php
                         if (isset($search_return)) {
