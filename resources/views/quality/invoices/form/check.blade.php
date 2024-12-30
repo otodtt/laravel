@@ -79,10 +79,10 @@
 
     <hr class="hr_in"/>
     <?php
-    //print_r(Auth::user());
+    //print_r($is_invoice[0].'-------'.$alert);
     if (isset($alert) ) {
-        $invoice = $number;
-        $date_invoice = $date;
+        $invoice = $is_invoice[0]['number_invoice'];
+        $date_invoice = date('d.m.Y', $is_invoice[0]['date_invoice']);
     }
     else {
         $invoice = null;
@@ -91,7 +91,8 @@
     ?>
     @if(isset($alert) && $alert == 1 || Auth::user()->id == 2 || Auth::user()->id == 10)
         <div class="alert-danger" style=" text-align: center; margin: 10px 0; border: 1px solid black; ">
-            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има вече издадена фактура с този номер и дата <span style="font-weight: bold; color: black">{{$invoice}}/{{$date}}</span></p>
+            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има вече издадена фактура с този номер и дата <span style="font-weight: bold; color: black">{{$invoice}}/{{$date_invoice}}</span></p>
+            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Не може да има фактури с един номер но сразлияни дати!! <span style="font-weight: bold; color: black">{{$date_invoice}}</span></p>
             <div class="row" style="margin: 15px 0 0 0">
                 <div class="col-md-4" style="text-align: center">
                     <p class="" style="color: black; font-size: 15px">Откажи и въведи друг номер.</p>
@@ -107,18 +108,16 @@
                 <div class="col-md-8" style="text-align: center">
                     {!! Form::open(['url'=>url('контрол/фактури-внос/запази/'.$certificate['id']) , 'method'=>'POST']) !!}
                     <div class="col-md-3 col-md-6_my" >
-{{--                        {!! Form::label('invoice', 'Фактура №', ['class'=>'my_labels']) !!}<br>--}}
                         {!! Form::text('invoice', $invoice, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>20, 'readonly' ]) !!}
                     </div>
                     <div class="col-md-4 col-md-6_my" >
-{{--                        {!! Form::label('date_invoice', 'Дата Фактура:', ['class'=>'my_labels']) !!}<br>--}}
                         {!! Form::text('date_invoice', $date_invoice, ['class'=>'form-control form-control-my',
                         'id'=>'date_invoices', 'size'=>13, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг',  'autocomplete'=>'off', 'readonly'   ]) !!}
                     </div>
                         {!! Form::submit('ПРОДЪЛЖИ', ['class'=>'btn btn-danger', 'id'=>'submit_yes']) !!}
                         {{--<button  class="btn btn-success">ПРОДЪЛЖИ</button>--}}
-                        <input type="hidden" name="hidden_number" value="{{$number}}">
-                        <input type="hidden" name="hidden_date" value="{{$date}}">
+                        <input type="hidden" name="hidden_number" value="{{$is_invoice[0]['number_invoice']}}">
+                        <input type="hidden" name="hidden_date" value="{{$is_invoice[0]['date_invoice']}}">
                         <input type="hidden" name="user" value="{{Auth::user()->id}}">
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                     {!! Form::close() !!}
@@ -127,7 +126,7 @@
         </div>
     @elseif(isset($alert) && $alert == 2)
         <div class="alert-danger" style=" text-align: center; margin: 10px 0; border: 1px solid black; ">
-            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Сертифката не е издаден от Вас и нямате право да добавяте кyм него факури. </p>
+            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има издаена фактура с този номер но не е издадена от Вас и нямате право да добавяте сетификати към нея. </p>
             <div class="row" style="margin: 15px 0 0 0">
                 <div class="col-md-12" style="text-align: center">
                     <p class="" style="color: black; font-size: 15px">Откажи и въведи друг номер.</p>

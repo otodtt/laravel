@@ -38,7 +38,9 @@
             <td style="text-align: right; padding-right: 4px">
                 @if( $certificate->invoice_id == '0')
                     @if($certificate->sum != 0)
-                        <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                        @if(Auth::user()->id == $certificate->added_by)
+                            <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
+                        @endif
                     @endif
                 @else
                     {{ $certificate->invoice_number }}/{{ date('d.m.Y' ,$certificate->invoice_date ) }}

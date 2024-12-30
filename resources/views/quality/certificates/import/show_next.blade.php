@@ -163,7 +163,10 @@
                         <div class="col-md-2">
                             <p >
                                 Фактура: <span class="bold" style="text-transform: uppercase"></span>
-                                <a href='/контрол/фактури-внос/{{$certificate->invoice_id}}/edit' class="fa fa-edit btn btn-success my_btn" style="float: right"> Edit</a>
+                                @if(Auth::user()->id == $certificate->added_by)
+                                    <a href='/контрол/фактури-внос/{{$certificate->invoice_id}}/edit' class="fa fa-edit btn btn-success my_btn" style="float: right"> Edit</a>
+                                @endif
+
                             </p>
                             <hr class="my_hr_in"/>
                             <p ><span class="bold" style="text-transform: none">{{$invoice[0]['number_invoice'] }}/{{ date('d.m.Y' ,$invoice[0]['date_invoice']) }}</span></p>
@@ -177,9 +180,9 @@
                             <p ><span class="bold red" style="text-transform: none">Поълни фактурта!</span></p>
                             <hr class="my_hr_in"/>
                             @if($certificate->sum != 0)
-                                <p >
+                                @if(Auth::user()->id == $certificate->added_by)
                                     <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
-                                </p>
+                                @endif
                             @endif
                         </div>
                     @endif

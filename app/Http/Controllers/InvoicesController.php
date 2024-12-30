@@ -202,17 +202,20 @@ class InvoicesController extends Controller
         $date = $request->date_invoice;
 
         $certificate = QCertificate::findOrFail($id);
-        $is_invoice =  QCertificate::where('invoice_number', '=', $number)->get();
-        $added_by = $certificate->added_by;
+        $is_invoice =  Invoice::where('number_invoice', '=', $number)->get()->toArray();
+//        dd($is_invoice);
 
-        if($added_by != Auth::user()->id) {
-            $alert = 2;
-            return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date'));
-        };
+
 
         if (count($is_invoice) != 0) {
+            if($is_invoice[0]['created_by'] != Auth::user()->id) {
+                $alert = 2;
+//                dd($alert);
+                return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date', 'is_invoice'));
+            };
             $alert = 1;
-            return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date'));
+//            dd($alert);
+            return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date', 'is_invoice'));
         }
 
         $data = [
@@ -228,7 +231,7 @@ class InvoicesController extends Controller
             'date_create' => date('d.m.Y', time()),
             'created_by' => Auth::user()->id,
         ];
-
+        dd($data);
         $invoice = Invoice::create($data);
         $invoice_id = $invoice->id;
 
@@ -255,9 +258,7 @@ class InvoicesController extends Controller
      */
     public function import_store(InvoicesRequest $request, $id)
     {
-//        $invoice_check = Invoice::select('created_by')->where('number_invoice', '=', $request->invoice)->get()->toArray();
         $certificate = QCertificate::findOrFail($id);
-        $added_by = $certificate->added_by;
 
         $data = [
             'invoice_for' => 1,
