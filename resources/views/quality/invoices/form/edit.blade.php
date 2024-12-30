@@ -88,7 +88,7 @@
     <hr class="hr_in"/>
 
 {{--    {!! Form::model($invoice, ['url'=>'контрол/фактури-внос/'.$invoice['id'].'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}--}}
-    {!! Form::model($invoice, ['url'=>'контрол/фактури-внос/'.$invoice['id'].'/check', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+    {!! Form::model($invoice, ['url'=>'контрол/фактури-внос/'.$invoice['id'].'/update', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
     {{--ФАКТУРА И ДАТА--}}
     <div class="container-fluid" >

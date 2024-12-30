@@ -7,8 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/form/check_update.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/form/check.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/form/check.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,20 +77,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - haskovo@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="invoices" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -97,8 +87,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-145.15384">
-              <caret line="231" column="42" selection-start-line="231" selection-start-column="42" selection-end-line="231" selection-end-column="47" />
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="233" column="49" selection-start-line="233" selection-start-column="43" selection-end-line="233" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -107,17 +97,35 @@
       <file leaf-file-name="InvoicesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.884615">
-              <caret line="211" column="27" selection-start-line="211" selection-start-column="27" selection-end-line="211" selection-end-column="27" />
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="318" column="11" selection-start-line="318" selection-start-column="11" selection-end-line="318" selection-end-column="11" />
               <folding>
                 <element signature="e#41#69#0#PHP" expanded="true" />
-                <marker date="1735524776144" expanded="true" signature="6192:6249" placeholder="SELECT * FRO..invoices..." />
+                <marker date="1735537948180" expanded="true" signature="6192:6249" placeholder="SELECT * FRO..invoices..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="haskovo.users" pinned="false" current-in-tab="true">
+      <file leaf-file-name="check_update.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/check_update.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.34421054">
+              <caret line="131" column="66" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="66" />
+              <folding>
+                <element signature="e#1916#1969#0#HTML" expanded="true" />
+                <element signature="e#2648#2701#0#HTML" expanded="true" />
+                <element signature="e#3289#3342#0#HTML" expanded="true" />
+                <element signature="e#7119#7161#0#HTML" expanded="true" />
+                <marker date="1735538466710" expanded="true" signature="5815:6045" placeholder="..." />
+                <marker date="1735538466710" expanded="true" signature="5827:6043" placeholder="..." />
+                <marker date="1735538466710" expanded="true" signature="5859:6042" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="haskovo.users" pinned="false" current-in-tab="false">
         <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.users">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -128,55 +136,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="84" selection-start-line="90" selection-start-column="84" selection-end-line="90" selection-end-column="84" />
-              <folding>
-                <marker date="1735523173079" expanded="true" signature="5311:5555" placeholder="..." />
-                <marker date="1735523173079" expanded="true" signature="5323:5553" placeholder="..." />
-                <marker date="1735523173079" expanded="true" signature="5380:5552" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="check.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/check.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
-              <folding>
-                <element signature="e#4029#4099#0#HTML" expanded="true" />
-                <marker date="1735524076448" expanded="true" signature="5752:5982" placeholder="..." />
-                <marker date="1735524076448" expanded="true" signature="5764:5980" placeholder="..." />
-                <marker date="1735524076448" expanded="true" signature="5796:5979" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
-              <folding>
-                <marker date="1735497985992" expanded="false" signature="3744:3873" placeholder="{...}" />
-                <marker date="1735497985992" expanded="true" signature="5168:5382" placeholder="..." />
-                <marker date="1735497985992" expanded="true" signature="5180:5380" placeholder="..." />
-                <marker date="1735497985992" expanded="true" signature="5203:5379" placeholder="..." />
-                <marker date="1735497985992" expanded="true" signature="7511:8441" placeholder="..." />
-                <marker date="1735497985992" expanded="true" signature="7561:8431" placeholder="..." />
-                <marker date="1735497985992" expanded="true" signature="7753:8065" placeholder="..." />
-                <marker date="1735497985992" expanded="true" signature="8091:8417" placeholder="..." />
-                <marker date="1735497985992" expanded="true" signature="8239:8399" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -197,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Set.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/SetCodeRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/settings/operator_index.blade.php" />
@@ -240,14 +198,15 @@
         <option value="$PROJECT_DIR$/resources/views/quality/certificates/import/stock_import.blade.php" />
         <option value="$PROJECT_DIR$/public/js/quality/flipText_next.js" />
         <option value="$PROJECT_DIR$/resources/views/quality/invoices/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/certificates/includes/table.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/check.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/invoices/form/check_update.blade.php" />
       </list>
     </option>
   </component>
@@ -353,10 +312,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="313" />
-    <option name="y" value="225" />
-    <option name="width" value="1863" />
-    <option name="height" value="1147" />
+    <option name="x" value="253" />
+    <option name="y" value="99" />
+    <option name="width" value="1994" />
+    <option name="height" value="1166" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -423,22 +382,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="laravel">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Tests" />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -519,7 +462,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="certificates" />
+              <option name="myItemId" value="invoices" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -545,11 +488,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="certificates" />
+              <option name="myItemId" value="invoices" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="import" />
+              <option name="myItemId" value="form" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -727,6 +670,22 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="laravel">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -740,19 +699,19 @@
     <property name="Console.TableResult.DefaultCopyAction" value="Tab Separated Values (TSV)" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\laravel\resources\views\quality\invoices\form" />
-      <recent name="C:\wamp64\www\laravel\public\js\quality\search" />
-      <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\crud\forms" />
-      <recent name="C:\wamp64\www\laravel\public\js\sanitary" />
-      <recent name="C:\wamp64\www\laravel\resources\views\admin\locations" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\laravel\public\js\quality" />
       <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\search" />
       <recent name="C:\wamp64\www\laravel\resources\views\layouts" />
       <recent name="C:\wamp64\www\laravel\public\js\farmers\reports" />
       <recent name="C:\wamp64\www\laravel\resources\views\farmers\reports\forms" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\laravel\resources\views\quality\invoices\form" />
+      <recent name="C:\wamp64\www\laravel\public\js\quality\search" />
+      <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\crud\forms" />
+      <recent name="C:\wamp64\www\laravel\public\js\sanitary" />
+      <recent name="C:\wamp64\www\laravel\resources\views\admin\locations" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -964,14 +923,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="313" y="225" width="1863" height="1147" extended-state="1" />
+    <frame x="253" y="99" width="1994" height="1166" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1972422" sideWeight="0.53375196" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20798668" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19596691" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36797065" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12479201" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11633919" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19128172" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47435898" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
@@ -1012,13 +971,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8360656">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/PhitoOperatorsRequests.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32290184">
@@ -1282,7 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3361082">
           <caret line="19" column="6" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1333,72 +1284,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.42381975">
+          <caret line="711" column="44" selection-start-line="711" selection-start-column="44" selection-end-line="711" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.017708333">
+          <caret line="90" column="85" selection-start-line="90" selection-start-column="85" selection-end-line="90" selection-end-column="85" />
           <folding>
-            <marker date="1735497985992" expanded="false" signature="3744:3873" placeholder="{...}" />
-            <marker date="1735497985992" expanded="true" signature="5168:5382" placeholder="..." />
-            <marker date="1735497985992" expanded="true" signature="5180:5380" placeholder="..." />
-            <marker date="1735497985992" expanded="true" signature="5203:5379" placeholder="..." />
-            <marker date="1735497985992" expanded="true" signature="7511:8441" placeholder="..." />
-            <marker date="1735497985992" expanded="true" signature="7561:8431" placeholder="..." />
-            <marker date="1735497985992" expanded="true" signature="7753:8065" placeholder="..." />
-            <marker date="1735497985992" expanded="true" signature="8091:8417" placeholder="..." />
-            <marker date="1735497985992" expanded="true" signature="8239:8399" placeholder="..." />
+            <marker date="1735533694257" expanded="true" signature="5312:5556" placeholder="..." />
+            <marker date="1735533694257" expanded="true" signature="5324:5554" placeholder="..." />
+            <marker date="1735533694257" expanded="true" signature="5381:5553" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/check.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47708333">
+          <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+          <folding>
+            <marker date="1735535504235" expanded="true" signature="5792:6022" placeholder="..." />
+            <marker date="1735535504235" expanded="true" signature="5804:6020" placeholder="..." />
+            <marker date="1735535504235" expanded="true" signature="5836:6019" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-145.15384">
-          <caret line="231" column="42" selection-start-line="231" selection-start-column="42" selection-end-line="231" selection-end-column="47" />
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="233" column="49" selection-start-line="233" selection-start-column="43" selection-end-line="233" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="84" selection-start-line="90" selection-start-column="84" selection-end-line="90" selection-end-column="84" />
+        <state vertical-scroll-proportion="0.29166666">
+          <caret line="145" column="25" selection-start-line="145" selection-start-column="25" selection-end-line="145" selection-end-column="25" />
           <folding>
-            <marker date="1735523173079" expanded="true" signature="5311:5555" placeholder="..." />
-            <marker date="1735523173079" expanded="true" signature="5323:5553" placeholder="..." />
-            <marker date="1735523173079" expanded="true" signature="5380:5552" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42381975">
-          <caret line="711" column="44" selection-start-line="711" selection-start-column="44" selection-end-line="711" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/check.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
-          <folding>
-            <element signature="e#4029#4099#0#HTML" expanded="true" />
-            <marker date="1735524076448" expanded="true" signature="5752:5982" placeholder="..." />
-            <marker date="1735524076448" expanded="true" signature="5764:5980" placeholder="..." />
-            <marker date="1735524076448" expanded="true" signature="5796:5979" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.884615">
-          <caret line="211" column="27" selection-start-line="211" selection-start-column="27" selection-end-line="211" selection-end-column="27" />
-          <folding>
-            <element signature="e#41#69#0#PHP" expanded="true" />
-            <marker date="1735524776144" expanded="true" signature="6192:6249" placeholder="SELECT * FRO..invoices..." />
+            <marker date="1735536407052" expanded="false" signature="3744:3873" placeholder="{...}" />
+            <marker date="1735536407052" expanded="true" signature="5168:5382" placeholder="..." />
+            <marker date="1735536407052" expanded="true" signature="5180:5380" placeholder="..." />
+            <marker date="1735536407052" expanded="true" signature="5203:5379" placeholder="..." />
+            <marker date="1735536407052" expanded="true" signature="7503:8433" placeholder="..." />
+            <marker date="1735536407052" expanded="true" signature="7553:8423" placeholder="..." />
+            <marker date="1735536407052" expanded="true" signature="7745:8057" placeholder="..." />
+            <marker date="1735536407052" expanded="true" signature="8083:8409" placeholder="..." />
+            <marker date="1735536407052" expanded="true" signature="8231:8391" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1413,6 +1351,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="318" column="11" selection-start-line="318" selection-start-column="11" selection-end-line="318" selection-end-column="11" />
+          <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
+            <marker date="1735537948180" expanded="true" signature="6192:6249" placeholder="SELECT * FRO..invoices..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/invoices/form/check_update.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34421054">
+          <caret line="131" column="66" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="66" />
+          <folding>
+            <element signature="e#1916#1969#0#HTML" expanded="true" />
+            <element signature="e#2648#2701#0#HTML" expanded="true" />
+            <element signature="e#3289#3342#0#HTML" expanded="true" />
+            <element signature="e#7119#7161#0#HTML" expanded="true" />
+            <marker date="1735538466710" expanded="true" signature="5815:6045" placeholder="..." />
+            <marker date="1735538466710" expanded="true" signature="5827:6043" placeholder="..." />
+            <marker date="1735538466710" expanded="true" signature="5859:6042" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

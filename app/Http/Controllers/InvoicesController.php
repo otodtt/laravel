@@ -202,19 +202,14 @@ class InvoicesController extends Controller
         $date = $request->date_invoice;
 
         $certificate = QCertificate::findOrFail($id);
-        $is_invoice =  Invoice::where('number_invoice', '=', $number)->get()->toArray();
-//        dd($is_invoice);
-
-
+        $is_invoice =  QCertificate::where('invoice_number', '=', $number)->get()->toArray();
 
         if (count($is_invoice) != 0) {
-            if($is_invoice[0]['created_by'] != Auth::user()->id) {
+            if($is_invoice[0]['added_by'] != Auth::user()->id && Auth::user()->admin == 1) {
                 $alert = 2;
-//                dd($alert);
                 return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date', 'is_invoice'));
             };
             $alert = 1;
-//            dd($alert);
             return view('quality.invoices.form.check', compact('certificate', 'alert', 'number', 'date', 'is_invoice'));
         }
 
@@ -231,7 +226,7 @@ class InvoicesController extends Controller
             'date_create' => date('d.m.Y', time()),
             'created_by' => Auth::user()->id,
         ];
-        dd($data);
+
         $invoice = Invoice::create($data);
         $invoice_id = $invoice->id;
 
@@ -314,7 +309,24 @@ class InvoicesController extends Controller
      */
     public function import_update(InvoicesRequest $request, $id)
     {
+        $number = $request->invoice;
+        $date = $request->date_invoice;
+
         $invoice = Invoice::findOrFail($id);
+        $is_invoice =  QCertificate::where('invoice_number', '=', $number)->get()->toArray();
+        $certificate =  QCertificate::where('id', '=', $invoice->certificate_id)->get()->toArray();
+//        dd($is_invoice);
+        if (count($is_invoice) != 0) {
+            if($is_invoice[0]['added_by'] != Auth::user()->id && Auth::user()->admin == 1) {
+                $alert = 2;
+                return view('quality.invoices.form.check_update', compact('certificate', 'alert', 'number', 'date', 'is_invoice'));
+            };
+            $alert = 1;
+            return view('quality.invoices.form.check_update', compact('certificate','alert', 'number', 'date', 'is_invoice'));
+        }
+
+
+
         $data = [
             'number_invoice' => $request->invoice,
             'date_invoice' =>strtotime(stripslashes($request->date_invoice)),

@@ -81,8 +81,8 @@
     <?php
     //print_r($is_invoice[0].'-------'.$alert);
     if (isset($alert) ) {
-        $invoice = $is_invoice[0]['number_invoice'];
-        $date_invoice = date('d.m.Y', $is_invoice[0]['date_invoice']);
+        $invoice = $is_invoice[0]['invoice_number'];
+        $date_invoice = date('d.m.Y', $is_invoice[0]['invoice_date']);
     }
     else {
         $invoice = null;
@@ -91,8 +91,8 @@
     ?>
     @if(isset($alert) && $alert == 1 || Auth::user()->id == 2 || Auth::user()->id == 10)
         <div class="alert-danger" style=" text-align: center; margin: 10px 0; border: 1px solid black; ">
-            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има вече издадена фактура с този номер и дата <span style="font-weight: bold; color: black">{{$invoice}}/{{$date_invoice}}</span></p>
-            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Не може да има фактури с един номер но сразлияни дати!! <span style="font-weight: bold; color: black">{{$date_invoice}}</span></p>
+            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Има вече издадена фактура с този номер и дата <span style="font-weight: bold; color: black">{{$invoice}}/{{$date_invoice}} от {{$is_invoice[0]['inspector_bg']}}</span> </p>
+            <p style="font-weight: bold; font-size: 20px">ВНИМАНИЕ! Не може да има фактури с един номер но с различни дати!! <span style="font-weight: bold; color: black">{{$date_invoice}}</span></p>
             <div class="row" style="margin: 15px 0 0 0">
                 <div class="col-md-4" style="text-align: center">
                     <p class="" style="color: black; font-size: 15px">Откажи и въведи друг номер.</p>
@@ -116,8 +116,8 @@
                     </div>
                         {!! Form::submit('ПРОДЪЛЖИ', ['class'=>'btn btn-danger', 'id'=>'submit_yes']) !!}
                         {{--<button  class="btn btn-success">ПРОДЪЛЖИ</button>--}}
-                        <input type="hidden" name="hidden_number" value="{{$is_invoice[0]['number_invoice']}}">
-                        <input type="hidden" name="hidden_date" value="{{$is_invoice[0]['date_invoice']}}">
+                        <input type="hidden" name="hidden_number" value="{{$is_invoice[0]['invoice_number']}}">
+                        <input type="hidden" name="hidden_date" value="{{$is_invoice[0]['invoice_date']}}">
                         <input type="hidden" name="user" value="{{Auth::user()->id}}">
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                     {!! Form::close() !!}
