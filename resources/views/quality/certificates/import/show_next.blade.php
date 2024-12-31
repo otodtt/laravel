@@ -475,7 +475,7 @@
                                     </p>
                                 </td>
                                 <td class="cell third-row-cell no-print" style="height: 2cm; width: auto; padding-top: 4px" >
-                                    <p class="p_info no-print" style="margin-bottom: 17px; text-align: inherit">
+                                    <p class="p_info no-print" style="margin-bottom: 22px; text-align: inherit">
                                         5. Регион или страна на местоназначение/ Region or country of destination
                                     </p>
                                     <div id="country_wrap" style="margin: 0; padding: 0;">
@@ -651,17 +651,17 @@
                                     </p>
                                     <p class="bold print" style="line-height: 20px; margin-bottom: 10px">R (EC) 2023/2429</p>
 
-                                    <div class="com-md-12" style="display: block; padding-top: 5px">
+                                    <div class="com-md-12" style="display: inline-block">
                                         <p class="" style="font-size: 12.5px;">
                                             <span style="" class="no-print">Предвиждано митническо учреждение/Customs office foresee</span>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class="bold print"> {{$certificate->customs_bg }} / {{$certificate->customs_en }}</span>
                                         </p>
                                     </div>
-                                    <div class="com-md-12" style="display: block; padding-top: 5px">
+                                    <div class="com-md-12" style="display: block">
                                         <p class="" style="font-size: 12.5px; display: block; width: 100%; margin-bottom: 11px">
                                             <span style="" class="no-print">Място и дата на издаване/Place and date of issue</span>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="bold">{{$certificate->place_bg }}</span>/
+                                            &nbsp;&nbsp;&nbsp;<span class="bold">{{$certificate->place_bg }}</span>/
                                             <span class="bold print">{{$certificate->place_en }}/ {{date('d.m.Y', $certificate->date_issue)}}</span>
                                             <span style="margin-left: 5px" class="no-print"> Валиден до/Valid until: &nbsp;</span>
                                             <span class="bold print" style="float: right; text-align: right">{{$certificate->valid_until }}</span>
@@ -699,7 +699,7 @@
                                         <p class="p_content" style="text-transform: none; margin-bottom: 4px">
                                             <span class="no-print">13. Бележки/ Observations</span>  {{$certificate->observations}}
                                             @if ($certificate->invoice_date > 0)
-                                                <span class="print" style="float: right; margin-right: 5px; margin-top: 8px; padding-top: 5px">Фактура/Invoice <span class="bold">{{$certificate->invoice_number}} / {{ date("d.m.Y", $certificate->invoice_date) }} </span></span>
+                                                <span class="print" style="float: right; margin-right: 5px; margin-top: 8px">Фактура/Invoice <span class="bold">{{$certificate->invoice_number}} / {{ date("d.m.Y", $certificate->invoice_date) }} </span></span>
                                             @endif
 
                                         </p>

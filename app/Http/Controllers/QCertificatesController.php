@@ -583,8 +583,9 @@ class QCertificatesController extends Controller
             $sum_import = 0;
             $sum_type = 0;
         }
+//        dd($certificate);
 
-        if ($certificate->date_issue >= 17356896) {
+        if ($certificate->date_issue >= 1735689600) {
             return view('quality.certificates.import.show_next', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_import', 'sum_type'));
         } else {
             return view('quality.certificates.import.show', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_import', 'sum_type'));

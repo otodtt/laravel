@@ -341,6 +341,7 @@
                         </button>
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                         <input type="hidden" name="is_sum" value="{{$certificate->sum}}" id="is_sum">
+                        <input type="hidden" name="is_invoice" value="{{$certificate->invoice_id}}" id="is_invoice">
                         {!! Form::close() !!}
                     </div>
                     <div class="small_field_bottom" style="display: table-cell">
