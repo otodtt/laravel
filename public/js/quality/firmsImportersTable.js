@@ -47,29 +47,8 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#example_firm').DataTable( {
-        //footerCallback: function (row, data, start, end, display) {
-        //    var api = this.api();
-        //
-        //    // Remove the formatting to get integer data for summation
-        //    var intVal = function (i) {
-        //        return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
-        //    };
-        //
-        //    // Total over all pages
-        //    total = api
-        //        .column(3)
-        //        .data()
-        //        .reduce(function (a, b) {
-        //            return intVal(a) + intVal(b);
-        //        }, 0);
-        //    $(api.column(3).footer()).html(total + ' лв.');
-        //
-        //    //console.log(api.columns(3).data());
-        //},
         "columns": [
             null,
-            { "orderable": false },
-            { "orderable": false },
             { "orderable": false },
             { "orderable": false },
             { "orderable": false },
@@ -79,7 +58,7 @@ $(document).ready(function() {
         "pagingType": "full_numbers",
         searching: true,
 
-        "lengthMenu": [[-1, 10, 20, 30], ["Всички", 10, 20, 30]],
+        "lengthMenu": [[-1, 50, 100, 200], ["Всички", 50, 100, 200]],
         "language": {
             "sProcessing":   "Обработка на резултатите...",
             "sLengthMenu":   "Колко резултата да се покажат?  _MENU_ ",
@@ -99,7 +78,7 @@ $(document).ready(function() {
         },
         "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'
     } );
-    var table = $('#example').DataTable();
+    var table = $('#example_firm').DataTable();
 
     $('#example_firm tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {

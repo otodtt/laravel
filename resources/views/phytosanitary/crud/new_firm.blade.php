@@ -13,13 +13,13 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на нов земедлец към регистъра на професионалните оператори!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на нова фирма земедлец към регистъра на професионалните оператори!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
             <span class="bold">
-                Данните са за физическо лице и ще бъдат добавени към регистрираните Земеделски стопани! Ще бъде създаен нов ЗЕМЕДЕЛСКИ СТОПАНИН!
+                Данните са за фирмата и ще бъдат добавени към регистрираните Земеделски стопани! Ще бъде създаен нов ЗЕМЕДЕЛСКИ СТОПАНИН!
             </span>
         </p>
     </div>

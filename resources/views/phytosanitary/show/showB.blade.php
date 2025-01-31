@@ -18,12 +18,12 @@
 
 @section('content')
     <div class="info-wrap">
-        @if ($certificate->type_firm == 0 && $certificate->trader_id > 0 && $certificate->farmer_id == 0)
-            <a href="{!! URL::to('/контрол/търговци/'.$certificate->trader_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата Търговец!</a>
+        @if ($operator->type_firm == 0 && $operator->trader_id > 0 && $operator->farmer_id == 0)
+            <a href="{!! URL::to('/контрол/търговци/'.$operator->trader_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата Търговец!</a>
         @else
-            <a href="{!! URL::to('/стопанин/'.$certificate->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>
+            <a href="{!! URL::to('/стопанин/'.$operator->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>
         @endif
-        
+
         <a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати вътрешни!</a>
         @if ($certificate->what_7 == 2)
             <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ВНОС</h4>
@@ -34,7 +34,7 @@
         @else
             <h4 class="bold title_doc" >СЕРТИФИКАТ</h4>
         @endif
-        
+
         <hr class="my_hr"/>
         @if(count($errors)>0)
             <div class="alert alert-danger">
@@ -62,7 +62,7 @@
                     <div class="small_field_left " style="display: table-cell">
                         <p >Сертификат №: <span class="bold">{{$certificate->stamp_number }}/{{$certificate->internal }}</span></p>
                         <hr class="my_hr_in"/>
-                        @if ($certificate->farmer_id > 0 && $certificate->type_firm )
+                        @if ($operator->farmer_id > 0 && $operator->type_firm )
                             <?php
                                 if($certificate->type_firm == 0) {
                                     $front = '';
@@ -113,8 +113,8 @@
                                     $vin = '';
                                 }
                             ?>
-                            <p >{{$for }} <span class="bold" style="text-transform: uppercase">{{$front}} {{$certificate->trader_name }} {{$after}}</span></p>
-                            <p >{{$vin}} <span class="bold">{{$certificate->trader_vin }}</span> </p>
+                            {{--<p >{{$for }} <span class="bold" style="text-transform: uppercase">{{$front}} {{$certificate->trader_name }} {{$after}}</span></p>--}}
+                            {{--<p >{{$vin}} <span class="bold">{{$certificate->trader_vin }}</span> </p>--}}
                             <hr class="my_hr_in"/>
                             <p >Адрес: <span class="bold">{{$certificate->trader_address }}</span></p>
                         @else
@@ -128,68 +128,12 @@
                     <div class="small_field_center" style="display: table-cell">
                         <p>Опаковчици</p>
                         <hr class="my_hr_in"/>
-                        <p >Фирма/ЗС 1: <span class="bold" style="text-transform: none">{{$certificate->packer_name_one }}</span></p>
-                        <p >Фирма/ЗС 2: <span class="bold">{{$certificate->packer_name_two}}</span></p>
+                        {{--<p >Фирма/ЗС 1: <span class="bold" style="text-transform: none">{{$certificate->packer_name_one }}</span></p>--}}
+                        {{--<p >Фирма/ЗС 2: <span class="bold">{{$certificate->packer_name_two}}</span></p>--}}
                         {{--<hr class="my_hr_in"/>--}}
-                        <p >Фирма/ЗС 3: <span class="bold">{{$certificate->packer_name_three }}</span></p>
+                        {{--<p >Фирма/ЗС 3: <span class="bold">{{$certificate->packer_name_three }}</span></p>--}}
                         <hr class="my_hr_in"/>
-                    </div>
-                    <div class="small_field_right" style="display: table-cell">
-                        <p>Стоки</p>
-                        <hr class="my_hr_in"/>
-                        @foreach ($stocks as $stock)
-                        <?php
-                            if($stock['type_pack'] == 1 ) {
-                                $pack = 'Каси/ Pl. cases';
-                            }
-                            elseif ($stock['type_pack'] == 2) {
-                                $pack = 'Палети/ Cages';
-                            }
-                            elseif ($stock['type_pack'] == 3) {
-                                $pack = 'Кашони/ C. boxes';
-                            }
-                            elseif ($stock['type_pack'] == 4) {
-                                $pack = 'Торби/ Bags';
-                            }
-                            elseif ($stock['type_pack'] == 999) {
-                                $pack = $stock['different'];
-                            }
-                            else {
-                                $pack = '';
-                            }
-                            // \\\\
-                            if (strlen($stock['variety']) > 0) {
-                                $variety = '('.$stock['variety'].')';
-                            }
-                            else {
-                                $variety = '';
-                            }
-                            // \\\\
-                            if($stock['quality_class'] == 1) {
-                                $class = 'I клас/I class';
-                            }
-                            elseif ($stock['quality_class'] == 2) {
-                                $class = 'II клас/II class';
-                            }
-                            elseif ($stock['quality_class'] == 3) {
-                                $class = 'OПС/GPS';
-                            }
-                            else {
-                                $class = '';
-                            }
-                        ?>
-                            <p style="font-size: 13px" class="bold">
-                                <span style="display: inline-block; ">{{$pack}} - {{$stock['number_packages'] }}</span> | 
-                                <span style="display: inline-block; ">
-                                    {{$stock['crops_name'] }}/{{$stock['crop_en']}} <span style="font-weight: normal;">{{$variety}}</span> 
-                                </span> | 
-                                <span style="display: inline-block; ">
-                                    {{$class}} - {{$stock['weight']}} kg
-                                </span>
-                            </p>
-                            <hr class="my_hr_in"/>
-                        @endforeach
-                    </div>
+
                 </div>
             </div>
             <hr class="my_hr_in"/>
@@ -199,54 +143,6 @@
                     <div class="small_field_bottom top_info" style="display: table-cell" >
                         <span class=""><i class="fa fa-database "></i> ДРУГИ ДАННИ</span>
                     </div>
-                </div>
-                <div class="small_field_bottom" style="display: table-cell">
-                    <div class="col-md-4">
-                        <p >Контролен орган: <span class="bold" style="text-transform: none">{{$certificate->authority_bg }}</span></p>
-                        <hr class="my_hr_in"/>
-                        <p >Митница: <span class="bold" style="text-transform: none">{{$certificate->customs_bg }}</span></p>
-                        <hr class="my_hr_in"/>
-                        <p >Място на издаване: <span class="bold">{{$certificate->place_bg }}</span></p>
-                        <hr class="my_hr_in"/>
-                    </div>
-                    <div class="col-md-4">
-                        <p >Подписващо лице : <span class="bold" style="text-transform: uppercase">{{$certificate->inspector_bg }}</span></p>
-                        <hr class="my_hr_in"/>
-                        <p >Дата на издаване: <span class="bold" style="text-transform: none">{{ date( 'd.m.Y', $certificate->date_issue) }}</span></p>
-                        <hr class="my_hr_in"/>
-                        <p >Валиден до : <span class="bold">{{$certificate->valid_until }}</span></p>
-                        <hr class="my_hr_in"/>
-                    </div>
-                    <div class="col-md-2">
-                        <p >5. Регион или страна: <span class="bold" style="text-transform: uppercase"></span></p>
-                        <hr class="my_hr_in"/>
-                        <p ><span class="bold" style="text-transform: none">{{$certificate->for_country_bg }}/{{$certificate->for_country_en }}</span></p>
-                        <hr class="my_hr_in"/>
-                    </div>
-                    @if($certificate->invoice_id != 0)
-                        <div class="col-md-2">
-                            <p >
-                                Фактура: <span class="bold" style="text-transform: uppercase"></span>
-                                <a href='/контрол/фактури-вътрешни/{{$certificate->invoice_id}}/edit' class="fa fa-edit btn btn-success my_btn" style="float: right"> Edit</a>
-                            </p>
-                            <hr class="my_hr_in"/>
-                            <p ><span class="bold" style="text-transform: none">{{$invoice[0]['number_invoice'] }}/{{ date('d.m.Y' ,$invoice[0]['date_invoice']) }}</span></p>
-                            <hr class="my_hr_in"/>
-                            <p >Сума: <span class="bold" style="text-transform: none">{{number_format($invoice[0]['sum'], 2, ',', ' ')}} лв.</span></p>
-                        </div>
-                    @else
-                        <div class="col-md-2">
-                            <p >Фактура: <span class="bold" style="text-transform: uppercase"></span></p>
-                            <hr class="my_hr_in"/>
-                            <p ><span class="bold red" style="text-transform: none">Поълни фактурта!</span></p>
-                            <hr class="my_hr_in"/>
-                            @if($certificate->sum != 0)
-                                <p >
-                                    <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
-                                </p>
-                            @endif
-                        </div>
-                    @endif
                 </div>
             </div>
             @if($certificate->is_lock == 0)

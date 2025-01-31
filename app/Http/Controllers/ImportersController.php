@@ -7,10 +7,14 @@ use Illuminate\Support\Facades\Redirect;
 
 use odbh\Http\Requests;
 use odbh\Http\Controllers\Controller;
+use odbh\QCertificate;
+use odbh\QIdentification;
 use odbh\Set;
 use odbh\Http\Requests\ImportersRequest;
 use odbh\Importer;
 use Auth;
+use odbh\Stock;
+use odbh\StockIdentification;
 use Session;
 use Input;
 use DB;
@@ -119,29 +123,70 @@ class ImportersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $importer  = Importer::findOrFail($id);
 		$identification = array();
+        $year_now = null;
 
-        $import_certificates = $importer->qcertificate;
-        foreach($import_certificates as $certificate){
-            $import_stocks[] = $certificate->stocks->toArray();
+        if(isset($request['years'])){
+            $year_now = $request['years'];
         }
-        if(!isset($import_stocks)) {
-            $import_stocks = array();
+        else{
+            $year_now = date('Y', time());
+        }
+        $start_year = '01.01.'. $year_now;
+        $time_start = strtotime(stripslashes($start_year));
+        $end_year = '31.12.'. $year_now;
+        $time_end = strtotime(stripslashes($end_year));
+
+        /// IMPORT
+        $import_stocks = Stock::select(['id', 'certificate_id', 'crops_name','date_issue', 'weight'])
+                                ->where('firm_id', '=', $id)
+                                ->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )
+                                ->orderby('date_issue', 'desc')
+                                ->get()->toArray();
+
+        $time_certificates = QCertificate::select('date_issue')->where('importer_id', $id)->orderby('date_issue', 'desc')->get();
+        if(count($time_certificates) > 0) {
+            $import_certificates = QCertificate::select('id', 'import', 'date_issue', 'inspector_bg')
+                                                ->where('importer_id', $id)
+                                                ->where('date_issue', '>=', $time_start )
+                                                ->where('date_issue', '<=', $time_end )
+                                                ->orderby('date_issue', 'desc')->get();
+            foreach($time_certificates as $cert){
+                $array_import[date('Y', $cert['date_issue'])] = date('Y', $cert['date_issue']);
+                $yearsI = array_filter(array_unique($array_import));
+            }
+        }
+        else{
+            $import_certificates = array();
+            $yearsI = [2020 => "2022"];
         }
 
-        $import_identification = $importer->qidentification;
-        foreach($import_identification as $certificate){
-            $identification[] = $certificate->stocks->toArray();
+        // IDENTIFICATION
+        $identification_stocks = StockIdentification::select(['id', 'identification_id', 'crops_name','date_issue', 'weight'])
+            ->where('firm_id', '=', $id)
+            ->where('date_issue', '>=', $time_start )->where('date_issue', '<=', $time_end )
+            ->orderby('date_issue', 'desc')
+            ->get()->toArray();
+        $time_identification = QIdentification::select('date_issue')->where('importer_id', $id)->orderby('date_issue', 'desc')->get();
+        if(count($time_identification) > 0) {
+            foreach($time_identification as $cert){
+                $array_identification[date('Y', $cert['date_issue'])] = date('Y', $cert['date_issue']);
+                $yearsD = array_filter(array_unique($array_identification));
+            }
         }
-        if(!isset($import_stocks)) {
-            $identification = array();
+        else{
+            $yearsD = array();
         }
+
+
+
 
         $export_certificates = $importer->qxcertificate;
         foreach($export_certificates as $certificate){
@@ -150,9 +195,33 @@ class ImportersController extends Controller
         if(!isset($export_stocks)) {
             $export_stocks = array();
         }
+        if(count($export_stocks) > 0) {
+            foreach($identification as $cert){
+                $export_stocks[date('Y', $cert[0]['date_issue'])] = date('Y', $cert[0]['date_issue']);
+                $yearsX = array_filter(array_unique($export_stocks));
+            }
+        }
+        else{
+            $yearsX = array();
+        }
 
-        return view('quality.importers.show', compact( 'importer', 'import_certificates','import_identification',
-                                    'import_stocks', 'export_certificates', 'export_stocks', 'identification'));
+
+        if(isset($yearsI) || isset($yearsX) || isset($yearsD)  ) {
+            $years = array_replace($yearsI, $yearsX, $yearsD);
+            ksort($years);
+        }
+        else {
+            $years = [2022 => "2022"];
+        }
+
+        $import_identification = QIdentification::select('id', 'invoice_number', 'date_issue', 'inspector_bg')
+                ->where('importer_id', $id)
+                ->where('date_issue', '>=', $time_start )
+                ->where('date_issue', '<=', $time_end )
+                ->orderby('date_issue', 'desc')->get();
+
+        return view('quality.importers.show', compact( 'importer', 'import_certificates', 'import_stocks',
+                    'import_identification', 'identification_stocks', 'export_certificates', 'export_stocks', 'years', 'year_now'));
     }
 
     /**

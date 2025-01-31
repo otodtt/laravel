@@ -26,7 +26,8 @@ class PhitoOperator extends Model
         'marking', 'passports_list', 'marking_list', 'contact', 'contact_address', 'contact_city', 'contact_phone', 'place',
         'date_place', 'registration', 'registration_note', 'disposition', 'disposition_note', 'property', 'property_note',
         'plants_origin', 'plants_note', 'others_note', 'accepted', 'accepted_name', 'free_text', 'checked', 'checked_name',
-        'date_operator', 'date_add', 'date_update', 'added_by', 'updated_by', 'pin', 'type_firm',
-        'activity', 'products',  'derivation', 'purpose', 'room', 'action', 'deletion'
+        'date_operator', 'date_add', 'date_update', 'added_by', 'updated_by', 'pin', 'type_firm', 'activity', 'products',
+        'derivation', 'purpose', 'room', 'action', 'deletion', 'operator_index_not', 'operator_index_bg', 'address',
+        'registration_number', 'registration_date', 'registration_order', 'date_order', 'is_completed'
     ];
 }

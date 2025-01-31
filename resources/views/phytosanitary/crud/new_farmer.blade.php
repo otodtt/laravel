@@ -1,6 +1,6 @@
-@extends('layouts.quality')
+@extends('layouts.phyto')
 @section('title')
-    {{ 'Добави Сертификат!' }}
+    {{ 'Добави в регистъра!' }}
 @endsection
 
 @section('css')
@@ -13,7 +13,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на ВЪТРЕШЕН Сертификат!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на нов земедлец към регистъра на професионалните оператори!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -33,12 +33,12 @@
                 </ul>
             </div>
         @endif
-        {!! Form::open(['url'=>'контрол/сертификати-вътрешен/фермер/store_farmer', 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
-            @include('quality.certificates.domestic.forms.form_create_farmer_certificate')
+        {!! Form::open(['url'=>'фито/оператор/нов/store', 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
+            @include('phytosanitary.crud.forms.form_create_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
             <div class="col-md-6 " >
-                <a href="{{ '/контрол/сертификати-вътрешен' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към сертификатите!</a>
+                <a href="{{ '/фито/търси-оператор' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към търси</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
                 {!! Form::submit('Добави и продължи!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
@@ -52,17 +52,17 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/location/findLocation.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
-    {!!Html::script("js/quality/date_issue.js" )!!}
+{{--    {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}--}}
+    {!!Html::script("js/phito/findLocation.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+{{--    {!!Html::script("js/quality/date_issue.js" )!!}--}}
     <script>
-        $('#id_country').change(function () {
-            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
-            var for_country_en=$(this).find('option:selected').attr('for_country_en');
-            $('#for_country_bg').val(for_country_bg);
-            $('#for_country_en').val(for_country_en);
-        });
+//        $('#id_country').change(function () {
+//            var for_country_bg=$(this).find('option:selected').attr('for_country_bg');
+//            var for_country_en=$(this).find('option:selected').attr('for_country_en');
+//            $('#for_country_bg').val(for_country_bg);
+//            $('#for_country_en').val(for_country_en);
+//        });
 
     </script>
 @endsection

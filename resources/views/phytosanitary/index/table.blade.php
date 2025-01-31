@@ -28,35 +28,58 @@
     <?php $n = 1; ?>
     @foreach($operators as $operator)
         <?php
-        if ($operator->type_firm == 1) {
-            $et = 'ЗС';
-            $eik = 'ЕГН';
-        }  elseif ($operator->type_firm == 2) {
-            $et = 'ET';
-            $eik = 'Булс.';
-        } elseif ($operator->type_firm == 3) {
-            $et = 'ООД';
-            $eik = 'Булс.';
-        } elseif ($operator->type_firm == 4) {
-            $et = 'ЕООД';
-            $eik = 'Булс.';
-        } elseif ($operator->type_firm == 5) {
-            $et = 'АД';
-            $eik = 'Булс.';
-        } elseif ($operator->type_firm == 6) {
-            $et = 'КООП';
-            $eik = 'Булс.';
-        } else {
-            $et = '';
-            $eik = 'Булс.';
-        }
+                if ($operator->type_firm == 1) {
+                    $et = 'ЗС';
+                    $eik = 'ЕГН';
+                }  elseif ($operator->type_firm == 2) {
+                    $et = 'ET';
+                    $eik = 'Булс.';
+                } elseif ($operator->type_firm == 3) {
+                    $et = 'ООД';
+                    $eik = 'Булс.';
+                } elseif ($operator->type_firm == 4) {
+                    $et = 'ЕООД';
+                    $eik = 'Булс.';
+                } elseif ($operator->type_firm == 5) {
+                    $et = 'АД';
+                    $eik = 'Булс.';
+                } elseif ($operator->type_firm == 6) {
+                    $et = 'КООП';
+                    $eik = 'Булс.';
+                } else {
+                    $et = '';
+                    $eik = 'Булс.';
+                }
+                if($operator->id >= 1 && $operator->id <= 9){
+                    $nulls = '000';
+                }
+                elseif($operator->id >= 10 && $operator->id <= 90){
+                    $nulls = '00';
+                }
+                elseif($operator->id >= 100 ){
+                    $nulls = '0';
+                }
+                else {
+                    $nulls = '';
+                }
         ?>
         <tr>
             <td class="right"><?= $n++ ?></td>
-            <td class="left">{!! $operator->number_petition !!} / {{date('d.m.Y', $operator->date_petition)}}</td>
-            <td class="">{{date('d.m.Y', $operator->date_petition)}}</td>
-{{--            <td>{{$operator->name_operator}}</td>--}}
-
+            <td class="left">
+                @if($operator->number_petition == 0 && $operator->is_copleated == 0)
+                    <span style="color: #ff0000; font-weight: bold">Не е завършено</span>
+                @else
+                    {!! $operator->number_petition !!} / {{date('d.m.Y', $operator->date_petition)}}
+                @endif
+            </td>
+            <td class="">
+                @if($operator->number_petition == 0 && $operator->is_copleated == 0)
+                    <span style="color: #ff0000; font-weight: bold">Не е завършено</span>
+                @else
+                    {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->id }}
+                    /{{date('d.m.Y', $operator->date_petition)}}
+                @endif
+            </td>
             <td class="right">{{$et}}</td>
             <td class="">{{ $operator->name_operator }}</td>
             <td class="">{{$operator->address}}</td>
@@ -69,9 +92,16 @@
             <td class="">{{$operator->action}}</td>
             <td class="center">{{$operator->deletion}}</td>
             <td class="center last-column">
-                <a href="{!!URL::to('/фито/оператор/'.$operator->id)!!}" class="fa fa-binoculars btn btn-primary my_btn">
-                    &nbsp;Виж!
-                </a>
+                @if($operator->number_petition == 0 && $operator->is_copleated == 0)
+                    <a href="{!!URL::to('/фито/оператор/земеделец/завърши/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn">
+                        &nbsp;ЗАВЪРШИ!
+                    </a>
+                @else
+                    <a href="{!!URL::to('/фито/оператор/'.$operator->id)!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                        &nbsp;Виж!
+                    </a>
+                @endif
+
             </td>
         </tr>
     @endforeach

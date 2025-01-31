@@ -1315,8 +1315,14 @@ class QINCertificatesController extends Controller
             $add = $weight*0.3;
             $sum_domestic = 9 + $add ;
         }
+//        dd($certificate);
+        if ($certificate->date_issue >= 1735689600) {
+            return view('quality.certificates.domestic.show.show_next', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_domestic', 'sum_type'));
+        } else {
+            return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm', 'total_weight', 'sum_domestic', 'sum_type'));
+        }
 
-        return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm', 'total_weight', 'sum_domestic', 'sum_type'));
+
     }
 
     /**
@@ -1659,6 +1665,7 @@ class QINCertificatesController extends Controller
         $data_invoice = [
             'sum' => $final_sum,
         ];
+//        dd($data);
 
         Invoice::where('certificate_id', $certificate->id)->where('certificate_number',$certificate->internal)->update($data_invoice);
 

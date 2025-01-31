@@ -414,7 +414,7 @@
                         <div class="small_field_bottom" style="display: table-cell">
                             {!! Form::model($certificate, ['url'=>'unlock-internal-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
                             <button type="submit" class="btn-sm btn-success " id="unlockConfirm">
-                                <i class="fa fa-unlock"></i> Откючи!
+                                <i class="fa fa-unlock"></i> Отключи!
                             </button>
                             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                             {!! Form::close() !!}

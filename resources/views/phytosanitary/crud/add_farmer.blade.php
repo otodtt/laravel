@@ -1,4 +1,4 @@
-@extends('layouts.quality')
+@extends('layouts.phyto')
 @section('title')
     {{ 'Добави Оператор!' }}
 @endsection
@@ -42,6 +42,8 @@
 @endsection
 
 @section('content')
+    <?php //echo(count($is_farmer)) ?>
+    {{--@if(count($is_farmer) == 0 )--}}
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
@@ -50,20 +52,20 @@
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
-            <span class="bold">Веднъж направен запис, Номера на Сертификата не може повече да се променя!
-                Веднъж направен запис, Сертификата не може да се изтрие, може само да се редактира!
+            <span class="bold">Веднъж направен запис,  Регистрационния номер не може повече да се променя!
+                Веднъж направен запис, Регистрационния номер не може да се изтрие, може само да се редактира!
             </span>
         </p>
     </div>
     <div class="form-group">
         @if(count($errors)>0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error  }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error  }}</li>
+                @endforeach
+            </ul>
+        </div>
         @endif
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
@@ -106,11 +108,43 @@
     </div>
     <br/>
     <hr/>
+    {{--@else--}}
+        {{--<div class="alert alert-info my_alert" role="alert">--}}
+            {{--<div class="row">--}}
+                {{--<h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        {{--<div class="alert alert-danger my_alert" role="alert">--}}
+            {{--<p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">ВНИМАНИЕ! Прочети преди да продължиш!</span><br/>--}}
+            {{--<span class="bold">Земеделският производител или фирмата вече са вписани в официалния регистър на професионалните оператори.</span>--}}
+            {{--</p>--}}
+        {{--</div>--}}
+        {{--<div class="row" style="margin: 0 auto; width: 80%; min-height: 200px; margin-top: 50px">--}}
+            {{--<div class="col-md-4">--}}
+                {{--<div class="btn_add" style="text-align: center;">--}}
+                    {{--<a href="http://odbhrz.test/стопанин/{{$is_farmer[0]['farmer_id']}}'" class="fa fa-arrow-circle-left btn btn-success my_btn">  Към земеделския стопанин</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-4">--}}
+                {{--<div class="btn_add" style="text-align: center;">--}}
+                    {{--<a href="http://odbhrz.test/фито/оператор/{{$is_farmer[0]['id']}}" class="fa fa-registered btn btn-danger my_btn ">  Регистрационен номер</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-4">--}}
+                {{--<div class="btn_add" style="text-align: center;">--}}
+                    {{--<a href="http://odbhrz.test/фито/регистър-оператори" class="fa fa-list btn btn-info my_btn"> Към регистъра </a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        {{--<div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px; text-align: center;">--}}
+            {{--<a href="/фито/търси-оператор" class="fa fa-arrow-circle-left btn btn-default my_btn-success"> Откажи! Назад към сертификатите!</a>--}}
+        {{--</div>--}}
+    {{--@endif--}}
 @endsection
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+    {!!Html::script("js/confirm/prevent.js" )!!}
     {!!Html::script("js/sanitary/date_issue.js" )!!}
     <script>
         function clearRadioButtons()

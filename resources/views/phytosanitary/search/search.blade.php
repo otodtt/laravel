@@ -1,4 +1,4 @@
-@extends('layouts.quality')
+@extends('layouts.phyto')
 @section('title')
     {{ 'Намери Земеделски Стопанин' }}
 @endsection
@@ -19,19 +19,12 @@
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa  btn btn-default my_btn"><i class="fa fa-registered " aria-hidden="true"></i>  Официален регистър</span>
-        <a href="{!! URL::to('/фито/фактури')!!}" class="fa fa-files-o btn btn-info my_btn"> Фактури</a>
+        {{--<span class="fa  btn btn-default my_btn"><i class="fa fa-registered " aria-hidden="true"></i>  Официален регистър</span>--}}
+        <a href="{!! URL::to('/фито/регистър-оператори')!!}" class="fa fa-registered btn btn-info my_btn"> Официален регистър</a>
         <a href="{!! URL::to('/фито/вносители')!!}" class="fa fa-trademark btn btn-info my_btn"> Всички фирми</a>
-        <a href="{!! URL::to('/фито/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>
-        <a href="{!! URL::to('/фито/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>
+        {{--<a href="{!! URL::to('/фито/стоки/внос')!!}" class="fa fa-tags btn btn-info my_btn"> Стоки</a>--}}
+        {{--<a href="{!! URL::to('/фито/култури')!!}" class="fa fa-leaf btn btn-info my_btn"> Култури</a>--}}
     </div>
-
-    {{--<hr/>--}}
-    {{--<div class="btn-group" >--}}
-        {{--<a href="{!! URL::to('/контрол/сертификати-внос')!!}" class="fa fa-arrow-down btn btn-info my_btn"> Сетификати/Внос</a>--}}
-        {{--<a href="{!! URL::to('/контрол/сертификати-износ')!!}" class="fa fa-arrow-up btn btn-info my_btn"> Сетификати/Износ </a>--}}
-        {{--<span class="fa fa-retweet btn btn-default my_btn"> Вътрешни</span>--}}
-    {{--</div>--}}
     <hr/>
 
     <div class="form-group">
@@ -112,7 +105,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-md-6_my " >
-                        {!! Form::open(['url'=>'/фито/оператор/фермер/нов' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                        {!! Form::open(['url'=>'/фито/оператор/нов/добави' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                             <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ НОВ СТОПАНИН КАТО ОПЕРАТОР">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name" value="{!! $name !!}">
@@ -129,7 +122,7 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            {!! Form::open(['url'=>'/фито/оператор/фермер/нова-фирма' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                            {!! Form::open(['url'=>'/фито/оператор/фирма/добави' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                                 <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
                                 <input type="hidden" name="firm" value="{!! $firm !!}">
                                 <input type="hidden" name="name_firm" value="{!! $name_firm !!}">

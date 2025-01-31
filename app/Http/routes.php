@@ -128,7 +128,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/контрол/вносители/{id}/edit', 'ImportersController@edit');
     Route::post('/контрол/вносители/{id}/update', 'ImportersController@update');
     Route::post('/контрол/вносители/сортирай/{sort?}', 'ImportersController@sort');
-    Route::get('/контрол/вносители/{id}/show', 'ImportersController@show');
+    Route::any('/контрол/вносители/{id}/show', 'ImportersController@show');
 
     Route::resource('контрол/опаковчици', 'PackersController');
     Route::get('/контрол/опаковчик/добави', 'PackersController@create');
@@ -949,6 +949,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/фито/оператор/земеделец/добави/{id}', 'PhytoOperatorsController@create_old');
     Route::any('/фито/оператор/фермер/store/{id}', 'PhytoOperatorsController@store_old');
+    Route::get('/фито/оператор/нов/добави/', 'PhytoOperatorsController@create_new');
+    Route::get('/фито/оператор/фирма/добави/', 'PhytoOperatorsController@firm_new');
+    Route::any('/фито/оператор/нов/store/', 'PhytoOperatorsController@store_new');
+    Route::get('/фито/оператор/земеделец/завърши/{id}', 'PhytoOperatorsController@finish');
 //    Route::get('/фито/оператор/фирма-зс/добави/{id}', 'PhytoOperatorsController@create');
 //    Route::get('/контрол/сертификати-вътрешен/фермер/нов', 'QINCertificatesController@create_farmer');
 //    Route::post('/контрол/сертификати-вътрешен/фермер/store_farmer', 'QINCertificatesController@store_farmer');

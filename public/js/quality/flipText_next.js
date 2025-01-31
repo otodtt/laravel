@@ -2,7 +2,6 @@
 $(function() {
     //   КОГАТО СТРАНАТА Е НА ДВА РЕДА
     const height = document.querySelector('#country_wrap').offsetHeight
-    console.log("height ->" + height);
 
     if (height > 18) {
         $('#country_p').css('fontSize', '11px');
@@ -30,14 +29,6 @@ $(function() {
     const sixth_cell = document.querySelector('.sixth-row-cell').offsetHeight
     const seven_cell = document.querySelector('.seven-row-cell').offsetHeight
 
-    console.log((first + second + third + fourth + fifth + sixth_cell + seven_cell)  * cent);
-    console.log("first ->" + first  * cent);
-    console.log("second ->" + second  * cent);
-    console.log("second ->" + second );
-    console.log("third ->" + third  * cent);
-    console.log("fourth ->" + fourth  * cent);
-    console.log("fifth ->" + fifth  * cent);
-    console.log("sixth ->" + sixth  * cent);
 
 
     $('.quality0').css('margin-top', '93px');
@@ -46,7 +37,7 @@ $(function() {
     // ////  0  ///
     const pack0 = document.querySelector('.pack0').offsetHeight
     const crop0 = document.querySelector('.crop0').offsetHeight
-    console.log(pack0+ "---->" + crop0 );
+
     if ( pack0 >=  crop0 ) {
         $('.crop0').css('height', pack0 + 'px');
         $('.quality0').css('height', pack0 + 'px');

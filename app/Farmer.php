@@ -104,4 +104,13 @@ class Farmer extends Model
     public function reports(){
         return $this->hasMany('odbh\FarmerReport')->orderBy('date_report','asc');
     }
+
+    /**
+     * ЗП има много PhitoOperator
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function operators(){
+        return $this->hasMany('odbh\PhitoOperator')->select(['id', 'is_completed', 'number_petition']);
+//        return $this->hasMany('odbh\PhitoOperator')->select(['id', 'title', 'user_id']);
+    }
 }
