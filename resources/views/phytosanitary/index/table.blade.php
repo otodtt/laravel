@@ -1,10 +1,11 @@
-<table id="example" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
+<table id="operators" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
     <thead>
     <tr>
         <th rowspan="2">N</th>
-        <th rowspan="2">Вх.№ на заявление за <br/>първоначална регистрация <br/>/актуализация /промяна във вписаните  обстоятелства</th>
+        <th rowspan="2">Вх.№ на заявление за <br/>първоначална регистрация </th>
+        <th rowspan="2">промяна вписана</th>
         <th rowspan="2">Номер и дата на <br/>удостоверението за <br/>регистрация Официален регистрационен номер</th>
-        <th colspan="3">Име и адрес на <br/>професионалният оператор Данни за връзка </th>
+        <th colspan="2">Име и адрес на <br/>професионалният оператор Данни за връзка </th>
         <th rowspan="2">Дейност/и по чл. 65(1) </th>
         <th colspan="3">Растения, растителни <br/>продукти и други обекти</th>
         {{--<th>произход</th>--}}
@@ -13,11 +14,11 @@
         <th rowspan="2">Дейност/и по чл. 66(2)</th>
         <th rowspan="2">Дата на <br/>заличаване на регистрацията/ <br/>Причина</th>
         <th rowspan="2">Виж</th>
+        <th rowspan="2">EDIT</th>
     </tr>
     <tr>
         <th></th>
         <th>Име</th>
-        <th>Адрес</th>
 
         <th>естество</th>
         <th>произход</th>
@@ -47,7 +48,7 @@
                     $et = 'КООП';
                     $eik = 'Булс.';
                 } else {
-                    $et = '';
+                    $et = 'Тър.';
                     $eik = 'Булс.';
                 }
                 if($operator->id >= 1 && $operator->id <= 9){
@@ -66,23 +67,30 @@
         <tr>
             <td class="right"><?= $n++ ?></td>
             <td class="left">
-                @if($operator->number_petition == 0 && $operator->is_copleated == 0)
+                @if($operator->number_petition == 0 && $operator->is_completed == 0)
                     <span style="color: #ff0000; font-weight: bold">Не е завършено</span>
                 @else
                     {!! $operator->number_petition !!} / {{date('d.m.Y', $operator->date_petition)}}
                 @endif
             </td>
-            <td class="">
-                @if($operator->number_petition == 0 && $operator->is_copleated == 0)
-                    <span style="color: #ff0000; font-weight: bold">Не е завършено</span>
+            <td>
+                @if($operator->update_date != 0)
+                    {{date('d.m.Y', $operator->update_date)}}
                 @else
-                    {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->id }}
-                    /{{date('d.m.Y', $operator->date_petition)}}
+
+                @endif
+            </td>
+            <td class="">
+                @if($operator->registration_number == 0 && $operator->is_completed == 0)
+                    <span style="color: #ff0000; font-weight: bold">Не е добавен</span>
+                @else
+                    {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->registration_number }}
+                    /{{date('d.m.Y', $operator->registration_date)}}
                 @endif
             </td>
             <td class="right">{{$et}}</td>
             <td class="">{{ $operator->name_operator }}</td>
-            <td class="">{{$operator->address}}</td>
+            {{--<td class="">{{$operator->address}}</td>--}}
 
             <td class="">{{$operator->activity}}</td>
             <td class="">{{ $operator->products }}</td>
@@ -90,10 +98,18 @@
             <td class="">{{$operator->purpose}}</td>
             <td class="">{{$operator->room}}</td>
             <td class="">{{$operator->action}}</td>
-            <td class="center">{{$operator->deletion}}</td>
+            <td class="center">
+                @if($operator->deletion != 0)
+                    <p>{{$operator->deletion}}/{{date('d.m.Y', $operator->deletion_date)}}</p>
+                @endif
+            </td>
             <td class="center last-column">
-                @if($operator->number_petition == 0 && $operator->is_copleated == 0)
-                    <a href="{!!URL::to('/фито/оператор/земеделец/завърши/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn">
+                @if($operator->number_petition == 0 && $operator->is_completed == 0)
+                    <a href="{!!URL::to('/фито/таблица/table_farmer/'.$operator->farmer_id).'/'.$operator->id !!}" class="fa fa-edit btn btn-danger my_btn">
+                        &nbsp;ЗА ТАБЛИЦА!
+                    </a>
+                    <hr>
+                    <a href="{!!URL::to('/фито/оператор/земеделец/завърши/'.$operator->id)!!}" class="fa fa-edit btn btn-success my_btn">
                         &nbsp;ЗАВЪРШИ!
                     </a>
                 @else
@@ -102,6 +118,11 @@
                     </a>
                 @endif
 
+            </td>
+            <td>
+                <a href="{!!URL::to('/фито/таблица/table_edit/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn">
+                    &nbsp;EDIT!
+                </a>
             </td>
         </tr>
     @endforeach

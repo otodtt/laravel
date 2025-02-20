@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#example_stock').DataTable( {
+    $('#phito_traders').DataTable( {
         // footerCallback: function (row, data, start, end, display) {
         //     var api = this.api();
 
@@ -22,11 +22,10 @@ $(document).ready(function() {
         "columns": [
             null,
             { "orderable": false },
-            null,
             { "orderable": false },
             { "orderable": false },
-            null,
-            null,
+            { "orderable": false },
+            { "orderable": false },
             { "orderable": false },
         ],
         "pagingType": "full_numbers",
@@ -52,16 +51,16 @@ $(document).ready(function() {
         },
         "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'
     } );
-    var table = $('#example_stock').DataTable();
-
-    $('#example_stock tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    } );
+    //var table = $('#phito_traders').DataTable();
+    //
+    //$('#phito_traders tbody').on( 'click', 'tr', function () {
+    //    if ( $(this).hasClass('selected') ) {
+    //        $(this).removeClass('selected');
+    //    }
+    //    else {
+    //        table.$('tr.selected').removeClass('selected');
+    //        $(this).addClass('selected');
+    //    }
+    //} );
 } );
 

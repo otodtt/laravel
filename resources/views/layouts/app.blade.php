@@ -101,21 +101,16 @@
                 &nbsp;ФИТО &nbsp;<span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
             </a>
             <ul class="dropdown-menu" >
-                <li><a href="{!! URL::to( '/фито/сертификати-внос') !!}" class="my_a back_link"> <i class="fa fa-arrow-down fa-fw "></i> Сертификати внос</a></li>
-                <li><a href="{!! URL::to( '/фито/сертификати-износ') !!}" class="my_a back_link"> <i class="fa fa-arrow-up fa-fw "></i> Сертификати износ</a></li>
-                <li><a href="{!! URL::to( '/фито/сертификати-вътрешен') !!}" class="my_a back_link"> <i class="fa fa-retweet fa-fw "></i> Сертификати вътрешен</a></li>
+                <li><a href="{!! URL::to( '/фито/сертификати-внос') !!}" class="my_a back_link"> <i class="fa fa-certificate fa-fw "></i> Фито Сертификати</a></li>
+                {{--<li><a href="{!! URL::to( '/фито/сертификати-износ') !!}" class="my_a back_link"> <i class="fa fa-arrow-up fa-fw "></i> Сертификати износ</a></li>--}}
                 <li role="separator" class="divider"></li>
                 <li><a class="my_a back_link" href="{!! URL::to( '/фито/регистър-оператори') !!}"> <i class="fa fa-registered fa-fw " style="color: #347bb7;"></i> Официален регистър на оператори</a></li>
-                {{--<li><a class="my_a back_link" href="{!! URL::to( 'фито/формуляри') !!}"><i class="fa fa-check-square fa-fw green_color"></i> Формуляри за съответствие</a></li>--}}
+                <li><a class="my_a back_link" href="{!! URL::to( 'фито/паспорти') !!}"><i class="fa fa-id-badge fa-fw green_color"></i> Растителни Паспорти</a></li>
                 {{--<li><a class="my_a back_link" href="{!! URL::to( 'фито/идентификация') !!}"><i class="fa fa-id-card-o fa-fw blue_color"></i> Проверка и идентификация</a></li>--}}
 
                 <li role="separator" class="divider"></li>
                 {{--<li ><a href="{!! URL::to( '/контрол/фактури') !!}" class="my_a back_link"> <i class="fa fa-files-o fa-fw  "></i> Издадени фактури</a></li>--}}
-                <li ><a href="{!! URL::to( '/контрол/вносители') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>
-                <li><a href="{!! URL::to('/контрол/стоки/внос')!!}" class="my_a back_link"> <i class="fa fa-tags fa-fw "></i> Стоки</a></li>
-                <li><a href="{!! URL::to('/контрол/култури')!!}" class="my_a back_link"> <i class="fa fa-leaf fa-fw green_color"></i> Култури</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="{!! URL::to('/фито/месечни-справки')!!}" class="my_a back_link"> <i class="fa fa-calendar fa-fw red"></i> Месечни-справки</a></li>
+                <li ><a href="{!! URL::to( '/фито/регистър-тъговци') !!}" class="my_a back_link"> <i class="fa fa-truck fa-fw dark_color "></i> Всички фирми търговци</a></li>
             </ul>
         </li>
 

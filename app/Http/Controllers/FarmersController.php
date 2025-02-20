@@ -27,7 +27,8 @@ class FarmersController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('control', ['only'=>['create', 'store', 'edit', 'update', 'destroy']]);
+//        $this->middleware('control',  ['only'=>['create', 'store', 'edit', 'update', 'destroy']]);
+//        $this->middleware('sanitary', ['only'=>['create', 'store', 'edit', 'update', 'destroy']]);
 
         //////// ИНСПЕКТОРИ
         /** За Активните инспектори които могат да добавят */
@@ -197,7 +198,6 @@ class FarmersController extends Controller
 
         $certificate = Certificate::select('id')->where('pin','=',$farmer->pin)->orWhere('pin','=',$farmer->pin_owner)->get()->toArray();
 
-//        dd($operator->toArray());
 
         return view('farmers.show', compact('farmer', 'districts', 'districts_farm', 'regions', 'old_opinions', 'opinions',
                                     'certificate', 'protocols', 'old_protocols', 'old_protocols', 'permits',
@@ -267,6 +267,9 @@ class FarmersController extends Controller
     public function update(FarmersUpdateRequest $request, $id)
     {
         $farmer = Farmer::findOrFail($id);
+        $count_opinions = count($farmer->opinions);
+        $count_operators = count($farmer->operators);
+
         $in = null;
         $sex = null;
 
@@ -355,21 +358,78 @@ class FarmersController extends Controller
             'mobil'=>$request['mobil'],
             'email'=>$request['email'],
         ]);
+
         $farmer->fill($data);
         $farmer->save();
 
-        $opinions_data = ([
-            'type_firm'=>$type_firm,
-            'name'=>$request['name'],
-            'sex'=>$sex,
-            'pin'=>$pins,
-            'eik'=>$bulstats,
-            'egn_eik'=>$egn_eik,
-            'alphabet'=>$in,
-            'district_object'=>$request['district_object'],
-            'object_name'=>$request['location_farm'],
-        ]);
-        $farmer->opinions()->where('farmer_id','=',$id)->update($opinions_data);
+        if($count_opinions > 0 && Auth::user()->rz == 1) {
+
+            $opinions_data = ([
+                'type_firm'=>$type_firm,
+                'name'=>$request['name'],
+                'sex'=>$sex,
+                'pin'=>$pins,
+                'eik'=>$bulstats,
+                'egn_eik'=>$egn_eik,
+                'alphabet'=>$in,
+                "owner" => $request['owner'],
+                'district_object'=>$request['district_object'],
+                'object_name'=>$request['location_farm'],
+            ]);
+            $farmer->opinions()->where('farmer_id','=',$id)->update($opinions_data);
+        }
+
+        if($count_operators > 0 && Auth::user()->fsk == 1) {
+            $dist = '';
+
+            if($request['data_tmv'] == 1){
+                $tvm = 'гр. ';
+            }
+            elseif($request['data_tmv'] == 2 ){
+                $tvm = 'с. ';
+            }
+            else{
+                $tvm = 'гр./с. ';
+            }
+            $regions = $this->areas_all_list;
+            foreach ($regions as $k=>$items) {
+                if ($k == $request['areas_id']) {
+                    $region = $items;
+                }
+            }
+            /** Генерира списък с общините */
+            $districts = Location::select('name', 'district_id')
+                ->where('areas_id', '=', $request['areas_id'])
+                ->where('type_district', '=', 1)
+                ->orderBy('district_id', 'asc')
+                ->lists('name', 'district_id');
+
+            foreach ($districts as $k=>$items) {
+                if ($k == $request['district_id']) {
+                    $dist = $items;
+                }
+            }
+            $address = $request['address'].', '.$tvm.''.$request['list_name'].', общ. '.$dist.', обл. '.$region;
+            $operators_data = ([
+                'farmer_id' => $id,
+                'type_firm' => $type_firm,
+                'pin' => $pins,
+                'name_operator' => $request['name'],
+                'address_operator' => $request['address'],
+                'address' => $address,
+                'tvm' => $tvm,
+                'city' => $request['list_name'],
+                'municipality' => $dist,
+                'area' => $region,
+                'alphabet'=>$in,
+
+                'date_update' => date('d.m.Y', time()),
+                'updated_by' => Auth::user()->id,
+                'is_completed' => 0
+            ]);
+
+            $farmer->operators()->where('farmer_id','=',$id)->update($operators_data);
+        }
 
         Session::flash('message', 'Земеделския стопанин е редактирана успешно!');
         return Redirect::to('/стопанин/'.$id);

@@ -29,7 +29,7 @@ jQuery('#date_petition').datetimepicker({
     maxDate: Date(currentYear, currentMonth, currentDay)
 });
 
-jQuery('#date_place').datetimepicker({
+jQuery('#update_date').datetimepicker({
     i18n:{
         bg:{
             months:[
@@ -55,7 +55,7 @@ jQuery('#date_place').datetimepicker({
     maxDate: Date(currentYear, currentMonth, currentDay)
 });
 
-jQuery('#date_operator').datetimepicker({
+jQuery('#registration_date').datetimepicker({
     i18n:{
         bg:{
             months:[
@@ -81,28 +81,28 @@ jQuery('#date_operator').datetimepicker({
     maxDate: Date(currentYear, currentMonth, currentDay)
 });
 
-jQuery('#date_order').datetimepicker({
-    i18n:{
-        bg:{
-            months:[
-                'Януари','Февруари','Март','Април',
-                'Май','Юни','Юли','Август',
-                'Септември','Октомври','Ноември','Декември'
-            ],
-            dayOfWeek:[
-                "По.", "Вт", "Ср", "Чт",
-                "Пе", "Съ", "Не."
-            ]
-        }
-    },
-    scrollInput: false,
-
-    timepicker:false,
-    format:'d.m.Y',
-    lang:'bg',
-    yearStart: 2000,
-    yearEnd: currentYear,
-    dayOfWeekStart:1,
-
-    maxDate: Date(currentYear, currentMonth, currentDay)
-});
+//jQuery('#date_order').datetimepicker({
+//    i18n:{
+//        bg:{
+//            months:[
+//                'Януари','Февруари','Март','Април',
+//                'Май','Юни','Юли','Август',
+//                'Септември','Октомври','Ноември','Декември'
+//            ],
+//            dayOfWeek:[
+//                "По.", "Вт", "Ср", "Чт",
+//                "Пе", "Съ", "Не."
+//            ]
+//        }
+//    },
+//    scrollInput: false,
+//
+//    timepicker:false,
+//    format:'d.m.Y',
+//    lang:'bg',
+//    yearStart: 2000,
+//    yearEnd: currentYear,
+//    dayOfWeekStart:1,
+//
+//    maxDate: Date(currentYear, currentMonth, currentDay)
+//});

@@ -58,7 +58,11 @@
         <div class="row-height-my" style="display: table; width: 100%">
             <div class="small_field_left" style="display: table-cell; width: 50%">
                 <div class="row-height-my">
-                    <a href="{!! URL::to('/стопанин/'.$farmer->id.'/редактирай' )!!}" class='fa fa-edit btn btn-danger my_btn'> Редактирай!</a>
+                    @if((Auth::user()->fsk == 1 && count($operator) > 0 ) || (Auth::user()->admin == 2 || Auth::user()->fsk != 1))
+                        <a href="{!! URL::to('/стопанин/'.$farmer->id.'/редактирай' )!!}" class='fa fa-edit btn btn-danger my_btn'> Редактирай!</a>
+                    @else
+                        <p>За редактиране се обърни към Администратора</p>
+                    @endif
                 </div>
             </div>
             <div class="small_field_right" style="display: table-cell; width: auto">
@@ -66,8 +70,6 @@
                 @if(count($operator) == 0)
                         @if(Auth::user()->fsk == 1 || Auth::user()->admin == 2)
                             <a href="{!! URL::to('/фито/оператор/земеделец/добави/'.$farmer->id )!!}" class='fa fa-edit btn btn-info my_btn'> Добави в списъка с оператори</a>
-                        @else
-
                         @endif
                 @else
                     @if($operator[0]['is_completed'] == 0 && $operator[0]['number_petition'] == 0)
@@ -83,7 +85,7 @@
                             <span style="font-weight: bold">ЗС е вписан в официалния регистър на ПО и има {{count($operator)}} запис/а.</span>
                             <a href="{!! URL::to('/фито/регистър-оператори' )!!}" class='fa fa-binoculars btn btn-success my_btn'> ВИЖ Регистъра</a>
                             @if(Auth::user()->fsk == 1 || Auth::user()->admin == 2)
-                                <a href="{!! URL::to('/фито/оператор/земеделец/добави/'.$farmer->id )!!}" class='fa fa-edit  btn btn-danger my_btn' style="float: right"> ДОБАВИ ОТНОВО</a>
+                                <a href="{!! URL::to('/фито/оператор/земеделец/добави/'.$farmer->id )!!}" class='fa fa-edit  btn btn-danger my_btn' style="float: right"> ДОБАВИ ОТНОВО В РЕГИСТЪРА</a>
                             @endif
                         </p>
                     @endif

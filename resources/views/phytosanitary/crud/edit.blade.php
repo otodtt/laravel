@@ -1,6 +1,6 @@
 @extends('layouts.phyto')
 @section('title')
-    {{ 'Добави Оператор!' }}
+    {{ 'Редактирай Оператор!' }}
 @endsection
 
 @section('css')
@@ -47,7 +47,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Завършва се Земеделски производител като оператор!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Редактиране на данни на заявление на оператор!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -69,12 +69,12 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">ЗАВЪРШВАНЕ НА ДОБАВЯНЕ НАОПЕРАТОР</h4>
+                    <h4 class="my_center bold">РЕДАКТИРАНЕ НА ОПЕРАТОР</h4>
                     @include('records.add.object_info')
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'фито/оператор/земеделец/store/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($operator, ['url'=>'фито/оператор/update/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('phytosanitary.crud.forms.number_petition')
             <hr class="my_hr_in"/>
@@ -88,7 +88,7 @@
             <hr class="my_hr_in"/>
             @include('phytosanitary.crud.forms.contacts')
             <hr class="my_hr_in"/>
-            @include('phytosanitary.crud.forms.corresponding')
+            @include('phytosanitary.crud.forms.inspectors')
             <hr class="my_hr_in"/>
             @include('phytosanitary.crud.forms.table')
             <hr class="my_hr_in"/>
@@ -102,7 +102,6 @@
                 {!! Form::submit('Завърши и продължи!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
-            
         {!! Form::close() !!}
     </div>
     <br/>

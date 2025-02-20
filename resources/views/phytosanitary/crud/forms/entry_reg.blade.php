@@ -7,7 +7,6 @@ else{
     $update_date = '';
     $update_number = '';
 }
-echo($update_date);
 ?>
 
 <div class="container-fluid" >

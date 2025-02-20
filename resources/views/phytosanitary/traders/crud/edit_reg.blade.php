@@ -70,7 +70,10 @@
             <div class="row">
                 <div class="col-md-12 ">
                     <h4 class="my_center bold">РЕДАКТИРАНЕ НА ОПЕРАТОР ТЪРГОВЕЦ</h4>
-{{--                    @include('records.add.object_info')--}}
+                    <p >
+                        Име на Фирма: <span class="bold">{!! $trader->trader_name !!}</span>; С ЕИК: <span class="bold">{!! $trader->trader_vin !!}</span>
+                    </p>
+                    <p >С адрес: <span class="bold">{!! $trader->trader_address !!}</span>,  </p>
                 </div>
             </div>
         </div>

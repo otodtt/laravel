@@ -14,8 +14,8 @@ else{
 }
 ?>
 {!! Form::label('inspector_sort', ' Сортирай по:', ['class'=>'labels']) !!}
-{!! Form::select('inspector_sort', $inspectors, $sort_inspector_return, ['class'=>'form-control inspector_sort']) !!}
+{{--{!! Form::select('inspector_sort', $inspectors, $sort_inspector_return, ['class'=>'form-control inspector_sort']) !!}--}}
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 {!! Form::submit(' СОРТИРАЙ', array('class' => 'fa fa-search btn btn-primary my_btn ')) !!}
-<input type="hidden" name="abc" value="{!! $sort_abc !!}">
-<input type="hidden" name="year" value="{!! $year_now !!}">
+{{--<input type="hidden" name="abc" value="{!! $sort_abc !!}">--}}
+{{--<input type="hidden" name="year" value="{!! $year_now !!}">--}}

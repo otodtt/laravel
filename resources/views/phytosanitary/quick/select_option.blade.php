@@ -1,48 +1,59 @@
-<?php
-if(isset($operator) && !empty($operator)){
-    $date_petition = date('d.m.Y', $operator->date_petition);
-    $update_date = date('d.m.Y', $operator->update_date);
-    $registration_date = date('d.m.Y', $operator->$registration_date);
-}
-else{
-    $date_petition = null;
-    $update_date = null;
-    $registration_date = null;
-}
-?>
 {{--Номер и Дата на Заявлението--}}
+<textarea id="w3review" name="w3review" rows="1" cols="100"></textarea>
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-12" >
-            <fieldset class="small_field"><legend class="small_legend">Номер и Дата на Заявлението за Вписване</legend>
-                <div class="col-md-6 col-md-6_my" >
-                    {!! Form::label('number_petition', 'Заявление №', ['class'=>'my_labels']) !!}
-                    {!! Form::text('number_petition', null, ['class'=>'form-control form-control-my', 'size'=>2, 'maxlength'=>6, 'id'=>'number_petition' ]) !!}
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    {!! Form::label('date_petition', 'Дата:', ['class'=>'my_labels']) !!}
-                    {!! Form::text('date_petition', $date_petition, ['class'=>'form-control form-control-my date_certificate',
-                    'id'=>'date_petition', 'size'=>15, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг', 'autocomplete'=>'off' ]) !!}
-                </div>
-                <div class="col-md-6 col-md-6_my"  >
-                    <span>Ако има актуализация</span>
-                    {!! Form::label('update_date', 'Дата:', ['class'=>'my_labels']) !!}
-                    {!! Form::text('update_date', $update_date, ['class'=>'form-control form-control-my date_certificate',
-                    'id'=>'update_date', 'size'=>15, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг', 'autocomplete'=>'off' ]) !!}
+            <fieldset class="small_field"><legend class="small_legend">Избери дали е Търговец или ЗС!</legend>
+                <div class="col-md-8 col-md-6_my" >
+                    <label >Фирмата е ТЪРГОВЕЦ
+                        {!! Form::radio('result', 1, false, ['id'=>'trader']) !!}
+                    </label>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+
+                    <label >Земеделски стопанин
+                        {!! Form::radio('result', 2, false, ['id'=>'farmer']) !!}
+                    </label>
                 </div>
             </fieldset>
         </div>
     </div>
 </div>
 {{--Дата на Регистрационния номер--}}
-<div class="container-fluid" >
+<div class="container-fluid archive hidden" >
     <div class="row">
         <div class="col-md-12" >
-            <fieldset class="small_field"><legend class="small_legend">Дата на Регистрационния номер</legend>
-                <div class="col-md-6 col-md-6_my" >
-                    <span>Регистрационния номер се добавя автоматично</span>
-                    {!! Form::label('registration_date', 'Дата:', ['class'=>'my_labels']) !!}
-                    {!! Form::text('registration_date', $registration_date, ['class'=>'form-control form-control-my date_certificate',
-                    'id'=>'registration_date', 'size'=>15, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг', 'autocomplete'=>'off' ]) !!}
+            <fieldset class="small_field"><legend class="small_legend">ЗЕМЕДЕЛЕЦ</legend>
+                <div class="col-md-12 col-md-6_my" >
+                    <span>Ако земеделеца е вписан в регистъра добави неговото ID!</span>
+                    <hr class="my_hr_in"/>
+                    <div class="row">
+                        <div class="col-md-4" >
+                            {!! Form::label('farmer_id', 'ID на земеделеца ако се знае', ['class'=>'my_labels']) !!}
+                            {!! Form::text('farmer_id', null, ['class'=>'form-control form-control-my', 'size'=>2, 'maxlength'=>6, 'id'=>'number_petition' ]) !!}
+                        </div>
+                        <div class="col-md-4" >
+                            {!! Form::label('pin', 'ЕГН/Булстат', ['class'=>'my_labels']) !!}
+                            {!! Form::text('pin', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>10, 'id'=>'pin' ]) !!}
+                        </div>
+                    </div>
+                    <hr class="my_hr_in"/>
+                    <div class="row">
+                        <div class="col-md-4" >
+                            {!! Form::label('name_operator', 'Име на ЗС. Задължително!', ['class'=>'my_labels']) !!}
+                            <br>
+                            {!! Form::text('name_operator', null, ['class'=>'form-control form-control-my', 'size'=>50, 'maxlength'=>100 ]) !!}
+                        </div>
+                        <div class="col-md-4" >
+                            {!! Form::label('address', 'Населено мясо на ЗС. Задължително!', ['class'=>'my_labels']) !!}
+                            <br>
+                            {!! Form::text('address', null, ['class'=>'form-control form-control-my', 'size'=>50, 'maxlength'=>100 ]) !!}
+                        </div>
+                        <div class="col-md-4" >
+                            {!! Form::label('address_operator', 'Адреса на ЗС ако се знае!', ['class'=>'my_labels']) !!}
+                            <br>
+                            {!! Form::text('address_operator', null, ['class'=>'form-control form-control-my', 'size'=>70, 'maxlength'=>150 ]) !!}
+                        </div>
+                    </div>
+
                 </div>
             </fieldset>
         </div>
@@ -50,48 +61,40 @@ else{
 </div>
 
 {{--ДРУГИ ДАННИ--}}
-<div class="container-fluid" >
+<div class="container-fluid hidden client" >
     <div class="row">
         <div class="col-md-12" >
-            <fieldset class="small_field"><legend class="small_legend">ДРУГИ ДАННИ</legend>
-                <h4>Полетата са задължителни за да се попълни таблицата</h4>
+            <fieldset class="small_field"><legend class="small_legend">ДАННИ НА ТЪРГОВЕЦ</legend>
+                <p>Името на търговеца и населеното място са ЗАДЪЛЖИТЕЛНИ! Другите данни ако се знаят или ще се попълнят после!</p>
                 <hr class="my_hr_in"/>
                 <div class="row">
                     <div class="col-md-4" >
-                        {!! Form::label('activity', 'Дейност/и по чл. 65(1)', ['class'=>'my_labels']) !!}
+                        {!! Form::label('trader_name', 'Име на Фирмата. Задължително!', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('activity', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('trader_name', null, ['class'=>'form-control form-control-my', 'size'=>50, 'maxlength'=>100 ]) !!}
+                    </div>
+                    <div class="col-md-4" >
+                        {!! Form::label('city', 'Населено мясо на фирмата. Задължително!', ['class'=>'my_labels']) !!}
+                        <br>
+                        {!! Form::text('city', null, ['class'=>'form-control form-control-my', 'size'=>50, 'maxlength'=>100 ]) !!}
+                    </div>
+                    <div class="col-md-4" >
+                        {!! Form::label('trader_address', 'Адреса на фирмата ако се знае!', ['class'=>'my_labels']) !!}
+                        <br>
+                        {!! Form::text('trader_address', null, ['class'=>'form-control form-control-my', 'size'=>70, 'maxlength'=>150 ]) !!}
                     </div>
                 </div>
                 <hr class="my_hr_in"/>
                 <div class="row">
                     <div class="col-md-4" >
-                        {!! Form::label('derivation', 'Произход на растенията', ['class'=>'my_labels']) !!}
+                        {!! Form::label('trader_vin', 'ЕИК/Булстат Ако се знае!', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('derivation', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('trader_vin', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
                     </div>
                     <div class="col-md-4" >
-                        {!! Form::label('products', 'Естество (изписват се растенията)', ['class'=>'my_labels']) !!}
+                        {!! Form::label('phone', 'Телефон Ако се знае!', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('products', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
-                    </div>
-                    <div class="col-md-4" >
-                        {!! Form::label('purpose', 'Предназначение ', ['class'=>'my_labels']) !!}
-                        <br>
-                        {!! Form::text('purpose', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
-                    </div>
-                </div>
-                <hr class="my_hr_in"/>
-                <div class="row">
-                    <div class="col-md-8" >
-                        {!! Form::label('room', 'Адрес на помещенията', ['class'=>'my_labels']) !!}
-                        <br>
-                        {!! Form::text('room', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
-                    </div>
-                    <div class="col-md-4" >
-                        {!! Form::label('action', 'Дейност/и по чл. 66(2) ', ['class'=>'my_labels']) !!}
-                        <br>
-                        {!! Form::text('action', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('phone', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
                     </div>
                 </div>
             </fieldset>

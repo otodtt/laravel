@@ -1,37 +1,40 @@
 <?php
-    if (isset($last_number[0]['passport'])){
-        $last = $last_number[0]['passport'];
-        $last_plus = $last_number[0]['passport']+1;
-    }  else {
-        $last = '- няма такъв';
-        $last_plus = 1;
-    }
-
-    if(isset($passports) && !empty($passports)){
-        if($passports->date_invoice == 0){
+    if(isset($passport) && !empty($passport)){
+        if($passport->date_invoice == 0){
             $date_invoice = null;
         }
         else{
-            $date_invoice = date('d.m.Y', $passports->date_invoice);
+            $date_invoice = date('d.m.Y', $passport->date_invoice);
         }
+
+
+        if($passport->date_permit == 0){
+            $date_permit = null;
+        }
+        else{
+            $date_permit = date('d.m.Y', $passport->date_permit);
+        }
+
     }
     else{
         $date_invoice = null;
+        $date_permit = null;
     }
+
 ?>
 @if(!isset($passports))
     <div class="container-fluid" >
-        <p class="bold "><span class="red"> Последно използван номер за Паспорт e {!! $last !!}.</span> Използвай {!! $last_plus !!} !</p>
+        {{--<p class="bold "><span class="red"> Последно използван номер за Паспорт e {!! $last !!}.</span> Използвай {!! $last_plus !!} !</p>--}}
         <div class="row">
             <div class="col-md-4" >
                 <fieldset class="small_field"><legend class="small_legend">Номер и дата на Паспорт</legend>
                     <div class="col-md-6 col-md-6_my" >
-                        {!! Form::label('passport', '№ на Паспорт', ['class'=>'my_labels']) !!}
-                        {!! Form::text('passport', $last_plus, ['class'=>'form-control form-control-my', 'size'=>2, 'maxlength'=>6 ]) !!}
+                        <p>Номера на Паспорта не може да се редактира!</p>
+                        <input type="hidden" name="passport" id="passport" value="{{$passport->passport}}">
                     </div>
                     <div class="col-md-6" >
                         {!! Form::label('date_permit', 'Дата:', ['class'=>'my_labels']) !!}
-                        {!! Form::text('date_permit', null, ['class'=>'form-control form-control-my date_certificate',
+                        {!! Form::text('date_permit', $date_permit, ['class'=>'form-control form-control-my date_certificate',
                         'id'=>'date_permit', 'size'=>15, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг' ]) !!}
                     </div>
                 </fieldset>

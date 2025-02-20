@@ -47,7 +47,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавя се Оператор от Excel към Регистъра без пълните данни! Само за таблицата!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Допълват се данни за ЗС {{$farmer->name}}! Само за таблицата!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -66,9 +66,9 @@
             </ul>
         </div>
         @endif
-        {!! Form::open(['url'=>'фито/таблица/table_store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
-
-            @include('phytosanitary.quick.select_option')
+        {!! Form::open(['url'=>'фито/таблица/table_store_farmer/'.$farmer->id.'/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+            <textarea id="w3review" name="w3review" rows="1" cols="100"></textarea>
+            {{--@include('phytosanitary.quick.select_option')--}}
             <h4>ДАННИ ЗА ЗАЯВЛЕНИЕТО ОТ ТАБЛИЦАТА</h4>
             @include('phytosanitary.quick.number_petition')
 

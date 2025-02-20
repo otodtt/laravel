@@ -1,14 +1,24 @@
 <?php
 if(isset($operator) && !empty($operator)){
-    $date_petition = date('d.m.Y', $operator->date_petition);
-    $update_date = date('d.m.Y', $operator->update_date);
-    $registration_date = date('d.m.Y', $operator->$registration_date);
+    //print_r($operator->registration_date);
+   if($operator->registration_date == 0 && $operator->date_petition == 0){
+        $date_petition = null;
+        $update_date = null;
+        $registration_date = null;
+    }
+    else {
+        $date_petition = date('d.m.Y', $operator->date_petition);
+        $update_date = date('d.m.Y', $operator->update_date);
+        $registration_date = date('d.m.Y', $operator->registration_date);
+    }
+
 }
 else{
     $date_petition = null;
     $update_date = null;
     $registration_date = null;
 }
+
 ?>
 {{--Номер и Дата на Заявлението--}}
 <div class="container-fluid" >
@@ -33,7 +43,6 @@ else{
         </div>
     </div>
 </div>
-{{--Дата на Регистрационния номер--}}
 <div class="container-fluid" >
     <div class="row">
         <div class="col-md-12" >

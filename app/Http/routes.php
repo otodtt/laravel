@@ -929,9 +929,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('фито/регистър-оператори', 'PhytoOperatorsController@search');
     Route::get('фито/оператор/{id}', 'PhytoOperatorsController@show');
     // Сортиране на регистър
-    Route::any('фито/регистър-оператори/сортирай/{abc_list?}/{start_year?}/{end_year?}/{limit_sort?}/{inspector_sort?}', 'PhytoOperatorsController@sort');
+    Route::any('фито/регистър-оператори/сортирай/{start_year?}/{end_year?}', 'PhytoOperatorsController@sort');
     // КРАЙ Сортиране на регистър
-
 
     Route::get('/фито/търси-оператор', 'PhytoOperatorsController@farmer_request');
     Route::post('/фито/търси-оператор', 'PhytoOperatorsController@farmer_request');
@@ -940,30 +939,69 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('фито/оператор/names', 'PhytoOperatorsController@get_name');
     Route::any('фито/оператор/firms', 'PhytoOperatorsController@get_firm');
 
-//    Route::get('сертификат/{id}/редактирай', 'PhytoOperatorsController@edit');
-//    Route::post('сертификати/update/{id}', 'PhytoOperatorsController@update');
-
-    // Добавяне и Редакция на регистър
-//    Route::get('фито/оператори/добави', 'PhytoOperatorsController@create');
-//    Route::post('фито/регистър-оператори/store', 'PhytoOperatorsController@store');
-
     Route::get('/фито/оператор/земеделец/добави/{id}', 'PhytoOperatorsController@create_old');
     Route::any('/фито/оператор/фермер/store/{id}', 'PhytoOperatorsController@store_old');
     Route::get('/фито/оператор/нов/добави/', 'PhytoOperatorsController@create_new');
     Route::get('/фито/оператор/фирма/добави/', 'PhytoOperatorsController@firm_new');
     Route::any('/фито/оператор/нов/store/', 'PhytoOperatorsController@store_new');
     Route::get('/фито/оператор/земеделец/завърши/{id}', 'PhytoOperatorsController@finish');
-//    Route::get('/фито/оператор/фирма-зс/добави/{id}', 'PhytoOperatorsController@create');
-//    Route::get('/контрол/сертификати-вътрешен/фермер/нов', 'QINCertificatesController@create_farmer');
-//    Route::post('/контрол/сертификати-вътрешен/фермер/store_farmer', 'QINCertificatesController@store_farmer');
-//
-//    Route::any('/контрол/сертификати-вътрешен/фермер/нова-фирма', 'QINCertificatesController@create_firm');
-//    Route::post('/контрол/сертификати-вътрешен/фермер/store_firm', 'QINCertificatesController@store_firm');
-//
-//    Route::any('/контрол/сертификати-вътрешен/нов/търговец', 'QINCertificatesController@create_trader');
-//    Route::post('/контрол/сертификати-вътрешен/фермер/store_trader', 'QINCertificatesController@store_trader');
-//    Route::get('/контрол/сертификати-вътрешен/търговец/добави/{id}', 'QINCertificatesController@create_exist');
-//    Route::post('/контрол/сертификати-вътрешен/търговец/store', 'QINCertificatesController@store_exist');
+    Route::post('/фито/оператор/земеделец/store/{id}', 'PhytoOperatorsController@finish_store');
+    Route::get('/фито/оператор/edit/{id}', 'PhytoOperatorsController@edit');
+    Route::post('/фито/оператор/update/{id}', 'PhytoOperatorsController@update');
+    Route::post('/фито/оператор/заповед/store/{id}', 'PhytoOperatorsController@order');
+    Route::post('/фито/оператор/заповед/update/{id}', 'PhytoOperatorsController@update_order');
+
+    Route::post('/фито/оператор/заповед/destroy/{id}', 'PhytoOperatorsController@destroy');
+    Route::post('/фито/оператор/заповед/update/{id}', 'PhytoOperatorsController@update_order');
+    Route::get('/фито/оператор/edit_data/{id}', 'PhytoOperatorsController@edit_data');
+    Route::post('/фито/оператор/update_data/{id}', 'PhytoOperatorsController@update_data');
+    Route::post('/lock-operator/{id}', 'PhytoOperatorsController@lock');
+    Route::post('/unlock-operator/{id}', 'PhytoOperatorsController@unlock');
+
+    // ТЪРГОВЦИ ПРОФЕСИОНАЛНИ ОПЕРАТОРИ
+    Route::get('/фито/търговец/покажи/{id}', 'PhitoTradersController@show');
+    Route::get('/фито/търговец/{id}/edit', 'PhitoTradersController@edit');
+    Route::post('/фито/търговец/update/{id}', 'PhitoTradersController@update');
+    Route::get('/фито/регистър-тъговци', 'PhitoTradersController@index');
+    Route::get('/фито/търговец/добави', 'PhitoTradersController@create');
+    Route::post('/фито/търговец/store', 'PhitoTradersController@store');
+    Route::get('/фито/търговец/reg_edit/{id}', 'PhitoTradersController@reg_edit');
+
+
+    /// ВЕРОТНО ЩЕ СЕ МАХНЕ И НЯМА ДА СЕ ПОКАЗВА
+    Route::get('/фито/търговец/{id}/quick_add', 'PhitoTradersController@quick_add');
+    Route::post('/фито/търговец/{id}/quick_store', 'PhitoTradersController@quick_store');
+
+    /// ВЕРОТНО ЩЕ СЕ МАХНЕ И НЯМА ДА СЕ ПОКАЗВА
+    Route::get('/фито/таблица/table_add', 'PhitoTradersController@table_add');
+    Route::post('/фито/таблица/table_store', 'PhitoTradersController@table_store');
+
+    Route::get('/фито/таблица/table_farmer/{id}/{oid}', 'PhitoTradersController@table_farmer');
+    Route::post('/фито/таблица/table_store_farmer/{id}/{oid}', 'PhitoTradersController@table_store_farmer');
+
+    Route::get('/фито/таблица/table_edit/{id}', 'PhitoTradersController@table_edit');
+    Route::post('/фито/таблица/table_edit_operator/{id}', 'PhitoTradersController@table_edit_operator');
+
+    // ФИТОСАНИТАРНИ ПАСПОРТИ
+    Route::any('/фито/паспорти', 'PhytoPassportsController@index');
+    Route::get('/фито/паспорт/покажи/{id}', 'PhytoPassportsController@show');
+
+    //// Добавяне и Редакция на Разрешитлни
+    Route::get('фито/паспорт/create', 'PhytoPassportsController@create');
+    Route::post('фито/паспорт/store', 'PhytoPassportsController@store');
+
+    //// Добавяне и Редакция на Разрешитлни
+    Route::get('фито/паспорт/edit/{id}', 'PhytoPassportsController@edit');
+    Route::post('фито/паспорт/update/{id}', 'PhytoPassportsController@update');
+
+    Route::post('passport/operator_id_edit/{id}', 'PhytoPassportsController@operator_id_edit');
+    Route::post('passport/farmer_id_edit/{id}', 'PhytoPassportsController@farmer_id_edit');
+
+    Route::post('passport/lock/{id}', 'PhytoPassportsController@lock');
+    Route::post('passport/unlock/{id}', 'PhytoPassportsController@unlock');
+
+    Route::post('фито/паспорт/search', 'PhytoPassportsController@search');
+
     // КРАЙ Добавяне и Редакция на регистър
 });
 

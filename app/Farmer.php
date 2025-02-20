@@ -111,6 +111,5 @@ class Farmer extends Model
      */
     public function operators(){
         return $this->hasMany('odbh\PhitoOperator')->select(['id', 'is_completed', 'number_petition']);
-//        return $this->hasMany('odbh\PhitoOperator')->select(['id', 'title', 'user_id']);
     }
 }

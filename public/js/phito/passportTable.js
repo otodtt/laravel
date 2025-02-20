@@ -5,11 +5,15 @@ $(document).ready(function() {
             null,
             { "type": "de_date" },
             null,
-            null,
-            null,
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
             { "orderable": false },
             null,
-            { "orderable": false }
+            { "orderable": false },
         ],
 
         "pagingType": "full_numbers",

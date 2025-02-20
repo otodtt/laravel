@@ -66,23 +66,11 @@
             </ul>
         </div>
         @endif
-        {{--<div class="alert alert-info my_alert" role="alert">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12 ">--}}
-                    {{--<h4 class="my_center bold">ДОБАВЯ СЕ ОПЕРАТОР</h4>--}}
-                    {{--<p>Име на фирмата:<span class="" style="font-weight: bold"></span></p>--}}
-                    {{--<p>--}}
-                        {{--Адрес на фирмата:<span class="" style="font-weight: bold"></span>,--}}
-                        {{--с ЕИК/Булстат:  {{$trader->trader_vin}}--}}
-                    {{--</p>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {!! Form::open(['url'=>'фито/търговец/quick_store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'фито/таблица/table_store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
-            @include('phytosanitary.traders.quick.select_option')
-
-            @include('phytosanitary.traders.quick.number_petition')
+            @include('phytosanitary.quick.select_option')
+            <h4>ДАННИ ЗА ЗАЯВЛЕНИЕТО ОТ ТАБЛИЦАТА</h4>
+            @include('phytosanitary.quick.number_petition')
 
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 
@@ -104,5 +92,33 @@
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
 {{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/sanitary/date_traders.js" )!!}
+
+    <script>
+        $(document).ready(function(){
+            $("#trader").click(function(){
+                $('.archive').addClass('hidden');
+                $('.client').removeClass('hidden');
+            });
+
+            $("#farmer").click(function(){
+                $('.client').addClass('hidden');
+                $('.archive').removeClass('hidden');
+            });
+        });
+
+        if(document.getElementById('trader').checked) {
+            $('.archive').addClass('hidden');
+            $('.client').removeClass('hidden');
+        }
+//        else if(document.getElementById('trader').unchecked) {
+//            $('.client').addClass('hidden');
+//            $('.archive').removeClass('hidden');
+//        }
+
+        if(document.getElementById('farmer').checked) {
+            $('.client').addClass('hidden');
+            $('.archive').removeClass('hidden');
+        }
+    </script>
 
 @endsection

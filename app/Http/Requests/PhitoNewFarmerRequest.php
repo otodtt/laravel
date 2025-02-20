@@ -86,7 +86,7 @@ class PhitoNewFarmerRequest extends Request
             'list_name' => 'required',
             'error' => 'in:0',
 
-            'address'=> 'required|min:3|max:50|cyrillic_with',
+            'address'=> 'required|min:3|max:100|cyrillic_with',
             'phone'=> 'phone_validate',
             'mobil'=> 'mobile_validate',
             'email'=> 'email',
@@ -110,7 +110,7 @@ class PhitoNewFarmerRequest extends Request
             'firm.required' => 'Маркирай вида на фирмата или ЧЗС!',
             'name.required' => 'Попълни името на фирмата/ЧЗС!',
             'name.min' => 'Минимален брой символи за името - 3!',
-            'name.max' => 'Минимален брой символи за името - 100!',
+            'name.max' => 'Максимален брой символи за името - 100!',
             'name.cyrillic' => 'За име на ЧЗС пиши само на кирилица без символи! Позволени символи: (тире - )!',
 
             'name_firm.required' => 'Попълни името на фирмата/ЧЗС!',

@@ -41,12 +41,24 @@ class PhitoOperatorsRequests extends Request
         else {
             $origin = '';
         }
+
+        if(isset($request['is_update']) && $request['is_update'] == 1 ){
+            $update_number = 'required|numeric|not_in:0';
+            $update_date = 'required|date_format:d.m.Y';
+        }
+        else {
+            $update_number = '';
+            $update_date = '';
+        }
         return [
+            'update_number'=> $update_number,
+            'update_date'=> $update_date,
+
             'number_petition'=> 'required|numeric|not_in:0',
             'date_petition'=> 'required|date_format:d.m.Y',
 
-            'description_objects_one'=> 'required|min:3|max:500|cyrillic_with',
-            'description_places_one'=> 'required|min:3|max:500|cyrillic_with',
+            'description_objects_one'=> 'min:3|max:500|cyrillic_with',
+            'description_places_one'=> 'min:3|max:500|cyrillic_with',
             'description_objects_two'=> 'min:3|max:5000|cyrillic_with',
             'description_places_two'=> 'min:3|max:5000|cyrillic_with',
 
@@ -61,12 +73,12 @@ class PhitoOperatorsRequests extends Request
             'marking'=> 'required',
             'marking_list'=> 'min:3|max:5000|cyrillic_with',
 
-            'contact'=> 'required|min:3|max:500|cyrillic_with',
+            'contact'=> 'min:3|max:500|cyrillic_with',
             'contact_phone'=> 'numeric',
-            'contact_address'=> 'required|min:3|max:500|cyrillic_with',
-            'contact_city'=> 'required|min:3|max:100|cyrillic_with',
+            'contact_address'=> 'min:3|max:500|cyrillic_with',
+            'contact_city'=> 'min:3|max:100|cyrillic_with',
 
-            'place'=> 'required|min:3|max:500|cyrillic_with',
+            'place'=> 'min:3|max:500|cyrillic_with',
             'date_place'=> 'required|date_format:d.m.Y',
 
             'registration'=> 'required',
@@ -100,6 +112,13 @@ class PhitoOperatorsRequests extends Request
     public function messages()
     {
         return [
+            'update_number.required' => 'Номера на Заповед за Актуализация е здължителен!',
+            'update_number.numeric' => 'За Заповед за Актуализация използвай само цифри!',
+            'update_number.not_in' => 'За Заповед за Актуализация не може да нула - 0!',
+
+            'update_date.required' => 'Дата на Заповед за Актуализация е здължителна!',
+            'update_date.date_format' => 'Непозволен формат за Дата на Заповед за Актуализация!',
+
             'number_petition.required' => 'Номера на Заявлението е здължителен!',
             'number_petition.numeric' => 'За номер на Заявлението използвай само цифри!',
             'number_petition.not_in' => 'Номера на Заявлението не може да нула - 0!',

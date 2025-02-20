@@ -1,6 +1,6 @@
 @extends('layouts.phyto')
 @section('title')
-    {{ 'Добави Паспорт!' }}
+    {{ 'Редактирай Паспорт!' }}
 @endsection
 
 @section('css')
@@ -19,8 +19,12 @@
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
             <div class="col-md-12 ">
-                <h4 class="my_center bold">ДОБАВЯ СЕ РАСТИТЕЛЕН ПАСПОРТ</h4>
-{{--                @include('services.air.add.object_info')--}}
+                <h4 class="my_center bold">РЕДАКТИРА СЕ СЕ РАСТИТЕЛЕН ПАСПОРТ</h4>
+                <p ><span class="bold" style="text-transform: uppercase">{{$passport->manufacturer }}</span></p>
+                <p >Град: <span class="bold">{{$passport->city }}</span></p>
+                <p >Адрес: <span class="bold">{{$passport->address }}</span></p>
+                <p >ЕИК/Булстат: <span class="bold">{{$passport->pin }}</span> </p>
+                {{--<hr class="my_hr_in"/>--}}
             </div>
         </div>
     </div>
@@ -35,12 +39,12 @@
                 </ul>
             </div>
         @endif
-        {!! Form::open(['url'=>'фито/паспорт/store' , 'method'=>'POST', 'id'=>'form']) !!}
+        {!! Form::model($passport, ['url'=>'фито/паспорт/update/'.$passport->id , 'method'=>'POST', 'id'=>'form']) !!}
             <hr class="my_hr"/>
-            @include('phytosanitary.passports.crud.permit')
+            @include('phytosanitary.passports.crud.permit_edit')
             <hr class="my_hr"/>
 
-            @include('phytosanitary.passports.crud.numbers')
+            @include('phytosanitary.passports.crud.edit_numbers')
             <hr class="my_hr"/>
 
             @include('phytosanitary.passports.crud.data_passport')
@@ -53,7 +57,7 @@
             </div>
 
             <div class="col-md-6">
-                {!! Form::submit('Добави НОВ Паспорт!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Редактирай Паспорт!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="{!! csrf_token() !!}" id="token">
         {!! Form::close() !!}

@@ -100,15 +100,13 @@ else{
                             <tr>
                                 <td>
                                     {!! Form::label('place', 'Инспектор Приел:', ['class'=>'my_labels']) !!}
-
+                                    <?php echo(old('accepted')) ?>
                                     <select name="accepted" id="accepted" class="localsID form-control" style=" margin: 5px 0; width: 200px; display: inline-block">
                                         <option value="0">-- Избери Инспектор--</option>
                                         @foreach($inspectors as $k=>$inspector)
                                             <option value="{{$k}}"
-                                                    @if (old('accepted') == null)
-                                                    {{--{{($article[0]['crop_id'] == $crop['id'])? 'selected':''}}--}}
-                                                    @else
-                                                    {{(old('accepted') == $k)? 'selected':''}}
+                                                    @if ($operator->accepted == $k)
+                                                    {{($operator->accepted == $k)? 'selected':''}}
                                                     @endif
                                                     inspector_name="{{$inspector}}"
 
@@ -133,9 +131,8 @@ else{
                         <option value="0">-- Избери Инспектор--</option>
                         @foreach($inspectors as $k=>$inspector)
                             <option value="{{$k}}"
-                                    @if (old('checked') == null)
-                                    @else
-                                    {{(old('checked') == $k)? 'selected':''}}
+                                    @if ($operator->checked == $k)
+                                    {{($operator->checked == $k)? 'selected':''}}
                                     @endif
                                     inspector_checked="{{$inspector}}"
 

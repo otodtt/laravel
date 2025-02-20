@@ -1,13 +1,20 @@
 $(document).ready(function() {
-    $('#example').DataTable( {
+    $('#operators').DataTable( {
         "columns": [
             null,
-            null,
-            { "type": "de_date" },
-            null,
-            null,
-            null,
-            null,
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
+            { "orderable": false },
             { "orderable": false }
         ],
 
@@ -34,15 +41,15 @@ $(document).ready(function() {
         },
         "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'
     } );
-    var table = $('#example').DataTable();
-
-    $('#example tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    } );
+    //var table = $('#example').DataTable();
+    //
+    //$('#example tbody').on( 'click', 'tr', function () {
+    //    if ( $(this).hasClass('selected') ) {
+    //        $(this).removeClass('selected');
+    //    }
+    //    else {
+    //        table.$('tr.selected').removeClass('selected');
+    //        $(this).addClass('selected');
+    //    }
+    //} );
 } );

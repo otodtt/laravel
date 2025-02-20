@@ -1,10 +1,11 @@
 <?php
-if(isset($protocol) && !empty($protocol)){
-    $date_petition = date('d.m.Y', $protocol->date_petition);
-}
-else{
-    $date_petition = null;
-}
+    //print_r($operator->date_petition);
+    if((isset($operator) && !empty($operator) && $operator->date_petition != 0)){
+        $date_petition = date('d.m.Y', $operator->date_petition);
+    }
+    else{
+        $date_petition = null;
+    }
 ?>
 {{--Номер и Дата на Заявлението--}}
 <div class="container-fluid" >

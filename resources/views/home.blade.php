@@ -24,7 +24,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <a href="{!! URL::to( '/земеделци') !!}"><i class="fa fa-users green_color"></i> Всички Земеделски Стопани</a>
-                                {{--<a href="{!! URL::to( '/test') !!}"><i class="fa fa-users green_color"></i> TESTOVE</a>--}}
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
@@ -46,25 +45,20 @@
                                 <a class="text" href="{!! URL::to( '/становища-стари') !!}"><i class="fa fa-address-card-o fa-fw old_color"></i> Издадени становища до 2015 г.</a><br/>
                                     <a class="text" href="{!! URL::to( '/стари-протоколи-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Констативни протоколи до 2015 г.</a><br/>
                                 </fieldset>
-                                <br>
-                                <fieldset class=""><legend class="">Констативни Протоколи преди 01.11.2023 г.</legend>
-{{--                                    <a class="text" href="{!! URL::to( '/становища-стари') !!}"><i class="fa fa-address-card-o fa-fw old_color"></i> Издадени становища до 2015 г.</a><br/>--}}
-                                    <a class="" href="{!! URL::to( '/протоколи-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i>Стари Констативни протоколи преди 01.11.2023 г.</a><br/>
-                                </fieldset>
                             </div>
                             <div class="col-lg-6">
                                 <fieldset class=""><legend class="">Становища и Констативни Протоколи от 2015 г.</legend>
                                     <div class="row">
+
                                         <div class="col-lg-6  ">
                                             <a class="" href="{!! URL::to( '/становища') !!}"><i class="fa fa-address-card-o green_color" aria-hidden="true"></i> Становища</a><br/>
-                                            <a class="" href="{!! URL::to( '/доклади-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Доклади от проверки</a>
+                                            <a class="" href="{!! URL::to( '/протоколи-всички') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Констативни протоколи</a>
                                             <br/>
                                             <a class="" href="{!! URL::to( '/месечни-справки-зс') !!}"><i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
                                         </div>
                                         <div class="col-lg-6 text-right ">
                                             <a class="fa fa-plus btn btn-xs btn-danger my_btn" href="{!! URL::to( '/търси-становище') !!}" style="float: right; margin-right: 10px;"> Добави НОВО Становище</a>
-                                            <a class="fa fa-plus btn btn-danger btn-xs"  href="{!! URL::to( '/търси-протокол') !!}" style="float: right; margin-right: 10px; margin-top: 15px"> Добави НОВ Доклад от проверка</a>
-                                            {{--<a class="fa fa-plus btn btn-danger btn-xs"  href="{!! URL::to( '/търси-протокол') !!}" style="float: right; margin-right: 10px; margin-top: 15px"> Добави НОВ Констативен Протокол</a>--}}
+                                            <a class="fa fa-plus btn btn-danger btn-xs"  href="{!! URL::to( '/търси-протокол') !!}" style="float: right; margin-right: 10px; margin-top: 15px"> Добави НОВ Констативен Протокол</a>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -90,22 +84,18 @@
                                     <a class="my_a back_link" href="{!! URL::to( '/складове') !!}"><i class="fa fa-shield fa-fw blue_color"></i> Всички складове</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( '/цехове') !!}"><i class="fa fa-cubes fa-fw blue_color"></i> Всички цехове</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( '/изтекъл-срок') !!}"><i class="fa fa-times fa-fw blue_color"></i> С изтекъл или прекратен срок</a>
-                                    <hr style="margin-bottom: 5px; margin-top: 5px"/>
-                                    <a class="my_a back_link" href="{!! URL::to( '/протоколи-стари') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Стари Протоколи Контрол на Пазара до 30.06.2023</a><br/>
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">
                                 <fieldset class=""><legend class="">Констативни Протоколи и Месечни справки</legend>
                                     <div class="row">
+
                                         <div class="col-lg-12  ">
-                                            {{--<a class="my_a back_link" href="{!! URL::to( '/протоколи-стари') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Стари Протоколи Контрол на Пазара до 30.06.2023</a><br/>--}}
-                                            {{--<hr style="margin-bottom: 5px; margin-top: 5px"/>--}}
-                                            <a class="my_a back_link" href="{!! URL::to( '/доклади-контрол') !!}"><i class="fa fa-file-text-o fa-fw control_color"></i> Доклади Контрол на Пазара</a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи-обекти') !!}"><i class="fa fa-object-ungroup fa-fw control_color"></i> Доклади Нерегламентирани Обекти</a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/други-обекти') !!}"><i class="fa fa-external-link fa-fw control_color"></i> Доклади в други Области </a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/производители') !!}"><i class="fa fa-industry fa-fw control_color"></i> Доклади Производители на ПРЗ</a><br/>
+                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи Контрол на Пазара</a><br/>
+                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи-обекти') !!}"><i class="fa fa-object-ungroup fa-fw control_color"></i> Протоколи Нерегламентирани Обекти</a><br/>
+                                            <a class="my_a back_link" href="{!! URL::to( '/други-обекти') !!}"><i class="fa fa-external-link fa-fw control_color"></i> Протоколи в други Области </a><br/>
+                                            <a class="my_a back_link" href="{!! URL::to( '/производители') !!}"><i class="fa fa-industry fa-fw control_color"></i> Протоколи Производители на ПРЗ</a><br/>
                                             <br/>
-                                            <hr style="margin-bottom: 5px; margin-top: 5px"/>
                                             <a class="my_a back_link" href="{!! URL::to( '/месечни-справки') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
                                             <a class="my_a back_link " href="{!! URL::to( '/проби') !!}" style="float: right; margin-right: 10px"> <i class="fa fa-flask fa-fw brown"></i> Дневник взети проби от ПРЗ </a>
 
@@ -168,24 +158,21 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Сертификати</legend>
-                                    <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa fa-plane fa-fw blue_color"></i> Издадени Разрешения</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/') !!}"><i class="fa fa fa-certificate fa-fw "></i> Издадени Фито Сертификати</a><br/>
                                     <br/>
-                                    <a class="text" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър - Издадени Разрешения</a>
                                 </fieldset>
                             </div>
                             <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Регистри</legend>
-                                    <a class="my_a back_link" href="фито/регистър-оператори"> <i class="fa fa-registered fa-fw "></i> Официален регистър на оператори</a><br/>
-                                    {{--<a class="my_a back_link" href="/"><i class="fa fa-leaf fa-fw green_color"></i> Третиране на семена </a><br/>--}}
-                                    {{--<a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър</a>--}}
+                                    <a class="my_a back_link" href="фито/регистър-оператори"> <i class="fa fa-registered fa-fw" style="color: #347bb7;"></i> Официален регистър на оператори</a><br/><br/>
+                                    <a class="my_a back_link" href="фито/паспорти"><i class="fa fa fa-id-badge fa-fw green_color"></i> Растителни Паспорти</a><br/>
                                 </fieldset>
                             </div>
                             <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Фирми и други справки</legend>
                                     <div class="row">
-                                        <a class="my_a back_link" href="/"> <i class="fa fa fa-truck fa-fw "></i> Всички фирми търговци</a><br/>
+                                        <a class="my_a back_link" href="фито/регистър-тъговци"> <i class="fa fa fa-truck fa-fw dark_color"></i> Всички фирми търговци</a><br/>
                                         <br/>
-                                        {{--<a class="" href="{!! URL::to( '/') !!}"><i class="fa fa-calendar fa-fw red"></i> Таблица Регистър</a>--}}
                                     </div>
                                 </fieldset>
                             </div>
@@ -194,6 +181,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-md-12">

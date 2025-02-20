@@ -53,7 +53,6 @@
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
             <span class="bold">Веднъж направен запис,  Регистрационния номер не може повече да се променя!
-                Веднъж направен запис, Регистрационния номер не може да се изтрие, може само да се редактира!
             </span>
         </p>
     </div>

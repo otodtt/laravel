@@ -9,15 +9,10 @@
     <style>
         .table {
             width: 95%;
-            /*border: 1px solid black;*/
-            /*float: right;*/
-            /*margin-right: 50px;*/
         }
         .table>thead>tr>th {
-            /*border: 1px solid black;*/
         }
         th {
-            /*border: 1px solid black;*/
             text-align: center;
         }
         .first {
@@ -28,12 +23,6 @@
         }
         .third {
             width: 35%;
-        }
-        tbody {
-            /*border: 1px solid black;*/
-        }
-        td {
-            /*border: 1px solid black;*/
         }
         .center {
             text-align: center;
@@ -47,13 +36,12 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Завършва се Земеделски производител като оператор!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
-            <span class="bold">Веднъж направен запис,  Регистрационния номер не може повече да се променя!
-                Веднъж направен запис, Регистрационния номер не може да се изтрие, може само да се редактира!
+            <span class="bold">Веднъж направен запис, Регистрационния номер не може повече да се променя!
             </span>
         </p>
     </div>
@@ -70,12 +58,12 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">ДОБАВЯ СЕ ОПЕРАТОР</h4>
+                    <h4 class="my_center bold">ЗАВЪРШВАНЕ НА ДОБАВЯНЕ НА ОПЕРАТОР</h4>
                     @include('records.add.object_info')
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'фито/оператор/фермер/store/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'фито/оператор/земеделец/store/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('phytosanitary.crud.forms.number_petition')
             <hr class="my_hr_in"/>
@@ -100,7 +88,7 @@
                 <a href="{{ '/фито/регистър-оператори' }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success"> Откажи! Назад към регистъра!</a>
             </div>
             <div class="col-md-6" id="add_certificate" >
-                {!! Form::submit('Добави и продължи!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
+                {!! Form::submit('Завърши и продължи!', ['class'=>'btn btn-danger', 'id'=>'submit']) !!}
             </div>
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
             
@@ -108,38 +96,6 @@
     </div>
     <br/>
     <hr/>
-    {{--@else--}}
-        {{--<div class="alert alert-info my_alert" role="alert">--}}
-            {{--<div class="row">--}}
-                {{--<h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="alert alert-danger my_alert" role="alert">--}}
-            {{--<p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">ВНИМАНИЕ! Прочети преди да продължиш!</span><br/>--}}
-            {{--<span class="bold">Земеделският производител или фирмата вече са вписани в официалния регистър на професионалните оператори.</span>--}}
-            {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="row" style="margin: 0 auto; width: 80%; min-height: 200px; margin-top: 50px">--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/стопанин/{{$is_farmer[0]['farmer_id']}}'" class="fa fa-arrow-circle-left btn btn-success my_btn">  Към земеделския стопанин</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/фито/оператор/{{$is_farmer[0]['id']}}" class="fa fa-registered btn btn-danger my_btn ">  Регистрационен номер</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/фито/регистър-оператори" class="fa fa-list btn btn-info my_btn"> Към регистъра </a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px; text-align: center;">--}}
-            {{--<a href="/фито/търси-оператор" class="fa fa-arrow-circle-left btn btn-default my_btn-success"> Откажи! Назад към сертификатите!</a>--}}
-        {{--</div>--}}
-    {{--@endif--}}
 @endsection
 
 @section('scripts')

@@ -74,11 +74,11 @@
                 </div>
             </div>
         </div>
-        {!! Form::model($operator, ['url'=>'фито/оператор/update/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($operator, ['url'=>'фито/оператор/update_data/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('phytosanitary.crud.forms.number_petition')
             <hr class="my_hr_in"/>
-            @include('phytosanitary.crud.forms.entry_new')
+            @include('phytosanitary.crud.forms.entry_reg')
             <hr class="my_hr_in"/>
             @include('phytosanitary.crud.forms.data_places')
             <hr class="my_hr_in"/>
