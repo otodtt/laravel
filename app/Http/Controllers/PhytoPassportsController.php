@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use odbh\Farmer;
 use odbh\Http\Requests;
 use odbh\Http\Requests\PhytoPassportRequests;
-use odbh\Http\Controllers\Controller;
 use odbh\PhytoPassport;
 use odbh\Set;
 use Auth;
@@ -32,13 +31,12 @@ class PhytoPassportsController extends Controller
         parent::__construct();
 
         $this->middleware('sanitary', ['only'=>['create', 'store', 'edit', 'update', 'destroy']]);
-//        dd($this->inspectors_active_fsk_list);
+
         //////// ИНСПЕКТОРИ
         /** За Активните инспектори които могат да добавят */
         $inspectors_add = $this->inspectors_active_fsk_list->toArray();
         $inspectors_add[''] = '';
         $this->inspectors_add = array_sort_recursive($inspectors_add);
-//        dd($inspectors_add);
 
         $this->index = Set::select('area_id', 'index_in', 'index_out', 'in_second', 'out_second', 'operator_index_not', 'operator_index_bg', 'city')->get()->toArray();
     }

@@ -36,7 +36,11 @@
 
 @section('content')
     <div class="info-wrap">
-        <a href="{!! URL::to('/стопанин/'.$operator->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>
+        @if($operator->farmer_id != 0)
+            <a href="{!! URL::to('/стопанин/'.$operator->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>
+        @else
+            <a href="{!! URL::to('/земеделци/')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Регистъра!</a>
+        @endif
 
         <a href="{!! URL::to('/фито/регистър-оператори')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към регистъра!</a>
 
@@ -127,7 +131,11 @@
                             <p >Търговец: <span class="bold" style="text-transform: uppercase">{{$operator->name_operator}} </span></p>
                             <p >ЕИК/Булстат: <span class="bold">{{$operator->pin }}</span> </p>
                             <hr class="my_hr_in"/>
-                            <p >Адрес: <span class="bold">{{$operator->address }}</span></p>
+                            <p >Адрес: <span class="bold">{{$operator->address }}, {{$operator->address_operator }}</span></p>
+                        @else
+                            <p >Търговец/ЗС: <span class="bold" style="text-transform: uppercase">{{$operator->name_operator}} </span></p>
+                            <hr class="my_hr_in"/>
+                            <p ><span class="red bold" >ВНИМАНИЕ! Не се знае дали е ЗС или Търговец (Няма ID)</span></p>
                         @endif
                         <hr class="my_hr_in"/>
                     </div>
@@ -203,9 +211,11 @@
                                 <p style="">Ако актуализацията касе данните на ЗС или Търговец редактирай в регистъра, след което тук</p>
                             </div>
                             <div class="col-md-2">
-                                <p>
-                                    <a style="margin-left: 5px" href="{!! URL::to('/фито/оператор/edit_data/'.$operator->id)!!}" class="fa fa-edit btn btn-info my_btn">&nbsp;&nbsp;&nbsp;&nbsp;  ТУК!</a>
-                                </p>
+                                @if($operator->farmer_id > 0 && $operator->trader_id == 0)
+                                    <p><a style="margin-left: 5px" href="{!! URL::to('/фито/оператор/edit_data/'.$operator->id)!!}" class="fa fa-edit btn btn-success my_btn">&nbsp;&nbsp;&nbsp;&nbsp;  ТУК!</a></p>
+                                @else
+                                    <p><a style="margin-left: 5px" href="{!! URL::to('/фито/оператор/edit_data_trader/'.$operator->id)!!}" class="fa fa-edit btn btn-warning my_btn">&nbsp;&nbsp;&nbsp;&nbsp;  ТУК!</a></p>
+                                @endif
                             </div>
                         @else
                             <div class="col-md-10">
@@ -431,10 +441,18 @@
                             </tr>
                             <tr >
                                 <td class="cell third-row-cell" style="height: 20px" colspan="2">
-                                    <p class="" style="margin-bottom: 3px">
-                                        <span style="" class="">Адрес:</span>
-                                        <span style="" class="bold">{{$operator->address}}</span>
-                                    </p>
+                                    @if($operator->farmer_id > 0 && $operator->trader_id == 0)
+                                        <p class="" style="margin-bottom: 3px">
+                                            <span style="" class="">Адрес:</span>
+                                            <span style="" class="bold">{{$operator->address}}</span>
+                                        </p>
+                                    @elseif($operator->farmer_id == 0 && $operator->trader_id > 0)
+                                        <p class="" style="margin-bottom: 3px">
+                                            <span style="" class="">Адрес:</span>
+                                            <span style="" class="bold">{{$operator->address}}, {{$operator->address_operator}}</span>
+                                        </p>
+                                    @endif
+
                                 </td>
                             </tr>
                             <tr>
@@ -934,7 +952,7 @@
                                                 if($operator->id >= 1 && $operator->id <= 9){
                                                     $nulls = '000';
                                                 }
-                                                elseif($operator->id >= 10 && $operator->id <= 90){
+                                                elseif($operator->id >= 10 && $operator->id <= 99){
                                                     $nulls = '00';
                                                 }
                                                 elseif($operator->id >= 100 ){
@@ -1018,6 +1036,8 @@
                                         @endif
                                     @elseif($operator->farmer_id == 0 && $operator->trader_id > 0)
                                         <p style="font-weight: bold; font-size: 16px">Издава се на: <span>{{$operator->name_operator}} - {{$trader->city}}</span></p>
+                                    @else
+                                        <p style="font-weight: bold; font-size: 16px">Издава се на: <span>{{$operator->name_operator}} - {{$operator->address}}</span></p>
                                     @endif
                                     <p style="font-size: 12px">(АД, ЕООД, ООД, ЕТ, Физическо лице, др.)</p>
                                 </div>

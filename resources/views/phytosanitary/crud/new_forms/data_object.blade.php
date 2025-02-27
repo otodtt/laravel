@@ -146,7 +146,7 @@ if(isset($firm)){
                                 {!! Form::radio('gender_owner', 'female', false) !!}
                             </label>&nbsp;&nbsp;|
                             {!! Form::label('pin_owner', 'ЕГН:', ['class'=>'labels']) !!}
-                            {!! Form::text('pin_owner', null, ['class'=>'form-control form-control-my', 'maxlength'=>10, 'size'=>7, 'id'=>'pin' ]) !!}&nbsp;&nbsp;
+                            {!! Form::text('pin_owner', null, ['class'=>'form-control form-control-my', 'maxlength'=>10, 'size'=>7, 'id'=>'pin_owner' ]) !!}&nbsp;&nbsp;
 
                             <label class="labels"><span>&nbsp;&nbsp;Без ЕГН: </span>
                                 {!! Form::radio('gender_owner', 'n', false) !!}

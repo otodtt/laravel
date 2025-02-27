@@ -23,9 +23,7 @@ class Sanitary
      */
     public function handle($request, Closure $next)
     {
-//        dd($next);
         if($this->auth->user()->fsk != 1){
-//            dd($this->auth->user());
             return back()->with('message', 'Нямате право за досъп до тази страница! Обърнете се към Администратора ако е необходимо!');
         }
         return $next($request);

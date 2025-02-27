@@ -45,7 +45,7 @@
                 </div>
                 <div class="refresh col-md-3">
                     <p>
-                    <a href="{!!URL::to('/фито/таблица/table_add')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn "> Добави ОТ ТАБЛИЦАТА</a>
+                    {{--<a href="{!!URL::to('/фито/таблица/table_add')!!}" class="fa fa-arrow-circle-right btn btn-danger my_btn "> Добави ОТ ТАБЛИЦАТА</a>--}}
 
                     <a href="{!!URL::to('/фито/търси-оператор')!!}" class="fa fa-arrow-circle-right btn btn-success my_btn right_btn"> Добави НОВ ОПЕРАТОР</a>
                     </p>

@@ -23,9 +23,9 @@
             {!! Form::text('trader_address', null, ['class'=>'form-control form-control-my', 'size'=>100, 'maxlength'=>500 ]) !!}
         </div>
         <div class="col-md-4" >
-            {!! Form::label('city', 'Адрес на фирмата:', ['class'=>'my_labels']) !!}
+            {!! Form::label('city', 'Град/Село на фирмата:', ['class'=>'my_labels']) !!}
             <br>
-            {!! Form::text('city', null, ['class'=>'form-control form-control-my', 'size'=>50, 'maxlength'=>500 ]) !!}
+            {!! Form::text('city', null, ['class'=>'form-control form-control-my', 'size'=>50, 'maxlength'=>500, 'placeholder'=> 'Град/Село' ]) !!}
         </div>
         <div class="col-md-3">
             <span class="errors">

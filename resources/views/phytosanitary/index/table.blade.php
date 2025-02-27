@@ -14,7 +14,7 @@
         <th rowspan="2">Дейност/и по чл. 66(2)</th>
         <th rowspan="2">Дата на <br/>заличаване на регистрацията/ <br/>Причина</th>
         <th rowspan="2">Виж</th>
-        <th rowspan="2">EDIT</th>
+        {{--<th rowspan="2">EDIT</th>--}}
     </tr>
     <tr>
         <th></th>
@@ -51,10 +51,13 @@
                     $et = 'Тър.';
                     $eik = 'Булс.';
                 }
+                if($operator->farmer_id == 0 && $operator->trader_id == 0 ){
+                    $et = '';
+                }
                 if($operator->id >= 1 && $operator->id <= 9){
                     $nulls = '000';
                 }
-                elseif($operator->id >= 10 && $operator->id <= 90){
+                elseif($operator->id >= 10 && $operator->id <= 99){
                     $nulls = '00';
                 }
                 elseif($operator->id >= 100 ){
@@ -68,7 +71,11 @@
             <td class="right"><?= $n++ ?></td>
             <td class="left">
                 @if($operator->number_petition == 0 && $operator->is_completed == 0)
-                    <span style="color: #ff0000; font-weight: bold">Не е завършено</span>
+                    @if($operator->number_petition == 0 && $operator->registration_date == 0 )
+                        <span style="color: #ff0000; font-weight: bold">-</span>
+                    @else
+                        <span style="color: #ff0000; font-weight: bold">Не е завършено</span>
+                    @endif
                 @else
                     {!! $operator->number_petition !!} / {{date('d.m.Y', $operator->date_petition)}}
                 @endif
@@ -84,8 +91,13 @@
                 @if($operator->registration_number == 0 && $operator->is_completed == 0)
                     <span style="color: #ff0000; font-weight: bold">Не е добавен</span>
                 @else
-                    {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->registration_number }}
-                    /{{date('d.m.Y', $operator->registration_date)}}
+                    @if($operator->registration_date == 0)
+                        {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->registration_number }}
+                        {{--/{{date('d.m.Y', $operator->registration_date)}}--}}
+                    @else
+                        {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->registration_number }}
+                        /{{date('d.m.Y', $operator->registration_date)}}
+                    @endif
                 @endif
             </td>
             <td class="right">{{$et}}</td>
@@ -105,13 +117,17 @@
             </td>
             <td class="center last-column">
                 @if($operator->number_petition == 0 && $operator->is_completed == 0)
-                    <a href="{!!URL::to('/фито/таблица/table_farmer/'.$operator->farmer_id).'/'.$operator->id !!}" class="fa fa-edit btn btn-danger my_btn">
-                        &nbsp;ЗА ТАБЛИЦА!
-                    </a>
-                    <hr>
-                    <a href="{!!URL::to('/фито/оператор/земеделец/завърши/'.$operator->id)!!}" class="fa fa-edit btn btn-success my_btn">
-                        &nbsp;ЗАВЪРШИ!
-                    </a>
+                    @if($operator->number_petition == 0 && $operator->registration_date == 0 )
+                        <span style="color: #ff0000; font-weight: bold">-</span>
+                    @else
+                        <a href="{!!URL::to('/фито/таблица/table_farmer/'.$operator->farmer_id).'/'.$operator->id !!}" class="fa fa-edit btn btn-danger my_btn">
+                            &nbsp;ЗА ТАБЛИЦА!
+                        </a>
+                        <hr>
+                        <a href="{!!URL::to('/фито/оператор/земеделец/завърши/'.$operator->id)!!}" class="fa fa-edit btn btn-success my_btn">
+                            &nbsp;ЗАВЪРШИ!
+                        </a>
+                    @endif
                 @else
                     <a href="{!!URL::to('/фито/оператор/'.$operator->id)!!}" class="fa fa-binoculars btn btn-primary my_btn">
                         &nbsp;Виж!
@@ -119,11 +135,11 @@
                 @endif
 
             </td>
-            <td>
-                <a href="{!!URL::to('/фито/таблица/table_edit/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn">
-                    &nbsp;EDIT!
-                </a>
-            </td>
+            {{--<td>--}}
+                {{--<a href="{!!URL::to('/фито/таблица/table_edit/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn">--}}
+                    {{--&nbsp;EDIT!--}}
+                {{--</a>--}}
+            {{--</td>--}}
         </tr>
     @endforeach
     </tbody>

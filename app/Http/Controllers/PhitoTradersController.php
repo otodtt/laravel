@@ -8,7 +8,6 @@ use odbh\Certificate;
 
 use odbh\Farmer;
 use odbh\Http\Requests;
-use odbh\Http\Controllers\Controller;
 use odbh\PhitoTraders;
 use odbh\PhitoOperator;
 use Session;
@@ -109,6 +108,7 @@ class PhitoTradersController extends Controller
         $data = ([
             'trader_name' => $request['trader_name'],
             'trader_address' => $request['trader_address'],
+            'city' => $request['city'],
             'trader_vin' => $request['trader_vin'],
             'phone' => $request['phone'],
 
@@ -193,18 +193,20 @@ class PhitoTradersController extends Controller
         $data = ([
             'trader_name' => $request['trader_name'],
             'trader_address' => $request['trader_address'],
+            'city' => $request['city'],
             'phone' => $request['phone'],
 
             'date_update' => date('d.m.Y H:i', time()),
             'updated_by' => Auth::user()->id,
         ]);
-
         $trader->fill($data);
         $trader->save();
 
         $data_operator = ([
             'name_operator' => $request['trader_name'],
             'address_operator' => $request['trader_address'],
+            'address' => $request['city'],
+            'pin' => $trader->trader_vin,
         ]);
 
         $trader->operator()->where('trader_id','=',$trader->id)->update($data_operator);

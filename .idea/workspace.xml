@@ -7,65 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/phito/passportTable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sanitary/date_traders.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sanitary/operatorsTable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/sanitary/tradersTable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/finish_farmer.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/entry_reg.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/inspectors.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/data_passport.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/edit_numbers.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/numbers.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/permit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/permit_edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/index/search.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/index/sorting.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/index/table.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/passports/show.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/quick/add_quick.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/quick/number_petition.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_farmer.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/quick/select_option.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_form.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_reg.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/form.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/includes/object_info.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/show.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/table.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/show/showB.blade.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Farmer.php" afterPath="$PROJECT_DIR$/app/Farmer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FarmersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FarmersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/PhitoNewFarmerRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/PhitoNewFarmerRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/PhitoOperatorsRequests.php" afterPath="$PROJECT_DIR$/app/Http/Requests/PhitoOperatorsRequests.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PhytoPassportsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhytoPassportsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/Sanitary.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/Sanitary.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/PhitoOperator.php" afterPath="$PROJECT_DIR$/app/PhitoOperator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/sanitary/date_issue.js" afterPath="$PROJECT_DIR$/public/js/sanitary/date_issue.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/farmers/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/phyto.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/phyto.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/crud/add_farmer.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/add_farmer.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/entry_new.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/entry_new.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/number_petition.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/number_petition.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/location/findLocation.js" afterPath="$PROJECT_DIR$/public/js/location/findLocation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/sanitary/operatorsTable.js" afterPath="$PROJECT_DIR$/public/js/sanitary/operatorsTable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/diaries/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/diaries/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/crud/new_forms/data_object.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/new_forms/data_object.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/index/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/index/search.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/quick/number_petition.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/quick/number_petition.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/search/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/search/search.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_form.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_form.blade.php" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,187 +75,39 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="982" column="40" selection-start-line="982" selection-start-column="22" selection-end-line="982" selection-end-column="40" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhytoPassportsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhytoPassportsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231">
-              <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
-              <folding>
-                <element signature="e#41#69#0#PHP" expanded="true" />
-                <element signature="e#484#538#0#PHP" expanded="false" />
-                <element signature="e#1237#1369#0#PHP" expanded="false" />
-                <element signature="e#1374#2347#0#PHP" expanded="false" />
-                <element signature="e#2353#2496#0#PHP" expanded="false" />
-                <element signature="e#2501#3619#0#PHP" expanded="false" />
-                <element signature="e#3625#3734#0#PHP" expanded="false" />
-                <element signature="e#3739#4037#0#PHP" expanded="false" />
-                <element signature="e#4043#4212#0#PHP" expanded="false" />
-                <element signature="e#4217#5525#0#PHP" expanded="false" />
-                <element signature="e#5531#5653#0#PHP" expanded="false" />
-                <element signature="e#5951#6122#0#PHP" expanded="false" />
-                <element signature="e#6127#7315#0#PHP" expanded="false" />
-                <element signature="e#7321#7492#0#PHP" expanded="false" />
-                <element signature="e#7497#8657#0#PHP" expanded="false" />
-                <element signature="e#8663#8797#0#PHP" expanded="false" />
-                <element signature="e#8802#9124#0#PHP" expanded="false" />
-                <element signature="e#9130#9264#0#PHP" expanded="false" />
-                <element signature="e#9269#9531#0#PHP" expanded="false" />
-                <element signature="e#9538#9678#0#PHP" expanded="false" />
-                <element signature="e#9683#10044#0#PHP" expanded="false" />
-                <element signature="e#10050#10242#0#PHP" expanded="false" />
-                <element signature="e#10247#11490#0#PHP" expanded="false" />
-                <element signature="e#11496#11630#0#PHP" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="haskovo.operators" pinned="false" current-in-tab="true">
         <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.operators">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="haskovo.traders_phito" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.traders_phito">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhytoOperatorsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="20.884615">
-              <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-              <folding>
-                <element signature="e#41#50#0#PHP" expanded="true" />
-                <element signature="e#747#801#0#PHP" expanded="false" />
-                <element signature="e#806#1752#0#PHP" expanded="false" />
-                <element signature="e#1758#1859#0#PHP" expanded="false" />
-                <element signature="e#2074#2217#0#PHP" expanded="false" />
-                <element signature="e#2222#2931#0#PHP" expanded="false" />
-                <element signature="e#2937#3240#0#PHP" expanded="false" />
-                <element signature="e#3245#6313#0#PHP" expanded="false" />
-                <element signature="e#6320#6442#0#PHP" expanded="false" />
-                <element signature="e#6447#7226#0#PHP" expanded="false" />
-                <element signature="e#7275#7437#0#PHP" expanded="false" />
-                <element signature="e#7442#9793#0#PHP" expanded="false" />
-                <element signature="e#9842#10004#0#PHP" expanded="false" />
-                <element signature="e#10009#12346#0#PHP" expanded="false" />
-                <element signature="e#12352#12554#0#PHP" expanded="false" />
-                <element signature="e#12559#17278#0#PHP" expanded="false" />
-                <element signature="e#17328#17472#0#PHP" expanded="false" />
-                <element signature="e#17477#19050#0#PHP" expanded="false" />
-                <element signature="e#19056#19237#0#PHP" expanded="false" />
-                <element signature="e#19242#25074#0#PHP" expanded="false" />
-                <element signature="e#25080#25220#0#PHP" expanded="false" />
-                <element signature="e#25225#26736#0#PHP" expanded="false" />
-                <element signature="e#26742#26983#0#PHP" expanded="false" />
-                <element signature="e#26988#31454#0#PHP" expanded="false" />
-                <element signature="e#31460#31600#0#PHP" expanded="false" />
-                <element signature="e#31605#32939#0#PHP" expanded="false" />
-                <element signature="e#32945#33162#0#PHP" expanded="false" />
-                <element signature="e#33167#38002#0#PHP" expanded="false" />
-                <element signature="e#38008#38148#0#PHP" expanded="false" />
-                <element signature="e#38153#39522#0#PHP" expanded="false" />
-                <element signature="e#39528#39745#0#PHP" expanded="false" />
-                <element signature="e#39750#44335#0#PHP" expanded="false" />
-                <element signature="e#44341#44523#0#PHP" expanded="false" />
-                <element signature="e#44528#45810#0#PHP" expanded="false" />
-                <element signature="e#45816#45975#0#PHP" expanded="false" />
-                <element signature="e#45980#47118#0#PHP" expanded="false" />
-                <element signature="e#47125#47259#0#PHP" expanded="false" />
-                <element signature="e#47264#47580#0#PHP" expanded="false" />
-                <element signature="e#47586#47720#0#PHP" expanded="false" />
-                <element signature="e#47725#48043#0#PHP" expanded="false" />
-                <element signature="e#48050#48234#0#PHP" expanded="false" />
-                <element signature="e#48239#49303#0#PHP" expanded="false" />
-                <element signature="e#49313#49473#0#PHP" expanded="false" />
-                <element signature="e#49478#51252#0#PHP" expanded="false" />
-                <element signature="e#51258#51342#0#PHP" expanded="false" />
-                <element signature="e#51347#52653#0#PHP" expanded="false" />
-                <element signature="e#52659#52743#0#PHP" expanded="false" />
-                <element signature="e#52748#53889#0#PHP" expanded="false" />
-                <element signature="e#53895#53982#0#PHP" expanded="false" />
-                <element signature="e#53987#55126#0#PHP" expanded="false" />
-                <marker date="1739867738541" expanded="true" signature="5995:6031" placeholder="SELECT * FRO..operators..." />
-                <marker date="1739867738541" expanded="true" signature="5995:6042" placeholder="SELECT * FRO..operators..." />
-                <marker date="1739867738541" expanded="true" signature="5995:6053" placeholder="SELECT * FRO..operators..." />
-                <marker date="1739867738541" expanded="true" signature="6108:6155" placeholder="SELECT * FRO..operators..." />
-                <marker date="1739867738541" expanded="true" signature="51922:52413" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="51947:51983" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="51947:52365" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="51985:52018" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="52046:52061" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="52146:52179" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="52517:52532" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="53158:53649" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="53183:53219" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="53183:53601" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="53221:53254" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="53282:53297" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="53382:53415" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="53753:53768" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="54397:54898" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="54422:54458" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="54422:54850" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="54460:54493" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="54527:54542" placeholder="..." />
-                <marker date="1739867738541" expanded="false" signature="54631:54664" placeholder="..." />
-                <marker date="1739867738541" expanded="true" signature="55002:55017" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhitoTradersController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.230769">
-              <caret line="580" column="18" selection-start-line="580" selection-start-column="18" selection-end-line="580" selection-end-column="18" />
-              <folding>
-                <element signature="e#341#1287#0#PHP" expanded="false" />
-                <element signature="e#1292#1393#0#PHP" expanded="false" />
-                <element signature="e#1398#1547#0#PHP" expanded="false" />
-                <element signature="e#1553#1662#0#PHP" expanded="false" />
-                <element signature="e#1767#1926#0#PHP" expanded="false" />
-                <element signature="e#1931#4321#0#PHP" expanded="false" />
-                <element signature="e#4327#4449#0#PHP" expanded="false" />
-                <element signature="e#4454#4724#0#PHP" expanded="false" />
-                <element signature="e#4730#4870#0#PHP" expanded="false" />
-                <element signature="e#4875#5038#0#PHP" expanded="false" />
-                <element signature="e#5044#5226#0#PHP" expanded="false" />
-                <element signature="e#5231#7340#0#PHP" expanded="false" />
-                <element signature="e#7346#7486#0#PHP" expanded="false" />
-                <element signature="e#7491#8259#0#PHP" expanded="false" />
-                <element signature="e#8266#8400#0#PHP" expanded="false" />
-                <element signature="e#8462#8650#0#PHP" expanded="false" />
-                <element signature="e#8655#8829#0#PHP" expanded="false" />
-                <element signature="e#8835#9090#0#PHP" expanded="false" />
-                <element signature="e#9095#14321#0#PHP" expanded="false" />
-                <element signature="e#14327#14491#0#PHP" expanded="false" />
-                <element signature="e#14496#14589#0#PHP" expanded="false" />
-                <element signature="e#14595#14825#0#PHP" expanded="false" />
-                <element signature="e#15063#19246#0#PHP" expanded="false" />
-                <element signature="e#26800#27013#0#PHP" expanded="false" />
-                <element signature="e#27018#27297#0#PHP" expanded="false" />
-                <element signature="e#27303#27558#0#PHP" expanded="false" />
-                <element signature="e#27563#32436#0#PHP" expanded="false" />
-                <element signature="e#32442#32630#0#PHP" expanded="false" />
-                <element signature="e#32635#32807#0#PHP" expanded="false" />
-                <element signature="e#32813#33043#0#PHP" expanded="false" />
-                <element signature="e#33048#37872#0#PHP" expanded="false" />
-              </folding>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -313,15 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/entry_reg.blade.php" />
-        <option value="$PROJECT_DIR$/app/PhitoOperator.php" />
-        <option value="$PROJECT_DIR$/public/js/sanitary/date_issue.js" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/logo/1686355200_logo.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FarmersController.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_form.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/quick/add_quick.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/objects/firms/index/form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/add_quick.blade.php" />
@@ -331,24 +137,16 @@
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/finish_farmer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/number_petition.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/farmers/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/search.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/number_petition.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_farmer.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/sanitary/operatorsTable.js" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/index/sorting.blade.php" />
         <option value="$PROJECT_DIR$/app/PhitoTraders.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/permit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PhitoOperatorsRequests.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PhytoPassportRequests.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/index/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/numbers.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/create.blade.php" />
         <option value="$PROJECT_DIR$/app/PhytoPassport.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/data_passport.blade.php" />
@@ -356,14 +154,31 @@
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/permit_edit.blade.php" />
         <option value="$PROJECT_DIR$/public/js/phito/passportTable.js" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/index/search.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/phyto.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_form.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/new_forms/data_object.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/location/findLocation.js" />
+        <option value="$PROJECT_DIR$/resources/views/diaries/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DiariesController.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Container/Container.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/Sanitary.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PhytoPassportsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/search/search.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/number_petition.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/sanitary/operatorsTable.js" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/search.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/index.blade.php" />
       </list>
     </option>
   </component>
@@ -469,10 +284,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="y" value="3" />
-    <option name="width" value="1604" />
-    <option name="height" value="733" />
+    <option name="x" value="76" />
+    <option name="y" value="39" />
+    <option name="width" value="1725" />
+    <option name="height" value="932" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -503,12 +318,15 @@
             <id>Potentially confusing code constructsJavaScript</id>
           </State>
           <State>
+            <id>Probable bugsPHP</id>
+          </State>
+          <State>
             <id>UndefinedPHP</id>
           </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>HtmlUnknownTarget</id>
+            <id>PhpMissingParentConstructorInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -586,6 +404,130 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phytosanitary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phytosanitary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sanitary" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -692,11 +634,11 @@
       <recent name="C:\wamp64\www\laravel\resources\views\layouts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\crud" />
       <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\passports\index" />
       <recent name="C:\wamp64\www\laravel\public\js\phito" />
       <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\passports\crud" />
       <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\passports" />
-      <recent name="C:\wamp64\www\laravel\resources\views\phytosanitary\quick" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -908,14 +850,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="3" width="1604" height="733" extended-state="1" />
+    <frame x="76" y="39" width="1725" height="932" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1972422" sideWeight="0.53375196" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21243523" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16996998" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36695018" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2130829" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15135135" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19128172" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24205749" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
@@ -956,534 +898,517 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/PhytoPassportRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18421052">
-          <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="55" />
-          <folding>
-            <element signature="e#121#224#0#PHP" expanded="false" />
-            <element signature="e#295#393#0#PHP" expanded="false" />
-            <element signature="e#1382#1457#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/PhitoOperator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1328125">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/permit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22580644">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/numbers.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27994013">
-          <caret line="11" column="83" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/import/show.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/traders/table.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1107785">
-          <caret line="606" column="0" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.1953125">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.settings">
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/new_firm.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.709091">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/form_create_farmer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.254545">
+          <caret line="80" column="105" selection-start-line="80" selection-start-column="99" selection-end-line="80" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/new_forms/data_object.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.8">
+          <caret line="148" column="148" selection-start-line="148" selection-start-column="148" selection-end-line="148" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/location/findLocation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5138539">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/diaries/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84505206">
+          <caret line="102" column="33" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4463895">
+          <caret line="24" column="75" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/View/ViewServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.037199125">
+          <caret line="122" column="55" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Container/Container.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42341357">
+          <caret line="732" column="5" selection-start-line="732" selection-start-column="5" selection-end-line="732" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Farmer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Control.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.102657005">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TradersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/records/add/object_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8623482">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1336033">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.12415654">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5964912">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.48178136">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Quality.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Sanitary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6882591">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-42.23077">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhytoPassportsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.traders">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.farmers_protocols">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.farmers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.old_farmers_protocols">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/framework/views/bc5c0da6e6cf3e7847308c019684fe6c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3767927">
+          <caret line="1007" column="58" selection-start-line="1007" selection-start-column="53" selection-end-line="1007" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7818448">
-          <caret line="904" column="69" selection-start-line="904" selection-start-column="69" selection-end-line="904" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.21348314">
+          <caret line="954" column="97" selection-start-line="954" selection-start-column="97" selection-end-line="954" selection-end-column="97" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/quick/add_quick.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/search/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1947291">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/new_farmer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.22401172">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/add_farmer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.4642375">
+          <caret line="23" column="129" selection-start-line="23" selection-start-column="129" selection-end-line="23" selection-end-column="129" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18155198">
+        <state vertical-scroll-proportion="0.16151686">
           <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/data_passport.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6772152">
-          <caret line="91" column="51" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.004746835">
-          <caret line="38" column="83" selection-start-line="38" selection-start-column="83" selection-end-line="38" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/permit_edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1613924">
-          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/edit_numbers.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1613924">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/crud/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77689874">
-          <caret line="46" column="63" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/phito/passportTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.387538">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/index/search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/index/search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.403481">
-          <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/index/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.038462">
-          <caret line="23" column="48" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1518986">
-          <caret line="122" column="61" selection-start-line="122" selection-start-column="61" selection-end-line="122" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.846154">
-          <caret line="41" column="69" selection-start-line="41" selection-start-column="69" selection-end-line="41" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.passports">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17814371">
-          <caret line="21" column="90" selection-start-line="21" selection-start-column="90" selection-end-line="21" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5508982">
-          <caret line="104" column="170" selection-start-line="104" selection-start-column="170" selection-end-line="104" selection-end-column="170" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/phyto.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8652695">
-          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.24700598">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.22904192">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6437126">
-          <caret line="174" column="45" selection-start-line="174" selection-start-column="45" selection-end-line="174" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SettingsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2844445">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FarmersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6266668">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.users">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4859259">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/SetOpinion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Location.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LocationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.072727">
-          <caret line="60" column="7" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Set.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025185185">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#24#60#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/passports/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3854489">
-          <caret line="408" column="58" selection-start-line="408" selection-start-column="58" selection-end-line="408" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0577778">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/PhytoPassport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37777779">
-          <caret line="22" column="113" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="113" />
-          <folding>
-            <element signature="e#138#199#0#PHP" expanded="false" />
-            <element signature="e#241#305#0#PHP" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-0.44534412">
+          <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <caret line="982" column="40" selection-start-line="982" selection-start-column="22" selection-end-line="982" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/quick/number_petition.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5037037">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhytoPassportsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.8785425">
+          <caret line="112" column="14" selection-start-line="112" selection-start-column="14" selection-end-line="112" selection-end-column="14" />
           <folding>
-            <element signature="e#41#69#0#PHP" expanded="true" />
-            <element signature="e#484#538#0#PHP" expanded="false" />
-            <element signature="e#1237#1369#0#PHP" expanded="false" />
-            <element signature="e#1374#2347#0#PHP" expanded="false" />
-            <element signature="e#2353#2496#0#PHP" expanded="false" />
-            <element signature="e#2501#3619#0#PHP" expanded="false" />
-            <element signature="e#3625#3734#0#PHP" expanded="false" />
-            <element signature="e#3739#4037#0#PHP" expanded="false" />
-            <element signature="e#4043#4212#0#PHP" expanded="false" />
-            <element signature="e#4217#5525#0#PHP" expanded="false" />
-            <element signature="e#5531#5653#0#PHP" expanded="false" />
-            <element signature="e#5951#6122#0#PHP" expanded="false" />
-            <element signature="e#6127#7315#0#PHP" expanded="false" />
-            <element signature="e#7321#7492#0#PHP" expanded="false" />
-            <element signature="e#7497#8657#0#PHP" expanded="false" />
-            <element signature="e#8663#8797#0#PHP" expanded="false" />
-            <element signature="e#8802#9124#0#PHP" expanded="false" />
-            <element signature="e#9130#9264#0#PHP" expanded="false" />
-            <element signature="e#9269#9531#0#PHP" expanded="false" />
-            <element signature="e#9538#9678#0#PHP" expanded="false" />
-            <element signature="e#9683#10044#0#PHP" expanded="false" />
-            <element signature="e#10050#10242#0#PHP" expanded="false" />
-            <element signature="e#10247#11490#0#PHP" expanded="false" />
-            <element signature="e#11496#11630#0#PHP" expanded="false" />
+            <marker date="1740553974059" expanded="true" signature="1360:1590" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="1372:1588" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="1406:1587" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="1835:2059" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="1847:2057" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="1877:2056" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="2585:2827" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="2597:2825" placeholder="..." />
+            <marker date="1740553974059" expanded="true" signature="2639:2824" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DiariesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1182635">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <marker date="1740641776100" expanded="true" signature="4493:4572" placeholder="SELECT * FRO..diaries..." />
+            <marker date="1740641776100" expanded="true" signature="15948:16414" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="15973:16366" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="16011:16044" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="16072:16087" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="16172:16205" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="16518:16533" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="17159:17629" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="17184:17581" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="17222:17255" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="17283:17298" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="17383:17416" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="17733:17748" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="18377:18873" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="18402:18825" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="18440:18473" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="18507:18522" placeholder="..." />
+            <marker date="1740641776100" expanded="false" signature="18611:18644" placeholder="..." />
+            <marker date="1740641776100" expanded="true" signature="18977:18992" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="20.884615">
-          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.90568864">
+          <caret line="168" column="9" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="9" />
           <folding>
             <element signature="e#41#50#0#PHP" expanded="true" />
-            <element signature="e#747#801#0#PHP" expanded="false" />
-            <element signature="e#806#1752#0#PHP" expanded="false" />
-            <element signature="e#1758#1859#0#PHP" expanded="false" />
-            <element signature="e#2074#2217#0#PHP" expanded="false" />
-            <element signature="e#2222#2931#0#PHP" expanded="false" />
-            <element signature="e#2937#3240#0#PHP" expanded="false" />
-            <element signature="e#3245#6313#0#PHP" expanded="false" />
-            <element signature="e#6320#6442#0#PHP" expanded="false" />
-            <element signature="e#6447#7226#0#PHP" expanded="false" />
-            <element signature="e#7275#7437#0#PHP" expanded="false" />
-            <element signature="e#7442#9793#0#PHP" expanded="false" />
-            <element signature="e#9842#10004#0#PHP" expanded="false" />
-            <element signature="e#10009#12346#0#PHP" expanded="false" />
-            <element signature="e#12352#12554#0#PHP" expanded="false" />
-            <element signature="e#12559#17278#0#PHP" expanded="false" />
-            <element signature="e#17328#17472#0#PHP" expanded="false" />
-            <element signature="e#17477#19050#0#PHP" expanded="false" />
-            <element signature="e#19056#19237#0#PHP" expanded="false" />
-            <element signature="e#19242#25074#0#PHP" expanded="false" />
-            <element signature="e#25080#25220#0#PHP" expanded="false" />
-            <element signature="e#25225#26736#0#PHP" expanded="false" />
-            <element signature="e#26742#26983#0#PHP" expanded="false" />
-            <element signature="e#26988#31454#0#PHP" expanded="false" />
-            <element signature="e#31460#31600#0#PHP" expanded="false" />
-            <element signature="e#31605#32939#0#PHP" expanded="false" />
-            <element signature="e#32945#33162#0#PHP" expanded="false" />
-            <element signature="e#33167#38002#0#PHP" expanded="false" />
-            <element signature="e#38008#38148#0#PHP" expanded="false" />
-            <element signature="e#38153#39522#0#PHP" expanded="false" />
-            <element signature="e#39528#39745#0#PHP" expanded="false" />
-            <element signature="e#39750#44335#0#PHP" expanded="false" />
-            <element signature="e#44341#44523#0#PHP" expanded="false" />
-            <element signature="e#44528#45810#0#PHP" expanded="false" />
-            <element signature="e#45816#45975#0#PHP" expanded="false" />
-            <element signature="e#45980#47118#0#PHP" expanded="false" />
-            <element signature="e#47125#47259#0#PHP" expanded="false" />
-            <element signature="e#47264#47580#0#PHP" expanded="false" />
-            <element signature="e#47586#47720#0#PHP" expanded="false" />
-            <element signature="e#47725#48043#0#PHP" expanded="false" />
-            <element signature="e#48050#48234#0#PHP" expanded="false" />
-            <element signature="e#48239#49303#0#PHP" expanded="false" />
-            <element signature="e#49313#49473#0#PHP" expanded="false" />
-            <element signature="e#49478#51252#0#PHP" expanded="false" />
-            <element signature="e#51258#51342#0#PHP" expanded="false" />
-            <element signature="e#51347#52653#0#PHP" expanded="false" />
-            <element signature="e#52659#52743#0#PHP" expanded="false" />
-            <element signature="e#52748#53889#0#PHP" expanded="false" />
-            <element signature="e#53895#53982#0#PHP" expanded="false" />
-            <element signature="e#53987#55126#0#PHP" expanded="false" />
-            <marker date="1739867738541" expanded="true" signature="5995:6031" placeholder="SELECT * FRO..operators..." />
-            <marker date="1739867738541" expanded="true" signature="5995:6042" placeholder="SELECT * FRO..operators..." />
-            <marker date="1739867738541" expanded="true" signature="5995:6053" placeholder="SELECT * FRO..operators..." />
-            <marker date="1739867738541" expanded="true" signature="6108:6155" placeholder="SELECT * FRO..operators..." />
-            <marker date="1739867738541" expanded="true" signature="51922:52413" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="51947:51983" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="51947:52365" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="51985:52018" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="52046:52061" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="52146:52179" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="52517:52532" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="53158:53649" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="53183:53219" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="53183:53601" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="53221:53254" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="53282:53297" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="53382:53415" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="53753:53768" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="54397:54898" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="54422:54458" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="54422:54850" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="54460:54493" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="54527:54542" placeholder="..." />
-            <marker date="1739867738541" expanded="false" signature="54631:54664" placeholder="..." />
-            <marker date="1739867738541" expanded="true" signature="55002:55017" placeholder="..." />
+            <element signature="e#1633#1734#0#PHP" expanded="false" />
+            <element signature="e#1739#1943#0#PHP" expanded="false" />
+            <element signature="e#1949#2092#0#PHP" expanded="false" />
+            <element signature="e#2097#2806#0#PHP" expanded="false" />
+            <element signature="e#2812#3115#0#PHP" expanded="false" />
+            <element signature="e#6328#6450#0#PHP" expanded="false" />
+            <element signature="e#6455#7329#0#PHP" expanded="false" />
+            <element signature="e#7378#7540#0#PHP" expanded="false" />
+            <element signature="e#7545#9896#0#PHP" expanded="false" />
+            <element signature="e#9945#10107#0#PHP" expanded="false" />
+            <element signature="e#10112#12449#0#PHP" expanded="false" />
+            <element signature="e#12455#12657#0#PHP" expanded="false" />
+            <element signature="e#12662#17381#0#PHP" expanded="false" />
+            <element signature="e#17431#17575#0#PHP" expanded="false" />
+            <element signature="e#17580#19153#0#PHP" expanded="false" />
+            <element signature="e#19159#19340#0#PHP" expanded="false" />
+            <element signature="e#19345#25177#0#PHP" expanded="false" />
+            <element signature="e#25183#25323#0#PHP" expanded="false" />
+            <element signature="e#25328#26839#0#PHP" expanded="false" />
+            <element signature="e#26845#27086#0#PHP" expanded="false" />
+            <element signature="e#27091#31557#0#PHP" expanded="false" />
+            <element signature="e#31563#31703#0#PHP" expanded="false" />
+            <element signature="e#31708#33042#0#PHP" expanded="false" />
+            <element signature="e#33048#33265#0#PHP" expanded="false" />
+            <element signature="e#33270#38105#0#PHP" expanded="false" />
+            <element signature="e#38111#38251#0#PHP" expanded="false" />
+            <element signature="e#38256#39456#0#PHP" expanded="false" />
+            <element signature="e#39462#39602#0#PHP" expanded="false" />
+            <element signature="e#39607#40443#0#PHP" expanded="false" />
+            <element signature="e#40450#40667#0#PHP" expanded="false" />
+            <element signature="e#40672#45257#0#PHP" expanded="false" />
+            <element signature="e#45263#45445#0#PHP" expanded="false" />
+            <element signature="e#45450#46732#0#PHP" expanded="false" />
+            <element signature="e#46738#46897#0#PHP" expanded="false" />
+            <element signature="e#46902#48040#0#PHP" expanded="false" />
+            <element signature="e#48047#48181#0#PHP" expanded="false" />
+            <element signature="e#48186#48502#0#PHP" expanded="false" />
+            <element signature="e#48508#48642#0#PHP" expanded="false" />
+            <element signature="e#48647#48965#0#PHP" expanded="false" />
+            <element signature="e#48972#49156#0#PHP" expanded="false" />
+            <element signature="e#49161#50225#0#PHP" expanded="false" />
+            <element signature="e#50235#50395#0#PHP" expanded="false" />
+            <element signature="e#50400#52180#0#PHP" expanded="false" />
+            <element signature="e#52186#52270#0#PHP" expanded="false" />
+            <element signature="e#52275#53581#0#PHP" expanded="false" />
+            <element signature="e#53587#53671#0#PHP" expanded="false" />
+            <element signature="e#53676#54817#0#PHP" expanded="false" />
+            <element signature="e#54823#54910#0#PHP" expanded="false" />
+            <element signature="e#54915#56054#0#PHP" expanded="false" />
+            <marker date="1740640597389" expanded="true" signature="6003:6039" placeholder="SELECT * FRO..operators..." />
+            <marker date="1740640597389" expanded="true" signature="6003:6050" placeholder="SELECT * FRO..operators..." />
+            <marker date="1740640597389" expanded="true" signature="6003:6061" placeholder="SELECT * FRO..operators..." />
+            <marker date="1740640597389" expanded="true" signature="6116:6163" placeholder="SELECT * FRO..operators..." />
+            <marker date="1740640597389" expanded="true" signature="6788:6828" placeholder="SELECT id FR..traders_phito..." />
+            <marker date="1740640597389" expanded="true" signature="6788:6829" placeholder="SELECT * FRO..operators..." />
+            <marker date="1740640597389" expanded="true" signature="52850:53341" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="52875:52911" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="52875:53293" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="52913:52946" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="52974:52989" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="53074:53107" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="53445:53460" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="54086:54577" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="54111:54147" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="54111:54529" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="54149:54182" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="54210:54225" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="54310:54343" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="54681:54696" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="55325:55826" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="55350:55386" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="55350:55778" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="55388:55421" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="55455:55470" placeholder="..." />
+            <marker date="1740640597389" expanded="false" signature="55559:55592" placeholder="..." />
+            <marker date="1740640597389" expanded="true" signature="55930:55945" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.230769">
-          <caret line="580" column="18" selection-start-line="580" selection-start-column="18" selection-end-line="580" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.74550897">
+          <caret line="33" column="155" selection-start-line="33" selection-start-column="155" selection-end-line="33" selection-end-column="155" />
           <folding>
-            <element signature="e#341#1287#0#PHP" expanded="false" />
-            <element signature="e#1292#1393#0#PHP" expanded="false" />
-            <element signature="e#1398#1547#0#PHP" expanded="false" />
-            <element signature="e#1553#1662#0#PHP" expanded="false" />
-            <element signature="e#1767#1926#0#PHP" expanded="false" />
-            <element signature="e#1931#4321#0#PHP" expanded="false" />
-            <element signature="e#4327#4449#0#PHP" expanded="false" />
-            <element signature="e#4454#4724#0#PHP" expanded="false" />
-            <element signature="e#4730#4870#0#PHP" expanded="false" />
-            <element signature="e#4875#5038#0#PHP" expanded="false" />
-            <element signature="e#5044#5226#0#PHP" expanded="false" />
-            <element signature="e#5231#7340#0#PHP" expanded="false" />
-            <element signature="e#7346#7486#0#PHP" expanded="false" />
-            <element signature="e#7491#8259#0#PHP" expanded="false" />
-            <element signature="e#8266#8400#0#PHP" expanded="false" />
-            <element signature="e#8462#8650#0#PHP" expanded="false" />
-            <element signature="e#8655#8829#0#PHP" expanded="false" />
-            <element signature="e#8835#9090#0#PHP" expanded="false" />
-            <element signature="e#9095#14321#0#PHP" expanded="false" />
-            <element signature="e#14327#14491#0#PHP" expanded="false" />
-            <element signature="e#14496#14589#0#PHP" expanded="false" />
-            <element signature="e#14595#14825#0#PHP" expanded="false" />
-            <element signature="e#15063#19246#0#PHP" expanded="false" />
-            <element signature="e#26800#27013#0#PHP" expanded="false" />
-            <element signature="e#27018#27297#0#PHP" expanded="false" />
-            <element signature="e#27303#27558#0#PHP" expanded="false" />
-            <element signature="e#27563#32436#0#PHP" expanded="false" />
-            <element signature="e#32442#32630#0#PHP" expanded="false" />
-            <element signature="e#32635#32807#0#PHP" expanded="false" />
-            <element signature="e#32813#33043#0#PHP" expanded="false" />
-            <element signature="e#33048#37872#0#PHP" expanded="false" />
+            <marker date="1740640541674" expanded="true" signature="1212:1471" placeholder="..." />
+            <marker date="1740640541674" expanded="true" signature="1226:1469" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.operators">
+    <entry file="file://$PROJECT_DIR$/public/js/sanitary/operatorsTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39193085">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/index/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43263474">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.4101796">
+          <caret line="134" column="22" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.846153">
+          <caret line="71" column="59" selection-start-line="71" selection-start-column="59" selection-end-line="71" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.traders_phito">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.operators">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

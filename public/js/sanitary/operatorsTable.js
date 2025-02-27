@@ -15,7 +15,6 @@ $(document).ready(function() {
             { "orderable": false },
             { "orderable": false },
             { "orderable": false },
-            { "orderable": false }
         ],
 
         "pagingType": "full_numbers",

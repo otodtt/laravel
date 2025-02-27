@@ -3,13 +3,20 @@ if(isset($operator) && !empty($operator)){
     //print_r($operator->registration_date);
    if($operator->registration_date == 0 && $operator->date_petition == 0){
         $date_petition = null;
-        $update_date = null;
+
         $registration_date = null;
     }
     else {
         $date_petition = date('d.m.Y', $operator->date_petition);
-        $update_date = date('d.m.Y', $operator->update_date);
+
         $registration_date = date('d.m.Y', $operator->registration_date);
+    }
+
+    if($operator->update_date != 0) {
+        $update_date = date('d.m.Y', $operator->update_date);
+    }
+    else {
+        $update_date = null;
     }
 
 }
@@ -18,7 +25,6 @@ else{
     $update_date = null;
     $registration_date = null;
 }
-
 ?>
 {{--Номер и Дата на Заявлението--}}
 <div class="container-fluid" >
@@ -69,7 +75,7 @@ else{
                     <div class="col-md-4" >
                         {!! Form::label('activity', 'Дейност/и по чл. 65(1)', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('activity', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('activity', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>100 ]) !!}
                     </div>
                 </div>
                 <hr class="my_hr_in"/>
@@ -77,17 +83,17 @@ else{
                     <div class="col-md-4" >
                         {!! Form::label('derivation', 'Произход на растенията', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('derivation', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('derivation', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>100 ]) !!}
                     </div>
                     <div class="col-md-4" >
                         {!! Form::label('products', 'Естество (изписват се растенията)', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('products', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('products', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>100 ]) !!}
                     </div>
                     <div class="col-md-4" >
                         {!! Form::label('purpose', 'Предназначение ', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('purpose', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('purpose', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>100 ]) !!}
                     </div>
                 </div>
                 <hr class="my_hr_in"/>
@@ -95,12 +101,12 @@ else{
                     <div class="col-md-8" >
                         {!! Form::label('room', 'Адрес на помещенията', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('room', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('room', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>100 ]) !!}
                     </div>
                     <div class="col-md-4" >
                         {!! Form::label('action', 'Дейност/и по чл. 66(2) ', ['class'=>'my_labels']) !!}
                         <br>
-                        {!! Form::text('action', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>20 ]) !!}
+                        {!! Form::text('action', null, ['class'=>'form-control form-control-my', 'size'=>15, 'maxlength'=>100 ]) !!}
                     </div>
                 </div>
             </fieldset>

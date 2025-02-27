@@ -1,6 +1,6 @@
 @extends('layouts.phyto')
 @section('title')
-    {{ 'Редактирай Оператор!' }}
+    {{ 'Актуализация Оператор!' }}
 @endsection
 
 @section('css')
@@ -47,7 +47,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Редактиране на данни на заявление на оператор!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Актуализация на данни на заявление на оператор!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -69,8 +69,11 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">РЕДАКТИРАНЕ НА ОПЕРАТОР</h4>
-                    @include('records.add.object_info')
+                    <h4 class="my_center bold">АКТУАЛИЗАЦИЯ НА ОПЕРАТОР</h4>
+                    {{--@include('records.add.object_info')--}}
+                    <p >Име на Фирма: <span class="bold">{!! $trader->trader_name !!}</span>;  ЕИК: <span class="bold">{!! $trader->trader_vin !!}</span>
+
+                    <p >С адрес: <span class="bold">{!! $trader->city!!}</span>, <span class="bold">{!! $trader->trader_address !!}</span></p>
                 </div>
             </div>
         </div>

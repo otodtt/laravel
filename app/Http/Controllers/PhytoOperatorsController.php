@@ -11,7 +11,6 @@ use odbh\Certificate;
 use odbh\Http\Requests;
 use Illuminate\Validation;
 use odbh\PhitoTraders;
-use odbh\PhytoPassport;
 use odbh\Set;
 use odbh\User;
 use Redirect;
@@ -19,15 +18,9 @@ use Input;
 use odbh\Http\Requests\PhitoOperatorsRequests;
 use odbh\Http\Requests\PhitoNewFarmerRequest;
 use Session;
-use odbh\Trader;
 use odbh\Farmer;
 use odbh\Location;
-use odbh\Country;
 use odbh\PhitoOperator;
-
-//use odbh\Importer;
-//use odbh\Crop;
-//use odbh\QINCertificate;
 
 class PhytoOperatorsController extends Controller
 {
@@ -157,16 +150,19 @@ class PhytoOperatorsController extends Controller
         }
 
         if (isset($deletion_limit) && (int)$deletion_limit == 1){
-            $limit_sql = ' AND deletion IS NULL';
+            $limit_sql = ' AND deletion = 0';
         }
         elseif (isset($deletion_limit) && (int)$deletion_limit == 2){
             $limit_sql = ' AND deletion>= 1';
         }
         elseif (isset($deletion_limit) && (int)$deletion_limit == 3){
-            $limit_sql = ' AND registration_number = 0';
+            $limit_sql = ' AND update_date >= 1';
         }
         elseif (isset($deletion_limit) && (int)$deletion_limit == 4){
-            $limit_sql = ' AND number_petition = 0';
+            $limit_sql = ' AND update_date  = 0';
+        }
+        elseif (isset($deletion_limit) && (int)$deletion_limit == 5){
+            $limit_sql = ' AND farmer_id  = 0 AND trader_id  = 0';
         }
         else{
             $limit_sql = ' ';
@@ -197,7 +193,8 @@ class PhytoOperatorsController extends Controller
 
         $farmer_db = Farmer::select('id')->where('id', '=', $operator->farmer_id)->get()->toArray();
 
-        $trader_db = Trader::where('id', '=', $operator->trader_id)->get()->toArray();
+        $trader_db = PhitoTraders::where('id', '=', $operator->trader_id)->get();
+//        $trader_db = DB::select("SELECT id FROM traders_phito WHERE id = $operator->trader_id ");
 
         $operator_index = $this->index;
 
@@ -1133,8 +1130,6 @@ class PhytoOperatorsController extends Controller
             ->orderBy('district_id', 'asc')
             ->lists('name', 'district_id')->toArray();
 
-//        $is_farmer = PhitoOperator::select('id', 'name_operator', 'farmer_id', 'pin', 'type_firm')->where('farmer_id', '=', $farmer->id)->limit(1)->get()->toArray();
-
         $uid = Auth::user()->id;
         $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
         $is_update = 1;
@@ -1143,6 +1138,35 @@ class PhytoOperatorsController extends Controller
         return view('phytosanitary.crud.edit_data', compact('farmer', 'index', 'user', 'districts', 'districts_farm',
             'regions', 'inspectors', 'is_update', 'operator'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_data_trader($id)
+    {
+        $index = $this->index;
+
+        $operator = PhitoOperator::findOrFail($id);
+        $trader = PhitoTraders::findOrFail($operator->trader_id);
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('fsk','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors = array_sort_recursive($inspectors);
+
+        $uid = Auth::user()->id;
+        $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
+        $is_update = 1;
+//        dd($trader);
+
+        return view('phytosanitary.crud.edit_data_trader', compact('trader', 'index', 'user',  'inspectors', 'is_update', 'operator'));
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -1369,7 +1393,7 @@ class PhytoOperatorsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function lock($id){
-        $operator = PhytoPassport::findOrFail($id);
+        $operator = PhitoOperator::findOrFail($id);
 
         $data = [
             'is_lock' => 1,
@@ -1388,7 +1412,7 @@ class PhytoOperatorsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function unlock($id){
-        $operator = PhytoPassport::findOrFail($id);
+        $operator = PhitoOperator::findOrFail($id);
 
         $data = [
             'is_lock' => 0,
@@ -1474,7 +1498,7 @@ class PhytoOperatorsController extends Controller
         $gender = $request['gender_farmer'];
         $pin = $request['pin_farmer'];
 
-        $trader = Trader::select()->where('trader_vin','=',$eik)->get()->toArray();
+        $trader = PhitoTraders::select()->where('trader_vin','=',$eik)->get()->toArray();
 
         $farmers = null;
         if(isset($request['firm_search']) && $request['firm_search'] == 1){

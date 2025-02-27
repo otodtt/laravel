@@ -6197,11 +6197,11 @@
       </column>
       <column id="1548" parent="51" name="pin">
         <mandatory>1</mandatory>
-        <data-type>int</data-type>
+        <data-type>varchar(15)</data-type>
       </column>
       <column id="1549" parent="51" name="quantity">
         <mandatory>1</mandatory>
-        <data-type>int</data-type>
+        <data-type>varchar(15)</data-type>
       </column>
       <column id="1550" parent="51" name="quantity_type">
         <mandatory>1</mandatory>
@@ -6215,40 +6215,44 @@
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="1553" parent="51" name="protected">
+      <column id="1553" parent="51" name="full_direction">
+        <mandatory>1</mandatory>
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="1554" parent="51" name="protected">
         <mandatory>1</mandatory>
         <data-type>tinyint</data-type>
       </column>
-      <column id="1554" parent="51" name="invoice">
+      <column id="1555" parent="51" name="invoice">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="1556" parent="51" name="date_invoice">
         <mandatory>1</mandatory>
         <data-type>int</data-type>
       </column>
-      <column id="1555" parent="51" name="date_invoice">
-        <mandatory>1</mandatory>
-        <data-type>int</data-type>
-      </column>
-      <column id="1556" parent="51" name="is_lock">
+      <column id="1557" parent="51" name="is_lock">
         <mandatory>1</mandatory>
         <data-type>tinyint(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="1557" parent="51" name="created_by">
+      <column id="1558" parent="51" name="created_by">
         <mandatory>1</mandatory>
         <data-type>tinyint</data-type>
       </column>
-      <column id="1558" parent="51" name="updated_by">
+      <column id="1559" parent="51" name="updated_by">
         <mandatory>1</mandatory>
         <data-type>tinyint</data-type>
       </column>
-      <column id="1559" parent="51" name="date_create">
+      <column id="1560" parent="51" name="date_create">
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="1560" parent="51" name="date_update">
+      <column id="1561" parent="51" name="date_update">
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <key id="1561" parent="51" name="PRIMARY">
+      <key id="1562" parent="51" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
