@@ -135,16 +135,18 @@
                             {!! Form::close() !!}
                         </div>
                     @else
-                        <div class="col-md-6 col-md-6_my " >
+                        <div class="col-md-4 col-md-6_my " >
                             <p class="new_farmer bold">
                                 <span class="view" style="color: green">Намерена е фирма търговец.</span><br/>
                                 Добави тази Фирма - {{$trader[0]['trader_name']}}!
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!!URL::to('/фито/оператор/търговец/добави/'.$trader[0]['id'])!!}" class="fa fa-retweet btn btn-primary my_btn_check" style="width: 350px">
-                                &nbsp;&nbsp;Добави тази фирма!
-                            </a>
+                            <p style="margin-top: 20px"><span class="bold red">ВАЖО!</span> Иди в регистъра на Всички фирми Търговци и го добави като ПО от там
+                                <a href="{!!URL::to('/фито/търговец/покажи/'.$trader[0]['id'])!!}" class="fa fa-edit btn btn-primary my_btn" style="width: 100px">
+                                    &nbsp;&nbsp;Тук!
+                                </a>
+                            </p>
                         </div>
                     @endif
                 @endif

@@ -88,12 +88,11 @@
                 @endif
             </td>
             <td class="">
-                @if($operator->registration_number == 0 && $operator->is_completed == 0)
+                @if($operator->registration_number == 0 )
                     <span style="color: #ff0000; font-weight: bold">Не е добавен</span>
                 @else
                     @if($operator->registration_date == 0)
                         {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->registration_number }}
-                        {{--/{{date('d.m.Y', $operator->registration_date)}}--}}
                     @else
                         {{$operator_index[0]['operator_index_bg']}}-{{$nulls.$operator->registration_number }}
                         /{{date('d.m.Y', $operator->registration_date)}}

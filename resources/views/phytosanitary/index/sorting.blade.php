@@ -31,7 +31,8 @@ if((int)$end_years == 0){
     {!! Form::text('end_year', $end_years, ['class'=>'form-control form-control-my-search search_value', 'size'=>30, 'maxlength'=>10, 'id'=>'end_year']) !!}
 </div>
 <div class="col-md-6">
-    {!! Form::select('deletion', array(0 =>'Избери!', 1=>'С Регистрация', 2=>'Заличена Регистрация', 3=>'С Актуализация', 4=>'БЕЗ Актуализация', 5=>'БЕЗ ID'),
+    {!! Form::select('deletion', array(0 =>'Избери!', 1=>'С Регистрация', 2=>'Заличена Регистрация', 3=>'Само ЗП', 4=>'Само Търговци',
+                    5=>'С Актуализация', 6=>'БЕЗ Актуализация', 7=>'БЕЗ ID'),
                            $deletion_return, ['class'=>'form-control limit_sort_class', 'id'=>'deletion']) !!}
     {!! Form::submit(' СОРТИРАЙ', array('class' => 'fa fa-search btn btn-primary my_btn ')) !!}
     {{--<input type="hidden" name="abc" value="{!! $sort_abc !!}">--}}

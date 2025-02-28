@@ -47,7 +47,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавя се Оператор от Търговец!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -69,12 +69,14 @@
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
-                    <h4 class="my_center bold">ДОБАВЯ СЕ ОПЕРАТОР</h4>
-                    @include('records.add.object_info')
+                    <h4 class="my_center bold">ДОБАВЯ СЕ ОПЕРАТОР ОТ ТЪРГОВЕЦ</h4>
+                    <p>Име на фирмата: <span class="bold">{{$trader->trader_name}}</span> с ЕИК/Булстат: <span class="bold">{{$trader->trader_vin}}</span></p>
+                    <p>Адрес на фирмата: <span class="bold">{{$trader->city}}, {{$trader->trader_address}} </span></p>
+                    {{--@include('records.add.object_info')--}}
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'фито/оператор/фермер/store/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::open(['url'=>'фито/търговец/from_trader/store/'.$trader->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('phytosanitary.crud.forms.number_petition')
             <hr class="my_hr_in"/>
@@ -107,43 +109,11 @@
     </div>
     <br/>
     <hr/>
-    {{--@else--}}
-        {{--<div class="alert alert-info my_alert" role="alert">--}}
-            {{--<div class="row">--}}
-                {{--<h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="alert alert-danger my_alert" role="alert">--}}
-            {{--<p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">ВНИМАНИЕ! Прочети преди да продължиш!</span><br/>--}}
-            {{--<span class="bold">Земеделският производител или фирмата вече са вписани в официалния регистър на професионалните оператори.</span>--}}
-            {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="row" style="margin: 0 auto; width: 80%; min-height: 200px; margin-top: 50px">--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/стопанин/{{$is_farmer[0]['farmer_id']}}'" class="fa fa-arrow-circle-left btn btn-success my_btn">  Към земеделския стопанин</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/фито/оператор/{{$is_farmer[0]['id']}}" class="fa fa-registered btn btn-danger my_btn ">  Регистрационен номер</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/фито/регистър-оператори" class="fa fa-list btn btn-info my_btn"> Към регистъра </a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px; text-align: center;">--}}
-            {{--<a href="/фито/търси-оператор" class="fa fa-arrow-circle-left btn btn-default my_btn-success"> Откажи! Назад към сертификатите!</a>--}}
-        {{--</div>--}}
-    {{--@endif--}}
 @endsection
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/sanitary/date_issue.js" )!!}
     <script>
         function clearRadioButtons()

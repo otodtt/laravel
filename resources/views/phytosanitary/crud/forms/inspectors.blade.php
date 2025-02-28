@@ -99,7 +99,7 @@ else{
                             </tr>
                             <tr>
                                 <td>
-                                    {!! Form::label('place', 'Инспектор Приел:', ['class'=>'my_labels']) !!}
+                                    {!! Form::label('accepted', 'Инспектор Приел:', ['class'=>'my_labels']) !!}
                                     <?php echo(old('accepted')) ?>
                                     <select name="accepted" id="accepted" class="localsID form-control" style=" margin: 5px 0; width: 200px; display: inline-block">
                                         <option value="0">-- Избери Инспектор--</option>

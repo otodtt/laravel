@@ -156,12 +156,18 @@ class PhytoOperatorsController extends Controller
             $limit_sql = ' AND deletion>= 1';
         }
         elseif (isset($deletion_limit) && (int)$deletion_limit == 3){
-            $limit_sql = ' AND update_date >= 1';
+            $limit_sql = ' AND farmer_id >= 1';
         }
         elseif (isset($deletion_limit) && (int)$deletion_limit == 4){
-            $limit_sql = ' AND update_date  = 0';
+            $limit_sql = ' AND trader_id >= 1';
         }
         elseif (isset($deletion_limit) && (int)$deletion_limit == 5){
+            $limit_sql = ' AND update_date >= 1';
+        }
+        elseif (isset($deletion_limit) && (int)$deletion_limit == 6){
+            $limit_sql = ' AND update_date  = 0';
+        }
+        elseif (isset($deletion_limit) && (int)$deletion_limit == 7){
             $limit_sql = ' AND farmer_id  = 0 AND trader_id  = 0';
         }
         else{
@@ -537,11 +543,8 @@ class PhytoOperatorsController extends Controller
             ->where('type_district', '=', 1)
             ->orderBy('district_id', 'asc')
             ->lists('name', 'district_id')->toArray();
-
-//        $last_operator = PhitoOperator::select('number_petition')->orderBy('number_petition', 'desc')->limit(1)->get()->toArray();
         ;
         $is_farmer = PhitoOperator::select('id', 'name_operator', 'farmer_id', 'pin', 'type_firm')->where('farmer_id', '=', $farmer->id)->limit(1)->get()->toArray();
-        $is_trader = PhitoOperator::select('id', 'name_operator', 'farmer_id', 'pin', 'type_firm')->where('farmer_id', '=', $farmer->id)->limit(1)->get()->toArray();
 
         $uid = Auth::user()->id;
         $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
@@ -727,6 +730,230 @@ class PhytoOperatorsController extends Controller
             'room' => $request->room,
             'action' => $request->action
         ];
+        PhitoOperator::create($data);
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/фито/регистър-оператори');
+    }
+
+
+    //////////////////////////////////////
+    /**
+     * ДОБАВЯНЕ НА НОВ ТЪРГОВЕЦ
+     * Display the specified resource.
+     * @param Request $request
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function trader_new(Request $request)
+    {
+        $name_firm = $request['name_firm'];
+        $eik = $request['eik'];
+
+        $index = $this->index;
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('fsk','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors = array_sort_recursive($inspectors);
+
+        return view('phytosanitary.traders.crud.add_trader', compact('name_firm', 'eik', 'index', 'inspectors'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request|PhitoOperatorsRequests $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store_trader(PhitoOperatorsRequests $request)
+    {
+
+        $this->validate($request,
+            ['trader_name' => 'required|min:3|max:100|cyrillic_with'],
+            [
+                'trader_name.required' => 'Попълни името на фирмата!',
+                'trader_name.min' => 'Минимален брой символи за името - 3!',
+                'trader_name.max' => 'Минимален брой символи за името - 100!',
+                'trader_name.cyrillic_with' => 'За име на фирмата пиши на кирилица!',
+
+            ]);
+        $this->validate($request,
+            ['trader_vin' => 'is_valid|digits_between:9,13|unique:traders_phito,trader_vin,'.$request->trader_vin],
+            [
+                'trader_vin.is_valid' => 'Невалиден БУЛСТАТ! Виж дали правилно е попълнен!',
+                'trader_vin.digits_between' => 'Булстата е само с цифри! Минимален брой символи - 9',
+                'trader_vin.unique' => 'Булстата трябва да е уникален! Намерена е фирма с този БУЛСТАТ',
+            ]);
+        $this->validate($request,
+            ['city' => 'required|min:3|max:100|cyrillic_with'],
+            [
+                'city.required' => 'Попълни "Населено място гр./с."!',
+                'city.min' => 'ЗА Населено място гр./с. Минимален брой символи - 3',
+                'city.max' => 'ЗА Населено място гр./с. Максимален брой символи - 100',
+                'city.cyrillic_with' => 'ЗА Населено място гр./с. пиши на кирилица!',
+            ]);
+        $this->validate($request,
+            ['trader_address' => 'min:3|max:100|cyrillic_with'],
+            [
+                'trader_address.min' => 'За адреса на фирмата Минимален брой символи - 3!',
+                'trader_address.max' => 'За адреса на фирмата Максимален брой символи - 3!',
+                'trader_address.cyrillic_with' => 'ЗА адреса на фирмата пиши на кирилица!',
+            ]);
+        $this->validate($request,
+            ['phone' => 'numeric|digits_between:5,10'],
+            [
+                'phone.numeric' => 'За телефон използвай само цифри!',
+                'phone.digits_between' => 'За телефон използвай между 5 и 10 броя цифри',
+            ]);
+
+//        dd($request->all());
+        $data_trader = [
+            'trader_name' => $request->trader_name,
+            'city' => $request->city,
+            'trader_address' => $request->trader_address,
+            'trader_vin' => $request->trader_vin,
+            'phone' => $request->phone,
+            'is_add' => 1,
+
+            'date_create' => date('d.m.Y H:i', time()),
+            'created_by' => Auth::user()->id,
+         ];
+
+        $trader = PhitoTraders::create($data_trader);
+        $insertedId = $trader->id;
+
+        // 1
+        if(isset ($request->production)) {
+            $production = $request->production;
+        } else {
+            $production = 0;
+        }
+        //2
+        if(isset ($request->processing)) {
+            $processing = $request->processing;
+        } else {
+            $processing = 0;
+        }
+        // 3
+        if(isset ($request->import)) {
+            $import = $request->import;
+        } else {
+            $import = 0;
+        }
+        // 4
+        if(isset ($request->export)) {
+            $export = $request->export;
+        } else {
+            $export = 0;
+        }
+        // 5
+        if(isset ($request->trade)) {
+            $trade = $request->trade;
+        } else {
+            $trade = 0;
+        }
+        // 6
+        if(isset ($request->storage)) {
+            $storage = $request->storage;
+        } else {
+            $storage = 0;
+        }
+        // 7
+        if(isset ($request->treatment)) {
+            $treatment = $request->treatment;
+        } else {
+            $treatment = 0;
+        }
+
+        // 222 europa
+        if(isset ($request->europa)) {
+            $europa = $request->europa;
+        } else {
+            $europa = 0;
+        }
+        // 222 bulgaria
+        if(isset ($request->bulgaria)) {
+            $bulgaria = $request->bulgaria;
+        } else {
+            $bulgaria = 0;
+        }
+        // 222 own
+        if(isset ($request->own)) {
+            $own = $request->own;
+        } else {
+            $own = 0;
+        }
+
+        $data = [
+            'number_petition' => $request->number_petition,
+            'date_petition' => strtotime($request->date_petition),
+
+            'description_objects_one' => $request->description_objects_one,
+            'description_places_one' => $request->description_places_one,
+            'description_objects_two' => $request->description_objects_two,
+            'description_places_two' => $request->description_places_two,
+            'production' => $production,
+            'processing' =>  $processing,
+            'import' => $import,
+            'export' => $export,
+            'trade' => $trade,
+            'storage' => $storage,
+            'treatment' => $treatment,
+            'others' => $request->others,
+            'plants' => $request->plants,
+            'europa' => $europa,
+            'bulgaria' => $bulgaria,
+            'own' => $own,
+            'origin_from' => $request->origin_from,
+            'passports' => $request->passports,
+            'passports_list' => $request->passports_list,
+            'marking' => $request->marking,
+            'marking_list' => $request->marking_list,
+            'contact' => $request->contact,
+            'contact_phone' => $request->contact_phone,
+            'contact_address' => $request->contact_address,
+            'contact_city' => $request->contact_city,
+            'date_place' => $request->date_place,
+            'place' => $request->place,
+            'registration' => $request->registration,
+            'registration_note' => $request->registration_note,
+            'disposition' => $request->disposition,
+            'disposition_note' => $request->disposition_note,
+            'property' => $request->property,
+            'property_note' => $request->property_note,
+            'plants_origin' => $request->plants_origin,
+            'plants_note' => $request->plants_note,
+            'others_note' => $request->others_note,
+            'accepted' => $request->accepted,
+            'accepted_name' => $request->inspector_name,
+            'free_text' => $request->free_text,
+            'checked' => $request->checked,
+            'checked_name' => $request->inspector_checked,
+            'date_operator' => $request->date_operator,
+
+            'date_add' => date('d.m.Y H:i', time()),
+            'added_by' => Auth::user()->id,
+
+            'farmer_id' => 0,
+            'pin' => $request->trader_vin,
+            'trader_id' => $insertedId,
+            'name_operator' => $request->trader_name,
+            'address_operator' => $request->trader_address,
+            'address' => $request->city,
+
+            'activity' => $request->activity,
+            'products' => $request->products,
+            'derivation' => $request->derivation,
+            'purpose' => $request->purpose,
+            'room' => $request->room,
+            'action' => $request->action
+        ];
+//        dd($data);
         PhitoOperator::create($data);
 
         Session::flash('message', 'Записа е успешен!');
@@ -963,6 +1190,21 @@ class PhytoOperatorsController extends Controller
     {
         $operator = PhitoOperator::findOrFail($id);
 
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('fsk','=', 1)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors = array_sort_recursive($inspectors);
+
+        foreach ($inspectors as $key => $inspector) {
+            if ($key == $request->accepted) {
+                $accepted = $inspector;
+            }
+            if ($key == $request->checked) {
+                $checked = $inspector;
+            }
+        }
+
         // 1
         if(isset ($request->production)) {
             $production = $request->production;
@@ -1078,10 +1320,10 @@ class PhytoOperatorsController extends Controller
             'plants_note' => $request->plants_note,
             'others_note' => $request->others_note,
             'accepted' => $request->accepted,
-            'accepted_name' => $request->inspector_name,
+            'accepted_name' => $accepted,
             'free_text' => $request->free_text,
             'checked' => $request->checked,
-            'checked_name' => $request->inspector_checked,
+            'checked_name' => $checked,
             'date_operator' => $request->date_operator,
 
             'activity' => $request->activity,
@@ -1460,9 +1702,6 @@ class PhytoOperatorsController extends Controller
     }
 
 
-
-
-
     /**
      * Търси в Земеделските производители.
      *
@@ -1605,5 +1844,172 @@ class PhytoOperatorsController extends Controller
             $return_farmer[] = "<span class='bold red' style='font-size: 1em;'>Няма открита Фирма с това име!</span>";
         }
         return response()->json([ $return_farmer]);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\PhitoOperatorsRequests|PhitoOperatorsRequests $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function reg_update(PhitoOperatorsRequests $request, $id)
+    {
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('fsk','=', 1)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors = array_sort_recursive($inspectors);
+
+        foreach ($inspectors as $key => $inspector) {
+            if ($key == $request->accepted) {
+                $accepted = $inspector;
+            }
+            if ($key == $request->checked) {
+                $checked = $inspector;
+            }
+        }
+
+        $operator = PhitoOperator::findOrFail($id);
+
+        // 1
+        if(isset ($request->production)) {
+            $production = $request->production;
+        } else {
+            $production = 0;
+        }
+        //2
+        if(isset ($request->processing)) {
+            $processing = $request->processing;
+        } else {
+            $processing = 0;
+        }
+        // 3
+        if(isset ($request->import)) {
+            $import = $request->import;
+        } else {
+            $import = 0;
+        }
+        // 4
+        if(isset ($request->export)) {
+            $export = $request->export;
+        } else {
+            $export = 0;
+        }
+        // 5
+        if(isset ($request->trade)) {
+            $trade = $request->trade;
+        } else {
+            $trade = 0;
+        }
+        // 6
+        if(isset ($request->storage)) {
+            $storage = $request->storage;
+        } else {
+            $storage = 0;
+        }
+        // 7
+        if(isset ($request->treatment)) {
+            $treatment = $request->treatment;
+        } else {
+            $treatment = 0;
+        }
+
+        // 222 europa
+        if(isset ($request->europa)) {
+            $europa = $request->europa;
+        } else {
+            $europa = 0;
+        }
+        // 222 bulgaria
+        if(isset ($request->bulgaria)) {
+            $bulgaria = $request->bulgaria;
+        } else {
+            $bulgaria = 0;
+        }
+        // 222 own
+        if(isset ($request->own)) {
+            $own = $request->own;
+        } else {
+            $own = 0;
+        }
+        ///
+
+        if($operator->update_number > 0 && $operator->update_date){
+            $update_number = $request->update_number;
+            $update_date = strtotime($request->update_date);
+        } else {
+            $update_number = 0;
+            $update_date = 0;
+        }
+
+        $data = [
+            'update_number' => $update_number,
+            'update_date' => $update_date,
+
+            'number_petition' => $request->number_petition,
+            'date_petition' => strtotime($request->date_petition),
+
+            'description_objects_one' => $request->description_objects_one,
+            'description_places_one' => $request->description_places_one,
+            'description_objects_two' => $request->description_objects_two,
+            'description_places_two' => $request->description_places_two,
+            'production' => $production,
+            'processing' =>  $processing,
+            'import' => $import,
+            'export' => $export,
+            'trade' => $trade,
+            'storage' => $storage,
+            'treatment' => $treatment,
+            'others' => $request->others,
+            'plants' => $request->plants,
+            'europa' => $europa,
+            'bulgaria' => $bulgaria,
+            'own' => $own,
+            'origin_from' => $request->origin_from,
+            'passports' => $request->passports,
+            'passports_list' => $request->passports_list,
+            'marking' => $request->marking,
+            'marking_list' => $request->marking_list,
+            'contact' => $request->contact,
+            'contact_phone' => $request->contact_phone,
+            'contact_address' => $request->contact_address,
+            'contact_city' => $request->contact_city,
+            'date_place' => $request->date_place,
+            'place' => $request->place,
+            'registration' => $request->registration,
+            'registration_note' => $request->registration_note,
+            'disposition' => $request->disposition,
+            'disposition_note' => $request->disposition_note,
+            'property' => $request->property,
+            'property_note' => $request->property_note,
+            'plants_origin' => $request->plants_origin,
+            'plants_note' => $request->plants_note,
+            'others_note' => $request->others_note,
+            'accepted' => $request->accepted,
+            'accepted_name' => $accepted,
+            'free_text' => $request->free_text,
+            'checked' => $request->checked,
+            'checked_name' => $checked,
+            'date_operator' => $request->date_operator,
+
+            'activity' => $request->activity,
+            'products' => $request->products,
+            'derivation' => $request->derivation,
+            'purpose' => $request->purpose,
+            'room' => $request->room,
+            'action' => $request->action,
+            'is_completed' => 1,
+
+            'date_update' => date('d.m.Y H.i', time()),
+            'updated_by' => Auth::user()->id,
+        ];
+
+        $operator->fill($data);
+        $operator->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/фито/оператор/'.$id);
     }
 }

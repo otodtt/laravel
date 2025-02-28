@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        {!! Form::model($operator, ['url'=>'фито/оператор/update/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+        {!! Form::model($operator, ['url'=>'фито/търговец/update_reg/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
             @include('phytosanitary.crud.forms.number_petition')
             <hr class="my_hr_in"/>
@@ -113,7 +113,7 @@
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/sanitary/date_issue.js" )!!}
     <script>
         function clearRadioButtons()

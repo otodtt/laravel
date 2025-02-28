@@ -26,8 +26,6 @@
         <div class="btn-group" >
             {{--<span class="fa fa-truck btn btn-default my_btn"> Търговци</span>--}}
             <a href="{!! URL::to('/фито/регистър-оператори')!!}" class="fa fa-registered btn btn-info my_btn"> Към Регистъра</a>
-            {{--<a href="{!! URL::to('/контрол/опаковчици')!!}" class="fa fa-archive btn btn-info my_btn"> Опаковчици</a>--}}
-            {{--<a href="{!! URL::to('/контрол/търговци')!!}" class="fa fa-shopping-cart btn btn-info my_btn"> Търговци</a>--}}
         </div>
         {{-- <hr/> --}}
 
@@ -72,16 +70,12 @@
                         </div>
                         <div class="btn_add_firm">
                             <a href="{!!URL::to('/фито/търговец/'.$trader->id.'/edit')!!}" class="fa fa-edit btn btn-primary my_btn"> Редактирай фирмата</a>
-                            {{--<a href="{!!URL::to('/контрол/сертификати-вътрешен/търговец/добави/'.$trader->id)!!}" class="fa fa-plus-circle btn btn-success my_btn"> Добави Сертификат за тази фирма</a>--}}
-                            {{--<a href="{!!URL::to('/контрол/протоколи/търговец/'.$trader->id)!!}" class="fa fa-plus-circle btn btn-danger my_btn"> Добави К. Протокол за тази фирма</a>--}}
                         </div>
                         <br>
                         <hr class="my_hr_in"/>
-                        <p>Ако няма Заявление. Попълни само даннте от таблицата
-                            <a href="{!!URL::to('/фито/търговец/'.$trader->id.'/quick_add')!!}" class="fa fa-edit btn btn-danger my_btn" style=""> ТУК</a>
+                        <p>Направи НОВА Регистрация в Официалния Регистър
+                            <a href="{!!URL::to('/фито/търговец/from_trader/'.$trader->id)!!}" class="fa fa-plus btn btn-danger my_btn" style=""> ТУК</a>
                         </p>
-                        {{--<p >Адрес: <span class="bold">{{$trader->trader_address }}</span></p>--}}
-                        {{--<p >ЕИК/Булстат: <span class="bold">{{$trader->trader_vin }}</span></p>--}}
                     </div>
                 </div>
             </div>

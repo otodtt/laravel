@@ -47,35 +47,63 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавя се Търговец като Професионален Оператор!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
-            <span class="bold">Веднъж направен запис,  Регистрационния номер не може повече да се променя!
-            </span>
+            <span class="bold">Веднъж направен запис,  Регистрационния номер не може повече да се променя!</span><br/>
+            <span class="bold">Ще бъде добавена фирмата в списъка с ВСИЧКИ ФИРМИ ТЪРГОВЦИ!</span>
         </p>
     </div>
     <div class="form-group">
         @if(count($errors)>0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error  }}</li>
-                @endforeach
-            </ul>
-        </div>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error  }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
         <div class="alert alert-info my_alert" role="alert">
             <div class="row">
                 <div class="col-md-12 ">
                     <h4 class="my_center bold">ДОБАВЯ СЕ ОПЕРАТОР</h4>
-                    @include('records.add.object_info')
                 </div>
             </div>
         </div>
-        {!! Form::open(['url'=>'фито/оператор/фермер/store/'.$farmer->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
 
+        {!! Form::open(['url'=>'фито/оператор/търговец/store', 'method'=>'POST', 'autocomplete'=>'on']) !!}
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-md-12" >
+                        <p><span class="red">ВНИМАНИЕ!</span> Името и "Населено място гр./с." са задължителни! След като се добави, търговеца може да се редактира в регистъра "Всики фирми".</p>
+                        <fieldset class="small_field"><legend class="small_legend">Данни на фирмата Търговец</legend>
+                            <div class="col-md-4 col-md-6_my" >
+                                {!! Form::label('trader_name', ' Име на фирмата:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('trader_name', $name_firm, ['class'=>'form-control form-control-my', 'size'=>40, 'maxlength'=>500 ]) !!}
+
+                            </div>
+                            <div class="col-md-2 col-md-6_my" >
+                                {!! Form::label('trader_vin', 'ЕИК/Булстат:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('trader_vin', $eik, ['class'=>'form-control form-control-my', 'size'=>9, 'maxlength'=>500 ]) !!}
+
+                            </div>
+                            <div class="col-md-6 col-md-6_my"  >
+                                {!! Form::label('city', 'Населено място гр./с.:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('city', null, ['class'=>'form-control form-control-my', 'size'=>10, 'maxlength'=>500, 'placeholder'=>'гр. Хасково' ]) !!}
+                                {!! Form::label('trader_address', 'Адрес:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('trader_address', null, ['class'=>'form-control form-control-my', 'size'=>40, 'maxlength'=>500, 'placeholder'=>'ул. "Македония" №' ]) !!}
+
+                                {!! Form::label('phone', 'Phone:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('phone', null, ['class'=>'form-control form-control-my', 'size'=>6, 'maxlength'=>15 ]) !!}
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <hr class="my_hr_in"/>
             @include('phytosanitary.crud.forms.number_petition')
             <hr class="my_hr_in"/>
             @include('phytosanitary.crud.forms.entry_new')
@@ -107,43 +135,11 @@
     </div>
     <br/>
     <hr/>
-    {{--@else--}}
-        {{--<div class="alert alert-info my_alert" role="alert">--}}
-            {{--<div class="row">--}}
-                {{--<h3 class="my_center" style="color: #d9534f;">Добавя се Земеделски производител като оператор!</h3>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="alert alert-danger my_alert" role="alert">--}}
-            {{--<p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">ВНИМАНИЕ! Прочети преди да продължиш!</span><br/>--}}
-            {{--<span class="bold">Земеделският производител или фирмата вече са вписани в официалния регистър на професионалните оператори.</span>--}}
-            {{--</p>--}}
-        {{--</div>--}}
-        {{--<div class="row" style="margin: 0 auto; width: 80%; min-height: 200px; margin-top: 50px">--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/стопанин/{{$is_farmer[0]['farmer_id']}}'" class="fa fa-arrow-circle-left btn btn-success my_btn">  Към земеделския стопанин</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/фито/оператор/{{$is_farmer[0]['id']}}" class="fa fa-registered btn btn-danger my_btn ">  Регистрационен номер</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="btn_add" style="text-align: center;">--}}
-                    {{--<a href="http://odbhrz.test/фито/регистър-оператори" class="fa fa-list btn btn-info my_btn"> Към регистъра </a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="div-layout-title" style="margin-bottom: 20px; margin-top: 20px; text-align: center;">--}}
-            {{--<a href="/фито/търси-оператор" class="fa fa-arrow-circle-left btn btn-default my_btn-success"> Откажи! Назад към сертификатите!</a>--}}
-        {{--</div>--}}
-    {{--@endif--}}
 @endsection
 
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
-    {!!Html::script("js/confirm/prevent.js" )!!}
+{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     {!!Html::script("js/sanitary/date_issue.js" )!!}
     <script>
         function clearRadioButtons()

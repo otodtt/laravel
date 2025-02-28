@@ -38,5 +38,5 @@
 @section('scripts')
     {!!Html::script("js/location/jquery.js" )!!}
     {!!Html::script("js/location/findLocation.js" )!!}
-{{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
+    {!!Html::script("js/confirm/prevent.js" )!!}
 @endsection

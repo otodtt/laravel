@@ -944,6 +944,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/фито/оператор/нов/добави/', 'PhytoOperatorsController@create_new');
     Route::get('/фито/оператор/фирма/добави/', 'PhytoOperatorsController@firm_new');
     Route::any('/фито/оператор/нов/store/', 'PhytoOperatorsController@store_new');
+    Route::get('/фито/оператор/нов/търговец/', 'PhytoOperatorsController@trader_new');
+    Route::post('/фито/оператор/търговец/store', 'PhytoOperatorsController@store_trader');
+
     Route::get('/фито/оператор/земеделец/завърши/{id}', 'PhytoOperatorsController@finish');
     Route::post('/фито/оператор/земеделец/store/{id}', 'PhytoOperatorsController@finish_store');
     Route::get('/фито/оператор/edit/{id}', 'PhytoOperatorsController@edit');
@@ -967,6 +970,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/фито/търговец/добави', 'PhitoTradersController@create');
     Route::post('/фито/търговец/store', 'PhitoTradersController@store');
     Route::get('/фито/търговец/reg_edit/{id}', 'PhitoTradersController@reg_edit');
+    Route::any('/фито/търговец/update_reg/{id}', 'PhytoOperatorsController@reg_update');
+
+    Route::get('/фито/търговец/from_trader/{id}', 'PhitoTradersController@from_trader');
+    Route::any('/фито/търговец/from_trader/store/{id}', 'PhitoTradersController@store_from');
+
 
 
     /// ВЕРОТНО ЩЕ СЕ МАХНЕ И НЯМА ДА СЕ ПОКАЗВА
