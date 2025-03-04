@@ -163,6 +163,17 @@
                                     <span class="bold" style="color: red">ВНИМАНИЕ!</span> Ако е необходимо да се редактират данните на Заявлението!
                                     <a style="float: right" href="{!! URL::to('/фито/търговец/reg_edit/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn my_float">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Редактирай!</a>
                                 </p>
+                            @elseif ($operator->farmer_id == 0 && $operator->trader_id == 0 )
+                                {{--<p style="padding: 3px 0 5px 0" >--}}
+                                    {{--<span class="bold" style="color: red">ВНИМАНИЕ!</span> Ако е необходимо да се редактират данните на--}}
+                                    {{--ЗС отиди в регистъра и ги редактирай там!--}}
+                                    {{--<a style="float: right" href="{!! URL::to('/стопанин/'.$operator->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>--}}
+                                {{--</p>--}}
+                                <hr class="my_hr_in"/>
+                                <p style="padding: 3px 0 5px 0" >
+                                    <span class="bold" style="color: red">ВНИМАНИЕ!</span> Ако е необходимо да се редактират данните на Заявлението!
+                                    <a style="float: right" href="{!! URL::to('/фито/оператор/unspecified/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn my_float">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Редактирай!</a>
+                                </p>
                             @endif
 
 

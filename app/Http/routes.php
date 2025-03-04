@@ -957,6 +957,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/фито/оператор/заповед/destroy/{id}', 'PhytoOperatorsController@destroy');
     Route::post('/фито/оператор/заповед/update/{id}', 'PhytoOperatorsController@update_order');
     Route::get('/фито/оператор/edit_data/{id}', 'PhytoOperatorsController@edit_data');
+    Route::get('/фито/оператор/unspecified/{id}', 'PhytoOperatorsController@edit_unspecified');
+
+
+
     Route::get('/фито/оператор/edit_data_trader/{id}', 'PhytoOperatorsController@edit_data_trader');
     Route::post('/фито/оператор/update_data/{id}', 'PhytoOperatorsController@update_data');
     Route::post('/lock-operator/{id}', 'PhytoOperatorsController@lock');

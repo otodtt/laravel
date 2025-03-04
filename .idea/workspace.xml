@@ -7,20 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/add_from_trader.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/add_trader.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/inspectors.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/forms/inspectors.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/search/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/search/search.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_reg.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit_reg.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/traders/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/traders/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,7 +81,134 @@
     <favorites_list name="laravel" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35538262">
+              <caret line="959" column="92" selection-start-line="959" selection-start-column="92" selection-end-line="959" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhytoOperatorsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8727273">
+              <caret line="1352" column="29" selection-start-line="1352" selection-start-column="20" selection-end-line="1352" selection-end-column="29" />
+              <folding>
+                <element signature="e#41#50#0#PHP" expanded="true" />
+                <element signature="e#1633#1734#0#PHP" expanded="false" />
+                <element signature="e#1739#1943#0#PHP" expanded="false" />
+                <element signature="e#1949#2092#0#PHP" expanded="false" />
+                <element signature="e#2097#2806#0#PHP" expanded="false" />
+                <element signature="e#2812#3115#0#PHP" expanded="false" />
+                <element signature="e#3120#6577#0#PHP" expanded="false" />
+                <element signature="e#6584#6706#0#PHP" expanded="false" />
+                <element signature="e#6711#7585#0#PHP" expanded="false" />
+                <element signature="e#7634#7796#0#PHP" expanded="false" />
+                <element signature="e#7801#10152#0#PHP" expanded="false" />
+                <element signature="e#10201#10363#0#PHP" expanded="false" />
+                <element signature="e#10368#12705#0#PHP" expanded="false" />
+                <element signature="e#12711#12913#0#PHP" expanded="false" />
+                <element signature="e#12918#17637#0#PHP" expanded="false" />
+                <element signature="e#17687#17831#0#PHP" expanded="false" />
+                <element signature="e#17836#19109#0#PHP" expanded="false" />
+                <element signature="e#19115#19296#0#PHP" expanded="false" />
+                <element signature="e#19301#25133#0#PHP" expanded="false" />
+                <element signature="e#25183#25351#0#PHP" expanded="false" />
+                <element signature="e#25356#25918#0#PHP" expanded="false" />
+                <element signature="e#25924#26094#0#PHP" expanded="false" />
+                <element signature="e#26099#33344#0#PHP" expanded="false" />
+                <element signature="e#33350#33490#0#PHP" expanded="false" />
+                <element signature="e#33495#35006#0#PHP" expanded="false" />
+                <element signature="e#35012#35253#0#PHP" expanded="false" />
+                <element signature="e#35258#39724#0#PHP" expanded="false" />
+                <element signature="e#39730#39870#0#PHP" expanded="false" />
+                <element signature="e#39875#41209#0#PHP" expanded="false" />
+                <element signature="e#41215#41432#0#PHP" expanded="false" />
+                <element signature="e#41437#46738#0#PHP" expanded="false" />
+                <element signature="e#46744#46884#0#PHP" expanded="false" />
+                <element signature="e#48095#48235#0#PHP" expanded="false" />
+                <element signature="e#48240#49076#0#PHP" expanded="false" />
+                <element signature="e#49083#49300#0#PHP" expanded="false" />
+                <element signature="e#49305#53890#0#PHP" expanded="false" />
+                <element signature="e#53896#54078#0#PHP" expanded="false" />
+                <element signature="e#54083#55365#0#PHP" expanded="false" />
+                <element signature="e#55371#55530#0#PHP" expanded="false" />
+                <element signature="e#55535#56673#0#PHP" expanded="false" />
+                <element signature="e#56680#56814#0#PHP" expanded="false" />
+                <element signature="e#56819#57135#0#PHP" expanded="false" />
+                <element signature="e#57141#57275#0#PHP" expanded="false" />
+                <element signature="e#57280#57598#0#PHP" expanded="false" />
+                <element signature="e#57605#57789#0#PHP" expanded="false" />
+                <element signature="e#57794#58858#0#PHP" expanded="false" />
+                <element signature="e#58865#59025#0#PHP" expanded="false" />
+                <element signature="e#59030#60810#0#PHP" expanded="false" />
+                <element signature="e#60816#60900#0#PHP" expanded="false" />
+                <element signature="e#60905#62211#0#PHP" expanded="false" />
+                <element signature="e#62217#62301#0#PHP" expanded="false" />
+                <element signature="e#62306#63447#0#PHP" expanded="false" />
+                <element signature="e#63453#63540#0#PHP" expanded="false" />
+                <element signature="e#63545#64684#0#PHP" expanded="false" />
+                <element signature="e#64691#64908#0#PHP" expanded="false" />
+                <marker date="1740668116761" expanded="true" signature="6259:6295" placeholder="SELECT * FRO..operators..." />
+                <marker date="1740668116761" expanded="true" signature="6259:6306" placeholder="SELECT * FRO..operators..." />
+                <marker date="1740668116761" expanded="true" signature="6259:6317" placeholder="SELECT * FRO..operators..." />
+                <marker date="1740668116761" expanded="true" signature="6372:6419" placeholder="SELECT * FRO..operators..." />
+                <marker date="1740668116761" expanded="true" signature="7044:7084" placeholder="SELECT id FR..traders_phito..." />
+                <marker date="1740668116761" expanded="true" signature="7044:7085" placeholder="SELECT * FRO..operators..." />
+                <marker date="1740668116761" expanded="true" signature="61480:61971" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="61505:61541" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="61505:61923" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="61543:61576" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="61604:61619" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="61704:61737" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="62075:62090" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="62716:63207" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="62741:62777" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="62741:63159" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="62779:62812" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="62840:62855" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="62940:62973" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="63311:63326" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="63955:64456" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="63980:64016" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="63980:64408" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="64018:64051" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="64085:64100" placeholder="..." />
+                <marker date="1740668116761" expanded="false" signature="64189:64222" placeholder="..." />
+                <marker date="1740668116761" expanded="true" signature="64560:64575" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-24.26923">
+              <caret line="174" column="106" selection-start-line="174" selection-start-column="80" selection-end-line="174" selection-end-column="106" />
+              <folding>
+                <marker date="1740749148752" expanded="true" signature="16069:16296" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="16081:16294" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="16103:16293" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="17572:17794" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="17584:17792" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="17605:17791" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="22806:23052" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="22818:23050" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="22852:23049" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="24268:24504" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="24280:24502" placeholder="..." />
+                <marker date="1740749148752" expanded="true" signature="24304:24501" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -107,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_farmer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/passports/index/sorting.blade.php" />
         <option value="$PROJECT_DIR$/app/PhitoTraders.php" />
@@ -137,8 +253,6 @@
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Container/Container.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/Sanitary.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PhytoPassportsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/quick/number_petition.blade.php" />
         <option value="$PROJECT_DIR$/public/js/sanitary/operatorsTable.js" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/search.blade.php" />
@@ -151,13 +265,16 @@
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/traders/crud/add_from_trader.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -263,10 +380,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="y" value="3" />
-    <option name="width" value="1859" />
-    <option name="height" value="854" />
+    <option name="x" value="76" />
+    <option name="y" value="98" />
+    <option name="width" value="1798" />
+    <option name="height" value="987" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -364,7 +481,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phytosanitary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -687,14 +844,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="3" width="1859" height="854" extended-state="1" />
+    <frame x="76" y="98" width="1798" height="987" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1972422" sideWeight="0.53375196" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19232908" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1990794" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36695018" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10561423" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10932106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19128172" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24205749" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
@@ -735,13 +892,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1336033">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -870,13 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21348314">
-          <caret line="954" column="97" selection-start-line="954" selection-start-column="97" selection-end-line="954" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/quick/quick_edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16151686">
@@ -942,14 +1085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43263474">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.846153">
-          <caret line="71" column="59" selection-start-line="71" selection-start-column="59" selection-end-line="71" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1222,10 +1357,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4407797">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46608946">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31875">
+          <caret line="49" column="100" selection-start-line="49" selection-start-column="100" selection-end-line="49" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4675">
+          <caret line="49" column="94" selection-start-line="49" selection-start-column="94" selection-end-line="49" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PhytoOperatorsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72113943">
-          <caret line="165" column="9" selection-start-line="165" selection-start-column="9" selection-end-line="165" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.8727273">
+          <caret line="1352" column="29" selection-start-line="1352" selection-start-column="20" selection-end-line="1352" selection-end-column="29" />
           <folding>
             <element signature="e#41#50#0#PHP" expanded="true" />
             <element signature="e#1633#1734#0#PHP" expanded="false" />
@@ -1233,6 +1400,7 @@
             <element signature="e#1949#2092#0#PHP" expanded="false" />
             <element signature="e#2097#2806#0#PHP" expanded="false" />
             <element signature="e#2812#3115#0#PHP" expanded="false" />
+            <element signature="e#3120#6577#0#PHP" expanded="false" />
             <element signature="e#6584#6706#0#PHP" expanded="false" />
             <element signature="e#6711#7585#0#PHP" expanded="false" />
             <element signature="e#7634#7796#0#PHP" expanded="false" />
@@ -1258,7 +1426,6 @@
             <element signature="e#41215#41432#0#PHP" expanded="false" />
             <element signature="e#41437#46738#0#PHP" expanded="false" />
             <element signature="e#46744#46884#0#PHP" expanded="false" />
-            <element signature="e#46889#48089#0#PHP" expanded="false" />
             <element signature="e#48095#48235#0#PHP" expanded="false" />
             <element signature="e#48240#49076#0#PHP" expanded="false" />
             <element signature="e#49083#49300#0#PHP" expanded="false" />
@@ -1313,26 +1480,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/phytosanitary/show/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.26923">
+          <caret line="174" column="106" selection-start-line="174" selection-start-column="80" selection-end-line="174" selection-end-column="106" />
+          <folding>
+            <marker date="1740749148752" expanded="true" signature="16069:16296" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="16081:16294" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="16103:16293" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="17572:17794" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="17584:17792" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="17605:17791" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="22806:23052" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="22818:23050" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="22852:23049" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="24268:24504" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="24280:24502" placeholder="..." />
+            <marker date="1740749148752" expanded="true" signature="24304:24501" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35109717">
-          <caret line="931" column="48" selection-start-line="931" selection-start-column="16" selection-end-line="931" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4407797">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46608946">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.35538262">
+          <caret line="959" column="92" selection-start-line="959" selection-start-column="92" selection-end-line="959" selection-end-column="92" />
           <folding />
         </state>
       </provider>

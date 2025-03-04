@@ -47,7 +47,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Редактиране на данни на заявление на оператор!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Актуализация на данни на оператор ЗС!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
