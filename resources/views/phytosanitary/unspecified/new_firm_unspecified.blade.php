@@ -13,7 +13,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-info my_alert" role="alert">
         <div class="row">
-            <h3 class="my_center" style="color: #d9534f;">Добавяне на нова фирма земедлец към регистъра на професионалните оператори!</h3>
+            <h3 class="my_center" style="color: #d9534f;">Добавяне на нова фирма земедлец от регистъра на професионалните оператори!</h3>
         </div>
     </div>
     <div class="alert alert-danger my_alert" role="alert">
@@ -33,7 +33,7 @@
                 </ul>
             </div>
         @endif
-        {!! Form::open(['url'=>'фито/оператор/нов/store', 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
+        {!! Form::open(['url'=>'фито/оператор/unspecified_firm/add/'.$operator->id, 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
             @include('phytosanitary.crud.forms.form_create_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 

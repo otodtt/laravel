@@ -33,7 +33,7 @@
                 </ul>
             </div>
         @endif
-        {!! Form::open(['url'=>'фито/оператор/нов/store', 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
+        {!! Form::open(['url'=>'фито/оператор/unspecified/add/'.$id, 'method'=>'POST', 'autocomplete'=>'new-password']) !!}
             @include('phytosanitary.crud.forms.form_create_farmer')
             <input type="hidden" name="hidden_date" value="{{date('d.m.Y', time())}}">
 

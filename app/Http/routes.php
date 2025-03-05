@@ -958,6 +958,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/фито/оператор/заповед/update/{id}', 'PhytoOperatorsController@update_order');
     Route::get('/фито/оператор/edit_data/{id}', 'PhytoOperatorsController@edit_data');
     Route::get('/фито/оператор/unspecified/{id}', 'PhytoOperatorsController@edit_unspecified');
+    Route::get('/фито/unspecified/update/{id}', 'PhytoOperatorsController@update_unspecified');
+
+    Route::post('/фито/unspecified/store/{id}', 'PhytoOperatorsController@store_unspecified');
+
+    Route::get('/фито/search-unspecified/{id}', 'PhytoOperatorsController@search_unspecified');
+    Route::post('/фито/search-unspecified/{id}', 'PhytoOperatorsController@search_unspecified');
+
+    Route::get('/фито/оператор/unspecified/добави/{id}', 'PhytoOperatorsController@create_unspecified');
+    Route::any('/фито/оператор/unspecified/add/{id}', 'PhytoOperatorsController@add_unspecified');
+
+    Route::get('/фито/оператор/unspecified/firm/{id}', 'PhytoOperatorsController@firm_unspecified');
+    Route::any('/фито/оператор/unspecified_firm/add/{id}', 'PhytoOperatorsController@store_new_unspecified');
+
+    Route::any('/фито/оператор/add_id/{id}/{oid}', 'PhytoOperatorsController@add_id');
 
 
 

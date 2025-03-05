@@ -80,7 +80,7 @@
 
             @include('phytosanitary.crud.forms.number_petition')
             <hr class="my_hr_in"/>
-            @include('phytosanitary.unspecified.entry_reg_update')
+            @include('phytosanitary.unspecified.update.entry_reg_update')
             <hr class="my_hr_in"/>
             @include('phytosanitary.crud.forms.data_places')
             <hr class="my_hr_in"/>

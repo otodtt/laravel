@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="div-layout-title">
-        <h4 class="bold red layout-title" style="margin-bottom: 15px; margin-top: 20px">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН И ДОБАВИ НОВ ОПЕРАТОР КЪМ РЕГИСТЪРА</h4>
+        <h4 class="bold red layout-title" style="margin-bottom: 15px; margin-top: 20px">ТЪРСИ ЗЕМЕДЕЛСКИ СТОПАНИН И ДОБАВИ ОТ ОПЕРАТОР</h4>
     </div>
     <hr/>
     <div class="btn-group">
@@ -36,11 +36,16 @@
             </div>
         @endif
     </div>
+    <div style="margin: 0 auto; text-align: center">
+        <h3  >Името на оператора е <span>{{$operator->name_operator}}</span></h3>
+    </div>
+
     <div class="container-fluid" >
         <div class="row">
             <div class="col-md-12" >
+
                 <fieldset class="small_field"><legend class="small_legend">Данни на Фирмата/Лицето</legend>
-                {!! Form::open(['url'=>'/фито/търси-оператор' , 'method'=>'POST', 'id'=>'form']) !!}
+                {!! Form::open(['url'=>'/фито/search-unspecified/'.$operator->id , 'method'=>'POST', 'id'=>'form']) !!}
                     @include('layouts.forms.search_protocol')
 
                     <div class="col-md-12 col-md-6_my div_btn" >
@@ -103,7 +108,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-md-6_my " >
-                        {!! Form::open(['url'=>'/фито/оператор/нов/добави' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                        {!! Form::open(['url'=>'/фито/оператор/unspecified/добави/'.$operator->id , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
                             <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" value=" ДОБАВИ НОВ СТОПАНИН КАТО ОПЕРАТОР">
                             <input type="hidden" name="firm" value="{!! $firm !!}">
                             <input type="hidden" name="name" value="{!! $name !!}">
@@ -112,7 +117,7 @@
                         {!! Form::close() !!}
                     </div>
                 @else
-                    @if (count($trader) == 0)
+                    {{--@if (count($trader) == 0)--}}
                         <div class="col-md-6 col-md-6_my " >
                             <p class="new_farmer bold">
                                 <span class="view red">Няма намерена такъва фирма. ЕИК или Булстат са верни.</span><br/>
@@ -120,47 +125,47 @@
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            {!! Form::open(['url'=>'/фито/оператор/фирма/добави' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                                <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ФИРМАТА Е ЗЕМЕДЕЛСКИ ПРОИЗВОДИТЕЛ">
+                            {!! Form::open(['url'=>'/фито/оператор/unspecified/firm/'.$operator->id , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
+                                <input type="submit" class="fa fa-address-card-o btn btn-success my_btn_check" style="width: 350px" value=" ДОБАВИ ФИРМАТА КАТО ЗП">
                                 <input type="hidden" name="firm" value="{!! $firm !!}">
                                 <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
                                 <input type="hidden" name="eik" value="{!! $eik !!}">
                             {!! Form::close() !!}
-                            <hr>
-                            {!! Form::open(['url'=>'/фито/оператор/нов/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}
-                                <input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">
-                                <input type="hidden" name="firm" value="{!! $firm !!}">
-                                <input type="hidden" name="name_firm" value="{!! $name_firm !!}">
-                                <input type="hidden" name="eik" value="{!! $eik !!}">
-                            {!! Form::close() !!}
+                            {{--<hr>--}}
+                            {{--{!! Form::open(['url'=>'/фито/оператор/нов/търговец' , 'method'=>'GET', 'id'=>'form_new_opinion']) !!}--}}
+                                {{--<input type="submit" class="fa fa-address-card-o btn btn-info my_btn_check" style="width: 350px" value=" ФИРМАТА Е САМО ТЪРГОВЕЦ">--}}
+                                {{--<input type="hidden" name="firm" value="{!! $firm !!}">--}}
+                                {{--<input type="hidden" name="name_firm" value="{!! $name_firm !!}">--}}
+                                {{--<input type="hidden" name="eik" value="{!! $eik !!}">--}}
+                            {{--{!! Form::close() !!}--}}
                         </div>
-                    @else
-                        <div class="col-md-4 col-md-6_my " >
-                            <p class="new_farmer bold">
-                                <span class="view" style="color: green">Намерена е фирма търговец.</span><br/>
-                                Добави тази Фирма - {{$trader[0]['trader_name']}}!
-                            </p>
-                        </div>
-                        <div class="col-md-6 col-md-6_my " >
-                            <p style="margin-top: 20px"><span class="bold red">ВАЖО!</span> Иди в регистъра на Всички фирми Търговци и го добави като ПО от там
-                                <a href="{!!URL::to('/фито/търговец/покажи/'.$trader[0]['id'])!!}" class="fa fa-edit btn btn-primary my_btn" style="width: 100px">
-                                    &nbsp;&nbsp;Тук!
-                                </a>
-                            </p>
-                        </div>
-                    @endif
+                    {{--@else--}}
+                        {{--<div class="col-md-4 col-md-6_my " >--}}
+                            {{--<p class="new_farmer bold">--}}
+                                {{--<span class="view" style="color: green">Намерена е фирма търговец.</span><br/>--}}
+                                {{--Добави тази Фирма - {{$trader[0]['trader_name']}}!--}}
+                            {{--</p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-6 col-md-6_my " >--}}
+                            {{--<p style="margin-top: 20px"><span class="bold red">ВАЖО!</span> Иди в регистъра на Всички фирми Търговци и го добави като ПО от там--}}
+                                {{--<a href="{!!URL::to('/фито/търговец/покажи/'.$trader[0]['id'])!!}" class="fa fa-edit btn btn-primary my_btn" style="width: 100px">--}}
+                                    {{--&nbsp;&nbsp;Тук!--}}
+                                {{--</a>--}}
+                            {{--</p>--}}
+                        {{--</div>--}}
+                    {{--@endif--}}
                 @endif
             @else
                 @foreach($farmers as $farmer)
                     <div class="col-md-12 col-md-6_my " >
                         <div class="col-md-6 col-md-6_my " >
                             <p class="new_farmer bold">
-                                <span class="view_green">Намерен Земеделски Производител</span><br/>
+                                <span class="view_green">Намерен Земеделски Производител:</span><br/>
                                 {!! $farmer->name !!} с ЕГН/БУЛСТАТ: {!! $farmer->pin !!}
                             </p>
                         </div>
                         <div class="col-md-6 col-md-6_my " >
-                            <a href="{!! URL::to('/фито/оператор/земеделец/добави/'.$farmer->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ТОЗИ ЗС КАТО ОПЕРАТОР!</a>
+                            <a href="{!! URL::to('/фито/оператор/add_id/'.$farmer->id.'/'.$operator->id)!!}" class="fa fa-address-card-o btn btn-success my_btn_check" > ДОБАВИ ID НА ЗС КЪМ ОПЕРАТОРА!</a>
                         </div>
                     </div>
                 @endforeach

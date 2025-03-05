@@ -136,6 +136,11 @@
                             <p >Търговец/ЗС: <span class="bold" style="text-transform: uppercase">{{$operator->name_operator}} </span></p>
                             <hr class="my_hr_in"/>
                             <p ><span class="red bold" >ВНИМАНИЕ! Не се знае дали е ЗС или Търговец (Няма ID)</span></p>
+                            <hr  class="my_hr_in"/>
+                            <p style="margin-bottom: 5px">
+                                Добави този оператор като ЗС!
+                                <a style="float: right" href="{!! URL::to('/фито/search-unspecified/'.$operator->id)!!}" class="fa fa-plus btn btn-danger my_btn my_float">&nbsp;&nbsp;&nbsp; ТУК!</a>
+                            </p>
                         @endif
                         <hr class="my_hr_in"/>
                     </div>
@@ -164,11 +169,6 @@
                                     <a style="float: right" href="{!! URL::to('/фито/търговец/reg_edit/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn my_float">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Редактирай!</a>
                                 </p>
                             @elseif ($operator->farmer_id == 0 && $operator->trader_id == 0 )
-                                {{--<p style="padding: 3px 0 5px 0" >--}}
-                                    {{--<span class="bold" style="color: red">ВНИМАНИЕ!</span> Ако е необходимо да се редактират данните на--}}
-                                    {{--ЗС отиди в регистъра и ги редактирай там!--}}
-                                    {{--<a style="float: right" href="{!! URL::to('/стопанин/'.$operator->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>--}}
-                                {{--</p>--}}
                                 <hr class="my_hr_in"/>
                                 <p style="padding: 3px 0 5px 0" >
                                     <span class="bold" style="color: red">ВНИМАНИЕ!</span> Ако е необходимо да се редактират данните на Заявлението!
@@ -211,8 +211,13 @@
                         <p style="color: red"> ВСЕ ОЩЕ НЕ Е ВЪВЕДЕНА ЗАПОВЕДТТА ЗА РЕГИСТРАЦИЯ</p>
                     @endif
                     <hr class="my_hr_in"/>
-                    <?php echo($operator->accepted_name); ?>
-                    <p >Инспектор приел документите: <span class="bold" style="text-transform: none">{{$operator->accepted_name }}</span></p>
+                    <?php //echo($operator->accepted_name); ?>
+                    @if($operator->update_date >= 1)
+                        <p >НОМЕР И ДАТА НА ЗАЯВЛЕНИЕ ЗА АКТУАЛИЗАЦИЯ: <span class="bold" style="text-transform: none">{{$operator->update_number }}/{{ date('d.m.Y', $operator->update_date)  }}</span></p>
+                    @else
+                        <p ><span class="bold" style="text-transform: none">Няма заявление за Актуализация на данни </span></p>
+                    @endif
+
                     <hr class="my_hr_in"/>
                 </div>
                 <div class="small_field_center" style="display: table-cell">
@@ -224,8 +229,10 @@
                             <div class="col-md-2">
                                 @if($operator->farmer_id > 0 && $operator->trader_id == 0)
                                     <p><a style="margin-left: 5px" href="{!! URL::to('/фито/оператор/edit_data/'.$operator->id)!!}" class="fa fa-edit btn btn-success my_btn">&nbsp;&nbsp;&nbsp;&nbsp;  ТУК!</a></p>
-                                @else
+                                @elseif($operator->farmer_id == 0 && $operator->trader_id > 0)
                                     <p><a style="margin-left: 5px" href="{!! URL::to('/фито/оператор/edit_data_trader/'.$operator->id)!!}" class="fa fa-edit btn btn-warning my_btn">&nbsp;&nbsp;&nbsp;&nbsp;  ТУК!</a></p>
+                                @elseif($operator->farmer_id == 0 && $operator->trader_id == 0)
+                                    <p><a style="margin-left: 5px" href="{!! URL::to('/фито/unspecified/update/'.$operator->id)!!}" class="fa fa-edit btn btn-danger my_btn">&nbsp;&nbsp;&nbsp;&nbsp;  ТУК!</a></p>
                                 @endif
                             </div>
                         @else

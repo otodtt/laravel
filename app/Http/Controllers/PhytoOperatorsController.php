@@ -1404,7 +1404,6 @@ class PhytoOperatorsController extends Controller
         $uid = Auth::user()->id;
         $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
         $is_update = 1;
-//        dd($trader);
 
         return view('phytosanitary.crud.edit_data_trader', compact('trader', 'index', 'user',  'inspectors', 'is_update', 'operator'));
     }
@@ -2012,4 +2011,794 @@ class PhytoOperatorsController extends Controller
         Session::flash('message', 'Записа е успешен!');
         return Redirect::to('/фито/оператор/'.$id);
     }
+
+
+    //// БЕЗ ИД
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_unspecified($id)
+    {
+        $index = $this->index;
+
+        $operator = PhitoOperator::findOrFail($id);
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('fsk','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors = array_sort_recursive($inspectors);
+
+        $uid = Auth::user()->id;
+        $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
+        $is_update = 0;
+
+        return view('phytosanitary.unspecified.edit_unspecified', compact('index', 'user',  'inspectors', 'is_update', 'operator'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_unspecified($id)
+    {
+        $index = $this->index;
+
+        $operator = PhitoOperator::findOrFail($id);
+
+        $inspectors = User::select('id', 'short_name')
+            ->where('active', '=', 1)
+            ->where('fsk','=', 1)
+            ->where('stamp_number','<', 5000)
+            ->lists('short_name', 'id')->toArray();
+        $inspectors = array_sort_recursive($inspectors);
+
+        $uid = Auth::user()->id;
+        $user = User::select('id', 'all_name' , 'all_name_en', 'short_name', 'stamp_number')->where('id', '=', $uid)->get()->toArray();
+        $is_update = 1;
+
+        return view('phytosanitary.unspecified.update.update_unspecified', compact('index', 'user',  'inspectors', 'is_update', 'operator'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request|PhitoOperatorsRequests $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function store_unspecified(PhitoOperatorsRequests $request, $id)
+    {
+        $operator = PhitoOperator::findOrFail($id);
+
+        // 1
+        if(isset ($request->production)) {
+            $production = $request->production;
+        } else {
+            $production = 0;
+        }
+        //2
+        if(isset ($request->processing)) {
+            $processing = $request->processing;
+        } else {
+            $processing = 0;
+        }
+        // 3
+        if(isset ($request->import)) {
+            $import = $request->import;
+        } else {
+            $import = 0;
+        }
+        // 4
+        if(isset ($request->export)) {
+            $export = $request->export;
+        } else {
+            $export = 0;
+        }
+        // 5
+        if(isset ($request->trade)) {
+            $trade = $request->trade;
+        } else {
+            $trade = 0;
+        }
+        // 6
+        if(isset ($request->storage)) {
+            $storage = $request->storage;
+        } else {
+            $storage = 0;
+        }
+        // 7
+        if(isset ($request->treatment)) {
+            $treatment = $request->treatment;
+        } else {
+            $treatment = 0;
+        }
+
+        // 222 europa
+        if(isset ($request->europa)) {
+            $europa = $request->europa;
+        } else {
+            $europa = 0;
+        }
+        // 222 bulgaria
+        if(isset ($request->bulgaria)) {
+            $bulgaria = $request->bulgaria;
+        } else {
+            $bulgaria = 0;
+        }
+        // 222 own
+        if(isset ($request->own)) {
+            $own = $request->own;
+        } else {
+            $own = 0;
+        }
+        if($request->is_update == 0){
+            $data = [
+            'number_petition' => $request->number_petition,
+            'date_petition' => strtotime($request->date_petition),
+
+            'description_objects_one' => $request->description_objects_one,
+            'description_places_one' => $request->description_places_one,
+            'description_objects_two' => $request->description_objects_two,
+            'description_places_two' => $request->description_places_two,
+            'production' => $production,
+            'processing' =>  $processing,
+            'import' => $import,
+            'export' => $export,
+            'trade' => $trade,
+            'storage' => $storage,
+            'treatment' => $treatment,
+            'others' => $request->others,
+            'plants' => $request->plants,
+            'europa' => $europa,
+            'bulgaria' => $bulgaria,
+            'own' => $own,
+            'origin_from' => $request->origin_from,
+            'passports' => $request->passports,
+            'passports_list' => $request->passports_list,
+            'marking' => $request->marking,
+            'marking_list' => $request->marking_list,
+            'contact' => $request->contact,
+            'contact_phone' => $request->contact_phone,
+            'contact_address' => $request->contact_address,
+            'contact_city' => $request->contact_city,
+            'date_place' => $request->date_place,
+            'place' => $request->place,
+            'registration' => $request->registration,
+            'registration_note' => $request->registration_note,
+            'disposition' => $request->disposition,
+            'disposition_note' => $request->disposition_note,
+            'property' => $request->property,
+            'property_note' => $request->property_note,
+            'plants_origin' => $request->plants_origin,
+            'plants_note' => $request->plants_note,
+            'others_note' => $request->others_note,
+            'accepted' => $request->accepted,
+            'accepted_name' => $request->inspector_name,
+            'free_text' => $request->free_text,
+            'checked' => $request->checked,
+            'checked_name' => $request->inspector_checked,
+            'date_operator' => $request->date_operator,
+
+            'date_update' => date('d.m.Y H:i', time()),
+            'updated_by' => Auth::user()->id,
+
+            'activity' => $request->activity,
+            'products' => $request->products,
+            'derivation' => $request->derivation,
+            'purpose' => $request->purpose,
+            'room' => $request->room,
+            'action' => $request->action
+        ];
+        }
+        if($request->is_update == 1){
+            $data = [
+                'number_petition' => $request->number_petition,
+                'date_petition' => strtotime($request->date_petition),
+
+                'update_number' => $request->update_number,
+                'update_date' => strtotime($request->update_date),
+
+                'description_objects_one' => $request->description_objects_one,
+                'description_places_one' => $request->description_places_one,
+                'description_objects_two' => $request->description_objects_two,
+                'description_places_two' => $request->description_places_two,
+                'production' => $production,
+                'processing' =>  $processing,
+                'import' => $import,
+                'export' => $export,
+                'trade' => $trade,
+                'storage' => $storage,
+                'treatment' => $treatment,
+                'others' => $request->others,
+                'plants' => $request->plants,
+                'europa' => $europa,
+                'bulgaria' => $bulgaria,
+                'own' => $own,
+                'origin_from' => $request->origin_from,
+                'passports' => $request->passports,
+                'passports_list' => $request->passports_list,
+                'marking' => $request->marking,
+                'marking_list' => $request->marking_list,
+                'contact' => $request->contact,
+                'contact_phone' => $request->contact_phone,
+                'contact_address' => $request->contact_address,
+                'contact_city' => $request->contact_city,
+                'date_place' => $request->date_place,
+                'place' => $request->place,
+                'registration' => $request->registration,
+                'registration_note' => $request->registration_note,
+                'disposition' => $request->disposition,
+                'disposition_note' => $request->disposition_note,
+                'property' => $request->property,
+                'property_note' => $request->property_note,
+                'plants_origin' => $request->plants_origin,
+                'plants_note' => $request->plants_note,
+                'others_note' => $request->others_note,
+                'accepted' => $request->accepted,
+                'accepted_name' => $request->inspector_name,
+                'free_text' => $request->free_text,
+                'checked' => $request->checked,
+                'checked_name' => $request->inspector_checked,
+                'date_operator' => $request->date_operator,
+
+                'date_update' => date('d.m.Y H:i', time()),
+                'updated_by' => Auth::user()->id,
+
+                'activity' => $request->activity,
+                'products' => $request->products,
+                'derivation' => $request->derivation,
+                'purpose' => $request->purpose,
+                'room' => $request->room,
+                'action' => $request->action
+            ];
+        }
+        $operator->fill($data);
+        $operator->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/фито/оператор/'.$id);
+    }
+
+    /**
+     * Търси в Земеделските производители.
+     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search_unspecified(Request $request, $id)
+    {
+        $operator = PhitoOperator::findOrFail($id);
+        if ((int)$request['search_hidden'] == 1) {
+            if (isset($request['firm_search'])) {
+                if ($request['firm_search'] == 1) {
+                    $this->validate($request, [
+                        'name_farmer' => 'required|min:3|max:150|only_cyrillic',
+                        'gender_farmer' => 'required',
+                        'pin_farmer' => 'required|pin_farmer|digits_between:9,10',
+                    ]);
+                }
+                if ($request['firm_search'] > 1) {
+                    $this->validate($request, [
+                        'firm_name_search'=> 'required|min:3|max:150|cyrillic_names',
+                        'eik_search'=> 'required|is_valid',
+                    ]);
+                }
+            } else {
+                $this->validate($request, ['firm_search' => 'required']);
+            }
+        }
+
+        $firm = $request['firm_search'];
+        $name = $request['name_farmer'];
+        $name_firm = $request['firm_name_search'];
+        $eik = $request['eik_search'];
+        $gender = $request['gender_farmer'];
+        $pin = $request['pin_farmer'];
+
+        $trader = PhitoTraders::select()->where('trader_vin','=',$eik)->get()->toArray();
+
+        $farmers = null;
+        if(isset($request['firm_search']) && $request['firm_search'] == 1){
+            $farmers = Farmer::select()->where('pin','=',$pin)->get();
+        }
+        if(isset($request['firm_search']) && $request['firm_search'] > 1){
+            $farmers = Farmer::select()->where('pin','=',$pin)->orWhere('bulstat','=',$eik)->get();
+        }
+
+        return view('phytosanitary.unspecified.search.search', compact('firm', 'name', 'eik', 'gender', 'pin', 'name_firm', 'farmers', 'operator'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @param  int  $oid
+     * @return \Illuminate\Http\Response
+     */
+    public function add_id($id, $oid){
+        $operator = PhitoOperator::findOrFail($oid);
+
+        $data = [
+            'farmer_id' => $id,
+        ];
+        $operator->fill($data);
+        $operator->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/фито/оператор/'.$oid);
+    }
+
+    /**
+     * ДОБАВЯНЕ НА НОВ ЗС
+     * Display the specified resource.
+     * @param Request $request
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function create_unspecified(Request $request, $id)
+    {
+        $firm = $request['firm'];
+        $name = $request['name'];
+        $pin = $request['pin'];
+        $gender = $request['gender'];
+
+        $districts_farm = $this->districts_list->toArray();
+        $districts_farm[0] = 'Избери община';
+
+        $selected_array = Set::select('area_id')->get()->toArray();
+        $selected_session = $selected_array[0]['area_id'];
+        $get_session = Session::get('_old_input', 'hidden');
+        if(isset($get_session['hidden']) && ((int)$get_session != (int)$selected_session)){
+            $selected = $get_session['hidden'];
+        }
+        else{
+            $selected = $selected_array[0]['area_id'];
+        }
+        $regions = $this->areas_all_list;
+        //// Списъка с общините
+        $district_list = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $selected)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id')->toArray();
+        $district_list[0] = 'Избери община';
+        $district_list = array_sort_recursive($district_list);
+        //// Списъка с населените места
+        $get_district = Session::get('_old_input', 'localsID');
+        if(!isset($get_district['localsID']) || $get_district['localsID']==0){
+            $locations = Location::select()
+                ->where('areas_id', '=', $selected)
+                ->where('tvm', '!=', 0)
+                ->orderBy('type_district', 'desc')
+                ->orderBy('district_id', 'asc')
+                ->get()->toArray();
+        }
+        else {
+            $locations = Location::select()
+                ->where('areas_id', '=', $selected)
+                ->where('district_id', '=', $get_district['localsID'])
+                ->where('tvm', '!=', 0)
+                ->orderBy('type_district', 'desc')
+                ->orderBy('district_id', 'asc')
+                ->get()->toArray();
+        }
+
+        $districts_farm = $this->districts_list->toArray();
+        $districts_farm[0] = 'Избери община';
+        $districts_farm = array_sort_recursive($districts_farm);
+
+        return view('phytosanitary.unspecified.new_farmer', compact('firm', 'name', 'pin', 'gender',
+            'regions', 'selected', 'district_list', 'locations', 'districts_farm', 'id' ));
+
+    }
+
+    /**
+     * ЗАПИС НА НОВИТЕ ЗС
+     *
+     * Store a newly created resource in storage.
+     * @param  int  $id
+     * @param Request|PhitoNewFarmerRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add_unspecified(PhitoNewFarmerRequest $request, $id)
+    {
+        $operator = PhitoOperator::findOrFail($id);
+
+        $sex = null;
+        $pin = null;
+        $eik = null;
+        $egn_eik = null;
+        $owner = null;
+        $pin_owner = null;
+        $sex_owner = null;
+        $in = null;
+        $name = null;
+
+        $cyrillic= array(0=>'', 1=>'А', 2=>'Б', 3=>'В', 4=>'Г', 5=>'Д', 6=>'Е', 7=>'Ж', 8=>'З', 9=>'И', 10=>'Й',
+            11=>'К', 12=>'Л', 13=>'М', 14=>'Н', 15=>'О', 16=>'П', 17=>'Р', 18=>'С',	19=>'Т', 20=>'У',
+            21=>'Ф', 22=>'Х', 23=>'Ц', 24=>'Ч', 25=>'Ш', 26=>'Щ', 27=>'Ъ',	28=>'Ь', 29=>'Ю', 30=>'Я');
+
+        if($request['firm'] == 1){
+            $sex = null;
+            if(strlen($request['gender']) == 4){
+                $sex = 1;
+            }
+            if(strlen($request['gender']) == 6){
+                $sex = 2;
+            }
+
+            $pin = $request['pin'];
+            $eik = '';
+            $owner = '';
+            $pin_owner = '';
+            $sex_owner = 0;
+            $name = $request['name'];
+        }
+        if($request['firm'] > 1){
+            $sex_owner = null;
+            if(strlen($request['gender_owner']) == 4){
+                $sex_owner = 1;
+            }
+            if(strlen($request['gender_owner']) == 6){
+                $sex_owner = 2;
+            }
+            if(strlen($request['gender_owner']) == 1){
+                $sex_owner = 0;
+            }
+
+            $sex = 0;
+            $pin = $request['bulstat'];
+            $eik = $request['bulstat'];
+            $owner = $request['owner'];
+            $pin_owner = $request['pin_owner'];
+            $name = $request['name_firm'];
+        }
+
+        $abc= trim(preg_replace("/[0-9]/", "", $name));
+        $abc1= trim(preg_replace("/-/", "", $abc));
+        $abc2= trim(preg_replace("/.]/", "", $abc1));
+        $abc3 = mb_substr($abc2, 0, 1);
+        foreach ($cyrillic as $k=>$v){
+            if(preg_match("/$abc3/iu", "$v")){
+                $in=$k;
+            }
+        }
+
+        $data_farmer = ([
+            'type_firm'=>$request['firm'],
+            'name'=>$name,
+            'sex'=>$sex,
+            'pin'=>$pin,
+            'bulstat'=>$eik,
+
+            'areas_id'=>$request['areasID'],
+            'district_id'=>$request['district_id'],
+            'tvm'=>$request['data_tmv'],
+            'city_id'=>$request['data_id'],
+            'location'=>$request['list_name'],
+            'address'=>$request['address'],
+
+            'owner'=>$owner,
+            'pin_owner'=>$pin_owner,
+            'sex_owner'=>$sex_owner,
+
+            'district_object'=>$request['district_object'],
+            'location_farm'=>$request['location_farm'],
+
+            'phone'=>$request['phone'],
+            'mobil'=>$request['mobil'],
+            'email'=>$request['email'],
+
+            'date_add'=>time(),
+            'added_by'=> Auth::user()->id,
+
+            'alphabet'=>$in,
+        ]);
+
+
+        $farmer = Farmer::create($data_farmer);
+        $insertedId = $farmer->id;
+
+        $region = '';
+        $dist = '';
+
+        if($request['data_tmv'] == 1){
+            $tvm = 'гр. ';
+        }
+        elseif($request['data_tmv'] == 2 ){
+            $tvm = 'с. ';
+        }
+        else{
+            $tvm = 'гр./с. ';
+        }
+        $regions = $this->areas_all_list;
+        foreach ($regions as $k=>$items) {
+            if ($k == $request['areas_id']) {
+                $region = $items;
+            }
+        }
+
+        /** Генерира списък с общините */
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $request['areas_id'])
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id');
+
+        foreach ($districts as $k=>$items) {
+            if ($k == $request['district_id']) {
+                $dist = $items;
+            }
+        }
+        $address = $request['address'].', '.$tvm.''.$request['list_name'].', общ. '.$dist.', обл. '.$region;
+
+        $data = [
+            'farmer_id' => $insertedId,
+            'type_firm' => $request['firm'],
+            'pin' => $pin,
+            'trader_id' => 0,
+            'name_operator' => $name,
+            'address_operator' => $request['address'],
+            'address' => $address,
+            'tvm' => $tvm,
+            'city' => $request['list_name'],
+            'municipality' => $dist,
+            'area' => $region,
+            'alphabet'=>$in,
+
+            'date_update' => date('d.m.Y H:i', time()),
+            'updated_by' => Auth::user()->id,
+            'is_completed' => 1
+        ];
+
+        $operator->fill($data);
+        $operator->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/фито/оператор/'.$id);
+    }
+
+    /**
+     * ДОБАВЯНЕ НА НОВ ЗС
+     * Display the specified resource.
+     * @param Request $request
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function firm_unspecified(Request $request, $id)
+    {
+        $operator = PhitoOperator::findOrFail($id);
+
+        $firm = $request['firm'];
+        $name_firm = $request['name_firm'];
+        $eik = $request['eik'];
+        $gender = 0;
+
+        $districts_farm = $this->districts_list->toArray();
+        $districts_farm[0] = 'Избери община';
+
+        $selected_array = Set::select('area_id')->get()->toArray();
+        $selected_session = $selected_array[0]['area_id'];
+        $get_session = Session::get('_old_input', 'hidden');
+        if(isset($get_session['hidden']) && ((int)$get_session != (int)$selected_session)){
+            $selected = $get_session['hidden'];
+        }
+        else{
+            $selected = $selected_array[0]['area_id'];
+        }
+        $regions = $this->areas_all_list;
+        //// Списъка с общините
+        $district_list = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $selected)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id')->toArray();
+        $district_list[0] = 'Избери община';
+        $district_list = array_sort_recursive($district_list);
+        //// Списъка с населените места
+        $get_district = Session::get('_old_input', 'localsID');
+        if(!isset($get_district['localsID']) || $get_district['localsID']==0){
+            $locations = Location::select()
+                ->where('areas_id', '=', $selected)
+                ->where('tvm', '!=', 0)
+                ->orderBy('type_district', 'desc')
+                ->orderBy('district_id', 'asc')
+                ->get()->toArray();
+        }
+        else {
+            $locations = Location::select()
+                ->where('areas_id', '=', $selected)
+                ->where('district_id', '=', $get_district['localsID'])
+                ->where('tvm', '!=', 0)
+                ->orderBy('type_district', 'desc')
+                ->orderBy('district_id', 'asc')
+                ->get()->toArray();
+        }
+
+        $districts_farm = $this->districts_list->toArray();
+        $districts_farm[0] = 'Избери община';
+        $districts_farm = array_sort_recursive($districts_farm);
+
+        return view('phytosanitary.unspecified.new_firm_unspecified', compact('firm', 'name_firm', 'eik', 'gender',
+            'regions', 'selected', 'district_list', 'locations', 'districts_farm', 'operator' ));
+
+    }
+
+    /**
+     * ЗАПИС НА НОВИТЕ ЗС
+     *
+     * Store a newly created resource in storage.
+     *
+     * @param Request|PhitoNewFarmerRequest $request
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store_new_unspecified(PhitoNewFarmerRequest $request, $id)
+    {
+        $sex = null;
+        $pin = null;
+        $eik = null;
+        $egn_eik = null;
+        $owner = null;
+        $pin_owner = null;
+        $sex_owner = null;
+        $in = null;
+        $name = null;
+
+        $cyrillic= array(0=>'', 1=>'А', 2=>'Б', 3=>'В', 4=>'Г', 5=>'Д', 6=>'Е', 7=>'Ж', 8=>'З', 9=>'И', 10=>'Й',
+            11=>'К', 12=>'Л', 13=>'М', 14=>'Н', 15=>'О', 16=>'П', 17=>'Р', 18=>'С',	19=>'Т', 20=>'У',
+            21=>'Ф', 22=>'Х', 23=>'Ц', 24=>'Ч', 25=>'Ш', 26=>'Щ', 27=>'Ъ',	28=>'Ь', 29=>'Ю', 30=>'Я');
+
+        if($request['firm'] == 1){
+            $sex = null;
+            if(strlen($request['gender']) == 4){
+                $sex = 1;
+            }
+            if(strlen($request['gender']) == 6){
+                $sex = 2;
+            }
+
+            $pin = $request['pin'];
+            $eik = '';
+            $owner = '';
+            $pin_owner = '';
+            $sex_owner = 0;
+            $name = $request['name'];
+        }
+        if($request['firm'] > 1){
+            $sex_owner = null;
+            if(strlen($request['gender_owner']) == 4){
+                $sex_owner = 1;
+            }
+            if(strlen($request['gender_owner']) == 6){
+                $sex_owner = 2;
+            }
+            if(strlen($request['gender_owner']) == 1){
+                $sex_owner = 0;
+            }
+
+            $sex = 0;
+            $pin = $request['bulstat'];
+            $eik = $request['bulstat'];
+            $owner = $request['owner'];
+            $pin_owner = $request['pin_owner'];
+            $name = $request['name_firm'];
+        }
+
+        $abc= trim(preg_replace("/[0-9]/", "", $name));
+        $abc1= trim(preg_replace("/-/", "", $abc));
+        $abc2= trim(preg_replace("/.]/", "", $abc1));
+        $abc3 = mb_substr($abc2, 0, 1);
+        foreach ($cyrillic as $k=>$v){
+            if(preg_match("/$abc3/iu", "$v")){
+                $in=$k;
+            }
+        }
+
+        $data_farmer = ([
+            'type_firm'=>$request['firm'],
+            'name'=>$name,
+            'sex'=>$sex,
+            'pin'=>$pin,
+            'bulstat'=>$eik,
+
+            'areas_id'=>$request['areasID'],
+            'district_id'=>$request['district_id'],
+            'tvm'=>$request['data_tmv'],
+            'city_id'=>$request['data_id'],
+            'location'=>$request['list_name'],
+            'address'=>$request['address'],
+
+            'owner'=>$owner,
+            'pin_owner'=>$pin_owner,
+            'sex_owner'=>$sex_owner,
+
+            'district_object'=>$request['district_object'],
+            'location_farm'=>$request['location_farm'],
+
+            'phone'=>$request['phone'],
+            'mobil'=>$request['mobil'],
+            'email'=>$request['email'],
+
+            'date_add'=>time(),
+            'added_by'=> Auth::user()->id,
+
+            'alphabet'=>$in,
+        ]);
+
+        $farmer = Farmer::create($data_farmer);
+        $insertedId = $farmer->id;
+
+        $region = '';
+        $dist = '';
+
+        if($request['data_tmv'] == 1){
+            $tvm = 'гр. ';
+        }
+        elseif($request['data_tmv'] == 2 ){
+            $tvm = 'с. ';
+        }
+        else{
+            $tvm = 'гр./с. ';
+        }
+        $regions = $this->areas_all_list;
+        foreach ($regions as $k=>$items) {
+            if ($k == $request['areas_id']) {
+                $region = $items;
+            }
+        }
+
+        /** Генерира списък с общините */
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $request['areas_id'])
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id');
+
+        foreach ($districts as $k=>$items) {
+            if ($k == $request['district_id']) {
+                $dist = $items;
+            }
+        }
+        $address = $request['address'].', '.$tvm.''.$request['list_name'].', общ. '.$dist.', обл. '.$region;
+
+        $operator = PhitoOperator::findOrFail($id);
+        $data = [
+            'farmer_id' => $insertedId,
+            'type_firm' => $request['firm'],
+            'pin' => $pin,
+            'trader_id' => 0,
+            'name_operator' => $name,
+            'address_operator' => $request['address'],
+            'address' => $address,
+            'tvm' => $tvm,
+            'city' => $request['list_name'],
+            'municipality' => $dist,
+            'area' => $region,
+            'alphabet'=>$in,
+
+            'date_update' => date('d.m.Y H:i', time()),
+            'updated_by' => Auth::user()->id,
+            'is_completed' => 1
+        ];
+
+        $operator->fill($data);
+        $operator->save();
+
+        Session::flash('message', 'Записа е успешен!');
+        return Redirect::to('/фито/оператор/'.$id);
+    }
+
+
 }
