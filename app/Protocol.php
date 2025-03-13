@@ -30,4 +30,8 @@ class Protocol extends Model
     public function firm(){
         return $this->belongsTo('odbh\Firm');
     }
+
+    public function report_pharmacy(){
+        return $this->belongsTo('odbh\ReportPharmacy');
+    }
 }

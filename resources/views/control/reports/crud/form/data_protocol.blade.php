@@ -1,16 +1,25 @@
 <?php
-if(!isset($protocols)){
+if(!isset($reports)){
     $protocol_no = false;
     $protocol_yes = false;
+
+    $protocol_number = '';
+    $protocol_date = '';
 }
 else{
-    if($protocols->protocol == 0){
+    if($reports->protocol == 0){
         $protocol_no = true;
         $protocol_yes = false;
+
+        $protocol_number = '';
+        $protocol_date = '';
     }
-    if($protocols->protocol == 1){
+    if($reports->protocol == 1){
         $protocol_no = false;
         $protocol_yes = true;
+
+        $protocol_number = $reports->protocol_number;
+        $protocol_date = date('d.m.Y', $reports->protocol_date);
     }
 }
 ?>
@@ -41,8 +50,24 @@ else{
                     </div>
 
                 </div>
-
-                <div class="col-md-12 col-md-6_my  ">
+                <div class="col-md-12 col-md-6_my hidden" id="protocol_check">
+                    <fieldset class="small_field example_field">
+                        <div class="input_fields_wrap">
+                            <div>
+                                {!! Form::label('protocol_number', '№ на Протокола:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('protocol_number', $protocol_number, ['size'=>15, 'maxlength'=>100 ]) !!}
+                                &nbsp;&nbsp;
+                                {!! Form::label('protocol_date', 'Дата на Протокола:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('protocol_date', $protocol_date, ['size'=>15, 'maxlength'=>100, 'id'=>'protocol_date' ]) !!}
+                            </div>
+                        </div>
+                        <div class="input_fields_wrap">
+                            <p>
+                                <span class="red bold"><i class="fa fa-warning"></i> Внимание!</span> Ако има взети повече проби от тор
+                                с този доклад, отворете Доклада и добавете останалите проби!
+                            </p>
+                        </div>
+                    </fieldset>
                 </div>
             </fieldset>
         </div>

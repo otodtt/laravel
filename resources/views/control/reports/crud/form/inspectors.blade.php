@@ -19,15 +19,15 @@ else{
         <div class="col-md-12" >
             <fieldset class="small_field"><legend class="small_legend">Инспектори</legend>
                 <div class="col-md-7 col-md-6_my inspectors_divs border_divs" >
-                    {!! Form::label('inspector', 'Водещ:', ['class'=>'my_labels']) !!}
+                    {!! Form::label('id_user1', 'Водещ:', ['class'=>'my_labels']) !!}
                     {!! Form::select('inspector', $inspectors, $return_inspector, ['id' =>'id_user1',
                             'class' =>'inspector form-control form-control_my_insp' ]) !!}
 
-                    {!! Form::label('inspector_two', 'Инспектор 2:', ['class'=>'my_labels']) !!}
+                    {!! Form::label('id_user2', 'Инспектор 2:', ['class'=>'my_labels']) !!}
                     {!! Form::select('inspector_two', $inspectors, $return_two, ['id' =>'id_user2',
                             'class' =>'inspector form-control form-control_my_insp' ]) !!}
 
-                    {!! Form::label('inspector_three', 'Инспектор 3:', ['class'=>'my_labels']) !!}
+                    {!! Form::label('id_user3', 'Инспектор 3:', ['class'=>'my_labels']) !!}
                     {!! Form::select('inspector_three', $inspectors, $return_three, ['id' =>'id_user3',
                             'class' =>'inspector form-control form-control_my_insp' ]) !!}
                 </div>

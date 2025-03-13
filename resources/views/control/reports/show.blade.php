@@ -38,13 +38,32 @@
         </div>
     @endif
     <span class="">
-        <a href="{{ URL::to('/протоколи-фирма/'.$protocol->id_from_firm) }}" class="fa fa-bank btn btn-success my_btn">  Към всички Протоколи на Фирмата!</a>
+        <a href="{{ URL::to('/протоколи-фирма/'.$report->id_from_firm) }}" class="fa fa-bank btn btn-success my_btn">  Към всички Протоколи на Фирмата!</a>
     </span>
     <span class="right_span">
-        <a href="{{ URL::to('/доклад/'.$protocol->id.'/редактирай') }}" class="fa fa-edit btn btn-danger my_btn">  Редактирай Доклада!</a>
+        <a href="{{ URL::to('/доклад/'.$report->id.'/редактирай') }}" class="fa fa-edit btn btn-danger my_btn">  Редактирай Доклада!</a>
     </span>
     <hr class="">
-
+    <div style="text-align: center">
+        @if($report->protocol > 0 && $report->is_protocol == 0)
+            <span class="">
+                <span class="red">ВНИМАНИЕ! </span> Посочено е, че има Констативен Протокол но не е въведен в базата. Добави Протокола!
+                <a href="{{ URL::to('/протоколи-фирма/'.$report->id_from_firm) }}" class="fa fa-plus btn btn-danger my_btn">  Добави Протокол към Доклада!!</a>
+            </span>
+            <hr class="" >
+        @elseif($report->protocol > 0 && $report->is_protocol == 1)
+            <span class="">
+                <span class="red">ВНИМАНИЕ! </span> Има издаден Констативен Протокол с номер и дата
+                <span class="bold">{{$report->number}}/{{date('d.m.Y', $report->date_report)}}</span>
+                !  За повече подробноси виж по-долу!
+            </span>
+            <hr class="" >
+        @else
+            <span class="">
+                </span> Няма издаден Констативен Протокол към доклада.</span>
+            <hr class="" >
+        @endif
+    </div>
     <div id="wrap_in" class="col-md-12" style="padding-bottom: 50px" >
         <div class="page">
             <div class="back"></div>
@@ -59,5 +78,5 @@
 
 @section('scripts')
     {!!Html::script("js/protocols/selectAssayAdd.js" )!!}
-    {!!Html::script("js/protocols/prevent.js" )!!}
+{{--    {!!Html::script("js/protocols/prevent.js" )!!}--}}
 @endsection

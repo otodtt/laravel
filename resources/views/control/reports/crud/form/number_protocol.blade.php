@@ -1,12 +1,13 @@
 <?php
-if(!isset($protocols)){
+if(!isset($reports)){
     $return_number = null;
     $return_date = null;
 }
 else{
-    $return_number = $protocols->number;
-    $return_date = date('d.m.Y', $protocols->date_protocol);
+    $return_number = $reports->number;
+    $return_date = date('d.m.Y', $reports->date_report);
 }
+//echo ($return_number);
 ?>
 <div class="container-fluid" >
     <div class="row">
@@ -16,9 +17,9 @@ else{
                     {!! Form::label('number', 'Доклад №', ['class'=>'my_labels']) !!}
                     {!! Form::text('number', $return_number, ['class'=>'form-control form-control-my', 'size'=>2, 'maxlength'=>6 ]) !!}
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    {!! Form::label('date_protocol', 'Дата:', ['class'=>'my_labels']) !!}
-                    {!! Form::text('date_protocol', $return_date, ['class'=>'form-control form-control-my date_certificate',
-                    'id'=>'date', 'size'=>15, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг' ]) !!}
+                    {!! Form::label('date_report', 'Дата:', ['class'=>'my_labels']) !!}
+                    {!! Form::text('date_report', $return_date, ['class'=>'form-control form-control-my date_certificate',
+                    'id'=>'date_report', 'size'=>15, 'maxlength'=>10, 'placeholder'=>'дд.мм.гггг' ]) !!}
                 </div>
                 <div class="col-md-3 col-md-6_my"  >
                     <p class="description">Полетата са ЗАДЪЛЖИТЕЛНИ!</p>

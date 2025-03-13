@@ -44,4 +44,11 @@ class Pharmacy extends Model
     public function protocols(){
         return $this->hasMany('odbh\Protocol', 'id_from_object');
     }
+    /**
+     * Аптеката има много костативни протоколи
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reports(){
+        return $this->hasMany('odbh\ReportPharmacy', 'id_from_object');
+    }
 }

@@ -14,7 +14,7 @@ use odbh\Http\Requests\ReportsPharmaciesRequest;
 use odbh\Http\Requests\ProtocolsUpdateRequest;
 use odbh\Location;
 use odbh\Pharmacy;
-use odbh\Report;
+use odbh\ReportPharmacy;
 use odbh\Repository;
 use odbh\Sample;
 use odbh\Set;
@@ -23,7 +23,7 @@ use odbh\Workshop;
 use Redirect;
 use Session;
 
-class ReportsController extends Controller
+class ReportsPharmacyController extends Controller
 {
     private $logo = null;
 
@@ -62,7 +62,7 @@ class ReportsController extends Controller
         $inspectors_db = array();
         $inspectors_db_two = array();
         $inspectors_db_three = array();
-        $inspectors_db_all = Report::select('inspector_name', 'inspector', 'inspector_two_name', 'inspector_two', 'inspector_three_name', 'inspector_three')
+        $inspectors_db_all = ReportPharmacy::select('inspector_name', 'inspector', 'inspector_two_name', 'inspector_two', 'inspector_three_name', 'inspector_three')
             ->where('inspector','!=',0)->where('inspector_two','!=',0)->where('inspector_three','!=',0)->get()->toArray();
         foreach($inspectors_db_all as $value){
             $inspectors_db[$value['inspector']] = $value['inspector_name'];
@@ -83,17 +83,17 @@ class ReportsController extends Controller
     public function index()
     {
         $abc = null;
-        $alphabet = Report::lists('alphabet')->toArray();
+        $alphabet = ReportPharmacy::lists('alphabet')->toArray();
 
         $areas = $this->ph_area_sort;
 
-        $protocols = Report::where('ot','>=', 1)->where('ot','<=', 3)->orderBy('date_protocol', 'desc')->orderBy('number', 'desc')->get();
+        $reports = ReportPharmacy::where('ot','>=', 1)->where('ot','<=', 3)->orderBy('date_report', 'desc')->orderBy('number', 'desc')->get();
 
         $inspectors = $this->inspectors_edit_db;
         $inspectors[0] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
 
-        return view('control.reports.index', compact('alphabet', 'protocols', 'abc', 'inspectors', 'areas'));
+        return view('control.reports.index', compact('alphabet', 'reports', 'abc', 'inspectors', 'areas'));
     }
 
     /**
@@ -110,15 +110,15 @@ class ReportsController extends Controller
 
         if ((int)$request['search'] == 1) {
             $this->validate($request, ['search_protocols' => 'required|digits_between:1,6']);
-            $protocols = Report::where('number', '=', $request['search_protocols'])->get();
+            $reports = ReportPharmacy::where('number', '=', $request['search_protocols'])->get();
         };
 
         $areas = $this->ph_area_sort;
 
         $abc = null;
-        $alphabet = Report::lists('alphabet')->toArray();
+        $alphabet = ReportPharmacy::lists('alphabet')->toArray();
 
-        return view('control.reports.index', compact('protocols', 'alphabet', 'abc', 'inspectors', 'areas'));
+        return view('control.reports.index', compact('reports', 'alphabet', 'abc', 'inspectors', 'areas'));
     }
 
     /**
@@ -144,7 +144,7 @@ class ReportsController extends Controller
         $inspectors[''] = 'по инспектор';
         $inspectors = array_sort_recursive($inspectors);
 
-        $alphabet = Report::lists('alphabet')->toArray();
+        $alphabet = ReportPharmacy::lists('alphabet')->toArray();
         $abc = null;
         $years_sql = '';
 
@@ -179,19 +179,19 @@ class ReportsController extends Controller
             $end = strtotime($years_end_sort);
             $timezone_paris_end = strtotime($years_end_sort . 'Europe/Paris');
             if ($start > 0 && $end == false) {
-                $years_sql = ' AND date_protocol=' . $start . ' OR date_protocol=' . $timezone_paris_start;
+                $years_sql = ' AND date_report=' . $start . ' OR date_report=' . $timezone_paris_start;
             }
             if ($end > 0 && $start == false) {
-                $years_sql = ' AND date_protocol=' . $end . ' OR date_protocol=' . $timezone_paris_end;
+                $years_sql = ' AND date_report=' . $end . ' OR date_report=' . $timezone_paris_end;
             }
             if (((int)$start > 0 && (int)$end > 0) && ((int)$start == (int)$end)) {
-                $years_sql = ' AND date_protocol=' . $start . ' OR date_protocol=' . $timezone_paris_start;
+                $years_sql = ' AND date_report=' . $start . ' OR date_report=' . $timezone_paris_start;
             }
             if (((int)$start > 0 && (int)$end > 0) && ((int)$start < (int)$end)) {
-                $years_sql = ' AND date_protocol>=' . $start . ' AND date_protocol<=' . $end . '';
+                $years_sql = ' AND date_report>=' . $start . ' AND date_report<=' . $end . '';
             }
             if (($start > 0 && $end > 0) && ($start > $end)) {
-                $years_sql = ' AND date_protocol>=' . $end . ' AND date_protocol<=' . $start . '';
+                $years_sql = ' AND date_report>=' . $end . ' AND date_report<=' . $start . '';
             }
         } else {
             $years_sql = ' ';
@@ -235,10 +235,10 @@ class ReportsController extends Controller
             $abc_sql = ' ';
         }
 
-        $protocols = DB::select("SELECT * FROM objects_reports WHERE id>0  $years_sql $object_sql $areas_sql
-         $inspector_sql $assay_sql $abc_sql ORDER BY `date_protocol` DESC, `number` DESC");
+        $reports = DB::select("SELECT * FROM reports_pharmacy WHERE id>0  $years_sql $object_sql $areas_sql
+         $inspector_sql $assay_sql $abc_sql ORDER BY `date_report` DESC, `number` DESC");
 
-        return view('control.reports.index', compact('protocols', 'alphabet', 'abc', 'years_start_sort', 'years_end_sort',
+        return view('control.reports.index', compact('reports', 'alphabet', 'abc', 'years_start_sort', 'years_end_sort',
             'inspectors', 'sort_object', 'sort_areas', 'sort_inspector', 'areas', 'sort_assay'));
     }
 
@@ -278,7 +278,7 @@ class ReportsController extends Controller
      */
     public function store(ReportsPharmaciesRequest $request, $object_id, $type)
     {
-        $unique_number = Report::where('number','=',$request['number'])->where('date_protocol','=',strtotime(stripslashes($request['date_protocol'])))->get();
+        $unique_number = ReportPharmacy::where('number','=',$request['number'])->where('date_report','=',strtotime(stripslashes($request['date_report'])))->get();
         if(count($unique_number)>0){
             $this->validate($request, [
                 'number' => 'not_in:'.$request['number'],
@@ -287,33 +287,55 @@ class ReportsController extends Controller
 
         $inspector_name_sql1 = User::where('id', '=', $request['inspector'])->get()->toArray();
         $inspector_name = $inspector_name_sql1[0]['short_name'];
-        $position = $inspector_name_sql1[0]['position'];
         $position_short = $inspector_name_sql1[0]['position_short'];
 
         if($request['inspector_two'] > 0){
             $inspector_name_sql2 = User::where('id', '=', $request['inspector_two'])->get()->toArray();
             $inspector_two_name = $inspector_name_sql2[0]['short_name'];
-            $position_two = $inspector_name_sql2[0]['position'];
             $position_short_two = $inspector_name_sql2[0]['position_short'];
         } else {
             $inspector_two_name = '';
-            $position_two = '';
             $position_short_two = '';
         }
 
         if($request['inspector_three']> 0){
             $inspector_name_sql3 = User::where('id', '=', $request['inspector_three'])->get()->toArray();
             $inspector_three_name = $inspector_name_sql3[0]['short_name'];
-            $position_three = $inspector_name_sql3[0]['position'];
             $position_short_three = $inspector_name_sql3[0]['position_short'];
         } else {
             $inspector_three_name = '';
-            $position_three = '';
             $position_short_three = '';
         }
 
         $object = Pharmacy::findOrFail($object_id);
 
+        if(
+            $request['activity'] == 2 ||
+            $request['certificate'] == 2 ||
+            $request['delivery'] == 2 ||
+            $request['sales'] == 2 ||
+            $request['unauthorized'] == 2 ||
+            $request['first'] == 2 ||
+            $request['improperly'] == 2 ||
+            $request['repackaged'] == 2 ||
+            $request['expired'] == 2 ||
+            $request['compliance'] == 2 ||
+            $request['leaflet'] == 2 ||
+            $request['larger'] == 2 ||
+            $request['purpose'] == 2 ||
+            $request['storage'] == 2 ||
+            $request['warehouse'] == 2 ||
+            $request['separated'] == 2 ||
+            $request['access'] == 2 ||
+            $request['flooring'] == 2 ||
+            $request['combustible'] == 2 ||
+            $request['contract'] == 2
+        ) {
+            $is_violation = 1;
+        } else {
+            $is_violation = 0;
+        }
+//        dd($is_violation);
 //        if($type == 1){
 //            $object = Pharmacy::findOrFail($object_id);
 //        }
@@ -323,27 +345,34 @@ class ReportsController extends Controller
 //        if($type == 3){
 //            $object = Workshop::findOrFail($object_id);
 //        }
-        $assay_prz = null;
-        $assay_more = null;
-        if($request['assay_prz'] == 1) {
-            if ($request['more'] == 1) {
-                $assay_prz = 0;
-                $assay_more = 1;
-            }
-            if ($request['more'] == 0) {
-                $assay_prz = 1;
-                $assay_more = 0;
-            }
+        $is_prz = null;
+        $is_tor = null;
+        if($request['assay_prz'] == 1 && $request['assay_tor'] == 1) {
+            $is_prz = 1;
+            $is_tor = 1;
         }
-        if($request['assay_prz'] == 0){
-            $assay_prz = 0;
-            $assay_more = 0;
+        elseif($request['assay_prz'] == 1 && $request['assay_tor'] == 0) {
+            $is_prz = 1;
+            $is_tor = 0;
+        }
+        elseif($request['assay_prz'] == 0 && $request['assay_tor'] == 1) {
+            $is_prz = 0;
+            $is_tor = 1;
+        }
+        elseif($request['assay_prz'] == 0 && $request['assay_tor'] == 0) {
+            $is_prz = 0;
+            $is_tor = 0;
+        }
+        else {
+            $is_prz = 0;
+            $is_tor = 0;
         }
 
         $data = ([
             'id_from_object'=>$object->id,
+            'id_from_firm'=>$object->firm_id,
             'number'=>$request['number'],
-            'date_protocol'=>strtotime(stripslashes($request['date_protocol'])),
+            'date_report'=>strtotime(stripslashes($request['date_report'])),
             'inspector'=>$request['inspector'],
             'inspector_two'=>$request['inspector_two'],
             'inspector_three'=>$request['inspector_three'],
@@ -352,11 +381,10 @@ class ReportsController extends Controller
             'ot'=>$type,
             'firm'=>$object->type_firm,
             'name'=>$object->name,
-            'city_id'=>$object->tvm_id,
             'city_village'=>$object->type_location,
             'place'=>$object->location,
-            'address'=>$object->address,
             'district_object'=>$object->district_object,
+            'alphabet'=>$object->alphabet,
 
             'activity'=>$request['activity'],
             'activity_note'=>$request['activity_note'],
@@ -399,27 +427,33 @@ class ReportsController extends Controller
             'contract'=>$request['contract'],
             'contract_note'=>$request['contract_note'],
             'protocol'=>$request['protocol'],
+            'protocol_number'=>$request['protocol_number'],
+            'protocol_date'=>strtotime(stripslashes($request['protocol_date'])),
+            'is_protocol'=>0,
+            'is_violation'=>$is_violation,
 
             'date_add'=>time(),
             'added_by'=> Auth::user()->id,
-            'alphabet'=>$object->alphabet,
-            'assay_prz'=>$assay_prz,
-            'assay_more'=>$assay_more,
+
+            'assay_prz'=>$request['assay_prz'],
+            'is_prz'=>$is_prz,
+
             'assay_tor'=>$request['assay_tor'],
+            'is_tor'=>$is_tor,
+
             'type_check'=>$request['type_check'],
+
             'inspector_name'=>$inspector_name,
             'inspector_two_name'=>$inspector_two_name,
             'inspector_three_name'=>$inspector_three_name,
-            'position'=>$position,
+
             'position_short'=>$position_short,
-            'position_two'=>$position_two,
             'position_short_two'=>$position_short_two,
-            'position_three'=>$position_three,
             'position_short_three'=>$position_short_three,
         ]);
 
         $firm = Firm::findOrfail($object->firm_id);
-        $protocols = new Report($data);
+        $protocols = new ReportPharmacy($data);
         $firm->reports()->save($protocols);
 
         if ($object->type_firm == 1) {
@@ -449,7 +483,7 @@ class ReportsController extends Controller
             }
             $data_assay_prz = ([
                 'number_sample'=>$request['number'],
-                'date_number'=>strtotime(stripslashes($request['date_protocol'])),
+                'date_number'=>strtotime(stripslashes($request['date_report'])),
                 'firm_id'=>$object->firm_id,
                 'from_firm'=>$et.' "'.$object->name.'" '.$ood,
                 'from_object'=>$type,
@@ -458,12 +492,13 @@ class ReportsController extends Controller
                 'inspector'=>$inspector_name,
                 'type_assay'=>$assay_more,
             ]);
+
             Sample::create($data_assay_prz);
         }
         if($request['assay_tor']==1){
             $data_assay_tor = ([
                 'number_sample'=>$request['number'],
-                'date_number'=>strtotime(stripslashes($request['date_protocol'])),
+                'date_number'=>strtotime(stripslashes($request['date_report'])),
                 'firm_id'=>$object->firm_id,
                 'from_firm'=>$et.' "'.$object->name.'" '.$ood,
                 'from_object'=>$type,
@@ -473,6 +508,7 @@ class ReportsController extends Controller
                 'inspector'=>$inspector_name,
                 'type_assay'=>2,
             ]);
+
             Sample::create($data_assay_tor);
         }
         if($request['assay_prz']==1 || $request['assay_tor']==1){
@@ -494,10 +530,13 @@ class ReportsController extends Controller
     public function show($id)
     {
         $logo = $this->logo;
-        $protocol = Report::findOrFail($id);
+        $report = ReportPharmacy::findOrFail($id);
         $inspectors = User::get();
+        $firm = Firm::findOrFail($report->id_from_firm);
+        $object = Pharmacy::findOrFail($report->id_from_object);
+        $analyses = Sample::where('number_sample', '=', $report->number)->where('firm_id', '=', $report->id_from_firm)->get()->toArray();
+
         $city = Set::first();
-        $firm = Firm::findOrFail($protocol->id_from_firm);
 
         $areas = $this->areas_all;
         $districts_firm = Location::select('name', 'district_id')
@@ -510,35 +549,35 @@ class ReportsController extends Controller
             ->where('type_district', '=', 1)
             ->get();
 
-        if($protocol->assay_prz == 1){
-            $prz = Sample::where('number_sample','=',$protocol->number)
-                ->where('date_number','=',$protocol->date_protocol)
+        if($report->assay_prz == 1){
+            $prz = Sample::where('number_sample','=',$report->number)
+                ->where('date_number','=',$report->date_report)
                 ->where('type_assay','=',1)
                 ->get();
         }
         else{
             $prz = array();
         }
-        if($protocol->assay_more == 1){
-            $more = Sample::where('number_sample','=',$protocol->number)
-                ->where('date_number','=',$protocol->date_protocol)
+        if($report->assay_more == 1){
+            $more = Sample::where('number_sample','=',$report->number)
+                ->where('date_number','=',$report->date_report)
                 ->where('type_assay','=',100)
                 ->get();
         }
         else{
             $more = array();
         }
-        if($protocol->assay_tor == 1){
-            $tor = Sample::where('number_sample','=',$protocol->number)
-                ->where('date_number','=',$protocol->date_protocol)
+        if($report->assay_tor == 1){
+            $tor = Sample::where('number_sample','=',$report->number)
+                ->where('date_number','=',$report->date_report)
                 ->where('type_assay','=',2)
                 ->get();
         }
         else{
             $tor = array();
         }
-        return view('control.reports.show', compact('logo', 'protocol', 'inspectors', 'city', 'firm', 'areas',
-            'districts_firm', 'districts_object', 'prz', 'more', 'tor'));
+        return view('control.reports.show', compact('logo', 'report', 'inspectors', 'city', 'firm', 'areas',
+            'districts_firm', 'districts_object', 'prz', 'more', 'tor', 'object', 'analyses'));
     }
 
     /**
@@ -549,14 +588,14 @@ class ReportsController extends Controller
      */
     public function edit($id)
     {
-        $protocols = Report::findOrFail($id);
-        $object = $protocols;
+        $reports = ReportPharmacy::findOrFail($id);
+        $object = $reports;
 
         $inspectors = $this->inspectors_edit_db;
         $inspectors[''] = '';
         $inspectors = array_sort_recursive($inspectors);
 
-        return view('control.reports.crud.edit', compact('object', 'protocols', 'inspectors'));
+        return view('control.reports.crud.edit', compact('object', 'reports', 'inspectors'));
     }
 
     /**
@@ -568,9 +607,8 @@ class ReportsController extends Controller
      */
     public function update(ReportsPharmaciesRequest $request, $id)
     {
-//         dd($request->all());
-        $unique_number = Report::where('number','=',$request['number'])
-            ->where('date_protocol','=',strtotime(stripslashes($request['date_protocol'])))
+        $unique_number = ReportPharmacy::where('number','=',$request['number'])
+            ->where('date_report','=',strtotime(stripslashes($request['date_report'])))
             ->where('id','!=',$id)->get();
         if(count($unique_number)>0){
             $this->validate($request, [
@@ -605,10 +643,61 @@ class ReportsController extends Controller
             $position_short_three = '';
         }
 
-        $protocol = Report::findOrFail($id);
+        $protocol = ReportPharmacy::findOrFail($id);
+
+        if(
+            $request['activity'] == 2 ||
+            $request['certificate'] == 2 ||
+            $request['delivery'] == 2 ||
+            $request['sales'] == 2 ||
+            $request['unauthorized'] == 2 ||
+            $request['first'] == 2 ||
+            $request['improperly'] == 2 ||
+            $request['repackaged'] == 2 ||
+            $request['expired'] == 2 ||
+            $request['compliance'] == 2 ||
+            $request['leaflet'] == 2 ||
+            $request['larger'] == 2 ||
+            $request['purpose'] == 2 ||
+            $request['storage'] == 2 ||
+            $request['warehouse'] == 2 ||
+            $request['separated'] == 2 ||
+            $request['access'] == 2 ||
+            $request['flooring'] == 2 ||
+            $request['combustible'] == 2 ||
+            $request['contract'] == 2
+        ) {
+            $is_violation = 1;
+        } else {
+            $is_violation = 0;
+        }
+
+        $is_prz = null;
+        $is_tor = null;
+        if($request['assay_prz'] == 1 && $request['assay_tor'] == 1) {
+            $is_prz = $protocol->is_prz;
+            $is_tor = $protocol->is_tor;
+        }
+        elseif($request['assay_prz'] == 1 && $request['assay_tor'] == 0) {
+            $is_prz = $protocol->is_prz;
+            $is_tor = 0;
+        }
+        elseif($request['assay_prz'] == 0 && $request['assay_tor'] == 1) {
+            $is_prz = 0;
+            $is_tor = $protocol->is_tor;
+        }
+        elseif($request['assay_prz'] == 0 && $request['assay_tor'] == 0) {
+            $is_prz = 0;
+            $is_tor = 0;
+        }
+        else {
+            $is_prz = 0;
+            $is_tor = 0;
+        }
+
         $data = ([
             'number'=>$request['number'],
-            'date_protocol'=>strtotime(stripslashes($request['date_protocol'])),
+            'date_report'=>strtotime(stripslashes($request['date_report'])),
             'inspector'=>$request['inspector'],
             'inspector_two'=>$request['inspector_two'],
             'inspector_three'=>$request['inspector_three'],
@@ -619,7 +708,9 @@ class ReportsController extends Controller
             'updated_by'=> Auth::user()->id,
 
             'assay_prz'=>$request['assay_prz'],
+
             'assay_tor'=>$request['assay_tor'],
+
             'type_check'=>$request['type_check'],
 
             'inspector_name'=>$inspector_name,
@@ -673,9 +764,10 @@ class ReportsController extends Controller
             'contract'=>$request['contract'],
             'contract_note'=>$request['contract_note'],
             'protocol'=>$request['protocol'],
+
+            'is_violation'=>$is_violation,
         ]);
-
-
+//        dd($request->all());
         $protocol->fill($data);
         $protocol->save();
 
@@ -692,6 +784,127 @@ class ReportsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Добавя проби от ПРЗ.
+     *
+     * @param  int $id
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function add_prz(Request $request, $id)
+    {
+        $assay_prz = null;
+        $data_update_protocol = null;
+
+        $this->validate($request, [
+            'prz_name' => 'required:',
+            'prz_av' => 'required:',
+        ]);
+        $report = ReportPharmacy::findOrFail($id);
+
+        if ($report->firm == 1) {
+            $et = 'ET';
+            $ood = '';
+        } elseif ($report->firm == 2) {
+            $et = '';
+            $ood = 'ООД';
+        } elseif ($report->firm == 3) {
+            $et = '';
+            $ood = 'ЕООД';
+        } elseif ($report->firm == 4) {
+            $et = '';
+            $ood = 'АД';
+        } else {
+            $et = '';
+            $ood = '';
+        }
+
+        if($request['assay_prz'] == 0){
+            $assay_prz = 0;
+        }
+        if($request['assay_prz'] == 1){
+            if($request['more'] == 0){
+                $assay_prz = 1;
+                $data_update_protocol = (['assay_prz'=>1]);
+            }
+            if($request['more'] == 1){
+                $assay_prz = 100;
+                $data_update_protocol = (['assay_more'=>1]);
+            }
+        }
+        $data_assay_prz = ([
+            'number_sample'=>$report->number,
+            'date_number'=>$report->date_report,
+            'firm_id'=>$report->id_from_firm,
+            'from_firm'=>$et.' "'.$report->name.'" '.$ood,
+            'from_object'=>$report->ot,
+            'name'=>$request['prz_name'],
+            'active_subs'=>$request['prz_av'],
+            'inspector'=>$report->inspector_name,
+            'type_assay'=>$assay_prz,
+        ]);
+        Sample::create($data_assay_prz);
+
+        $report->fill($data_update_protocol);
+        $report->save();
+
+        Session::flash('message', 'Пробата от ПРЗ е добавена успешно!');
+        return Redirect::to('/доклад/'.$id);
+    }
+
+    /**
+     * Добавя проби от ТОР.
+     *
+     * @param  int $id
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function add_tor(Request $request, $id)
+    {
+        $this->validate($request, [
+            'tor_name' => 'required:',
+            'tor_av' => 'required:',
+            'eo_tor' => 'required:',
+        ]);
+        $report = ReportPharmacy::findOrFail($id);
+        if ($report->firm == 1) {
+            $et = 'ET';
+            $ood = '';
+        } elseif ($report->firm == 2) {
+            $et = '';
+            $ood = 'ООД';
+        } elseif ($report->firm == 3) {
+            $et = '';
+            $ood = 'ЕООД';
+        } elseif ($report->firm == 4) {
+            $et = '';
+            $ood = 'АД';
+        } else {
+            $et = '';
+            $ood = '';
+        }
+        $data_assay_tor = ([
+            'number_sample'=>$report->number,
+            'date_number'=>$report->date_report,
+            'firm_id'=>$report->id_from_firm,
+            'from_firm'=>$et.' "'.$report->name.'" '.$ood,
+            'from_object'=>$report->ot,
+            'name'=>$request['tor_name'],
+            'active_subs'=>$request['tor_av'],
+            'eo'=>$request['eo_tor'],
+            'inspector'=>$report->inspector_name,
+            'type_assay'=>2,
+        ]);
+        Sample::create($data_assay_tor);
+
+        $data = (['assay_tor'=>1, ]);
+        $report->fill($data);
+        $report->save();
+
+        Session::flash('message', 'Пробата от ПРЗ е добавена успешно!');
+        return Redirect::to('/доклад/'.$id);
     }
 
 

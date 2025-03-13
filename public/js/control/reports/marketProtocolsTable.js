@@ -1,16 +1,17 @@
 $(document).ready(function() {
-    $('#example').DataTable( {
+    $('#report_example').DataTable( {
         "columns": [
             null,
             null,
             { "type": "de_date" },
+            { "orderable": false },
             null,
             null,
             null,
             null,
             null,
             null,
-            { "type": "de_date" },
+            null,
             { "orderable": false }
         ],
 

@@ -12,8 +12,7 @@
     <hr class="my_hr"/>
     <div class="alert alert-danger my_alert" role="alert">
         <p class="my_p"><span class="fa fa-warning red" aria-hidden="true"></span> <span class="bold red">Внимание! Прочети преди да продължиш!</span><br/>
-            <span class="bold">Ведъж направен запис за Констативен Протокол не може да се изтрие, може само да се редактира!
-            </span>
+            <span class="bold red" style="font-size: 1.5em">Тук се добавят К Протоколи САМО когато няма доклад към него! Пример: За Издаване на Удостоверение</span>
         </p>
     </div>
     <div class="alert alert-info my_alert" role="alert">

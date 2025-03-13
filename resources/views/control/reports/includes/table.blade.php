@@ -1,4 +1,4 @@
-<table id="example" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
+<table id="report_example" class="display my_table table-striped " cellspacing="0" width="100%" border="1px">
     <thead>
     <tr>
         <th>№</th>
@@ -10,25 +10,26 @@
         <th>Инспектор</th>
         <th>Проба ПРЗ</th>
         <th>Проба ТОР</th>
+        <th>С нарушение</th>
         <th>С К. Протокол</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
     <?php $n = 1; ?>
-        @foreach($protocols as $protocol)
+        @foreach($reports as $report)
             <?php
             ////////////////////////
-            if ($protocol->firm == 1) {
+            if ($report->firm == 1) {
                 $et = 'ET';
                 $ood = '';
-            } elseif ($protocol->firm == 2) {
+            } elseif ($report->firm == 2) {
                 $et = '';
                 $ood = 'ООД';
-            } elseif ($protocol->firm == 3) {
+            } elseif ($report->firm == 3) {
                 $et = '';
                 $ood = 'ЕООД';
-            } elseif ($protocol->firm == 4) {
+            } elseif ($report->firm == 4) {
                 $et = '';
                 $ood = 'АД';
             } else {
@@ -36,50 +37,63 @@
                 $ood = '';
             }
             ///////////////
-            if($protocol->ot == 1){
+            if($report->ot == 1){
                 $type_object = 'Аптека';
             }
-            if($protocol->ot == 2){
+            if($report->ot == 2){
                 $type_object = 'Склад';
             }
-            if($protocol->ot == 3){
+            if($report->ot == 3){
                 $type_object = 'Цех';
             }
 
             ///////////////
-            if($protocol->violation == 0){
+            if($report->violation == 0){
                 $violation = '';
             }
-            if($protocol->violation == 1){
+            if($report->violation == 1){
                 $violation = 'Да';
             }
             ///////////////
-            if($protocol->assay_prz == 0){
+            if($report->assay_prz == 0){
                 $assay_prz = '';
             }
-            if($protocol->assay_prz > 0){
+            if($report->assay_prz > 0){
                 $assay_prz = 'От ПРЗ';
             }
-            if($protocol->assay_tor == 0){
+            if($report->assay_tor == 0){
                 $assay_tor = '';
             }
-            if($protocol->assay_tor > 0){
+            if($report->assay_tor > 0){
                 $assay_tor = 'От тор';
             }
             ?>
             <tr>
                 <td class="right"><?= $n++ ?></td>
-                <td class="right">{!! $protocol->number !!}</td>
-                <td class="">{!! date('d.m.Y', $protocol->date_protocol) !!}</td>
+                <td class="right">{!! $report->number !!}</td>
+                <td class="">{!! date('d.m.Y', $report->date_report) !!}</td>
                 <td class="">{{$type_object}}</td>
-                <td>{!! $et !!} "{{$protocol->name}}" {!! $ood !!}</td>
-                <td class="">{{$protocol->place}}</td>
-                <td>{{$protocol->inspector_name}}</td>
+                <td>{!! $et !!} "{{$report->name}}" {!! $ood !!}</td>
+                <td class="">{{$report->place}}</td>
+                <td>{{$report->inspector_name}}</td>
                 <td class="center">{!! $assay_prz !!}</td>
                 <td class="center">{!! $assay_tor !!}</td>
-                <td class="center">{!! $violation !!}</td>
+                <td class="center">
+                    @if($report->is_violation == 1)
+                        ДА
+                    @endif
+                </td>
+                <td class="center">
+                    @if($report->protocol == 1 && $report->is_protocol == 0)
+                        <span class="red bold">Не е добавен</span>
+                    @else
+                        @if($report->protocol_number != 0)
+                            {{$report->protocol_number}}/{!! date('d.m.Y', $report->protocol_date) !!}
+                        @endif
+                    @endif
+                </td>
                 <td class="center last-column">
-                    <a href="{!!URL::to('/доклад/'.$protocol->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                    <a href="{!!URL::to('/доклад/'.$report->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
                         &nbsp;Виж!
                     </a>
                 </td>

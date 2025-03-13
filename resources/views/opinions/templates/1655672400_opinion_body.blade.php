@@ -149,10 +149,10 @@
             &nbsp; {!! $logo[0]['city'] !!},  п.к. {!! $logo[0]['postal_code'] !!},  {!! $logo[0]['address'] !!};<br/>
         </p>
         @if($logo[0]['fax'] == 0)
-            <p style="font-size: 0.9em; font-weight: bold"><i class="fa fa-phone"></i> +359(0){!! $logo[0]['phone'] !!}; www.babh.government.bg</p>
+            <p style="font-size: 0.9em; font-weight: bold"><i class="fa fa-phone"></i> +359(0){!! $logo[0]['phone'] !!}; www.bfsa.egov.bg</p>
         @else
             <p style="font-size: 0.9em; font-weight: bold"><i class="fa fa-phone my_fa"></i> / <i class="fa fa-fax"></i> : +359(0){!! $logo[0]['fax'] !!},
-            <i class="fa fa-phone my_fa"></i> +359(0){!! $logo[0]['phone'] !!}; www.babh.government.bg</p>
+            <i class="fa fa-phone my_fa"></i> +359(0){!! $logo[0]['phone'] !!}; www.bfsa.egov.bg</p>
         @endif
 		<p style="font-size: 0.8em; margin-top: 15px">
 			&#x2610; Ниво 3, TPL-RED &nbsp;&nbsp;&nbsp;&nbsp; 

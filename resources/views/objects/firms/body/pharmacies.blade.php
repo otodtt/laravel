@@ -156,10 +156,10 @@
             <hr/>
             <fieldset class="small_apt_right">
                 <div class="btn-group">
-                    <span><a href="{!!URL::to('/протокол/'.$apt->id.'/добави/1') !!}" class="fa fa-file-powerpoint-o btn btn-info my_btn" >
-                            Добави КП за тази аптека</a></span>
+                    <span><a href="{!!URL::to('/протокол/'.$apt->id.'/добави/1') !!}" class="fa fa-file-powerpoint-o btn btn-default my_btn" >
+                            Добави КП БЕЗ ДОКЛАД!</a></span>
                     <span><a href="{!!URL::to('/доклад-аптека/'.$apt->id.'/добави/1') !!}" class="fa fa-file-text-o btn btn-info my_btn" >
-                            Добави Доклад за тази аптека</a></span>
+                            Добави ДОКЛАД за тази аптека</a></span>
                 </div>
                 <div class="btn-group my_btn-group">
                     @if(Auth::user()->admin == 2 )

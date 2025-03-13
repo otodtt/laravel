@@ -4,25 +4,35 @@
             {{--/////////////////////////--}}
             <div class="col-md-6 col-md-6_my " >
                 <fieldset class="small_field example_field_left">
-                    <span class="bold">Взета проба от ПРЗ:</span>&nbsp;&nbsp;
-                    <label class="assay_prz"><span>НЕ: </span>
-                        {!! Form::radio('assay_prz', 0, false) !!}
-                    </label>&nbsp;&nbsp;|
-                    <label class="assay_prz"><span>&nbsp;&nbsp;ДА: </span>
-                        {!! Form::radio('assay_prz', 1, false) !!}
-                    </label>
+                    <div class="col-md-4">
+                        <span class="bold">Взета проба от ПРЗ:</span>&nbsp;&nbsp;
+                        <label class="assay_prz"><span>НЕ: </span>
+                            {!! Form::radio('assay_prz', 0, false) !!}
+                        </label>&nbsp;&nbsp;|
+                        <label class="assay_prz"><span>&nbsp;&nbsp;ДА: </span>
+                            {!! Form::radio('assay_prz', 1, false) !!}
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="bold">Тук само маркирай дали има взета проба от ПРЗ! Ако има ги добави в Доклада!</span>
+                    </div>
                 </fieldset>
             </div>
 
             <div class="col-md-6 col-md-6_my ">
                 <fieldset class="small_field example_field_right">
-                    <span class="bold">Взета проба от ТОР:</span>&nbsp;&nbsp;
-                    <label class="assay_tor"><span>НЕ: </span>
-                        {!! Form::radio('assay_tor', 0, false) !!}
-                    </label>&nbsp;&nbsp;|
-                    <label class="assay_tor"><span>&nbsp;&nbsp;ДА: </span>
-                        {!! Form::radio('assay_tor', 1, false) !!}
-                    </label>
+                    <div class="col-md-4">
+                        <span class="bold">Взета проба от ТОР:</span>&nbsp;&nbsp;
+                        <label class="assay_tor"><span>НЕ: </span>
+                            {!! Form::radio('assay_tor', 0, false) !!}
+                        </label>&nbsp;&nbsp;|
+                        <label class="assay_tor"><span>&nbsp;&nbsp;ДА: </span>
+                            {!! Form::radio('assay_tor', 1, false) !!}
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="bold">Тук само маркирай дали има взета проба от Торове! Ако има ги добави в Доклада!</span>
+                    </div>
                 </fieldset>
             </div>
             {{--/////////////////////////--}}
@@ -72,7 +82,7 @@
                             {!! Form::label('tor_av', 'Съдържание:', ['class'=>'my_labels']) !!}
                             {!! Form::text('tor_av', null, ['size'=>15, 'maxlength'=>100 ]) !!}
 
-                            <label class="eo_tor"><span>&nbsp;ЕО&nbsp; НЕ: </span>
+                            <label class="eo_tor"><span>&nbsp;CE&nbsp; НЕ: </span>
                                 {!! Form::radio('eo_tor', 0, false) !!}
                             </label>
                             <label class="eo_tor"><span>&nbsp;&nbsp;ДА: </span>

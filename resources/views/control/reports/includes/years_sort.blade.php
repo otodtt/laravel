@@ -37,11 +37,11 @@ if((int)$end_years == 0){
 }
 ?>
 <div  class="col-md-9">
-    {!! Form::label('start_year', 'Дата на Констативен Протокол:   От дата: ', ['class'=>'labels']) !!}
+    {!! Form::label('start_year_protocols', 'Дата на Констативен Протокол:   От дата: ', ['class'=>'labels']) !!}
     {!! Form::text('start_year', $start_years, ['class'=>'form-control form-control-my-search search_value', 'size'=>30,
     'maxlength'=>10,'id'=>'start_year_protocols']) !!}
     &nbsp;&nbsp; | &nbsp;&nbsp;
-    {!! Form::label('end_year', ' До дата: ', ['class'=>'labels']) !!}
+    {!! Form::label('end_year_protocols', ' До дата: ', ['class'=>'labels']) !!}
     {!! Form::text('end_year', $end_years, ['class'=>'form-control form-control-my-search search_value', 'size'=>30,
     'maxlength'=>10, 'id'=>'end_year_protocols']) !!}
     &nbsp;&nbsp;

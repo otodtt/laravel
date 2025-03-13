@@ -1,5 +1,5 @@
 <?php
-if(!isset($protocols)){
+if(!isset($reports)){
     $prz_no = false;
     $prz_yes = false;
     $tor_no = false;
@@ -11,20 +11,20 @@ if(!isset($protocols)){
     $return_order_protocol = null;
 }
 else{
-    if($protocols->assay_prz == 0){
+    if($reports->assay_prz == 0){
         $prz_no = true;
         $prz_yes = false;
     }
-    if($protocols->assay_prz == 1){
+    if($reports->assay_prz == 1){
         $prz_no = false;
         $prz_yes = true;
     }
     ///////////
-    if($protocols->assay_tor == 0){
+    if($reports->assay_tor == 0){
         $tor_no = true;
         $tor_yes = false;
     }
-    if($protocols->assay_tor == 1){
+    if($reports->assay_tor == 1){
         $tor_no = false;
         $tor_yes = true;
     }
@@ -43,7 +43,7 @@ else{
                         {!! Form::radio('assay_prz', 1, $prz_yes) !!}
                     </label>
                     <div class="input_fields_wrap">
-                        @if($protocols->assay_prz == 0)
+                        @if($reports->assay_prz == 0)
                             <p>
                                 <span class="red bold"><i class="fa fa-warning"></i> Внимание!</span> <span class="bold">Ако се маркира, че има взета проба от ПРЗ
                                 с този доклад, след като го редактирате добавете пробата!</span>
@@ -72,7 +72,7 @@ else{
                         {!! Form::radio('assay_tor', 1, $tor_yes) !!}
                     </label>
                     <div class="input_fields_wrap">
-                        @if($protocols->assay_tor == 0)
+                        @if($reports->assay_tor == 0)
                             <p>
                                 <span class="red bold"><i class="fa fa-warning"></i> Внимание!</span> <span class="bold">Ако се маркира, че има взета проба от ТОР
                                 с този доклад, след като го редактирате добавете пробата!</span>

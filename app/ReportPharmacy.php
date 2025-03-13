@@ -4,7 +4,7 @@ namespace odbh;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Report extends Model
+class ReportPharmacy extends Model
 {
     /**
      * Таблицата която се използва от модела
@@ -17,11 +17,11 @@ class Report extends Model
      * Защитени колони в таблицата
      * @var array
      */
-    protected $fillable = [ 'id_from_object', 'number', 'date_protocol', 'inspector', 'inspector_two',
-        'inspector_three', 'inspector_another', 'inspector_from', 'ot', 'firm', 'name', 'city_id', 'city_village',
-        'place', 'address', 'district_object', 'ascertainment', 'taken', 'order_protocol', 'date_add', 'added_by',
-        'date_update', 'updated_by', 'alphabet', 'assay_prz', 'assay_tor', 'type_check',
-        'protocol',
+    protected $fillable = [ 'id_from_object', 'id_from_firm', 'number', 'date_report', 'inspector', 'inspector_two',
+        'inspector_three', 'inspector_another', 'inspector_from', 'ot', 'firm', 'name', 'city_village',
+        'place', 'district_object', 'alphabet', 'type_check', 'date_add', 'added_by', 'date_update', 'updated_by',
+        'inspector_name', 'position_short',  'inspector_two_name', 'position_short_two', 'inspector_three_name',
+        'position_short_three', 'created_at', 'updated_at', 'assay_prz', 'assay_tor', 'assay_more',
 
         'activity', 'activity_note',
         'certificate', 'certificate_note',
@@ -43,9 +43,11 @@ class Report extends Model
         'flooring' , 'flooring_note',
         'combustible', 'combustible_note',
         'contract', 'contract_note',
-
-        'inspector_name', 'inspector_two_name', 'inspector_three_name', 'position', 'position_short', 'position_two',
-        'position_short_two', 'position_three', 'position_short_three', 'assay_more'];
+        'protocol',
+        'protocol_number',
+        'protocol_date',
+        'is_violation'
+    ];
 
     /**
      * Този доклад принадлежи на фирма
@@ -53,5 +55,13 @@ class Report extends Model
      */
     public function firm(){
         return $this->belongsTo('odbh\Firm');
+    }
+
+    /**
+     * Доклад има костативен протокол
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function protocols(){
+        return $this->hasMany('odbh\Protocol', 'id_from_object');
     }
 }

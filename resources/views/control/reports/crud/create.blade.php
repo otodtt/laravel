@@ -49,10 +49,10 @@
             @include('control.reports.crud.form.elements')
             <hr class="my_hr"/>
 
-            @include('control.reports.crud.form.data_protocol')
+            @include('control.reports.crud.form.example')
             <hr class="my_hr"/>
 
-            {{--@include('control.reports.crud.form.edit_example')--}}
+            @include('control.reports.crud.form.data_protocol')
             <hr class="my_hr"/>
 
             <div class="col-md-6 ">
@@ -74,7 +74,8 @@
 @section('scripts')
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/date/in_date.js" )!!}
-    {!!Html::script("js/protocols/selectAssay.js" )!!}
+    {!!Html::script("js/control/in_date.js" )!!}
+        {!!Html::script("js/protocols/selectAssay.js" )!!}
 {{--    {!!Html::script("js/confirm/prevent.js" )!!}--}}
     <script>
         $(document).ready(function(){
@@ -160,5 +161,32 @@
             });
 
         });
+
+
+        $('input[name="protocol"]').on('click', function(){
+            if($('input[name=protocol]:checked').val() == 0){
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+            else if($('input[name=protocol]:checked').val() == 1){
+                $( "#protocol_check" ).removeClass( "hidden" );
+            }
+            else{
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+        });
+        if ($("input[name='protocol']").is(':checked')) {
+            if($('input[name=protocol]:checked').val() == 0){
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+            else if($('input[name=protocol]:checked').val() == 1){
+                $( "#protocol_check" ).removeClass( "hidden" );
+            }
+            else{
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+        }
+        else {
+            $( "#protocol_check" ).addClass( "hidden" );
+        }
     </script>
 @endsection

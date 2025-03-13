@@ -27,6 +27,12 @@
         <a href="{!! URL::to('/производители')!!}" class="fa fa-industry btn btn-info my_btn"> Протоколи Производители на ПРЗ</a>
     </div>
     <hr/>
+    <div class="btn-group">
+        <span class="fa fa fa-plus-square btn btn-default my_btn"> Доклади Аптеки</span>
+        <a href="{!! URL::to('/протоколи-обекти')!!}" class="fa fa-shield btn btn-info my_btn"> Доклади Складове</a>
+        <a href="{!! URL::to('/други-обекти')!!}" class="fa fa-cubes btn btn-info my_btn"> Доклади Цехове</a>
+    </div>
+    <hr/>
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all">
@@ -85,7 +91,7 @@
     {!!Html::script("js/table/jquery-1.11.3.min.js" )!!}
     {!!Html::script("js/table/jquery.dataTables.js" )!!}
     {!!Html::script("js/table/date-de.js" )!!}
-    {!!Html::script("js/table/marketProtocolsTable.js" )!!}
+    {!!Html::script("js/control/reports/marketProtocolsTable.js" )!!}
     {!!Html::script("js/build/jquery.datetimepicker.full.min.js" )!!}
     {!!Html::script("js/date/in_date.js" )!!}
 @endsection

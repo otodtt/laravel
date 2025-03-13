@@ -29,7 +29,8 @@
                 </ul>
             </div>
         @endif
-        {!! Form::open(['url'=>'доклад/'.$protocols->id.'/update', 'method'=>'POST', 'id'=>'form']) !!}
+        {!! Form::model($reports, ['url'=>'доклад/'.$reports->id.'/update', 'method'=>'POST', 'id'=>'form']) !!}
+            {{--<hr class="my_hr"/>--}}
             <hr class="my_hr"/>
             @include('control.reports.crud.form.radio_type')
             <hr class="my_hr"/>
@@ -43,14 +44,14 @@
             @include('control.reports.crud.form.elements')
             <hr class="my_hr"/>
 
+            @include('control.reports.crud.form.edit_example')
+            <hr class="my_hr"/>
+
             @include('control.reports.crud.form.data_protocol')
             <hr class="my_hr"/>
 
-{{--            @include('control.reports.crud.form.edit_example')--}}
-            <hr class="my_hr"/>
-
             <div class="col-md-6 ">
-                <a href="{{ '/доклад/'.$protocols->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success">
+                <a href="{{ '/доклад/'.$reports->id }}" class="fa fa-arrow-circle-left btn btn-success my_btn-success">
                     Откажи! Назад към Доклада!</a>
             </div>
 
@@ -153,5 +154,30 @@
                 jQuery('input:radio[name="contract"]').filter('[value="3"]').prop('checked', true);
             });
         });
+        $('input[name="protocol"]').on('click', function(){
+            if($('input[name=protocol]:checked').val() == 0){
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+            else if($('input[name=protocol]:checked').val() == 1){
+                $( "#protocol_check" ).removeClass( "hidden" );
+            }
+            else{
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+        });
+        if ($("input[name='protocol']").is(':checked')) {
+            if($('input[name=protocol]:checked').val() == 0){
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+            else if($('input[name=protocol]:checked').val() == 1){
+                $( "#protocol_check" ).removeClass( "hidden" );
+            }
+            else{
+                $( "#protocol_check" ).addClass( "hidden" );
+            }
+        }
+        else {
+            $( "#protocol_check" ).addClass( "hidden" );
+        }
     </script>
 @endsection
