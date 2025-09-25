@@ -7,38 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/control/in_date.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/control/reports/marketProtocolsTable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/control/reports/selectProtokolAdd.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportsPharmacyController.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Report.php" afterPath="$PROJECT_DIR$/app/ReportPharmacy.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Firm.php" afterPath="$PROJECT_DIR$/app/Firm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/ReportsPharmaciesRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/ReportsPharmaciesRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Pharmacy.php" afterPath="$PROJECT_DIR$/app/Pharmacy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Protocol.php" afterPath="$PROJECT_DIR$/app/Protocol.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/form/data_protocol.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/form/data_protocol.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/form/edit_example.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/form/edit_example.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/form/example.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/form/example.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/form/inspectors.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/form/inspectors.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/crud/form/number_protocol.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/crud/form/number_protocol.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/form/body_show.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/form/body_show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/includes/sorting.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/includes/sorting.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/includes/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/includes/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/includes/years_sort.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/includes/years_sort.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/objects/documents_all/logo_edition.blade.php" afterPath="$PROJECT_DIR$/resources/views/objects/documents_all/logo_edition.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/objects/firms/body/pharmacies.blade.php" afterPath="$PROJECT_DIR$/resources/views/objects/firms/body/pharmacies.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/opinions/templates/1639612800_opinion_body.blade.php" afterPath="$PROJECT_DIR$/resources/views/opinions/templates/1639612800_opinion_body.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/opinions/templates/1655672400_opinion_body.blade.php" afterPath="$PROJECT_DIR$/resources/views/opinions/templates/1655672400_opinion_body.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/protocols/market/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/protocols/market/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,20 +47,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - haskovo@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="reports_pharmacy" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -96,11 +54,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3328786">
+            <state vertical-scroll-proportion="-17.923077">
               <caret line="494" column="88" selection-start-line="494" selection-start-column="74" selection-end-line="494" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.12179487">
+              <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -126,7 +94,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/PhitoTradersController.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/index/sorting.blade.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/crud/edit_data_trader.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/phytosanitary/unspecified/update_unspecified.blade.php" />
@@ -173,6 +140,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReportsPharmacyController.php" />
         <option value="$PROJECT_DIR$/resources/views/objects/documents_all/logo_edition.blade.php" />
         <option value="$PROJECT_DIR$/app/Firm.php" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -278,9 +246,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-33" />
-    <option name="y" value="153" />
-    <option name="width" value="1855" />
+    <option name="x" value="89" />
+    <option name="width" value="1517" />
     <option name="height" value="949" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -351,6 +318,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="laravel">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
+      </pane>
       <pane id="Scratches">
         <subPane>
           <PATH>
@@ -389,161 +372,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="control" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reports" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="control" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="laravel">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Tests" />
       </pane>
     </panes>
   </component>
@@ -782,17 +615,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-33" y="153" width="1855" height="949" extended-state="1" />
-    <editor active="true" />
+    <frame x="89" y="0" width="1517" height="949" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1972422" sideWeight="0.53375196" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1821727" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2299245" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36695018" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13983287" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3762255" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17638984" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19128172" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24205749" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5514706" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -830,46 +663,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/protocols/market/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33193862">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.objects_protocols">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/objects/firms/body/pharmacies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.0543933">
-          <caret line="171" column="19" selection-start-line="171" selection-start-column="19" selection-end-line="171" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/objects/firms/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53052324">
-          <caret line="102" column="53" selection-start-line="102" selection-start-column="53" selection-end-line="102" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/protocols/selectAssay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.46433377">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/control/reports/selectProtokolAdd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -941,26 +734,26 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.firms">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.operators">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -968,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9288703">
           <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7587169">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,14 +821,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.market_assay">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1053,11 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.35564855">
           <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding>
-            <element signature="e#124#227#0#PHP" expanded="false" />
-            <element signature="e#298#396#0#PHP" expanded="false" />
-            <element signature="e#4574#4645#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,36 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26377952">
           <caret line="808" column="22" selection-start-line="808" selection-start-column="22" selection-end-line="808" selection-end-column="22" />
-          <folding>
-            <element signature="e#700#2510#0#PHP" expanded="false" />
-            <element signature="e#2516#2617#0#PHP" expanded="false" />
-            <element signature="e#2622#3179#0#PHP" expanded="false" />
-            <element signature="e#3185#3286#0#PHP" expanded="false" />
-            <element signature="e#3291#3856#0#PHP" expanded="false" />
-            <element signature="e#3862#4005#0#PHP" expanded="false" />
-            <element signature="e#4010#4687#0#PHP" expanded="false" />
-            <element signature="e#4693#5089#0#PHP" expanded="false" />
-            <element signature="e#5094#9804#0#PHP" expanded="false" />
-            <element signature="e#9810#10081#0#PHP" expanded="false" />
-            <element signature="e#10086#10533#0#PHP" expanded="false" />
-            <element signature="e#10539#10857#0#PHP" expanded="false" />
-            <element signature="e#10862#17487#0#PHP" expanded="false" />
-            <element signature="e#17493#17621#0#PHP" expanded="false" />
-            <element signature="e#17626#19403#0#PHP" expanded="false" />
-            <element signature="e#19409#19548#0#PHP" expanded="false" />
-            <element signature="e#19553#19898#0#PHP" expanded="false" />
-            <element signature="e#19904#20102#0#PHP" expanded="false" />
-            <element signature="e#20107#23484#0#PHP" expanded="false" />
-            <element signature="e#23490#23623#0#PHP" expanded="false" />
-            <element signature="e#23664#23790#0#PHP" expanded="false" />
-            <element signature="e#23795#24432#0#PHP" expanded="false" />
-            <element signature="e#24438#24694#0#PHP" expanded="false" />
-            <element signature="e#24699#26644#0#PHP" expanded="false" />
-            <element signature="e#26650#26809#0#PHP" expanded="false" />
-            <element signature="e#28672#28831#0#PHP" expanded="false" />
-            <marker date="1741788745253" expanded="true" signature="9406:9572" placeholder="SELECT * FRO..objects_protocols..." />
-            <marker date="1741788745253" expanded="true" signature="26326:26440" placeholder="SELECT * FRO..objects_protocols..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1144,15 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9002625">
           <caret line="128" column="79" selection-start-line="128" selection-start-column="79" selection-end-line="128" selection-end-column="79" />
-          <folding>
-            <element signature="e#403#528#0#PHP" expanded="false" />
-            <element signature="e#533#1722#0#PHP" expanded="false" />
-            <element signature="e#1728#1854#0#PHP" expanded="false" />
-            <element signature="e#1859#2880#0#PHP" expanded="false" />
-            <element signature="e#2886#3008#0#PHP" expanded="false" />
-            <element signature="e#3046#3186#0#PHP" expanded="false" />
-            <element signature="e#3343#3534#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1160,9 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44619423">
           <caret line="23" column="97" selection-start-line="23" selection-start-column="97" selection-end-line="23" selection-end-column="97" />
-          <folding>
-            <element signature="e#106#181#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1170,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="41.307693">
           <caret line="0" column="25" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.381818">
           <caret line="593" column="49" selection-start-line="593" selection-start-column="49" selection-end-line="593" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,20 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.1454544">
           <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.reports_pharmacy">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,32 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46194226">
           <caret line="709" column="47" selection-start-line="709" selection-start-column="47" selection-end-line="709" selection-end-column="47" />
-          <folding>
-            <element signature="e#41#50#0#PHP" expanded="true" />
-            <element signature="e#664#715#0#PHP" expanded="false" />
-            <element signature="e#720#2536#0#PHP" expanded="false" />
-            <element signature="e#2542#2643#0#PHP" expanded="false" />
-            <element signature="e#2648#3210#0#PHP" expanded="false" />
-            <element signature="e#3216#3359#0#PHP" expanded="false" />
-            <element signature="e#3364#4048#0#PHP" expanded="false" />
-            <element signature="e#4054#4450#0#PHP" expanded="false" />
-            <element signature="e#4455#9143#0#PHP" expanded="false" />
-            <element signature="e#9150#9421#0#PHP" expanded="false" />
-            <element signature="e#9426#9878#0#PHP" expanded="false" />
-            <element signature="e#9884#10214#0#PHP" expanded="false" />
-            <element signature="e#10219#19794#0#PHP" expanded="false" />
-            <element signature="e#19800#19922#0#PHP" expanded="false" />
-            <element signature="e#19927#21897#0#PHP" expanded="false" />
-            <element signature="e#21903#22043#0#PHP" expanded="false" />
-            <element signature="e#22048#22397#0#PHP" expanded="false" />
-            <element signature="e#22403#22624#0#PHP" expanded="false" />
-            <element signature="e#29571#29705#0#PHP" expanded="false" />
-            <element signature="e#29767#29926#0#PHP" expanded="false" />
-            <element signature="e#29931#31760#0#PHP" expanded="false" />
-            <element signature="e#31766#31925#0#PHP" expanded="false" />
-            <element signature="e#31930#33358#0#PHP" expanded="false" />
-            <marker date="1741792857308" expanded="true" signature="8751:8914" placeholder="SELECT * FRO..reports_pharmacy..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1240,7 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33464566">
           <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7322835">
           <caret line="98" column="34" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1256,7 +955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44619423">
           <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1264,7 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.2007874">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1272,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6023622">
           <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1280,31 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.15552524">
           <caret line="72" column="34" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="34" />
-          <folding>
-            <element signature="e#717#2259#0#PHP" expanded="false" />
-            <element signature="e#2313#2466#0#PHP" expanded="false" />
-            <element signature="e#3838#4059#0#PHP" expanded="false" />
-            <element signature="e#5456#5581#0#PHP" expanded="false" />
-            <element signature="e#5586#5892#0#PHP" expanded="false" />
-            <element signature="e#5898#6024#0#PHP" expanded="false" />
-            <element signature="e#6029#6333#0#PHP" expanded="false" />
-            <element signature="e#6339#6486#0#PHP" expanded="false" />
-            <element signature="e#6491#7764#0#PHP" expanded="false" />
-            <element signature="e#7770#8005#0#PHP" expanded="false" />
-            <element signature="e#8010#9751#0#PHP" expanded="false" />
-            <element signature="e#9860#10013#0#PHP" expanded="false" />
-            <element signature="e#10018#11375#0#PHP" expanded="false" />
-            <element signature="e#11381#11508#0#PHP" expanded="false" />
-            <element signature="e#11513#11832#0#PHP" expanded="false" />
-            <element signature="e#11838#11966#0#PHP" expanded="false" />
-            <element signature="e#11971#12288#0#PHP" expanded="false" />
-            <element signature="e#12294#12515#0#PHP" expanded="false" />
-            <element signature="e#12520#13922#0#PHP" expanded="false" />
-            <element signature="e#14080#15369#0#PHP" expanded="false" />
-            <element signature="e#15375#15610#0#PHP" expanded="false" />
-            <element signature="e#15615#17371#0#PHP" expanded="false" />
-            <element signature="e#17480#17633#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1312,14 +983,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70997375">
           <caret line="67" column="95" selection-start-line="67" selection-start-column="95" selection-end-line="67" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/07c10876-b0a2-4c97-806d-5232f6a46690/haskovo.diaries">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17258883">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328786">
+        <state vertical-scroll-proportion="-17.923077">
           <caret line="494" column="88" selection-start-line="494" selection-start-column="74" selection-end-line="494" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12179487">
+          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
           <folding />
         </state>
       </provider>
