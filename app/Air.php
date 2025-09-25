@@ -24,7 +24,7 @@ class Air extends Model
                             'updated_by', 'acres'];
 
     /**
-     * Това Разрешително принадлежи на ЗП
+     * Това Разрешително принадлежи на ЗПроизводител
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function farmer(){
