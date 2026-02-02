@@ -280,9 +280,11 @@
                                 Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
                                 Добавена е сума -  <span class="bold">{{ $certificate->sum}}</span> лв.
                                 @if ($certificate->percent == 1)
-                                    с добавени <span class="bold">42%</span> според чл. 56 т. 1
+                                    с добавени <span class="bold">42%</span> според чл. 1(4) т. 1
                                 @elseif($certificate->percent == 2)
-                                    с добавени <span class="bold">86%</span> според чл. 56 т. 2
+                                    с добавени <span class="bold">86%</span> според чл. 1(4) т. 3
+                                @elseif($certificate->percent == 3)
+                                    с добавени <span class="bold">63%</span> според чл. 1(4) т. 2
                                 @else
                                     без добавен процент.
                                 @endif
@@ -295,6 +297,8 @@
                                     с добавени <span class="bold">42%</span> според чл. 56 т. 1
                                 @elseif($certificate->percent == 2)
                                     с добавени <span class="bold">86%</span> според чл. 56 т. 2
+                                @elseif($certificate->percent == 3)
+                                    с добавени <span class="bold">63%</span> според чл. 1(4) т. 2
                                 @else
                                     без добавен процент.
                                 @endif
@@ -330,21 +334,31 @@
                             $percent0 = true;
                             $percent1 = false;
                             $percent2 = false;
+                            $percent3 = false;
                         }
                         elseif ($certificate->percent == 1) {
                             $percent0 = false;
                             $percent1 = true;
                             $percent2 = false;
+                            $percent3 = false;
                         }
                         elseif ($certificate->percent == 2) {
                             $percent0 = false;
                             $percent1 = false;
                             $percent2 = true;
+                            $percent3 = false;
+                        }
+                        elseif ($certificate->percent == 3) {
+                            $percent0 = false;
+                            $percent1 = false;
+                            $percent2 = false;
+                            $percent3 = true;
                         }
                         else {
                             $percent0 = true;
                             $percent1 = false;
                             $percent2 = false;
+                            $percent3 = false;
                         }
                         // print_r($sum_for_pay);
                         ?>
@@ -356,6 +370,11 @@
                         &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
                         {!! Form::label('percent1', '42%', ['class'=>'my_labels']) !!}
                         {!! Form::radio('percent', '1' , $percent1, ['id' => 'percent1', 'class'=>'radioBtnClass']) !!}
+
+                        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                        {!! Form::label('percent3', '63%', ['class'=>'my_labels']) !!}
+                        {!! Form::radio('percent', '3' , $percent3, ['id' => 'percent3', 'class'=>'radioBtnClass']) !!}
+
                         &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
                         {!! Form::label('percent2', '84%', ['class'=>'my_labels']) !!}
                         {!! Form::radio('percent', '2' , $percent2, ['id' => 'percent2', 'class'=>'radioBtnClass']) !!}
@@ -855,7 +874,7 @@
                                 </td>
                                 <td>
                                     @if ($certificate->type_crops == 1)
-                                        <span>чл.54 т. 1</span>
+                                        <span>чл.63 т. 2</span>
                                     @elseif ($certificate->type_crops == 2)
                                         <span>чл.54 т. 2</span>
                                     @else
@@ -881,45 +900,52 @@
                                 <td>
                                     <?php 
                                     if($certificate->percent == 1){
-                                        $txt = 'чл.56 т.1';
+                                        $txt = 'чл.1(4) т.1';
                                         $br = 'бр.';
                                         $num = '1';
-                                        $prcent = '42%';
-                                        $sum_prcent = ($certificate->base_sum*42)/100;
+                                        $percent = '42%';
+                                        $sum_percent = ($certificate->base_sum*42)/100;
                                     }
                                     elseif($certificate->percent == 2){
-                                        $txt = 'чл.56 т.2';
+                                        $txt = 'чл.1(4) т.3';
                                         $br = 'бр.';
                                         $num = '1';
-                                        $prcent = '84%';
-                                        $sum_prcent = ($certificate->base_sum*84)/100;
+                                        $percent = '84%';
+                                        $sum_percent = ($certificate->base_sum*84)/100;
+                                    }
+                                    elseif($certificate->percent == 3){
+                                        $txt = 'чл.1(4) т.2';
+                                        $br = 'бр.';
+                                        $num = '1';
+                                        $percent = '63%';
+                                        $sum_percent = ($certificate->base_sum*63)/100;
                                     }
                                     else {
                                         $txt = '';
                                         $br = '';
                                         $num = '';
-                                        $prcent = '';
-                                        $sum_prcent = 0;
-                                    }0
+                                        $percent = '';
+                                        $sum_percent = 0;
+                                    }
                                     ?>
                                     <span>{{ $txt}}</span>
                                 </td>
                                 <td>{{$br}}</td>
                                 <td>{{$num}}</td>
-                                <td>{{$prcent}}</td>
+                                <td>{{$percent}}</td>
                                 <td>
-                                    @if($sum_prcent != 0)
-                                        {{ number_format($sum_prcent, 2, ',', '') }}
+                                    @if($sum_percent != 0)
+                                        {{ number_format($sum_percent, 2, ',', '') }}
                                     @endif
                                 </td>
                                 <td>
-                                    @if($sum_prcent != 0)
+                                    @if($sum_percent != 0)
                                     0,00
                                     @endif
                                 </td>
                                 <td>
-                                    @if($sum_prcent != 0)
-                                        {{ number_format($sum_prcent, 2, ',', '') }}
+                                    @if($sum_percent != 0)
+                                        {{ number_format($sum_percent, 2, ',', '') }}
                                     @endif
                                 </td>
                             </tr>
@@ -991,7 +1017,7 @@
                                         if($certificate->type_crops == 2) {
                                             $sum_cert = $sum_type;
                                         }
-                                        $percent_sum = $sum_prcent;
+                                        $percent_sum = $sum_percent;
                                         $total = $sum_cert + $percent_sum ;
                                         if($total = $certificate->sum ) {
                                             $total_sum = $total;
