@@ -34,6 +34,7 @@
         }
         ?>
         <fieldset class="{!! $change_class !!}">
+            @if($apt->active == 0  && $apt->raz_udost != 1 && time() <= $apt->end_date)
             <legend class="legend_apt">АПТЕКА - <?php echo $n++;?> &nbsp;&nbsp;Данни за {!! $raz_udost !!}</legend>
             <fieldset class="small_apt_left">
                 <div class="col-md-12 my_col_top">
@@ -171,5 +172,13 @@
             </fieldset>
         </fieldset>
         <hr class="my_hr"/>
+        @elseif($apt->active == 1 || $apt->raz_udost == 1 || time() > $apt->end_date)
+            <?php // echo(time().'----'.$apt->end_date) ?>
+            <div class="btn-group">
+                <h4>Фирмата е притежавала аптека на която е с прекратен или с изтекъл срок на валидност Удостоверение!</h4>
+            </div>
+        @endif
+
     @endforeach
 </fieldset>
+

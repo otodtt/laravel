@@ -28,16 +28,17 @@
     </div>
     <hr/>
     <div class="btn-group">
-        <span class="fa fa fa-plus-square btn btn-default my_btn"> Доклади Аптеки</span>
-        <a href="{!! URL::to('/протоколи-обекти')!!}" class="fa fa-shield btn btn-info my_btn"> Доклади Складове</a>
-        <a href="{!! URL::to('/други-обекти')!!}" class="fa fa-cubes btn btn-info my_btn"> Доклади Цехове</a>
+        <span class="fa fa fa-plus-square btn btn-default my_btn"> Доклади Аптека</span>
+        <a href="{!! URL::to('/доклад-склад')!!}" class="fa fa-shield btn btn-info my_btn"> Доклади Склад</a>
+        <a href="{!! URL::to('/доклад-склад')!!}" class="fa fa-cubes btn btn-info my_btn"> Доклади Цех</a>
+        <a href="{!! URL::to('/протоколи-към-доклади')!!}" class="fa fa-file-powerpoint-o btn btn-info my_btn"> Протоколи към доклади</a>
     </div>
     <hr/>
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div id="search_wrap" class="col-md-6">
-                    {!! Form::open(array('url'=>'/доклади-контрол', 'method'=>'POST')) !!}
+                    {!! Form::open(array('url'=>'/доклади-аптека', 'method'=>'POST')) !!}
                     @include('control.reports.includes.search')
                     {!! Form::close() !!}
                 </div>
@@ -54,7 +55,7 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all" class="col-md-12">
-                {!! Form::open(array('url'=>'/доклади-контрол/сортирай', 'method'=>'POST')) !!}
+                {!! Form::open(array('url'=>'/доклади-аптека/сортирай', 'method'=>'POST')) !!}
                 @include('control.reports.includes.years_sort')
                 {!! Form::close() !!}
                 <span class="errors">
@@ -71,7 +72,7 @@
     <fieldset class="form-group">
         <div class="wrap_sort">
             <div id="wr_choiz_all">
-                {!! Form::open(array('url'=>'/доклади-контрол/сортирай', 'method'=>'POST')) !!}
+                {!! Form::open(array('url'=>'/доклади-аптека/сортирай', 'method'=>'POST')) !!}
                 @include('control.reports.includes.sorting')
                 {!! Form::close() !!}
             </div>
@@ -81,7 +82,7 @@
 
     @include('protocols.market.index.alphabet')
     <div class="refresh">
-        <a href="{{ url('/доклади-контрол') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
+        <a href="{{ url('/доклади-аптека') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
     </div>
     <hr/>
     @include('control.reports.includes.table')

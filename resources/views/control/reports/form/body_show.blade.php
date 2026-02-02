@@ -108,12 +108,12 @@
                         </p>
                         <p>Дата: <span class="bold">{!! date('d.m.Y', $report->date_report) !!} год.</span></p>
                         <p>Начален час:........ Краен час:........ </p>
-                        <p>Присъстваки лица:  <span class="bold">{!! $report->position_short_two !!} {!! $report->inspector_two_name !!}</span></p>
+                        <p>Присъстващи лица:  <span class="bold">{!! $report->position_short_two !!} {!! $report->inspector_two_name !!}</span></p>
                         @if(strlen($report->inspector_three_name) != 0 && strlen($report->position_short_three)!= 0)
-                            <p>Присъстваки лица:  <span class="bold">{!! $report->position_short_three !!} {!! $report->inspector_three_name !!}</span></p>
+                            <p>Присъстващи лица:  <span class="bold">{!! $report->position_short_three !!} {!! $report->inspector_three_name !!}</span></p>
                         @endif
                         @if(strlen($report->inspector_another) != 0 && strlen($report->inspector_from)!= 0)
-                            <p>Присъстваки лица:  <span class="bold">{!! $report->inspector_another !!} - {!! $report->inspector_from !!} </span></p>
+                            <p>Присъстващи лица:  <span class="bold">{!! $report->inspector_another !!} - {!! $report->inspector_from !!} </span></p>
                         @endif
                     </td>
                 </tr>
@@ -744,7 +744,7 @@
             @foreach($inspectors as $inspector)
                 @if($inspector->id == $report->inspector)
                     <p><span class="bold">{!! $inspector->all_name !!}</span><br/>
-                        на длъжност <span class="bold">{!! $report->position !!}</span>
+                        на длъжност <span class="bold">{!! $report->position_short !!}</span>
                         в ОДБХ {!! $city->city !!} сл. карта № <span class="bold">{!! $inspector->karta !!}</span>
                     </p>
                 @endif
@@ -755,7 +755,7 @@
                 @foreach($inspectors as $inspector)
                     @if($inspector->id == $report->inspector_two)
                         <p>1. <span class="bold">{!! $inspector->all_name !!}</span><br/>
-                            на длъжност <span class="bold">{!! $report->position_two !!}</span>
+                            на длъжност <span class="bold">{!! $report->position_short_two !!}</span>
                             в ОДБХ {!! $city->city !!} сл. карта № <span class="bold">{!! $inspector->karta !!}</span>
                         </p>
                     @endif
@@ -768,7 +768,7 @@
                 @foreach($inspectors as $inspector)
                     @if($inspector->id == $report->inspector_three)
                         <p>2. <span class="bold">{!! $inspector->all_name !!}</span><br/>
-                            на длъжност <span class="bold">{!! $report->position_three !!}</span>
+                            на длъжност <span class="bold">{!! $report->position_short_three !!}</span>
                             в ОДБХ {!! $city->city !!} сл. карта № <span class="bold">{!! $inspector->karta !!}</span>
                         </p>
                     @endif
@@ -797,13 +797,13 @@
             <p>Представлявано от: <span class="bold"> {!! $firm->owner !!}</span> с ЕГН: <span class="bold"> {!! $firm->egn !!}</span></p>
             <br>
             <h4 style="display: inline-block">Проверен обект:</h4> <span class="bold">{!! $type_object !!} </span>
-            <p>адрес: <span class="bold">{!! $report->address !!}, {!! $city_village.''.$report->place.', общ. '.$district_object !!}</span></p>
+            <p>адрес: <span class="bold">{!! $object->address !!}, {!! $city_village.''.$report->place.', общ. '.$district_object !!}</span></p>
 
             <br/>
             <h4>При проверката установихме следните факти и обстоятелства:</h4>
-            <p>Констатация: <span class="bold">{!! $report->ascertainment !!}</span></p>
-            <p>Конфискувани: <span class="bold">{!! $report->taken !!}</span></p>
-            <p>Нареждане: <span class="bold">{!! $report->order_protocol !!}</span></p>
+            <p>Констатация: <span class="bold">{!! $protocol->ascertainment !!}</span></p>
+            <p>Конфискувани: <span class="bold">{!! $protocol->taken !!}</span></p>
+            <p>Нареждане: <span class="bold">{!! $protocol->order_protocol !!}</span></p>
             <br/>
             <h4>Други данни:</h4>
             @if($report->type_check == 1)

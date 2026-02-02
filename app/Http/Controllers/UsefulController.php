@@ -239,57 +239,57 @@ class UsefulController extends Controller
 
         if( $selected == 1 ) {
             $reason = 'Чл. 7. т. 1';
-            $sum = '300,00';
+            $sum = 153.39;
             $text = 'Издаване на удостоверение';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 2){
             $reason = 'Чл. 7. т. 1.1';
-            $sum = '150,00';
+            $sum = 76.69;
             $text = 'Издаване на удостоверение';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 3){
             $reason = 'Чл. 7 т. 2';
-            $sum = '300,00';
+            $sum = 153.39;
             $text = 'Издаване на удостоверение';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 4){
             $reason = 'Чл. 7 т 2.1 ';
-            $sum = '150,00';
+            $sum = 76.69;
             $text = 'Издаване на удостоверение';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 5){
             $reason = 'Чл. 7 т. 3';
-            $sum = '50,00';
+            $sum = 25.56;
             $text = 'Промяна в обстоятелствата';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 6){
             $reason = 'Чл. 7 т. 4';
-            $sum = '20,00';
+            $sum = 10.23;
             $text = 'Преиздаване на удостоверение';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 7){
             $reason = 'Чл. 17 т. 3';
-            $sum = '40,00';
+            $sum = 20.45;
             $text = 'Издаване на Сертификат по чл. 83';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 8){
             $reason = 'Чл. 17 т. 4';
-            $sum = '50,00';
+            $sum = 25.56;
             $text = 'Издаване на Становище';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         elseif($selected == 9){
             $reason = 'Чл. 17 т. 5';
-            $sum = '50,00';
+            $sum = 25.56;
             $text = 'Издаване на въздушно';
-            $total = (int)$sum * (int)$number;
+            $total = $sum * (int)$number;
         }
         else{
             $reason = '';
@@ -297,7 +297,6 @@ class UsefulController extends Controller
             $text = '';
             $total = 0;
         }
-
 
         return view('useful.notes', compact( 'select', 'selected', 'selected_name', 'reason', 'sum', 'text', 'number', 'total'));
     }

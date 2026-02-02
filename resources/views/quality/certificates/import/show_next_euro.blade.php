@@ -305,9 +305,9 @@
                                 {!! Form::label('percent1', '42%', ['class'=>'my_labels']) !!}
                                 {!! Form::radio('percent', '1' , $percent1, ['id' => 'percent1', 'class'=>'radioBtnClass']) !!}
 
-                                &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-                                {!! Form::label('percent3', '63%', ['class'=>'my_labels']) !!}
-                                {!! Form::radio('percent', '3' , $percent2, ['id' => 'percent3', 'class'=>'radioBtnClass']) !!}
+                                {{--&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;--}}
+                                {{--{!! Form::label('percent3', '63%', ['class'=>'my_labels']) !!}--}}
+                                {{--{!! Form::radio('percent', '3' , $percent2, ['id' => 'percent3', 'class'=>'radioBtnClass']) !!}--}}
 
                                 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('percent2', '84%', ['class'=>'my_labels']) !!}
@@ -807,7 +807,7 @@
                                 </td>
                                 <td>
                                     @if ($certificate->type_crops == 1)
-                                        <span>чл.63 т. 2</span>
+                                        <span>чл.54 т. 1</span>
                                     @elseif ($certificate->type_crops == 2)
                                         <span>чл.54 т. 2</span>
                                     @else
@@ -833,14 +833,14 @@
                                 <td>
                                     <?php 
                                     if($certificate->percent == 1){
-                                        $txt = 'чл.1(4) т.1';
+                                        $txt = 'чл.56 т.1';
                                         $br = 'бр.';
                                         $num = '1';
                                         $percent = '42%';
                                         $sum_percent = ($certificate->base_sum*42)/100;
                                     }
                                     elseif($certificate->percent == 2){
-                                        $txt = 'чл.1(4) т.3';
+                                        $txt = 'чл.56 т.2';
                                         $br = 'бр.';
                                         $num = '1';
                                         $percent = '84%';

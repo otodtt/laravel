@@ -10,7 +10,7 @@
         <th>Инспектор</th>
         <th>Проба ПРЗ</th>
         <th>Проба ТОР</th>
-        <th>С нарушение</th>
+        <th>Несъответствие</th>
         <th>С К. Протокол</th>
         <th></th>
     </tr>
@@ -79,7 +79,7 @@
                 <td class="center">{!! $assay_prz !!}</td>
                 <td class="center">{!! $assay_tor !!}</td>
                 <td class="center">
-                    @if($report->is_violation == 1)
+                    @if($report->violation == 1)
                         ДА
                     @endif
                 </td>
@@ -93,7 +93,7 @@
                     @endif
                 </td>
                 <td class="center last-column">
-                    <a href="{!!URL::to('/доклад/'.$report->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                    <a href="{!!URL::to('/доклад-аптека/'.$report->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
                         &nbsp;Виж!
                     </a>
                 </td>

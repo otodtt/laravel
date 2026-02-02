@@ -21,11 +21,19 @@
     </div>
     <hr/>
     <div class="btn-group">
-        <a href="" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <a href="{!! URL::to('/доклади-контрол')!!}" class="fa fa-file-text-o btn btn-info my_btn">  Доклади Контрол на Пазара</a>
+        <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
+        <a href="{!! URL::to('/доклади-аптека')!!}" class="fa fa-file-powerpoint-o btn btn-info my_btn">  Доклади Контрол на Пазара</a>
+        {{--<span class="fa fa-file-text-o btn btn-default my_btn"> Доклади Контрол на Пазара</span>--}}
         <a href="{!! URL::to('/протоколи-обекти')!!}" class="fa fa-object-ungroup btn btn-info my_btn"> Протоколи Нерегламентирани Обекти</a>
         <a href="{!! URL::to('/други-обекти')!!}" class="fa fa-external-link btn btn-info my_btn"> Протоколи в други Области</a>
         <a href="{!! URL::to('/производители')!!}" class="fa fa-industry btn btn-info my_btn"> Протоколи Производители на ПРЗ</a>
+    </div>
+    <hr/>
+    <div class="btn-group">
+        <a href="{!! URL::to('/доклади-аптека')!!}" class="fa fa-plus-square btn btn-info my_btn"> Доклади аптека</a>
+        <a href="{!! URL::to('/доклади-склад')!!}" class="fa fa-shield btn btn-info my_btn"> Доклади Склад</a>
+        <a href="{!! URL::to('/доклади-цех')!!}" class="fa fa-cubes btn btn-info my_btn"> Доклади Цех</a>
+        <a href="{!! URL::to('/протоколи-към-доклади')!!}" class="fa fa-file-powerpoint-o btn btn-info my_btn"> Протоколи към доклади</a>
     </div>
     <hr/>
     @if(count($errors)>0)
@@ -48,14 +56,16 @@
         @if($report->protocol > 0 && $report->is_protocol == 0)
             <span class="">
                 <span class="red">ВНИМАНИЕ! </span> Посочено е, че има Констативен Протокол но не е въведен в базата. Добави Протокола!
-                <a href="{{ URL::to('/протоколи-фирма/'.$report->id_from_firm) }}" class="fa fa-plus btn btn-danger my_btn">  Добави Протокол към Доклада!!</a>
+                <a href="{{ URL::to('/протокол-доклад/'.$report->id.'/добави/'.$report->id_from_object.'/1') }}" class="fa fa-plus btn btn-danger my_btn">  Добави Протокол към Доклада!!</a>
             </span>
             <hr class="" >
         @elseif($report->protocol > 0 && $report->is_protocol == 1)
             <span class="">
                 <span class="red">ВНИМАНИЕ! </span> Има издаден Констативен Протокол с номер и дата
-                <span class="bold">{{$report->number}}/{{date('d.m.Y', $report->date_report)}}</span>
-                !  За повече подробноси виж по-долу!
+                <span class="bold">{{$report->protocol_number}}/{{date('d.m.Y', $report->protocol_date)}}</span>
+                 <a href="{!!URL::to('/протокол-към-доклад/'.$report->id_protocol )!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                     &nbsp;Виж Протокола!
+                 </a>
             </span>
             <hr class="" >
         @else

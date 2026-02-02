@@ -38,11 +38,12 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 <div id="info_report_wrap" class="col-md-12" style="text-align: center">
+                    <?php // print_r($pharmacy_report) ?>
                     <h4><span class="bold red">ВНИМАНИЕ!</span> Тук се добавят протоколи към доклад от проверка. Напиши номера на доклада и натисни бутона "ТЪРСИ"</h4>
                     <hr>
                 </div>
                 <div id="search_wrap" class="col-md-6">
-                    {!! Form::open(array('url'=>'/report-search.'.$protocol->id, 'method'=>'POST')) !!}
+                    {!! Form::open(array('url'=>'/протокол-избери/'.$protocol->id, 'method'=>'POST')) !!}
                         {!! Form::label('search_report', ' Тъпси по № на ДОКЛАД:', ['class'=>'labels']) !!}
                         {!! Form::text('search_report', null, ['class'=>'form-control form-control-my-search search_top','size'=>4, 'maxlength'=>6]) !!}
                         {!! Form::hidden('search', 1) !!}
@@ -57,6 +58,73 @@
                     </span>
                 </div>
             </div>
+            <?php //print_r($find) ?>
+            @if($find != 0)
+                <div id="info_report_wrap" class="col-md-12" style="text-align: center">
+                    <hr>
+                    @if($find == 1)
+                        <h4><span class="bold red">ВНИМАНИЕ!</span> Няма намерен такъв номер от ДОКЛАД. Провери с друг номер!</h4>
+                    @else
+                        <h4> Намерени са {{count($pharmacy_report)}} брой/я доклади от проверки с номер <span class="bold red">{{$number}}</span></h4>
+                        <hr>
+                        <div style="text-align: left">
+                            <ol>
+                                @foreach($pharmacy_report as $report)
+                                    <?PHP
+                                        //print_r($protocol->id);
+                                        if($report->ot == 1){
+                                            $object = 'Аптека';
+                                        }
+                                        elseif($report->ot == 2){
+                                            $object = 'Склад';
+                                        }
+                                        elseif($report->ot == 3){
+                                            $object = 'Цех';
+                                        }
+                                        else{
+                                            $object = 'Няма Дании';
+                                        }
+
+                                        ////////////////////////
+                                        if ($report->firm == 1) {
+                                            $et = 'ET ';
+                                            $ood = '';
+                                        } elseif ($report->firm == 2) {
+                                            $et = '';
+                                            $ood = 'ООД';
+                                        } elseif ($report->firm == 3) {
+                                            $et = '';
+                                            $ood = 'ЕООД';
+                                        } elseif ($report->firm == 4) {
+                                            $et = '';
+                                            $ood = 'АД';
+                                        } else {
+                                            $et = '';
+                                            $ood = '';
+                                        }
+                                    ?>
+                                    <li>
+                                        Доклад с Номер {{$report->number}} от дата {{date('d.m.Y', $report->date_report)}} г. Издаен на
+                                        <span class="bold" style="font-weight: bold">{{$object}}</span>
+                                        на фирма <span class="bold" style="font-weight: bold">{{$et}} {{$report->name}} {{$ood}}</span>
+                                        @if($report->protocol == 1 && $report->protocol_number > 0)
+                                            <span class="red">Внимание!</span> Има издаден протокол с
+                                            <span style="font-weight: bold"> № {{$report->protocol_number}} от Дата {{date('d.m.Y', $report->protocol_date)}} г.</span>
+                                            <span style="font-weight: bold">Провери данните отново и търси друг протокол!</span>
+                                        @else
+                                            - Доклада от проверка няма издаден Констативен Протокол. Ако са верни данните добави протокола тук!
+                                            <a href="{!!URL::to('/присъедини-към-доклад/'.$report->id.'/'.$report->ot.'/'.$protocol->id )!!}" class="fa fa-plus-square btn btn-danger my_btn">
+                                                &nbsp; Добави!
+                                            </a>
+                                        @endif
+                                    </li>
+                                    <hr>
+                                @endforeach
+                            </ol>
+                        </div>
+                    @endif
+                </div>
+            @endif
         </div>
     </fieldset>
     {{--<fieldset class="form-group">--}}

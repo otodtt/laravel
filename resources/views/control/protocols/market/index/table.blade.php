@@ -2,15 +2,15 @@
     <thead>
     <tr>
         <th>№</th>
-        <th>№</th>
+        <th>№ Протокол</th>
         <th>Дата</th>
         <th>Обект</th>
         <th>Име на Фирмата</th>
         <th>Град/Село</th>
         <th>Инспектор</th>
-        <th>Проба ПРЗ</th>
-        <th>Проба ТОР</th>
-        <th>Нарушение</th>
+        <th>Към Доклад №</th>
+        {{--<th>Проба ТОР</th>--}}
+        {{--<th>Нарушение</th>--}}
         <th></th>
     </tr>
     </thead>
@@ -36,6 +36,9 @@
                 $ood = '';
             }
             ///////////////
+            if($protocol->ot == 0){
+                $type_object = '--';
+            }
             if($protocol->ot == 1){
                 $type_object = 'Аптека';
             }
@@ -72,16 +75,48 @@
                 <td class="right">{!! $protocol->number !!}</td>
                 <td class="">{!! date('d.m.Y', $protocol->date_protocol) !!}</td>
                 <td class="">{{$type_object}}</td>
-                <td>{!! $et !!} "{{$protocol->name}}" {!! $ood !!}</td>
+                <td>
+                    @if($protocol->ot != 0)
+                        {!! $et !!} "{{$protocol->name}}" {!! $ood !!}
+                    @else
+                        <span class="red">Не е добавен към Доклад</span>
+                    @endif
+                </td>
                 <td class="">{{$protocol->place}}</td>
                 <td>{{$protocol->inspector_name}}</td>
-                <td class="center">{!! $assay_prz !!}</td>
-                <td class="center">{!! $assay_tor !!}</td>
-                <td class="center">{!! $violation !!}</td>
+                <td class="center">
+                    @if($protocol->ot != 0)
+                        {!! $protocol->number_report !!} / {{date('d.m.Y', $protocol->date_report)}}
+                        &nbsp;&nbsp;&nbsp;
+                        @if($protocol->ot == 1)
+                            <a href="{!!URL::to('/доклад-аптека/'.$protocol->id_from_report )!!}" class="fa fa-binoculars btn btn-success my_btn">
+                                &nbsp;Виж Доклада!
+                            </a>
+                        @elseif($protocol->ot == 2)
+                            <a href="{!!URL::to('/доклад-склад/'.$protocol->id_from_report )!!}" class="fa fa-binoculars btn btn-success my_btn">
+                                &nbsp;Виж Доклада!
+                            </a>
+                        @elseif($protocol->ot == 3)
+                            <a href="{!!URL::to('/доклад-цех/'.$protocol->id_from_report )!!}" class="fa fa-binoculars btn btn-success my_btn">
+                                &nbsp;Виж Доклада!
+                            </a>
+                        @endif
+                    @else
+                        <span class="red">Добави към Доклад</span>
+                        <a href="{!!URL::to('/протокол-избери/'.$protocol->id )!!}" class="fa fa-plus-square btn btn-danger my_btn">
+                            &nbsp; Добави!
+                        </a>
+                    @endif
+
+                </td>
+                {{--<td class="center">{!! $assay_tor !!}</td>--}}
+                {{--<td class="center">{!! $violation !!}</td>--}}
                 <td class="center last-column">
-                    <a href="{!!URL::to('/протокол/'.$protocol->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
-                        &nbsp;Виж!
-                    </a>
+                    @if($protocol->ot != 0)
+                        <a href="{!!URL::to('/протокол-към-доклад/'.$protocol->id )!!}" class="fa fa-binoculars btn btn-primary my_btn">
+                            &nbsp;Виж Протокола!
+                        </a>
+                    @endif
                 </td>
             </tr>
         @endforeach

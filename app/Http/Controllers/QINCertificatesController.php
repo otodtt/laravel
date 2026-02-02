@@ -1306,17 +1306,23 @@ class QINCertificatesController extends Controller
             $total_weight += array_sum((array)$value['weight']);
         }
 
-        $sum_type = 9;
+        $sum_type = 4.60;
         if(($total_weight-1000) <= 0) {
-            $sum_domestic = 9;
+            $sum_domestic = 4.60;
         }
         else {
             $weight = (ceil(($total_weight-1000)/500));
-            $add = $weight*0.3;
-            $sum_domestic = 9 + $add ;
+            $add = $weight*0.15;
+            $sum_domestic = 4.60 + $add ;
         }
 //        dd($certificate);
+//        if($certificate->date_issue >= 1766188800) {
+        if($certificate->date_issue >= 1767225600) {
+//            dd($certificate->date_issue);
+            return view('quality.certificates.domestic.show.show_next_euro_dom', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_domestic', 'sum_type'));
+        }
         if ($certificate->date_issue >= 1735689600) {
+//            dd($certificate->date_issue);
             return view('quality.certificates.domestic.show.show_next', compact('certificate', 'stocks', 'firm', 'invoice', 'total_weight', 'sum_domestic', 'sum_type'));
         } else {
             return view('quality.certificates.domestic.show.show', compact('certificate', 'stocks', 'firm', 'invoice', 'type_firm', 'total_weight', 'sum_domestic', 'sum_type'));

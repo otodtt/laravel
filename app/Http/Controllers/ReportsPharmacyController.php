@@ -15,6 +15,7 @@ use odbh\Http\Requests\ProtocolsUpdateRequest;
 use odbh\Location;
 use odbh\Pharmacy;
 use odbh\ReportPharmacy;
+use odbh\ReportProtocol;
 use odbh\Repository;
 use odbh\Sample;
 use odbh\Set;
@@ -331,20 +332,11 @@ class ReportsPharmacyController extends Controller
             $request['combustible'] == 2 ||
             $request['contract'] == 2
         ) {
-            $is_violation = 1;
+            $violation = 1;
         } else {
-            $is_violation = 0;
+            $violation = 0;
         }
-//        dd($is_violation);
-//        if($type == 1){
-//            $object = Pharmacy::findOrFail($object_id);
-//        }
-//        if($type == 2){
-//            $object = Repository::findOrFail($object_id);
-//        }
-//        if($type == 3){
-//            $object = Workshop::findOrFail($object_id);
-//        }
+
         $is_prz = null;
         $is_tor = null;
         if($request['assay_prz'] == 1 && $request['assay_tor'] == 1) {
@@ -426,11 +418,12 @@ class ReportsPharmacyController extends Controller
             'combustible_note'=>$request['combustible_note'],
             'contract'=>$request['contract'],
             'contract_note'=>$request['contract_note'],
+
             'protocol'=>$request['protocol'],
             'protocol_number'=>$request['protocol_number'],
             'protocol_date'=>strtotime(stripslashes($request['protocol_date'])),
             'is_protocol'=>0,
-            'is_violation'=>$is_violation,
+            'violation'=>$violation,
 
             'date_add'=>time(),
             'added_by'=> Auth::user()->id,
@@ -531,11 +524,18 @@ class ReportsPharmacyController extends Controller
     {
         $logo = $this->logo;
         $report = ReportPharmacy::findOrFail($id);
+//        $protocol = ReportProtocol::findOrFail($report->id_protocol);
         $inspectors = User::get();
         $firm = Firm::findOrFail($report->id_from_firm);
         $object = Pharmacy::findOrFail($report->id_from_object);
         $analyses = Sample::where('number_sample', '=', $report->number)->where('firm_id', '=', $report->id_from_firm)->get()->toArray();
 
+        if($report->id_protocol != 0){
+            $protocol = ReportProtocol::findOrFail($report->id_protocol);
+        }
+        else {
+            $protocol = '';
+        }
         $city = Set::first();
 
         $areas = $this->areas_all;
@@ -576,8 +576,9 @@ class ReportsPharmacyController extends Controller
         else{
             $tor = array();
         }
+//        dd($report);
         return view('control.reports.show', compact('logo', 'report', 'inspectors', 'city', 'firm', 'areas',
-            'districts_firm', 'districts_object', 'prz', 'more', 'tor', 'object', 'analyses'));
+            'districts_firm', 'districts_object', 'prz', 'more', 'tor', 'object', 'analyses', 'protocol'));
     }
 
     /**
@@ -643,7 +644,7 @@ class ReportsPharmacyController extends Controller
             $position_short_three = '';
         }
 
-        $protocol = ReportPharmacy::findOrFail($id);
+        $report = ReportPharmacy::findOrFail($id);
 
         if(
             $request['activity'] == 2 ||
@@ -667,24 +668,24 @@ class ReportsPharmacyController extends Controller
             $request['combustible'] == 2 ||
             $request['contract'] == 2
         ) {
-            $is_violation = 1;
+            $violation = 1;
         } else {
-            $is_violation = 0;
+            $violation = 0;
         }
 
         $is_prz = null;
         $is_tor = null;
         if($request['assay_prz'] == 1 && $request['assay_tor'] == 1) {
-            $is_prz = $protocol->is_prz;
-            $is_tor = $protocol->is_tor;
+            $is_prz = $report->is_prz;
+            $is_tor = $report->is_tor;
         }
         elseif($request['assay_prz'] == 1 && $request['assay_tor'] == 0) {
-            $is_prz = $protocol->is_prz;
+            $is_prz = $report->is_prz;
             $is_tor = 0;
         }
         elseif($request['assay_prz'] == 0 && $request['assay_tor'] == 1) {
             $is_prz = 0;
-            $is_tor = $protocol->is_tor;
+            $is_tor = $report->is_tor;
         }
         elseif($request['assay_prz'] == 0 && $request['assay_tor'] == 0) {
             $is_prz = 0;
@@ -695,6 +696,40 @@ class ReportsPharmacyController extends Controller
             $is_tor = 0;
         }
 
+        if($request['protocol'] == 0) {
+            $id_protocol_db = 0;
+            $protocol_db = 0;
+            $protocol_number_db  = 0;
+            $protocol_date_db = 0;
+            $is_protocol_db = 0;
+
+            if($report->id_protocol > 0 && $report->protocol == 1){
+                $protocol_delete = ReportProtocol::findOrFail($report->id_protocol);
+                $data_delete = ([
+                    'id_from_report' => 0,
+                    'number_report' => 0,
+                    'date_report' => 0,
+                    'inspector' => 0,
+                    'ot' => 0,
+                    'firm' => 0,
+                    'name' => '',
+                    'place' => '',
+                    'alphabet' => 1,
+                    'date_update'=>time(),
+                    'updated_by'=> Auth::user()->id,
+                ]);
+                $protocol_delete->fill($data_delete);
+                $protocol_delete->save();
+            }
+        }
+        else {
+            $id_protocol_db = $report->id_protocol;
+            $protocol_db = $request['protocol'];
+            $protocol_number_db  = $request['protocol_number'];
+            $protocol_date_db = strtotime(stripslashes($request['protocol_date']));
+            $is_protocol_db = $report->is_protocol;
+        }
+//        dd($is_protocol_db);
         $data = ([
             'number'=>$request['number'],
             'date_report'=>strtotime(stripslashes($request['date_report'])),
@@ -763,16 +798,21 @@ class ReportsPharmacyController extends Controller
             'combustible_note'=>$request['combustible_note'],
             'contract'=>$request['contract'],
             'contract_note'=>$request['contract_note'],
-            'protocol'=>$request['protocol'],
 
-            'is_violation'=>$is_violation,
+            'is_protocol'=>$is_protocol_db,
+            'id_protocol'=>$id_protocol_db,
+            'protocol'=>$protocol_db,
+            'protocol_number'=>$protocol_number_db,
+            'protocol_date'=>$protocol_date_db,
+
+            'violation'=>$violation,
         ]);
-//        dd($request->all());
-        $protocol->fill($data);
-        $protocol->save();
+//        dd();
+        $report->fill($data);
+        $report->save();
 
         Session::flash('message', 'Протокола е редактиран успешно!');
-        return Redirect::to('/доклад/'.$protocol->id);
+        return Redirect::to('/доклад-аптека/'.$report->id);
     }
 
     /**
@@ -781,10 +821,7 @@ class ReportsPharmacyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    public function destroy($id){}
 
     /**
      * Добавя проби от ПРЗ.
@@ -904,7 +941,7 @@ class ReportsPharmacyController extends Controller
         $report->save();
 
         Session::flash('message', 'Пробата от ПРЗ е добавена успешно!');
-        return Redirect::to('/доклад/'.$id);
+        return Redirect::to('/доклад-аптека/'.$id);
     }
 
 

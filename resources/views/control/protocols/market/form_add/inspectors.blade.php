@@ -20,16 +20,19 @@ else{
             <fieldset class="small_field"><legend class="small_legend">Инспектори</legend>
                 <div class="col-md-7 col-md-6_my inspectors_divs border_divs" >
                     {!! Form::label('inspector', 'Водещ:', ['class'=>'my_labels']) !!}
-                    {!! Form::select('inspector', $inspectors, $return_inspector, ['id' =>'id_user',
-                            'class' =>'inspector form-control form-control_my_insp' ]) !!}
+                    <span class="bold">{{$report->position_short }} {{$report->inspector_name }}</span>
+                    <br>
+                    {{--{!! Form::select('inspector', $inspectors, $return_inspector, ['id' =>'id_user',--}}
+                            {{--'class' =>'inspector form-control form-control_my_insp' ]) !!}--}}
 
                     {!! Form::label('inspector_two', 'Инспектор 2:', ['class'=>'my_labels']) !!}
-                    {!! Form::select('inspector_two', $inspectors, $return_two, ['id' =>'id_user',
-                            'class' =>'inspector form-control form-control_my_insp' ]) !!}
+                    <span class="bold">{{$report->position_short_two }} {{$report->inspector_two_name }}</span>
+                    <br>
+                    {{--{!! Form::select('inspector_two', $inspectors, $return_two, ['id' =>'id_user',--}}
+                            {{--'class' =>'inspector form-control form-control_my_insp' ]) !!}--}}
 
                     {!! Form::label('inspector_three', 'Инспектор 3:', ['class'=>'my_labels']) !!}
-                    {!! Form::select('inspector_three', $inspectors, $return_three, ['id' =>'id_user',
-                            'class' =>'inspector form-control form-control_my_insp' ]) !!}
+                    <span class="bold">{{$report->position_short_three }} {{$report->inspector_three_name }}</span>
                 </div>
                 <div class="col-md-5 col-md-6_my inspectors_divs">
                     <p class="description" >Задължително се избира водещ инспектор! Останалите са опционални!</p>
@@ -37,11 +40,12 @@ else{
                 </div>
 
                 <div class="col-md-8 col-md-6_my" >
-                    {!! Form::label('inspector_another', 'Инспектор от друга служба:', ['class'=>'my_labels']) !!}
-                    {!! Form::text('inspector_another', $return_another, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250 ]) !!}
-
-                    {!! Form::label('inspector_from', ' От служба:', ['class'=>'my_labels']) !!}
-                    {!! Form::text('inspector_from', $return_from, ['class'=>'form-control form-control-my', 'size'=>20, 'maxlength'=>50 ]) !!}
+                    {!! Form::label('inspector_another', 'Инспектор от друга служба или отдел:', ['class'=>'my_labels']) !!}
+                    {{--{!! Form::text('inspector_another', $return_another, ['class'=>'form-control form-control-my', 'size'=>30, 'maxlength'=>250 ]) !!}--}}
+                    <span class="bold">{{$report->inspector_another }}</span>
+                    {!! Form::label('inspector_from', ' - ', ['class'=>'my_labels']) !!}
+                     <span class="bold">{{$report->inspector_from }}</span>
+                    {{--{!! Form::text('inspector_from', $return_from, ['class'=>'form-control form-control-my', 'size'=>20, 'maxlength'=>50 ]) !!}--}}
 
                 </div>
 

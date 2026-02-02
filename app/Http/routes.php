@@ -1013,10 +1013,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('протоколи-стари', 'ProtocolsController@index_old');
 
     /////// ДОКЛАДИ Аптеки Складове Цехове
-    Route::resource('доклади-контрол', 'ReportsPharmacyController');
-    Route::post('доклади-контрол', 'ReportsPharmacyController@search');
+    Route::resource('доклади-аптека', 'ReportsPharmacyController');
+    Route::post('доклади-аптека', 'ReportsPharmacyController@search');
     // Сортиране на Протоколи
-    Route::any('доклади-контрол/сортирай/{abc_list?}/{start_year?}/{end_year?}/{object_sort?}/{areas_sort?}/{inspector_sort?}/{assay_sort?}', 'ReportsPharmacyController@sort');
+    Route::any('доклади-аптека/сортирай/{abc_list?}/{start_year?}/{end_year?}/{object_sort?}/{areas_sort?}/{inspector_sort?}/{assay_sort?}', 'ReportsPharmacyController@sort');
 //    // Добавяне и редактиране на Протоколи
     Route::get('доклад-аптека/{id}/добави/{type}', 'ReportsPharmacyController@create');
     Route::post('доклад-аптека/store/{object_id}/{type}', 'ReportsPharmacyController@store');
@@ -1024,12 +1024,35 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('доклад/{id}/update', 'ReportsPharmacyController@update');
 //    // Край Добавяне и редактиране на ДОКЛАДИ
 //
-    Route::get('доклад/{id}', 'ReportsPharmacyController@show');
+    Route::get('доклад-аптека/{id}', 'ReportsPharmacyController@show');
 //    Route::get('протоколи-фирма/{id}', 'ProtocolsController@protocols_show');
 //    Route::any('протоколи-фирма/{id}/сортирай/{id_object?}/{type?}/{years?}', 'ProtocolsController@protocols_sort');
     // Добавяне на взети проби от ПРЗ и ТОР
     Route::post('/report/assay-prz/add/{id}', 'ReportsPharmacyController@add_prz');
     Route::post('/report/assay-tor/add/{id}', 'ReportsPharmacyController@add_tor');
+//    Route::post('assay-tor/add/{id}', 'ProtocolsController@add_tor');
+
+    ///////ПРОТОКОЛИ КЪМ ДОКЛАДИ Аптеки Складове Цехове
+    Route::resource('протоколи-към-доклади', 'ReportProtocolsController');
+//    Route::post('протоколи', 'ProtocolsController@search');
+//    // Сортиране на Протоколи
+//    Route::any('протоколи/сортирай/{abc_list?}/{start_year?}/{end_year?}/{object_sort?}/{areas_sort?}/{inspector_sort?}/{assay_sort?}', 'ProtocolsController@sort');
+    // Добавяне и редактиране на Протоколи
+    Route::get('протокол-доклад/{id}/добави/{firm}/{type}/', 'ReportProtocolsController@create');
+    Route::post('протокол-доклад/store/{object_id}/{type}', 'ReportProtocolsController@store');
+//    Route::get('протокол/{id}/редактирай', 'ProtocolsController@edit');
+//    Route::post('протоколи/{id}/update', 'ProtocolsController@update');
+//    // Край Добавяне и редактиране на Протоколи
+//
+    Route::get('протокол-към-доклад/{id}', 'ReportProtocolsController@show');
+    Route::any('протокол-избери/{id}', 'ReportProtocolsController@choose');
+    Route::post('протокол-избери/{id}', 'ReportProtocolsController@report_search');
+    Route::get('присъедини-към-доклад/{id}/{from}/{protocol}', 'ReportProtocolsController@join_to');
+//    Route::any('report-search/{id}', 'ReportProtocolsController@report_search');
+//    Route::get('протоколи-фирма/{id}', 'ProtocolsController@protocols_show');
+//    Route::any('протоколи-фирма/{id}/сортирай/{id_object?}/{type?}/{years?}', 'ProtocolsController@protocols_sort');
+//    // Добавяне на взети проби от ПРЗ и ТОР
+//    Route::post('assay-prz/add/{id}', 'ProtocolsController@add_prz');
 //    Route::post('assay-tor/add/{id}', 'ProtocolsController@add_tor');
 
     Route::get('/test', 'ReportsPharmacyController@test');

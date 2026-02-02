@@ -10,7 +10,7 @@ class ReportPharmacy extends Model
      * Таблицата която се използва от модела
      * @var string
      */
-//    protected $table = 'objects_reports';
+
     protected $table = 'reports_pharmacy';
 
     /**
@@ -19,7 +19,7 @@ class ReportPharmacy extends Model
      */
     protected $fillable = [ 'id_from_object', 'id_from_firm', 'number', 'date_report', 'inspector', 'inspector_two',
         'inspector_three', 'inspector_another', 'inspector_from', 'ot', 'firm', 'name', 'city_village',
-        'place', 'district_object', 'alphabet', 'type_check', 'date_add', 'added_by', 'date_update', 'updated_by',
+        'place', 'district_object', 'address', 'alphabet', 'type_check', 'date_add', 'added_by', 'date_update', 'updated_by',
         'inspector_name', 'position_short',  'inspector_two_name', 'position_short_two', 'inspector_three_name',
         'position_short_three', 'created_at', 'updated_at', 'assay_prz', 'assay_tor', 'assay_more',
 
@@ -43,10 +43,13 @@ class ReportPharmacy extends Model
         'flooring' , 'flooring_note',
         'combustible', 'combustible_note',
         'contract', 'contract_note',
+
         'protocol',
+        'id_protocol',
+        'is_protocol',
         'protocol_number',
         'protocol_date',
-        'is_violation'
+        'violation'
     ];
 
     /**
@@ -61,7 +64,7 @@ class ReportPharmacy extends Model
      * Доклад има костативен протокол
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function protocols(){
-        return $this->hasMany('odbh\Protocol', 'id_from_object');
+    public function report_protocol(){
+        return $this->hasMany('odbh\ReportProtocol', 'id_from_report');
     }
 }

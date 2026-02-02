@@ -40,12 +40,12 @@ if((int)$end_years == 0){
 {!!Form::hidden('start_year', $start_years )!!}
 {!!Form::hidden('end_year', $end_years )!!}
 
-{!! Form::label('ot_object', ' Обект:', ['class'=>'labels']) !!}
-{!! Form::select('ot_object', array(0 => 'Избери обект', 1 => 'Аптеки', 2 => 'Складове', 3 => 'Цехове'), $sort_object_return,
-['id' => 'ot_object', 'class'=>'form-control form-control-my-search ot_object_sort ']) !!}
+{{--{!! Form::label('ot_object', ' Обект:', ['class'=>'labels']) !!}--}}
+{{--{!! Form::select('ot_object', array(0 => 'Избери обект', 1 => 'Аптеки', 2 => 'Складове', 3 => 'Цехове'), $sort_object_return,--}}
+{{--['id' => 'ot_object', 'class'=>'form-control form-control-my-search ot_object_sort ']) !!}--}}
 
 {!! Form::label('areas_sort', 'В община:', ['class'=>'labels']) !!}
-{!!Form::select('areas_sort',$areas, $sort_areas_return, ['id'=>'areas_sort', 'class'=>'form-control form-control-my-search area_sort ' ])!!}
+{!!Form::select('areas_sort',$areas, $sort_areas_return, ['id'=>'areas_sort', 'class'=>'form-control form-control-my-search areas_sort ' ])!!}
 
 {!! Form::label('inspector_sort', ' Инспектор :', ['class'=>'labels']) !!}
 {!! Form::select('inspector_sort', $inspectors, $sort_inspector_return, ['class'=>'form-control form-control-my-search inspector_sort ']) !!}

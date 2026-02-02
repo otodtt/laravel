@@ -19,442 +19,369 @@
 
 @section('content')
     <div class="info-wrap">
-    @if ($certificate->type_firm == 0 && $certificate->trader_id > 0 && $certificate->farmer_id == 0)
-        <a href="{!! URL::to('/контрол/търговци/'.$certificate->trader_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата Търговец!</a>
-    @else
-        <a href="{!! URL::to('/стопанин/'.$certificate->farmer_id)!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Земеделеца!</a>
-    @endif
-
-    <a href="{!! URL::to('/контрол/сертификати-вътрешен')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати вътрешни!</a>
-    @if ($certificate->what_7 == 2)
-        <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ВНОС</h4>
-    @elseif ($certificate->what_7 == 3)
-        <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ИЗНОС</h4>
-    @elseif ($certificate->what_7 == 1)
-        <h4 class="bold title_doc" >СЕРТИФИКАТ - ВЪТРЕШЕН</h4>
-    @else
-        <h4 class="bold title_doc" >СЕРТИФИКАТ</h4>
-    @endif
-
-    <hr class="my_hr"/>
-    @if(count($errors)>0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error  }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    <fieldset class="big_field ">
-        <div class="row-height-my col-md-12" style="display: table">
-            <div style="display: table-row">
-                <div class="small_field_right top_info" style="display: table-cell" >
-                    <span class="span-firm-info"><i class="fa fa-user "></i> ДАННИ НА ТЪРГОВЕЦ И НОМЕР</span>
-                </div>
-                <div class="small_field_center top_info" style="display: table-cell" >
-                    <span class="span-firm-info"><i class="fa fa-paper-plane "></i> ДАННИ НА ОПАКОВЧИК</span>
-                </div>
-                <div class="small_field_right top_info" style="display: table-cell" >
-                    <span class="span-phar-info"><i class="fa fa-leaf "></i> ДАННИ НА СТОКИТЕ</span>
-                </div>
+        <a href="{!! URL::to('/контрол/вносители/'.$certificate->importer_id.'/show')!!}" class="fa fa-user btn btn-success my_btn my_float"> Към Фирмата!</a>
+        <a href="{!! URL::to('/контрол/сертификати-внос')!!}" class="fa fa-certificate btn btn-info my_btn my_float" style="margin-left: 5px"> Към сертификати внос!</a>
+        @if ($certificate->what_7 == 2)
+            <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ВНОС</h4>
+        @elseif ($certificate->what_7 == 3)
+            <h4 class="bold title_doc" >СЕРТИФИКАТ ЗА ИЗНОС</h4>
+        @else
+            <h4 class="bold title_doc" >СЕРТИФИКАТ</h4>
+        @endif
+        
+        <hr class="my_hr"/>
+        @if(count($errors)>0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error  }}</li>
+                    @endforeach
+                </ul>
             </div>
-            <div style="display: table-row">
-                <div class="small_field_left " style="display: table-cell">
-                    <p >Сертификат №: <span class="bold">{{$certificate->stamp_number }}/{{$certificate->internal }}</span></p>
-                    <hr class="my_hr_in"/>
-                    @if ($certificate->farmer_id > 0 && $certificate->type_firm )
-                        <?php
-                        if($certificate->type_firm == 0) {
-                            $front = '';
-                            $after = '';
-                            $for = '';
-                            $vin = '';
-                        }
-                        elseif($certificate->type_firm == 1) {
-                            $front = '';
-                            $after = '';
-                            $for = 'ЗС:';
-                            $vin = 'ЕГН:';
-                        }
-                        elseif($certificate->type_firm == 2) {
-                            $front = 'ЕТ';
-                            $after = '';
-                            $for = 'Фирма:';
-                            $vin = 'ЕИК/Булстат:';
-                        }
-                        elseif($certificate->type_firm == 3) {
-                            $front = '';
-                            $after = 'ООД';
-                            $for = 'Фирма:';
-                            $vin = 'ЕИК/Булстат:';
-                        }
-                        elseif($certificate->type_firm == 4) {
-                            $front = '';
-                            $after = 'ЕООД';
-                            $for = 'Фирма:';
-                            $vin = 'ЕИК/Булстат:';
-                        }
-                        elseif($certificate->type_firm == 5) {
-                            $front = '';
-                            $after = 'АД';
-                            $for = 'Фирма:';
-                            $vin = 'ЕИК/Булстат:';
-                        }
-                        elseif($certificate->type_firm == 6) {
-                            $front = '';
-                            $after = '';
-                            $for = '';
-                            $vin = 'ЕИК/Булстат:';
-                        }
-                        else {
-                            $front = '';
-                            $after = '';
-                            $for = '';
-                            $vin = '';
-                        }
-                        ?>
-                        <p >{{$for }} <span class="bold" style="text-transform: uppercase">{{$front}} {{$certificate->trader_name }} {{$after}}</span></p>
-                        <p >{{$vin}} <span class="bold">{{$certificate->trader_vin }}</span> </p>
-                        <hr class="my_hr_in"/>
-                        <p >Адрес: <span class="bold">{{$certificate->trader_address }}</span></p>
-                    @else
-                        <p >Търговец: <span class="bold" style="text-transform: uppercase">{{$certificate->trader_name }} </span></p>
-                        <p >ЕИК/Булстат: <span class="bold">{{$certificate->trader_vin }}</span> </p>
-                        <hr class="my_hr_in"/>
-                        <p >Адрес: <span class="bold">{{$certificate->trader_address }}</span></p>
-                    @endif
-                    <hr class="my_hr_in"/>
+        @endif
+        <fieldset class="big_field ">
+            <div class="row-height-my col-md-12" style="display: table">
+                <div style="display: table-row">
+                    <div class="small_field_right top_info" style="display: table-cell" >
+                        <span class="span-firm-info"><i class="fa fa-user "></i> ДАННИ НА ТЪРГОВЕЦ И НОМЕР</span>
+                    </div>
+                    <div class="small_field_center top_info" style="display: table-cell" >
+                        <span class="span-firm-info"><i class="fa fa-paper-plane "></i> ДАННИ НА ОПАКОВЧИК</span>
+                    </div>
+                    <div class="small_field_right top_info" style="display: table-cell" >
+                        <span class="span-phar-info"><i class="fa fa-leaf "></i> ДАННИ НА СТОКИТЕ</span>
+                    </div>
                 </div>
-                <div class="small_field_center" style="display: table-cell">
-                    <p>Опаковчици</p>
-                    <hr class="my_hr_in"/>
-                    <p >Фирма/ЗС 1: <span class="bold" style="text-transform: none">{{$certificate->packer_name_one }}</span></p>
-                    <p >Фирма/ЗС 2: <span class="bold">{{$certificate->packer_name_two}}</span></p>
-                    {{--<hr class="my_hr_in"/>--}}
-                    <p >Фирма/ЗС 3: <span class="bold">{{$certificate->packer_name_three }}</span></p>
-                    <hr class="my_hr_in"/>
-                </div>
-                <div class="small_field_right" style="display: table-cell">
-                    <p>Стоки</p>
-                    <hr class="my_hr_in"/>
-                    @foreach ($stocks as $stock)
+                <div style="display: table-row">
+                    <div class="small_field_left " style="display: table-cell">
+                        <p >Сертификат №: <span class="bold">{{$certificate->stamp_number }}/{{$certificate->import }}</span></p>
+                        <hr class="my_hr_in"/>
+                        <p >Фирма: <span class="bold" style="text-transform: uppercase">{{$certificate->importer_name }}</span></p>
+                        <p >ЕИК/VAT: <span class="bold">{{$certificate->importer_vin }}</span> </p>
+                        <hr class="my_hr_in"/>
+                        <p >Адрес: <span class="bold">{{$certificate->importer_address }}</span></p>
+                        <hr class="my_hr_in"/>
+                    </div>
+                    <div class="small_field_center" style="display: table-cell">
+                        <p>Опаковчик</p>
+                        <hr class="my_hr_in"/>
+                        <p >Фирма: <span class="bold" style="text-transform: uppercase">{{$certificate->packer_name }}</span></p>
+                        <p >Адрес: <span class="bold">{{$certificate->packer_address }}</span></p>
+                        <hr class="my_hr_in"/>
+                    </div>
+                    <div class="small_field_right" style="display: table-cell">
+                        <p>Стоки</p>
+                        <hr class="my_hr_in"/>
+                        @foreach ($stocks as $stock)
                         <?php
-                        if($stock['type_pack'] == 1 ) {
-                            $pack = 'Каси/ Pl. cases';
-                        }
-                        elseif ($stock['type_pack'] == 2) {
-                            $pack = 'Палети/ Cages';
-                        }
-                        elseif ($stock['type_pack'] == 3) {
-                            $pack = 'Кашони/ C. boxes';
-                        }
-                        elseif ($stock['type_pack'] == 4) {
-                            $pack = 'Торби/ Bags';
-                        }
-                        elseif ($stock['type_pack'] == 999) {
-                            $pack = $stock['different'];
-                        }
-                        else {
-                            $pack = '';
-                        }
-                        // \\\\
-                        if (strlen($stock['variety']) > 0) {
-                            $variety = '('.$stock['variety'].')';
-                        }
-                        else {
-                            $variety = '';
-                        }
-                        // \\\\
-                        if($stock['quality_class'] == 1) {
-                            $class = 'I клас/I class';
-                        }
-                        elseif ($stock['quality_class'] == 2) {
-                            $class = 'II клас/II class';
-                        }
-                        elseif ($stock['quality_class'] == 3) {
-                            $class = 'OПС/GPS';
-                        }
-                        else {
-                            $class = '';
-                        }
+                            if($stock['type_pack'] == 1 ) {
+                                $pack = 'Каси/ Pl. cases';
+                            }
+                            elseif ($stock['type_pack'] == 2) {
+                                $pack = 'Палети/ Cages';
+                            }
+                            elseif ($stock['type_pack'] == 3) {
+                                $pack = 'Кашони/ C. boxes';
+                            }
+                            elseif ($stock['type_pack'] == 4) {
+                                $pack = 'Торби/ Bags';
+                            }
+                            elseif ($stock['type_pack'] == 999) {
+                                $pack = $stock['different'];
+                            }
+                            else {
+                                $pack = '';
+                            }
+                            // \\\\
+                            if (strlen($stock['variety']) > 0) {
+                                $variety = '('.$stock['variety'].')';
+                            }
+                            else {
+                                $variety = '';
+                            }
+                            // \\\\
+                            if($stock['quality_class'] == 1) {
+                                $class = 'I клас/I class';
+                            }
+                            elseif ($stock['quality_class'] == 2) {
+                                $class = 'II клас/II class';
+                            }
+                            elseif ($stock['quality_class'] == 3) {
+                                $class = 'OПС/GPS';
+                            }
+                            else {
+                                $class = '';
+                            }
                         ?>
-                        <p style="font-size: 13px" class="bold">
-                            <span style="display: inline-block; ">{{$pack}} - {{$stock['number_packages'] }}</span> |
+                            <p style="font-size: 13px" class="bold">
+                                <span style="display: inline-block; ">{{$pack}} - {{$stock['number_packages'] }}</span> | 
                                 <span style="display: inline-block; ">
-                                    {{$stock['crops_name'] }}/{{$stock['crop_en']}} <span style="font-weight: normal;">{{$variety}}</span>
-                                </span> |
+                                    {{$stock['crops_name'] }}/{{$stock['crop_en']}} <span style="font-weight: normal;">{{$variety}}</span> 
+                                </span> | 
                                 <span style="display: inline-block; ">
                                     {{$class}} - {{$stock['weight']}} kg
                                 </span>
-                        </p>
-                        <hr class="my_hr_in"/>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <hr class="my_hr_in"/>
-
-        <div class="col-md-12 row-table-bottom " style="display: table">
-            <div style="display: table-row">
-                <div class="small_field_bottom top_info" style="display: table-cell" >
-                    <span class=""><i class="fa fa-database "></i> ДРУГИ ДАННИ</span>
-                </div>
-            </div>
-            <div class="small_field_bottom" style="display: table-cell">
-                <div class="col-md-4">
-                    <p >Контролен орган: <span class="bold" style="text-transform: none">{{$certificate->authority_bg }}</span></p>
-                    <hr class="my_hr_in"/>
-                    <p >Митница: <span class="bold" style="text-transform: none">{{$certificate->customs_bg }}</span></p>
-                    <hr class="my_hr_in"/>
-                    <p >Място на издаване: <span class="bold">{{$certificate->place_bg }}</span></p>
-                    <hr class="my_hr_in"/>
-                </div>
-                <div class="col-md-4">
-                    <p >Подписващо лице : <span class="bold" style="text-transform: uppercase">{{$certificate->inspector_bg }}</span></p>
-                    <hr class="my_hr_in"/>
-                    <p >Дата на издаване: <span class="bold" style="text-transform: none">{{ date( 'd.m.Y', $certificate->date_issue) }}</span></p>
-                    <hr class="my_hr_in"/>
-                    <p >Валиден до : <span class="bold">{{$certificate->valid_until }}</span></p>
-                    <hr class="my_hr_in"/>
-                </div>
-                <div class="col-md-2">
-                    <p >5. Регион или страна: <span class="bold" style="text-transform: uppercase"></span></p>
-                    <hr class="my_hr_in"/>
-                    <p ><span class="bold" style="text-transform: none">{{$certificate->for_country_bg }}/{{$certificate->for_country_en }}</span></p>
-                    <hr class="my_hr_in"/>
-                </div>
-                @if($certificate->invoice_id != 0)
-                    <div class="col-md-2">
-                        <p >
-                            Фактура: <span class="bold" style="text-transform: uppercase"></span>
-                            <a href='/контрол/фактури-вътрешни/{{$certificate->invoice_id}}/edit' class="fa fa-edit btn btn-success my_btn" style="float: right"> Edit</a>
-                        </p>
-                        <hr class="my_hr_in"/>
-                        <p ><span class="bold" style="text-transform: none">{{$invoice[0]['number_invoice'] }}/{{ date('d.m.Y' ,$invoice[0]['date_invoice']) }}</span></p>
-                        <hr class="my_hr_in"/>
-                        <p >Сума: <span class="bold" style="text-transform: none">{{number_format($invoice[0]['sum'], 2, ',', ' ')}} лв.</span></p>
+                            </p>
+                            <hr class="my_hr_in"/>
+                        @endforeach
                     </div>
-                @else
+                </div>
+            </div>
+
+            <hr class="my_hr_in"/>
+
+            <div class="col-md-12 row-table-bottom " style="display: table">
+                <div style="display: table-row">
+                    <div class="small_field_bottom top_info" style="display: table-cell" >
+                        <span class=""><i class="fa fa-database "></i> ДРУГИ ДАННИ</span>
+                    </div>
+                </div>
+                <div class="small_field_bottom" style="display: table-cell">
+                    <div class="col-md-4">
+                        <p >Контролен орган: <span class="bold" style="text-transform: none">{{$certificate->authority_bg }}</span></p>
+                        <hr class="my_hr_in"/>
+                        <p >Митница: <span class="bold" style="text-transform: none">{{$certificate->customs_bg }}/{{$certificate->customs_en }}</span></p>
+                        <hr class="my_hr_in"/>
+                        <p >Място на издаване: <span class="bold">{{$certificate->place_bg }}/ {{$certificate->place_en }}</span></p>
+                        <hr class="my_hr_in"/>
+                    </div>
+                    <div class="col-md-4">
+                        <p >Подписващо лице : <span class="bold" style="text-transform: uppercase">{{$certificate->inspector_bg }}</span></p>
+                        <hr class="my_hr_in"/>
+                        <p >Дата на издаване: <span class="bold" style="text-transform: none">{{ date( 'd.m.Y', $certificate->date_issue) }}</span></p>
+                        <hr class="my_hr_in"/>
+                        <p >Валиден до : <span class="bold">{{$certificate->valid_until }}</span></p>
+                        <hr class="my_hr_in"/>
+                    </div>
                     <div class="col-md-2">
-                        <p >Фактура: <span class="bold" style="text-transform: uppercase"></span></p>
+                        <p >5. Регион или страна: <span class="bold" style="text-transform: uppercase"></span></p>
                         <hr class="my_hr_in"/>
-                        <p ><span class="bold red" style="text-transform: none">Поълни фактурта!</span></p>
+                        <p ><span class="bold" style="text-transform: none">{{$certificate->for_country_bg }}/{{$certificate->for_country_en }}</span></p>
                         <hr class="my_hr_in"/>
-                        @if($certificate->sum != 0)
+                    </div>
+                    @if($certificate->invoice_id != 0)
+                        <div class="col-md-2">
                             <p >
-                                <a href='/контрол/фактури-вътрешни/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
-                            </p>
-                        @endif
-                    </div>
-                @endif
-            </div>
-        </div>
-        @if($certificate->is_lock == 0)
-            <div class=" col-md-12 row-table-bottom " style="display: table" id="wrap_sum">
-                <div  class=" small_field_bottom print-button" >
-                    {!! Form::open(['url'=>'domestic/add-sum/store/'.$certificate->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
-                    @if($certificate->sum == 0)
-                        @if($certificate->type_crops == 1)
-                            <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span>
-                                Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
-                                Предлагана сума за плащане - <span class="bold">{{$sum_domestic}}</span> лв.
-                            </p>
-                        @elseif ($certificate->type_crops == 2)
-                            <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!! СТОКИТЕ СА ЗА ПРЕРАБОТКА</span>
-                                Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
-
-                                @if ($sum_type == 0)
-                                    <span class="bold">Килограмите са над 30000. Добави сумата!</span>
-                                @else
-                                    Предлагана сума за плащане според килограмите-
-                                    <span class="bold">{{$sum_type}}</span> лв.
+                                Фактура: <span class="bold" style="text-transform: uppercase"></span>
+                                @if(Auth::user()->id == $certificate->added_by)
+                                    <a href='/контрол/фактури-внос/{{$certificate->invoice_id}}/edit' class="fa fa-edit btn btn-success my_btn" style="float: right"> Edit</a>
                                 @endif
+
                             </p>
-                        @else
-                            <p><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Провери данните! Вероятно има грешка!</p>
-                        @endif
+                            <hr class="my_hr_in"/>
+                            <p ><span class="bold" style="text-transform: none">{{$invoice[0]['number_invoice'] }}/{{ date('d.m.Y' ,$invoice[0]['date_invoice']) }}</span></p>
+                            <hr class="my_hr_in"/>
+                            <p >Сума: <span class="bold" style="text-transform: none">{{number_format($invoice[0]['sum'], 2, ',', ' ')}} лв.</span></p>
+                        </div>
                     @else
-                        @if($certificate->type_crops == 1)
-                            <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span>
-                                Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
-                                Добавена е сума -  <span class="bold">{{ $certificate->sum}}</span> лв.
-                                @if ($certificate->percent == 1)
-                                    с добавени <span class="bold">42%</span> според чл. 1(4) т. 1
-                                @elseif($certificate->percent == 2)
-                                    с добавени <span class="bold">86%</span> според чл. 1(4) т. 3
-                                @elseif($certificate->percent == 3)
-                                    с добавени <span class="bold">63%</span> според чл. 1(4) т. 2
-                                @else
-                                    без добавен процент.
+                        <div class="col-md-2">
+                            <p >Фактура: <span class="bold" style="text-transform: uppercase"></span></p>
+                            <hr class="my_hr_in"/>
+                            <p ><span class="bold red" style="text-transform: none">Поълни фактурта!</span></p>
+                            <hr class="my_hr_in"/>
+                            @if($certificate->sum != 0)
+                                @if(Auth::user()->id == $certificate->added_by)
+                                    <a href='/контрол/фактури-внос/{{$certificate->id}}' class="fa fa-plus-circle btn btn-danger my_btn"> Add</a>
                                 @endif
-                            </p>
-                        @elseif ($certificate->type_crops == 2)
-                            <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!! СТОКИТЕ СА ЗА ПРЕРАБОТКА</span>
-                                Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
-                                Добавена е сума -  <span class="bold">{{ $certificate->sum}}</span> лв.
-                                @if ($certificate->percent == 1)
-                                    с добавени <span class="bold">42%</span> според чл. 56 т. 1
-                                @elseif($certificate->percent == 2)
-                                    с добавени <span class="bold">86%</span> според чл. 56 т. 2
-                                @elseif($certificate->percent == 3)
-                                    с добавени <span class="bold">63%</span> според чл. 1(4) т. 2
-                                @else
-                                    без добавен процент.
-                                @endif
-                            </p>
-                        @else
-                            <p><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Провери данните! Вероятно има грешка!</p>
-                        @endif
+                            @endif
+                        </div>
                     @endif
-                    <hr class="my_hr_in"/>
-                    <div class="btn_add" style="text-align: left; display: inline-block; margin-top: 5px; width: 100%">
-                        <?php
-                        if($certificate->type_crops == 1) {
-                            if($sum_domestic == 0) {
-                                $sum_for_pay = $certificate->base_sum;
-                            }
-                            else {
-                                $sum_for_pay = $sum_domestic;
-                            }
-                        }
-                        elseif ($certificate->type_crops == 2) {
-                            if($sum_type == 0) {
-                                $sum_for_pay = $certificate->base_sum;
-                            }
-                            else {
-                                $sum_for_pay = $sum_type;
-                            }
-                        }
-                        else {
-                            $sum_for_pay = null;
-                        }
-
-                        if($certificate->percent == 0){
-                            $percent0 = true;
-                            $percent1 = false;
-                            $percent2 = false;
-                            $percent3 = false;
-                        }
-                        elseif ($certificate->percent == 1) {
-                            $percent0 = false;
-                            $percent1 = true;
-                            $percent2 = false;
-                            $percent3 = false;
-                        }
-                        elseif ($certificate->percent == 2) {
-                            $percent0 = false;
-                            $percent1 = false;
-                            $percent2 = true;
-                            $percent3 = false;
-                        }
-                        elseif ($certificate->percent == 3) {
-                            $percent0 = false;
-                            $percent1 = false;
-                            $percent2 = false;
-                            $percent3 = true;
-                        }
-                        else {
-                            $percent0 = true;
-                            $percent1 = false;
-                            $percent2 = false;
-                            $percent3 = false;
-                        }
-                        // print_r($sum_for_pay);
-                        ?>
-                        {!! Form::label('sum', 'Предлагана сума за плащане:', ['class'=>'my_labels']) !!}
-                        {!! Form::text('sum', $sum_for_pay, ['class'=>'hide_numberss form-control form-control-my', 'style'=>'width: 100px; display: inline-block', 'size'=>'3', 'maxlength'=>'10', 'id'=>'sumField']) !!}
-                        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-                        {!! Form::label('percent0', 'Без добавн процент', ['class'=>'my_labels']) !!}
-                        {!! Form::radio('percent', '0' , $percent0, ['id' => 'percent0', 'class'=>'radioBtnClass']) !!}
-                        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-                        {!! Form::label('percent1', '42%', ['class'=>'my_labels']) !!}
-                        {!! Form::radio('percent', '1' , $percent1, ['id' => 'percent1', 'class'=>'radioBtnClass']) !!}
-
-                        {{--&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;--}}
-                        {{--{!! Form::label('percent3', '63%', ['class'=>'my_labels']) !!}--}}
-                        {{--{!! Form::radio('percent', '3' , $percent3, ['id' => 'percent3', 'class'=>'radioBtnClass']) !!}--}}
-
-                        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-                        {!! Form::label('percent2', '84%', ['class'=>'my_labels']) !!}
-                        {!! Form::radio('percent', '2' , $percent2, ['id' => 'percent2', 'class'=>'radioBtnClass']) !!}
-                        @if ($certificate->sum == 0)
-                            <button type="submit" class="btn-sm btn-info " id="add_sum_btn" style="margin-left: 50px">
-                                <i class="fa fa-dollar"></i> Добави сума!
-                            </button>
-                        @else
-                            <button type="submit" class="btn-sm btn-success " id="add_sum_btn" style="margin-left: 50px">
-                                <i class="fa fa-dollar"></i> Редактирай сума!
-                            </button>
-                        @endif
-
-                    </div>
-                    <input type="hidden" name="type" value="{{$certificate->type_crops}}" id="type">
-                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
-                    {!! Form::close() !!}
                 </div>
             </div>
-
-            <div class="col-md-12 row-table-bottom " style="display: table" >
-                @if ((Auth::user()->id == $certificate->added_by) || (Auth::user()->admin == 2))
-                    <div  class="archive small_field_bottom print-button" >
-                        <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Само администратор или инспектора съставил Сертификата могат да го Редактират!</p>
-                        <hr class="my_hr_in"/>
-                        <div class="btn_add" style="text-align: left; display: inline-block; margin-top: 5px">
-                            <a href="{!!URL::to('/контрол/сертификат-вътрешен/'.$certificate->id.'/edit')!!}" class="fa fa-edit btn btn-primary">  Редактирай Данните</a>
-                        </div>
-                        <div class="btn_add" style="float: right; display: inline-block; margin-top: 5px">
-                            <a href="{!!URL::to('/internal/stock/'.$certificate->id.'/0/edit')!!}" class="fa fa-edit btn btn-danger">  Редактирай Стоките</a>
-                        </div>
-                    </div>
-                @endif
-            </div>
-        @endif
-        <div class="col-md-12 row-table-bottom " style="display: table" >
+            
             @if($certificate->is_lock == 0)
-                <div class="small_field_bottom" style="display: table-cell">
-                    {!! Form::model($certificate, ['url'=>'lock-internal-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
-                    <button type="submit" class="btn-sm btn-default " id="complexConfirm">
-                        <i class="fa fa-print"></i> Подготви за печат!
-                    </button>
-                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
-                    <input type="hidden" name="is_sum" value="{{$certificate->sum}}" id="is_sum">
-                    {!! Form::close() !!}
-                </div>
-                <div class="small_field_bottom" style="display: table-cell">
-                    <p ><span class="red bold"><i class="fa fa-warning"></i>
-                            ВНИМАНИЕ!!</span> Ако данните са коректни, за да се отпечата Сертификата трябва да се натисне бутона "Подготви за печат!".<br/>
-                        След което, няма да могат да се правят повече промени по Сертификата!!! </p>
-                </div>
-            @else
-                <div class="small_field_bottom" style="display: table-cell">
-                    <p class="bold">Сертификата е заключен и не може да се редактира повече.</p>
-                </div>
-                @if(Auth::user()->admin == 2 )
-                    <div class="small_field_bottom" style="display: table-cell">
-                        {!! Form::model($certificate, ['url'=>'unlock-internal-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
-                        <button type="submit" class="btn-sm btn-success " id="unlockConfirm">
-                            <i class="fa fa-unlock"></i> Отключи!
-                        </button>
-                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
+                <div class=" col-md-12 row-table-bottom " style="display: table" id="wrap_sum">
+                    <div  class=" small_field_bottom print-button" >
+                        <?php echo ($sum_type); ?>
+                        {!! Form::open(['url'=>'import/add-sum/store/'.$certificate->id, 'method'=>'POST', 'autocomplete'=>'on']) !!}
+                            @if($certificate->sum == 0)
+                                @if($certificate->type_crops == 1)
+                                    <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span>
+                                        Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
+                                        Предлагана сума за плащане -  
+                                        @if ($sum_import == 0)
+                                        <span class="bold">Килограмите са над 30000. Добави сумата </span>
+                                        @else
+                                            <span class="bold">{{$sum_import}}</span> лв.
+                                        @endif
+                                    </p>
+                                @elseif ($certificate->type_crops == 2)
+                                    <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!! СТОКИТЕ СА ЗА ПРЕРАБОТКА</span> 
+                                        Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
+                                        
+                                        @if ($sum_type == 0)
+                                            <span class="bold">Килограмите са над 30000. Добави сумата!</span>
+                                        @else
+                                            Предлагана сума за плащане според килограмите-  
+                                            <span class="bold">{{$sum_type}}</span> лв.
+                                        @endif
+                                    </p>
+                                @else
+                                    <p><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Провери данните! Вероятно има грешка!</p>
+                                @endif
+                            @else
+                                @if($certificate->type_crops == 1)
+                                    <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> 
+                                        Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
+                                        Добавена е сума -  <span class="bold">{{ $certificate->sum}}</span> лв. 
+                                        @if ($certificate->percent == 1)
+                                            с добавени <span class="bold">42%</span> според чл. 56 т. 1
+                                        @elseif($certificate->percent == 2)
+                                            с добавени <span class="bold">86%</span> според чл. 56 т. 2
+                                        @else
+                                            без добавен процент.
+                                        @endif
+                                    </p>
+                                @elseif ($certificate->type_crops == 2)
+                                    <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!! СТОКИТЕ СА ЗА ПРЕРАБОТКА</span> 
+                                        Общо килограмите в сертификата са - <span class="bold">{{$total_weight}}</span> кг. &nbsp;
+                                        Добавена е сума -  <span class="bold">{{ $certificate->sum}}</span> лв. 
+                                        @if ($certificate->percent == 1)
+                                            с добавени <span class="bold">42%</span> според чл. 56 т. 1
+                                        @elseif($certificate->percent == 2)
+                                            с добавени <span class="bold">86%</span> според чл. 56 т. 2
+                                        @else
+                                            без добавен процент.
+                                        @endif
+                                    </p>
+                                @else
+                                    <p><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Провери данните! Вероятно има грешка!</p>
+                                @endif
+                            @endif
+                            <hr class="my_hr_in"/>
+                            <div class="btn_add" style="text-align: left; display: inline-block; margin-top: 5px; width: 100%">
+                                <?php 
+                                if($certificate->type_crops == 1) {
+                                    if($sum_import == 0) {
+                                        $sum_for_pay = $certificate->base_sum;
+                                        
+                                    }
+                                    else {
+                                        $sum_for_pay = $sum_import;
+                                    }
+                                } 
+                                elseif ($certificate->type_crops == 2) {
+                                    if($sum_type == 0) {
+                                        $sum_for_pay = $certificate->base_sum;
+                                    }
+                                    else {
+                                        $sum_for_pay = $sum_type;
+                                    }
+                                }
+                                else {
+                                    $sum_for_pay = null;
+                                }
+                                
+                                if($certificate->percent == 0){
+                                    $percent0 = true;
+                                    $percent1 = false;
+                                    $percent2 = false;
+                                }
+                                elseif ($certificate->percent == 1) {
+                                    $percent0 = false;
+                                    $percent1 = true;
+                                    $percent2 = false;
+                                }
+                                elseif ($certificate->percent == 2) {
+                                    $percent0 = false;
+                                    $percent1 = false;
+                                    $percent2 = true;
+                                }
+                                else {
+                                    $percent0 = true;
+                                    $percent1 = false;
+                                    $percent2 = false;
+                                }
+                                // print_r($sum_for_pay);
+                                ?>
+                                {!! Form::label('sumField', 'Предлагана сума за плащане:', ['class'=>'my_labels']) !!}
+                                {!! Form::text('sum', $sum_for_pay, ['class'=>'hide_numberss form-control form-control-my', 'style'=>'width: 100px; display: inline-block', 'size'=>'3', 'maxlength'=>'10', 'id'=>'sumField']) !!}
+                                &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                                {!! Form::label('percent0', 'Без добавн процент', ['class'=>'my_labels']) !!}
+                                {!! Form::radio('percent', '0' , $percent0, ['id' => 'percent0', 'class'=>'radioBtnClass']) !!}
+                                &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                                {!! Form::label('percent1', '42%', ['class'=>'my_labels']) !!}
+                                {!! Form::radio('percent', '1' , $percent1, ['id' => 'percent1', 'class'=>'radioBtnClass']) !!}
+                                &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                                {!! Form::label('percent2', '84%', ['class'=>'my_labels']) !!}
+                                {!! Form::radio('percent', '2' , $percent2, ['id' => 'percent2', 'class'=>'radioBtnClass']) !!}
+                                @if ($certificate->sum == 0)
+                                    <button type="submit" class="btn-sm btn-info " id="add_sum_btn" style="margin-left: 50px">
+                                        <i class="fa fa-dollar"></i> Добави сума!
+                                    </button>
+                                @else
+                                    <button type="submit" class="btn-sm btn-success " id="add_sum_btn" style="margin-left: 50px">
+                                        <i class="fa fa-dollar"></i> Редактирай сума!
+                                    </button>
+                                @endif
+                                
+                            </div>
+                            <input type="hidden" name="type" value="{{$certificate->type_crops}}" id="type">
+                            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
                         {!! Form::close() !!}
                     </div>
-                @endif
-            @endif
-        </div>
-        @if($certificate->is_lock != 0)
-            <div class="col-md-12 row-table-bottom " >
-                <div  class="archive small_field_bottom print-button" >
-                    <button id="btn_archive" class="btn-sm"><i class="fa fa-print"></i> Покажи и принтирай БЕЛЕЖКА</button>
                 </div>
-                <div  class="hidden client small_field_bottom print-button" style="display: table-cell">
-                    <button id="btn_client" class="btn-sm" ><i class="fa fa-print"></i> Към Сертификата</button>
-                </div>
-            </div>
-        @endif
-    </fieldset>
-    </div>
+                <div class="col-md-12 row-table-bottom " style="display: table" >
 
+                    @if ((Auth::user()->id == $certificate->added_by) || (Auth::user()->admin == 2 || Auth::user()->dlaznost == 1 ) )
+                        <div  class="archive small_field_bottom print-button" >
+                            <p style="font-weight: normal"><span class="bold" style="text-transform: none;">ВНИМАНИЕ!!!</span> Само администратор или инспектора съставил Сертификата могат да го Редактират!</p>
+                            <hr class="my_hr_in"/>
+                            <div class="btn_add" style="text-align: left; display: inline-block; margin-top: 5px">
+                                <a href="{!!URL::to('/контрол/сертификат-внос/'.$certificate->id.'/edit')!!}" class="fa fa-edit btn btn-primary">  Редактирай Данните</a>
+                            </div>
+                            <div class="btn_add" style="float: right; display: inline-block; margin-top: 5px">
+                                <a href="{!!URL::to('/import/stock/'.$certificate->id.'/0/edit')!!}" class="fa fa-edit btn btn-danger">  Редактирай Стоките</a>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            @endif
+            <div class="col-md-12 row-table-bottom " style="display: table" >
+                @if($certificate->is_lock == 0)
+                    <div class="small_field_bottom" style="display: table-cell">
+                        {!! Form::model($certificate, ['url'=>'lock-import-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
+                        <button type="submit" class="btn-sm btn-default " id="complexConfirm">
+                            <i class="fa fa-print"></i> Подготви за печат!
+                        </button>
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
+                        <input type="hidden" name="is_sum" value="{{$certificate->sum}}" id="is_sum">
+                        <input type="hidden" name="is_invoice" value="{{$certificate->invoice_id}}" id="is_invoice">
+                        {!! Form::close() !!}
+                    </div>
+                    <div class="small_field_bottom" style="display: table-cell">
+                        <p ><span class="red bold"><i class="fa fa-warning"></i>
+                            ВНИМАНИЕ!!</span> Ако данните са коректни, за да се отпечата Сертификата трябва да се натисне бутона "Подготви за печат!".<br/>
+                            След което, няма да могат да се правят повече промени по Сертификата!!! </p>
+                    </div>
+                @else
+                    <div class="small_field_bottom" style="display: table-cell">
+                        <p class="bold">Сертификата е заключен и не може да се редактира повече.</p>
+                    </div>
+                    @if(Auth::user()->admin == 2 || Auth::user()->dlaznost == 1 || Auth::user()->id == $certificate->added_by )
+                        <div class="small_field_bottom" style="display: table-cell">
+                            {!! Form::model($certificate, ['url'=>'unlock-import-certificate/'.$certificate->id , 'method'=>'POST', 'id'=>'form']) !!}
+                            <button type="submit" class="btn-sm btn-success " id="unlockConfirm">
+                                <i class="fa fa-unlock"></i> Отключи!
+                            </button>
+                            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>" id="token">
+                            {!! Form::close() !!}
+                        </div>
+                    @endif
+                @endif
+            </div>
+            @if($certificate->is_lock != 0)
+                <div class="col-md-12 row-table-bottom " >
+                    <div  class="archive small_field_bottom print-button" >
+                        <button id="btn_archive" class="btn-sm"><i class="fa fa-print"></i> Покажи и принтирай БЕЛЕЖКА</button>
+                    </div>
+                    <div  class="hidden client small_field_bottom print-button" style="display: table-cell">
+                        <button id="btn_client" class="btn-sm" ><i class="fa fa-print"></i> Към Сертификата</button>
+                    </div>
+                </div>
+            @endif
+        </fieldset>
+    </div>
 
     <div id="wrap_in" class="col-md-12 ">
         <div class="page" >
@@ -467,17 +394,17 @@
                             <tr id="first-row" style="height: 1.3cm">
                                 <td class="cell first-row-cell no-print"  rowspan="2">
                                     <p class="p_info no-print" style="margin-bottom: 12px">1. Търговец / Trader</p>
-                                    <p class="p_content print" style="margin-bottom: 5px">{{$certificate->trader_name }}</p>
+                                    <p class="p_content print" style="margin-bottom: 5px">{{$certificate->importer_name }}</p>
                                     <?php
                                         if($firm->is_bulgarian == 0) {
-                                            $vin = 'BG:'.$certificate->trader_vin;
+                                            $vin = 'BG:'.$certificate->importer_vin;
                                             
                                         }
                                         else {
-                                            $vin = $certificate->trader_vin;
+                                            $vin = $certificate->importer_vin;
                                         }
                                     ?>
-                                    <p class="p_content print" style="">{{$certificate->trader_address }} / {{ $vin }}</p>
+                                    <p class="p_content print" style="">{{$certificate->importer_address }} / {{ $vin }}</p>
                                 </td>
                                 <td colspan="2" class="no-print">
                                     <p class="p_info type line no-print" style="margin-bottom: 1px; font-weight: bold; margin-left: 50px">
@@ -522,14 +449,13 @@
                                     <p class="p_info no-print" style="margin-bottom: 15px;">
                                         2. Опаковчик, посочен на опаковката (ако е  различен от търговеца)/ Packer identified on packaging (if other than trader)
                                     </p>
-                                    <p class="p_contents" style="margin-top: 10px">
-                                        @if (strlen($certificate->packer_name_one) != 0 )
-                                            {!! $certificate->packer_name_one  !!}<br>
-                                            {!! $certificate->packer_name_two !!}<br>
-                                            {!! $certificate->packer_name_three !!}
+                                    <p class="p_content print" id="packers" style="font-size: 12px">
+                                        @if( strlen($certificate->packer_address) > 0)
+                                            {{$certificate->packer_name }}, {{ $certificate->packer_address }}
                                         @else
-                                            <span>--------------</span>
+                                            {{$certificate->packer_name }} {{ $certificate->packer_address }}
                                         @endif
+
                                     </p>
                                 </td>
                                 <td class="cell second-row-cell_2 cell-control authority no-print" style="height: .7cm  !important" colspan="2">
@@ -549,7 +475,7 @@
                                     </p>
                                 </td>
                                 <td class="cell third-row-cell no-print" style="height: 2cm; width: auto; padding-top: 4px" >
-                                    <p class="p_info no-print" style="margin-bottom: 22px; text-align: inherit">
+                                    <p class="p_info no-print" style="margin-bottom: 24px; text-align: inherit">
                                         5. Регион или страна на местоназначение/ Region or country of destination
                                     </p>
                                     <div id="country_wrap" style="margin: 0; padding: 0;">
@@ -725,17 +651,17 @@
                                     </p>
                                     <p class="bold print" style="line-height: 20px; margin-bottom: 10px">R (EC) 2023/2429</p>
 
-                                    <div class="com-md-12" style="display: inline-block">
+                                    <div class="com-md-12" style="display: block; padding-top: 5px">
                                         <p class="" style="font-size: 12.5px;">
                                             <span style="" class="no-print">Предвиждано митническо учреждение/Customs office foresee</span>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <span class="bold print"> {{$certificate->customs_bg }}  {{$certificate->customs_en }}</span>
+                                                <span class="bold print"> {{$certificate->customs_bg }} / {{$certificate->customs_en }}</span>
                                         </p>
                                     </div>
-                                    <div class="com-md-12" style="display: block">
+                                    <div class="com-md-12" style="display: block; padding-top: 5px">
                                         <p class="" style="font-size: 12.5px; display: block; width: 100%; margin-bottom: 11px">
                                             <span style="" class="no-print">Място и дата на издаване/Place and date of issue</span>
-                                            &nbsp;&nbsp;&nbsp;<span class="bold">{{$certificate->place_bg }}</span>/
+                                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="bold">{{$certificate->place_bg }}</span>/
                                             <span class="bold print">{{$certificate->place_en }}/ {{date('d.m.Y', $certificate->date_issue)}}</span>
                                             <span style="margin-left: 5px" class="no-print"> Валиден до/Valid until: &nbsp;</span>
                                             <span class="bold print" style="float: right; text-align: right">{{$certificate->valid_until }}</span>
@@ -773,7 +699,7 @@
                                         <p class="p_content" style="text-transform: none; margin-bottom: 4px">
                                             <span class="no-print">13. Бележки/ Observations</span>  {{$certificate->observations}}
                                             @if ($certificate->invoice_date > 0)
-                                                <span class="print" style="float: right; margin-right: 5px; margin-top: 8px">Фактура/Invoice <span class="bold">{{$certificate->invoice_number}} / {{ date("d.m.Y", $certificate->invoice_date) }} </span></span>
+                                                <span class="print" style="float: right; margin-right: 5px; margin-top: 8px; padding-top: 5px">Фактура/Invoice <span class="bold">{{$certificate->invoice_number}} / {{ date("d.m.Y", $certificate->invoice_date) }} </span></span>
                                             @endif
 
                                         </p>
@@ -870,11 +796,11 @@
                             <tr >
                                 <td style="text-align: left;">
                                     Сертификат по ККППЗ №<br>
-                                    {{ substr($certificate->stamp_number, 2) }}/{{ $certificate->internal }}
+                                    {{ substr($certificate->stamp_number, 2) }}/{{ $certificate->import }}
                                 </td>
                                 <td>
                                     @if ($certificate->type_crops == 1)
-                                        <span>чл.54 т. 3</span>
+                                        <span>чл.54 т. 1</span>
                                     @elseif ($certificate->type_crops == 2)
                                         <span>чл.54 т. 2</span>
                                     @else
@@ -903,49 +829,42 @@
                                         $txt = 'чл.56 т.1';
                                         $br = 'бр.';
                                         $num = '1';
-                                        $percent = '42%';
-                                        $sum_percent = ($certificate->base_sum*42)/100;
+                                        $prcent = '42%';
+                                        $sum_prcent = ($certificate->base_sum*42)/100;
                                     }
                                     elseif($certificate->percent == 2){
                                         $txt = 'чл.56 т.2';
                                         $br = 'бр.';
                                         $num = '1';
-                                        $percent = '84%';
-                                        $sum_percent = ($certificate->base_sum*84)/100;
-                                    }
-                                    elseif($certificate->percent == 3){
-                                        $txt = 'чл.1(4) т.2';
-                                        $br = 'бр.';
-                                        $num = '1';
-                                        $percent = '63%';
-                                        $sum_percent = ($certificate->base_sum*63)/100;
+                                        $prcent = '84%';
+                                        $sum_prcent = ($certificate->base_sum*84)/100;
                                     }
                                     else {
                                         $txt = '';
                                         $br = '';
                                         $num = '';
-                                        $percent = '';
-                                        $sum_percent = 0;
-                                    }
+                                        $prcent = '';
+                                        $sum_prcent = 0;
+                                    }0
                                     ?>
                                     <span>{{ $txt}}</span>
                                 </td>
                                 <td>{{$br}}</td>
                                 <td>{{$num}}</td>
-                                <td>{{$percent}}</td>
+                                <td>{{$prcent}}</td>
                                 <td>
-                                    @if($sum_percent != 0)
-                                        {{ number_format($sum_percent, 2, ',', '') }}
+                                    @if($sum_prcent != 0)
+                                        {{ number_format($sum_prcent, 2, ',', '') }}
                                     @endif
                                 </td>
                                 <td>
-                                    @if($sum_percent != 0)
+                                    @if($sum_prcent != 0)
                                     0,00
                                     @endif
                                 </td>
                                 <td>
-                                    @if($sum_percent != 0)
-                                        {{ number_format($sum_percent, 2, ',', '') }}
+                                    @if($sum_prcent != 0)
+                                        {{ number_format($sum_prcent, 2, ',', '') }}
                                     @endif
                                 </td>
                             </tr>
@@ -1012,12 +931,12 @@
                                 <td>
                                     <?php 
                                         if($certificate->type_crops == 1) {
-                                            $sum_cert = $sum_domestic;
+                                            $sum_cert = $sum_import;
                                         }
                                         if($certificate->type_crops == 2) {
                                             $sum_cert = $sum_type;
                                         }
-                                        $percent_sum = $sum_percent;
+                                        $percent_sum = $sum_prcent;
                                         $total = $sum_cert + $percent_sum ;
                                         if($total = $certificate->sum ) {
                                             $total_sum = $total;

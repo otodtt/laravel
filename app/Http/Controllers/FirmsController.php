@@ -392,6 +392,8 @@ class FirmsController extends Controller
 
         $certificates = Certificate::lists('number', 'id')->toArray();
 
+//        dd($firm);
+
         return view('objects.firms.show', compact('firm', 'areas', 'pharmacies', 'repositories', 'workshops',
                     'districts', 'districts_show', 'index', 'lock_permit', 'certificates' ));
     }

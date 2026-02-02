@@ -1,6 +1,6 @@
 @extends('layouts.objects')
 @section('title')
-    {{ 'Всички Констативни Протоколи' }}
+    {{ 'Всички Констативни Протоколи към доклади' }}
 @endsection
 
 @section('css')
@@ -16,15 +16,22 @@
 
 @section('content')
     <div class="div-layout-title">
-        <h4 class="bold layout-title">КОНСТАТИВНИ ПРОТОКОЛИ НА АПТЕКИ СКЛАДОВЕ ЦЕХОВЕ</h4>
+        <h4 class="bold layout-title">КОНСТАТИВНИ ПРОТОКОЛИ КЪМ ДОКЛАДИ ОТ ПРОВЕРКИ</h4>
     </div>
     <hr/>
     <div class="btn-group">
         <a href="/" class="fa fa-home btn btn-info my_btn"> Началo</a>
-        <span class="fa fa-file-powerpoint-o btn btn-default my_btn"> Протоколи Контрол на Пазара</span>
+        <span class="fa fa-file-text-o btn btn-default my_btn"> Доклади Контрол на Пазара</span>
         <a href="{!! URL::to('/протоколи-обекти')!!}" class="fa fa-object-ungroup btn btn-info my_btn"> Протоколи Нерегламентирани Обекти</a>
         <a href="{!! URL::to('/други-обекти')!!}" class="fa fa-external-link btn btn-info my_btn"> Протоколи в други Области</a>
         <a href="{!! URL::to('/производители')!!}" class="fa fa-industry btn btn-info my_btn"> Протоколи Производители на ПРЗ</a>
+    </div>
+    <hr/>
+    <div class="btn-group">
+        <a href="{!! URL::to('/доклади-аптека')!!}" class="fa fa-plus-square btn btn-info my_btn"> Доклади аптека</a>
+        <a href="{!! URL::to('/доклади-склад')!!}" class="fa fa-shield btn btn-info my_btn"> Доклади Склад</a>
+        <a href="{!! URL::to('/доклади-цех')!!}" class="fa fa-cubes btn btn-info my_btn"> Доклади Цех</a>
+        <span class="fa fa-file-powerpoint-o btn btn-default my_btn"> Протоколи към доклади</span>
     </div>
     <hr/>
     <fieldset class="form-group">
@@ -32,7 +39,7 @@
             <div id="wr_choiz_all">
                 <div id="search_wrap" class="col-md-6">
                     {!! Form::open(array('url'=>'/протоколи', 'method'=>'POST')) !!}
-                    @include('protocols.market.index.search')
+                    @include('control.protocols.market.index.search')
                     {!! Form::close() !!}
                 </div>
                 <div class="col-md-6">
@@ -49,7 +56,7 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all" class="col-md-12">
                 {!! Form::open(array('url'=>'/протоколи/сортирай', 'method'=>'POST')) !!}
-                @include('protocols.market.index.years_sort')
+                @include('control.protocols.market.index.years_sort')
                 {!! Form::close() !!}
                 <span class="errors">
                     @if ($errors->has('start_year'))
@@ -66,19 +73,19 @@
         <div class="wrap_sort">
             <div id="wr_choiz_all">
                 {!! Form::open(array('url'=>'/протоколи/сортирай', 'method'=>'POST')) !!}
-                @include('protocols.market.index.sorting')
+                @include('control.protocols.market.index.sorting')
                 {!! Form::close() !!}
             </div>
         </div>
     </fieldset>
     <hr/>
 
-    @include('protocols.market.index.alphabet')
+    @include('control.protocols.market.index.alphabet')
     <div class="refresh">
         <a href="{{ url('/протоколи') }}" class="fa fa-eraser btn btn-primary my_btn">&nbsp; Изчисти сортирането!</a>
     </div>
     <hr/>
-    @include('protocols.market.index.table')
+    @include('control.protocols.market.index.table')
 @endsection
 
 @section('scripts')

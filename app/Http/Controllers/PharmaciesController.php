@@ -93,6 +93,8 @@ class PharmaciesController extends Controller
      */
     public function sort($abc_list = null, $areas_list = null, $years_list = null, $licence_list = null)
     {
+//        $pharmacies_all = Pharmacy::where('end_date','>',time())->where('active','=',0)->orderBy('alphabet', 'asc')->get();
+
         $alphabet = Pharmacy::where('end_date','>',time())->where('active','=',0)->lists('alphabet')->toArray();
 
         $districts = $this->objects_districts_list;
@@ -109,6 +111,7 @@ class PharmaciesController extends Controller
             $years_sort = $years_list;
             $licence_sort = $licence_list;
         }
+//        dd($licence_sort);
         if ((!array_key_exists($areas_sort, $districts) || $years_sort >= 6 || $licence_sort >= 3)
             && (!in_array((int)$abc, $alphabet) && (int)$abc != 0)) {
             //TODO Ако някой промени селект менюто
@@ -146,14 +149,21 @@ class PharmaciesController extends Controller
                 $years_sql = '';
             }
             ///// За избор ВИДА на Лиценза
-            if ((int)$licence_sort > 0) {
-                $licence_sql = 'AND raz_udost=' . $licence_sort;
+            $active = 0;
+            if ((int)$licence_sort == 1) {
+//                $licence_sql = 'AND raz_udost= 2  AND end_date < '.time();
+                $licence_sql = ' ';
+                $active = 1;
+            }
+            if ((int)$licence_sort == 2) {
+                $licence_sql = 'AND end_date < '.time();
             }
             if ((int)$licence_sort == 0) {
                 $licence_sql = '';
             }
 
-            $pharmacies = DB::select("SELECT * FROM `pharmacies` WHERE end_date > '.time().' AND active = 0 $areas_sql $years_sql $licence_sql $abc_sql ");
+            $pharmacies = DB::select("SELECT * FROM `pharmacies` WHERE end_date > '.time().' AND active = $active $areas_sql $years_sql $licence_sql $abc_sql ");
+//            dd("SELECT * FROM `pharmacies` WHERE end_date > '.time().' AND active = $active $areas_sql $years_sql $licence_sql $abc_sql ");
         }
         return view('objects.pharmacies.index', compact('pharmacies', 'districts', 'alphabet', 'abc', 'areas_sort', 'years_sort', 'licence_sort'));
     }

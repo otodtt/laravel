@@ -91,6 +91,11 @@ label {
     width: 120px;
     padding: 0 0 0 5px;
 }
+#areas_sort{
+    width: 180px;
+    padding: 0 0 0 5px;
+}
+
 #areas{
     width: 180px;
     padding: 0 0 0 5px;

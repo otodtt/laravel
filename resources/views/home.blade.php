@@ -77,7 +77,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <fieldset class=""><legend class="">Фирми, Аптеки, Складове и Цехове</legend>
                                     <a class="my_a back_link" href="{!! URL::to( '/фирми') !!}"><i class="fa fa-bank fa-fw blue_color"></i> Всички фирми</a><br/>
                                     <a class="my_a back_link" href="{!! URL::to( '/аптеки') !!}"> <i class="fa fa-plus-square fa-fw blue_color"></i> Всички аптеки</a><br/>
@@ -86,26 +86,43 @@
                                     <a class="my_a back_link" href="{!! URL::to( '/изтекъл-срок') !!}"><i class="fa fa-times fa-fw blue_color"></i> С изтекъл или прекратен срок</a>
                                 </fieldset>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
+                                <fieldset class=""><legend class="">Доклади от проверки</legend>
+                                    <a class="my_a back_link" href="{!! URL::to( '/доклади-аптека') !!}"><i class="fa fa-plus-square fa-fw control_color"></i> Доклади Проверка на Аптека</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/доклади-склад') !!}"><i class="fa fa-shield fa-fw control_color"></i> Доклади Проверка на Склад</a><br/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/доклади-цех') !!}"><i class="fa fa-cubes fa-fw control_color"></i> Доклади Проверка на Цех</a><br/>
+                                    <hr style="margin-bottom: 5px; margin-top: 5px"/>
+                                    <a class="my_a back_link" href="{!! URL::to( '/доклади-контрол') !!}"><i class="fa fa-file-text-o fa-fw control_color"></i> Доклад Аптека</a><br/>
+                                    {{--<a class="my_a back_link" href="{!! URL::to( '/аптеки') !!}"> <i class="fa fa-plus-square fa-fw blue_color"></i> Всички аптеки</a><br/>--}}
+                                    {{--<a class="my_a back_link" href="{!! URL::to( '/складове') !!}"><i class="fa fa-shield fa-fw blue_color"></i> Всички складове</a><br/>--}}
+                                    {{--<a class="my_a back_link" href="{!! URL::to( '/цехове') !!}"><i class="fa fa-cubes fa-fw blue_color"></i> Всички цехове</a><br/>--}}
+                                    {{--<a class="my_a back_link" href="{!! URL::to( '/изтекъл-срок') !!}"><i class="fa fa-times fa-fw blue_color"></i> С изтекъл или прекратен срок</a>--}}
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-5">
                                 <fieldset class=""><legend class="">Констативни Протоколи и Месечни справки</legend>
                                     <div class="row">
 
                                         <div class="col-lg-12  ">
-                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи-стари') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Стари Протоколи Контрол на Пазара до 30.06.2023</a><br/>
-                                            <hr style="margin-bottom: 5px; margin-top: 5px"/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/доклади-контрол') !!}"><i class="fa fa-file-text-o fa-fw control_color"></i> Доклади Контрол на Пазара</a><br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи Контрол на Пазара</a><br/>
+
+
+                                            {{--<a class="my_a back_link" href="{!! URL::to( '/доклади-контрол') !!}"><i class="fa fa-file-text-o fa-fw control_color"></i> Доклади Контрол на Пазара</a><br/>--}}
+                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи-към-доклади') !!}"><i class="fa fa-file-powerpoint-o fa-fw control_color"></i> Протоколи към Доклад от Проверка</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/протоколи-обекти') !!}"><i class="fa fa-object-ungroup fa-fw control_color"></i> Протоколи Нерегламентирани Обекти</a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/други-обекти') !!}"><i class="fa fa-external-link fa-fw control_color"></i> Протоколи в други Области </a><br/>
                                             <a class="my_a back_link" href="{!! URL::to( '/производители') !!}"><i class="fa fa-industry fa-fw control_color"></i> Протоколи Производители на ПРЗ</a><br/>
-                                            <br/>
-                                            <a class="my_a back_link" href="{!! URL::to( '/месечни-справки') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
-                                            <a class="my_a back_link " href="{!! URL::to( '/проби') !!}" style="float: right; margin-right: 10px"> <i class="fa fa-flask fa-fw brown"></i> Дневник взети проби от ПРЗ </a>
-
+                                            {{--<br/>--}}
+                                            {{--<a class="my_a back_link" href="{!! URL::to( '/месечни-справки') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>--}}
+                                            {{--<a class="my_a back_link " href="{!! URL::to( '/проби') !!}" style="float: right; margin-right: 10px"> <i class="fa fa-flask fa-fw brown"></i> Дневник взети проби от ПРЗ </a>--}}
+                                            <hr style="margin-bottom: 5px; margin-top: 5px"/>
+                                            <a class="my_a back_link" href="{!! URL::to( '/протоколи-стари') !!}"><i class="fa fa-file-powerpoint-o fa-fw old_color"></i> Стари Протоколи Контрол на Пазара до 30.06.2023</a><br/>
                                         </div>
                                     </div>
                                 </fieldset>
                             </div>
+                            <br/>
+                            <a class="my_a back_link" href="{!! URL::to( '/месечни-справки') !!}"> <i class="fa fa-calendar fa-fw red"></i> Месечни справки</a>
+                            <a class="my_a back_link " href="{!! URL::to( '/проби') !!}" style="float: right; margin-right: 10px"> <i class="fa fa-flask fa-fw brown"></i> Дневник взети проби от ПРЗ </a>
                         </div>
                     </div>
                 </div>

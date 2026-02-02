@@ -19,6 +19,6 @@ else{
 <label class="type_check"><span>НА ТЕРЕН: </span>
     {!! Form::radio('type_check', 1, $return_one) !!}
 </label>&nbsp;&nbsp;|
-<label class="type_check"><span>&nbsp;&nbsp;ДОКУМЕНТАЛНА: </span>
+<label class="type_check"><span>&nbsp;&nbsp;: </span>
     {!! Form::radio('type_check', 2, $return_two) !!}
 </label>

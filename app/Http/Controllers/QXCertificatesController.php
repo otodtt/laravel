@@ -438,48 +438,48 @@ class QXCertificatesController extends Controller
         }
 
         if($total_weight <= 20000) {
-            $sum_import = 50;
-            $sum_type = 25;
+            $sum_import = 25.56;
+            $sum_type = 12.79;
         }
         elseif($total_weight > 20000 && $total_weight <= 21000) {
-            $sum_import = 51;
-            $sum_type = 25.5;
+            $sum_import = 26.07;
+            $sum_type = 13.05;
         }
         elseif($total_weight > 21000 && $total_weight <= 22000) {
-            $sum_import = 52;
-            $sum_type = 26;
+            $sum_import = 26.58;
+            $sum_type = 13.31;
         }
         elseif($total_weight > 22000 && $total_weight <= 23000) {
-            $sum_import = 53;
-            $sum_type = 26.5;
+            $sum_import = 27.09;
+            $sum_type = 13.57;
         }
         elseif($total_weight > 23000 && $total_weight <= 24000) {
-            $sum_import = 54;
-            $sum_type = 27;
+            $sum_import = 27.6;
+            $sum_type = 13.83;
         }
         elseif($total_weight > 24000 && $total_weight <= 25000) {
-            $sum_import = 55;
-            $sum_type = 27.5;
+            $sum_import = 28.11;
+            $sum_type = 14.09;
         }
         elseif($total_weight > 25000 && $total_weight <= 26000) {
-            $sum_import = 56;
-            $sum_type = 28;
+            $sum_import = 28.62;
+            $sum_type = 14.35;
         }
         elseif($total_weight > 26000 && $total_weight <= 27000) {
-            $sum_import = 57;
-            $sum_type = 28.5;
+            $sum_import = 29.13;
+            $sum_type = 14.61;
         }
         elseif($total_weight > 27000 && $total_weight <= 28000) {
-            $sum_import = 58;
-            $sum_type = 29;
+            $sum_import = 29.64;
+            $sum_type = 14.87;
         }
         elseif($total_weight > 28000 && $total_weight <= 29000) {
-            $sum_import = 59;
-            $sum_type = 29.5;
+            $sum_import = 30.15;
+            $sum_type = 15.13;
         }
         elseif($total_weight > 29000 && $total_weight <= 30000) {
-            $sum_import = 60;
-            $sum_type = 30;
+            $sum_import = 30.66;
+            $sum_type = 15.39;
         }
         else {
             $sum_import = 0;
@@ -663,15 +663,18 @@ class QXCertificatesController extends Controller
         elseif($request->percent == 2){
             $final_sum = $request->sum + ($request->sum*84)/100;
         }
+        elseif($request->percent == 3){
+            $final_sum = $request->sum + ($request->sum*63)/100;
+        }
         else{
             if($request->type == 1){
-                $final_sum = 50;
+                $final_sum = 25.56;
             }
             elseif($request->type == 2){
-                $final_sum = 25;
+                $final_sum = 12.79;
             }
             else {
-                $final_sum = 50;
+                $final_sum = 25.56;
             }
         }
 

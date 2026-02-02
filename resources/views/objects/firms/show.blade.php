@@ -140,9 +140,23 @@
                     </ul>
                 @endif
             </li>
+            <li class="li_old_pharmacy">
+                <a href="{!!URL::to('/фирма/'.$firm->id)!!}"><i class="fa fa-plus-square fa-fw"></i>
+                    <span class="bold">А П Т Е К И</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        {{--@include('objects.firms.body.pharmacies')--}}
+                    </li>
+                </ul>
+            </li>
+
         </ul>
     </div>
 @endsection
+
+
 
 @section('scripts')
     {!! Html::script("js/metisMenu.min.js" ) !!}

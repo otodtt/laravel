@@ -43,10 +43,10 @@ if($sort_licence == 2){
     $rz0 = false;
 }
 ?>
-<label><span>&nbsp;&nbsp;С Разрешително: </span>
+<label><span>&nbsp;&nbsp;С Прекратен срок: </span>
     {!! Form::radio('licence_sort', 1, $rz1) !!}
 </label>
-<label><span>&nbsp;&nbsp;С Удостоверение: </span>
+<label><span>&nbsp;&nbsp;С Изтекъл срок: </span>
     {!! Form::radio('licence_sort', 2, $rz2) !!}
 </label>
 <label><span>&nbsp;&nbsp;Всички: </span>
