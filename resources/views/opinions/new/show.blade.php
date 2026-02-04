@@ -71,12 +71,16 @@
                     @endif
                 @endif
             </div>
-            <div class="col-md-12 row-table-bottom " >
+            <div class="col-md-6 row-table-bottom " style="width: 100%">
                 <div  class="archive small_field_bottom print-button" >
                     <button id="btn_archive" class="btn-sm"><i class="fa fa-print"></i> Виж и принтирай за клиента</button>
                 </div>
                 <div  class="hidden client small_field_bottom print-button" style="display: table-cell">
                     <button id="btn_client" class="btn-sm" ><i class="fa fa-print"></i> За архива</button>
+                </div>
+                <div  class="archive small_field_bottom print-button" >
+                    <a href="{!! URL::to('/opinion-word/'.$opinion->id)!!}" class="fa btn btn-info my_btn ">
+                        <i class="fa fa-download"></i> Изтегли докумета</a>
                 </div>
             </div>
         </fieldset>

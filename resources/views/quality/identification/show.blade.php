@@ -226,7 +226,7 @@
                                 }
                                 ?>
                                 {!! Form::label('sum', 'Сума за плащане:', ['class'=>'my_labels']) !!}
-                                <span>20 лв.</span>
+                                <span>10.22 евро</span>
                                 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
                                 {!! Form::label('percent0', 'Без добавн процент', ['class'=>'my_labels']) !!}
                                 {!! Form::radio('percent', '0' , $percent0, ['id' => 'percent0', 'class'=>'radioBtnClass']) !!}
@@ -384,6 +384,7 @@
                                 <td><span>бр.</span></td>
                                 <td><span>1</span></td>
                                 <td>
+                                    <?php //echo($certificate->checking); ?>
                                     <span>{{ number_format($certificate->checking, 2, ',', '' ) }}</span>
                                 </td>
                                 <td>
@@ -510,7 +511,14 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <span class="bold">{{ number_format($certificate->sum, 2, ',', '' ) }}</span>
+                                    <?php
+                                        if($certificate->date_issue > 1767225600) {
+                                            $euro = '&euro;';
+                                        } else {
+                                        $euro = '';
+                                        }
+                                    ?>
+                                    <span class="bold">{{ number_format($certificate->sum, 2, ',', '' ) }} {{$euro}}</span>
                                 </td>
                             </tr>
                         </tfoot>

@@ -7,56 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c033921-b87d-4463-b55c-026e1fb56b85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/choose/choose.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/firm_protocols.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form/body_firm_protocols.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form/body_show.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form/sort_protocols.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form/table.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/data_protocol.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/edit_example.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/edit_info.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/example.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/inspectors.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/number_protocol.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/object_info.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/form_add/radio_type.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/index/alphabet.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/index/search.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/index/sorting.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/index/table.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/index/years_sort.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/logo.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/control/protocols/market/show.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show_next.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/domestic/show/show_next_euro_dom.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/import/show_next_euro.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/laravel.iml" afterPath="$PROJECT_DIR$/.idea/laravel.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FirmsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FirmsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QCertificatesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QINCertificatesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportsPharmacyController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportsPharmacyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UsefulController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsefulController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/OpinionsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/OpinionsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QIdentificationController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QIdentificationController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ReportPharmacy.php" afterPath="$PROJECT_DIR$/app/ReportPharmacy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/protocols/index_protocols.css" afterPath="$PROJECT_DIR$/public/css/protocols/index_protocols.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/form/body_show.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/form/body_show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/includes/sorting.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/includes/sorting.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/includes/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/includes/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/control/reports/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/control/reports/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/objects/firms/body/pharmacies.blade.php" afterPath="$PROJECT_DIR$/resources/views/objects/firms/body/pharmacies.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/objects/firms/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/objects/firms/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/objects/pharmacies/index/sorting.blade.php" afterPath="$PROJECT_DIR$/resources/views/objects/pharmacies/index/sorting.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/opinions/new/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/opinions/new/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/quality/identification/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/quality/identification/show.blade.php" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,6 +49,24 @@
         <option name="myItemId" />
         <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - haskovo@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - haskovo@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="qidentifications" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -99,30 +78,67 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="866" column="41" selection-start-line="866" selection-start-column="17" selection-end-line="866" selection-end-column="41" />
+            <state vertical-scroll-proportion="-7.7636366">
+              <caret line="433" column="47" selection-start-line="433" selection-start-column="47" selection-end-line="433" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php">
+      <file leaf-file-name="QIdentificationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QIdentificationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.423077">
-              <caret line="845" column="53" selection-start-line="845" selection-start-column="53" selection-end-line="845" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QXCertificatesController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.879947">
-              <caret line="673" column="34" selection-start-line="673" selection-start-column="34" selection-end-line="673" selection-end-column="34" />
+            <state vertical-scroll-proportion="-18.807692">
+              <caret line="549" column="10" selection-start-line="549" selection-start-column="10" selection-end-line="549" selection-end-column="10" />
               <folding>
-                <marker date="1766405317665" expanded="true" signature="9032:9129" placeholder="SELECT * FRO..qxcertificates..." />
+                <element signature="e#41#69#0#PHP" expanded="true" />
+                <element signature="e#972#1073#0#PHP" expanded="false" />
+                <element signature="e#1078#2532#0#PHP" expanded="false" />
+                <element signature="e#2538#2681#0#PHP" expanded="false" />
+                <element signature="e#2686#5309#0#PHP" expanded="false" />
+                <element signature="e#5315#9517#0#PHP" expanded="false" />
+                <element signature="e#9523#9632#0#PHP" expanded="false" />
+                <element signature="e#9637#11379#0#PHP" expanded="false" />
+                <element signature="e#11385#11549#0#PHP" expanded="false" />
+                <element signature="e#11554#14320#0#PHP" expanded="false" />
+                <element signature="e#14326#14466#0#PHP" expanded="false" />
+                <element signature="e#14471#15285#0#PHP" expanded="false" />
+                <element signature="e#15291#15477#0#PHP" expanded="false" />
+                <element signature="e#15482#17954#0#PHP" expanded="false" />
+                <element signature="e#19205#19327#0#PHP" expanded="false" />
+                <element signature="e#19779#19945#0#PHP" expanded="false" />
+                <element signature="e#21088#21254#0#PHP" expanded="false" />
+                <element signature="e#21259#21880#0#PHP" expanded="false" />
+                <element signature="e#22057#22316#0#PHP" expanded="false" />
+                <element signature="e#22324#22458#0#PHP" expanded="false" />
+                <marker date="1770203143089" expanded="true" signature="9209:9304" placeholder="SELECT * FRO..qidentifications..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="haskovo.qidentifications" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/d8bc3c28/31de5cf9-5711-4aa1-bc5f-2b9b4dea3af3/haskovo.qidentifications">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/quality/identification/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.61581135">
+              <caret line="514" column="74" selection-start-line="514" selection-start-column="69" selection-end-line="514" selection-end-column="74" />
+              <folding>
+                <element signature="e#11632#11709#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,10 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/number_protocol.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/control/reports/crud/form/data_protocol.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/ReportsPharmaciesRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/opinions/templates/1655672400_opinion_body.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/opinions/templates/1639612800_opinion_body.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProtocolsController.php" />
@@ -177,7 +189,6 @@
         <option value="$PROJECT_DIR$/resources/views/control/protocols/market/index/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/control/protocols/market/index/search.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/control/protocols/market/choose.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/control/protocols/market/choose/choose.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReportProtocolsController.php" />
         <option value="$PROJECT_DIR$/resources/views/quality/certificates/import/show_next.blade.php" />
@@ -195,6 +206,11 @@
         <option value="$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UsefulController.php" />
         <option value="$PROJECT_DIR$/resources/views/useful/notes.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/opinions/new/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OpinionsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QIdentificationController.php" />
+        <option value="$PROJECT_DIR$/resources/views/quality/identification/show.blade.php" />
       </list>
     </option>
   </component>
@@ -297,13 +313,15 @@
       <path value="$PROJECT_DIR$/vendor/wpscholar/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpword" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/math" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="68" />
-    <option name="y" value="112" />
-    <option name="width" value="1810" />
-    <option name="height" value="944" />
+    <option name="x" value="124" />
+    <option name="y" value="51" />
+    <option name="width" value="1701" />
+    <option name="height" value="937" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -373,6 +391,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -401,60 +429,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="storage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="laravel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -507,7 +481,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="certificates" />
+              <option name="myItemId" value="identification" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -533,11 +507,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="certificates" />
+              <option name="myItemId" value="identification" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="export" />
+              <option name="myItemId" value="stock" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -607,16 +581,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -874,17 +838,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="68" y="112" width="1810" height="944" extended-state="0" />
+    <frame x="124" y="51" width="1701" height="937" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1972422" sideWeight="0.53375196" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26114285" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21572211" sideWeight="0.46624804" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32808718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26102087" sideWeight="0.50647247" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.061142858" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14625229" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19128172" sideWeight="0.4832536" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17189315" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17139333" sideWeight="0.4935275" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14869282" sideWeight="0.5279107" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -922,62 +886,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44237918">
-          <caret line="33" column="137" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProtocolsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09417596">
-          <caret line="124" column="7" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ReportProtocol.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1685254">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/protocols/logo/logo.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/protocols/market/logo.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25531915">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ReportPharmacy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58573216">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/protocols/market/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.021276595">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/control/reports/includes/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7234042">
-          <caret line="95" column="69" selection-start-line="95" selection-start-column="69" selection-end-line="95" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/d8bc3c28/31de5cf9-5711-4aa1-bc5f-2b9b4dea3af3/haskovo.market_assay">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1252,10 +1160,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.9366755">
           <caret line="155" column="69" selection-start-line="155" selection-start-column="69" selection-end-line="155" selection-end-column="69" />
-          <folding>
-            <marker date="1766480083337" expanded="true" signature="2815:3086" placeholder="..." />
-            <marker date="1766480083337" expanded="true" signature="2829:3084" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1263,7 +1167,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42744064">
           <caret line="298" column="9" selection-start-line="298" selection-start-column="9" selection-end-line="298" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1271,27 +1174,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7137203">
           <caret line="1325" column="69" selection-start-line="1325" selection-start-column="69" selection-end-line="1325" selection-end-column="69" />
-          <folding>
-            <marker date="1766406315964" expanded="true" signature="7947:8047" placeholder="SELECT * FRO..qincertificates..." />
-            <marker date="1766406315964" expanded="true" signature="57831:58336" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="57856:58288" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="57894:57927" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="57955:57970" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="58055:58088" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="58440:58455" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="59081:59586" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="59106:59538" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="59144:59177" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="59205:59220" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="59305:59338" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="59690:59705" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="60334:60849" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="60359:60801" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="60397:60430" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="60464:60479" placeholder="..." />
-            <marker date="1766406315964" expanded="false" signature="60568:60601" placeholder="..." />
-            <marker date="1766406315964" expanded="true" signature="60953:60968" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1299,15 +1181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15963061">
           <caret line="586" column="49" selection-start-line="586" selection-start-column="39" selection-end-line="586" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="866" column="41" selection-start-line="866" selection-start-column="17" selection-end-line="866" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,24 +1188,186 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.12137203">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.423077">
-          <caret line="845" column="53" selection-start-line="845" selection-start-column="53" selection-end-line="845" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QXCertificatesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.879947">
+        <state vertical-scroll-proportion="0.9841689">
           <caret line="673" column="34" selection-start-line="673" selection-start-column="34" selection-end-line="673" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/certificates/export/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.022427442">
+          <caret line="845" column="53" selection-start-line="845" selection-start-column="53" selection-end-line="845" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OpinionsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7123835">
+          <caret line="1124" column="47" selection-start-line="1124" selection-start-column="47" selection-end-line="1124" selection-end-column="47" />
           <folding>
-            <marker date="1766405317665" expanded="true" signature="9032:9129" placeholder="SELECT * FRO..qxcertificates..." />
+            <element signature="e#41#50#0#PHP" expanded="true" />
+            <element signature="e#864#2711#0#PHP" expanded="false" />
+            <element signature="e#2717#2818#0#PHP" expanded="false" />
+            <element signature="e#2823#4046#0#PHP" expanded="false" />
+            <element signature="e#4052#4195#0#PHP" expanded="false" />
+            <element signature="e#4200#5565#0#PHP" expanded="false" />
+            <element signature="e#5571#5967#0#PHP" expanded="false" />
+            <element signature="e#5972#11069#0#PHP" expanded="false" />
+            <element signature="e#11075#11234#0#PHP" expanded="false" />
+            <element signature="e#11239#13964#0#PHP" expanded="false" />
+            <element signature="e#13970#14168#0#PHP" expanded="false" />
+            <element signature="e#14173#23741#0#PHP" expanded="false" />
+            <element signature="e#23747#23912#0#PHP" expanded="false" />
+            <element signature="e#23917#26625#0#PHP" expanded="false" />
+            <element signature="e#26631#26810#0#PHP" expanded="false" />
+            <element signature="e#26815#36775#0#PHP" expanded="false" />
+            <element signature="e#36781#36903#0#PHP" expanded="false" />
+            <element signature="e#36908#38429#0#PHP" expanded="false" />
+            <element signature="e#41756#41903#0#PHP" expanded="false" />
+            <element signature="e#41908#44557#0#PHP" expanded="false" />
+            <element signature="e#44563#44749#0#PHP" expanded="false" />
+            <element signature="e#44754#51054#0#PHP" expanded="false" />
+            <element signature="e#51060#51207#0#PHP" expanded="false" />
+            <element signature="e#51212#53873#0#PHP" expanded="false" />
+            <element signature="e#53879#54066#0#PHP" expanded="false" />
+            <element signature="e#54071#60676#0#PHP" expanded="false" />
+            <element signature="e#60682#60816#0#PHP" expanded="false" />
+            <element signature="e#60857#60958#0#PHP" expanded="false" />
+            <element signature="e#60963#61050#0#PHP" expanded="false" />
+            <element signature="e#61056#61216#0#PHP" expanded="false" />
+            <element signature="e#61221#62892#0#PHP" expanded="false" />
+            <element signature="e#62898#62982#0#PHP" expanded="false" />
+            <element signature="e#62987#64282#0#PHP" expanded="false" />
+            <element signature="e#64288#64372#0#PHP" expanded="false" />
+            <element signature="e#64377#65503#0#PHP" expanded="false" />
+            <element signature="e#65509#65596#0#PHP" expanded="false" />
+            <element signature="e#65601#66725#0#PHP" expanded="false" />
+            <element signature="e#66731#66897#0#PHP" expanded="false" />
+            <element signature="e#66902#67744#0#PHP" expanded="false" />
+            <marker date="1770020848566" expanded="true" signature="10605:10777" placeholder="SELECT * FRO..opinions..." />
+            <marker date="1770020848566" expanded="true" signature="63562:64038" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="63587:63990" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="63625:63658" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="63686:63701" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="63786:63819" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="64142:64157" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="64787:65263" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="64812:65215" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="64850:64883" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="64911:64926" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="65011:65044" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="65367:65382" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="66011:66497" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="66036:66449" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="66074:66107" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="66141:66156" placeholder="..." />
+            <marker date="1770020848566" expanded="false" signature="66245:66278" placeholder="..." />
+            <marker date="1770020848566" expanded="true" signature="66601:66616" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/opinions/new/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5925433">
+          <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/QIdentification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/identification/stock/stock_add.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4633822">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StocksController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7842877">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1758893082939" expanded="true" signature="10228:10339" placeholder="SELECT * FRO..stocks..." />
+            <marker date="1758893082939" expanded="true" signature="13888:13974" placeholder="SELECT * FRO..stocks..." />
+            <marker date="1758893082939" expanded="true" signature="18542:18663" placeholder="SELECT * FRO..stocks..." />
+            <marker date="1758893082939" expanded="true" signature="25003:25121" placeholder="SELECT * FRO..stocks_export..." />
+            <marker date="1758893082939" expanded="true" signature="35464:35586" placeholder="SELECT * FRO..stocks_internal..." />
+            <marker date="1758893082939" expanded="true" signature="49437:49566" placeholder="SELECT * FRO..stocks_identification..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7636366">
+          <caret line="433" column="47" selection-start-line="433" selection-start-column="47" selection-end-line="433" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d8bc3c28/31de5cf9-5711-4aa1-bc5f-2b9b4dea3af3/haskovo.qidentifications">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QIdentificationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.807692">
+          <caret line="549" column="10" selection-start-line="549" selection-start-column="10" selection-end-line="549" selection-end-column="10" />
+          <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
+            <element signature="e#972#1073#0#PHP" expanded="false" />
+            <element signature="e#1078#2532#0#PHP" expanded="false" />
+            <element signature="e#2538#2681#0#PHP" expanded="false" />
+            <element signature="e#2686#5309#0#PHP" expanded="false" />
+            <element signature="e#5315#9517#0#PHP" expanded="false" />
+            <element signature="e#9523#9632#0#PHP" expanded="false" />
+            <element signature="e#9637#11379#0#PHP" expanded="false" />
+            <element signature="e#11385#11549#0#PHP" expanded="false" />
+            <element signature="e#11554#14320#0#PHP" expanded="false" />
+            <element signature="e#14326#14466#0#PHP" expanded="false" />
+            <element signature="e#14471#15285#0#PHP" expanded="false" />
+            <element signature="e#15291#15477#0#PHP" expanded="false" />
+            <element signature="e#15482#17954#0#PHP" expanded="false" />
+            <element signature="e#19205#19327#0#PHP" expanded="false" />
+            <element signature="e#19779#19945#0#PHP" expanded="false" />
+            <element signature="e#21088#21254#0#PHP" expanded="false" />
+            <element signature="e#21259#21880#0#PHP" expanded="false" />
+            <element signature="e#22057#22316#0#PHP" expanded="false" />
+            <element signature="e#22324#22458#0#PHP" expanded="false" />
+            <marker date="1770203143089" expanded="true" signature="9209:9304" placeholder="SELECT * FRO..qidentifications..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quality/identification/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61581135">
+          <caret line="514" column="74" selection-start-line="514" selection-start-column="69" selection-end-line="514" selection-end-column="74" />
+          <folding>
+            <element signature="e#11632#11709#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

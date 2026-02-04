@@ -24,6 +24,8 @@ use odbh\User;
 use Redirect;
 use Session;
 
+use PhpOffice\PhpWord\TemplateProcessor;
+
 class OpinionsController extends Controller
 {
     private $logo = null;
@@ -1038,6 +1040,93 @@ class OpinionsController extends Controller
         return view('opinions.new.show', compact('opinion', 'farmer', 'districts_farm', 'regions', 'districts', 'inspectors', 'logo',
             'index', 'area', 'district', 'director'));
     }
+
+    public function wordExport($id) {
+        $opinion = Opinion::findOrFail($id);
+        $trim_all = mb_substr($opinion->opinion_name_short, 0, 3);
+        $result = str_replace('-', '', $trim_all);
+
+        $farmer = Farmer::findOrFail($opinion->farmer_id);
+
+        $districts_farm = $this->districts_list;
+        $regions = $this->areas_all_list;
+        $districts = Location::select('name', 'district_id')
+            ->where('areas_id', '=', $farmer->areas_id)
+            ->where('type_district', '=', 1)
+            ->orderBy('district_id', 'asc')
+            ->lists('name', 'district_id')->toArray();
+
+        $area = Area::select('areas_name', 'odbh_name', 'city')->where('id','=',$opinion->areas_id)->get()->toArray();
+        $district = Location::select('name')->where('areas_id','=',$opinion->areas_id)
+            ->where('district_id','=',$opinion->district_id)
+            ->where('type_district','=',1)
+            ->where('tvm', '!=', 0)
+            ->get()->toArray();
+
+        $templateProcessor = new TemplateProcessor('word-template/opinion.docx');
+
+        if ($opinion->type_firm == 1) {
+            $et = '';
+            $ood = '';
+            $owner = $opinion->name;
+        }  elseif ($opinion->type_firm == 2) {
+            $et = 'ET "';
+            $ood = '" ';
+            $owner = $opinion->owner;
+        } elseif ($opinion->type_firm == 3) {
+            $et = '"';
+            $ood = '" ООД';
+            $owner = $opinion->owner;
+        } elseif ($opinion->type_firm == 4) {
+            $et = '"';
+            $ood = '" ЕООД';
+            $owner = $opinion->owner;
+        } elseif ($opinion->type_firm == 5) {
+            $et = '"';
+            $ood = '" АД';
+            $owner = $opinion->owner;
+        } elseif ($opinion->type_firm == 6) {
+            $et = '';
+            $ood = '';
+            $owner = $opinion->owner;
+        } elseif ($opinion->type_firm == 7) {
+            $et = '';
+            $ood = '';
+            $owner = $opinion->owner;
+        } else {
+            $et = '';
+            $ood = '';
+            $owner = $opinion->name;
+        }
+
+        if($opinion->tvm == 1){
+            $tvm = 'гр. ';
+        }
+        elseif($opinion->tvm == 2){
+            $tvm = 'с. ';
+        }
+        else{
+            $tvm = 'гр./с. ';
+        }
+        $name = $et.mb_convert_case($opinion->name, MB_CASE_UPPER, 'UTF-8').$ood;
+        $owner= mb_convert_case($owner, MB_CASE_UPPER, 'UTF-8');
+        $address = $tvm.$opinion->location.', '.$opinion->address.', общ. '.$district[0]['name'].', обл. '.$area[0]['areas_name'];
+        $number = $opinion->index_petition.'-'.$opinion->number_petition;
+        $date = date('d.m.Y',$opinion->date_petition );
+
+        $templateProcessor->setValue('name', $name);
+        $templateProcessor->setValue('owner', $owner);
+        $templateProcessor->setValue('address', $address);
+        $templateProcessor->setValue('pin', $opinion->pin);
+        $templateProcessor->setValue('number', $number);
+        $templateProcessor->setValue('date', $date);
+        $templateProcessor->setValue('opinion', $opinion->opinion_name);
+
+        $fileName = $result.'-'.$opinion->name;
+        $templateProcessor->saveAs($fileName . '.docx');
+        return response()->download($fileName . '.docx')->deleteFileAfterSend(true);
+    }
+
 
     /**
      * Show the form for editing the specified resource.

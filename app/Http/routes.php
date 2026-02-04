@@ -697,6 +697,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('становища', 'OpinionsController@search');
     Route::any('становища/сортирай/{abc_list?}/{start_year?}/{end_year?}/{object_sort?}/{areas_sort?}/{inspector_sort?}/{assay_sort?}', 'OpinionsController@sort');
     Route::get('становище/{id}', 'OpinionsController@show');
+
+    Route::get('opinion-word/{id}', 'OpinionsController@wordExport');
+
     /// При търсене на ЗП
     Route::get('търси-становище', 'OpinionsController@search_farmer');
     Route::post('търси-становище', 'OpinionsController@farmer_request');

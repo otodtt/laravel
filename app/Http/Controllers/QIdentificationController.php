@@ -505,7 +505,7 @@ class QIdentificationController extends Controller
         $stocks = $certificate->stocks->toArray();
         $firm = Importer::findOrFail($certificate->importer_id);
         $invoice = $certificate->invoice->toArray();
-        $sum_import = 20;
+        $sum_import = 10.22;
 
         return view('quality.identification.show', compact('certificate', 'stocks', 'firm', 'invoice',  'sum_import'));
     }
@@ -530,10 +530,10 @@ class QIdentificationController extends Controller
         }
         else{
             if($request->type == 1){
-                $final_sum = 20;
+                $final_sum = 10.22;
             }
             else {
-                $final_sum = 20;
+                $final_sum = 10.22;
             }
         }
 
@@ -541,8 +541,8 @@ class QIdentificationController extends Controller
         $data = [
             'sum' => $final_sum,
             'base_sum' => $request->sum,
-            'checking' => 10,
-            'identification' => 10,
+            'checking' => 5.11,
+            'identification' => 5.11,
             'percent' =>$request->percent
         ];
 
